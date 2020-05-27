@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="45" passed="45" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-05-20T07:51:41Z" name="Sigma Card API Suite" finished-at="2020-05-20T07:51:55Z" duration-ms="14709">
+    <groups>
+    </groups>
+    <test started-at="2020-05-20T07:51:41Z" name="SigmaCardAPITestCreateTransaction" finished-at="2020-05-20T07:51:55Z" duration-ms="14709">
+      <class name="testCases.Transaction.TC_001_Create_Transaction">
+        <test-method is-config="true" signature="getWalletBalance()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:41Z" name="getWalletBalance" finished-at="2020-05-20T07:51:41Z" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getWalletBalance -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:41Z" name="setup" finished-at="2020-05-20T07:51:41Z" duration-ms="23" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="init()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:41Z" name="init" finished-at="2020-05-20T07:51:41Z" duration-ms="427" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="createTransaction()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@119cbf96]" started-at="2020-05-20T07:51:41Z" name="createTransaction" finished-at="2020-05-20T07:51:43Z" duration-ms="2011" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTransaction -->
+        <test-method signature="assertEmptyResponseBody()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@119cbf96]" started-at="2020-05-20T07:51:43Z" name="assertEmptyResponseBody" finished-at="2020-05-20T07:51:43Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="14" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertEmptyResponseBody -->
+        <test-method signature="assertResponseTime(java.lang.String)[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@119cbf96]" started-at="2020-05-20T07:51:43Z" name="assertResponseTime" finished-at="2020-05-20T07:51:43Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertResponseTime -->
+        <test-method signature="assertStatusCode()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@119cbf96]" started-at="2020-05-20T07:51:43Z" name="assertStatusCode" finished-at="2020-05-20T07:51:44Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="226" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertStatusCode -->
+        <test-method signature="checkResultAsExpected()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@119cbf96]" started-at="2020-05-20T07:51:44Z" name="checkResultAsExpected" finished-at="2020-05-20T07:51:44Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="25" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResultAsExpected -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:44Z" name="setup" finished-at="2020-05-20T07:51:44Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="init()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:44Z" name="init" finished-at="2020-05-20T07:51:44Z" duration-ms="11" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="createTransaction()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@1bd39d3c]" started-at="2020-05-20T07:51:44Z" name="createTransaction" finished-at="2020-05-20T07:51:45Z" duration-ms="1316" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTransaction -->
+        <test-method signature="assertEmptyResponseBody()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@1bd39d3c]" started-at="2020-05-20T07:51:45Z" name="assertEmptyResponseBody" finished-at="2020-05-20T07:51:45Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertEmptyResponseBody -->
+        <test-method signature="assertResponseTime(java.lang.String)[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@1bd39d3c]" started-at="2020-05-20T07:51:45Z" name="assertResponseTime" finished-at="2020-05-20T07:51:45Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertResponseTime -->
+        <test-method signature="assertStatusCode()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@1bd39d3c]" started-at="2020-05-20T07:51:45Z" name="assertStatusCode" finished-at="2020-05-20T07:51:45Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="11" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertStatusCode -->
+        <test-method signature="checkResultAsExpected()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@1bd39d3c]" started-at="2020-05-20T07:51:45Z" name="checkResultAsExpected" finished-at="2020-05-20T07:51:45Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="26" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResultAsExpected -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:45Z" name="setup" finished-at="2020-05-20T07:51:45Z" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="init()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:45Z" name="init" finished-at="2020-05-20T07:51:45Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="createTransaction()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@20c0a64d]" started-at="2020-05-20T07:51:45Z" name="createTransaction" finished-at="2020-05-20T07:51:46Z" duration-ms="1305" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTransaction -->
+        <test-method signature="assertEmptyResponseBody()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@20c0a64d]" started-at="2020-05-20T07:51:46Z" name="assertEmptyResponseBody" finished-at="2020-05-20T07:51:46Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertEmptyResponseBody -->
+        <test-method signature="assertResponseTime(java.lang.String)[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@20c0a64d]" started-at="2020-05-20T07:51:46Z" name="assertResponseTime" finished-at="2020-05-20T07:51:46Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertResponseTime -->
+        <test-method signature="assertStatusCode()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@20c0a64d]" started-at="2020-05-20T07:51:46Z" name="assertStatusCode" finished-at="2020-05-20T07:51:46Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="10" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertStatusCode -->
+        <test-method signature="checkResultAsExpected()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@20c0a64d]" started-at="2020-05-20T07:51:46Z" name="checkResultAsExpected" finished-at="2020-05-20T07:51:46Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="25" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResultAsExpected -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:46Z" name="setup" finished-at="2020-05-20T07:51:46Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="init()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:46Z" name="init" finished-at="2020-05-20T07:51:46Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="createTransaction()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:46Z" name="createTransaction" finished-at="2020-05-20T07:51:48Z" duration-ms="1607" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTransaction -->
+        <test-method signature="assertEmptyResponseBody()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:48Z" name="assertEmptyResponseBody" finished-at="2020-05-20T07:51:48Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertEmptyResponseBody -->
+        <test-method signature="assertResponseTime(java.lang.String)[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:48Z" name="assertResponseTime" finished-at="2020-05-20T07:51:48Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertResponseTime -->
+        <test-method signature="assertStatusCode()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:48Z" name="assertStatusCode" finished-at="2020-05-20T07:51:48Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="11" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertStatusCode -->
+        <test-method signature="checkResultAsExpected()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:48Z" name="checkResultAsExpected" finished-at="2020-05-20T07:51:48Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="20" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResultAsExpected -->
+        <test-method is-config="true" signature="init()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:48Z" name="init" finished-at="2020-05-20T07:51:48Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:48Z" name="setup" finished-at="2020-05-20T07:51:48Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="createTransaction()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@5454d35e]" started-at="2020-05-20T07:51:48Z" name="createTransaction" finished-at="2020-05-20T07:51:49Z" duration-ms="1283" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTransaction -->
+        <test-method signature="assertEmptyResponseBody()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@5454d35e]" started-at="2020-05-20T07:51:49Z" name="assertEmptyResponseBody" finished-at="2020-05-20T07:51:49Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="19" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertEmptyResponseBody -->
+        <test-method signature="assertResponseTime(java.lang.String)[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@5454d35e]" started-at="2020-05-20T07:51:49Z" name="assertResponseTime" finished-at="2020-05-20T07:51:49Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertResponseTime -->
+        <test-method signature="assertStatusCode()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@5454d35e]" started-at="2020-05-20T07:51:49Z" name="assertStatusCode" finished-at="2020-05-20T07:51:49Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="9" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertStatusCode -->
+        <test-method signature="checkResultAsExpected()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@5454d35e]" started-at="2020-05-20T07:51:49Z" name="checkResultAsExpected" finished-at="2020-05-20T07:51:49Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="16" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResultAsExpected -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:49Z" name="setup" finished-at="2020-05-20T07:51:49Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="createTransaction()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@59cba5a]" started-at="2020-05-20T07:51:49Z" name="createTransaction" finished-at="2020-05-20T07:51:51Z" duration-ms="1690" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTransaction -->
+        <test-method is-config="true" signature="init()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:49Z" name="init" finished-at="2020-05-20T07:51:49Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="assertEmptyResponseBody()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@59cba5a]" started-at="2020-05-20T07:51:51Z" name="assertEmptyResponseBody" finished-at="2020-05-20T07:51:51Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertEmptyResponseBody -->
+        <test-method signature="assertResponseTime(java.lang.String)[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@59cba5a]" started-at="2020-05-20T07:51:51Z" name="assertResponseTime" finished-at="2020-05-20T07:51:51Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertResponseTime -->
+        <test-method signature="assertStatusCode()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@59cba5a]" started-at="2020-05-20T07:51:51Z" name="assertStatusCode" finished-at="2020-05-20T07:51:51Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="12" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertStatusCode -->
+        <test-method signature="checkResultAsExpected()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@59cba5a]" started-at="2020-05-20T07:51:51Z" name="checkResultAsExpected" finished-at="2020-05-20T07:51:51Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="19" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResultAsExpected -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:51Z" name="setup" finished-at="2020-05-20T07:51:51Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="init()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:51Z" name="init" finished-at="2020-05-20T07:51:51Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="createTransaction()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@6f19ac19]" started-at="2020-05-20T07:51:51Z" name="createTransaction" finished-at="2020-05-20T07:51:52Z" duration-ms="1274" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTransaction -->
+        <test-method signature="assertEmptyResponseBody()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@6f19ac19]" started-at="2020-05-20T07:51:52Z" name="assertEmptyResponseBody" finished-at="2020-05-20T07:51:52Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertEmptyResponseBody -->
+        <test-method signature="assertResponseTime(java.lang.String)[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@6f19ac19]" started-at="2020-05-20T07:51:52Z" name="assertResponseTime" finished-at="2020-05-20T07:51:52Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertResponseTime -->
+        <test-method signature="assertStatusCode()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@6f19ac19]" started-at="2020-05-20T07:51:52Z" name="assertStatusCode" finished-at="2020-05-20T07:51:52Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="13" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertStatusCode -->
+        <test-method signature="checkResultAsExpected()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@6f19ac19]" started-at="2020-05-20T07:51:52Z" name="checkResultAsExpected" finished-at="2020-05-20T07:51:52Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="19" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResultAsExpected -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:52Z" name="setup" finished-at="2020-05-20T07:51:52Z" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="createTransaction()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@71329995]" started-at="2020-05-20T07:51:52Z" name="createTransaction" finished-at="2020-05-20T07:51:54Z" duration-ms="1303" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTransaction -->
+        <test-method is-config="true" signature="init()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:52Z" name="init" finished-at="2020-05-20T07:51:52Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="assertEmptyResponseBody()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@71329995]" started-at="2020-05-20T07:51:54Z" name="assertEmptyResponseBody" finished-at="2020-05-20T07:51:54Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertEmptyResponseBody -->
+        <test-method signature="assertResponseTime(java.lang.String)[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@71329995]" started-at="2020-05-20T07:51:54Z" name="assertResponseTime" finished-at="2020-05-20T07:51:54Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertResponseTime -->
+        <test-method signature="assertStatusCode()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@71329995]" started-at="2020-05-20T07:51:54Z" name="assertStatusCode" finished-at="2020-05-20T07:51:54Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="10" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertStatusCode -->
+        <test-method signature="checkResultAsExpected()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@71329995]" started-at="2020-05-20T07:51:54Z" name="checkResultAsExpected" finished-at="2020-05-20T07:51:54Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="18" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResultAsExpected -->
+        <test-method is-config="true" signature="setup()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:54Z" name="setup" finished-at="2020-05-20T07:51:54Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="init()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@455b6df1]" started-at="2020-05-20T07:51:54Z" name="init" finished-at="2020-05-20T07:51:54Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method signature="createTransaction()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@768fc0f2]" started-at="2020-05-20T07:51:54Z" name="createTransaction" finished-at="2020-05-20T07:51:55Z" duration-ms="1687" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createTransaction -->
+        <test-method signature="assertEmptyResponseBody()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@768fc0f2]" started-at="2020-05-20T07:51:55Z" name="assertEmptyResponseBody" finished-at="2020-05-20T07:51:55Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertEmptyResponseBody -->
+        <test-method signature="assertResponseTime(java.lang.String)[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@768fc0f2]" started-at="2020-05-20T07:51:55Z" name="assertResponseTime" finished-at="2020-05-20T07:51:55Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10000]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertResponseTime -->
+        <test-method signature="assertStatusCode()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@768fc0f2]" started-at="2020-05-20T07:51:55Z" name="assertStatusCode" finished-at="2020-05-20T07:51:55Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="9" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- assertStatusCode -->
+        <test-method signature="checkResultAsExpected()[pri:0, instance:testCases.Transaction.TC_001_Create_Transaction@768fc0f2]" started-at="2020-05-20T07:51:55Z" name="checkResultAsExpected" finished-at="2020-05-20T07:51:55Z" depends-on-methods="testCases.Transaction.TC_001_Create_Transaction.createTransaction" duration-ms="20" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkResultAsExpected -->
+      </class> <!-- testCases.Transaction.TC_001_Create_Transaction -->
+    </test> <!-- SigmaCardAPITestCreateTransaction -->
+  </suite> <!-- Sigma Card API Suite -->
+</testng-results>

@@ -1,0 +1,1295 @@
+<html>
+<head>
+<title>TestNG:  SigmaCardAPITestRegister</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>SigmaCardAPITestRegister</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>24/32/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue May 19 09:14:34 WIB 2020</td>
+</tr>
+<tr><td>Total time:</td><td>18 seconds (18115 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testCases.Register.TC_002_Verification_OTP.assertStatusCode()'><b>assertStatusCode</b><br>Test class: testCases.Register.TC_002_Verification_OTP<br>Parameters: 200</td>
+<td><div><pre>java.lang.AssertionError: expected:&lt;409&gt; but was:&lt;200&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at base.TestBase.checkStatusCode(TestBase.java:172)
+	at testCases.Register.TC_002_Verification_OTP.assertStatusCode(TC_002_Verification_OTP.java:48)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1701798620", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1701798620'><pre>java.lang.AssertionError: expected:&lt;409&gt; but was:&lt;200&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at base.TestBase.checkStatusCode(TestBase.java:172)
+	at testCases.Register.TC_002_Verification_OTP.assertStatusCode(TC_002_Verification_OTP.java:48)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_002_Verification_OTP@74a6f9c1</td></tr>
+<tr>
+<td title='testCases.Register.TC_005_Update_Password.assertStatusCode()'><b>assertStatusCode</b><br>Test class: testCases.Register.TC_005_Update_Password<br>Parameters: 200</td>
+<td><div><pre>java.lang.AssertionError: expected:&lt;415&gt; but was:&lt;200&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at base.TestBase.checkStatusCode(TestBase.java:172)
+	at testCases.Register.TC_005_Update_Password.assertStatusCode(TC_005_Update_Password.java:50)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace67985650", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace67985650'><pre>java.lang.AssertionError: expected:&lt;415&gt; but was:&lt;200&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at base.TestBase.checkStatusCode(TestBase.java:172)
+	at testCases.Register.TC_005_Update_Password.assertStatusCode(TC_005_Update_Password.java:50)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_005_Update_Password@45a37759</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.assertStatusCode()'><b>assertStatusCode</b><br>Test class: testCases.Register.TC_001_Register<br>Parameters: 200</td>
+<td><div><pre>java.lang.AssertionError: expected:&lt;400&gt; but was:&lt;200&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at base.TestBase.checkStatusCode(TestBase.java:172)
+	at testCases.Register.TC_001_Register.assertStatusCode(TC_001_Register.java:64)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1638051511", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1638051511'><pre>java.lang.AssertionError: expected:&lt;400&gt; but was:&lt;200&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at base.TestBase.checkStatusCode(TestBase.java:172)
+	at testCases.Register.TC_001_Register.assertStatusCode(TC_001_Register.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@1bd39d3c</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.assertStatusCode()'><b>assertStatusCode</b><br>Test class: testCases.Register.TC_001_Register<br>Parameters: 200</td>
+<td><div><pre>java.lang.AssertionError: expected:&lt;201&gt; but was:&lt;200&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at base.TestBase.checkStatusCode(TestBase.java:172)
+	at testCases.Register.TC_001_Register.assertStatusCode(TC_001_Register.java:64)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace215911532", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace215911532'><pre>java.lang.AssertionError: expected:&lt;201&gt; but was:&lt;200&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at base.TestBase.checkStatusCode(TestBase.java:172)
+	at testCases.Register.TC_001_Register.assertStatusCode(TC_001_Register.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@4397ad89</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.assertStatusCode()'><b>assertStatusCode</b><br>Test class: testCases.Register.TC_001_Register<br>Parameters: 200</td>
+<td><div><pre>java.lang.AssertionError: expected:&lt;400&gt; but was:&lt;200&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at base.TestBase.checkStatusCode(TestBase.java:172)
+	at testCases.Register.TC_001_Register.assertStatusCode(TC_001_Register.java:64)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace786058987", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace786058987'><pre>java.lang.AssertionError: expected:&lt;400&gt; but was:&lt;200&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at base.TestBase.checkStatusCode(TestBase.java:172)
+	at testCases.Register.TC_001_Register.assertStatusCode(TC_001_Register.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@59cba5a</td></tr>
+<tr>
+<td title='testCases.Register.TC_004_Login.assertStatusCode()'><b>assertStatusCode</b><br>Test class: testCases.Register.TC_004_Login<br>Parameters: 200</td>
+<td><div><pre>java.lang.AssertionError: expected:&lt;400&gt; but was:&lt;200&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at base.TestBase.checkStatusCode(TestBase.java:172)
+	at testCases.Register.TC_004_Login.assertStatusCode(TC_004_Login.java:53)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1947910788", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1947910788'><pre>java.lang.AssertionError: expected:&lt;400&gt; but was:&lt;200&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at base.TestBase.checkStatusCode(TestBase.java:172)
+	at testCases.Register.TC_004_Login.assertStatusCode(TC_004_Login.java:53)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_004_Login@3af0a9da</td></tr>
+<tr>
+<td title='testCases.Register.TC_004_Login.assertStatusCode()'><b>assertStatusCode</b><br>Test class: testCases.Register.TC_004_Login<br>Parameters: 200</td>
+<td><div><pre>java.lang.AssertionError: expected:&lt;202&gt; but was:&lt;200&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at base.TestBase.checkStatusCode(TestBase.java:172)
+	at testCases.Register.TC_004_Login.assertStatusCode(TC_004_Login.java:53)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace154468798", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace154468798'><pre>java.lang.AssertionError: expected:&lt;202&gt; but was:&lt;200&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at base.TestBase.checkStatusCode(TestBase.java:172)
+	at testCases.Register.TC_004_Login.assertStatusCode(TC_004_Login.java:53)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_004_Login@59e505b2</td></tr>
+<tr>
+<td title='testCases.Register.TC_004_Login.assertStatusCode()'><b>assertStatusCode</b><br>Test class: testCases.Register.TC_004_Login<br>Parameters: 200</td>
+<td><div><pre>java.lang.AssertionError: expected:&lt;203&gt; but was:&lt;200&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at base.TestBase.checkStatusCode(TestBase.java:172)
+	at testCases.Register.TC_004_Login.assertStatusCode(TC_004_Login.java:53)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1543105131", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1543105131'><pre>java.lang.AssertionError: expected:&lt;203&gt; but was:&lt;200&gt;
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:743)
+	at org.junit.Assert.assertEquals(Assert.java:118)
+	at org.junit.Assert.assertEquals(Assert.java:555)
+	at org.junit.Assert.assertEquals(Assert.java:542)
+	at base.TestBase.checkStatusCode(TestBase.java:172)
+	at testCases.Register.TC_004_Login.assertStatusCode(TC_004_Login.java:53)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_004_Login@82ea68c</td></tr>
+<tr>
+<td title='testCases.Register.TC_002_Verification_OTP.assertStatusLine()'><b>assertStatusLine</b><br>Test class: testCases.Register.TC_002_Verification_OTP<br>Parameters: HTTP/1.1 200 </td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;HTTP/1.1 [409] &gt; but was:&lt;HTTP/1.1 [200] &gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at base.TestBase.checkStatusLine(TestBase.java:190)
+	at testCases.Register.TC_002_Verification_OTP.assertStatusLine(TC_002_Verification_OTP.java:62)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1005400853", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1005400853'><pre>org.junit.ComparisonFailure: expected:&lt;HTTP/1.1 [409] &gt; but was:&lt;HTTP/1.1 [200] &gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at base.TestBase.checkStatusLine(TestBase.java:190)
+	at testCases.Register.TC_002_Verification_OTP.assertStatusLine(TC_002_Verification_OTP.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_002_Verification_OTP@74a6f9c1</td></tr>
+<tr>
+<td title='testCases.Register.TC_005_Update_Password.assertStatusLine()'><b>assertStatusLine</b><br>Test class: testCases.Register.TC_005_Update_Password<br>Parameters: HTTP/1.1 200 </td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;HTTP/1.1 [415] &gt; but was:&lt;HTTP/1.1 [200] &gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at base.TestBase.checkStatusLine(TestBase.java:190)
+	at testCases.Register.TC_005_Update_Password.assertStatusLine(TC_005_Update_Password.java:64)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace796168203", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace796168203'><pre>org.junit.ComparisonFailure: expected:&lt;HTTP/1.1 [415] &gt; but was:&lt;HTTP/1.1 [200] &gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at base.TestBase.checkStatusLine(TestBase.java:190)
+	at testCases.Register.TC_005_Update_Password.assertStatusLine(TC_005_Update_Password.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_005_Update_Password@45a37759</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.assertStatusLine()'><b>assertStatusLine</b><br>Test class: testCases.Register.TC_001_Register<br>Parameters: HTTP/1.1 200 </td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;HTTP/1.1 [4]00 &gt; but was:&lt;HTTP/1.1 [2]00 &gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at base.TestBase.checkStatusLine(TestBase.java:190)
+	at testCases.Register.TC_001_Register.assertStatusLine(TC_001_Register.java:78)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1603114855", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1603114855'><pre>org.junit.ComparisonFailure: expected:&lt;HTTP/1.1 [4]00 &gt; but was:&lt;HTTP/1.1 [2]00 &gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at base.TestBase.checkStatusLine(TestBase.java:190)
+	at testCases.Register.TC_001_Register.assertStatusLine(TC_001_Register.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@1bd39d3c</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.assertStatusLine()'><b>assertStatusLine</b><br>Test class: testCases.Register.TC_001_Register<br>Parameters: HTTP/1.1 200 </td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;HTTP/1.1 20[1] &gt; but was:&lt;HTTP/1.1 20[0] &gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at base.TestBase.checkStatusLine(TestBase.java:190)
+	at testCases.Register.TC_001_Register.assertStatusLine(TC_001_Register.java:78)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace898810308", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace898810308'><pre>org.junit.ComparisonFailure: expected:&lt;HTTP/1.1 20[1] &gt; but was:&lt;HTTP/1.1 20[0] &gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at base.TestBase.checkStatusLine(TestBase.java:190)
+	at testCases.Register.TC_001_Register.assertStatusLine(TC_001_Register.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@4397ad89</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.assertStatusLine()'><b>assertStatusLine</b><br>Test class: testCases.Register.TC_001_Register<br>Parameters: HTTP/1.1 200 </td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;HTTP/1.1 [4]00 &gt; but was:&lt;HTTP/1.1 [2]00 &gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at base.TestBase.checkStatusLine(TestBase.java:190)
+	at testCases.Register.TC_001_Register.assertStatusLine(TC_001_Register.java:78)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace815648243", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace815648243'><pre>org.junit.ComparisonFailure: expected:&lt;HTTP/1.1 [4]00 &gt; but was:&lt;HTTP/1.1 [2]00 &gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at base.TestBase.checkStatusLine(TestBase.java:190)
+	at testCases.Register.TC_001_Register.assertStatusLine(TC_001_Register.java:78)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@59cba5a</td></tr>
+<tr>
+<td title='testCases.Register.TC_004_Login.assertStatusLine()'><b>assertStatusLine</b><br>Test class: testCases.Register.TC_004_Login<br>Parameters: HTTP/1.1 200 </td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;HTTP/1.1 [4]00 &gt; but was:&lt;HTTP/1.1 [2]00 &gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at base.TestBase.checkStatusLine(TestBase.java:190)
+	at testCases.Register.TC_004_Login.assertStatusLine(TC_004_Login.java:67)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1319463899", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1319463899'><pre>org.junit.ComparisonFailure: expected:&lt;HTTP/1.1 [4]00 &gt; but was:&lt;HTTP/1.1 [2]00 &gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at base.TestBase.checkStatusLine(TestBase.java:190)
+	at testCases.Register.TC_004_Login.assertStatusLine(TC_004_Login.java:67)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_004_Login@3af0a9da</td></tr>
+<tr>
+<td title='testCases.Register.TC_004_Login.assertStatusLine()'><b>assertStatusLine</b><br>Test class: testCases.Register.TC_004_Login<br>Parameters: HTTP/1.1 200 </td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;HTTP/1.1 20[2] &gt; but was:&lt;HTTP/1.1 20[0] &gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at base.TestBase.checkStatusLine(TestBase.java:190)
+	at testCases.Register.TC_004_Login.assertStatusLine(TC_004_Login.java:67)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace425033914", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace425033914'><pre>org.junit.ComparisonFailure: expected:&lt;HTTP/1.1 20[2] &gt; but was:&lt;HTTP/1.1 20[0] &gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at base.TestBase.checkStatusLine(TestBase.java:190)
+	at testCases.Register.TC_004_Login.assertStatusLine(TC_004_Login.java:67)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_004_Login@59e505b2</td></tr>
+<tr>
+<td title='testCases.Register.TC_004_Login.assertStatusLine()'><b>assertStatusLine</b><br>Test class: testCases.Register.TC_004_Login<br>Parameters: HTTP/1.1 200 </td>
+<td><div><pre>org.junit.ComparisonFailure: expected:&lt;HTTP/1.1 20[3] &gt; but was:&lt;HTTP/1.1 20[0] &gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at base.TestBase.checkStatusLine(TestBase.java:190)
+	at testCases.Register.TC_004_Login.assertStatusLine(TC_004_Login.java:67)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1563766240", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1563766240'><pre>org.junit.ComparisonFailure: expected:&lt;HTTP/1.1 20[3] &gt; but was:&lt;HTTP/1.1 20[0] &gt;
+	at org.junit.Assert.assertEquals(Assert.java:115)
+	at org.junit.Assert.assertEquals(Assert.java:144)
+	at base.TestBase.checkStatusLine(TestBase.java:190)
+	at testCases.Register.TC_004_Login.assertStatusLine(TC_004_Login.java:67)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_004_Login@82ea68c</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.checkAccountElement()'><b>checkAccountElement</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td><div><pre>java.lang.NullPointerException
+	at testCases.Register.TC_001_Register.checkAccountElement(TC_001_Register.java:85)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1731406622", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1731406622'><pre>java.lang.NullPointerException
+	at testCases.Register.TC_001_Register.checkAccountElement(TC_001_Register.java:85)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@1bd39d3c</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.checkAccountElement()'><b>checkAccountElement</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td><div><pre>java.lang.NullPointerException
+	at testCases.Register.TC_001_Register.checkAccountElement(TC_001_Register.java:85)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1493657028", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1493657028'><pre>java.lang.NullPointerException
+	at testCases.Register.TC_001_Register.checkAccountElement(TC_001_Register.java:85)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@4397ad89</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.checkAccountElement()'><b>checkAccountElement</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td><div><pre>java.lang.NullPointerException
+	at testCases.Register.TC_001_Register.checkAccountElement(TC_001_Register.java:85)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1086350168", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1086350168'><pre>java.lang.NullPointerException
+	at testCases.Register.TC_001_Register.checkAccountElement(TC_001_Register.java:85)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@59cba5a</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.checkEmailValid()'><b>checkEmailValid</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td><div><pre>java.lang.NullPointerException
+	at java.base/java.util.regex.Matcher.getTextLength(Matcher.java:1770)
+	at java.base/java.util.regex.Matcher.reset(Matcher.java:416)
+	at java.base/java.util.regex.Matcher.&lt;init&gt;(Matcher.java:253)
+	at java.base/java.util.regex.Pattern.matcher(Pattern.java:1135)
+	at testCases.Register.TC_001_Register.checkEmailValid(TC_001_Register.java:124)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace190605872", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace190605872'><pre>java.lang.NullPointerException
+	at java.base/java.util.regex.Matcher.getTextLength(Matcher.java:1770)
+	at java.base/java.util.regex.Matcher.reset(Matcher.java:416)
+	at java.base/java.util.regex.Matcher.&lt;init&gt;(Matcher.java:253)
+	at java.base/java.util.regex.Pattern.matcher(Pattern.java:1135)
+	at testCases.Register.TC_001_Register.checkEmailValid(TC_001_Register.java:124)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@1bd39d3c</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.checkEmailValid()'><b>checkEmailValid</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td><div><pre>java.lang.NullPointerException
+</pre></div><a href='#' onClick='toggleBox("stack-trace2025322501", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2025322501'><pre>java.lang.NullPointerException
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@4397ad89</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.checkEmailValid()'><b>checkEmailValid</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td><div><pre>java.lang.NullPointerException
+</pre></div><a href='#' onClick='toggleBox("stack-trace1029790510", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1029790510'><pre>java.lang.NullPointerException
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@59cba5a</td></tr>
+<tr>
+<td title='testCases.Register.TC_005_Update_Password.checkPasswordValid()'><b>checkPasswordValid</b><br>Test class: testCases.Register.TC_005_Update_Password</td>
+<td><div><pre>java.lang.NullPointerException
+	at java.base/java.util.regex.Matcher.getTextLength(Matcher.java:1770)
+	at java.base/java.util.regex.Matcher.reset(Matcher.java:416)
+	at java.base/java.util.regex.Matcher.&lt;init&gt;(Matcher.java:253)
+	at java.base/java.util.regex.Pattern.matcher(Pattern.java:1135)
+	at testCases.Register.TC_005_Update_Password.checkPasswordValid(TC_005_Update_Password.java:77)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1588330347", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1588330347'><pre>java.lang.NullPointerException
+	at java.base/java.util.regex.Matcher.getTextLength(Matcher.java:1770)
+	at java.base/java.util.regex.Matcher.reset(Matcher.java:416)
+	at java.base/java.util.regex.Matcher.&lt;init&gt;(Matcher.java:253)
+	at java.base/java.util.regex.Pattern.matcher(Pattern.java:1135)
+	at testCases.Register.TC_005_Update_Password.checkPasswordValid(TC_005_Update_Password.java:77)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_005_Update_Password@45a37759</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.checkPasswordValid()'><b>checkPasswordValid</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td><div><pre>java.lang.NullPointerException
+	at java.base/java.util.regex.Matcher.getTextLength(Matcher.java:1770)
+	at java.base/java.util.regex.Matcher.reset(Matcher.java:416)
+	at java.base/java.util.regex.Matcher.&lt;init&gt;(Matcher.java:253)
+	at java.base/java.util.regex.Pattern.matcher(Pattern.java:1135)
+	at testCases.Register.TC_001_Register.checkPasswordValid(TC_001_Register.java:106)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace598569407", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace598569407'><pre>java.lang.NullPointerException
+	at java.base/java.util.regex.Matcher.getTextLength(Matcher.java:1770)
+	at java.base/java.util.regex.Matcher.reset(Matcher.java:416)
+	at java.base/java.util.regex.Matcher.&lt;init&gt;(Matcher.java:253)
+	at java.base/java.util.regex.Pattern.matcher(Pattern.java:1135)
+	at testCases.Register.TC_001_Register.checkPasswordValid(TC_001_Register.java:106)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@1bd39d3c</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.checkPasswordValid()'><b>checkPasswordValid</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td><div><pre>java.lang.NullPointerException
+</pre></div><a href='#' onClick='toggleBox("stack-trace1017838183", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1017838183'><pre>java.lang.NullPointerException
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@4397ad89</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.checkPasswordValid()'><b>checkPasswordValid</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td><div><pre>java.lang.NullPointerException
+</pre></div><a href='#' onClick='toggleBox("stack-trace369838089", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace369838089'><pre>java.lang.NullPointerException
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@59cba5a</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.checkPhoneNumber()'><b>checkPhoneNumber</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td><div><pre>java.lang.NullPointerException
+	at java.base/java.util.regex.Matcher.getTextLength(Matcher.java:1770)
+	at java.base/java.util.regex.Matcher.reset(Matcher.java:416)
+	at java.base/java.util.regex.Matcher.&lt;init&gt;(Matcher.java:253)
+	at java.base/java.util.regex.Pattern.matcher(Pattern.java:1135)
+	at testCases.Register.TC_001_Register.checkPhoneNumber(TC_001_Register.java:158)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace677926378", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace677926378'><pre>java.lang.NullPointerException
+	at java.base/java.util.regex.Matcher.getTextLength(Matcher.java:1770)
+	at java.base/java.util.regex.Matcher.reset(Matcher.java:416)
+	at java.base/java.util.regex.Matcher.&lt;init&gt;(Matcher.java:253)
+	at java.base/java.util.regex.Pattern.matcher(Pattern.java:1135)
+	at testCases.Register.TC_001_Register.checkPhoneNumber(TC_001_Register.java:158)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@1bd39d3c</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.checkPhoneNumber()'><b>checkPhoneNumber</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td><div><pre>java.lang.NullPointerException
+</pre></div><a href='#' onClick='toggleBox("stack-trace1501790806", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1501790806'><pre>java.lang.NullPointerException
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@4397ad89</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.checkPhoneNumber()'><b>checkPhoneNumber</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td><div><pre>java.lang.NullPointerException
+</pre></div><a href='#' onClick='toggleBox("stack-trace733224796", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace733224796'><pre>java.lang.NullPointerException
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@59cba5a</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.checkUsernameValid()'><b>checkUsernameValid</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td><div><pre>java.lang.NullPointerException
+	at java.base/java.util.regex.Matcher.getTextLength(Matcher.java:1770)
+	at java.base/java.util.regex.Matcher.reset(Matcher.java:416)
+	at java.base/java.util.regex.Matcher.&lt;init&gt;(Matcher.java:253)
+	at java.base/java.util.regex.Pattern.matcher(Pattern.java:1135)
+	at testCases.Register.TC_001_Register.checkUsernameValid(TC_001_Register.java:141)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2082115343", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2082115343'><pre>java.lang.NullPointerException
+	at java.base/java.util.regex.Matcher.getTextLength(Matcher.java:1770)
+	at java.base/java.util.regex.Matcher.reset(Matcher.java:416)
+	at java.base/java.util.regex.Matcher.&lt;init&gt;(Matcher.java:253)
+	at java.base/java.util.regex.Pattern.matcher(Pattern.java:1135)
+	at testCases.Register.TC_001_Register.checkUsernameValid(TC_001_Register.java:141)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@1bd39d3c</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.checkUsernameValid()'><b>checkUsernameValid</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td><div><pre>java.lang.NullPointerException
+</pre></div><a href='#' onClick='toggleBox("stack-trace527658240", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace527658240'><pre>java.lang.NullPointerException
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@4397ad89</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.checkUsernameValid()'><b>checkUsernameValid</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td><div><pre>java.lang.NullPointerException
+</pre></div><a href='#' onClick='toggleBox("stack-trace1075593808", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1075593808'><pre>java.lang.NullPointerException
+</pre></div></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@59cba5a</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testCases.Register.TC_002_Verification_OTP.assertEmptyResponseBody()'><b>assertEmptyResponseBody</b><br>Test class: testCases.Register.TC_002_Verification_OTP</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_002_Verification_OTP@74a6f9c1</td></tr>
+<tr>
+<td title='testCases.Register.TC_003_Verification_Code.assertEmptyResponseBody()'><b>assertEmptyResponseBody</b><br>Test class: testCases.Register.TC_003_Verification_Code</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_003_Verification_Code@54eb2b70</td></tr>
+<tr>
+<td title='testCases.Register.TC_005_Update_Password.assertEmptyResponseBody()'><b>assertEmptyResponseBody</b><br>Test class: testCases.Register.TC_005_Update_Password</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_005_Update_Password@45a37759</td></tr>
+<tr>
+<td title='testCases.Register.TC_006_Profile.assertEmptyResponseBody()'><b>assertEmptyResponseBody</b><br>Test class: testCases.Register.TC_006_Profile</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_006_Profile@63611043</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.assertEmptyResponseBody()'><b>assertEmptyResponseBody</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@1bd39d3c</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.assertEmptyResponseBody()'><b>assertEmptyResponseBody</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@4397ad89</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.assertEmptyResponseBody()'><b>assertEmptyResponseBody</b><br>Test class: testCases.Register.TC_001_Register</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@59cba5a</td></tr>
+<tr>
+<td title='testCases.Register.TC_004_Login.assertEmptyResponseBody()'><b>assertEmptyResponseBody</b><br>Test class: testCases.Register.TC_004_Login</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_004_Login@3af0a9da</td></tr>
+<tr>
+<td title='testCases.Register.TC_004_Login.assertEmptyResponseBody()'><b>assertEmptyResponseBody</b><br>Test class: testCases.Register.TC_004_Login</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_004_Login@59e505b2</td></tr>
+<tr>
+<td title='testCases.Register.TC_004_Login.assertEmptyResponseBody()'><b>assertEmptyResponseBody</b><br>Test class: testCases.Register.TC_004_Login</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_004_Login@82ea68c</td></tr>
+<tr>
+<td title='testCases.Register.TC_002_Verification_OTP.assertResponseTime()'><b>assertResponseTime</b><br>Test class: testCases.Register.TC_002_Verification_OTP<br>Parameters: 10000</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_002_Verification_OTP@74a6f9c1</td></tr>
+<tr>
+<td title='testCases.Register.TC_003_Verification_Code.assertResponseTime()'><b>assertResponseTime</b><br>Test class: testCases.Register.TC_003_Verification_Code<br>Parameters: 10000</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_003_Verification_Code@54eb2b70</td></tr>
+<tr>
+<td title='testCases.Register.TC_005_Update_Password.assertResponseTime()'><b>assertResponseTime</b><br>Test class: testCases.Register.TC_005_Update_Password<br>Parameters: 10000</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_005_Update_Password@45a37759</td></tr>
+<tr>
+<td title='testCases.Register.TC_006_Profile.assertResponseTime()'><b>assertResponseTime</b><br>Test class: testCases.Register.TC_006_Profile<br>Parameters: 10000</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_006_Profile@63611043</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.assertResponseTime()'><b>assertResponseTime</b><br>Test class: testCases.Register.TC_001_Register<br>Parameters: 10000</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@1bd39d3c</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.assertResponseTime()'><b>assertResponseTime</b><br>Test class: testCases.Register.TC_001_Register<br>Parameters: 10000</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@4397ad89</td></tr>
+<tr>
+<td title='testCases.Register.TC_001_Register.assertResponseTime()'><b>assertResponseTime</b><br>Test class: testCases.Register.TC_001_Register<br>Parameters: 10000</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_001_Register@59cba5a</td></tr>
+<tr>
+<td title='testCases.Register.TC_004_Login.assertResponseTime()'><b>assertResponseTime</b><br>Test class: testCases.Register.TC_004_Login<br>Parameters: 10000</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_004_Login@3af0a9da</td></tr>
+<tr>
+<td title='testCases.Register.TC_004_Login.assertResponseTime()'><b>assertResponseTime</b><br>Test class: testCases.Register.TC_004_Login<br>Parameters: 10000</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_004_Login@59e505b2</td></tr>
+<tr>
+<td title='testCases.Register.TC_004_Login.assertResponseTime()'><b>assertResponseTime</b><br>Test class: testCases.Register.TC_004_Login<br>Parameters: 10000</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_004_Login@82ea68c</td></tr>
+<tr>
+<td title='testCases.Register.TC_003_Verification_Code.assertStatusCode()'><b>assertStatusCode</b><br>Test class: testCases.Register.TC_003_Verification_Code<br>Parameters: 200</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_003_Verification_Code@54eb2b70</td></tr>
+<tr>
+<td title='testCases.Register.TC_006_Profile.assertStatusCode()'><b>assertStatusCode</b><br>Test class: testCases.Register.TC_006_Profile<br>Parameters: 200</td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_006_Profile@63611043</td></tr>
+<tr>
+<td title='testCases.Register.TC_003_Verification_Code.assertStatusLine()'><b>assertStatusLine</b><br>Test class: testCases.Register.TC_003_Verification_Code<br>Parameters: HTTP/1.1 200 </td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_003_Verification_Code@54eb2b70</td></tr>
+<tr>
+<td title='testCases.Register.TC_006_Profile.assertStatusLine()'><b>assertStatusLine</b><br>Test class: testCases.Register.TC_006_Profile<br>Parameters: HTTP/1.1 200 </td>
+<td></td>
+<td>0</td>
+<td>testCases.Register.TC_006_Profile@63611043</td></tr>
+</table><p>
+</body>
+</html>

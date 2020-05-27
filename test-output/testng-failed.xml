@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Sigma Card API Suite]" guice-stage="DEVELOPMENT">
+  <parameter name="statusLine" value="HTTP/1.1 200 "/>
+  <parameter name="statusCodePost" value="201"/>
+  <parameter name="responseTime" value="10000"/>
+  <parameter name="statusLinePost" value="HTTP/1.1 201 "/>
+  <parameter name="statusCodeFail" value="404"/>
+  <parameter name="statusCodeForbidden" value="409"/>
+  <parameter name="statusCode" value="200"/>
+  <listeners>
+    <listener class-name="utilities.Listeners"/>
+  </listeners>
+  <test thread-count="5" name="SigmaCardAPITestRegister(failed)">
+    <classes>
+      <class name="testCases.Register.TC_002_Verification_OTP">
+        <methods>
+          <include name="verificationUser"/>
+          <include name="assertStatusCode" invocation-numbers="0"/>
+          <include name="assertStatusLine" invocation-numbers="0"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- testCases.Register.TC_002_Verification_OTP -->
+      <class name="testCases.Register.TC_004_Login">
+        <methods>
+          <include name="assertStatusLine" invocation-numbers="0"/>
+          <include name="assertStatusLine" invocation-numbers="0"/>
+          <include name="assertStatusLine" invocation-numbers="0"/>
+          <include name="loginUser"/>
+          <include name="setup"/>
+          <include name="assertStatusCode" invocation-numbers="0"/>
+          <include name="assertStatusCode" invocation-numbers="0"/>
+          <include name="assertStatusCode" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- testCases.Register.TC_004_Login -->
+      <class name="testCases.Register.TC_001_Register">
+        <methods>
+          <include name="checkPasswordValid"/>
+          <include name="checkPasswordValid"/>
+          <include name="checkPasswordValid"/>
+          <include name="checkUsernameValid"/>
+          <include name="checkUsernameValid"/>
+          <include name="checkUsernameValid"/>
+          <include name="registerUser"/>
+          <include name="setup"/>
+          <include name="assertStatusCode" invocation-numbers="0"/>
+          <include name="assertStatusCode" invocation-numbers="0"/>
+          <include name="assertStatusCode" invocation-numbers="0"/>
+          <include name="checkEmailValid"/>
+          <include name="checkEmailValid"/>
+          <include name="checkEmailValid"/>
+          <include name="checkPhoneNumber"/>
+          <include name="checkPhoneNumber"/>
+          <include name="checkPhoneNumber"/>
+          <include name="checkAccountElement"/>
+          <include name="checkAccountElement"/>
+          <include name="checkAccountElement"/>
+          <include name="assertStatusLine" invocation-numbers="0"/>
+          <include name="assertStatusLine" invocation-numbers="0"/>
+          <include name="assertStatusLine" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- testCases.Register.TC_001_Register -->
+      <class name="testCases.Register.TC_005_Update_Password">
+        <methods>
+          <include name="updatePassword"/>
+          <include name="checkPasswordValid"/>
+          <include name="assertStatusLine" invocation-numbers="0"/>
+          <include name="assertStatusCode" invocation-numbers="0"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- testCases.Register.TC_005_Update_Password -->
+    </classes>
+  </test> <!-- SigmaCardAPITestRegister(failed) -->
+</suite> <!-- Failed suite [Sigma Card API Suite] -->
