@@ -1,4 +1,4 @@
-package SigmaCardAutomationTest.SigmaCardAutomationTest;
+package DanaPulsaAutomationTest.DanaPulsaAutomationTest;
 
 /**
  * Hello world!
