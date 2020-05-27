@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Sigma Card API Suite">
+<suite name="DANA PUlsa Suite">
 
 <parameter name="statusCode" value="200"></parameter>
 <parameter name="statusCodePost" value="201"></parameter>
