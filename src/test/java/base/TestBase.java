@@ -1,6 +1,8 @@
 package base;
 
 import java.io.IOException;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -8,6 +10,8 @@ import org.apache.log4j.PropertyConfigurator;
 import org.json.simple.JSONObject;
 import org.junit.Assert;
 import org.testng.annotations.BeforeClass;
+
+import java.sql.Connection;
 
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
@@ -49,6 +53,7 @@ public class TestBase {
 	public String tokenBypass = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkd2lnaHRAZHVuZGVybWlmZmxpbi5jbyIsImV4cCI6MTYyMDk4ODA0NiwiaWF0IjoxNTg5NDUyMDQ2fQ.brk2Tk9Yv8SwKSAH_UusX06ZL3AtonGlWbB7uT0i6GsDRmV_1DCaHv2LOjfuU8xNf5Y8t8Um-WDTNiXwhu4qAg";
 	
 	public Logger logger;
+	public Connection con;
 	
 	@BeforeClass
 	public void setup()
@@ -56,6 +61,22 @@ public class TestBase {
 		logger = Logger.getLogger("restAPI");;
 		PropertyConfigurator.configure("../SigmaCardAutomationTest/src/Log4j.properties");
 		logger.setLevel(Level.DEBUG);
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			String dbUrl = "";					
+			String username = "";	
+			String password = "";
+			
+			con = DriverManager.getConnection(dbUrl,username,password);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 	}
 	
 	public String[][] getExcelData(String filePath) throws IOException

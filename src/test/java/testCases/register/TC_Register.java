@@ -53,6 +53,7 @@ public class TC_Register extends TestBase{
 	void checkEmailValid()
 	{
 		JsonPath jsonPath = response.jsonPath();
+		String code = jsonPath.get("code");
 		String checkEmail = jsonPath.get("email");
 		logger.info(checkEmail);
 		
