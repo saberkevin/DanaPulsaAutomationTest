@@ -1,19 +1,46 @@
 package base;
 
-import org.apache.log4j.Logger;
-
 import java.io.IOException;
 
 import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.json.simple.JSONObject;
 import org.junit.Assert;
 import org.testng.annotations.BeforeClass;
 
+import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import model.Catalog;
+import model.User;
 import utilities.ExcelUtil;
 
+@SuppressWarnings("unchecked")
 public class TestBase {
+	private static final String REGISTER_PATH = "/api/member/register";
+	private static final String LOGIN_PATH = "/api/member/login";
+	private static final String VERIFY_PIN_LOGIN_PATH = "/api/member/verifypinlogin";
+	private static final String FORGOT_PIN_OTP_PATH = "/api/member/forgotpin-otp";
+	private static final String CHANGE_PIN_OTP_PATH = "/api/member/changepin-otp";
+	private static final String VERIFY_OTP_PATH = "/api/member/verify-otp";
+	private static final String GET_OTP_PATH = "/api/member/get-otp";
+	private static final String CHANGE_PIN_PATH = "/api/member/changepin";
+	private static final String GET_PROFILE_PATH = "/api/member/getprofile";
+	private static final String GET_BALANCE_PATH = "/api/member/getbalance";
+	private static final String LOGOUT_PATH = "/api/logout";
+	private static final String RECENT_PHONE_NUMBER_PATH = "/api/recentnumber";
+	private static final String CATALOG_PATH = "/api/catalog";
+	private static final String ORDER_PATH = "/api/order";
+	private static final String PAYMENT_PATH = "/api/pay";
+	private static final String MY_VOUCHER_PATH = "/api/my-vouchers";
+	private static final String PROMOTION_VOUCHER_PATH = "/api/voucher/promotion";
+	private static final String RECOMMENDATION_VOUCHER_PATH = "/api/vouchers/recommendation";
+	private static final String VOUCHER_DETAILS_PATH = "/api/voucher";
+	private static final String HISTORY_IN_PROGRESS_PATH = "/api/transaction/in-progress";
+	private static final String HISTORY_COMPLETED_PATH = "/api/transaction/completed";
+	private static final String HISTORY_DETAILS_PATH = "/api/transaction/details";
+	
 	public RequestSpecification httpRequest;
 	public Response response;
 	
@@ -82,5 +109,43 @@ public class TestBase {
 		logger.info("***** " + message + " *****");	
 		httpRequest = null;
 		response = null;
+	}
+	
+	//============ Request ==============================//
+	
+	public void register() {
+		
+	}
+	
+	public void login() {
+		
+	}
+	
+	public void getRecentPhoneNumber(User user) {
+		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		response = httpRequest.request(Method.GET, RECENT_PHONE_NUMBER_PATH);
+	}
+	
+	public void getCatalog(User user, String phoneNumber) {
+		JSONObject requestParams = new JSONObject();
+		requestParams.put("phone", phoneNumber);
+		
+		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		httpRequest.header("Content-Type", "application/json");
+		httpRequest.body(requestParams.toJSONString());
+		
+		response = httpRequest.request(Method.GET, CATALOG_PATH);
+	}
+	
+	public void createOrder(User user, String phoneNumber, Catalog catalog) {	
+		JSONObject requestParams = new JSONObject();
+		requestParams.put("phone", phoneNumber);
+		requestParams.put("catalogId", catalog.getId());
+		
+		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		httpRequest.header("Content-Type", "application/json");
+		httpRequest.body(requestParams.toJSONString());
+		
+		response = httpRequest.request(Method.POST, ORDER_PATH);
 	}
 }
