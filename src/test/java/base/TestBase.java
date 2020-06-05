@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
 import org.junit.Assert;
 import org.testng.annotations.BeforeClass;
 
+import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -77,15 +78,6 @@ public class TestBase {
 		return data;
 	}
 	
-	public void checkResponseBodyNotEmpty()
-	{
-		logger.info("***** Check Response Body (Not Empty) *****");
-		
-		String responseBody = response.getBody().asString();
-		logger.info("Response Body = " + responseBody);
-		Assert.assertTrue(responseBody != null && !responseBody.contains("No message available"));
-	}
-	
 	public void checkStatusCode(String sc)
 	{
 		logger.info("***** Check Status Code *****");
@@ -113,8 +105,28 @@ public class TestBase {
 	
 	//============ Request ==============================//
 	
-	public void register() {
+	public void register(String name, String email, String phone, String pin) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("name:" + name);
+		logger.info("email:" + email);
+		logger.info("phone:" + phone);
+		logger.info("pin:" + pin);
 		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
+		
+		JSONObject requestParams = new JSONObject();
+		
+		requestParams.put("name", name);
+		requestParams.put("email", email);
+		requestParams.put("phone", phone);
+		requestParams.put("password", pin);
+		
+		httpRequest.header("Content-Type", "application/json");
+		httpRequest.body(requestParams.toJSONString());
+		
+		response = httpRequest.request(Method.POST, REGISTER_PATH);
 	}
 	
 	public void login() {

@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="DANA PUlsa Suite">
+<suite name="DANA Pulsa Suite">
 
 <parameter name="statusCode" value="200"></parameter>
 <parameter name="statusCodePost" value="201"></parameter>
@@ -8,13 +8,10 @@
 
 <parameter name="responseTime" value="10000"></parameter>
 
-<parameter name="statusLine" value="HTTP/1.1 200 "></parameter>
-<parameter name="statusLinePost" value="HTTP/1.1 201 "></parameter>
-
 <listeners>
 	<listener class-name="utilities.Listeners"></listener>	
 </listeners>
-	<!-- <test name="SigmaCardAPITestRegister" group-by-instances="true">
+	<!-- <test name="DanaPulsaAPITestRegister" group-by-instances="true">
 		<classes>
 			<class name = "testCases.Register.Factory_User"></class>
 			<class name = "testCases.Register.TC_002_Verification_OTP"></class>
