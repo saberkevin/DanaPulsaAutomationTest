@@ -3,16 +3,12 @@ package testCases.register;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.json.simple.JSONObject;
 import org.junit.AfterClass;
 import org.junit.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import io.restassured.RestAssured;
-import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
 
 public class TC_Register extends TestBase{
@@ -35,25 +31,47 @@ public class TC_Register extends TestBase{
 		register(name,email,phone,pin);
 	}
 	
-	@Test
-	@Parameters("statusCode")
-	void assertStatusCode(String sc)
+	void checkResult()
 	{
+		int code = response.getStatusCode();
+		JsonPath jsonPath = response.jsonPath();
+		String message =  jsonPath.get("message");
+		
+		if(code == 200)
+		{
+			//id
+			Assert.assertEquals(name, jsonPath.get("data.name"));
+			Assert.assertEquals(email, jsonPath.get("data.email"));
+			Assert.assertEquals(phone, jsonPath.get("data.username"));
+		}
+		else if(code == 400)
+		{
+			Assert.assertTrue(message.contains("invalid"));
+		}
+		else if(code == 409)
+		{
+			Assert.assertEquals("user already exists", message);
+		}
+	}
+	
+	@Test(dependsOnMethods = {"registerUser"})
+	void assertStatusCode()
+	{
+		String sc = response.jsonPath().get("code");
 		checkStatusCode(sc);	
 	}
 	
-	@Test
+	@Test(dependsOnMethods = {"registerUser"})
 	@Parameters("responseTime")
 	void assertResponseTime(String rt)
 	{
 		checkResponseTime(rt);
 	}
 
-	@Test
 	void checkEmailValid()
 	{
 		JsonPath jsonPath = response.jsonPath();
-		String code = jsonPath.get("code");
+		//String code = jsonPath.get("code");
 		String checkEmail = jsonPath.get("email");
 		logger.info(checkEmail);
 		
@@ -66,8 +84,7 @@ public class TC_Register extends TestBase{
 		
 		Assert.assertTrue(isValid);	
 	}
-	
-	@Test
+
 	void checkPhoneNumber()
 	{
 		JsonPath jsonPath = response.jsonPath();
