@@ -28,7 +28,7 @@ public class Listeners extends TestListenerAdapter
 		report.attachReporter(htmlReporter);
 		report.setSystemInfo("Host name", "localhost");
 		report.setSystemInfo("Environtment", "QA");
-		report.setSystemInfo("user", "Kevin Winarko/Izzatunnisa Arwadi");
+		report.setSystemInfo("user", "Kevin Winarko/Zanuar Tri Romadon");
 	}
 	
 	public void onTestSuccess(ITestResult result)

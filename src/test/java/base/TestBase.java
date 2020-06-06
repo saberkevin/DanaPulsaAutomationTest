@@ -29,7 +29,7 @@ public class TestBase {
 	private static final String FORGOT_PIN_OTP_PATH = "/api/member/forgotpin-otp";
 	private static final String CHANGE_PIN_OTP_PATH = "/api/member/changepin-otp";
 	private static final String VERIFY_OTP_PATH = "/api/member/verify-otp";
-	private static final String GET_OTP_PATH = "/api/member/get-otp";
+	private static final String GET_OTP_PATH = "/api/member/get-otp/";
 	private static final String CHANGE_PIN_PATH = "/api/member/changepin";
 	private static final String GET_PROFILE_PATH = "/api/member/getprofile";
 	private static final String GET_BALANCE_PATH = "/api/member/getbalance";
@@ -42,9 +42,9 @@ public class TestBase {
 	private static final String PROMOTION_VOUCHER_PATH = "/api/voucher/promotion";
 	private static final String RECOMMENDATION_VOUCHER_PATH = "/api/vouchers/recommendation";
 	private static final String VOUCHER_DETAILS_PATH = "/api/voucher";
-	private static final String HISTORY_IN_PROGRESS_PATH = "/api/transaction/in-progress";
-	private static final String HISTORY_COMPLETED_PATH = "/api/transaction/completed";
-	private static final String HISTORY_DETAILS_PATH = "/api/transaction/details";
+	private static final String HISTORY_IN_PROGRESS_PATH = "/api/transaction/in-progress/";
+	private static final String HISTORY_COMPLETED_PATH = "/api/transaction/completed/";
+	private static final String HISTORY_DETAILS_PATH = "/api/transaction/details/";
 	
 	public RequestSpecification httpRequest;
 	public Response response;
@@ -150,8 +150,178 @@ public class TestBase {
 		response = httpRequest.request(Method.POST, REGISTER_PATH);
 	}
 	
-	public void login() {
+	public void login(String phone) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("phone:" + phone);
 		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
+		
+		JSONObject requestParams = new JSONObject();
+		
+		requestParams.put("phone", phone);
+		
+		httpRequest.header("Content-Type", "application/json");
+		httpRequest.body(requestParams.toJSONString());
+		
+		response = httpRequest.request(Method.GET, LOGIN_PATH);
+	}
+	
+	public void verifyPinLogin(String id, String pin) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("id:" + id);
+		logger.info("pin:" + pin);
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
+		
+		JSONObject requestParams = new JSONObject();
+		
+		requestParams.put("id", Integer.parseInt(id));
+		requestParams.put("pin", Integer.parseInt(pin));
+		
+		httpRequest.header("Content-Type", "application/json");
+		httpRequest.body(requestParams.toJSONString());
+		
+		response = httpRequest.request(Method.GET, VERIFY_PIN_LOGIN_PATH);
+	}
+	
+	public void getProfile() {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
+		
+		response = httpRequest.request(Method.GET, GET_PROFILE_PATH);
+	}
+	
+	public void getBalance() {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
+		
+		response = httpRequest.request(Method.GET, GET_BALANCE_PATH);
+	}
+	
+	public void changePinOtp() {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
+		
+		response = httpRequest.request(Method.POST, CHANGE_PIN_OTP_PATH);
+	}
+	
+	public void forgotPinOtp(String id) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("id:" + id);
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
+		
+		JSONObject requestParams = new JSONObject();
+		
+		requestParams.put("id", Integer.parseInt(id));
+		
+		httpRequest.header("Content-Type", "application/json");
+		httpRequest.body(requestParams.toJSONString());
+		
+		response = httpRequest.request(Method.POST, FORGOT_PIN_OTP_PATH);
+	}
+	
+	public void verifyOtp(String id, String code) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("id:" + id);
+		logger.info("code:" + code);
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
+		
+		JSONObject requestParams = new JSONObject();
+		
+		requestParams.put("id", Integer.parseInt(id));
+		requestParams.put("code", Integer.parseInt(code));
+		
+		httpRequest.header("Content-Type", "application/json");
+		httpRequest.body(requestParams.toJSONString());
+		
+		response = httpRequest.request(Method.POST, VERIFY_OTP_PATH);
+	}
+	
+	public void changePin(String pin) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("pin:" + pin);
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
+		
+		JSONObject requestParams = new JSONObject();
+		
+		requestParams.put("pin", Integer.parseInt(pin));
+		
+		httpRequest.header("Content-Type", "application/json");
+		httpRequest.body(requestParams.toJSONString());
+		
+		response = httpRequest.request(Method.POST, CHANGE_PIN_PATH);
+	}
+	
+	public void GetOtp(String id) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("id:" + id);
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
+		
+		response = httpRequest.request(Method.GET, GET_OTP_PATH+id);
+	}
+	
+	public void logout() {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
+		
+		response = httpRequest.request(Method.DELETE, LOGOUT_PATH);
+	}
+	
+	public void historyInProgress(String id) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("id:" + id);
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
+		
+		response = httpRequest.request(Method.GET, HISTORY_IN_PROGRESS_PATH+id);
+	}
+	
+	public void historyCompleted(String id) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("id:" + id);
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
+		
+		response = httpRequest.request(Method.GET, HISTORY_COMPLETED_PATH+id);
+	}
+	
+	public void historyDetail(String id) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("id:" + id);
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
+		
+		response = httpRequest.request(Method.GET, HISTORY_DETAILS_PATH+id);
 	}
 	
 	public void getRecentPhoneNumber(User user) {
