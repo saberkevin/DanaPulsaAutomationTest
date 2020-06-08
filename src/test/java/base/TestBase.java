@@ -3,6 +3,8 @@ package base;
 import java.io.IOException;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -15,6 +17,7 @@ import java.sql.Connection;
 
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import model.Catalog;
@@ -123,6 +126,56 @@ public class TestBase {
 		httpRequest = null;
 		response = null;
 	}
+	
+	//example
+//	public int getInProgressIDTransaction(boolean bank)
+//	{
+//		int id = 0, page = 1;
+//		boolean found = false;
+//		RestAssured.baseURI = prodURI;
+//		httpRequest = RestAssured.given();
+//		
+//		httpRequest.header("Authorization", tokenBypass);
+//		
+//		while(!found)
+//		{
+//			response = httpRequest.request(Method.GET, "/transaction/in-progress/"+page);
+//			JsonPath jsonPath = response.jsonPath();
+//			String statusCode = jsonPath.get("code").toString();
+//			
+//			if(statusCode.equals("200") && !jsonPath.get("data").toString().equals("[]"))
+//			{
+//				List<Map<String, String>> data = response.jsonPath().getList("data");
+//				
+//				for (int i = 0; i < data.size(); i++) {  
+//					
+//					if(bank)
+//					{
+//						if(data.get(i).get("status").equals("IN_PROGRESS") && data.get(i).get("status").equals("VERIFYING") && data.get(i).get("method").equals("BANK"))
+//				            {
+//				            	id = Integer.parseInt(String.valueOf(data.get(i).get("id")));
+//				            	found = true;
+//				            	return id;
+//				            }
+//					}
+//					else
+//					{
+//			            if(data.get(i).get("status").equals("IN_PROGRESS"))
+//			            {
+//			            	found = true;
+//			            	id = Integer.parseInt(String.valueOf(data.get(i).get("id")));
+//			            	return id;
+//			            }
+//					}
+//				}
+//			}
+//			else if(statusCode.equals("404") || (statusCode.equals("200") && jsonPath.get("data").toString().equals("[]"))) break;
+//			
+//			++page;
+//		}
+//		
+//		return id;
+//	}
 	
 	//============ Request ==============================//
 	
