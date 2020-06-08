@@ -5,8 +5,13 @@ public class Provider {
 	private String name;
 	private String image;
 	
+	public Provider() {
+		this.id = "";
+		this.name = "";
+		this.image = "";		
+	}
+	
 	public Provider(String id, String name, String image) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.image = image;

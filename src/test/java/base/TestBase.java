@@ -2,8 +2,6 @@ package base;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -68,18 +66,23 @@ public class TestBase {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String dbUrl = "";					
-			String username = "";	
-			String password = "";
+			//order
+//			String dbUrl = "jdbc:mysql://remotemysql.com:3306/Cwyx6vUQDe";					
+//			String username = "Cwyx6vUQDe";	
+//			String password = "J8hC6uAYxS";
+//			
+//			con = DriverManager.getConnection(dbUrl,username,password);
+//			
+//			con.close();
 			
-			con = DriverManager.getConnection(dbUrl,username,password);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
+		} 
+//		catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}		
 	}
 	
 	public String[][] getExcelData(String filePath) throws IOException
@@ -330,11 +333,11 @@ public class TestBase {
 	public void getRecentPhoneNumber(User user) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
-		logger.info("session id:" + user.getToken());
+		logger.info("session id:" + user.getSessionId());
 
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		httpRequest.header("Authorization", "Bearer " + user.getSessionId());
 
 		response = httpRequest.request(Method.GET, RECENT_PHONE_NUMBER_PATH);
 	}
@@ -342,7 +345,7 @@ public class TestBase {
 	public void getCatalog(User user, String phoneNumber) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
-		logger.info("session id:" + user.getToken());
+		logger.info("session id:" + user.getSessionId());
 		logger.info("phone number:" + phoneNumber);
 
 		JSONObject requestParams = new JSONObject();
@@ -350,7 +353,7 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		httpRequest.header("Authorization", "Bearer " + user.getSessionId());
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 		
@@ -360,7 +363,7 @@ public class TestBase {
 	public void createOrder(User user, String phoneNumber, Catalog catalog) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
-		logger.info("session id:" + user.getToken());
+		logger.info("session id:" + user.getSessionId());
 		logger.info("phone number:" + phoneNumber);
 		logger.info("catalog id:" + catalog.getId());
 				
@@ -370,7 +373,7 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		httpRequest.header("Authorization", "Bearer " + user.getSessionId());
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 		
@@ -380,12 +383,12 @@ public class TestBase {
 	public void cancelOrder(User user, Transaction transaction) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
-		logger.info("session id:" + user.getToken());
+		logger.info("session id:" + user.getSessionId());
 		logger.info("transaction id:" + transaction.getId());
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();		
-		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		httpRequest.header("Authorization", "Bearer " + user.getSessionId());
 		
 		response = httpRequest.request(Method.DELETE, CANCEL_ORDER_PATH + transaction.getId());
 	}
@@ -393,7 +396,7 @@ public class TestBase {
 	public void payOrder(User user, Transaction transaction, String paymentMethodId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
-		logger.info("session id:" + user.getToken());
+		logger.info("session id:" + user.getSessionId());
 		logger.info("transaction id:" + transaction.getId());
 		logger.info("payment method id:" + paymentMethodId);
 		logger.info("voucher id:" + transaction.getVoucher().getId());
@@ -405,7 +408,7 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();		
-		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		httpRequest.header("Authorization", "Bearer " + user.getSessionId());
 		httpRequest.header("Content-Type", "application/json");
 		
 		response = httpRequest.request(Method.POST, PAYMENT_PATH);
@@ -414,12 +417,12 @@ public class TestBase {
 	public void getmyVoucher(User user, String page) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
-		logger.info("session id:" + user.getToken());
+		logger.info("session id:" + user.getSessionId());
 		logger.info("page:" + page);
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();		
-		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		httpRequest.header("Authorization", "Bearer " + user.getSessionId());
 		
 		response = httpRequest.request(Method.GET, MY_VOUCHER_PATH + page);
 	}
@@ -427,12 +430,12 @@ public class TestBase {
 	public void getPromotionVoucher(User user, String page) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
-		logger.info("session id:" + user.getToken());
+		logger.info("session id:" + user.getSessionId());
 		logger.info("page:" + page);
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();		
-		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		httpRequest.header("Authorization", "Bearer " + user.getSessionId());
 		
 		response = httpRequest.request(Method.GET, PROMOTION_VOUCHER_PATH + page);
 	}
@@ -440,7 +443,7 @@ public class TestBase {
 	public void getRecommendationVoucher(User user, Transaction transaction) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
-		logger.info("session id:" + user.getToken());
+		logger.info("session id:" + user.getSessionId());
 		logger.info("transaction id:" + transaction.getId());
 		
 		JSONObject requestParams = new JSONObject();
@@ -448,7 +451,7 @@ public class TestBase {
 
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();		
-		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		httpRequest.header("Authorization", "Bearer " + user.getSessionId());
 		
 		response = httpRequest.request(Method.GET, RECOMMENDATION_VOUCHER_PATH);
 	}
@@ -456,12 +459,12 @@ public class TestBase {
 	public void getVoucherDetails(User user, Voucher voucher) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
-		logger.info("session id:" + user.getToken());
+		logger.info("session id:" + user.getSessionId());
 		logger.info("voucher id:" + voucher.getId());
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();		
-		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		httpRequest.header("Authorization", "Bearer " + user.getSessionId());
 		
 		response = httpRequest.request(Method.GET, VOUCHER_DETAILS_PATH + voucher.getId() + "/detail");
 	}

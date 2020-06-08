@@ -6,6 +6,13 @@ public class Catalog {
 	private int value;
 	private int price;
 		
+	public Catalog() {
+		this.id = "";
+		this.provider = null;
+		this.value = 0;
+		this.price = 0;
+	}
+	
 	public Catalog(String id, Provider provider, int value, int price) {
 		this.id = id;
 		this.provider = provider;

@@ -8,6 +8,7 @@ public class User {
 	private String pin;
 	private int balance;
 	private String token;
+	private String sessionId;
 	
 	public User(String id, String name, String email, String phoneNumber, String pin, int balance) {
 		this.id = id;
@@ -72,5 +73,13 @@ public class User {
 
 	public void setToken(String token) {
 		this.token = token;
+	}
+
+	public String getSessionId() {
+		return sessionId;
+	}
+
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
 	}
 }

@@ -31,6 +31,7 @@ public class TC_Register extends TestBase{
 		register(name,email,phone,pin);
 	}
 	
+	@Test(dependsOnMethods = {"registerUser"})
 	void checkResult()
 	{
 		int code = response.getStatusCode();
