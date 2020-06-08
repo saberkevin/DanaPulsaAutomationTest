@@ -45,7 +45,6 @@ public class TestBase {
 	private static final String HISTORY_IN_PROGRESS_PATH = "/api/transaction/in-progress/";
 	private static final String HISTORY_COMPLETED_PATH = "/api/transaction/completed/";
 	private static final String HISTORY_DETAILS_PATH = "/api/transaction/details/";
-	private static final String LOGUT_PATH = "/api/logout";
 	
 	public RequestSpecification httpRequest;
 	public Response response;

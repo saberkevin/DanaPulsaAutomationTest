@@ -7,8 +7,8 @@ import org.testng.annotations.DataProvider;
 import base.TestBase;
 
 public class Factory_Create_Order extends TestBase {
-	public Object[] createInstances(String phoneNumber, String catalogId) {
-		return new Object[] {new TC_Create_Order(phoneNumber, catalogId)};
+	public Object[] createInstances(String sessionId, String phoneNumber, String catalogId) {
+		return new Object[] {new TC_Create_Order(sessionId, phoneNumber, catalogId)};
 	}
 	
 	@DataProvider(name="dp")

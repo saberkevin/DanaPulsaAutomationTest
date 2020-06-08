@@ -1,8 +1,10 @@
 package testCases.order;
 
-import java.util.List;
+import java.util.Iterator;
 import java.util.Map;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -42,9 +44,10 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 		user.setId(data.get("id"));
 		
 		verifyPinLogin(user.getId(), user.getPin());
-		checkStatusCode("200");		
+		checkStatusCode("200");
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testMobileRechargeCatalog() {
 		getCatalog(user, phoneNumber);
@@ -52,30 +55,23 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);
 		
-		if(code.contentEquals("200")) {
+		if(code.equals("200")) {
 			String message = response.getBody().jsonPath().getString("message");
 			Assert.assertEquals(message, "success");
+			
+			JSONObject data = response.getBody().jsonPath().getJsonObject("data");
 
-			if(!response.getBody().jsonPath().get("data").equals("[]")) {
-				List<Map<String, String>> data = response.getBody().jsonPath().getList("data");				
-
-				for (int i = 0; i < data.size(); i++) {
-					Provider provider = new Provider();
-					provider.setId(data.get(i).get("provider.id"));
-					provider.setName(data.get(i).get("provider.name"));
-					provider.setImage(data.get(i).get("provider.image"));	
-					
-					Assert.assertTrue(isProviderTrue(phoneNumber, provider));
-					
-					Catalog catalog = new Catalog();
-					catalog.setId(data.get(i).get("catalog.id"));
-					catalog.setValue(Integer.parseInt(data.get(i).get("catalog.value")));
-					catalog.setPrice(Integer.parseInt(data.get(i).get("catalog.price")));
-					
-					Assert.assertNotNull(catalog.getId());
-					Assert.assertNotNull(catalog.getValue());
-					Assert.assertNotNull(catalog.getPrice());
-				}
+			Provider provider = new Provider();
+			provider = (Provider) data.get("provider");					
+			Assert.assertTrue(isProviderTrue(phoneNumber, provider));
+			
+			JSONArray catalogs = (JSONArray) data.get("catalog");
+			Iterator<Catalog> itr = catalogs.iterator();
+			while(itr.hasNext()) {
+				Catalog catalog = (Catalog) itr.next();
+				Assert.assertNotNull(catalog.getId());
+				Assert.assertNotNull(catalog.getValue());
+				Assert.assertNotNull(catalog.getPrice());
 			}		
 		}
 	}
