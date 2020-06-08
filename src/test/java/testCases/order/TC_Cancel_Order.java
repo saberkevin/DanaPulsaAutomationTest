@@ -11,7 +11,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import model.Catalog;
 import model.Transaction;
 import model.User;
 
@@ -40,7 +39,7 @@ public class TC_Cancel_Order extends TestBase {
 		user.setId(data.get("id"));
 		
 		verifyPinLogin(user.getId(), user.getPin());
-		checkStatusCode("200");			
+		checkStatusCode("200");		
 	}
 	
 	@BeforeMethod
