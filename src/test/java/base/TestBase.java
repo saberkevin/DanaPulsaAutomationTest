@@ -68,18 +68,23 @@ public class TestBase {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			String dbUrl = "";					
-			String username = "";	
-			String password = "";
+			//order
+//			String dbUrl = "jdbc:mysql://remotemysql.com:3306/Cwyx6vUQDe";					
+//			String username = "Cwyx6vUQDe";	
+//			String password = "J8hC6uAYxS";
+//			
+//			con = DriverManager.getConnection(dbUrl,username,password);
+//			
+//			con.close();
 			
-			con = DriverManager.getConnection(dbUrl,username,password);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}		
+		} 
+//		catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}		
 	}
 	
 	public String[][] getExcelData(String filePath) throws IOException
@@ -126,56 +131,6 @@ public class TestBase {
 		httpRequest = null;
 		response = null;
 	}
-	
-	//example
-//	public int getInProgressIDTransaction(boolean bank)
-//	{
-//		int id = 0, page = 1;
-//		boolean found = false;
-//		RestAssured.baseURI = prodURI;
-//		httpRequest = RestAssured.given();
-//		
-//		httpRequest.header("Authorization", tokenBypass);
-//		
-//		while(!found)
-//		{
-//			response = httpRequest.request(Method.GET, "/transaction/in-progress/"+page);
-//			JsonPath jsonPath = response.jsonPath();
-//			String statusCode = jsonPath.get("code").toString();
-//			
-//			if(statusCode.equals("200") && !jsonPath.get("data").toString().equals("[]"))
-//			{
-//				List<Map<String, String>> data = response.jsonPath().getList("data");
-//				
-//				for (int i = 0; i < data.size(); i++) {  
-//					
-//					if(bank)
-//					{
-//						if(data.get(i).get("status").equals("IN_PROGRESS") && data.get(i).get("status").equals("VERIFYING") && data.get(i).get("method").equals("BANK"))
-//				            {
-//				            	id = Integer.parseInt(String.valueOf(data.get(i).get("id")));
-//				            	found = true;
-//				            	return id;
-//				            }
-//					}
-//					else
-//					{
-//			            if(data.get(i).get("status").equals("IN_PROGRESS"))
-//			            {
-//			            	found = true;
-//			            	id = Integer.parseInt(String.valueOf(data.get(i).get("id")));
-//			            	return id;
-//			            }
-//					}
-//				}
-//			}
-//			else if(statusCode.equals("404") || (statusCode.equals("200") && jsonPath.get("data").toString().equals("[]"))) break;
-//			
-//			++page;
-//		}
-//		
-//		return id;
-//	}
 	
 	//============ Request ==============================//
 	

@@ -1,5 +1,8 @@
 package testCases.history;
 
+import java.util.List;
+import java.util.Map;
+
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.testng.annotations.Parameters;
@@ -32,12 +35,20 @@ public class TC_History_In_Progress extends TestBase{
 		if(code == 200)
 		{
 			Assert.assertEquals("success", message);
-			Assert.assertNotEquals("", jsonPath.get("data.id"));
-			Assert.assertNotEquals("", jsonPath.get("data.phone"));
-			Assert.assertNotEquals("", jsonPath.get("data.price"));
-			Assert.assertNotEquals("", jsonPath.get("data.voucher"));
-			Assert.assertNotEquals("", jsonPath.get("data.createdAt"));
-			Assert.assertTrue(jsonPath.get("data.status").equals("WAITING") || jsonPath.get("data.status").equals("VERIFYING"));
+			
+			if(!jsonPath.get("data").toString().equals("[]"))
+			{
+				List<Map<String, String>> data = jsonPath.getList("data");
+				
+				for (int i = 0; i < data.size(); i++) {  
+					Assert.assertNotEquals("", data.get(i).get(id));
+					Assert.assertNotEquals("", data.get(i).get("phone"));
+					Assert.assertNotEquals("", data.get(i).get("price"));
+					Assert.assertNotEquals("", data.get(i).get("voucher"));
+					Assert.assertNotEquals("", data.get(i).get("createdAt"));
+					Assert.assertTrue(data.get(i).get("status").equals("WAITING") || data.get(i).get("status").equals("VERIFYING"));
+				}			
+			}		
 		}
 	}
 	
