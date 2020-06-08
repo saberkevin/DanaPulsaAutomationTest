@@ -51,7 +51,7 @@ public class TC_Pay_Order extends TestBase {
 		checkStatusCode("200");
 		
 		createOrder(user, user.getPhoneNumber(), transaction.getCatalog());
-		checkStatusCode("201");		
+		checkStatusCode("201");
 	}
 	
 	@Test

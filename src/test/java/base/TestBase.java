@@ -413,7 +413,7 @@ public class TestBase {
 		response = httpRequest.request(Method.POST, PAYMENT_PATH);
 	}
 	
-	public void getmyVoucher(User user, String page) {
+	public void getMyVoucher(User user, String page) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("session id:" + user.getSessionId());
