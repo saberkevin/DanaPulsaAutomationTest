@@ -25,6 +25,7 @@ public class TC_Login extends TestBase{
 		login(phone);
 	}
 	
+	@Test(dependsOnMethods = {"loginUser"})
 	void checkResult()
 	{
 		int code = response.getStatusCode();
