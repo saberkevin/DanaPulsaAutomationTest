@@ -6,9 +6,9 @@ import org.testng.annotations.DataProvider;
 
 import base.TestBase;
 
-public class Factory_Mobile_Recharge_Catalog extends TestBase {
-	public Object[] createInstances(String phoneNumber) {
-		return new Object[] {new TC_Mobile_Recharge_Catalog(phoneNumber)};
+public class Factory_Cancel_Order extends TestBase {
+	public Object[] createInstances(String transactionId) {
+		return new Object[] {new TC_Cancel_Order(transactionId)};
 	}
 	
 	@DataProvider(name="dp")

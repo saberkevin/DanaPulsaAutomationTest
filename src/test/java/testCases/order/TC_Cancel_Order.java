@@ -1,4 +1,4 @@
-package testCases.voucher;
+package testCases.order;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -7,11 +7,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import model.Transaction;
 import model.User;
 
-public class TC_Promotion_Vouchers extends TestBase {
+public class TC_Cancel_Order extends TestBase {
 	private User user;
-	private int page;
+	private Transaction transaction;
+	
+	public TC_Cancel_Order(String transactionId) {
+		transaction.setId(transactionId);
+	}
 	
 	@BeforeClass
 	public void beforeClass() {
@@ -24,7 +29,7 @@ public class TC_Promotion_Vouchers extends TestBase {
 	}
 	
 	@Test
-	public void testPromotionVouchers() {
+	public void testCancelOrder() {
 		
 	}
 

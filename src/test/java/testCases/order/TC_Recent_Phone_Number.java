@@ -1,5 +1,7 @@
 package testCases.order;
 
+import java.util.Map;
+
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -12,14 +14,29 @@ import model.User;
 public class TC_Recent_Phone_Number extends TestBase {
 	private User user;
 	
+	public TC_Recent_Phone_Number() {
+	}
+	
 	@BeforeClass
 	public void beforeClass() {
-		
+		user.setName("Zanuar");
+		user.setEmail("triromadon@gmail.com");
+		user.setPhoneNumber("081252930398");
+		user.setPin("123456");
 	}
 	
 	@BeforeMethod
 	public void berforeMethod() {
+		register(user.getName(), user.getEmail(), user.getPhoneNumber(), user.getPin());
+		checkStatusCode("200");
+
+		login(user.getPhoneNumber());
+		checkStatusCode("200");
+		Map<String, String> data = response.jsonPath().getMap("data");
+		user.setId(data.get("id"));
 		
+		verifyPinLogin(user.getId(), user.getPin());
+		checkStatusCode("200");		
 	}
 	
 	@Test

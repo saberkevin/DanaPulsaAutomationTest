@@ -1,6 +1,7 @@
 package base;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -11,14 +12,14 @@ import org.json.simple.JSONObject;
 import org.junit.Assert;
 import org.testng.annotations.BeforeClass;
 
-import java.sql.Connection;
-
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import model.Catalog;
+import model.Transaction;
 import model.User;
+import model.Voucher;
 import utilities.ExcelUtil;
 
 @SuppressWarnings("unchecked")
@@ -37,14 +38,16 @@ public class TestBase {
 	private static final String RECENT_PHONE_NUMBER_PATH = "/api/recentnumber";
 	private static final String CATALOG_PATH = "/api/catalog";
 	private static final String ORDER_PATH = "/api/order";
+	private static final String CANCEL_ORDER_PATH = "/api/transaction/cancel/";
 	private static final String PAYMENT_PATH = "/api/pay";
-	private static final String MY_VOUCHER_PATH = "/api/my-vouchers";
-	private static final String PROMOTION_VOUCHER_PATH = "/api/voucher/promotion";
+	private static final String MY_VOUCHER_PATH = "/api/my-vouchers/";
+	private static final String PROMOTION_VOUCHER_PATH = "/api/voucher/promotion/";
 	private static final String RECOMMENDATION_VOUCHER_PATH = "/api/vouchers/recommendation";
-	private static final String VOUCHER_DETAILS_PATH = "/api/voucher";
+	private static final String VOUCHER_DETAILS_PATH = "/api/voucher/";
 	private static final String HISTORY_IN_PROGRESS_PATH = "/api/transaction/in-progress/";
 	private static final String HISTORY_COMPLETED_PATH = "/api/transaction/completed/";
 	private static final String HISTORY_DETAILS_PATH = "/api/transaction/details/";
+	private static final String LOGUT_PATH = "/api/logout";
 	
 	public RequestSpecification httpRequest;
 	public Response response;
@@ -59,7 +62,7 @@ public class TestBase {
 	public void setup()
 	{
 		logger = Logger.getLogger("restAPI");;
-		PropertyConfigurator.configure("../SigmaCardAutomationTest/src/Log4j.properties");
+		PropertyConfigurator.configure("../DanaPulsaAutomationTest/src/Log4j.properties");
 		logger.setLevel(Level.DEBUG);
 		
 		try {
@@ -325,14 +328,28 @@ public class TestBase {
 	}
 	
 	public void getRecentPhoneNumber(User user) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("session id:" + user.getToken());
+
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
 		httpRequest.header("Authorization", "Bearer " + user.getToken());
+
 		response = httpRequest.request(Method.GET, RECENT_PHONE_NUMBER_PATH);
 	}
 	
 	public void getCatalog(User user, String phoneNumber) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("session id:" + user.getToken());
+		logger.info("phone number:" + phoneNumber);
+
 		JSONObject requestParams = new JSONObject();
 		requestParams.put("phone", phoneNumber);
 		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
 		httpRequest.header("Authorization", "Bearer " + user.getToken());
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
@@ -340,15 +357,112 @@ public class TestBase {
 		response = httpRequest.request(Method.GET, CATALOG_PATH);
 	}
 	
-	public void createOrder(User user, String phoneNumber, Catalog catalog) {	
+	public void createOrder(User user, String phoneNumber, Catalog catalog) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("session id:" + user.getToken());
+		logger.info("phone number:" + phoneNumber);
+		logger.info("catalog id:" + catalog.getId());
+				
 		JSONObject requestParams = new JSONObject();
 		requestParams.put("phone", phoneNumber);
 		requestParams.put("catalogId", catalog.getId());
 		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();
 		httpRequest.header("Authorization", "Bearer " + user.getToken());
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 		
 		response = httpRequest.request(Method.POST, ORDER_PATH);
+	}
+	
+	public void cancelOrder(User user, Transaction transaction) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("session id:" + user.getToken());
+		logger.info("transaction id:" + transaction.getId());
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();		
+		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		
+		response = httpRequest.request(Method.DELETE, CANCEL_ORDER_PATH + transaction.getId());
+	}
+	
+	public void payOrder(User user, Transaction transaction, String paymentMethodId) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("session id:" + user.getToken());
+		logger.info("transaction id:" + transaction.getId());
+		logger.info("payment method id:" + paymentMethodId);
+		logger.info("voucher id:" + transaction.getVoucher().getId());
+		
+		JSONObject requestParams = new JSONObject();
+		requestParams.put("transactionId", transaction.getId());
+		requestParams.put("methodId", paymentMethodId);
+		requestParams.put("voucherId", transaction.getVoucher().getId());
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();		
+		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		httpRequest.header("Content-Type", "application/json");
+		
+		response = httpRequest.request(Method.POST, PAYMENT_PATH);
+	}
+	
+	public void getmyVoucher(User user, String page) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("session id:" + user.getToken());
+		logger.info("page:" + page);
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();		
+		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		
+		response = httpRequest.request(Method.GET, MY_VOUCHER_PATH + page);
+	}
+	
+	public void getPromotionVoucher(User user, String page) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("session id:" + user.getToken());
+		logger.info("page:" + page);
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();		
+		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		
+		response = httpRequest.request(Method.GET, PROMOTION_VOUCHER_PATH + page);
+	}
+	
+	public void getRecommendationVoucher(User user, Transaction transaction) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("session id:" + user.getToken());
+		logger.info("transaction id:" + transaction.getId());
+		
+		JSONObject requestParams = new JSONObject();
+		requestParams.put("transactionId", transaction.getId());
+
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();		
+		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		
+		response = httpRequest.request(Method.GET, RECOMMENDATION_VOUCHER_PATH);
+	}
+	
+	public void getVoucherDetails(User user, Voucher voucher) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("session id:" + user.getToken());
+		logger.info("voucher id:" + voucher.getId());
+		
+		RestAssured.baseURI = URI;
+		httpRequest = RestAssured.given();		
+		httpRequest.header("Authorization", "Bearer " + user.getToken());
+		
+		response = httpRequest.request(Method.GET, VOUCHER_DETAILS_PATH + voucher.getId() + "/detail");
 	}
 }

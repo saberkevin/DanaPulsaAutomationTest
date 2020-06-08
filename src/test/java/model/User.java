@@ -5,11 +5,11 @@ public class User {
 	private String name;
 	private String email;
 	private String phoneNumber;
-	private int pin;
+	private String pin;
 	private int balance;
 	private String token;
 	
-	public User(String id, String name, String email, String phoneNumber, int pin, int balance) {
+	public User(String id, String name, String email, String phoneNumber, String pin, int balance) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -50,11 +50,11 @@ public class User {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public int getPin() {
+	public String getPin() {
 		return pin;
 	}
 
-	public void setPin(int pin) {
+	public void setPin(String pin) {
 		this.pin = pin;
 	}
 

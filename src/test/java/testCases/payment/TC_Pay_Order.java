@@ -28,7 +28,7 @@ public class TC_Pay_Order extends TestBase {
 	}
 	
 	@Test
-	public void testRecentPhoneNumber() {
+	public void testPayOrder() {
 		
 	}
 

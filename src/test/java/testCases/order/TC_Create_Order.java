@@ -15,6 +15,11 @@ public class TC_Create_Order extends TestBase {
 	private String phoneNumber;
 	private Catalog catalog;
 	
+	public TC_Create_Order(String phoneNumber, String catalogId) {
+		this.phoneNumber = phoneNumber;
+		catalog.setId(catalogId);
+	}
+	
 	@BeforeClass
 	public void beforeClass() {
 		
@@ -26,7 +31,7 @@ public class TC_Create_Order extends TestBase {
 	}
 	
 	@Test
-	public void testRecentPhoneNumber() {
+	public void testCreateOrder() {
 		
 	}
 

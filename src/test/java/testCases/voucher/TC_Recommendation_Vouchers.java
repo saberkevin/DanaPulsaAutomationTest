@@ -26,7 +26,7 @@ public class TC_Recommendation_Vouchers extends TestBase {
 	}
 	
 	@Test
-	public void testRecentPhoneNumber() {
+	public void testRecommendationVouchers() {
 		
 	}
 

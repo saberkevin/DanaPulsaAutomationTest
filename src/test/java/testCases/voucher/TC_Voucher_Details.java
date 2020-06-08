@@ -25,7 +25,7 @@ public class TC_Voucher_Details extends TestBase {
 	}
 	
 	@Test
-	public void testRecentPhoneNumber() {
+	public void testVoucherDetails() {
 		
 	}
 
