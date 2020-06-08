@@ -49,7 +49,7 @@ public class TC_Recent_Phone_Number extends TestBase {
 
 		login(user.getPhoneNumber());
 		checkStatusCode("200");
-		Map<String, String> data = response.jsonPath().getMap("data");
+		Map<String, String> data = response.getBody().jsonPath().getMap("data");
 		user.setId(data.get("id"));
 		
 		verifyPinLogin(user.getId(), user.getPin());

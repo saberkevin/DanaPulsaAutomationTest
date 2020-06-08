@@ -57,9 +57,24 @@ public class TC_Create_Order extends TestBase {
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);
 		
-		if(code.equals("200")) {
-			String message = response.getBody().jsonPath().getString("message");
-			Assert.assertEquals(message, "success");
+		String message = response.getBody().jsonPath().getString("message");
+		
+		if(code.equals("400")) {
+			Assert.assertTrue(
+					message.equals("selected catalog is not available for this phone’s provider") || 
+					message.equals("invalid phone number")
+					);
+		} else if(code.equals("404")) {
+			Assert.assertTrue(
+					message.equals("catalog not found") || 
+					message.equals("unknown phone number")
+					);			
+		} else if(code.equals("409")) {
+			Assert.assertEquals(message, "you’ve already requested this exact order within the last 30 seconds, "
+					+ "please try again later if you actually intended to do that"
+					);
+		} else if (code.equals("201")) {
+			Assert.assertEquals(message, "created");
 			
 			JSONObject data = response.getBody().jsonPath().getJsonObject("data");
 			Assert.assertNotNull(data.get("id"));
