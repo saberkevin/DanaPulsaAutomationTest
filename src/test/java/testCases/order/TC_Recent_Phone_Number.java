@@ -25,9 +25,13 @@ import model.User;
 
 public class TC_Recent_Phone_Number extends TestBase {
 	private User user;
+	private String sessionId;
+	private Provider[] providers;
+	private String[] phoneNumbers;
+	private String[] dateString;
 	
 	public TC_Recent_Phone_Number(String sessionId) {
-		user.setSessionId(sessionId);
+		this.sessionId = sessionId;
 	}
 	
 	private boolean isPhoneNumberRegexTrue(String phoneNumber) {
@@ -62,7 +66,9 @@ public class TC_Recent_Phone_Number extends TestBase {
 		
 	@Test
 	public void testRecentPhoneNumber() throws ParseException {
-		getRecentPhoneNumber(user);
+		if (sessionId.equals("true"))
+			sessionId = user.getSessionId();
+		getRecentPhoneNumber(sessionId);
 
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);
@@ -70,52 +76,58 @@ public class TC_Recent_Phone_Number extends TestBase {
 		if(code.equals("200")) {
 			String message = response.getBody().jsonPath().getString("message");
 			Assert.assertEquals(message, "success");
+		}
+	}
+	
+	@Test(dependsOnMethods = {"testRecentPhoneNumber"})
+	public void checkData() throws ParseException {
+		if(!response.getBody().jsonPath().get("data").equals("[]")) {
+			List<Map<String, String>> data = response.getBody().jsonPath().getList("data");	
+			providers = new Provider[data.size()];
+			phoneNumbers = new String[data.size()];
+			dateString = new String[data.size()];
+			
+			for (int i = 0; i < data.size(); i++) {
+				phoneNumbers[i] = data.get(i).get("number");
+				Assert.assertTrue(isPhoneNumberRegexTrue(phoneNumbers[i]));
 
-			if(!response.getBody().jsonPath().get("data").equals("[]")) {
-				List<Map<String, String>> data = response.getBody().jsonPath().getList("data");
-				Provider[] providers = new Provider[data.size()];
-				String[] phoneNumber = new String[data.size()];
-				String[] dateString = new String[data.size()];
+				Provider provider = new Provider();
+				provider.setId(data.get(i).get("provider.id"));
+				provider.setName(data.get(i).get("provider.name"));
+				provider.setImage(data.get(i).get("provider.image"));	
 				
-				for (int i = 0; i < data.size(); i++) {
-					phoneNumber[i] = data.get(i).get("number");
-					Assert.assertTrue(isPhoneNumberRegexTrue(phoneNumber[i]));
-
-					Provider provider = new Provider();
-					provider.setId(data.get(i).get("provider.id"));
-					provider.setName(data.get(i).get("provider.name"));
-					provider.setImage(data.get(i).get("provider.image"));	
-					
-					Assert.assertTrue(isProviderTrue(phoneNumber[i], provider));
-					providers[i] = provider;
-					
-					dateString[i] = data.get(i).get("date");
-					DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
-					Date date = format.parse(dateString[i]);
-				}
+				Assert.assertTrue(isProviderTrue(phoneNumbers[i], provider));
+				providers[i] = provider;
 				
-				try {
-					Connection conn = getConnectionOrder();
-					String query = "SELECT B.providerId, B.createdAt, A.phoneNumber "
-							+ "FROM transaction A LEFT JOIN user B on A.userId = B.id "
-							+ "WHERE B.id = ? "
-							+ "ORDER BY A.createdAt DESC LIMIT 10";
+				dateString[i] = data.get(i).get("date");
+				DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
+				Date date = format.parse(dateString[i]);
+			}
+		}
+	}
+	
+	@Test(dependsOnMethods = {"checkData"})
+	public void checkDB() {
+		try {
+			Connection conn = getConnectionOrder();
+			String query = "SELECT B.providerId, B.createdAt, A.phoneNumber "
+					+ "FROM transaction A LEFT JOIN user B on A.userId = B.id "
+					+ "WHERE B.id = ? "
+					+ "ORDER BY A.createdAt DESC LIMIT 10";
 
-					PreparedStatement ps = conn.prepareStatement(query);
-					ps.setInt(1, Integer.parseInt(user.getId()));
-					
-					ResultSet rs = ps.executeQuery();
-					while(rs.next()) {
-						Assert.assertEquals(rs.getString("providerId"), providers[rs.getRow()].getId());
-						Assert.assertEquals(rs.getString("createdAt"), dateString[rs.getRow()]);
-						Assert.assertEquals(rs.getString("phoneNumber"), phoneNumber[rs.getRow()]);
-					}
-					
-					conn.close();
-				} catch (SQLException e) {
-					
-				}
-			}		
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setInt(1, Integer.parseInt(user.getId()));
+			
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Assert.assertEquals(rs.getString("providerId"), providers[rs.getRow()].getId());
+				Assert.assertEquals(rs.getString("createdAt"), dateString[rs.getRow()]);
+				Assert.assertEquals(rs.getString("phoneNumber"), phoneNumbers[rs.getRow()]);
+			}
+			
+			conn.close();
+		} catch (SQLException e) {
+			
 		}
 	}
 	

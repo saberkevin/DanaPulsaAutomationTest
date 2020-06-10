@@ -18,10 +18,11 @@ import model.Voucher;
 
 public class TC_Recommendation_Vouchers extends TestBase {
 	private User user;
+	private String sessionId;
 	private Transaction transaction;
 	
 	public TC_Recommendation_Vouchers(String sessionId, String transactionId) {
-		user.setSessionId(sessionId);
+		this.sessionId = sessionId;
 		transaction.setId(transactionId);
 	}
 	
@@ -46,17 +47,20 @@ public class TC_Recommendation_Vouchers extends TestBase {
 	
 	@BeforeMethod
 	public void berforeMethod() {
-		getCatalog(user, user.getPhoneNumber());
+		getCatalog(user.getSessionId(), user.getPhoneNumber());
 		checkStatusCode("200");
 		
-		createOrder(user, user.getPhoneNumber(), transaction.getCatalog());
+		createOrder(user.getSessionId(), user.getPhoneNumber(), transaction.getCatalog().getId());
 		checkStatusCode("201");
 	}
 	
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testRecommendationVouchers() {
-		getRecommendationVoucher(user, transaction);
+		if (sessionId.contentEquals("true"))
+			sessionId = user.getSessionId();
+		
+		getRecommendationVoucher(sessionId, transaction.getId());
 		
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);

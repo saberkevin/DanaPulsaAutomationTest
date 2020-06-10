@@ -15,10 +15,11 @@ import model.Voucher;
 
 public class TC_Promotion_Vouchers extends TestBase {
 	private User user;
+	private String sessionId;
 	private String page;
 	
 	public TC_Promotion_Vouchers(String sessionId, String page) {
-		user.setSessionId(sessionId);
+		this.sessionId = sessionId;
 		this.page = page;
 	}
 	
@@ -44,7 +45,10 @@ public class TC_Promotion_Vouchers extends TestBase {
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testPromotionVouchers() {
-		getPromotionVoucher(user, page);
+		if (sessionId.contentEquals("true"))
+			sessionId = user.getSessionId();
+		
+		getPromotionVoucher(sessionId, page);
 		
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);

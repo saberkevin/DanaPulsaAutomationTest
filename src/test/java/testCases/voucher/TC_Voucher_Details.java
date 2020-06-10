@@ -16,10 +16,11 @@ import model.Voucher;
 
 public class TC_Voucher_Details extends TestBase {
 	private User user;
+	private String sessionId;
 	private Voucher voucher;
 	
 	public TC_Voucher_Details(String sessionId, String voucherId) {
-		user.setSessionId(sessionId);
+		this.sessionId = sessionId;
 		voucher.setId(voucherId);
 	}
 	
@@ -44,13 +45,16 @@ public class TC_Voucher_Details extends TestBase {
 	
 	@BeforeMethod
 	public void berforeMethod() {
-		getPromotionVoucher(user, "1");
+		getPromotionVoucher(user.getSessionId(), "1");
 		checkStatusCode("200");
 	}
 	
 	@Test
 	public void testVoucherDetails() {
-		getVoucherDetails(user, voucher);
+		if (sessionId.contentEquals("true"))
+			sessionId = user.getSessionId();
+		
+		getVoucherDetails(sessionId, voucher.getId());
 		
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);

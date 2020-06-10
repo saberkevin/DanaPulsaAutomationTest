@@ -16,10 +16,11 @@ import model.User;
 
 public class TC_Cancel_Order extends TestBase {
 	private User user;
+	private String sessionId;
 	private Transaction transaction;
 	
 	public TC_Cancel_Order(String sessionId, String transactionId) {
-		user.setSessionId(sessionId);
+		this.sessionId = sessionId;
 		transaction.setId(transactionId);
 	}
 	
@@ -44,16 +45,19 @@ public class TC_Cancel_Order extends TestBase {
 	
 	@BeforeMethod
 	public void berforeMethod() {
-		getCatalog(user, user.getPhoneNumber());
+		getCatalog(user.getSessionId(), user.getPhoneNumber());
 		checkStatusCode("200");
 		
-		createOrder(user, user.getPhoneNumber(), transaction.getCatalog());
+		createOrder(user.getSessionId(), user.getPhoneNumber(), transaction.getCatalog().getId());
 		checkStatusCode("201");
 	}
 	
 	@Test
 	public void testCancelOrder() {
-		cancelOrder(user, transaction);
+		if (sessionId.contentEquals("true"))
+			sessionId = user.getSessionId();
+		
+		cancelOrder(sessionId, transaction.getId());
 		
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);
