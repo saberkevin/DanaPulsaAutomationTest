@@ -93,20 +93,20 @@ public class TC_Create_Order extends TestBase {
 		if (code.equals("201")) {
 			try {
 				Connection conn = getConnectionOrder();
-				String query = "SELECT A.value, A.price, B.id, B.name, B.image "
-						+ "FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id "
-						+ "WHERE A.id = ? ";
+				String query = "SELECT A.id, A.name, A.image, B.value, B.price "
+						+ "FROM provider A LEFT JOIN pulsa_catalog B on A.id = B.providerId "
+						+ "WHERE B.id = ? ";
 				
 				PreparedStatement ps = conn.prepareStatement(query);
 				ps.setLong(1, Long.parseLong(transaction.getCatalog().getId()));
 				
 				ResultSet rs = ps.executeQuery();
 				while(rs.next()) {
-					transaction.getCatalog().setValue(rs.getLong("value"));
-					transaction.getCatalog().setPrice(rs.getLong("price"));
 					transaction.getCatalog().getProvider().setId(rs.getString("id"));
 					transaction.getCatalog().getProvider().setName(rs.getString("name"));
 					transaction.getCatalog().getProvider().setImage(rs.getString("image"));
+					transaction.getCatalog().setValue(rs.getLong("value"));
+					transaction.getCatalog().setPrice(rs.getLong("price"));
 				}
 				
 				conn.close();

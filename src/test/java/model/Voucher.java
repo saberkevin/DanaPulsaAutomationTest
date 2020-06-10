@@ -8,9 +8,9 @@ public class Voucher {
 	private String voucherTypeName;
 	private String filePath;
 	private String paymentMethod;
-	private int discount;
-	private int maximumDeduction;
-	private int minimumPurchase;
+	private long discount;
+	private long maximumDeduction;
+	private long minimumPurchase;
 	private Date expiredDate;
 	private String term;
 	private String condition;
@@ -56,27 +56,27 @@ public class Voucher {
 		this.paymentMethod = paymentMethod;
 	}
 
-	public int getDiscount() {
+	public long getDiscount() {
 		return discount;
 	}
 
-	public void setDiscount(int discount) {
+	public void setDiscount(long discount) {
 		this.discount = discount;
 	}
 
-	public int getMaximumDeduction() {
+	public long getMaximumDeduction() {
 		return maximumDeduction;
 	}
 
-	public void setMaximumDeduction(int maximumDeduction) {
+	public void setMaximumDeduction(long maximumDeduction) {
 		this.maximumDeduction = maximumDeduction;
 	}
 
-	public int getMinimumPurchase() {
+	public long getMinimumPurchase() {
 		return minimumPurchase;
 	}
 
-	public void setMinimumPurchase(int minimumPurchase) {
+	public void setMinimumPurchase(long minimumPurchase) {
 		this.minimumPurchase = minimumPurchase;
 	}
 

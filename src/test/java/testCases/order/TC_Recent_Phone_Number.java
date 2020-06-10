@@ -35,7 +35,7 @@ public class TC_Recent_Phone_Number extends TestBase {
 	}
 	
 	private boolean isPhoneNumberRegexTrue(String phoneNumber) {
-		String regex = "^(?=.[0-9])(?=.[a-z])(?=.[A-Z])(?=.[!@#$%^&*])(?=\\\\S+$).{8,}$";
+		String regex = "^08[0-9]{9,13}$";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(phoneNumber);
 		return matcher.matches();
@@ -122,7 +122,7 @@ public class TC_Recent_Phone_Number extends TestBase {
 	public void checkDB() {
 		try {
 			Connection conn = getConnectionOrder();
-			String query = "SELECT B.providerId, B.createdAt, A.phoneNumber "
+			String query = "SELECT A.phoneNumber, B.providerId, B.createdAt "
 					+ "FROM transaction A LEFT JOIN user B on A.userId = B.id "
 					+ "WHERE B.id = ? "
 					+ "ORDER BY A.createdAt DESC LIMIT 10";
@@ -132,9 +132,9 @@ public class TC_Recent_Phone_Number extends TestBase {
 			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
+				Assert.assertEquals(rs.getString("phoneNumber"), phoneNumbers[rs.getRow()]);
 				Assert.assertEquals(rs.getString("providerId"), providers[rs.getRow()].getId());
 				Assert.assertEquals(rs.getString("createdAt"), dateString[rs.getRow()]);
-				Assert.assertEquals(rs.getString("phoneNumber"), phoneNumbers[rs.getRow()]);
 			}
 			
 			conn.close();

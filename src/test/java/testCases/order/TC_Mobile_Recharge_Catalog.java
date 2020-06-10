@@ -118,10 +118,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	public void checkDB() {
 		try {
 			Connection conn = getConnectionOrder();
-			String query = "SELECT A.id, A.value, A.price "
-					+ "FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id "
-					+ "WHERE B.id = ? "
-					+ "ORDER BY A.value DESC";
+			String query = "SELECT * FROM pulsa_catalog WHERE providerId = ? ORDER BY value DESC";
 
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setLong(1, Long.parseLong(provider.getId()));
