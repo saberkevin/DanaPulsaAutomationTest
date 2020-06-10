@@ -3,6 +3,8 @@ package base;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -103,6 +105,52 @@ public class TestBase {
 		long responseTime = response.getTime();
 		logger.info("Response Time = " + responseTime);
 		Assert.assertTrue(responseTime<Long.parseLong(rt));
+	}
+	
+	public void checkEmailValid(String email)
+	{
+		String regex = "^(.+)@(.+).(.+)$";
+		 
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(email);
+		
+		boolean isValid = matcher.matches();
+		
+		Assert.assertTrue(isValid);	
+	}
+	
+	public void checkResultPhoneValid(String phone)
+	{
+		String regex = "^628[0-9]{9,13}$";
+		 
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(phone);
+		
+		boolean isValid = matcher.matches();
+		
+		Assert.assertTrue(isValid);	
+	}
+	
+	public void checkPinValid(String pin)
+	{
+		String regex = "^[1-9][0-9]{5}$";
+		 
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(pin);
+		
+		boolean isValid = matcher.matches();
+		
+		Assert.assertTrue(isValid);	
+	}
+	
+	public String replacePhoneForAssertion(String phone)
+	{
+		String phoneSubstring = phone;
+		if(phone.startsWith("0") || phone.startsWith("62") || phone.startsWith("+62"))
+		{
+			phoneSubstring = phone.substring(phone.indexOf("8"));
+		}
+		return "62"+phoneSubstring;
 	}
 	
 	public void tearDown(String message)

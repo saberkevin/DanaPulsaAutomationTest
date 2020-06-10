@@ -61,9 +61,9 @@ public class TC_History_In_Progress extends TestBase{
 					con.setAutoCommit(true);
 					
 					for (int i = 0; i < data.size(); i++) {  
-						Assert.assertNotEquals("", data.get(i).get("id"));
+						Assert.assertNotNull(Long.parseLong(data.get(i).get("id")));
 						Assert.assertNotEquals("", data.get(i).get("phone"));
-						Assert.assertNotEquals("", data.get(i).get("price"));
+						Assert.assertNotNull(Long.parseLong(data.get(i).get("price")));
 						Assert.assertNotEquals("", data.get(i).get("voucher"));
 						Assert.assertNotEquals("", data.get(i).get("createdAt"));
 						Assert.assertTrue(data.get(i).get("status").equals("WAITING") || data.get(i).get("status").equals("VERIFYING"));

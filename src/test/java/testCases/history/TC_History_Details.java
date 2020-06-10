@@ -64,8 +64,7 @@ public class TC_History_Details extends TestBase{
 					con.setAutoCommit(true);
 					
 					for (int i = 0; i < data.size(); i++) {  
-						Assert.assertEquals("success", message);
-						Assert.assertNotEquals("", jsonPath.get("data.id"));
+						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.id")));
 						Assert.assertNotEquals("", jsonPath.get("data.phone"));
 						Assert.assertNotEquals("", jsonPath.get("data.method"));
 						Assert.assertNotEquals("", jsonPath.get("data.updatedAt"));
@@ -77,16 +76,16 @@ public class TC_History_Details extends TestBase{
 								jsonPath.get("data.status").equals("WAITING") ||
 								jsonPath.get("data.status").equals("VERIFYING")
 								);
-						Assert.assertNotEquals("", jsonPath.get("data.catalog.id"));
-						Assert.assertNotEquals("", jsonPath.get("data.catalog.value"));
-						Assert.assertNotEquals("", jsonPath.get("data.catalog.price"));
-						Assert.assertNotEquals("", jsonPath.get("data.catalog.provider.id"));
+						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.catalog.id")));
+						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.catalog.value")));
+						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.catalog.price")));
+						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.catalog.provider.id")));
 						Assert.assertNotEquals("", jsonPath.get("data.catalog.provider.name"));
 						Assert.assertNotEquals("", jsonPath.get("data.catalog.provider.image"));
-						Assert.assertNotEquals("", jsonPath.get("data.catalog.voucher.id"));
+						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.id")));
 						Assert.assertNotEquals("", jsonPath.get("data.catalog.voucher.name"));
-						Assert.assertNotEquals("", jsonPath.get("data.catalog.voucher.deduction"));
-						Assert.assertNotEquals("", jsonPath.get("data.catalog.voucher.maxDeduction"));
+						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.deduction")));
+						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.maxDeduction")));
 						
 						PreparedStatement psGetHistoryDetails = con.prepareStatement(query);
 						psGetHistoryDetails.setLong(1, Long.parseLong(user.getId()));
