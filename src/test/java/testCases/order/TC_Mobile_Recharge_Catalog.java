@@ -32,6 +32,22 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	}
 	
 	private boolean isProviderTrue(String phoneNumber, Provider provider) {
+		try {
+			Connection conn = getConnectionOrder();
+			String query = "SELECT name FROM provider WHERE id = (SELECT providerId FROM provider_prefix WHERE prefix = ?";
+
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, phoneNumber.substring(0,5));
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.getString("name").equals(provider.getName()))
+				return true;
+			
+			conn.close();
+		} catch (SQLException e) {
+			
+		}
 		return false;
 	}
 	
@@ -107,7 +123,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 					+ "ORDER BY A.value DESC";
 
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setInt(1, Integer.parseInt(provider.getId()));
+			ps.setLong(1, Long.parseLong(provider.getId()));
 			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {

@@ -57,8 +57,7 @@ public class TC_Create_Order extends TestBase {
 	@Test
 	public void testCreateOrder() {
 		if (sessionId.contentEquals("true"))
-			sessionId = user.getSessionId();
-		
+			sessionId = user.getSessionId();		
 		createOrder(sessionId, transaction.getPhoneNumber(), transaction.getCatalog().getId());
 		
 		String code = response.getBody().jsonPath().getString("code");
@@ -97,7 +96,7 @@ public class TC_Create_Order extends TestBase {
 						+ "WHERE A.id = ? ";
 				
 				PreparedStatement ps = conn.prepareStatement(query);
-				ps.setInt(1, Integer.parseInt(transaction.getCatalog().getId()));
+				ps.setLong(1, Long.parseLong(transaction.getCatalog().getId()));
 				
 				ResultSet rs = ps.executeQuery();
 				while(rs.next()) {
@@ -130,7 +129,7 @@ public class TC_Create_Order extends TestBase {
 		try {
 			Connection conn = getConnectionOrder();
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM transaction WHERE userId = ? ORDER BY createdAt DESC LIMIT 1");
-			ps.setInt(1, Integer.parseInt(user.getId()));
+			ps.setLong(1, Long.parseLong(user.getId()));
 			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {

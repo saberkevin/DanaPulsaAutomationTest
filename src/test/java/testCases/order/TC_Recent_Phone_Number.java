@@ -41,6 +41,21 @@ public class TC_Recent_Phone_Number extends TestBase {
 	}
 	
 	private boolean isProviderTrue(String phoneNumber, Provider provider) {
+		try {
+			Connection conn = getConnectionOrder();
+			String query = "SELECT name FROM provider WHERE id = (SELECT providerId FROM provider_prefix WHERE prefix = ?";
+
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, phoneNumber.substring(0,5));
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs.getString("name").equals(provider.getName()))
+				return true;
+			
+			conn.close();
+		} catch (SQLException e) {
+			
+		}
 		return false;
 	}
 	
@@ -90,13 +105,10 @@ public class TC_Recent_Phone_Number extends TestBase {
 				phoneNumbers[i] = data.get(i).get("number");
 				Assert.assertTrue(isPhoneNumberRegexTrue(phoneNumbers[i]));
 
-				Provider provider = new Provider();
-				provider.setId(data.get(i).get("provider.id"));
-				provider.setName(data.get(i).get("provider.name"));
-				provider.setImage(data.get(i).get("provider.image"));	
-				
-				Assert.assertTrue(isProviderTrue(phoneNumbers[i], provider));
-				providers[i] = provider;
+				providers[i].setId(data.get(i).get("provider.id"));
+				providers[i].setName(data.get(i).get("provider.name"));
+				providers[i].setImage(data.get(i).get("provider.image"));
+				Assert.assertTrue(isProviderTrue(phoneNumbers[i], providers[i]));
 				
 				dateString[i] = data.get(i).get("date");
 				SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
@@ -115,7 +127,7 @@ public class TC_Recent_Phone_Number extends TestBase {
 					+ "ORDER BY A.createdAt DESC LIMIT 10";
 
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setInt(1, Integer.parseInt(user.getId()));
+			ps.setLong(1, Long.parseLong(user.getId()));
 			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
