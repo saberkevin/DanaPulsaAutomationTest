@@ -478,7 +478,8 @@ public class TestBase {
 			conn = DriverManager.getConnection(dbUrl, username, password);
 			conn.setAutoCommit(true);			
 		} catch (Exception e) {
-			
+			// TODO Auto-generated catch block
+			e.printStackTrace();			
 		}
 
 		return conn;
@@ -495,7 +496,8 @@ public class TestBase {
 			conn = DriverManager.getConnection(dbUrl, username, password);
 			conn.setAutoCommit(true);			
 		} catch (Exception e) {
-			
+			// TODO Auto-generated catch block
+			e.printStackTrace();			
 		}
 
 		return conn;

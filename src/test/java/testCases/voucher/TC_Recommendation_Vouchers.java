@@ -1,5 +1,9 @@
 package testCases.voucher;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -20,6 +24,7 @@ public class TC_Recommendation_Vouchers extends TestBase {
 	private User user;
 	private String sessionId;
 	private Transaction transaction;
+	private JSONArray vouchers;
 	
 	public TC_Recommendation_Vouchers(String sessionId, String transactionId) {
 		this.sessionId = sessionId;
@@ -54,12 +59,10 @@ public class TC_Recommendation_Vouchers extends TestBase {
 		checkStatusCode("201");
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Test
 	public void testRecommendationVouchers() {
 		if (sessionId.contentEquals("true"))
-			sessionId = user.getSessionId();
-		
+			sessionId = user.getSessionId();		
 		getRecommendationVoucher(sessionId, transaction.getId());
 		
 		String code = response.getBody().jsonPath().getString("code");
@@ -71,8 +74,17 @@ public class TC_Recommendation_Vouchers extends TestBase {
 			Assert.assertEquals(message, "you don’t have any vouchers recommendation");
 		} else if (code.equals("200")) {
 			Assert.assertEquals(message, "success");
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Test(dependsOnMethods = {"testMyVouchers"})
+	public void checkData() {
+		String code = response.getBody().jsonPath().getString("code");
+		
+		if (code.equals("200")) {
+			vouchers = (JSONArray) response.getBody().jsonPath().getList("data");
 			
-			JSONArray vouchers = (JSONArray) response.getBody().jsonPath().getList("data");
 			Iterator<Voucher> itr = vouchers.iterator();
 			while(itr.hasNext()) {
 				Voucher voucher = (Voucher) itr.next();
@@ -86,7 +98,34 @@ public class TC_Recommendation_Vouchers extends TestBase {
 			}
 		}
 	}
-
+	
+	@Test(dependsOnMethods = {"checkData"})
+	public void checkDB() {
+		try {
+			Connection conn = getConnectionOrder();
+			String query = "SELECT A.* FROM "
+					+ "voucher A LEFT JOIN user_voucher B on A.id = B.voucherId "
+					+ "WHERE userId = ?";
+			
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setLong(1, Long.parseLong(user.getId()));
+			
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Assert.assertEquals(rs.getString("id"), ((Voucher) vouchers.get(rs.getRow())).getId());
+				Assert.assertEquals(rs.getString("name"), ((Voucher) vouchers.get(rs.getRow())).getName());
+				Assert.assertEquals(rs.getString("discount"), ((Voucher) vouchers.get(rs.getRow())).getDiscount());
+				Assert.assertEquals(rs.getString("maxDeduction"), ((Voucher) vouchers.get(rs.getRow())).getMaximumDeduction());
+				Assert.assertEquals(rs.getString("filePath"), ((Voucher) vouchers.get(rs.getRow())).getFilePath());
+				Assert.assertEquals(rs.getString("expiryDate"), ((Voucher) vouchers.get(rs.getRow())).getExpiredDate());
+			}
+			
+			conn.close();
+		} catch (SQLException e) {
+			
+		}
+	}
+	
 	@AfterMethod
 	public void afterMethod() {
 		

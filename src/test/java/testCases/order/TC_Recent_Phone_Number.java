@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -100,8 +99,8 @@ public class TC_Recent_Phone_Number extends TestBase {
 				providers[i] = provider;
 				
 				dateString[i] = data.get(i).get("date");
-				DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
-				Date date = format.parse(dateString[i]);
+				SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+				Assert.assertEquals(dateString[i], format.format(new Date()));
 			}
 		}
 	}

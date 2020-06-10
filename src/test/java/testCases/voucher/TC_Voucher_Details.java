@@ -1,5 +1,9 @@
 package testCases.voucher;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Map;
 
 import org.json.simple.JSONObject;
@@ -59,22 +63,51 @@ public class TC_Voucher_Details extends TestBase {
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);
 		
-		String message = response.getBody().jsonPath().getString("message");
-		Assert.assertTrue(message.equals("success") || message.equals("voucher not found"));
+		if (code.equals("200")) {
+			String message = response.getBody().jsonPath().getString("message");
+			Assert.assertTrue(message.equals("success") || message.equals("voucher not found"));
+		}
+	}
+	
+	@Test(dependsOnMethods = {"testMyVouchers"})
+	public void checkData() {
+		String code = response.getBody().jsonPath().getString("code");
 		
-		JSONObject data = response.getBody().jsonPath().getJsonObject("data");
-		Assert.assertEquals(data.get("id"), voucher.getId());
-		Assert.assertNotNull(data.get("name"));
-		Assert.assertNotNull(data.get("filePath"));
-		Assert.assertNotNull(data.get("voucherTypeName"));
-		Assert.assertNotNull(data.get("paymentMethodName"));
-		Assert.assertNotNull(data.get("discount"));
-		Assert.assertNotNull(data.get("maxDeduction"));
-		Assert.assertNotNull(data.get("minPurchase"));
-		Assert.assertNotNull(data.get("expiryDate"));
-		Assert.assertNotNull(data.get("term"));
-		Assert.assertNotNull(data.get("condition"));
-		Assert.assertNotNull(data.get("instruction"));
+		if (code.equals("200")) {
+			JSONObject data = response.getBody().jsonPath().getJsonObject("data");
+			Assert.assertEquals(data.get("id"), voucher.getId());
+			Assert.assertNotNull(data.get("name"));
+			Assert.assertNotNull(data.get("filePath"));
+			Assert.assertNotNull(data.get("voucherTypeName"));
+			Assert.assertNotNull(data.get("paymentMethodName"));
+			Assert.assertNotNull(data.get("discount"));
+			Assert.assertNotNull(data.get("maxDeduction"));
+			Assert.assertNotNull(data.get("minPurchase"));
+			Assert.assertNotNull(data.get("expiryDate"));
+		}
+	}
+	
+	@Test(dependsOnMethods = {"checkData"})
+	public void checkDB() {
+		try {
+			Connection conn = getConnectionOrder();
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM voucher WHERE id = ?");
+			ps.setLong(1, Long.parseLong(voucher.getId()));
+			
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Assert.assertEquals(rs.getString("id"), voucher.getId());
+				Assert.assertEquals(rs.getString("name"), voucher.getName());
+				Assert.assertEquals(rs.getString("discount"), voucher.getDiscount());
+				Assert.assertEquals(rs.getString("maxDeduction"), voucher.getMaximumDeduction());
+				Assert.assertEquals(rs.getString("filePath"), voucher.getFilePath());
+				Assert.assertEquals(rs.getString("expiryDate"), voucher.getExpiredDate());
+			}
+			
+			conn.close();
+		} catch (SQLException e) {
+			
+		}
 	}
 
 	@AfterMethod

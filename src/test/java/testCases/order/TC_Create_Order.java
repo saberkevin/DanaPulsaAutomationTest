@@ -101,8 +101,8 @@ public class TC_Create_Order extends TestBase {
 				
 				ResultSet rs = ps.executeQuery();
 				while(rs.next()) {
-					transaction.getCatalog().setValue(rs.getInt("value"));
-					transaction.getCatalog().setPrice(rs.getInt("price"));
+					transaction.getCatalog().setValue(rs.getLong("value"));
+					transaction.getCatalog().setPrice(rs.getLong("price"));
 					transaction.getCatalog().getProvider().setId(rs.getString("id"));
 					transaction.getCatalog().getProvider().setName(rs.getString("name"));
 					transaction.getCatalog().getProvider().setImage(rs.getString("image"));
