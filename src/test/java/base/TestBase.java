@@ -64,24 +64,10 @@ public class TestBase {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			
-			//order
-//			String dbUrl = "jdbc:mysql://remotemysql.com:3306/Cwyx6vUQDe";					
-//			String username = "Cwyx6vUQDe";	
-//			String password = "J8hC6uAYxS";
-//			
-//			con = DriverManager.getConnection(dbUrl,username,password);
-//			
-//			con.close();
-			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-//		catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}		
+		} 		
 	}
 	
 	public String[][] getExcelData(String filePath) throws IOException
@@ -147,7 +133,7 @@ public class TestBase {
 		requestParams.put("name", name);
 		requestParams.put("email", email);
 		requestParams.put("phone", phone);
-		requestParams.put("password", pin);
+		requestParams.put("pin", Integer.parseInt(pin));
 		
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
@@ -184,7 +170,7 @@ public class TestBase {
 		
 		JSONObject requestParams = new JSONObject();
 		
-		requestParams.put("id", Integer.parseInt(id));
+		requestParams.put("id", Long.parseLong(id));
 		requestParams.put("pin", Integer.parseInt(pin));
 		
 		httpRequest.header("Content-Type", "application/json");
@@ -230,7 +216,7 @@ public class TestBase {
 		
 		JSONObject requestParams = new JSONObject();
 		
-		requestParams.put("id", Integer.parseInt(id));
+		requestParams.put("id", Long.parseLong(id));
 		
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
@@ -249,8 +235,8 @@ public class TestBase {
 		
 		JSONObject requestParams = new JSONObject();
 		
-		requestParams.put("id", Integer.parseInt(id));
-		requestParams.put("code", Integer.parseInt(code));
+		requestParams.put("id", Long.parseLong(id));
+		requestParams.put("code", code);
 		
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
@@ -296,26 +282,26 @@ public class TestBase {
 		response = httpRequest.request(Method.DELETE, LOGOUT_PATH);
 	}
 	
-	public void historyInProgress(String id) {
+	public void historyInProgress(String page) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
-		logger.info("id:" + id);
+		logger.info("page:" + page);
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
 		
-		response = httpRequest.request(Method.GET, HISTORY_IN_PROGRESS_PATH+id);
+		response = httpRequest.request(Method.GET, HISTORY_IN_PROGRESS_PATH+page);
 	}
 	
-	public void historyCompleted(String id) {
+	public void historyCompleted(String page) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
-		logger.info("id:" + id);
+		logger.info("page:" + page);
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
 		
-		response = httpRequest.request(Method.GET, HISTORY_COMPLETED_PATH+id);
+		response = httpRequest.request(Method.GET, HISTORY_COMPLETED_PATH+page);
 	}
 	
 	public void historyDetail(String id) {

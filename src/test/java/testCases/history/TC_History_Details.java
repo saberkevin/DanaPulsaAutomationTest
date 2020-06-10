@@ -88,26 +88,26 @@ public class TC_History_Details extends TestBase{
 						Assert.assertNotEquals("", jsonPath.get("data.catalog.voucher.deduction"));
 						Assert.assertNotEquals("", jsonPath.get("data.catalog.voucher.maxDeduction"));
 						
-						PreparedStatement psGetHistoryInProgress = con.prepareStatement(query);
-						psGetHistoryInProgress.setInt(1, Integer.parseInt(user.getId()));
-						psGetHistoryInProgress.setInt(2, Integer.parseInt(data.get(i).get("id")));
-						ResultSet result = psGetHistoryInProgress.executeQuery();
+						PreparedStatement psGetHistoryDetails = con.prepareStatement(query);
+						psGetHistoryDetails.setLong(1, Long.parseLong(user.getId()));
+						psGetHistoryDetails.setLong(2, Long.parseLong(data.get(i).get("id")));
+						ResultSet result = psGetHistoryDetails.executeQuery();
 						
 						while(result.next())
 						{
-							Assert.assertEquals(result.getInt("id"), data.get(i).get("id"));
+							Assert.assertEquals(result.getLong("id"), data.get(i).get("id"));
 							Assert.assertEquals(result.getString("method"), data.get(i).get("method"));
 							Assert.assertEquals(result.getString("phone"), data.get(i).get("phone"));
-							Assert.assertEquals(result.getInt("catalogId"), data.get(i).get("catalog.id"));
-							Assert.assertEquals(result.getInt("value"), data.get(i).get("catalog.value"));
-							Assert.assertEquals(result.getInt("price"), data.get(i).get("catalog.price"));
-							Assert.assertEquals(result.getInt("providerId"), data.get(i).get("provider.id"));
+							Assert.assertEquals(result.getLong("catalogId"), data.get(i).get("catalog.id"));
+							Assert.assertEquals(result.getLong("value"), data.get(i).get("catalog.value"));
+							Assert.assertEquals(result.getLong("price"), data.get(i).get("catalog.price"));
+							Assert.assertEquals(result.getLong("providerId"), data.get(i).get("provider.id"));
 							Assert.assertEquals(result.getString("provider"), data.get(i).get("provider.name"));
 							Assert.assertEquals(result.getString("image"), data.get(i).get("provider.image"));
-							Assert.assertEquals(result.getInt("voucherId"), data.get(i).get("voucher.id"));
+							Assert.assertEquals(result.getLong("voucherId"), data.get(i).get("voucher.id"));
 							Assert.assertEquals(result.getString("voucher"), data.get(i).get("voucher.name"));
-							Assert.assertEquals(result.getInt("deduction"), data.get(i).get("voucher.deduction"));
-							Assert.assertEquals(result.getInt("maxDeduction"), data.get(i).get("voucher.maxDeduction"));
+							Assert.assertEquals(result.getLong("deduction"), data.get(i).get("voucher.deduction"));
+							Assert.assertEquals(result.getLong("maxDeduction"), data.get(i).get("voucher.maxDeduction"));
 							Assert.assertEquals(result.getString("status"), data.get(i).get("status"));
 							Assert.assertEquals(result.getDate("createdAt"), data.get(i).get("createdAt"));
 							Assert.assertEquals(result.getDate("updatedAt"), data.get(i).get("updatedAt"));
