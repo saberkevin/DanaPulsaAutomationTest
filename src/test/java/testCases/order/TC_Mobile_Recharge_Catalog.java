@@ -1,5 +1,9 @@
 package testCases.order;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -71,8 +75,30 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 				Catalog catalog = (Catalog) itr.next();
 				Assert.assertNotNull(catalog.getId());
 				Assert.assertNotNull(catalog.getValue());
-				Assert.assertNotNull(catalog.getPrice());
-			}		
+				Assert.assertNotNull(catalog.getPrice());				
+			}	
+			
+			try {
+				Connection conn = getConnectionOrder();
+				String query = "SELECT A.id, A.value, A.price "
+						+ "FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id "
+						+ "WHERE B.id = ? "
+						+ "ORDER BY A.value DESC";
+
+				PreparedStatement ps = conn.prepareStatement(query);
+				ps.setInt(1, Integer.parseInt(provider.getId()));
+				
+				ResultSet rs = ps.executeQuery();
+				while(rs.next()) {
+					Assert.assertEquals(rs.getString("id"), ((Catalog) catalogs.get(rs.getRow())).getId());
+					Assert.assertEquals(rs.getString("value"), ((Catalog) catalogs.get(rs.getRow())).getValue());
+					Assert.assertEquals(rs.getString("price"), ((Catalog) catalogs.get(rs.getRow())).getPrice());
+				}
+				
+				conn.close();
+			} catch (SQLException e) {
+				
+			}
 		}
 	}
 	

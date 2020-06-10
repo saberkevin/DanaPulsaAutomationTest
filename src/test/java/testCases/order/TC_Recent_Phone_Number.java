@@ -3,6 +3,7 @@ package testCases.order;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -66,46 +67,53 @@ public class TC_Recent_Phone_Number extends TestBase {
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);
 		
-		if(code.contentEquals("200")) {
+		if(code.equals("200")) {
 			String message = response.getBody().jsonPath().getString("message");
 			Assert.assertEquals(message, "success");
 
 			if(!response.getBody().jsonPath().get("data").equals("[]")) {
-				List<Map<String, String>> data = response.getBody().jsonPath().getList("data");				
-
+				List<Map<String, String>> data = response.getBody().jsonPath().getList("data");
+				Provider[] providers = new Provider[data.size()];
+				String[] phoneNumber = new String[data.size()];
+				String[] dateString = new String[data.size()];
+				
 				for (int i = 0; i < data.size(); i++) {
-					String phoneNumber = data.get(i).get("number");
-					Assert.assertTrue(isPhoneNumberRegexTrue(phoneNumber));
+					phoneNumber[i] = data.get(i).get("number");
+					Assert.assertTrue(isPhoneNumberRegexTrue(phoneNumber[i]));
 
 					Provider provider = new Provider();
 					provider.setId(data.get(i).get("provider.id"));
 					provider.setName(data.get(i).get("provider.name"));
 					provider.setImage(data.get(i).get("provider.image"));	
-					Assert.assertTrue(isProviderTrue(phoneNumber, provider));
 					
-					String dateString = data.get(i).get("date");
+					Assert.assertTrue(isProviderTrue(phoneNumber[i], provider));
+					providers[i] = provider;
+					
+					dateString[i] = data.get(i).get("date");
 					DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
-					Date date = format.parse(dateString);
-					
-					try {
-						Connection conn = getConnectionOrder();
-						String query = "SELECT B.id, A.phoneNumber "
-								+ "FROM transaction A LEFT JOIN user B on A.userId = B.id "
-								+ "WHERE B.id = ?";
+					Date date = format.parse(dateString[i]);
+				}
+				
+				try {
+					Connection conn = getConnectionOrder();
+					String query = "SELECT B.providerId, B.createdAt, A.phoneNumber "
+							+ "FROM transaction A LEFT JOIN user B on A.userId = B.id "
+							+ "WHERE B.id = ? "
+							+ "ORDER BY A.createdAt DESC LIMIT 10";
 
-						PreparedStatement ps = conn.prepareStatement(query);
-						ps.setInt(1, Integer.parseInt(user.getId()));
-						
-						ResultSet rs = ps.executeQuery();
-						while(rs.next()) {
-							Assert.assertEquals(rs.getString("id"), user.getId());
-							Assert.assertEquals(rs.getString("phoneNumber"), phoneNumber);
-						}
-						
-						conn.close();
-					} catch (Exception e) {
-						
+					PreparedStatement ps = conn.prepareStatement(query);
+					ps.setInt(1, Integer.parseInt(user.getId()));
+					
+					ResultSet rs = ps.executeQuery();
+					while(rs.next()) {
+						Assert.assertEquals(rs.getString("providerId"), providers[rs.getRow()].getId());
+						Assert.assertEquals(rs.getString("createdAt"), dateString[rs.getRow()]);
+						Assert.assertEquals(rs.getString("phoneNumber"), phoneNumber[rs.getRow()]);
 					}
+					
+					conn.close();
+				} catch (SQLException e) {
+					
 				}
 			}		
 		}
