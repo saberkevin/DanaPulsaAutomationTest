@@ -27,6 +27,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	private JSONArray catalogs;
 	
 	public TC_Mobile_Recharge_Catalog(String sessionId, String phoneNumber) {
+		user = new User();
 		this.sessionId = sessionId;
 		this.phoneNumber = phoneNumber;
 	}
@@ -105,7 +106,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 			
 			Iterator<Catalog> itr = catalogs.iterator();
 			while(itr.hasNext()) {
-				Catalog catalog = (Catalog) itr.next();
+				Catalog catalog = itr.next();
 				Assert.assertNotNull(catalog.getId());
 				Assert.assertNotNull(catalog.getValue());
 				Assert.assertNotNull(catalog.getPrice());				

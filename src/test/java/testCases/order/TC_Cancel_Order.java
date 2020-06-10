@@ -20,6 +20,8 @@ public class TC_Cancel_Order extends TestBase {
 	private Transaction transaction;
 	
 	public TC_Cancel_Order(String sessionId, String transactionId) {
+		user = new User();
+		transaction = new Transaction();
 		this.sessionId = sessionId;
 		transaction.setId(transactionId);
 	}

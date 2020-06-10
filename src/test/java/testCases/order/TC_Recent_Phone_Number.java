@@ -30,6 +30,7 @@ public class TC_Recent_Phone_Number extends TestBase {
 	private String[] dateString;
 	
 	public TC_Recent_Phone_Number(String sessionId) {
+		user = new User();
 		this.sessionId = sessionId;
 	}
 	
@@ -79,7 +80,7 @@ public class TC_Recent_Phone_Number extends TestBase {
 	}
 		
 	@Test
-	public void testRecentPhoneNumber() throws ParseException {
+	public void testRecentPhoneNumber() {
 		if (sessionId.equals("true"))
 			sessionId = user.getSessionId();
 		getRecentPhoneNumber(sessionId);

@@ -24,6 +24,8 @@ public class TC_Create_Order extends TestBase {
 	private Transaction transaction;
 	
 	public TC_Create_Order(String sessionId, String phoneNumber, String catalogId) {
+		user = new User();
+		transaction = new Transaction();
 		this.sessionId = sessionId;
 		transaction.setPaymentMethod(phoneNumber);
 		transaction.getCatalog().setId(catalogId);

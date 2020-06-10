@@ -27,6 +27,8 @@ public class TC_Recommendation_Vouchers extends TestBase {
 	private JSONArray vouchers;
 	
 	public TC_Recommendation_Vouchers(String sessionId, String transactionId) {
+		user = new User();
+		transaction = new Transaction();
 		this.sessionId = sessionId;
 		transaction.setId(transactionId);
 	}

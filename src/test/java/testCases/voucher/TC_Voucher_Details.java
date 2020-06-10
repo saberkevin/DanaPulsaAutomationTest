@@ -24,6 +24,8 @@ public class TC_Voucher_Details extends TestBase {
 	private Voucher voucher;
 	
 	public TC_Voucher_Details(String sessionId, String voucherId) {
+		user = new User();
+		voucher = new Voucher();
 		this.sessionId = sessionId;
 		voucher.setId(voucherId);
 	}

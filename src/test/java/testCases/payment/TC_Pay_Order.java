@@ -21,6 +21,8 @@ public class TC_Pay_Order extends TestBase {
 	private String paymentMethodId;
 
 	public TC_Pay_Order(String sessionId, String transactionId, String paymentMethodId, String voucherId) {
+		user = new User();
+		transaction = new Transaction();
 		this.sessionId = sessionId;
 		transaction.setId(transactionId);
 		this.paymentMethodId = paymentMethodId;

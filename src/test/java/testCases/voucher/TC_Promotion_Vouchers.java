@@ -24,6 +24,7 @@ public class TC_Promotion_Vouchers extends TestBase {
 	private JSONArray vouchers;
 	
 	public TC_Promotion_Vouchers(String sessionId, String page) {
+		user = new User();
 		this.sessionId = sessionId;
 		this.page = page;
 	}

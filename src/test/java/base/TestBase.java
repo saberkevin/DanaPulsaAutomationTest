@@ -61,24 +61,10 @@ public class TestBase {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			
-			//order
-//			String dbUrl = "jdbc:mysql://remotemysql.com:3306/Cwyx6vUQDe";					
-//			String username = "Cwyx6vUQDe";	
-//			String password = "J8hC6uAYxS";
-//			
-//			con = DriverManager.getConnection(dbUrl,username,password);
-//			
-//			con.close();
-			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-//		catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}		
 	}
 	
 	public String[][] getExcelData(String filePath) throws IOException

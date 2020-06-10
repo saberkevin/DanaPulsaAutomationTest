@@ -10,6 +10,9 @@ public class User {
 	private String token;
 	private String sessionId;
 	
+	public User() {
+	}
+
 	public User(String id, String name, String email, String phoneNumber, String pin, long balance) {
 		this.id = id;
 		this.name = name;
