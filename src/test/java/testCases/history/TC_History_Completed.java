@@ -72,16 +72,16 @@ public class TC_History_Completed extends TestBase{
 								data.get(i).get("status").equals("FAILED") 
 						);
 						
-						PreparedStatement psGetHistoryInProgress = con.prepareStatement(query);
-						psGetHistoryInProgress.setInt(1, Integer.parseInt(user.getId()));
-						psGetHistoryInProgress.setInt(2, Integer.parseInt(data.get(i).get("id")));
-						ResultSet result = psGetHistoryInProgress.executeQuery();
+						PreparedStatement psGetHistoryCompleted = con.prepareStatement(query);
+						psGetHistoryCompleted.setLong(1, Long.parseLong(user.getId()));
+						psGetHistoryCompleted.setLong(2, Long.parseLong(data.get(i).get("id")));
+						ResultSet result = psGetHistoryCompleted.executeQuery();
 						
 						while(result.next())
 						{
-							Assert.assertEquals(result.getInt("id"), data.get(i).get("id"));
+							Assert.assertEquals(result.getLong("id"), data.get(i).get("id"));
 							Assert.assertEquals(result.getString("phone"), data.get(i).get("phone"));
-							Assert.assertEquals(result.getInt("price"), data.get(i).get("price"));
+							Assert.assertEquals(result.getLong("price"), data.get(i).get("price"));
 							Assert.assertEquals(result.getString("voucher"), data.get(i).get("voucher"));
 							Assert.assertEquals(result.getString("status"), data.get(i).get("status"));
 							Assert.assertEquals(result.getDate("createdAt"), data.get(i).get("createdAt"));
