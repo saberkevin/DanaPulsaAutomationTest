@@ -1,5 +1,8 @@
 package testCases.order;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -78,12 +81,31 @@ public class TC_Recent_Phone_Number extends TestBase {
 					provider.setId(data.get(i).get("provider.id"));
 					provider.setName(data.get(i).get("provider.name"));
 					provider.setImage(data.get(i).get("provider.image"));	
-					
 					Assert.assertTrue(isProviderTrue(phoneNumber, provider));
 					
 					String dateString = data.get(i).get("date");
 					DateFormat format = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
 					Date date = format.parse(dateString);
+					
+					try {
+						Connection conn = getConnectionOrder();
+						String query = "SELECT B.id, A.phoneNumber "
+								+ "FROM transaction A LEFT JOIN user B on A.userId = B.id "
+								+ "WHERE B.id = ?";
+
+						PreparedStatement ps = conn.prepareStatement(query);
+						ps.setInt(1, Integer.parseInt(user.getId()));
+						
+						ResultSet rs = ps.executeQuery();
+						while(rs.next()) {
+							Assert.assertEquals(rs.getString("id"), user.getId());
+							Assert.assertEquals(rs.getString("phoneNumber"), phoneNumber);
+						}
+						
+						conn.close();
+					} catch (Exception e) {
+						
+					}
 				}
 			}		
 		}

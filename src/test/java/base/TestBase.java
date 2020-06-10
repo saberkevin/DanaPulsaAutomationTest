@@ -2,6 +2,7 @@ package base;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -466,5 +467,41 @@ public class TestBase {
 		httpRequest.header("Authorization", "Bearer " + user.getSessionId());
 		
 		response = httpRequest.request(Method.GET, VOUCHER_DETAILS_PATH + voucher.getId() + "/detail");
+	}
+	
+	//============ DB Connection ==============================//
+	
+	public Connection getConnectionOrder() {
+		Connection conn = null;
+		String dbUrl = "jdbc:mysql://remotemysql.com:3306/Cwyx6vUQDe";					
+		String username = "Cwyx6vUQDe";	
+		String password = "J8hC6uAYxS";
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbUrl, username, password);
+			conn.setAutoCommit(true);			
+		} catch (Exception e) {
+			
+		}
+
+		return conn;
+	}
+	
+	public Connection getConnectionPromotion() {
+		Connection conn = null;
+		String dbUrl = "jdbc:mysql://remotemysql.com:3306/2XXZFHdio8";					
+		String username = "2XXZFHdio8";	
+		String password = "CiJU7VdZB5";
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbUrl, username, password);
+			conn.setAutoCommit(true);			
+		} catch (Exception e) {
+			
+		}
+
+		return conn;
 	}
 }
