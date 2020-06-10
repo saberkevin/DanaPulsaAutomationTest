@@ -6,11 +6,11 @@ public class User {
 	private String email;
 	private String phoneNumber;
 	private String pin;
-	private int balance;
+	private long balance;
 	private String token;
 	private String sessionId;
 	
-	public User(String id, String name, String email, String phoneNumber, String pin, int balance) {
+	public User(String id, String name, String email, String phoneNumber, String pin, long balance) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
@@ -59,11 +59,11 @@ public class User {
 		this.pin = pin;
 	}
 
-	public int getBalance() {
+	public long getBalance() {
 		return balance;
 	}
 
-	public void setBalance(int balance) {
+	public void setBalance(long balance) {
 		this.balance = balance;
 	}
 

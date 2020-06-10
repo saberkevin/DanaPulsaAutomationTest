@@ -16,11 +16,12 @@ import model.User;
 
 public class TC_Pay_Order extends TestBase {
 	private User user;
+	private String sessionId;
 	private Transaction transaction;
 	private String paymentMethodId;
 
 	public TC_Pay_Order(String sessionId, String transactionId, String paymentMethodId, String voucherId) {
-		user.setSessionId(sessionId);
+		this.sessionId = sessionId;
 		transaction.setId(transactionId);
 		this.paymentMethodId = paymentMethodId;
 		transaction.getVoucher().setId(voucherId);
@@ -47,16 +48,19 @@ public class TC_Pay_Order extends TestBase {
 	
 	@BeforeMethod
 	public void berforeMethod() {
-		getCatalog(user, user.getPhoneNumber());
+		getCatalog(user.getSessionId(), user.getPhoneNumber());
 		checkStatusCode("200");
 		
-		createOrder(user, user.getPhoneNumber(), transaction.getCatalog());
+		createOrder(user.getSessionId(), user.getPhoneNumber(), transaction.getCatalog().getId());
 		checkStatusCode("201");
 	}
 	
 	@Test
 	public void testPayOrder() {
-		payOrder(user, transaction, paymentMethodId);
+		if (sessionId.contentEquals("true"))
+			sessionId = user.getSessionId();
+		
+		payOrder(sessionId, transaction.getId(), paymentMethodId, transaction.getVoucher().getId());
 		
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);

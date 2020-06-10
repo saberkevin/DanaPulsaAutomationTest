@@ -3,8 +3,8 @@ package model;
 public class Catalog {
 	private String id;
 	private Provider provider;
-	private int value;
-	private int price;
+	private long value;
+	private long price;
 		
 	public Catalog() {
 		this.id = "";
@@ -36,19 +36,19 @@ public class Catalog {
 		this.provider = provider;
 	}
 
-	public int getValue() {
+	public long getValue() {
 		return value;
 	}
 
-	public void setValue(int value) {
+	public void setValue(long value) {
 		this.value = value;
 	}
 
-	public int getPrice() {
+	public long getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(long price) {
 		this.price = price;
 	}	
 }

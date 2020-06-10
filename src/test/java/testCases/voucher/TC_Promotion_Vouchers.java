@@ -1,5 +1,9 @@
 package testCases.voucher;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -15,10 +19,12 @@ import model.Voucher;
 
 public class TC_Promotion_Vouchers extends TestBase {
 	private User user;
+	private String sessionId;
 	private String page;
+	private JSONArray vouchers;
 	
 	public TC_Promotion_Vouchers(String sessionId, String page) {
-		user.setSessionId(sessionId);
+		this.sessionId = sessionId;
 		this.page = page;
 	}
 	
@@ -41,10 +47,11 @@ public class TC_Promotion_Vouchers extends TestBase {
 		checkStatusCode("200");
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Test
 	public void testPromotionVouchers() {
-		getPromotionVoucher(user, page);
+		if (sessionId.contentEquals("true"))
+			sessionId = user.getSessionId();
+		getPromotionVoucher(sessionId, page);
 		
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);
@@ -55,8 +62,17 @@ public class TC_Promotion_Vouchers extends TestBase {
 			Assert.assertEquals(message, "There is no recommendation");
 		} else if (code.equals("200")) {
 			Assert.assertEquals(message, "success");
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Test(dependsOnMethods = {"testMyVouchers"})
+	public void checkData() {
+		String code = response.getBody().jsonPath().getString("code");
+		
+		if (code.equals("200")) {
+			vouchers = (JSONArray) response.getBody().jsonPath().getList("data");
 			
-			JSONArray vouchers = (JSONArray) response.getBody().jsonPath().getList("data");
 			Iterator<Voucher> itr = vouchers.iterator();
 			while(itr.hasNext()) {
 				Voucher voucher = (Voucher) itr.next();
@@ -68,6 +84,27 @@ public class TC_Promotion_Vouchers extends TestBase {
 				Assert.assertNotNull(voucher.getFilePath());
 				Assert.assertNotNull(voucher.getExpiredDate());
 			}
+		}
+	}
+	
+	@Test(dependsOnMethods = {"checkData"})
+	public void checkDB() {
+		try {
+			Connection conn = getConnectionOrder();
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM voucher");			
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Assert.assertEquals(rs.getString("id"), ((Voucher) vouchers.get(rs.getRow())).getId());
+				Assert.assertEquals(rs.getString("name"), ((Voucher) vouchers.get(rs.getRow())).getName());
+				Assert.assertEquals(rs.getString("discount"), ((Voucher) vouchers.get(rs.getRow())).getDiscount());
+				Assert.assertEquals(rs.getString("maxDeduction"), ((Voucher) vouchers.get(rs.getRow())).getMaximumDeduction());
+				Assert.assertEquals(rs.getString("filePath"), ((Voucher) vouchers.get(rs.getRow())).getFilePath());
+				Assert.assertEquals(rs.getString("expiryDate"), ((Voucher) vouchers.get(rs.getRow())).getExpiredDate());
+			}
+			
+			conn.close();
+		} catch (SQLException e) {
+			
 		}
 	}
 	

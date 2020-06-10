@@ -1,5 +1,9 @@
 package testCases.order;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Map;
 
 import org.json.simple.JSONObject;
@@ -11,18 +15,18 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import model.Catalog;
+import model.Transaction;
 import model.User;
 
 public class TC_Create_Order extends TestBase {
 	private User user;
-	private String phoneNumber;
-	private Catalog catalog;
+	private String sessionId;
+	private Transaction transaction;
 	
 	public TC_Create_Order(String sessionId, String phoneNumber, String catalogId) {
-		user.setSessionId(sessionId);
-		this.phoneNumber = phoneNumber;
-		catalog.setId(catalogId);
+		this.sessionId = sessionId;
+		transaction.setPaymentMethod(phoneNumber);
+		transaction.getCatalog().setId(catalogId);
 	}
 	
 	@BeforeClass
@@ -46,13 +50,15 @@ public class TC_Create_Order extends TestBase {
 	
 	@BeforeMethod
 	public void berforeMethod() {
-		getCatalog(user, phoneNumber);
+		getCatalog(user.getSessionId(), transaction.getPhoneNumber());
 		checkStatusCode("200");
 	}
 	
 	@Test
 	public void testCreateOrder() {
-		createOrder(user, phoneNumber, catalog);
+		if (sessionId.contentEquals("true"))
+			sessionId = user.getSessionId();		
+		createOrder(sessionId, transaction.getPhoneNumber(), transaction.getCatalog().getId());
 		
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);
@@ -74,15 +80,67 @@ public class TC_Create_Order extends TestBase {
 					+ "please try again later if you actually intended to do that"
 					);
 		} else if (code.equals("201")) {
-			Assert.assertEquals(message, "created");
+			Assert.assertEquals(message, "created");			
+		}
+	}
+	
+	@Test(dependsOnMethods = {"testCreateOrder"})
+	public void checkData() {
+		String code = response.getBody().jsonPath().getString("code");
+		
+		if (code.equals("201")) {
+			try {
+				Connection conn = getConnectionOrder();
+				String query = "SELECT A.value, A.price, B.id, B.name, B.image "
+						+ "FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id "
+						+ "WHERE A.id = ? ";
+				
+				PreparedStatement ps = conn.prepareStatement(query);
+				ps.setLong(1, Long.parseLong(transaction.getCatalog().getId()));
+				
+				ResultSet rs = ps.executeQuery();
+				while(rs.next()) {
+					transaction.getCatalog().setValue(rs.getLong("value"));
+					transaction.getCatalog().setPrice(rs.getLong("price"));
+					transaction.getCatalog().getProvider().setId(rs.getString("id"));
+					transaction.getCatalog().getProvider().setName(rs.getString("name"));
+					transaction.getCatalog().getProvider().setImage(rs.getString("image"));
+				}
+				
+				conn.close();
+			} catch (SQLException e) {
+				
+			}
 			
 			JSONObject data = response.getBody().jsonPath().getJsonObject("data");
 			Assert.assertNotNull(data.get("id"));
-			Assert.assertEquals(data.get("phone"), phoneNumber);
-			Assert.assertEquals(data.get("catalog.id"), catalog.getId());
-			Assert.assertEquals(data.get("catalog.provider"), catalog.getProvider());
-			Assert.assertEquals(data.get("catalog.value"), catalog.getValue());
-			Assert.assertEquals(data.get("catalog.price"), catalog.getPrice());
+			Assert.assertEquals(data.get("phone"), transaction.getPhoneNumber());
+			Assert.assertEquals(data.get("catalog.id"), transaction.getCatalog().getId());
+			Assert.assertEquals(data.get("catalog.provider"), transaction.getCatalog().getProvider());
+			Assert.assertEquals(data.get("catalog.value"), transaction.getCatalog().getValue());
+			Assert.assertEquals(data.get("catalog.price"), transaction.getCatalog().getPrice());
+			
+			transaction.setId((String) data.get("id"));
+		}
+	}
+	
+	@Test(dependsOnMethods = {"checkData"})
+	public void checkDB() {
+		try {
+			Connection conn = getConnectionOrder();
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM transaction WHERE userId = ? ORDER BY createdAt DESC LIMIT 1");
+			ps.setLong(1, Long.parseLong(user.getId()));
+			
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Assert.assertEquals(rs.getString("id"), transaction.getId());
+				Assert.assertEquals(rs.getString("phoneNumber"), transaction.getPhoneNumber());
+				Assert.assertEquals(rs.getString("catalogId"), transaction.getCatalog().getId());
+			}
+			
+			conn.close();
+		} catch (SQLException e) {
+			
 		}
 	}
 
