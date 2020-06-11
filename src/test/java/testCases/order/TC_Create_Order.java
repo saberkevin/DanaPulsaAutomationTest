@@ -130,12 +130,12 @@ public class TC_Create_Order extends TestBase {
 	public void checkDB() {
 		try {
 			Connection conn = getConnectionOrder();
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM transaction WHERE userId = ? ORDER BY createdAt DESC LIMIT 1");
-			ps.setLong(1, Long.parseLong(user.getId()));
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM transaction WHERE id = ?");
+			ps.setLong(1, Long.parseLong(transaction.getId()));
 			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
-				Assert.assertEquals(rs.getString("id"), transaction.getId());
+				Assert.assertEquals(rs.getString("userId"), user.getId());
 				Assert.assertEquals(rs.getString("phoneNumber"), transaction.getPhoneNumber());
 				Assert.assertEquals(rs.getString("catalogId"), transaction.getCatalog().getId());
 			}

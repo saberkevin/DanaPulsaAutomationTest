@@ -101,9 +101,9 @@ public class TC_Voucher_Details extends TestBase {
 				Assert.assertEquals(rs.getString("id"), voucher.getId());
 				Assert.assertEquals(rs.getString("name"), voucher.getName());
 				Assert.assertEquals(rs.getString("discount"), voucher.getDiscount());
-				Assert.assertEquals(rs.getString("maxDeduction"), voucher.getMaximumDeduction());
+				Assert.assertEquals(rs.getString("maxDeduction"), voucher.getMaxDeduction());
 				Assert.assertEquals(rs.getString("filePath"), voucher.getFilePath());
-				Assert.assertEquals(rs.getString("expiryDate"), voucher.getExpiredDate());
+				Assert.assertEquals(rs.getString("expiryDate"), voucher.getExpiryDate());
 			}
 			
 			conn.close();

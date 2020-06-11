@@ -41,7 +41,6 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 			ps.setString(1, phoneNumber.substring(0,5));
 			
 			ResultSet rs = ps.executeQuery();
-			
 			if (rs.getString("name").equals(provider.getName()))
 				return true;
 			
@@ -126,8 +125,8 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				Assert.assertEquals(rs.getString("id"), ((Catalog) catalogs.get(rs.getRow())).getId());
-				Assert.assertEquals(rs.getString("value"), ((Catalog) catalogs.get(rs.getRow())).getValue());
-				Assert.assertEquals(rs.getString("price"), ((Catalog) catalogs.get(rs.getRow())).getPrice());
+				Assert.assertEquals(rs.getLong("value"), ((Catalog) catalogs.get(rs.getRow())).getValue());
+				Assert.assertEquals(rs.getLong("price"), ((Catalog) catalogs.get(rs.getRow())).getPrice());
 			}
 			
 			conn.close();

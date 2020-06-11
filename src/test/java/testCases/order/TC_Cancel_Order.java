@@ -63,7 +63,6 @@ public class TC_Cancel_Order extends TestBase {
 	public void testCancelOrder() {
 		if (sessionId.contentEquals("true"))
 			sessionId = user.getSessionId();
-		
 		cancelOrder(sessionId, transaction.getId());
 		
 		String code = response.getBody().jsonPath().getString("code");
@@ -114,7 +113,7 @@ public class TC_Cancel_Order extends TestBase {
 					transaction.getVoucher().setId(rs.getString("voucherId"));
 					transaction.getVoucher().setName(rs.getString("voucherName"));
 					transaction.getVoucher().setDiscount(rs.getLong("discount"));
-					transaction.getVoucher().setMaximumDeduction(rs.getLong("maxDeduction"));
+					transaction.getVoucher().setMaxDeduction(rs.getLong("maxDeduction"));
 					transaction.setPaymentMethod(rs.getString("paymentMethod"));
 					transaction.setStatus("CANCELED");
 					transaction.setCreatedAt(rs.getDate("createdAt"));
@@ -136,7 +135,7 @@ public class TC_Cancel_Order extends TestBase {
 			Assert.assertEquals(data.get("voucher.id"), transaction.getVoucher().getId());
 			Assert.assertEquals(data.get("voucher.name"), transaction.getVoucher().getName());
 			Assert.assertEquals(data.get("voucher.discount"), transaction.getVoucher().getDiscount());
-			Assert.assertEquals(data.get("voucher.maxDeduction"), transaction.getVoucher().getMaximumDeduction());
+			Assert.assertEquals(data.get("voucher.maxDeduction"), transaction.getVoucher().getMaxDeduction());
 			Assert.assertEquals(data.get("method"), transaction.getPaymentMethod());
 			Assert.assertEquals(data.get("status"), transaction.getStatus());
 			Assert.assertEquals(data.get("createdAt"), transaction.getCreatedAt());
