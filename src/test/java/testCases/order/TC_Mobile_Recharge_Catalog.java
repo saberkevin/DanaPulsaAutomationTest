@@ -19,14 +19,13 @@ import model.Provider;
 import model.User;
 
 public class TC_Mobile_Recharge_Catalog extends TestBase {
-	private User user;
+	private User user = new User();
 	private String sessionId;
 	private String phoneNumber;
 	private Provider provider;
 	private JSONArray catalogs;
 	
 	public TC_Mobile_Recharge_Catalog(String sessionId, String phoneNumber) {
-		user = new User();
 		this.sessionId = sessionId;
 		this.phoneNumber = phoneNumber;
 	}

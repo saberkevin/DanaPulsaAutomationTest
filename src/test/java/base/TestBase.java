@@ -51,12 +51,8 @@ public class TestBase {
 	
 	public RequestSpecification httpRequest;
 	public Response response;
-	
-	public String URI = "https://be-emoney.herokuapp.com/api";
-	public String tokenBypass = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkd2lnaHRAZHVuZGVybWlmZmxpbi5jbyIsImV4cCI6MTYyMDk4ODA0NiwiaWF0IjoxNTg5NDUyMDQ2fQ.brk2Tk9Yv8SwKSAH_UusX06ZL3AtonGlWbB7uT0i6GsDRmV_1DCaHv2LOjfuU8xNf5Y8t8Um-WDTNiXwhu4qAg";
-	
+	public String URI = "https://be-emoney.herokuapp.com/api";	
 	public Logger logger;
-	public Connection con;
 	
 	@BeforeClass
 	public void setup()
@@ -64,13 +60,6 @@ public class TestBase {
 		logger = Logger.getLogger("restAPI");;
 		PropertyConfigurator.configure("../DanaPulsaAutomationTest/src/Log4j.properties");
 		logger.setLevel(Level.DEBUG);
-		
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	
 	public String[][] getExcelData(String filePath, String sheetName) throws IOException
@@ -516,7 +505,6 @@ public class TestBase {
 			conn = DriverManager.getConnection(dbUrl, username, password);
 			conn.setAutoCommit(true);			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();			
 		}
 
@@ -534,7 +522,6 @@ public class TestBase {
 			conn = DriverManager.getConnection(dbUrl, username, password);
 			conn.setAutoCommit(true);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();			
 		}
 
@@ -552,12 +539,13 @@ public class TestBase {
 			conn = DriverManager.getConnection(dbUrl, username, password);
 			conn.setAutoCommit(true);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();			
 		}
 
 		return conn;
 	}
+	
+	//============ Some Command to DB ==============================//
 	
 	public void createUser(User user) {
 		try {
@@ -613,12 +601,15 @@ public class TestBase {
 		
 		try {
 			Connection conn = getConnectionMember();
+			String query = "SELECT id FROM user WHERE username = ?";
 
-			PreparedStatement ps = conn.prepareStatement("SELECT id FROM user WHERE username = ?");
+			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setString(1, username);
 			
 			ResultSet rs = ps.executeQuery();
-			id = rs.getLong("id");
+			while(rs.next()) {
+				id = rs.getLong("id");
+			}
 
 			conn.close();
 		} catch (SQLException e) {

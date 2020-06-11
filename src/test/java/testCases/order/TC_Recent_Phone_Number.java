@@ -20,14 +20,13 @@ import model.Provider;
 import model.User;
 
 public class TC_Recent_Phone_Number extends TestBase {
-	private User user;
+	private User user = new User();
 	private String sessionId;
 	private Provider[] providers;
 	private String[] phoneNumbers;
 	private String[] dateString;
 	
 	public TC_Recent_Phone_Number(String sessionId) {
-		user = new User();
 		this.sessionId = sessionId;
 	}
 	
