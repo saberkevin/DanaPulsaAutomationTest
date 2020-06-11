@@ -15,6 +15,6 @@ public class Factory_History_Completed extends TestBase{
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/testCases/history/historyCompletedTestData.xlsx");
+		return getExcelData("../DanaPulsaAutomationTest/src/test/java/testCases/history/historyTestData.xlsx", "Completed");
 	}
 }
