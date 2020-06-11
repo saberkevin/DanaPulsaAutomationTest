@@ -69,12 +69,12 @@ public class TestBase {
 		} 		
 	}
 	
-	public String[][] getExcelData(String filePath) throws IOException
+	public String[][] getExcelData(String filePath, String sheetName) throws IOException
 	{
 		String path = filePath;
 		
-		int rowCount = ExcelUtil.getRowCount(path, "Sheet1");
-		int colCount = ExcelUtil.getCellCount(path, "Sheet1",1);
+		int rowCount = ExcelUtil.getRowCount(path, sheetName);
+		int colCount = ExcelUtil.getCellCount(path, sheetName,1);
 		
 		String data[][] = new String[rowCount][colCount];
 		
@@ -82,10 +82,9 @@ public class TestBase {
 		{
 			for(int j=0; j<colCount; j++)
 			{
-				data[i-1][j] = ExcelUtil.getCellData(path, "Sheet1", i, j);
+				data[i-1][j] = ExcelUtil.getCellData(path, sheetName, i, j);
 			}
 		}
-		
 		return data;
 	}
 	
