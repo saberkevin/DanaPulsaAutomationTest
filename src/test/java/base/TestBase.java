@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -617,5 +618,23 @@ public class TestBase {
 		}
 		
 		return id;
+	}
+	
+	public void createVoucherForUser(long userId, long voucherId, long voucherStatusId) {
+		try {
+			Connection conn = getConnectionPromotion();
+			String query = "INSERT INTO user_voucher(userId, voucherId, voucherStatusId, createdAt) VALUES(?, ?, ?, ?)";
+
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setLong(1, userId);
+			ps.setLong(2, voucherId);
+			ps.setLong(3, voucherStatusId);
+			ps.setDate(4, (java.sql.Date) new Date());
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
 	}
 }
