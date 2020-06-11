@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Iterator;
-import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.testng.Assert;
@@ -18,13 +17,12 @@ import model.User;
 import model.Voucher;
 
 public class TC_My_Vouchers extends TestBase {
-	private User user;
+	private User user = new User();
 	private String sessionId;
 	private String page;
 	private JSONArray vouchers;
 	
 	public TC_My_Vouchers(String sessionId, String page) {
-		user = new User();
 		this.sessionId = sessionId;
 		this.page = page;
 	}
@@ -33,19 +31,15 @@ public class TC_My_Vouchers extends TestBase {
 	public void beforeClass() {
 		user.setName("Zanuar");
 		user.setEmail("triromadon@gmail.com");
-		user.setPhoneNumber("081252930398");
-		user.setPin("123456");
-
-		register(user.getName(), user.getEmail(), user.getPhoneNumber(), user.getPin());
-		checkStatusCode("200");
-
-		login(user.getPhoneNumber());
-		checkStatusCode("200");
-		Map<String, String> data = response.getBody().jsonPath().getMap("data");
-		user.setId(data.get("id"));
+		user.setUsername("081252930398");
+		user.setPin(123456);
 		
-		verifyPinLogin(user.getId(), user.getPin());
-		checkStatusCode("200");	
+		deleteUserIfExist(user.getEmail(), user.getUsername());
+		createUser(user);
+		user.setId(getUserIdByUsername(user.getUsername()));
+		
+		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
+		checkStatusCode("200");
 		user.setSessionId(response.getHeader("Cookie"));
 	}
 
@@ -98,7 +92,7 @@ public class TC_My_Vouchers extends TestBase {
 					+ "WHERE userId = ?";
 			
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setLong(1, Long.parseLong(user.getId()));
+			ps.setLong(1, user.getId());
 			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {

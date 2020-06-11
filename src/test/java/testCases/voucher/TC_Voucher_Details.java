@@ -4,14 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.TestBase;
@@ -19,41 +16,29 @@ import model.User;
 import model.Voucher;
 
 public class TC_Voucher_Details extends TestBase {
-	private User user;
+	private User user = new User();
 	private String sessionId;
-	private Voucher voucher;
+	private Voucher voucher = new Voucher();
 	
 	public TC_Voucher_Details(String sessionId, String voucherId) {
-		user = new User();
-		voucher = new Voucher();
 		this.sessionId = sessionId;
-		voucher.setId(voucherId);
+		voucher.setId(Long.parseLong(voucherId));
 	}
 	
 	@BeforeClass
 	public void beforeClass() {
 		user.setName("Zanuar");
 		user.setEmail("triromadon@gmail.com");
-		user.setPhoneNumber("081252930398");
-		user.setPin("123456");
-
-		register(user.getName(), user.getEmail(), user.getPhoneNumber(), user.getPin());
-		checkStatusCode("200");
-
-		login(user.getPhoneNumber());
-		checkStatusCode("200");
-		Map<String, String> data = response.getBody().jsonPath().getMap("data");
-		user.setId(data.get("id"));
+		user.setUsername("081252930398");
+		user.setPin(123456);
 		
-		verifyPinLogin(user.getId(), user.getPin());
+		deleteUserIfExist(user.getEmail(), user.getUsername());
+		createUser(user);
+		user.setId(getUserIdByUsername(user.getUsername()));
+		
+		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
 		checkStatusCode("200");
 		user.setSessionId(response.getHeader("Cookie"));
-	}
-	
-	@BeforeMethod
-	public void berforeMethod() {
-		getPromotionVoucher(user.getSessionId(), "1");
-		checkStatusCode("200");
 	}
 	
 	@Test
@@ -95,7 +80,7 @@ public class TC_Voucher_Details extends TestBase {
 		try {
 			Connection conn = getConnectionPromotion();
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM voucher WHERE id = ?");
-			ps.setLong(1, Long.parseLong(voucher.getId()));
+			ps.setLong(1, voucher.getId());
 			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
@@ -111,11 +96,6 @@ public class TC_Voucher_Details extends TestBase {
 		} catch (SQLException e) {
 			
 		}
-	}
-
-	@AfterMethod
-	public void afterMethod() {
-		
 	}
 	
 	@AfterClass

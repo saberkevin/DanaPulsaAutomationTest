@@ -3,6 +3,9 @@ package base;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -17,6 +20,7 @@ import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import model.User;
 import utilities.ExcelUtil;
 
 @SuppressWarnings("unchecked")
@@ -389,7 +393,7 @@ public class TestBase {
 		response = httpRequest.request(Method.GET, CATALOG_PATH);
 	}
 	
-	public void createOrder(String sessionId, String phoneNumber, String catalogId) {
+	public void createOrder(String sessionId, String phoneNumber, long catalogId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("session id:" + sessionId);
@@ -409,7 +413,7 @@ public class TestBase {
 		response = httpRequest.request(Method.POST, ORDER_PATH);
 	}
 	
-	public void cancelOrder(String sessionId, String transactionId) {
+	public void cancelOrder(String sessionId, long transactionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("session id:" + sessionId);
@@ -422,7 +426,7 @@ public class TestBase {
 		response = httpRequest.request(Method.DELETE, CANCEL_ORDER_PATH + transactionId);
 	}
 	
-	public void payOrder(String sessionId, String transactionId, String paymentMethodId, String voucherId) {
+	public void payOrder(String sessionId, long transactionId, long paymentMethodId, long voucherId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("session id:" + sessionId);
@@ -469,7 +473,7 @@ public class TestBase {
 		response = httpRequest.request(Method.GET, PROMOTION_VOUCHER_PATH + page);
 	}
 	
-	public void getRecommendationVoucher(String sessionId, String transactionId) {
+	public void getRecommendationVoucher(String sessionId, long transactionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("session id:" + sessionId);
@@ -486,7 +490,7 @@ public class TestBase {
 		response = httpRequest.request(Method.GET, RECOMMENDATION_VOUCHER_PATH);
 	}
 	
-	public void getVoucherDetails(String sessionId, String voucherId) {
+	public void getVoucherDetails(String sessionId, long voucherId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("session id:" + sessionId);
@@ -496,7 +500,7 @@ public class TestBase {
 		httpRequest = RestAssured.given();		
 		httpRequest.header("Cookie", "SESSION=" + sessionId);
 
-		response = httpRequest.request(Method.GET, VOUCHER_DETAILS_PATH + voucherId + "/detail");
+		response = httpRequest.request(Method.GET, VOUCHER_DETAILS_PATH + Long.toString(voucherId) + "/detail");
 	}
 	
 	//============ DB Connection ==============================//
@@ -553,5 +557,74 @@ public class TestBase {
 		}
 
 		return conn;
+	}
+	
+	public void createUser(User user) {
+		try {
+			Connection conn = getConnectionMember();
+			String query = "INSERT INTO user(name, email, username, pin) VALUES(?, ?, ?, ?)";
+
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, user.getName());
+			ps.setString(2, user.getEmail());
+			ps.setString(3, user.getUsername());
+			ps.setLong(4, user.getPin());
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void deleteUserById(long id) {
+		try {
+			Connection conn = getConnectionMember();
+			String query = "DELETE FROM user WHERE id = ?";
+
+			PreparedStatement ps = conn.prepareStatement(query);			
+			ps.setLong(1, id);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void deleteUserIfExist(String email, String username) {
+		try {
+			Connection conn = getConnectionMember();
+			String query = "DELETE FROM user WHERE EXISTS (SELECT id FROM user WHERE email = ? OR username = ?)";
+
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, email);
+			ps.setString(2,username);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public long getUserIdByUsername(String username) {
+		long id = 0;
+		
+		try {
+			Connection conn = getConnectionMember();
+
+			PreparedStatement ps = conn.prepareStatement("SELECT id FROM user WHERE username = ?");
+			ps.setString(1, username);
+			
+			ResultSet rs = ps.executeQuery();
+			id = rs.getLong("id");
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return id;
 	}
 }

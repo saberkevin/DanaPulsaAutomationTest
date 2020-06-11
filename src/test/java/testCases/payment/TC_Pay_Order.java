@@ -6,59 +6,49 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
 
-import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import model.Catalog;
+import model.Provider;
 import model.Transaction;
 import model.User;
+import model.Voucher;
 
 public class TC_Pay_Order extends TestBase {
-	private User user;
+	private User user = new User();
 	private String sessionId;
-	private Transaction transaction;
-	private String paymentMethodId;
+	private Transaction transaction = new Transaction();
+	private Catalog catalog = new Catalog();
+	private Provider provider = new Provider();
+	private Voucher voucher = new Voucher();
 
 	public TC_Pay_Order(String sessionId, String transactionId, String paymentMethodId, String voucherId) {
-		user = new User();
-		transaction = new Transaction();
 		this.sessionId = sessionId;
-		transaction.setId(transactionId);
-		this.paymentMethodId = paymentMethodId;
-		transaction.getVoucher().setId(voucherId);
+		transaction.setId(Long.parseLong(transactionId));
+		transaction.setMethodId(Long.parseLong(paymentMethodId));
+		transaction.setVoucherId(Long.parseLong(voucherId));
 	}
 	
 	@BeforeClass
 	public void beforeClass() {
 		user.setName("Zanuar");
 		user.setEmail("triromadon@gmail.com");
-		user.setPhoneNumber("081252930398");
-		user.setPin("123456");
+		user.setUsername("081252930398");
+		user.setPin(123456);
 
-		register(user.getName(), user.getEmail(), user.getPhoneNumber(), user.getPin());
-		checkStatusCode("200");
-
-		login(user.getPhoneNumber());
-		checkStatusCode("200");
-		Map<String, String> data = response.getBody().jsonPath().getMap("data");
-		user.setId(data.get("id"));
+		deleteUserIfExist(user.getEmail(), user.getUsername());
+		createUser(user);
+		user.setId(getUserIdByUsername(user.getUsername()));
 		
-		verifyPinLogin(user.getId(), user.getPin());
-		checkStatusCode("200");
-		user.setSessionId(response.getHeader("Cookie"));
-	}
-	
-	@BeforeMethod
-	public void berforeMethod() {
-		getCatalog(user.getSessionId(), user.getPhoneNumber());
+		getCatalog(user.getSessionId(), user.getUsername());
 		checkStatusCode("200");
 		
-		createOrder(user.getSessionId(), user.getPhoneNumber(), transaction.getCatalog().getId());
+		createOrder(user.getSessionId(), user.getUsername(), transaction.getCatalogId());
 		checkStatusCode("201");
 	}
 	
@@ -66,7 +56,7 @@ public class TC_Pay_Order extends TestBase {
 	public void testPayOrder() {
 		if (sessionId.contentEquals("true"))
 			sessionId = user.getSessionId();
-		payOrder(sessionId, transaction.getId(), paymentMethodId, transaction.getVoucher().getId());
+		payOrder(sessionId, transaction.getId(), transaction.getMethodId(), transaction.getVoucherId());
 		
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);
@@ -98,28 +88,25 @@ public class TC_Pay_Order extends TestBase {
 				Connection conn = getConnectionOrder();
 				String query = "SELECT A.userId, A.phoneNumber, a.voucherId, A.createdAt, A.updatedAt, "
 						+ "B.id [catalogId], B.value, B.price, "
-						+ "C.id [providerId], C.name [providerName], C.image, "
-						+ "D.name [paymentMethod] "
+						+ "C.id [providerId], C.name [providerName], C.image "
 						+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
 						+ "LEFT JOIN provider C on B.providerId = C.id "
-						+ "LEFT JOIN paymentMethod D on A.methodId = D.id "
 						+ "WHERE A.id = ?";
 				
 				PreparedStatement ps = conn.prepareStatement(query);
-				ps.setLong(1, Long.parseLong(transaction.getId()));
+				ps.setLong(1, transaction.getId());
 				
 				ResultSet rs = ps.executeQuery();
 				while(rs.next()) {
-					transaction.setUserId(rs.getString("userId"));
+					transaction.setUserId(rs.getLong("userId"));
 					transaction.setPhoneNumber(rs.getString("phoneNumber"));
-					transaction.getCatalog().setId(rs.getString("catalogId"));
-					transaction.getCatalog().getProvider().setId(rs.getString("providerId"));
-					transaction.getCatalog().getProvider().setName(rs.getString("providerName"));
-					transaction.getCatalog().getProvider().setImage(rs.getString("image"));
-					transaction.getCatalog().setValue(rs.getLong("value"));
-					transaction.getCatalog().setPrice(rs.getLong("price"));
-					transaction.getVoucher().setId(rs.getString("voucherId"));
-					transaction.setPaymentMethod(rs.getString("paymentMethod"));
+					catalog.setId(rs.getLong("catalogId"));
+					provider.setId(rs.getLong("providerId"));
+					provider.setName(rs.getString("providerName"));
+					provider.setImage(rs.getString("image"));
+					catalog.setValue(rs.getLong("value"));
+					catalog.setPrice(rs.getLong("price"));
+					voucher.setId(rs.getLong("voucherId"));
 					transaction.setStatus("WAITING");
 					transaction.setCreatedAt(rs.getDate("createdAt"));
 					transaction.setUpdatedAt(rs.getDate("updatedAt"));
@@ -133,32 +120,35 @@ public class TC_Pay_Order extends TestBase {
 			try {
 				Connection conn = getConnectionPromotion();
 				PreparedStatement ps = conn.prepareStatement("SELECT * FROM voucher WHERE A.id = ?");
-				ps.setLong(1, Long.parseLong(transaction.getVoucher().getId()));
+				ps.setLong(1, transaction.getVoucherId());
 				
 				ResultSet rs = ps.executeQuery();
 				while(rs.next()) {
-					transaction.getVoucher().setName(rs.getString("name"));
-					transaction.getVoucher().setDiscount(rs.getLong("discount"));
-					transaction.getVoucher().setMaxDeduction(rs.getLong("maxDeduction"));
+					voucher.setName(rs.getString("name"));
+					voucher.setDiscount(rs.getLong("discount"));
+					voucher.setMaxDeduction(rs.getLong("maxDeduction"));
 				}
 				
 				conn.close();
 			} catch (SQLException e) {
 				
 			}
+						
+			Map<String, String> data = response.getBody().jsonPath().getMap("data");
 			
-			JSONObject data = response.getBody().jsonPath().getJsonObject("data");
 			Assert.assertEquals(data.get("id"), transaction.getId());
-			Assert.assertEquals(data.get("phone"), user.getPhoneNumber());
-			Assert.assertEquals(data.get("catalog.id"), transaction.getCatalog().getId());
-			Assert.assertEquals(data.get("catalog.provider"), transaction.getCatalog().getProvider());
-			Assert.assertEquals(data.get("catalog.value"), transaction.getCatalog().getValue());
-			Assert.assertEquals(data.get("catalog.price"), transaction.getCatalog().getPrice());
-			Assert.assertEquals(data.get("voucher.id"), transaction.getVoucher().getId());
-			Assert.assertEquals(data.get("voucher.name"), transaction.getVoucher().getName());
-			Assert.assertEquals(data.get("voucher.deduction"), transaction.getVoucher().getDiscount());
-			Assert.assertEquals(data.get("voucher.maxDeduction"), transaction.getVoucher().getMaxDeduction());
-			Assert.assertEquals(data.get("method"), transaction.getPaymentMethod());
+			Assert.assertEquals(data.get("phone"), transaction.getPhoneNumber());
+			Assert.assertEquals(data.get("catalog.id"), catalog.getId());
+			Assert.assertEquals(data.get("catalog.provider.id"), provider.getId());
+			Assert.assertEquals(data.get("catalog.provider.name"), provider.getName());
+			Assert.assertEquals(data.get("catalog.provider.image"), provider.getImage());
+			Assert.assertEquals(data.get("catalog.value"), catalog.getValue());
+			Assert.assertEquals(data.get("catalog.price"), catalog.getPrice());
+			Assert.assertEquals(data.get("voucher.id"), voucher.getId());
+			Assert.assertEquals(data.get("voucher.name"), voucher.getName());
+			Assert.assertEquals(data.get("voucher.discount"), voucher.getDiscount());
+			Assert.assertEquals(data.get("voucher.maxDeduction"), voucher.getMaxDeduction());
+			Assert.assertEquals(data.get("method"), "E-Wallet");
 			Assert.assertEquals(data.get("status"), transaction.getStatus());
 			Assert.assertEquals(data.get("createdAt"), transaction.getCreatedAt());
 			Assert.assertEquals(data.get("updatedAt"), transaction.getUpdatedAt());
@@ -170,13 +160,13 @@ public class TC_Pay_Order extends TestBase {
 		try {
 			Connection conn = getConnectionOrder();
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM transaction WHERE id = ?");
-			ps.setLong(1, Long.parseLong(transaction.getId()));
+			ps.setLong(1, transaction.getId());
 			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				Assert.assertEquals(rs.getString("userId"), user.getId());
 				Assert.assertEquals(rs.getString("phoneNumber"), transaction.getPhoneNumber());
-				Assert.assertEquals(rs.getString("catalogId"), transaction.getCatalog().getId());
+				Assert.assertEquals(rs.getString("catalogId"), transaction.getCatalogId());
 			}
 			
 			conn.close();

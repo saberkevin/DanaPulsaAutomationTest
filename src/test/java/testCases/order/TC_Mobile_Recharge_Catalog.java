@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Iterator;
-import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -55,18 +54,14 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	public void beforeClass() {
 		user.setName("Zanuar");
 		user.setEmail("triromadon@gmail.com");
-		user.setPhoneNumber("081252930398");
-		user.setPin("123456");
+		user.setUsername("081252930398");
+		user.setPin(123456);
+		
+		deleteUserIfExist(user.getEmail(), user.getUsername());
+		createUser(user);
+		user.setId(getUserIdByUsername(user.getUsername()));
 
-		register(user.getName(), user.getEmail(), user.getPhoneNumber(), user.getPin());
-		checkStatusCode("200");
-		
-		login(user.getPhoneNumber());
-		checkStatusCode("200");
-		Map<String, String> data = response.getBody().jsonPath().getMap("data");
-		user.setId(data.get("id"));
-		
-		verifyPinLogin(user.getId(), user.getPin());
+		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
 		checkStatusCode("200");
 		user.setSessionId(response.getHeader("Cookie"));
 	}
@@ -121,7 +116,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 			String query = "SELECT * FROM pulsa_catalog WHERE providerId = ? ORDER BY value DESC";
 
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setLong(1, Long.parseLong(provider.getId()));
+			ps.setLong(1, provider.getId());
 			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {

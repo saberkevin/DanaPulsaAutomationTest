@@ -3,85 +3,82 @@ package model;
 import java.util.Date;
 
 public class Transaction {
-	private String id;
-	private String userId;
+	private long id;
+	private long userId;
+	private long methodId;
 	private String phoneNumber;
-	private Catalog catalog;
-	private Voucher voucher;
-	private String paymentMethod;
-	private String status;
+	private long catalogId;
+	private long voucherId;
+	private long statusId;
 	private Date createdAt;
 	private Date updatedAt;
+	private String status;
+	private String paymentMethodName;
 
-	public String getId() {
+	public long getId() {
 		return id;
 	}
-
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
-	
-	public String getUserId() {
+	public long getUserId() {
 		return userId;
 	}
-
-	public void setUserId(String userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
-
+	public long getMethodId() {
+		return methodId;
+	}
+	public void setMethodId(long methodId) {
+		this.methodId = methodId;
+	}
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-
-	public Catalog getCatalog() {
-		return catalog;
+	public long getCatalogId() {
+		return catalogId;
 	}
-
-	public void setCatalog(Catalog catalog) {
-		this.catalog = catalog;
+	public void setCatalogId(long catalogId) {
+		this.catalogId = catalogId;
 	}
-
-	public Voucher getVoucher() {
-		return voucher;
+	public long getVoucherId() {
+		return voucherId;
 	}
-
-	public void setVoucher(Voucher voucher) {
-		this.voucher = voucher;
+	public void setVoucherId(long voucherId) {
+		this.voucherId = voucherId;
 	}
-
-	public String getPaymentMethod() {
-		return paymentMethod;
+	public long getStatusId() {
+		return statusId;
 	}
-
-	public void setPaymentMethod(String paymentMethod) {
-		this.paymentMethod = paymentMethod;
+	public void setStatusId(long statusId) {
+		this.statusId = statusId;
 	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
 	public Date getCreatedAt() {
 		return createdAt;
 	}
-
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
-
 	public Date getUpdatedAt() {
 		return updatedAt;
 	}
-
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getPaymentMethodName() {
+		return paymentMethodName;
+	}
+	public void setPaymentMethodName(String paymentMethodName) {
+		this.paymentMethodName = paymentMethodName;
 	}
 }
