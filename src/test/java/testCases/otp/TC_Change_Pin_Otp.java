@@ -1,5 +1,9 @@
 package testCases.otp;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.testng.annotations.Parameters;
@@ -22,13 +26,39 @@ public class TC_Change_Pin_Otp extends TestBase{
 		int code = response.getStatusCode();
 		JsonPath jsonPath = response.jsonPath();
 		String message =  jsonPath.get("message");
+		String codeOtp = jsonPath.get("data.code");
 		
 		if(code == 200)
 		{
 			Assert.assertEquals("success", message);
-			Assert.assertNotEquals("", jsonPath.get("data.id"));
-			Assert.assertNotEquals("", jsonPath.get("data.userId"));
-			Assert.assertNotEquals("", jsonPath.get("data.code"));
+			Assert.assertNotNull(Long.parseLong(jsonPath.get("data.id")));
+			Assert.assertNotNull(Long.parseLong(jsonPath.get("data.userId")));
+			Assert.assertNotEquals("", codeOtp);
+			checkCodeValid(codeOtp);
+			
+			String query = "SELECT userId, code FROM otp\n" + 
+					"WHERE userId = ?";
+			try {
+				PreparedStatement psGetOtp= getConnectionMember().prepareStatement(query);
+				psGetOtp.setLong(1, Long.parseLong(jsonPath.get("data.userId")));
+				
+				ResultSet result = psGetOtp.executeQuery();
+				
+				while(result.next())
+				{
+					Assert.assertEquals(Long.parseLong(jsonPath.get("data.userId")), result.getLong("userId"));
+					Assert.assertEquals(codeOtp, result.getString("code"));
+				}
+				
+				getConnectionMember().close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			GetOtp(jsonPath.get("data.userId"));
+			Assert.assertEquals(codeOtp, response.jsonPath().get("data.code"));
+			
 		}
 	}
 	
