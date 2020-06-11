@@ -1,6 +1,5 @@
 package testCases.history;
 
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,18 +39,16 @@ public class TC_History_Details extends TestBase{
 		
 		if(code == 200)
 		{		
-			String dbUrl = "jdbc:mysql://remotemysql.com:3306/Cwyx6vUQDe";					
-			String username = "Cwyx6vUQDe";	
-			String password = "J8hC6uAYxS";
 			String query = "SELECT a.id, b.name AS method, a.phoneNumber, a.catalogId, c.value, c.price, c.providerId, \n" + 
-					"d.name AS provider, d.image, a.voucherId, e.name AS voucher, e.deduction, e.maxDeduction, \n" + 
+					"d.name AS provider, d.image, a.voucherId, \n" + 
 					"f.name AS status, a.createdAt, a.updatedAt FROM transaction a\n" + 
 					"JOIN payment_method b ON a.methodId = b.typeId\n" + 
 					"JOIN pulsa_catalog c ON a.catalogId = c.id\n" + 
 					"JOIN provider d ON c.providerId = d.id\n" + 
-					"JOIN voucher e ON a.voucherId = e.id\n" + 
 					"JOIN transaction_status f ON a.statusId = f.id\n" + 
 					"WHERE a.userId = ? AND a.id = ?";
+			
+			String query2 = "SELECT name AS voucher, deduction, maxDeduction FROM voucher WHERE id = ? ";
 			
 			Assert.assertEquals("success", message);
 			
@@ -60,8 +57,6 @@ public class TC_History_Details extends TestBase{
 				List<Map<String, String>> data = jsonPath.getList("data");
 				
 				try {
-					con = DriverManager.getConnection(dbUrl,username,password);
-					con.setAutoCommit(true);
 					
 					for (int i = 0; i < data.size(); i++) {  
 						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.id")));
@@ -87,7 +82,7 @@ public class TC_History_Details extends TestBase{
 						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.deduction")));
 						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.maxDeduction")));
 						
-						PreparedStatement psGetHistoryDetails = con.prepareStatement(query);
+						PreparedStatement psGetHistoryDetails = getConnectionOrder().prepareStatement(query);
 						psGetHistoryDetails.setLong(1, Long.parseLong(user.getId()));
 						psGetHistoryDetails.setLong(2, Long.parseLong(data.get(i).get("id")));
 						ResultSet result = psGetHistoryDetails.executeQuery();
@@ -104,16 +99,25 @@ public class TC_History_Details extends TestBase{
 							Assert.assertEquals(result.getString("provider"), data.get(i).get("provider.name"));
 							Assert.assertEquals(result.getString("image"), data.get(i).get("provider.image"));
 							Assert.assertEquals(result.getLong("voucherId"), data.get(i).get("voucher.id"));
-							Assert.assertEquals(result.getString("voucher"), data.get(i).get("voucher.name"));
-							Assert.assertEquals(result.getLong("deduction"), data.get(i).get("voucher.deduction"));
-							Assert.assertEquals(result.getLong("maxDeduction"), data.get(i).get("voucher.maxDeduction"));
 							Assert.assertEquals(result.getString("status"), data.get(i).get("status"));
 							Assert.assertEquals(result.getDate("createdAt"), data.get(i).get("createdAt"));
 							Assert.assertEquals(result.getDate("updatedAt"), data.get(i).get("updatedAt"));
+							
+							PreparedStatement psGetVoucherName = getConnectionPromotion().prepareStatement(query2);
+							psGetVoucherName.setLong(1, result.getLong("voucherId"));
+							ResultSet resultVoucher = psGetVoucherName.executeQuery();
+							
+							while(resultVoucher.next())
+							{
+								Assert.assertEquals(resultVoucher.getString("voucher"), data.get(i).get("voucher.name"));
+								Assert.assertEquals(resultVoucher.getLong("deduction"), data.get(i).get("voucher.deduction"));
+								Assert.assertEquals(resultVoucher.getLong("maxDeduction"), data.get(i).get("voucher.maxDeduction"));
+							}
+							getConnectionPromotion().close();
 						}
 						
 					}
-					con.close();
+					getConnectionOrder().close();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

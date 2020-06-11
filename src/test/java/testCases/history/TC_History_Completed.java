@@ -85,10 +85,11 @@ public class TC_History_Completed extends TestBase{
 							{
 								Assert.assertEquals(result.getString("voucher"), data.get(i).get("voucher"));
 							}
+							getConnectionPromotion().close();
 						}
 						
 					}
-					con.close();
+					getConnectionOrder().close();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

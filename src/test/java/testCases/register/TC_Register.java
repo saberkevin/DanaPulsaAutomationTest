@@ -38,6 +38,7 @@ public class TC_Register extends TestBase{
 			psDeleteUser.setString(1, email);
 			psDeleteUser.setString(2, replacePhoneForAssertion(phone));
 			psDeleteUser.executeUpdate();
+			getConnectionMember().close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -80,6 +81,8 @@ public class TC_Register extends TestBase{
 					Assert.assertEquals(jsonPath.get("data.email"), result.getString("email"));
 					Assert.assertEquals(jsonPath.get("data.username"), result.getString("username"));
 				}
+				
+				getConnectionMember().close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
