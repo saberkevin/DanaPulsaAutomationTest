@@ -14,6 +14,6 @@ public class Factory_Recent_Phone_Number extends TestBase {	@Factory(dataProvide
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/testCases/login/loginTestData.xlsx");
+		return getExcelData("../DanaPulsaAutomationTest/src/test/java/testCases/order/OrderTestData.xlsx", "Recent Phone Number");
 	}
 }

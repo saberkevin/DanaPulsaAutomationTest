@@ -13,6 +13,6 @@ public class Factory_Promotion_Vouchers extends TestBase {
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/testCases/login/loginTestData.xlsx");
+		return getExcelData("../DanaPulsaAutomationTest/src/test/java/testCases/voucher/VouchersTestData.xlsx", "Promotion Vouchers");
 	}
 }

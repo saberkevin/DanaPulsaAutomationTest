@@ -528,7 +528,7 @@ public class TestBase {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbUrl, username, password);
-			conn.setAutoCommit(true);			
+			conn.setAutoCommit(true);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();			
@@ -546,7 +546,7 @@ public class TestBase {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbUrl, username, password);
-			conn.setAutoCommit(true);			
+			conn.setAutoCommit(true);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();			
