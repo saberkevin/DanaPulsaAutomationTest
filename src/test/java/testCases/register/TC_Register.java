@@ -1,5 +1,11 @@
 package testCases.register;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.testng.annotations.Parameters;
@@ -22,9 +28,37 @@ public class TC_Register extends TestBase{
 		this.pin=pin;
 	}
 
+	public Connection setupMemberDBConnection()
+	{
+		String dbUrl = "jdbc:mysql://remotemysql.com:3306/fNmIfiTyXD";					
+		String username = "fNmIfiTyXD";	
+		String password = "VcTDEMaZ6V";
+		try {
+			con = DriverManager.getConnection(dbUrl,username,password);
+			con.setAutoCommit(true);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return con;
+	}
 	@Test
 	void registerUser()
-	{
+	{	
+		String query = "DELETE FROM user\n" + 
+				"WHERE EXISTS (\n" + 
+				"SELECT id FROM user WHERE email = ? OR username = ?)";
+		
+		try {
+			PreparedStatement psDeleteUser = setupMemberDBConnection().prepareStatement(query);
+			psDeleteUser.setString(1, email);
+			psDeleteUser.setString(2, replacePhoneForAssertion(phone));
+			psDeleteUser.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		register(name,email,phone,pin);
 	}
 	
@@ -37,14 +71,35 @@ public class TC_Register extends TestBase{
 		
 		if(code == 200)
 		{
-			//id
+			Assert.assertNotNull(Long.parseLong(jsonPath.get("data.id")));
 			Assert.assertEquals(name, jsonPath.get("data.name"));
 			Assert.assertEquals(email, jsonPath.get("data.email"));
 			Assert.assertEquals(replacePhoneForAssertion(phone), jsonPath.get("data.username"));
-			Assert.assertEquals(pin, jsonPath.get("data.pin"));
 			checkEmailValid(jsonPath.get("data.email"));
 			checkResultPhoneValid(jsonPath.get("data.username"));
-			checkPinValid(jsonPath.get("data.pin"));
+			
+			String query = "SELECT id, name, email, username FROM user\n" + 
+					"WHERE id = ? AND name = ?  AND email = ? AND username = ?";
+			try {
+				PreparedStatement psGetUser = setupMemberDBConnection().prepareStatement(query);
+				psGetUser.setLong(1, jsonPath.get("data.id"));
+				psGetUser.setString(2, jsonPath.get("data.name"));
+				psGetUser.setString(3, jsonPath.get("data.email"));
+				psGetUser.setString(4, jsonPath.get("data.username"));
+				
+				ResultSet result = psGetUser.executeQuery();
+				
+				while(result.next())
+				{
+					Assert.assertEquals(Long.parseLong(jsonPath.get("data.id")), result.getLong("id"));
+					Assert.assertEquals(jsonPath.get("data.name"), result.getString("name"));
+					Assert.assertEquals(jsonPath.get("data.email"), result.getString("email"));
+					Assert.assertEquals(jsonPath.get("data.username"), result.getString("username"));
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else if(code == 400)
 		{
