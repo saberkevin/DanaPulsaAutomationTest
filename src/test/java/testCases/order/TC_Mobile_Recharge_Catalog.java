@@ -68,6 +68,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 		
 		verifyPinLogin(user.getId(), user.getPin());
 		checkStatusCode("200");
+		user.setSessionId(response.getHeader("Cookie"));
 	}
 	
 	@Test

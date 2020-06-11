@@ -47,6 +47,7 @@ public class TC_Voucher_Details extends TestBase {
 		
 		verifyPinLogin(user.getId(), user.getPin());
 		checkStatusCode("200");
+		user.setSessionId(response.getHeader("Cookie"));
 	}
 	
 	@BeforeMethod

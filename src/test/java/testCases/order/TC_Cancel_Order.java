@@ -47,7 +47,8 @@ public class TC_Cancel_Order extends TestBase {
 		user.setId(data.get("id"));
 		
 		verifyPinLogin(user.getId(), user.getPin());
-		checkStatusCode("200");		
+		checkStatusCode("200");
+		user.setSessionId(response.getHeader("Cookie"));
 	}
 	
 	@BeforeMethod

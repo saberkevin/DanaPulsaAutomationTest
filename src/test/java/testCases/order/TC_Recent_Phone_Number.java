@@ -74,6 +74,7 @@ public class TC_Recent_Phone_Number extends TestBase {
 		
 		verifyPinLogin(user.getId(), user.getPin());
 		checkStatusCode("200");
+		user.setSessionId(response.getHeader("Cookie"));
 	}
 		
 	@Test
