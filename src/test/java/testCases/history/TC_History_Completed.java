@@ -65,7 +65,7 @@ public class TC_History_Completed extends TestBase{
 						);
 						
 						PreparedStatement psGetHistoryCompleted = getConnectionOrder().prepareStatement(query);
-						psGetHistoryCompleted.setLong(1, Long.parseLong(user.getId()));
+						psGetHistoryCompleted.setLong(1, user.getId());
 						psGetHistoryCompleted.setLong(2, Long.parseLong(data.get(i).get("id")));
 						ResultSet result = psGetHistoryCompleted.executeQuery();
 						

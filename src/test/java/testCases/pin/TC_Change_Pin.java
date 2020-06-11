@@ -43,7 +43,7 @@ public class TC_Change_Pin extends TestBase{
 					"WHERE id = ? AND pin = ?";
 			try {
 				PreparedStatement psGetUserPin = getConnectionMember().prepareStatement(query);
-				psGetUserPin.setLong(1, Long.parseLong(user.getId()));
+				psGetUserPin.setLong(1, user.getId());
 				psGetUserPin.setLong(1, Long.parseLong(pin));
 				
 				ResultSet result = psGetUserPin.executeQuery();

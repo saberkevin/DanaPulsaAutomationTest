@@ -83,7 +83,7 @@ public class TC_History_Details extends TestBase{
 						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.maxDeduction")));
 						
 						PreparedStatement psGetHistoryDetails = getConnectionOrder().prepareStatement(query);
-						psGetHistoryDetails.setLong(1, Long.parseLong(user.getId()));
+						psGetHistoryDetails.setLong(1, user.getId());
 						psGetHistoryDetails.setLong(2, Long.parseLong(data.get(i).get("id")));
 						ResultSet result = psGetHistoryDetails.executeQuery();
 						

@@ -38,13 +38,13 @@ public class TC_Balance extends TestBase{
 					"WHERE userId = ?";
 			try {
 				PreparedStatement psGetBalance = getConnectionMember().prepareStatement(query);
-				psGetBalance.setLong(1, Long.parseLong(user.getId()));
+				psGetBalance.setLong(1, user.getId());
 				
 				ResultSet result = psGetBalance.executeQuery();
 				
 				while(result.next())
 				{
-					Assert.assertEquals(Long.parseLong(user.getId()), result.getLong("userId"));
+					Assert.assertEquals(user.getId(), result.getLong("userId"));
 					Assert.assertEquals(Long.parseLong(jsonPath.get("data.balance")), result.getLong("balance"));
 				}
 				

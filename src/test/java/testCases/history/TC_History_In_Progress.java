@@ -62,7 +62,7 @@ public class TC_History_In_Progress extends TestBase{
 						Assert.assertTrue(data.get(i).get("status").equals("WAITING") || data.get(i).get("status").equals("VERIFYING"));
 						
 						PreparedStatement psGetHistoryInProgress = getConnectionOrder().prepareStatement(query);
-						psGetHistoryInProgress.setLong(1, Long.parseLong(user.getId()));
+						psGetHistoryInProgress.setLong(1, user.getId());
 						psGetHistoryInProgress.setLong(2, Long.parseLong(data.get(i).get("id")));
 						ResultSet result = psGetHistoryInProgress.executeQuery();
 						
