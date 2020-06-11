@@ -24,6 +24,8 @@ public class TC_Voucher_Details extends TestBase {
 	private Voucher voucher;
 	
 	public TC_Voucher_Details(String sessionId, String voucherId) {
+		user = new User();
+		voucher = new Voucher();
 		this.sessionId = sessionId;
 		voucher.setId(voucherId);
 	}
@@ -45,6 +47,7 @@ public class TC_Voucher_Details extends TestBase {
 		
 		verifyPinLogin(user.getId(), user.getPin());
 		checkStatusCode("200");
+		user.setSessionId(response.getHeader("Cookie"));
 	}
 	
 	@BeforeMethod
@@ -90,7 +93,7 @@ public class TC_Voucher_Details extends TestBase {
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
 		try {
-			Connection conn = getConnectionOrder();
+			Connection conn = getConnectionPromotion();
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM voucher WHERE id = ?");
 			ps.setLong(1, Long.parseLong(voucher.getId()));
 			
@@ -99,9 +102,9 @@ public class TC_Voucher_Details extends TestBase {
 				Assert.assertEquals(rs.getString("id"), voucher.getId());
 				Assert.assertEquals(rs.getString("name"), voucher.getName());
 				Assert.assertEquals(rs.getString("discount"), voucher.getDiscount());
-				Assert.assertEquals(rs.getString("maxDeduction"), voucher.getMaximumDeduction());
+				Assert.assertEquals(rs.getString("maxDeduction"), voucher.getMaxDeduction());
 				Assert.assertEquals(rs.getString("filePath"), voucher.getFilePath());
-				Assert.assertEquals(rs.getString("expiryDate"), voucher.getExpiredDate());
+				Assert.assertEquals(rs.getString("expiryDate"), voucher.getExpiryDate());
 			}
 			
 			conn.close();

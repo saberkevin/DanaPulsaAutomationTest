@@ -66,7 +66,7 @@ public class TestBase {
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 		
+		}
 	}
 	
 	public String[][] getExcelData(String filePath, String sheetName) throws IOException
@@ -366,7 +366,7 @@ public class TestBase {
 
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Authorization", "Bearer " + sessionId);
+		httpRequest.header("Cookie", "SESSION=" + sessionId);
 
 		response = httpRequest.request(Method.GET, RECENT_PHONE_NUMBER_PATH);
 	}
@@ -382,7 +382,7 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Authorization", "Bearer " + sessionId);
+		httpRequest.header("Cookie", "SESSION=" + sessionId);
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 		
@@ -402,7 +402,7 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Authorization", "Bearer " + sessionId);
+		httpRequest.header("Cookie", "SESSION=" + sessionId);
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 		
@@ -416,8 +416,8 @@ public class TestBase {
 		logger.info("transaction id:" + transactionId);
 		
 		RestAssured.baseURI = URI;
-		httpRequest = RestAssured.given();		
-		httpRequest.header("Authorization", "Bearer " + sessionId);
+		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "SESSION=" + sessionId);
 		
 		response = httpRequest.request(Method.DELETE, CANCEL_ORDER_PATH + transactionId);
 	}
@@ -436,8 +436,8 @@ public class TestBase {
 		requestParams.put("voucherId", voucherId);
 		
 		RestAssured.baseURI = URI;
-		httpRequest = RestAssured.given();		
-		httpRequest.header("Authorization", "Bearer " + sessionId);
+		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "SESSION=" + sessionId);
 		httpRequest.header("Content-Type", "application/json");
 		
 		response = httpRequest.request(Method.POST, PAYMENT_PATH);
@@ -450,8 +450,8 @@ public class TestBase {
 		logger.info("page:" + page);
 		
 		RestAssured.baseURI = URI;
-		httpRequest = RestAssured.given();		
-		httpRequest.header("Authorization", "Bearer " + sessionId);
+		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "SESSION=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, MY_VOUCHER_PATH + page);
 	}
@@ -464,8 +464,8 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();		
-		httpRequest.header("Authorization", "Bearer " + sessionId);
-		
+		httpRequest.header("Cookie", "SESSION=" + sessionId);
+
 		response = httpRequest.request(Method.GET, PROMOTION_VOUCHER_PATH + page);
 	}
 	
@@ -480,7 +480,8 @@ public class TestBase {
 
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();		
-		httpRequest.header("Authorization", "Bearer " + sessionId);
+		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Content-Type", "application/json");
 		
 		response = httpRequest.request(Method.GET, RECOMMENDATION_VOUCHER_PATH);
 	}
@@ -493,8 +494,8 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();		
-		httpRequest.header("Authorization", "Bearer " + sessionId);
-		
+		httpRequest.header("Cookie", "SESSION=" + sessionId);
+
 		response = httpRequest.request(Method.GET, VOUCHER_DETAILS_PATH + voucherId + "/detail");
 	}
 	
@@ -527,7 +528,25 @@ public class TestBase {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conn = DriverManager.getConnection(dbUrl, username, password);
-			conn.setAutoCommit(true);			
+			conn.setAutoCommit(true);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();			
+		}
+
+		return conn;
+	}
+	
+	public Connection getConnectionMember() {
+		Connection conn = null;
+		String dbUrl = "jdbc:mysql://remotemysql.com:3306/fNmIfiTyXD";					
+		String username = "fNmIfiTyXD";	
+		String password = "VcTDEMaZ6V";
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbUrl, username, password);
+			conn.setAutoCommit(true);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();			

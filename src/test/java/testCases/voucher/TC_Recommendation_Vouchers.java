@@ -27,6 +27,8 @@ public class TC_Recommendation_Vouchers extends TestBase {
 	private JSONArray vouchers;
 	
 	public TC_Recommendation_Vouchers(String sessionId, String transactionId) {
+		user = new User();
+		transaction = new Transaction();
 		this.sessionId = sessionId;
 		transaction.setId(transactionId);
 	}
@@ -48,6 +50,7 @@ public class TC_Recommendation_Vouchers extends TestBase {
 		
 		verifyPinLogin(user.getId(), user.getPin());
 		checkStatusCode("200");
+		user.setSessionId(response.getHeader("Cookie"));
 	}
 	
 	@BeforeMethod
@@ -92,9 +95,9 @@ public class TC_Recommendation_Vouchers extends TestBase {
 				Assert.assertNotNull(voucher.getName());
 				Assert.assertNotNull(voucher.getVoucherTypeName());
 				Assert.assertNotNull(voucher.getDiscount());
-				Assert.assertNotNull(voucher.getMaximumDeduction());
+				Assert.assertNotNull(voucher.getMaxDeduction());
 				Assert.assertNotNull(voucher.getFilePath());
-				Assert.assertNotNull(voucher.getExpiredDate());
+				Assert.assertNotNull(voucher.getExpiryDate());
 			}
 		}
 	}
@@ -102,7 +105,7 @@ public class TC_Recommendation_Vouchers extends TestBase {
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
 		try {
-			Connection conn = getConnectionOrder();
+			Connection conn = getConnectionPromotion();
 			String query = "SELECT A.* FROM "
 					+ "voucher A LEFT JOIN user_voucher B on A.id = B.voucherId "
 					+ "WHERE userId = ?";
@@ -115,9 +118,9 @@ public class TC_Recommendation_Vouchers extends TestBase {
 				Assert.assertEquals(rs.getString("id"), ((Voucher) vouchers.get(rs.getRow())).getId());
 				Assert.assertEquals(rs.getString("name"), ((Voucher) vouchers.get(rs.getRow())).getName());
 				Assert.assertEquals(rs.getString("discount"), ((Voucher) vouchers.get(rs.getRow())).getDiscount());
-				Assert.assertEquals(rs.getString("maxDeduction"), ((Voucher) vouchers.get(rs.getRow())).getMaximumDeduction());
+				Assert.assertEquals(rs.getString("maxDeduction"), ((Voucher) vouchers.get(rs.getRow())).getMaxDeduction());
 				Assert.assertEquals(rs.getString("filePath"), ((Voucher) vouchers.get(rs.getRow())).getFilePath());
-				Assert.assertEquals(rs.getString("expiryDate"), ((Voucher) vouchers.get(rs.getRow())).getExpiredDate());
+				Assert.assertEquals(rs.getString("expiryDate"), ((Voucher) vouchers.get(rs.getRow())).getExpiryDate());
 			}
 			
 			conn.close();

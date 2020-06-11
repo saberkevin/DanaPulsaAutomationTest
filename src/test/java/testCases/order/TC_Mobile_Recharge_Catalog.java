@@ -27,6 +27,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	private JSONArray catalogs;
 	
 	public TC_Mobile_Recharge_Catalog(String sessionId, String phoneNumber) {
+		user = new User();
 		this.sessionId = sessionId;
 		this.phoneNumber = phoneNumber;
 	}
@@ -40,7 +41,6 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 			ps.setString(1, phoneNumber.substring(0,5));
 			
 			ResultSet rs = ps.executeQuery();
-			
 			if (rs.getString("name").equals(provider.getName()))
 				return true;
 			
@@ -68,6 +68,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 		
 		verifyPinLogin(user.getId(), user.getPin());
 		checkStatusCode("200");
+		user.setSessionId(response.getHeader("Cookie"));
 	}
 	
 	@Test
@@ -105,7 +106,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 			
 			Iterator<Catalog> itr = catalogs.iterator();
 			while(itr.hasNext()) {
-				Catalog catalog = (Catalog) itr.next();
+				Catalog catalog = itr.next();
 				Assert.assertNotNull(catalog.getId());
 				Assert.assertNotNull(catalog.getValue());
 				Assert.assertNotNull(catalog.getPrice());				
@@ -117,10 +118,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	public void checkDB() {
 		try {
 			Connection conn = getConnectionOrder();
-			String query = "SELECT A.id, A.value, A.price "
-					+ "FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id "
-					+ "WHERE B.id = ? "
-					+ "ORDER BY A.value DESC";
+			String query = "SELECT * FROM pulsa_catalog WHERE providerId = ? ORDER BY value DESC";
 
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setLong(1, Long.parseLong(provider.getId()));
@@ -128,8 +126,8 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				Assert.assertEquals(rs.getString("id"), ((Catalog) catalogs.get(rs.getRow())).getId());
-				Assert.assertEquals(rs.getString("value"), ((Catalog) catalogs.get(rs.getRow())).getValue());
-				Assert.assertEquals(rs.getString("price"), ((Catalog) catalogs.get(rs.getRow())).getPrice());
+				Assert.assertEquals(rs.getLong("value"), ((Catalog) catalogs.get(rs.getRow())).getValue());
+				Assert.assertEquals(rs.getLong("price"), ((Catalog) catalogs.get(rs.getRow())).getPrice());
 			}
 			
 			conn.close();

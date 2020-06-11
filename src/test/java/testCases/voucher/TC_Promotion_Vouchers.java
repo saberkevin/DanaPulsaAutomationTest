@@ -24,6 +24,7 @@ public class TC_Promotion_Vouchers extends TestBase {
 	private JSONArray vouchers;
 	
 	public TC_Promotion_Vouchers(String sessionId, String page) {
+		user = new User();
 		this.sessionId = sessionId;
 		this.page = page;
 	}
@@ -45,6 +46,7 @@ public class TC_Promotion_Vouchers extends TestBase {
 		
 		verifyPinLogin(user.getId(), user.getPin());
 		checkStatusCode("200");
+		user.setSessionId(response.getHeader("Cookie"));
 	}
 	
 	@Test
@@ -80,9 +82,9 @@ public class TC_Promotion_Vouchers extends TestBase {
 				Assert.assertNotNull(voucher.getName());
 				Assert.assertNotNull(voucher.getVoucherTypeName());
 				Assert.assertNotNull(voucher.getDiscount());
-				Assert.assertNotNull(voucher.getMaximumDeduction());
+				Assert.assertNotNull(voucher.getMaxDeduction());
 				Assert.assertNotNull(voucher.getFilePath());
-				Assert.assertNotNull(voucher.getExpiredDate());
+				Assert.assertNotNull(voucher.getExpiryDate());
 			}
 		}
 	}
@@ -90,16 +92,16 @@ public class TC_Promotion_Vouchers extends TestBase {
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
 		try {
-			Connection conn = getConnectionOrder();
+			Connection conn = getConnectionPromotion();
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM voucher");			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				Assert.assertEquals(rs.getString("id"), ((Voucher) vouchers.get(rs.getRow())).getId());
 				Assert.assertEquals(rs.getString("name"), ((Voucher) vouchers.get(rs.getRow())).getName());
 				Assert.assertEquals(rs.getString("discount"), ((Voucher) vouchers.get(rs.getRow())).getDiscount());
-				Assert.assertEquals(rs.getString("maxDeduction"), ((Voucher) vouchers.get(rs.getRow())).getMaximumDeduction());
+				Assert.assertEquals(rs.getString("maxDeduction"), ((Voucher) vouchers.get(rs.getRow())).getMaxDeduction());
 				Assert.assertEquals(rs.getString("filePath"), ((Voucher) vouchers.get(rs.getRow())).getFilePath());
-				Assert.assertEquals(rs.getString("expiryDate"), ((Voucher) vouchers.get(rs.getRow())).getExpiredDate());
+				Assert.assertEquals(rs.getString("expiryDate"), ((Voucher) vouchers.get(rs.getRow())).getExpiryDate());
 			}
 			
 			conn.close();

@@ -24,6 +24,8 @@ public class TC_Create_Order extends TestBase {
 	private Transaction transaction;
 	
 	public TC_Create_Order(String sessionId, String phoneNumber, String catalogId) {
+		user = new User();
+		transaction = new Transaction();
 		this.sessionId = sessionId;
 		transaction.setPaymentMethod(phoneNumber);
 		transaction.getCatalog().setId(catalogId);
@@ -45,7 +47,8 @@ public class TC_Create_Order extends TestBase {
 		user.setId(data.get("id"));
 		
 		verifyPinLogin(user.getId(), user.getPin());
-		checkStatusCode("200");		
+		checkStatusCode("200");
+		user.setSessionId(response.getHeader("Cookie"));
 	}
 	
 	@BeforeMethod
@@ -91,20 +94,20 @@ public class TC_Create_Order extends TestBase {
 		if (code.equals("201")) {
 			try {
 				Connection conn = getConnectionOrder();
-				String query = "SELECT A.value, A.price, B.id, B.name, B.image "
-						+ "FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id "
-						+ "WHERE A.id = ? ";
+				String query = "SELECT A.id, A.name, A.image, B.value, B.price "
+						+ "FROM provider A LEFT JOIN pulsa_catalog B on A.id = B.providerId "
+						+ "WHERE B.id = ? ";
 				
 				PreparedStatement ps = conn.prepareStatement(query);
 				ps.setLong(1, Long.parseLong(transaction.getCatalog().getId()));
 				
 				ResultSet rs = ps.executeQuery();
 				while(rs.next()) {
-					transaction.getCatalog().setValue(rs.getLong("value"));
-					transaction.getCatalog().setPrice(rs.getLong("price"));
 					transaction.getCatalog().getProvider().setId(rs.getString("id"));
 					transaction.getCatalog().getProvider().setName(rs.getString("name"));
 					transaction.getCatalog().getProvider().setImage(rs.getString("image"));
+					transaction.getCatalog().setValue(rs.getLong("value"));
+					transaction.getCatalog().setPrice(rs.getLong("price"));
 				}
 				
 				conn.close();
@@ -128,12 +131,12 @@ public class TC_Create_Order extends TestBase {
 	public void checkDB() {
 		try {
 			Connection conn = getConnectionOrder();
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM transaction WHERE userId = ? ORDER BY createdAt DESC LIMIT 1");
-			ps.setLong(1, Long.parseLong(user.getId()));
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM transaction WHERE id = ?");
+			ps.setLong(1, Long.parseLong(transaction.getId()));
 			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
-				Assert.assertEquals(rs.getString("id"), transaction.getId());
+				Assert.assertEquals(rs.getString("userId"), user.getId());
 				Assert.assertEquals(rs.getString("phoneNumber"), transaction.getPhoneNumber());
 				Assert.assertEquals(rs.getString("catalogId"), transaction.getCatalog().getId());
 			}

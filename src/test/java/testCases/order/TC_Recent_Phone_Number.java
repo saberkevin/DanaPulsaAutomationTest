@@ -5,10 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,11 +27,12 @@ public class TC_Recent_Phone_Number extends TestBase {
 	private String[] dateString;
 	
 	public TC_Recent_Phone_Number(String sessionId) {
+		user = new User();
 		this.sessionId = sessionId;
 	}
 	
 	private boolean isPhoneNumberRegexTrue(String phoneNumber) {
-		String regex = "^(?=.[0-9])(?=.[a-z])(?=.[A-Z])(?=.[!@#$%^&*])(?=\\\\S+$).{8,}$";
+		String regex = "^08[0-9]{9,13}$";
 		Pattern pattern = Pattern.compile(regex);
 		Matcher matcher = pattern.matcher(phoneNumber);
 		return matcher.matches();
@@ -47,8 +45,8 @@ public class TC_Recent_Phone_Number extends TestBase {
 
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setString(1, phoneNumber.substring(0,5));
-			ResultSet rs = ps.executeQuery();
 			
+			ResultSet rs = ps.executeQuery();			
 			if (rs.getString("name").equals(provider.getName()))
 				return true;
 			
@@ -76,10 +74,11 @@ public class TC_Recent_Phone_Number extends TestBase {
 		
 		verifyPinLogin(user.getId(), user.getPin());
 		checkStatusCode("200");
+		user.setSessionId(response.getHeader("Cookie"));
 	}
 		
 	@Test
-	public void testRecentPhoneNumber() throws ParseException {
+	public void testRecentPhoneNumber() {
 		if (sessionId.equals("true"))
 			sessionId = user.getSessionId();
 		getRecentPhoneNumber(sessionId);
@@ -111,8 +110,7 @@ public class TC_Recent_Phone_Number extends TestBase {
 				Assert.assertTrue(isProviderTrue(phoneNumbers[i], providers[i]));
 				
 				dateString[i] = data.get(i).get("date");
-				SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
-				Assert.assertEquals(dateString[i], format.format(new Date()));
+				Assert.assertNotNull(dateString[i]);
 			}
 		}
 	}
@@ -121,19 +119,16 @@ public class TC_Recent_Phone_Number extends TestBase {
 	public void checkDB() {
 		try {
 			Connection conn = getConnectionOrder();
-			String query = "SELECT B.providerId, B.createdAt, A.phoneNumber "
-					+ "FROM transaction A LEFT JOIN user B on A.userId = B.id "
-					+ "WHERE B.id = ? "
-					+ "ORDER BY A.createdAt DESC LIMIT 10";
+			String query = "SELECT * FROM transaction WHERE userId = ? ORDER BY createdAt DESC LIMIT 10";
 
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setLong(1, Long.parseLong(user.getId()));
 			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
+				Assert.assertEquals(rs.getString("phoneNumber"), phoneNumbers[rs.getRow()]);
 				Assert.assertEquals(rs.getString("providerId"), providers[rs.getRow()].getId());
 				Assert.assertEquals(rs.getString("createdAt"), dateString[rs.getRow()]);
-				Assert.assertEquals(rs.getString("phoneNumber"), phoneNumbers[rs.getRow()]);
 			}
 			
 			conn.close();
