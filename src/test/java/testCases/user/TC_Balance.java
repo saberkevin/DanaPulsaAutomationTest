@@ -1,5 +1,9 @@
 package testCases.user;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.testng.annotations.Parameters;
@@ -7,8 +11,11 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import io.restassured.path.json.JsonPath;
+import model.User;
 
 public class TC_Balance extends TestBase{
+	
+	private User user;
 
 	@Test
 	void balanceUser()
@@ -26,6 +33,26 @@ public class TC_Balance extends TestBase{
 		if(code == 200)
 		{
 			Assert.assertNotNull(Long.parseLong(jsonPath.get("data.balance")));
+			
+			String query = "SELECT userId, balance FROM balance\n" + 
+					"WHERE userId = ?";
+			try {
+				PreparedStatement psGetUser = getConnectionMember().prepareStatement(query);
+				psGetUser.setLong(1, Long.parseLong(user.getId()));
+				
+				ResultSet result = psGetUser.executeQuery();
+				
+				while(result.next())
+				{
+					Assert.assertEquals(Long.parseLong(user.getId()), result.getLong("userId"));
+					Assert.assertEquals(Long.parseLong(jsonPath.get("data.balance")), result.getLong("balance"));
+				}
+				
+				getConnectionMember().close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else if(code == 404)
 		{
