@@ -15,6 +15,6 @@ public class Factory_Verify_Otp extends TestBase{
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/testCases/otp/verifyOtpTestData.xlsx");
+		return getExcelData("../DanaPulsaAutomationTest/src/test/java/testCases/otp/otpTestData.xlsx","VerifyOtp");
 	}
 }
