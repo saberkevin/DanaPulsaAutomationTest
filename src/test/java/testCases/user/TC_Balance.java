@@ -37,10 +37,10 @@ public class TC_Balance extends TestBase{
 			String query = "SELECT userId, balance FROM balance\n" + 
 					"WHERE userId = ?";
 			try {
-				PreparedStatement psGetUser = getConnectionMember().prepareStatement(query);
-				psGetUser.setLong(1, Long.parseLong(user.getId()));
+				PreparedStatement psGetBalance = getConnectionMember().prepareStatement(query);
+				psGetBalance.setLong(1, Long.parseLong(user.getId()));
 				
-				ResultSet result = psGetUser.executeQuery();
+				ResultSet result = psGetBalance.executeQuery();
 				
 				while(result.next())
 				{
