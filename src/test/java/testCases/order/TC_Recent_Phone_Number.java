@@ -61,18 +61,14 @@ public class TC_Recent_Phone_Number extends TestBase {
 	public void beforeClass() {
 		user.setName("Zanuar");
 		user.setEmail("triromadon@gmail.com");
-		user.setPhoneNumber("081252930398");
-		user.setPin("123456");
+		user.setUsername("081252930398");
+		user.setPin(123456);
 		
-		register(user.getName(), user.getEmail(), user.getPhoneNumber(), user.getPin());
-		checkStatusCode("200");
+		deleteUserIfExist(user.getEmail(), user.getUsername());
+		createUser(user);
+		user.setId(getUserIdByUsername(user.getUsername()));
 
-		login(user.getPhoneNumber());
-		checkStatusCode("200");
-		Map<String, String> data = response.getBody().jsonPath().getMap("data");
-		user.setId(data.get("id"));
-		
-		verifyPinLogin(user.getId(), user.getPin());
+		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
 		checkStatusCode("200");
 		user.setSessionId(response.getHeader("Cookie"));
 	}
@@ -104,7 +100,7 @@ public class TC_Recent_Phone_Number extends TestBase {
 				phoneNumbers[i] = data.get(i).get("number");
 				Assert.assertTrue(isPhoneNumberRegexTrue(phoneNumbers[i]));
 
-				providers[i].setId(data.get(i).get("provider.id"));
+				providers[i].setId(Long.parseLong(data.get(i).get("provider.id")));
 				providers[i].setName(data.get(i).get("provider.name"));
 				providers[i].setImage(data.get(i).get("provider.image"));
 				Assert.assertTrue(isProviderTrue(phoneNumbers[i], providers[i]));
@@ -122,7 +118,7 @@ public class TC_Recent_Phone_Number extends TestBase {
 			String query = "SELECT * FROM transaction WHERE userId = ? ORDER BY createdAt DESC LIMIT 10";
 
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setLong(1, Long.parseLong(user.getId()));
+			ps.setLong(1, user.getId());
 			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {

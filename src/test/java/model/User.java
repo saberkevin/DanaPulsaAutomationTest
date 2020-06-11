@@ -1,87 +1,53 @@
 package model;
 
 public class User {
-	private String id;
-	private String name;
+	private long id;
+	private String username;
 	private String email;
-	private String phoneNumber;
-	private String pin;
+	private String name;
+	private int pin;
 	private long balance;
-	private String token;
 	private String sessionId;
 	
-	public User() {
-	}
-
-	public User(String id, String name, String email, String phoneNumber, String pin, long balance) {
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.phoneNumber = phoneNumber;
-		this.pin = pin;
-		this.balance = balance;
-	}
-
-	public String getId() {
+	public long getId() {
 		return id;
 	}
-
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
-
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-
 	public String getEmail() {
 		return email;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public String getName() {
+		return name;
 	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-	public String getPin() {
+	public int getPin() {
 		return pin;
 	}
-
-	public void setPin(String pin) {
+	public void setPin(int pin) {
 		this.pin = pin;
 	}
-
 	public long getBalance() {
 		return balance;
 	}
-
 	public void setBalance(long balance) {
 		this.balance = balance;
 	}
-
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-	}
-
 	public String getSessionId() {
 		return sessionId;
 	}
-
 	public void setSessionId(String sessionId) {
 		this.sessionId = sessionId;
 	}

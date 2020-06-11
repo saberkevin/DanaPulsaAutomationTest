@@ -5,14 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Iterator;
-import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.TestBase;
@@ -21,45 +18,30 @@ import model.User;
 import model.Voucher;
 
 public class TC_Recommendation_Vouchers extends TestBase {
-	private User user;
+	private User user = new User();
 	private String sessionId;
-	private Transaction transaction;
+	private Transaction transaction = new Transaction();
 	private JSONArray vouchers;
 	
 	public TC_Recommendation_Vouchers(String sessionId, String transactionId) {
-		user = new User();
-		transaction = new Transaction();
 		this.sessionId = sessionId;
-		transaction.setId(transactionId);
+		transaction.setId(Long.parseLong(transactionId));
 	}
 	
 	@BeforeClass
 	public void beforeClass() {
 		user.setName("Zanuar");
 		user.setEmail("triromadon@gmail.com");
-		user.setPhoneNumber("081252930398");
-		user.setPin("123456");
-
-		register(user.getName(), user.getEmail(), user.getPhoneNumber(), user.getPin());
-		checkStatusCode("200");
-
-		login(user.getPhoneNumber());
-		checkStatusCode("200");
-		Map<String, String> data = response.getBody().jsonPath().getMap("data");
-		user.setId(data.get("id"));
+		user.setUsername("081252930398");
+		user.setPin(123456);
 		
-		verifyPinLogin(user.getId(), user.getPin());
+		deleteUserIfExist(user.getEmail(), user.getUsername());
+		createUser(user);
+		user.setId(getUserIdByUsername(user.getUsername()));
+		
+		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
 		checkStatusCode("200");
 		user.setSessionId(response.getHeader("Cookie"));
-	}
-	
-	@BeforeMethod
-	public void berforeMethod() {
-		getCatalog(user.getSessionId(), user.getPhoneNumber());
-		checkStatusCode("200");
-		
-		createOrder(user.getSessionId(), user.getPhoneNumber(), transaction.getCatalog().getId());
-		checkStatusCode("201");
 	}
 	
 	@Test
@@ -111,7 +93,7 @@ public class TC_Recommendation_Vouchers extends TestBase {
 					+ "WHERE userId = ?";
 			
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setLong(1, Long.parseLong(user.getId()));
+			ps.setLong(1, user.getId());
 			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
@@ -127,11 +109,6 @@ public class TC_Recommendation_Vouchers extends TestBase {
 		} catch (SQLException e) {
 			
 		}
-	}
-	
-	@AfterMethod
-	public void afterMethod() {
-		
 	}
 	
 	@AfterClass

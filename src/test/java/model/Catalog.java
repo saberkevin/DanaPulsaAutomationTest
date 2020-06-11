@@ -1,54 +1,49 @@
 package model;
 
+import java.util.Date;
+
 public class Catalog {
-	private String id;
-	private Provider provider;
+	private long id;
+	private long providerId;
 	private long value;
 	private long price;
-		
-	public Catalog() {
-		this.id = "";
-		this.provider = null;
-		this.value = 0;
-		this.price = 0;
-	}
+	private Date createdAt;
+	private Date updatedAt;
 	
-	public Catalog(String id, Provider provider, int value, int price) {
-		this.id = id;
-		this.provider = provider;
-		this.value = value;
-		this.price = price;
-	}
-
-	public String getId() {
+	public long getId() {
 		return id;
 	}
-
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
-
-	public Provider getProvider() {
-		return provider;
+	public long getProviderId() {
+		return providerId;
 	}
-
-	public void setProvider(Provider provider) {
-		this.provider = provider;
+	public void setProviderId(long providerId) {
+		this.providerId = providerId;
 	}
-
 	public long getValue() {
 		return value;
 	}
-
 	public void setValue(long value) {
 		this.value = value;
 	}
-
 	public long getPrice() {
 		return price;
 	}
-
 	public void setPrice(long price) {
 		this.price = price;
-	}	
+	}
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
 }

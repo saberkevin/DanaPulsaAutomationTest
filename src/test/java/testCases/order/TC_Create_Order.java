@@ -4,55 +4,51 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import model.Catalog;
+import model.Provider;
 import model.Transaction;
 import model.User;
 
 public class TC_Create_Order extends TestBase {
-	private User user;
+	private User user = new User();
 	private String sessionId;
-	private Transaction transaction;
+	private Transaction transaction = new Transaction();
+	private Catalog catalog = new Catalog();
+	private Provider provider = new Provider();
 	
 	public TC_Create_Order(String sessionId, String phoneNumber, String catalogId) {
-		user = new User();
-		transaction = new Transaction();
 		this.sessionId = sessionId;
-		transaction.setPaymentMethod(phoneNumber);
-		transaction.getCatalog().setId(catalogId);
+		transaction.setPhoneNumber(phoneNumber);
+		transaction.setCatalogId(Long.parseLong(catalogId));
 	}
 	
 	@BeforeClass
 	public void beforeClass() {
 		user.setName("Zanuar");
 		user.setEmail("triromadon@gmail.com");
-		user.setPhoneNumber("081252930398");
-		user.setPin("123456");
-
-		register(user.getName(), user.getEmail(), user.getPhoneNumber(), user.getPin());
-		checkStatusCode("200");
-
-		login(user.getPhoneNumber());
-		checkStatusCode("200");
-		Map<String, String> data = response.getBody().jsonPath().getMap("data");
-		user.setId(data.get("id"));
+		user.setUsername("081252930398");
+		user.setPin(123456);
 		
-		verifyPinLogin(user.getId(), user.getPin());
+		deleteUserIfExist(user.getEmail(), user.getUsername());
+		createUser(user);
+		user.setId(getUserIdByUsername(user.getUsername()));
+		
+		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
 		checkStatusCode("200");
 		user.setSessionId(response.getHeader("Cookie"));
-	}
-	
-	@BeforeMethod
-	public void berforeMethod() {
+
+		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
+		checkStatusCode("200");
+		user.setSessionId(response.getHeader("Cookie"));
+
 		getCatalog(user.getSessionId(), transaction.getPhoneNumber());
 		checkStatusCode("200");
 	}
@@ -61,7 +57,7 @@ public class TC_Create_Order extends TestBase {
 	public void testCreateOrder() {
 		if (sessionId.contentEquals("true"))
 			sessionId = user.getSessionId();		
-		createOrder(sessionId, transaction.getPhoneNumber(), transaction.getCatalog().getId());
+		createOrder(sessionId, transaction.getPhoneNumber(), transaction.getCatalogId());
 		
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);
@@ -94,20 +90,22 @@ public class TC_Create_Order extends TestBase {
 		if (code.equals("201")) {
 			try {
 				Connection conn = getConnectionOrder();
-				String query = "SELECT A.id, A.name, A.image, B.value, B.price "
+				String query = "SELECT A.id [providerId], A.name, A.image, "
+						+ "B.id [catalogId], B.value, B.price "
 						+ "FROM provider A LEFT JOIN pulsa_catalog B on A.id = B.providerId "
 						+ "WHERE B.id = ? ";
 				
 				PreparedStatement ps = conn.prepareStatement(query);
-				ps.setLong(1, Long.parseLong(transaction.getCatalog().getId()));
+				ps.setLong(1, transaction.getCatalogId());
 				
 				ResultSet rs = ps.executeQuery();
 				while(rs.next()) {
-					transaction.getCatalog().getProvider().setId(rs.getString("id"));
-					transaction.getCatalog().getProvider().setName(rs.getString("name"));
-					transaction.getCatalog().getProvider().setImage(rs.getString("image"));
-					transaction.getCatalog().setValue(rs.getLong("value"));
-					transaction.getCatalog().setPrice(rs.getLong("price"));
+					provider.setId(rs.getLong("providerId"));
+					provider.setName(rs.getString("name"));
+					provider.setImage(rs.getString("image"));
+					catalog.setId(rs.getLong("catalogId"));
+					catalog.setValue(rs.getLong("value"));
+					catalog.setPrice(rs.getLong("price"));					
 				}
 				
 				conn.close();
@@ -118,12 +116,14 @@ public class TC_Create_Order extends TestBase {
 			JSONObject data = response.getBody().jsonPath().getJsonObject("data");
 			Assert.assertNotNull(data.get("id"));
 			Assert.assertEquals(data.get("phone"), transaction.getPhoneNumber());
-			Assert.assertEquals(data.get("catalog.id"), transaction.getCatalog().getId());
-			Assert.assertEquals(data.get("catalog.provider"), transaction.getCatalog().getProvider());
-			Assert.assertEquals(data.get("catalog.value"), transaction.getCatalog().getValue());
-			Assert.assertEquals(data.get("catalog.price"), transaction.getCatalog().getPrice());
+			Assert.assertEquals(data.get("catalog.id"), catalog.getId());
+			Assert.assertEquals(data.get("catalog.provider.id"), provider.getId());
+			Assert.assertEquals(data.get("catalog.provider.name"), provider.getName());
+			Assert.assertEquals(data.get("catalog.provider.image"), provider.getImage());
+			Assert.assertEquals(data.get("catalog.value"), catalog.getValue());
+			Assert.assertEquals(data.get("catalog.price"), catalog.getPrice());
 			
-			transaction.setId((String) data.get("id"));
+			transaction.setId((Long) data.get("id"));
 		}
 	}
 	
@@ -132,24 +132,19 @@ public class TC_Create_Order extends TestBase {
 		try {
 			Connection conn = getConnectionOrder();
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM transaction WHERE id = ?");
-			ps.setLong(1, Long.parseLong(transaction.getId()));
+			ps.setLong(1, transaction.getId());
 			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				Assert.assertEquals(rs.getString("userId"), user.getId());
 				Assert.assertEquals(rs.getString("phoneNumber"), transaction.getPhoneNumber());
-				Assert.assertEquals(rs.getString("catalogId"), transaction.getCatalog().getId());
+				Assert.assertEquals(rs.getString("catalogId"), catalog.getId());
 			}
 			
 			conn.close();
 		} catch (SQLException e) {
 			
 		}
-	}
-
-	@AfterMethod
-	public void afterMethod() {
-		
 	}
 	
 	@AfterClass
