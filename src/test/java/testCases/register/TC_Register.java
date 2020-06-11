@@ -27,21 +27,7 @@ public class TC_Register extends TestBase{
 		this.phone=phone;
 		this.pin=pin;
 	}
-
-	public Connection setupMemberDBConnection()
-	{
-		String dbUrl = "jdbc:mysql://remotemysql.com:3306/fNmIfiTyXD";					
-		String username = "fNmIfiTyXD";	
-		String password = "VcTDEMaZ6V";
-		try {
-			con = DriverManager.getConnection(dbUrl,username,password);
-			con.setAutoCommit(true);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return con;
-	}
+	
 	@Test
 	void registerUser()
 	{	
@@ -50,7 +36,7 @@ public class TC_Register extends TestBase{
 				"SELECT id FROM user WHERE email = ? OR username = ?)";
 		
 		try {
-			PreparedStatement psDeleteUser = setupMemberDBConnection().prepareStatement(query);
+			PreparedStatement psDeleteUser = getConnectionMember().prepareStatement(query);
 			psDeleteUser.setString(1, email);
 			psDeleteUser.setString(2, replacePhoneForAssertion(phone));
 			psDeleteUser.executeUpdate();
@@ -81,7 +67,7 @@ public class TC_Register extends TestBase{
 			String query = "SELECT id, name, email, username FROM user\n" + 
 					"WHERE id = ? AND name = ?  AND email = ? AND username = ?";
 			try {
-				PreparedStatement psGetUser = setupMemberDBConnection().prepareStatement(query);
+				PreparedStatement psGetUser = getConnectionMember().prepareStatement(query);
 				psGetUser.setLong(1, jsonPath.get("data.id"));
 				psGetUser.setString(2, jsonPath.get("data.name"));
 				psGetUser.setString(3, jsonPath.get("data.email"));
