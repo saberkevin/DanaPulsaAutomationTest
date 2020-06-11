@@ -3,6 +3,8 @@ package base;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -67,12 +69,12 @@ public class TestBase {
 		}
 	}
 	
-	public String[][] getExcelData(String filePath) throws IOException
+	public String[][] getExcelData(String filePath, String sheetName) throws IOException
 	{
 		String path = filePath;
 		
-		int rowCount = ExcelUtil.getRowCount(path, "Sheet1");
-		int colCount = ExcelUtil.getCellCount(path, "Sheet1",1);
+		int rowCount = ExcelUtil.getRowCount(path, sheetName);
+		int colCount = ExcelUtil.getCellCount(path, sheetName,1);
 		
 		String data[][] = new String[rowCount][colCount];
 		
@@ -80,10 +82,9 @@ public class TestBase {
 		{
 			for(int j=0; j<colCount; j++)
 			{
-				data[i-1][j] = ExcelUtil.getCellData(path, "Sheet1", i, j);
+				data[i-1][j] = ExcelUtil.getCellData(path, sheetName, i, j);
 			}
 		}
-		
 		return data;
 	}
 	
@@ -103,6 +104,52 @@ public class TestBase {
 		long responseTime = response.getTime();
 		logger.info("Response Time = " + responseTime);
 		Assert.assertTrue(responseTime<Long.parseLong(rt));
+	}
+	
+	public void checkEmailValid(String email)
+	{
+		String regex = "^(.+)@(.+).(.+)$";
+		 
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(email);
+		
+		boolean isValid = matcher.matches();
+		
+		Assert.assertTrue(isValid);	
+	}
+	
+	public void checkResultPhoneValid(String phone)
+	{
+		String regex = "^628[0-9]{9,13}$";
+		 
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(phone);
+		
+		boolean isValid = matcher.matches();
+		
+		Assert.assertTrue(isValid);	
+	}
+	
+	public void checkPinValid(String pin)
+	{
+		String regex = "^[1-9][0-9]{5}$";
+		 
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(pin);
+		
+		boolean isValid = matcher.matches();
+		
+		Assert.assertTrue(isValid);	
+	}
+	
+	public String replacePhoneForAssertion(String phone)
+	{
+		String phoneSubstring = phone;
+		if(phone.startsWith("0") || phone.startsWith("62") || phone.startsWith("+62"))
+		{
+			phoneSubstring = phone.substring(phone.indexOf("8"));
+		}
+		return "62"+phoneSubstring;
 	}
 	
 	public void tearDown(String message)

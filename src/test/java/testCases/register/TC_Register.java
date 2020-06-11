@@ -1,8 +1,5 @@
 package testCases.register;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.testng.annotations.Parameters;
@@ -43,7 +40,11 @@ public class TC_Register extends TestBase{
 			//id
 			Assert.assertEquals(name, jsonPath.get("data.name"));
 			Assert.assertEquals(email, jsonPath.get("data.email"));
-			Assert.assertEquals(phone, jsonPath.get("data.username"));
+			Assert.assertEquals(replacePhoneForAssertion(phone), jsonPath.get("data.username"));
+			Assert.assertEquals(pin, jsonPath.get("data.pin"));
+			checkEmailValid(jsonPath.get("data.email"));
+			checkResultPhoneValid(jsonPath.get("data.username"));
+			checkPinValid(jsonPath.get("data.pin"));
 		}
 		else if(code == 400)
 		{
@@ -67,39 +68,6 @@ public class TC_Register extends TestBase{
 	void assertResponseTime(String rt)
 	{
 		checkResponseTime(rt);
-	}
-
-	void checkEmailValid()
-	{
-		JsonPath jsonPath = response.jsonPath();
-		//String code = jsonPath.get("code");
-		String checkEmail = jsonPath.get("email");
-		logger.info(checkEmail);
-		
-		String regex = "^(.+)@(.+).(.+)$";
-		 
-		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(checkEmail);
-		
-		boolean isValid = matcher.matches();
-		
-		Assert.assertTrue(isValid);	
-	}
-
-	void checkPhoneNumber()
-	{
-		JsonPath jsonPath = response.jsonPath();
-		String checkPhone = jsonPath.get("phone");
-		logger.info(checkPhone);
-		
-		String regex = "^08[0-9]{9,13}$";
-		 
-		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(checkPhone);
-		
-		boolean isValid = matcher.matches();
-		
-		Assert.assertTrue(isValid);	
 	}
 	
 	@AfterClass

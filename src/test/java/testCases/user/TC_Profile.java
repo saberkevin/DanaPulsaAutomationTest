@@ -1,4 +1,4 @@
-package testCases.login;
+package testCases.user;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -8,21 +8,15 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import io.restassured.path.json.JsonPath;
 
-public class TC_Login extends TestBase{
-	
-	private String phone; 
-	
-	public TC_Login(String phone) {
-		this.phone=phone;
-	}
+public class TC_Profile extends TestBase{
 
 	@Test
-	void loginUser()
+	void profileUser()
 	{
-		login(phone);
+		getProfile();
 	}
 	
-	@Test(dependsOnMethods = {"loginUser"})
+	@Test(dependsOnMethods = {"profileUser"})
 	void checkResult()
 	{
 		int code = response.getStatusCode();
@@ -34,25 +28,25 @@ public class TC_Login extends TestBase{
 			Assert.assertNotNull(Long.parseLong(jsonPath.get("data.id")));
 			Assert.assertNotEquals("", jsonPath.get("data.name"));
 			Assert.assertNotEquals("", jsonPath.get("data.email"));
-			Assert.assertEquals(replacePhoneForAssertion(phone), jsonPath.get("data.username"));
+			Assert.assertNotEquals("", jsonPath.get("data.username"));
 			checkEmailValid(jsonPath.get("data.email"));
 			checkResultPhoneValid(jsonPath.get("data.username"));
 			
 		}
-		else if(code == 400)
+		else if(code == 404)
 		{
-			Assert.assertTrue(message.contains("invalid") || message.contains("incorrect"));
+			Assert.assertEquals("user not found", message);
 		}
 	}
 	
-	@Test(dependsOnMethods = {"loginUser"})
+	@Test(dependsOnMethods = {"profileUser"})
 	void assertStatusCode()
 	{
 		String sc = response.jsonPath().get("code");
 		checkStatusCode(sc);	
 	}
 	
-	@Test(dependsOnMethods = {"loginUser"})
+	@Test(dependsOnMethods = {"profileUser"})
 	@Parameters("responseTime")
 	void assertResponseTime(String rt)
 	{
