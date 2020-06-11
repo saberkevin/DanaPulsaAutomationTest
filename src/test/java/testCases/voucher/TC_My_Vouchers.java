@@ -91,7 +91,7 @@ public class TC_My_Vouchers extends TestBase {
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
 		try {
-			Connection conn = getConnectionOrder();
+			Connection conn = getConnectionPromotion();
 			String query = "SELECT A.* FROM "
 					+ "voucher A LEFT JOIN user_voucher B on A.id = B.voucherId "
 					+ "WHERE userId = ?";

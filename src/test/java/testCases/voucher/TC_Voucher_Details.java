@@ -92,7 +92,7 @@ public class TC_Voucher_Details extends TestBase {
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
 		try {
-			Connection conn = getConnectionOrder();
+			Connection conn = getConnectionPromotion();
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM voucher WHERE id = ?");
 			ps.setLong(1, Long.parseLong(voucher.getId()));
 			

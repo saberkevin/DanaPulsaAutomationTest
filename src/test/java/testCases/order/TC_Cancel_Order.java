@@ -86,15 +86,13 @@ public class TC_Cancel_Order extends TestBase {
 		if (code.equals("200")) {
 			try {
 				Connection conn = getConnectionOrder();
-				String query = "SELECT A.userId, A.phoneNumber, A.createdAt, "
+				String query = "SELECT A.userId, A.phoneNumber, A.createdAt, A.voucherId"
 						+ "B.id [catalogId], B.value, B.price, "
 						+ "C.id [providerId], C.name [providerName], C.image, "
 						+ "D.name [paymentMethod] "
-						+ "E.id [voucherId], E.name [voucherName], E.discount, E.maxDeduction "
 						+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
 						+ "LEFT JOIN provider C on B.providerId = C.id "
 						+ "LEFT JOIN paymentMethod D on A.methodId = D.id "
-						+ "LEFT JOIN voucher E on A.voucherId = F.id "
 						+ "WHERE A.id = ?";
 				
 				PreparedStatement ps = conn.prepareStatement(query);
@@ -111,13 +109,27 @@ public class TC_Cancel_Order extends TestBase {
 					transaction.getCatalog().setValue(rs.getLong("value"));
 					transaction.getCatalog().setPrice(rs.getLong("price"));
 					transaction.getVoucher().setId(rs.getString("voucherId"));
-					transaction.getVoucher().setName(rs.getString("voucherName"));
-					transaction.getVoucher().setDiscount(rs.getLong("discount"));
-					transaction.getVoucher().setMaxDeduction(rs.getLong("maxDeduction"));
 					transaction.setPaymentMethod(rs.getString("paymentMethod"));
 					transaction.setStatus("CANCELED");
 					transaction.setCreatedAt(rs.getDate("createdAt"));
 					transaction.setUpdatedAt(new Date());
+				}
+				
+				conn.close();
+			} catch (SQLException e) {
+				
+			}
+			
+			try {
+				Connection conn = getConnectionPromotion();
+				PreparedStatement ps = conn.prepareStatement("SELECT * FROM voucher WHERE A.id = ?");
+				ps.setLong(1, Long.parseLong(transaction.getVoucher().getId()));
+				
+				ResultSet rs = ps.executeQuery();
+				while(rs.next()) {
+					transaction.getVoucher().setName(rs.getString("name"));
+					transaction.getVoucher().setDiscount(rs.getLong("discount"));
+					transaction.getVoucher().setMaxDeduction(rs.getLong("maxDeduction"));
 				}
 				
 				conn.close();

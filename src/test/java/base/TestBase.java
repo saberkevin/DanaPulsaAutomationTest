@@ -488,4 +488,22 @@ public class TestBase {
 
 		return conn;
 	}
+	
+	public Connection getConnectionMember() {
+		Connection conn = null;
+		String dbUrl = "jdbc:mysql://remotemysql.com:3306/fNmIfiTyXD";					
+		String username = "fNmIfiTyXD";	
+		String password = "VcTDEMaZ6V";
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(dbUrl, username, password);
+			conn.setAutoCommit(true);			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();			
+		}
+
+		return conn;
+	}
 }
