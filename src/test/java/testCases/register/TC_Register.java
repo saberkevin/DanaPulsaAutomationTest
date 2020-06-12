@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -33,9 +34,12 @@ public class TC_Register extends TestBase{
 		String query = "DELETE FROM user " + 
 				"WHERE EXISTS ( " + 
 				"SELECT * FROM (SELECT id FROM user WHERE email = ? OR username = ?)tblTemp)";
+		String openRestrict= "SET FOREIGN_KEY_CHECKS=0";
 		
 		try {
 			Connection conUser = getConnectionMember();
+			Statement stmtRestrict = conUser.createStatement();
+			stmtRestrict.execute(openRestrict);
 			PreparedStatement psDeleteUser = conUser.prepareStatement(query);
 			psDeleteUser.setString(1, email);
 			psDeleteUser.setString(2, replacePhoneForAssertion(phone));

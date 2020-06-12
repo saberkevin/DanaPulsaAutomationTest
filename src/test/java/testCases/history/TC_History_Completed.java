@@ -1,4 +1,5 @@
 package testCases.history;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -64,7 +65,8 @@ public class TC_History_Completed extends TestBase{
 								data.get(i).get("status").equals("FAILED") 
 						);
 						
-						PreparedStatement psGetHistoryCompleted = getConnectionOrder().prepareStatement(query);
+						Connection conOrder = getConnectionOrder();
+						PreparedStatement psGetHistoryCompleted = conOrder.prepareStatement(query);
 						psGetHistoryCompleted.setLong(1, user.getId());
 						psGetHistoryCompleted.setLong(2, Long.parseLong(data.get(i).get("id")));
 						ResultSet result = psGetHistoryCompleted.executeQuery();
@@ -77,7 +79,8 @@ public class TC_History_Completed extends TestBase{
 							Assert.assertEquals(result.getString("status"), data.get(i).get("status"));
 							Assert.assertEquals(result.getDate("createdAt"), data.get(i).get("createdAt"));
 							
-							PreparedStatement psGetVoucherName = getConnectionPromotion().prepareStatement(query2);
+							Connection conPromotion = getConnectionPromotion();
+							PreparedStatement psGetVoucherName = conPromotion.prepareStatement(query2);
 							psGetVoucherName.setLong(1, result.getLong("voucherId"));
 							ResultSet resultVoucher = psGetVoucherName.executeQuery();
 							
@@ -85,11 +88,10 @@ public class TC_History_Completed extends TestBase{
 							{
 								Assert.assertEquals(result.getString("voucher"), data.get(i).get("voucher"));
 							}
-							getConnectionPromotion().close();
+							conPromotion.close();
 						}
-						
-					}
-					getConnectionOrder().close();
+						conOrder.close();
+					}	
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

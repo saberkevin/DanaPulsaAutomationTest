@@ -1,5 +1,6 @@
 package testCases.history;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -82,7 +83,8 @@ public class TC_History_Details extends TestBase{
 						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.deduction")));
 						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.maxDeduction")));
 						
-						PreparedStatement psGetHistoryDetails = getConnectionOrder().prepareStatement(query);
+						Connection conOrder = getConnectionOrder();
+						PreparedStatement psGetHistoryDetails = conOrder.prepareStatement(query);
 						psGetHistoryDetails.setLong(1, user.getId());
 						psGetHistoryDetails.setLong(2, Long.parseLong(data.get(i).get("id")));
 						ResultSet result = psGetHistoryDetails.executeQuery();
@@ -103,7 +105,8 @@ public class TC_History_Details extends TestBase{
 							Assert.assertEquals(result.getDate("createdAt"), data.get(i).get("createdAt"));
 							Assert.assertEquals(result.getDate("updatedAt"), data.get(i).get("updatedAt"));
 							
-							PreparedStatement psGetVoucherName = getConnectionPromotion().prepareStatement(query2);
+							Connection conPromotion = getConnectionPromotion();
+							PreparedStatement psGetVoucherName = conPromotion.prepareStatement(query2);
 							psGetVoucherName.setLong(1, result.getLong("voucherId"));
 							ResultSet resultVoucher = psGetVoucherName.executeQuery();
 							
@@ -113,11 +116,10 @@ public class TC_History_Details extends TestBase{
 								Assert.assertEquals(resultVoucher.getLong("deduction"), data.get(i).get("voucher.deduction"));
 								Assert.assertEquals(resultVoucher.getLong("maxDeduction"), data.get(i).get("voucher.maxDeduction"));
 							}
-							getConnectionPromotion().close();
+							conPromotion.close();
 						}
-						
-					}
-					getConnectionOrder().close();
+						conOrder.close();
+					}	
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

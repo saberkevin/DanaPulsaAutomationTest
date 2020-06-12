@@ -1,4 +1,5 @@
 package testCases.history;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -61,7 +62,8 @@ public class TC_History_In_Progress extends TestBase{
 						Assert.assertNotEquals("", data.get(i).get("createdAt"));
 						Assert.assertTrue(data.get(i).get("status").equals("WAITING") || data.get(i).get("status").equals("VERIFYING"));
 						
-						PreparedStatement psGetHistoryInProgress = getConnectionOrder().prepareStatement(query);
+						Connection conOrder = getConnectionOrder();
+						PreparedStatement psGetHistoryInProgress = conOrder.prepareStatement(query);
 						psGetHistoryInProgress.setLong(1, user.getId());
 						psGetHistoryInProgress.setLong(2, Long.parseLong(data.get(i).get("id")));
 						ResultSet result = psGetHistoryInProgress.executeQuery();
@@ -74,7 +76,8 @@ public class TC_History_In_Progress extends TestBase{
 							Assert.assertEquals(result.getString("status"), data.get(i).get("status"));
 							Assert.assertEquals(result.getDate("createdAt"), data.get(i).get("createdAt"));
 							
-							PreparedStatement psGetVoucherName = getConnectionPromotion().prepareStatement(query2);
+							Connection conPromotion = getConnectionPromotion();
+							PreparedStatement psGetVoucherName = conPromotion.prepareStatement(query2);
 							psGetVoucherName.setLong(1, result.getLong("voucherId"));
 							ResultSet resultVoucher = psGetVoucherName.executeQuery();
 							
@@ -82,11 +85,10 @@ public class TC_History_In_Progress extends TestBase{
 							{
 								Assert.assertEquals(result.getString("voucher"), data.get(i).get("voucher"));
 							}
-							getConnectionPromotion().close();
+							conPromotion.close();
 						}
-						
+						conOrder.close();
 					}
-					getConnectionOrder().close();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
