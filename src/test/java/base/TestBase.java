@@ -52,8 +52,7 @@ public class TestBase {
 	public RequestSpecification httpRequest;
 	public Response response;
 	
-	public String URI = "https://be-emoney.herokuapp.com/api";
-	public String tokenBypass = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkd2lnaHRAZHVuZGVybWlmZmxpbi5jbyIsImV4cCI6MTYyMDk4ODA0NiwiaWF0IjoxNTg5NDUyMDQ2fQ.brk2Tk9Yv8SwKSAH_UusX06ZL3AtonGlWbB7uT0i6GsDRmV_1DCaHv2LOjfuU8xNf5Y8t8Um-WDTNiXwhu4qAg";
+	public String URI = "http://ef23238f08ec.ngrok.io";
 	
 	public Logger logger;
 	public Connection con;
