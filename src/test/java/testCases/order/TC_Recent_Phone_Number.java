@@ -68,8 +68,10 @@ public class TC_Recent_Phone_Number extends TestBase {
 		user.setId(getUserIdByUsername(user.getUsername()));
 
 		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
+		System.out.println(response.getBody().asString());
 		checkStatusCode("200");
-		user.setSessionId(response.getHeader("Cookie"));
+		user.setSessionId(response.getCookie("SESSION"));
+		sessionId = user.getSessionId();
 	}
 		
 	@Test
@@ -77,6 +79,7 @@ public class TC_Recent_Phone_Number extends TestBase {
 		if (sessionId.equals("true"))
 			sessionId = user.getSessionId();
 		getRecentPhoneNumber(sessionId);
+		System.out.println(response.getBody().asString());
 
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);

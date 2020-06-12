@@ -28,7 +28,7 @@ import utilities.ExcelUtil;
 public class TestBase {
 	private static final String REGISTER_PATH = "/api/register";
 	private static final String LOGIN_PATH = "/api/login";
-	private static final String VERIFY_PIN_LOGIN_PATH = "/api/verifypinlogin";
+	private static final String VERIFY_PIN_LOGIN_PATH = "/api/verifypin-login";
 	private static final String FORGOT_PIN_OTP_PATH = "/api/forgotpin-otp";
 	private static final String CHANGE_PIN_OTP_PATH = "/api/changepin-otp";
 	private static final String VERIFY_OTP_PATH = "/api/verify-otp";
@@ -37,7 +37,7 @@ public class TestBase {
 	private static final String GET_PROFILE_PATH = "/api/profile";
 	private static final String GET_BALANCE_PATH = "/api/balance";
 	private static final String LOGOUT_PATH = "/api/logout";
-	private static final String RECENT_PHONE_NUMBER_PATH = "/api/recentnumber";
+	private static final String RECENT_PHONE_NUMBER_PATH = "/api/recent-number";
 	private static final String CATALOG_PATH = "/api/catalog/";
 	private static final String ORDER_PATH = "/api/order";
 	private static final String CANCEL_ORDER_PATH = "/api/transaction/cancel/";
@@ -214,7 +214,7 @@ public class TestBase {
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 		
-		response = httpRequest.request(Method.GET, VERIFY_PIN_LOGIN_PATH);
+		response = httpRequest.request(Method.POST, VERIFY_PIN_LOGIN_PATH);
 	}
 	
 	public void getProfile() {
@@ -573,18 +573,39 @@ public class TestBase {
 	}
 	
 	public void deleteUserIfExist(String email, String username) {
+		boolean userExist = false;
+		
 		try {
 			Connection conn = getConnectionMember();
-			String query = "DELETE FROM user WHERE EXISTS (SELECT id FROM user WHERE email = ? OR username = ?)";
+			String query = "SELECT * FROM user WHERE email = ? OR username = ?";
 
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setString(1, email);
-			ps.setString(2,username);
-			ps.executeUpdate();
+			ps.setString(2, username);
+
+			ResultSet rs = ps.executeQuery();			
+			if (rs.next())
+				userExist = true;
 
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}
+		
+		if (userExist) {
+			try {
+				Connection conn = getConnectionMember();
+				String query = "DELETE FROM user WHERE email = ? OR username = ?";
+
+				PreparedStatement ps = conn.prepareStatement(query);
+				ps.setString(1, email);
+				ps.setString(2, username);
+				ps.executeUpdate();
+
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	

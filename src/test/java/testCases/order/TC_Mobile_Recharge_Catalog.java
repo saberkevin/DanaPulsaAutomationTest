@@ -61,6 +61,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 		user.setId(getUserIdByUsername(user.getUsername()));
 
 		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
+		System.out.println(response.getBody().asString());
 		checkStatusCode("200");
 		user.setSessionId(response.getHeader("Cookie"));
 	}
@@ -70,6 +71,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 		if (sessionId.contentEquals("true"))
 			sessionId = user.getSessionId();	
 		getCatalog(sessionId, phoneNumber);
+		System.out.println(response.getBody().asString());
 		
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);
