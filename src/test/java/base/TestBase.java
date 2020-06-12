@@ -26,26 +26,26 @@ import utilities.ExcelUtil;
 
 @SuppressWarnings("unchecked")
 public class TestBase {
-	private static final String REGISTER_PATH = "/api/member/register";
-	private static final String LOGIN_PATH = "/api/member/login";
-	private static final String VERIFY_PIN_LOGIN_PATH = "/api/member/verifypinlogin";
-	private static final String FORGOT_PIN_OTP_PATH = "/api/member/forgotpin-otp";
-	private static final String CHANGE_PIN_OTP_PATH = "/api/member/changepin-otp";
-	private static final String VERIFY_OTP_PATH = "/api/member/verify-otp";
-	private static final String GET_OTP_PATH = "/api/member/get-otp/";
-	private static final String CHANGE_PIN_PATH = "/api/member/changepin";
-	private static final String GET_PROFILE_PATH = "/api/member/getprofile";
-	private static final String GET_BALANCE_PATH = "/api/member/getbalance";
+	private static final String REGISTER_PATH = "/api/register";
+	private static final String LOGIN_PATH = "/api/login";
+	private static final String VERIFY_PIN_LOGIN_PATH = "/api/verifypinlogin";
+	private static final String FORGOT_PIN_OTP_PATH = "/api/forgotpin-otp";
+	private static final String CHANGE_PIN_OTP_PATH = "/api/changepin-otp";
+	private static final String VERIFY_OTP_PATH = "/api/verify-otp";
+	private static final String GET_OTP_PATH = "/api/otp/";
+	private static final String CHANGE_PIN_PATH = "/api/changepin";
+	private static final String GET_PROFILE_PATH = "/api/profile";
+	private static final String GET_BALANCE_PATH = "/api/balance";
 	private static final String LOGOUT_PATH = "/api/logout";
 	private static final String RECENT_PHONE_NUMBER_PATH = "/api/recentnumber";
-	private static final String CATALOG_PATH = "/api/catalog";
+	private static final String CATALOG_PATH = "/api/catalog/";
 	private static final String ORDER_PATH = "/api/order";
 	private static final String CANCEL_ORDER_PATH = "/api/transaction/cancel/";
 	private static final String PAYMENT_PATH = "/api/pay";
 	private static final String MY_VOUCHER_PATH = "/api/my-vouchers/";
-	private static final String PROMOTION_VOUCHER_PATH = "/api/voucher/promotion/";
-	private static final String RECOMMENDATION_VOUCHER_PATH = "/api/vouchers/recommendation";
-	private static final String VOUCHER_DETAILS_PATH = "/api/voucher/";
+	private static final String PROMOTION_VOUCHER_PATH = "/api/vouchers/promotion/";
+	private static final String RECOMMENDATION_VOUCHER_PATH = "/api/vouchers/recommendation/";
+	private static final String VOUCHER_DETAILS_PATH = "/api/vouchers/details/";
 	private static final String HISTORY_IN_PROGRESS_PATH = "/api/transaction/in-progress/";
 	private static final String HISTORY_COMPLETED_PATH = "/api/transaction/completed/";
 	private static final String HISTORY_DETAILS_PATH = "/api/transaction/details/";
@@ -371,16 +371,11 @@ public class TestBase {
 		logger.info("session id:" + sessionId);
 		logger.info("phone number:" + phoneNumber);
 
-		JSONObject requestParams = new JSONObject();
-		requestParams.put("phone", phoneNumber);
-		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
 		httpRequest.header("Cookie", "SESSION=" + sessionId);
-		httpRequest.header("Content-Type", "application/json");
-		httpRequest.body(requestParams.toJSONString());
 		
-		response = httpRequest.request(Method.GET, CATALOG_PATH);
+		response = httpRequest.request(Method.GET, CATALOG_PATH + phoneNumber);
 	}
 	
 	public void createOrder(String sessionId, String phoneNumber, long catalogId) {
@@ -469,15 +464,11 @@ public class TestBase {
 		logger.info("session id:" + sessionId);
 		logger.info("transaction id:" + transactionId);
 		
-		JSONObject requestParams = new JSONObject();
-		requestParams.put("transactionId", transactionId);
-
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();		
 		httpRequest.header("Cookie", "SESSION=" + sessionId);
-		httpRequest.header("Content-Type", "application/json");
 		
-		response = httpRequest.request(Method.GET, RECOMMENDATION_VOUCHER_PATH);
+		response = httpRequest.request(Method.GET, RECOMMENDATION_VOUCHER_PATH + transactionId);
 	}
 	
 	public void getVoucherDetails(String sessionId, long voucherId) {
@@ -490,7 +481,7 @@ public class TestBase {
 		httpRequest = RestAssured.given();		
 		httpRequest.header("Cookie", "SESSION=" + sessionId);
 
-		response = httpRequest.request(Method.GET, VOUCHER_DETAILS_PATH + Long.toString(voucherId) + "/detail");
+		response = httpRequest.request(Method.GET, VOUCHER_DETAILS_PATH + Long.toString(voucherId));
 	}
 	
 	//============ DB Connection ==============================//
