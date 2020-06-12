@@ -52,7 +52,7 @@ public class TestBase {
 	
 	public RequestSpecification httpRequest;
 	public Response response;
-	public String URI = "https://be-emoney.herokuapp.com/api";	
+	public String URI = "http://ef23238f08ec.ngrok.io";	
 	public Logger logger;
 	
 	@BeforeClass
