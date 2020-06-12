@@ -4529,3 +4529,113 @@
 2020-06-12 15:10:42 INFO  restAPI:204 - pin:123456
 2020-06-12 15:10:44 INFO  restAPI:87 - ***** Check Status Code *****
 2020-06-12 15:10:44 INFO  restAPI:90 - Status Code = 404
+2020-06-12 16:02:51 INFO  restAPI:213 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 16:02:51 INFO  restAPI:214 - Test Data: 
+2020-06-12 16:02:51 INFO  restAPI:215 - id:15
+2020-06-12 16:02:51 INFO  restAPI:216 - pin:123456
+2020-06-12 16:02:53 INFO  restAPI:87 - ***** Check Status Code *****
+2020-06-12 16:02:53 INFO  restAPI:90 - Status Code = 404
+2020-06-12 17:00:28 INFO  restAPI:213 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:00:28 INFO  restAPI:214 - Test Data: 
+2020-06-12 17:00:28 INFO  restAPI:215 - id:16
+2020-06-12 17:00:28 INFO  restAPI:216 - pin:123456
+2020-06-12 17:00:38 INFO  restAPI:369 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:00:38 INFO  restAPI:370 - Test Data: 
+2020-06-12 17:00:38 INFO  restAPI:371 - session id:Default test
+2020-06-12 17:00:44 INFO  restAPI:163 - ***** Finished TC_Recent_Phone_Number *****
+2020-06-12 17:06:27 INFO  restAPI:213 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:06:27 INFO  restAPI:214 - Test Data: 
+2020-06-12 17:06:27 INFO  restAPI:215 - id:17
+2020-06-12 17:06:27 INFO  restAPI:216 - pin:123456
+2020-06-12 17:06:36 INFO  restAPI:369 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:06:36 INFO  restAPI:370 - Test Data: 
+2020-06-12 17:06:36 INFO  restAPI:371 - session id:OGFiNjkyOGQtNjliYy00NTRiLTg2OTItYTNjYTJlZTc1MzQ1
+2020-06-12 17:06:39 INFO  restAPI:87 - ***** Check Status Code *****
+2020-06-12 17:06:39 INFO  restAPI:90 - Status Code = 200
+2020-06-12 17:07:00 INFO  restAPI:213 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:07:00 INFO  restAPI:214 - Test Data: 
+2020-06-12 17:07:00 INFO  restAPI:215 - id:18
+2020-06-12 17:07:00 INFO  restAPI:216 - pin:123456
+2020-06-12 17:07:08 INFO  restAPI:369 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:07:08 INFO  restAPI:370 - Test Data: 
+2020-06-12 17:07:08 INFO  restAPI:371 - session id:
+2020-06-12 17:07:30 INFO  restAPI:213 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:07:30 INFO  restAPI:214 - Test Data: 
+2020-06-12 17:07:30 INFO  restAPI:215 - id:19
+2020-06-12 17:07:30 INFO  restAPI:216 - pin:123456
+2020-06-12 17:08:35 INFO  restAPI:213 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:08:35 INFO  restAPI:214 - Test Data: 
+2020-06-12 17:08:35 INFO  restAPI:215 - id:21
+2020-06-12 17:08:35 INFO  restAPI:216 - pin:123456
+2020-06-12 17:08:44 INFO  restAPI:369 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:08:44 INFO  restAPI:370 - Test Data: 
+2020-06-12 17:08:44 INFO  restAPI:371 - session id:OWNiZTNhYzUtOGE4Ni00MThlLTgyM2YtY2QxMjdlYTI1Yzg3
+2020-06-12 17:08:46 INFO  restAPI:87 - ***** Check Status Code *****
+2020-06-12 17:08:46 INFO  restAPI:90 - Status Code = 200
+2020-06-12 17:09:08 INFO  restAPI:213 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:09:08 INFO  restAPI:214 - Test Data: 
+2020-06-12 17:09:08 INFO  restAPI:215 - id:22
+2020-06-12 17:09:08 INFO  restAPI:216 - pin:123456
+2020-06-12 17:09:16 INFO  restAPI:369 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:09:16 INFO  restAPI:370 - Test Data: 
+2020-06-12 17:09:16 INFO  restAPI:371 - session id:
+2020-06-12 17:09:38 INFO  restAPI:213 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:09:38 INFO  restAPI:214 - Test Data: 
+2020-06-12 17:09:38 INFO  restAPI:215 - id:23
+2020-06-12 17:09:38 INFO  restAPI:216 - pin:123456
+2020-06-12 17:09:46 INFO  restAPI:369 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:09:46 INFO  restAPI:370 - Test Data: 
+2020-06-12 17:09:46 INFO  restAPI:371 - session id:eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkd2lnaHRAZHVuZGVybWlmZmxpbi5jbyIsImV4cCI6MTYyMDk4ODA0NiwiaWF0IjoxNTg5NDUyMDQ2fQ
+2020-06-12 17:11:12 INFO  restAPI:213 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:11:12 INFO  restAPI:214 - Test Data: 
+2020-06-12 17:11:12 INFO  restAPI:215 - id:24
+2020-06-12 17:11:12 INFO  restAPI:216 - pin:123456
+2020-06-12 17:11:21 INFO  restAPI:369 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:11:21 INFO  restAPI:370 - Test Data: 
+2020-06-12 17:11:21 INFO  restAPI:371 - session id:MjE5YTgxYWEtN2NhNy00Njk1LTljYzMtOTNiYzVkZGI0ZTI3
+2020-06-12 17:11:27 INFO  restAPI:87 - ***** Check Status Code *****
+2020-06-12 17:11:27 INFO  restAPI:90 - Status Code = 200
+2020-06-12 17:13:34 INFO  restAPI:213 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:13:34 INFO  restAPI:214 - Test Data: 
+2020-06-12 17:13:34 INFO  restAPI:215 - id:25
+2020-06-12 17:13:34 INFO  restAPI:216 - pin:123456
+2020-06-12 17:19:12 INFO  restAPI:213 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:19:12 INFO  restAPI:214 - Test Data: 
+2020-06-12 17:19:12 INFO  restAPI:215 - id:26
+2020-06-12 17:19:12 INFO  restAPI:216 - pin:123456
+2020-06-12 17:29:04 INFO  restAPI:213 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:29:04 INFO  restAPI:214 - Test Data: 
+2020-06-12 17:29:04 INFO  restAPI:215 - id:28
+2020-06-12 17:29:04 INFO  restAPI:216 - pin:123456
+2020-06-12 17:36:31 INFO  restAPI:213 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:36:31 INFO  restAPI:214 - Test Data: 
+2020-06-12 17:36:31 INFO  restAPI:215 - id:31
+2020-06-12 17:36:31 INFO  restAPI:216 - pin:123456
+2020-06-12 17:36:40 INFO  restAPI:369 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:36:40 INFO  restAPI:370 - Test Data: 
+2020-06-12 17:36:40 INFO  restAPI:371 - session id:Default test
+2020-06-12 17:36:48 INFO  restAPI:163 - ***** Finished TC_Recent_Phone_Number *****
+2020-06-12 17:38:24 INFO  restAPI:213 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:38:24 INFO  restAPI:214 - Test Data: 
+2020-06-12 17:38:24 INFO  restAPI:215 - id:33
+2020-06-12 17:38:24 INFO  restAPI:216 - pin:123456
+2020-06-12 17:38:33 INFO  restAPI:369 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:38:33 INFO  restAPI:370 - Test Data: 
+2020-06-12 17:38:33 INFO  restAPI:371 - session id:Default test
+2020-06-12 17:38:39 INFO  restAPI:163 - ***** Finished TC_Recent_Phone_Number *****
+2020-06-12 17:40:33 INFO  restAPI:213 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:40:33 INFO  restAPI:214 - Test Data: 
+2020-06-12 17:40:33 INFO  restAPI:215 - id:34
+2020-06-12 17:40:33 INFO  restAPI:216 - pin:123456
+2020-06-12 17:40:41 INFO  restAPI:369 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:40:41 INFO  restAPI:370 - Test Data: 
+2020-06-12 17:40:41 INFO  restAPI:371 - session id:Default test
+2020-06-12 17:40:49 INFO  restAPI:163 - ***** Finished TC_Recent_Phone_Number *****
+2020-06-12 17:43:05 INFO  restAPI:213 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:43:05 INFO  restAPI:214 - Test Data: 
+2020-06-12 17:43:05 INFO  restAPI:215 - id:36
+2020-06-12 17:43:05 INFO  restAPI:216 - pin:123456
+2020-06-12 17:43:14 INFO  restAPI:369 - ***** Started TC_Recent_Phone_Number *****
+2020-06-12 17:43:14 INFO  restAPI:370 - Test Data: 
+2020-06-12 17:43:14 INFO  restAPI:371 - session id:Default test
+2020-06-12 17:43:22 INFO  restAPI:163 - ***** Finished TC_Recent_Phone_Number *****

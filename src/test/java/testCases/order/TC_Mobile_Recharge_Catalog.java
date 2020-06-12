@@ -20,13 +20,12 @@ import model.User;
 
 public class TC_Mobile_Recharge_Catalog extends TestBase {
 	private User user = new User();
-	private String sessionId;
 	private String phoneNumber;
 	private Provider provider;
 	private JSONArray catalogs;
 	
 	public TC_Mobile_Recharge_Catalog(String sessionId, String phoneNumber) {
-		this.sessionId = sessionId;
+		user.setSessionId(sessionId);
 		this.phoneNumber = phoneNumber;
 	}
 	
@@ -51,31 +50,38 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	
 	@BeforeClass
 	public void beforeClass() {
+		// initialize user
 		user.setName("Zanuar");
 		user.setEmail("triromadon@gmail.com");
 		user.setUsername("081252930398");
 		user.setPin(123456);
 		
+		// insert user into database and get id from it
 		deleteUserIfExist(user.getEmail(), user.getUsername());
 		createUser(user);
 		user.setId(getUserIdByUsername(user.getUsername()));
 
+		// get session from mobile domain - API verify pin login
 		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
-		System.out.println(response.getBody().asString());
 		checkStatusCode("200");
-		user.setSessionId(response.getHeader("Cookie"));
+
+		// if data from excel "true", then get valid session
+		if (user.getSessionId().equals("true")) {
+			user.setSessionId(response.getCookie("SESSION"));	
+		}
 	}
 	
 	@Test
 	public void testMobileRechargeCatalog() {
-		if (sessionId.contentEquals("true"))
-			sessionId = user.getSessionId();	
-		getCatalog(sessionId, phoneNumber);
+		// call API mobile rechare catalog
+		getCatalog(user.getSessionId(), phoneNumber);
 		System.out.println(response.getBody().asString());
 		
+		// compare code with HTTP status code
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);
 
+		// check message
 		String message = response.getBody().jsonPath().getString("message");
 		
 		if (code.equals("400")) {

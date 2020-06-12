@@ -52,7 +52,7 @@ public class TestBase {
 	
 	public RequestSpecification httpRequest;
 	public Response response;
-	public String URI = "http://ef23238f08ec.ngrok.io";	
+	public String URI = "http://4013f026bbdd.ngrok.io";	
 	public Logger logger;
 	
 	@BeforeClass
@@ -323,11 +323,12 @@ public class TestBase {
 		response = httpRequest.request(Method.GET, GET_OTP_PATH+id);
 	}
 	
-	public void logout() {
+	public void logout(String sessionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "SESSION=" + sessionId);
 		
 		response = httpRequest.request(Method.DELETE, LOGOUT_PATH);
 	}
@@ -595,7 +596,7 @@ public class TestBase {
 			ps.setString(1, email);
 			ps.setString(2, username);
 
-			ResultSet rs = ps.executeQuery();			
+			ResultSet rs = ps.executeQuery();
 			if (rs.next())
 				userExist = true;
 
@@ -660,5 +661,39 @@ public class TestBase {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}	
+	}
+	
+	public void createTransaction(long userId, String phoneNumber, long catalogId) {
+		try {
+			Connection conn = getConnectionOrder();
+			String query = "INSERT INTO transaction(userId, methodId, phoneNumber, catalogId, statusId) VALUES (?, ?, ?, ?, ?)";
+
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setLong(1, userId);
+			ps.setLong(2, 1);
+			ps.setString(3, phoneNumber);
+			ps.setLong(4, catalogId);
+			ps.setLong(5, 2);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void deleteTransactionByUserId(long userId) {
+		try {
+			Connection conn = getConnectionOrder();
+			String query = "DELETE FROM transaction WHERE userId = ?";
+
+			PreparedStatement ps = conn.prepareStatement(query);			
+			ps.setLong(1, userId);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
