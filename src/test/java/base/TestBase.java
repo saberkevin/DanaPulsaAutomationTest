@@ -136,6 +136,18 @@ public class TestBase {
 		Assert.assertTrue(isValid);	
 	}
 	
+	public void checkCodeValid(String code)
+	{
+		String regex = "^[0-9]{4}$";
+		 
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(code);
+		
+		boolean isValid = matcher.matches();
+		
+		Assert.assertTrue(isValid);	
+	}
+	
 	public String replacePhoneForAssertion(String phone)
 	{
 		String phoneSubstring = phone;

@@ -1,6 +1,5 @@
 package testCases.history;
-
-import java.sql.DriverManager;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,17 +17,17 @@ import model.User;
 
 public class TC_History_In_Progress extends TestBase{
 	
-	private String id;
+	private String page;
 	private User user;
 	
-	public TC_History_In_Progress(String id) {
-		this.id=id;
+	public TC_History_In_Progress(String page) {
+		this.page = page;
 	}
 
 	@Test
 	void historyInProgressUser()
 	{
-		historyInProgress(id);
+		historyInProgress(page);
 	}
 	
 	@Test(dependsOnMethods = {"historyInProgressUser"})
@@ -40,15 +39,12 @@ public class TC_History_In_Progress extends TestBase{
 		
 		if(code == 200)
 		{
-			String dbUrl = "jdbc:mysql://remotemysql.com:3306/Cwyx6vUQDe";					
-			String username = "Cwyx6vUQDe";	
-			String password = "J8hC6uAYxS";
-			String query = "SELECT a.id,a.userId,a.phoneNumber,d.price,c.name as voucher,b.name AS status,a.createdAt FROM transaction a\n" + 
-					"JOIN transaction_status b ON a.statusId = b.id AND b.typeId = 1\n" + 
-					"JOIN voucher c ON a.voucherId = c.id \n" + 
+			String query = "SELECT a.id,a.userId,a.phoneNumber,d.price,a.voucherId,b.name AS status,a.createdAt FROM transaction a\n" + 
+					"JOIN transaction_status b ON a.statusId = b.id AND b.typeId = 1\n" +  
 					"JOIN pulsa_catalog d ON a.catalogId = d.id \n" +
 					"WHERE a.userId = ? and a.id = ? \n" + 
 					"ORDER BY a.createdAt";
+			String query2 = "SELECT name AS voucher FROM voucher WHERE id = ? ";
 			
 			Assert.assertEquals("success", message);
 			
@@ -57,8 +53,6 @@ public class TC_History_In_Progress extends TestBase{
 				List<Map<String, String>> data = jsonPath.getList("data");
 				
 				try {
-					con = DriverManager.getConnection(dbUrl,username,password);
-					con.setAutoCommit(true);
 					
 					for (int i = 0; i < data.size(); i++) {  
 						Assert.assertNotNull(Long.parseLong(data.get(i).get("id")));
@@ -68,8 +62,9 @@ public class TC_History_In_Progress extends TestBase{
 						Assert.assertNotEquals("", data.get(i).get("createdAt"));
 						Assert.assertTrue(data.get(i).get("status").equals("WAITING") || data.get(i).get("status").equals("VERIFYING"));
 						
-						PreparedStatement psGetHistoryInProgress = con.prepareStatement(query);
-						psGetHistoryInProgress.setLong(1, Long.parseLong(user.getId()));
+						Connection conOrder = getConnectionOrder();
+						PreparedStatement psGetHistoryInProgress = conOrder.prepareStatement(query);
+						psGetHistoryInProgress.setLong(1, user.getId());
 						psGetHistoryInProgress.setLong(2, Long.parseLong(data.get(i).get("id")));
 						ResultSet result = psGetHistoryInProgress.executeQuery();
 						
@@ -78,13 +73,22 @@ public class TC_History_In_Progress extends TestBase{
 							Assert.assertEquals(result.getLong("id"), data.get(i).get("id"));
 							Assert.assertEquals(result.getString("phone"), data.get(i).get("phone"));
 							Assert.assertEquals(result.getLong("price"), data.get(i).get("price"));
-							Assert.assertEquals(result.getString("voucher"), data.get(i).get("voucher"));
 							Assert.assertEquals(result.getString("status"), data.get(i).get("status"));
 							Assert.assertEquals(result.getDate("createdAt"), data.get(i).get("createdAt"));
+							
+							Connection conPromotion = getConnectionPromotion();
+							PreparedStatement psGetVoucherName = conPromotion.prepareStatement(query2);
+							psGetVoucherName.setLong(1, result.getLong("voucherId"));
+							ResultSet resultVoucher = psGetVoucherName.executeQuery();
+							
+							while(resultVoucher.next())
+							{
+								Assert.assertEquals(result.getString("voucher"), data.get(i).get("voucher"));
+							}
+							conPromotion.close();
 						}
-						
+						conOrder.close();
 					}
-					con.close();
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

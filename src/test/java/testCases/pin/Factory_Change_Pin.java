@@ -15,6 +15,6 @@ public class Factory_Change_Pin extends TestBase{
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/testCases/pin/changePinTestData.xlsx");
+		return getExcelData("../DanaPulsaAutomationTest/src/test/java/testCases/pin/PinTestData.xlsx","ChangePin");
 	}
 }

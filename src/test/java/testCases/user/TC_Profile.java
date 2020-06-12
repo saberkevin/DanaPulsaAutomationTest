@@ -1,5 +1,9 @@
 package testCases.user;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.testng.annotations.Parameters;
@@ -32,6 +36,30 @@ public class TC_Profile extends TestBase{
 			checkEmailValid(jsonPath.get("data.email"));
 			checkResultPhoneValid(jsonPath.get("data.username"));
 			
+			String query = "SELECT id, name, email, username FROM user\n" + 
+					"WHERE id = ? AND name = ?  AND email = ? AND username = ?";
+			try {
+				PreparedStatement psGetUser = getConnectionMember().prepareStatement(query);
+				psGetUser.setLong(1, jsonPath.get("data.id"));
+				psGetUser.setString(2, jsonPath.get("data.name"));
+				psGetUser.setString(3, jsonPath.get("data.email"));
+				psGetUser.setString(4, jsonPath.get("data.username"));
+				
+				ResultSet result = psGetUser.executeQuery();
+				
+				while(result.next())
+				{
+					Assert.assertEquals(Long.parseLong(jsonPath.get("data.id")), result.getLong("id"));
+					Assert.assertEquals(jsonPath.get("data.name"), result.getString("name"));
+					Assert.assertEquals(jsonPath.get("data.email"), result.getString("email"));
+					Assert.assertEquals(jsonPath.get("data.username"), result.getString("username"));
+				}
+				
+				getConnectionMember().close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else if(code == 404)
 		{
