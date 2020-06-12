@@ -11,13 +11,9 @@
 <listeners>
 	<listener class-name="utilities.Listeners"></listener>	
 </listeners>
-	<!-- <test name="DanaPulsaAPITestRegister" group-by-instances="true">
+	<test name="DanaPulsaAPITestRegister" group-by-instances="true">
 		<classes>
-			<class name = "testCases.Register.Factory_User"></class>
-			<class name = "testCases.Register.TC_002_Verification_OTP"></class>
-			<class name = "testCases.Register.Factory_Login"></class>
-			<class name = "testCases.Register.TC_004_Update_Password"></class>
-			<class name = "testCases.Register.TC_005_Profile"></class>
+			<class name = "testCases.register.Factory_Register"></class>
 		</classes>
-	</test> -->
+	</test>
 </suite>

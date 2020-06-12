@@ -25,8 +25,8 @@ import utilities.ExcelUtil;
 
 @SuppressWarnings("unchecked")
 public class TestBase {
-	private static final String REGISTER_PATH = "/api/member/register";
-	private static final String LOGIN_PATH = "/api/member/login";
+	private static final String REGISTER_PATH = "/api/register";
+	private static final String LOGIN_PATH = "/api/login";
 	private static final String VERIFY_PIN_LOGIN_PATH = "/api/member/verifypinlogin";
 	private static final String FORGOT_PIN_OTP_PATH = "/api/member/forgotpin-otp";
 	private static final String CHANGE_PIN_OTP_PATH = "/api/member/changepin-otp";
@@ -55,7 +55,6 @@ public class TestBase {
 	public String URI = "http://ef23238f08ec.ngrok.io";
 	
 	public Logger logger;
-	public Connection con;
 	
 	@BeforeClass
 	public void setup()
