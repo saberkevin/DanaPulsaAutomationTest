@@ -88,7 +88,7 @@ public class TC_Register extends TestBase{
 					Assert.assertEquals(jsonPath.get("data.name"), result.getString("name"));
 					Assert.assertEquals(jsonPath.get("data.email"), result.getString("email"));
 					Assert.assertEquals(jsonPath.get("data.username"), result.getString("username"));
-					Assert.assertEquals(pin, result.getLong("pin"));
+					Assert.assertEquals(Long.parseLong(pin), result.getLong("pin"));
 				}
 				
 				conUser.close();
@@ -99,8 +99,6 @@ public class TC_Register extends TestBase{
 		}
 		else if(code == 400)
 		{
-			String tempPin = pin;
-			if(tempPin.isEmpty()) tempPin = "0";
 			Assert.assertTrue(message.contains("invalid") || message.contains("must not be null"));
 			
 			String query = "SELECT name, email, username, pin FROM user\n" + 
@@ -111,7 +109,7 @@ public class TC_Register extends TestBase{
 				psGetUser.setString(1, name);
 				psGetUser.setString(2, email);
 				psGetUser.setString(3, replacePhoneForAssertion(phone));
-				psGetUser.setLong(4, Long.parseLong(tempPin));
+				psGetUser.setString(4, pin);
 				
 				ResultSet result = psGetUser.executeQuery();
 				
