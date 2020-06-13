@@ -32,8 +32,8 @@ public class TC_Register extends TestBase{
 	void registerUser()
 	{	
 		String query = "DELETE FROM user " + 
-				"WHERE EXISTS ( " + 
-				"SELECT * FROM (SELECT id FROM user WHERE email = ? OR username = ?)tblTemp)";
+				"WHERE id = ( " + 
+				"SELECT tblTemp.id FROM (SELECT id FROM user WHERE email = ? OR username = ? LIMIT 1)tblTemp)";
 		String openRestrict= "SET FOREIGN_KEY_CHECKS=0";
 		
 		try {
@@ -62,7 +62,8 @@ public class TC_Register extends TestBase{
 		
 		if(code == 200)
 		{
-			Assert.assertNotNull(Long.parseLong(jsonPath.get("data.id")));
+			Assert.assertEquals("created", message);
+			Assert.assertNotNull(Long.parseLong(jsonPath.get("data.id").toString()));
 			Assert.assertEquals(name, jsonPath.get("data.name"));
 			Assert.assertEquals(email, jsonPath.get("data.email"));
 			Assert.assertEquals(replacePhoneForAssertion(phone), jsonPath.get("data.username"));
@@ -74,7 +75,7 @@ public class TC_Register extends TestBase{
 			try {
 				Connection conUser = getConnectionMember();
 				PreparedStatement psGetUser = conUser.prepareStatement(query);
-				psGetUser.setLong(1, jsonPath.get("data.id"));
+				psGetUser.setLong(1, Long.parseLong(jsonPath.get("data.id").toString()));
 				psGetUser.setString(2, jsonPath.get("data.name"));
 				psGetUser.setString(3, jsonPath.get("data.email"));
 				psGetUser.setString(4, jsonPath.get("data.username"));
@@ -83,11 +84,11 @@ public class TC_Register extends TestBase{
 				
 				while(result.next())
 				{
-					Assert.assertEquals(Long.parseLong(jsonPath.get("data.id")), result.getLong("id"));
+					Assert.assertEquals(Long.parseLong(jsonPath.get("data.id").toString()), result.getLong("id"));
 					Assert.assertEquals(jsonPath.get("data.name"), result.getString("name"));
 					Assert.assertEquals(jsonPath.get("data.email"), result.getString("email"));
 					Assert.assertEquals(jsonPath.get("data.username"), result.getString("username"));
-					Assert.assertEquals(pin, result.getLong("pin"));
+					Assert.assertEquals(Long.parseLong(pin), result.getLong("pin"));
 				}
 				
 				conUser.close();
@@ -98,7 +99,7 @@ public class TC_Register extends TestBase{
 		}
 		else if(code == 400)
 		{
-			Assert.assertTrue(message.contains("null"));
+			Assert.assertTrue(message.contains("invalid") || message.contains("must not be null"));
 			
 			String query = "SELECT name, email, username, pin FROM user\n" + 
 					"WHERE name = ?  AND email = ? AND username = ? AND pin = ?";
@@ -108,16 +109,13 @@ public class TC_Register extends TestBase{
 				psGetUser.setString(1, name);
 				psGetUser.setString(2, email);
 				psGetUser.setString(3, replacePhoneForAssertion(phone));
-				psGetUser.setLong(4, Long.parseLong(pin));
+				psGetUser.setString(4, pin);
 				
 				ResultSet result = psGetUser.executeQuery();
 				
-				while(result.next())
+				if(result.next())
 				{
-					Assert.assertEquals(name, result.getString("name"));
-					Assert.assertEquals(email, result.getString("email"));
-					Assert.assertEquals(replacePhoneForAssertion(phone), result.getString("username"));
-					Assert.assertEquals(pin, result.getLong("pin"));
+					Assert.assertTrue("should not exists in database", false);
 				}
 				
 				conUser.close();
@@ -158,7 +156,7 @@ public class TC_Register extends TestBase{
 	@Test(dependsOnMethods = {"registerUser"})
 	void assertStatusCode()
 	{
-		String sc = response.jsonPath().get("code");
+		int sc = response.jsonPath().get("code");
 		checkStatusCode(sc);	
 	}
 	
