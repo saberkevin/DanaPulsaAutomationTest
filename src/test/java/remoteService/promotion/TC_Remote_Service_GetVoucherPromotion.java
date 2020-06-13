@@ -25,13 +25,14 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 	private String page;
 	
 	public TC_Remote_Service_GetVoucherPromotion(String userId, String page) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		this.userId = userId;
 		this.page = page;
 	}
 
 	@SuppressWarnings("unchecked")
 	public void getPromotionVoucherRemoteService(String userId, String page) {
-		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Call Get Promotion Voucher API [Promotion Domain]");
 		logger.info("Test Data: ");
 		logger.info("user id:" + userId);
 		logger.info("page:" + page);
@@ -46,6 +47,7 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 		httpRequest.body(requestParams.toJSONString());
 		
 		response = httpRequest.request(Method.GET, "/test");
+		logger.info(response.getBody().asString());
 	}
 	
 	@BeforeClass
@@ -94,7 +96,7 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 							+ "B.name AS voucherTypeName, "
 							+ "A.filePath, "
 							+ "A.expiryDate "
-							+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id LIMIT ?";
+							+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id LIMIT ? WHERE ";
 					
 					PreparedStatement ps = conn.prepareStatement(queryString);
 					ps.setInt(1, Integer.parseInt(page) * 10);
@@ -116,6 +118,8 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
+			} else if (statusCode == 404) {
+				
 			}
 		}
 	}
