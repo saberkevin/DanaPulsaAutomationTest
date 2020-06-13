@@ -52,7 +52,8 @@ public class TestBase {
 	
 	public RequestSpecification httpRequest;
 	public Response response;
-	public String URI = "http://ef23238f08ec.ngrok.io";	
+	public String URI = "https://debrief.herokuapp.com";	
+	public String memberURI = "https://member-domain.herokuapp.com/member";
 	public Logger logger;
 	
 	@BeforeClass
@@ -89,6 +90,15 @@ public class TestBase {
 		int statusCode = response.getStatusCode();
 		logger.info("Status Code = " + statusCode);
 		Assert.assertEquals(statusCode, Integer.parseInt(sc));	
+	}
+	
+	public void checkStatusCode(int sc)
+	{
+		logger.info("***** Check Status Code *****");
+		
+		int statusCode = response.getStatusCode();
+		logger.info("Status Code = " + statusCode);
+		Assert.assertEquals(statusCode, sc);	
 	}
 	
 	public void checkResponseTime(String rt)
@@ -183,7 +193,7 @@ public class TestBase {
 		requestParams.put("name", name);
 		requestParams.put("email", email);
 		requestParams.put("phone", phone);
-		requestParams.put("pin", Integer.parseInt(pin));
+		requestParams.put("pin", pin);
 		
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
