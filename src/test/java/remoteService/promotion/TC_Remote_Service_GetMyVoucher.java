@@ -19,6 +19,9 @@ public class TC_Remote_Service_GetMyVoucher extends TestBase {
 	private String page;
 	private Voucher[] vouchers;
 	
+	public TC_Remote_Service_GetMyVoucher(String userId, String page) {
+	}
+
 	@SuppressWarnings("unchecked")
 	public void getMyVoucherRemoteService(String userId, String page) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");

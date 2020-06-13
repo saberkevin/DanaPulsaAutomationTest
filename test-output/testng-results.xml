@@ -2,36 +2,36 @@
 <testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="24118" started-at="2020-06-13T03:00:33Z" finished-at="2020-06-13T03:00:57Z">
+  <suite name="Default suite" duration-ms="46359" started-at="2020-06-13T09:32:53Z" finished-at="2020-06-13T09:33:40Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="24118" started-at="2020-06-13T03:00:33Z" finished-at="2020-06-13T03:00:57Z">
-      <class name="remoteService.promotion.TC_Remote_Service_GetVoucherPromotion">
-        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherPromotion@2aa5fe93]" name="setup" is-config="true" duration-ms="62" started-at="2020-06-13T03:00:33Z" finished-at="2020-06-13T03:00:33Z">
+    <test name="Default test" duration-ms="46359" started-at="2020-06-13T09:32:53Z" finished-at="2020-06-13T09:33:40Z">
+      <class name="testCases.order.TC_Recent_Phone_Number">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@2aa5fe93]" name="setup" is-config="true" duration-ms="68" started-at="2020-06-13T09:32:53Z" finished-at="2020-06-13T09:32:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherPromotion@2aa5fe93]" name="beforeClass" is-config="true" duration-ms="20712" started-at="2020-06-13T03:00:33Z" finished-at="2020-06-13T03:00:54Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@2aa5fe93]" name="beforeClass" is-config="true" duration-ms="29173" started-at="2020-06-13T09:32:53Z" finished-at="2020-06-13T09:33:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testPromotionVouchers()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherPromotion@2aa5fe93]" name="testPromotionVouchers" duration-ms="3313" started-at="2020-06-13T03:00:54Z" finished-at="2020-06-13T03:00:57Z">
+        <test-method status="PASS" signature="testRecentPhoneNumber()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@2aa5fe93]" name="testRecentPhoneNumber" duration-ms="11020" started-at="2020-06-13T09:33:23Z" finished-at="2020-06-13T09:33:34Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testPromotionVouchers -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherPromotion@2aa5fe93]" name="checkData" duration-ms="1" started-at="2020-06-13T03:00:57Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherPromotion.testPromotionVouchers" finished-at="2020-06-13T03:00:57Z">
+        </test-method> <!-- testRecentPhoneNumber -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@2aa5fe93]" name="checkData" duration-ms="1" started-at="2020-06-13T09:33:34Z" depends-on-methods="testCases.order.TC_Recent_Phone_Number.testRecentPhoneNumber" finished-at="2020-06-13T09:33:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherPromotion@2aa5fe93]" name="checkDB" duration-ms="1" started-at="2020-06-13T03:00:57Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherPromotion.checkData" finished-at="2020-06-13T03:00:57Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@2aa5fe93]" name="checkDB" duration-ms="1" started-at="2020-06-13T09:33:34Z" depends-on-methods="testCases.order.TC_Recent_Phone_Number.checkData" finished-at="2020-06-13T09:33:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherPromotion@2aa5fe93]" name="afterClass" is-config="true" duration-ms="1" started-at="2020-06-13T03:00:57Z" finished-at="2020-06-13T03:00:57Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@2aa5fe93]" name="afterClass" is-config="true" duration-ms="6068" started-at="2020-06-13T09:33:34Z" finished-at="2020-06-13T09:33:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- remoteService.promotion.TC_Remote_Service_GetVoucherPromotion -->
+      </class> <!-- testCases.order.TC_Recent_Phone_Number -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

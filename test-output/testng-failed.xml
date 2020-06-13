@@ -3,16 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="remoteService.promotion.TC_Remote_Service_GetVoucherPromotion">
+      <class name="testCases.order.TC_Recent_Phone_Number">
         <methods>
+          <include name="afterClass"/>
+          <include name="beforeClass"/>
           <include name="checkData"/>
           <include name="checkDB"/>
-          <include name="beforeClass"/>
           <include name="setup"/>
-          <include name="afterClass"/>
-          <include name="testPromotionVouchers"/>
+          <include name="testRecentPhoneNumber"/>
         </methods>
-      </class> <!-- remoteService.promotion.TC_Remote_Service_GetVoucherPromotion -->
+      </class> <!-- testCases.order.TC_Recent_Phone_Number -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

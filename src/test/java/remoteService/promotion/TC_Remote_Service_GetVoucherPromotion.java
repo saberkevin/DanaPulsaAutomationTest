@@ -24,6 +24,11 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 	private String userId;
 	private String page;
 	
+	public TC_Remote_Service_GetVoucherPromotion(String userId, String page) {
+		this.userId = userId;
+		this.page = page;
+	}
+
 	@SuppressWarnings("unchecked")
 	public void getPromotionVoucherRemoteService(String userId, String page) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
@@ -57,41 +62,20 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 		user.setId(getUserIdByUsername(user.getUsername()));
 		
 		// if data from excel "true", then get valid user id
-//		if (userId.equals("true")) {
-//			userId = Long.toString(user.getId());
-//		}
-		
-		//hard code for testing
-		userId = Long.toString(user.getId());
+		if (userId.equals("true")) {
+			userId = Long.toString(user.getId());
+		}
 	}
 	
 	@Test
 	public void testPromotionVouchers() {
-		// call API promotion voucher remote service
-//		getPromotionVoucherRemoteService(userId, page);
-		getPromotionVoucherRemoteService(userId, "1");
-		System.out.println(response.getBody().asString());
+		// call API get promotion vouchers
+		getPromotionVoucherRemoteService(userId, page);
 	}
 	
 	@Test(dependsOnMethods = {"testPromotionVouchers"})
 	public void checkData() throws ParseException {
-		int statusCode = response.getStatusCode();
 		
-		if (statusCode == 200) {
-			List<Map<String, String>> promotionVouchers = response.jsonPath().get();
-			
-			if(promotionVouchers != null) {
-				for (int i = 0; i < promotionVouchers.size(); i++) {
-					System.out.println(promotionVouchers.get(i).get("name"));
-					
-					Assert.assertNotNull(promotionVouchers.get(i).get("id"));
-					Assert.assertNotNull(promotionVouchers.get(i).get("name"));
-					Assert.assertNotNull(promotionVouchers.get(i).get("voucherTypeName"));
-					Assert.assertNotNull(promotionVouchers.get(i).get("filePath"));
-					Assert.assertNotNull(promotionVouchers.get(i).get("expiryDate"));
-				}
-			}
-		}
 	}
 	
 	@Test(dependsOnMethods = {"checkData"})
@@ -99,29 +83,38 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 		int statusCode = response.getStatusCode();
 		
 		if (statusCode == 200) {
-			List<Map<String, String>> promotionVouchers = response.jsonPath().get();
+			List<Map<String, String>> vouchers = response.jsonPath().get();
 			
-			if(promotionVouchers != null) {				
+			if(vouchers != null) {
 				try {
 					Connection conn = getConnectionPromotion();
-					String queryString = "SELECT A.id, A.name AS voucherName, B.name AS voucherTypeName, A.filePath, A.expiryDate "
-							+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id";
+					String queryString = "SELECT "
+							+ "A.id, "
+							+ "A.name AS voucherName, "
+							+ "B.name AS voucherTypeName, "
+							+ "A.filePath, "
+							+ "A.expiryDate "
+							+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id LIMIT ?";
 					
 					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setInt(1, Integer.parseInt(page) * 10);
+					
 					ResultSet rs = ps.executeQuery();
 					while(rs.next()) {
-						System.out.println(rs.getRow());
-
-						Assert.assertEquals(rs.getString("id"), promotionVouchers.get(rs.getRow()).get("id"));
-						Assert.assertEquals(rs.getString("voucherName"), promotionVouchers.get(rs.getRow()).get("name"));
-						Assert.assertEquals(rs.getString("voucherTypeName"), promotionVouchers.get(rs.getRow()).get("voucherTypeName"));
-						Assert.assertEquals(rs.getString("filePath"), promotionVouchers.get(rs.getRow()).get("filePath"));
-						Assert.assertEquals(rs.getString("expiryDate"), promotionVouchers.get(rs.getRow()).get("expiryDate"));
+						int index = rs.getRow() - 1;
+						Assert.assertEquals(String.valueOf(vouchers.get(index).get("id")), rs.getString("id"));
+						Assert.assertEquals(vouchers.get(index).get("name"), rs.getString("voucherName"));						
+						Assert.assertEquals(vouchers.get(index).get("voucherTypeName"), rs.getString("voucherTypeName"));						
+						Assert.assertEquals(vouchers.get(index).get("filePath"), rs.getString("filePath"));						
+//						Assert.assertEquals(vouchers.get(index).get("expiryDate"), rs.getLong("expiryDate"));
+						
+						System.out.print(String.valueOf(vouchers.get(index).get("expiryDate")) + " - ");
+						System.out.println(rs.getLong("expiryDate"));
 					}
 					
 					conn.close();
 				} catch (SQLException e) {
-					e.printStackTrace();						
+					e.printStackTrace();
 				}
 			}
 		}
@@ -129,7 +122,6 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 	
 	@AfterClass
 	public void afterClass() {
-		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());
 	}
 }

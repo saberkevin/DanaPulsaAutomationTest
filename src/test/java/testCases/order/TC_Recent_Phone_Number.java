@@ -68,28 +68,26 @@ public class TC_Recent_Phone_Number extends TestBase {
 		deleteUserIfExist(user.getEmail(), user.getUsername());
 		createUser(user);
 		user.setId(getUserIdByUsername(user.getUsername()));
-		System.out.println(user.getId());
 
 		// get session from mobile domain - API verify pin login
 		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
-		user.setSessionId(response.getCookie("SESSION"));	
-
-		System.out.println(response.getBody().asString());
-		Assert.assertTrue(response.getStatusCode() == 200);
+		user.setSessionId(response.getCookie("JSESSIONID"));	
+		Assert.assertEquals(response.getStatusCode(), 200);
 
 		// if data from excel "true", then get valid session
-		if (user.getSessionId().equals("true")) {
-			sessionId = user.getSessionId();
-		}
+//		if (user.getSessionId().equals("true")) {
+//			sessionId = user.getSessionId();
+//		}
+		sessionId = user.getSessionId();
 		
-		// insert transaction into database - Telkomsel 15k
+		// insert transaction into database - TELKOMSEL 15k
 		createTransaction(user.getId(), user.getUsername(), 13);
 	}
 		
 	@Test
 	public void testRecentPhoneNumber() throws ParseException {
 		// call API recent phone number
-		getRecentPhoneNumber(sessionId);		
+		getRecentPhoneNumber(sessionId);
 		System.out.println(response.getBody().asString());
 
 		if (response.getStatusCode() == 401) {
@@ -98,15 +96,8 @@ public class TC_Recent_Phone_Number extends TestBase {
 			Assert.assertTrue(response.getBody().jsonPath().getString("message").equals(""));
 			Assert.assertTrue(response.getBody().jsonPath().getString("path").equals("/api/recent-number"));
 		} else {
-			// compare code with HTTP status code
-			String code = response.getBody().jsonPath().getString("code");
-			checkStatusCode(code);
-			
-			// check message
-			if(code.equals("200")) {
-				String message = response.getBody().jsonPath().getString("message");
-				Assert.assertEquals(message, "success");
-			}
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "200");
+			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "success");
 		}
 	}
 	
@@ -158,9 +149,9 @@ public class TC_Recent_Phone_Number extends TestBase {
 				
 				ResultSet rs = ps.executeQuery();
 				while(rs.next()) {
-					Assert.assertEquals(rs.getString("phoneNumber"), phoneNumbers[rs.getRow()]);
-					Assert.assertEquals(rs.getString("providerId"), providers[rs.getRow()].getId());
-					Assert.assertEquals(rs.getString("createdAt"), dateString[rs.getRow()]);
+					Assert.assertEquals(phoneNumbers[rs.getRow()], rs.getString("phoneNumber"));
+					Assert.assertEquals(providers[rs.getRow()].getId(), rs.getString("providerId"));
+					Assert.assertEquals(dateString[rs.getRow()], rs.getString("createdAt"));
 				}
 				
 				conn.close();
@@ -179,8 +170,8 @@ public class TC_Recent_Phone_Number extends TestBase {
 					
 					ResultSet rs = ps.executeQuery();
 					while(rs.next()) {
-						Assert.assertEquals(rs.getString("name"), providers[rs.getRow()].getName());
-						Assert.assertEquals(rs.getString("image"), providers[rs.getRow()].getImage());
+						Assert.assertEquals(providers[rs.getRow()].getName(), rs.getString("name"));
+						Assert.assertEquals(providers[rs.getRow()].getImage(), rs.getString("image"));
 					}
 					
 					conn.close();

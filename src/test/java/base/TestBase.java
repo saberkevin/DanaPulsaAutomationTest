@@ -52,7 +52,7 @@ public class TestBase {
 	
 	public RequestSpecification httpRequest;
 	public Response response;
-	public String URI = "http://debrief.herokuapp.com/api/";	
+	public String URI = "http://debrief.herokuapp.com";	
 	public String URIPromotion = "https://pulsa-voucher.herokuapp.com";
 	public Logger logger;
 	
@@ -374,7 +374,7 @@ public class TestBase {
 
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 
 		response = httpRequest.request(Method.GET, RECENT_PHONE_NUMBER_PATH);
 	}
