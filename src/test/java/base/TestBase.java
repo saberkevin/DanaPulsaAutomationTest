@@ -590,9 +590,9 @@ public class TestBase {
 	public void createUser(User user) {
 		try {
 			Connection conn = getConnectionMember();
-			String query = "INSERT INTO user(name, email, username, pin) VALUES(?, ?, ?, ?)";
+			String queryString = "INSERT INTO user(name, email, username, pin) VALUES(?, ?, ?, ?)";
 
-			PreparedStatement ps = conn.prepareStatement(query);
+			PreparedStatement ps = conn.prepareStatement(queryString);
 			ps.setString(1, user.getName());
 			ps.setString(2, user.getEmail());
 			ps.setString(3, user.getUsername());
@@ -608,9 +608,9 @@ public class TestBase {
 	public void deleteUserById(long id) {
 		try {
 			Connection conn = getConnectionMember();
-			String query = "DELETE FROM user WHERE id = ?";
+			String queryString = "DELETE FROM user WHERE id = ?";
 
-			PreparedStatement ps = conn.prepareStatement(query);			
+			PreparedStatement ps = conn.prepareStatement(queryString);			
 			ps.setLong(1, id);
 			ps.executeUpdate();
 
@@ -625,9 +625,9 @@ public class TestBase {
 		
 		try {
 			Connection conn = getConnectionMember();
-			String query = "SELECT * FROM user WHERE email = ? OR username = ?";
+			String queryString = "SELECT * FROM user WHERE email = ? OR username = ?";
 
-			PreparedStatement ps = conn.prepareStatement(query);
+			PreparedStatement ps = conn.prepareStatement(queryString);
 			ps.setString(1, email);
 			ps.setString(2, username);
 
@@ -643,9 +643,9 @@ public class TestBase {
 		if (userExist) {
 			try {
 				Connection conn = getConnectionMember();
-				String query = "DELETE FROM user WHERE email = ? OR username = ?";
+				String queryString = "DELETE FROM user WHERE email = ? OR username = ?";
 
-				PreparedStatement ps = conn.prepareStatement(query);
+				PreparedStatement ps = conn.prepareStatement(queryString);
 				ps.setString(1, email);
 				ps.setString(2, username);
 				ps.executeUpdate();
@@ -662,9 +662,9 @@ public class TestBase {
 		
 		try {
 			Connection conn = getConnectionMember();
-			String query = "SELECT id FROM user WHERE username = ?";
+			String queryString = "SELECT id FROM user WHERE username = ?";
 
-			PreparedStatement ps = conn.prepareStatement(query);
+			PreparedStatement ps = conn.prepareStatement(queryString);
 			ps.setString(1, username);
 			
 			ResultSet rs = ps.executeQuery();
@@ -683,9 +683,9 @@ public class TestBase {
 	public void createVoucherForUser(long userId, long voucherId, long voucherStatusId) {
 		try {
 			Connection conn = getConnectionPromotion();
-			String query = "INSERT INTO user_voucher(userId, voucherId, voucherStatusId, createdAt) VALUES(?, ?, ?, ?)";
+			String queryString = "INSERT INTO user_voucher(userId, voucherId, voucherStatusId, createdAt) VALUES(?, ?, ?, ?)";
 
-			PreparedStatement ps = conn.prepareStatement(query);
+			PreparedStatement ps = conn.prepareStatement(queryString);
 			ps.setLong(1, userId);
 			ps.setLong(2, voucherId);
 			ps.setLong(3, voucherStatusId);
@@ -701,9 +701,9 @@ public class TestBase {
 	public void createTransaction(long userId, String phoneNumber, long catalogId) {
 		try {
 			Connection conn = getConnectionOrder();
-			String query = "INSERT INTO transaction(userId, methodId, phoneNumber, catalogId, statusId) VALUES (?, ?, ?, ?, ?)";
+			String queryString = "INSERT INTO transaction(userId, methodId, phoneNumber, catalogId, statusId) VALUES (?, ?, ?, ?, ?)";
 
-			PreparedStatement ps = conn.prepareStatement(query);
+			PreparedStatement ps = conn.prepareStatement(queryString);
 			ps.setLong(1, userId);
 			ps.setLong(2, 1);
 			ps.setString(3, phoneNumber);
@@ -720,9 +720,9 @@ public class TestBase {
 	public void deleteTransactionByUserId(long userId) {
 		try {
 			Connection conn = getConnectionOrder();
-			String query = "DELETE FROM transaction WHERE userId = ?";
+			String queryString = "DELETE FROM transaction WHERE userId = ?";
 
-			PreparedStatement ps = conn.prepareStatement(query);			
+			PreparedStatement ps = conn.prepareStatement(queryString);			
 			ps.setLong(1, userId);
 			ps.executeUpdate();
 
@@ -730,5 +730,63 @@ public class TestBase {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void deleteTransactionByUserIdIfExist(long userId) {
+		boolean transactionExist = false;
+		
+		try {
+			Connection conn = getConnectionOrder();
+			String queryString = "SELECT * FROM transaction WHERE userId = ?";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);
+			ps.setLong(1, userId);
+
+			ResultSet rs = ps.executeQuery();
+			if (rs.next())
+				transactionExist = true;
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		if (transactionExist) {
+			try {
+				Connection conn = getConnectionOrder();
+				String queryString = "DELETE FROM transaction WHERE userId = ?";
+
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setLong(1, userId);
+				ps.executeUpdate();
+
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public long getTransactionIdByUserId(long userId) {
+		long id = 0;
+		
+		try {
+			Connection conn = getConnectionOrder();
+			String queryString = "SELECT id FROM transaction WHERE userId = ?";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);
+			ps.setLong(1, userId);
+			
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				id = rs.getLong("id");
+			}
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return id;
 	}
 }

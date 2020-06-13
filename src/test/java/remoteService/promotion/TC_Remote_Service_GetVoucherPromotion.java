@@ -96,7 +96,8 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 							+ "B.name AS voucherTypeName, "
 							+ "A.filePath, "
 							+ "A.expiryDate "
-							+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id LIMIT ? WHERE ";
+							+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id "
+							+ "WHERE A.id > ? LIMIT 10";
 					
 					PreparedStatement ps = conn.prepareStatement(queryString);
 					ps.setInt(1, Integer.parseInt(page) * 10);
@@ -118,8 +119,12 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
+			} else if (statusCode == 400) {
+				Assert.assertEquals(response.getBody().jsonPath().getString("code"), "400");
+				Assert.assertEquals(response.getBody().jsonPath().getString("message"), "invalid user id");
 			} else if (statusCode == 404) {
-				
+				Assert.assertEquals(response.getBody().jsonPath().getString("code"), "404");
+				Assert.assertEquals(response.getBody().jsonPath().getString("message"), "invalid page");
 			}
 		}
 	}
