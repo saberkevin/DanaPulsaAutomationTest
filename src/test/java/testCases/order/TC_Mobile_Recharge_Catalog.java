@@ -20,9 +20,13 @@ import model.User;
 
 public class TC_Mobile_Recharge_Catalog extends TestBase {
 	private User user = new User();
+	private String sessionId;
 	private String phoneNumber;
 	private Provider provider;
 	private JSONArray catalogs;
+	
+	public TC_Mobile_Recharge_Catalog() {
+	}
 	
 	public TC_Mobile_Recharge_Catalog(String sessionId, String phoneNumber) {
 		user.setSessionId(sessionId);
@@ -73,8 +77,8 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	
 	@Test
 	public void testMobileRechargeCatalog() {
-		// call API mobile rechare catalog
-		getCatalog(user.getSessionId(), phoneNumber);
+		// call API mobile re-charge catalog
+		getCatalog(sessionId, phoneNumber);
 		System.out.println(response.getBody().asString());
 		
 		// compare code with HTTP status code
@@ -140,6 +144,10 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	
 	@AfterClass
 	public void afterClass() {
+		// logout (destroy session)
+		logout(user.getSessionId());
+	
+		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());		
 	}
 }

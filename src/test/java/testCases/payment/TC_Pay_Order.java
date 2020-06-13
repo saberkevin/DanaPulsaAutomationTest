@@ -48,7 +48,7 @@ public class TC_Pay_Order extends TestBase {
 		getCatalog(user.getSessionId(), user.getUsername());
 		checkStatusCode("200");
 		
-		createOrder(user.getSessionId(), user.getUsername(), transaction.getCatalogId());
+		createOrder(user.getSessionId(), user.getUsername(), "13");
 		checkStatusCode("201");
 	}
 	
@@ -56,7 +56,7 @@ public class TC_Pay_Order extends TestBase {
 	public void testPayOrder() {
 		if (sessionId.contentEquals("true"))
 			sessionId = user.getSessionId();
-		payOrder(sessionId, transaction.getId(), transaction.getMethodId(), transaction.getVoucherId());
+		payOrder(sessionId, Long.toString(transaction.getId()), Long.toString(transaction.getMethodId()), Long.toString(transaction.getVoucherId()));
 		
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);

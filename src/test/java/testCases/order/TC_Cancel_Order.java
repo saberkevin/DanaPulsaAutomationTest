@@ -22,15 +22,16 @@ import model.Voucher;
 
 public class TC_Cancel_Order extends TestBase {
 	private User user = new User();
-	private String sessionId;
 	private Transaction transaction = new Transaction();
 	private Catalog catalog = new Catalog();
 	private Provider provider = new Provider();
 	private Voucher voucher = new Voucher();
+	private String sessionId;
+	private String transactionId;
 	
 	public TC_Cancel_Order(String sessionId, String transactionId) {
 		this.sessionId = sessionId;
-		transaction.setId(Long.parseLong(transactionId));
+		this.transactionId = transactionId;
 	}
 	
 	@BeforeClass
@@ -51,7 +52,7 @@ public class TC_Cancel_Order extends TestBase {
 		getCatalog(user.getSessionId(), user.getUsername());
 		checkStatusCode("200");
 		
-		createOrder(user.getSessionId(), user.getUsername(), transaction.getCatalogId());
+		createOrder(user.getSessionId(), user.getUsername(), "13");
 		checkStatusCode("201");
 	}
 	
@@ -59,7 +60,7 @@ public class TC_Cancel_Order extends TestBase {
 	public void testCancelOrder() {
 		if (sessionId.contentEquals("true"))
 			sessionId = user.getSessionId();
-		cancelOrder(sessionId, transaction.getId());
+		cancelOrder(sessionId, transactionId);
 		
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);

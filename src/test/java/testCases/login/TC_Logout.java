@@ -13,7 +13,7 @@ public class TC_Logout extends TestBase{
 	@Test
 	void logoutUser()
 	{
-		logout();
+		logout("");
 	}
 	
 	@Test(dependsOnMethods = {"logoutUser"})

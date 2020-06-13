@@ -60,11 +60,11 @@ public class TC_Recent_Phone_Number extends TestBase {
 	public void beforeClass() {
 		// initialize user
 		user.setName("Zanuar");
-		user.setEmail("hapusaja@data.nabila");
+		user.setEmail("triromadon@gmail.com");
 		user.setUsername("081252930398");
 		user.setPin(123456);
 		
-		// insert user into database and get id from it
+		// insert user into database and get user id from it
 		deleteUserIfExist(user.getEmail(), user.getUsername());
 		createUser(user);
 		user.setId(getUserIdByUsername(user.getUsername()));

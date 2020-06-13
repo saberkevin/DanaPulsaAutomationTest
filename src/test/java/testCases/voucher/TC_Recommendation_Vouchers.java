@@ -48,7 +48,7 @@ public class TC_Recommendation_Vouchers extends TestBase {
 	public void testRecommendationVouchers() {
 		if (sessionId.contentEquals("true"))
 			sessionId = user.getSessionId();		
-		getRecommendationVoucher(sessionId, transaction.getId());
+		getRecommendationVoucher(sessionId, Long.toString(transaction.getId()));
 		
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);

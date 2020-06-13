@@ -52,7 +52,8 @@ public class TestBase {
 	
 	public RequestSpecification httpRequest;
 	public Response response;
-	public String URI = "http://4013f026bbdd.ngrok.io";	
+	public String URI = "http://debrief.herokuapp.com/api/";	
+	public String URIPromotion = "https://pulsa-voucher.herokuapp.com";
 	public Logger logger;
 	
 	@BeforeClass
@@ -391,7 +392,7 @@ public class TestBase {
 		response = httpRequest.request(Method.GET, CATALOG_PATH + phoneNumber);
 	}
 	
-	public void createOrder(String sessionId, String phoneNumber, long catalogId) {
+	public void createOrder(String sessionId, String phoneNumber, String catalogId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("session id:" + sessionId);
@@ -411,7 +412,7 @@ public class TestBase {
 		response = httpRequest.request(Method.POST, ORDER_PATH);
 	}
 	
-	public void cancelOrder(String sessionId, long transactionId) {
+	public void cancelOrder(String sessionId, String transactionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("session id:" + sessionId);
@@ -424,7 +425,7 @@ public class TestBase {
 		response = httpRequest.request(Method.DELETE, CANCEL_ORDER_PATH + transactionId);
 	}
 	
-	public void payOrder(String sessionId, long transactionId, long paymentMethodId, long voucherId) {
+	public void payOrder(String sessionId, String transactionId, String paymentMethodId, String voucherId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("session id:" + sessionId);
@@ -471,7 +472,7 @@ public class TestBase {
 		response = httpRequest.request(Method.GET, PROMOTION_VOUCHER_PATH + page);
 	}
 	
-	public void getRecommendationVoucher(String sessionId, long transactionId) {
+	public void getRecommendationVoucher(String sessionId, String transactionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("session id:" + sessionId);
@@ -484,7 +485,7 @@ public class TestBase {
 		response = httpRequest.request(Method.GET, RECOMMENDATION_VOUCHER_PATH + transactionId);
 	}
 	
-	public void getVoucherDetails(String sessionId, long voucherId) {
+	public void getVoucherDetails(String sessionId, String voucherId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("session id:" + sessionId);
@@ -494,7 +495,7 @@ public class TestBase {
 		httpRequest = RestAssured.given();		
 		httpRequest.header("Cookie", "SESSION=" + sessionId);
 
-		response = httpRequest.request(Method.GET, VOUCHER_DETAILS_PATH + Long.toString(voucherId));
+		response = httpRequest.request(Method.GET, VOUCHER_DETAILS_PATH + voucherId);
 	}
 	
 	//============ DB Connection ==============================//

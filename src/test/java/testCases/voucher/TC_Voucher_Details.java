@@ -46,7 +46,7 @@ public class TC_Voucher_Details extends TestBase {
 		if (sessionId.contentEquals("true"))
 			sessionId = user.getSessionId();
 		
-		getVoucherDetails(sessionId, voucher.getId());
+		getVoucherDetails(sessionId, Long.toString(voucher.getId()));
 		
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);

@@ -19,10 +19,10 @@ import model.User;
 
 public class TC_Create_Order extends TestBase {
 	private User user = new User();
-	private String sessionId;
 	private Transaction transaction = new Transaction();
 	private Catalog catalog = new Catalog();
 	private Provider provider = new Provider();
+	private String sessionId;
 	
 	public TC_Create_Order(String sessionId, String phoneNumber, String catalogId) {
 		this.sessionId = sessionId;
@@ -57,7 +57,7 @@ public class TC_Create_Order extends TestBase {
 	public void testCreateOrder() {
 		if (sessionId.contentEquals("true"))
 			sessionId = user.getSessionId();		
-		createOrder(sessionId, transaction.getPhoneNumber(), transaction.getCatalogId());
+		createOrder(sessionId, transaction.getPhoneNumber(), Long.toString(transaction.getCatalogId()));
 		
 		String code = response.getBody().jsonPath().getString("code");
 		checkStatusCode(code);

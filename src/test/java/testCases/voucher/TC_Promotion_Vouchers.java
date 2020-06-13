@@ -63,7 +63,7 @@ public class TC_Promotion_Vouchers extends TestBase {
 	}
 	
 	@SuppressWarnings("unchecked")
-	@Test(dependsOnMethods = {"testMyVouchers"})
+	@Test(dependsOnMethods = {"testPromotionVouchers"})
 	public void checkData() {
 		String code = response.getBody().jsonPath().getString("code");
 		
