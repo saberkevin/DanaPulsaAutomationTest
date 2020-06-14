@@ -5,12 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.util.List;
-import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
@@ -18,10 +17,14 @@ import io.restassured.RestAssured;
 import io.restassured.http.Method;
 
 public class TC_Remote_Service_GetVoucherDetail extends TestBase {
+	private String description;
 	private String voucherId;
 
-	public TC_Remote_Service_GetVoucherDetail(String voucherId) {
-		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+	public TC_Remote_Service_GetVoucherDetail() {
+	}
+
+	public TC_Remote_Service_GetVoucherDetail(String description, String voucherId) {
+		this.description = description;
 		this.voucherId = voucherId;
 	}
 
@@ -44,15 +47,46 @@ public class TC_Remote_Service_GetVoucherDetail extends TestBase {
 		logger.info(response.getBody().asString());
 	}
 	
+	@BeforeClass
+	public void BeforeClass() {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Case:" + description);
+	}
+	
 	@Test
 	public void testVoucherDetails() {
 		// call API get voucher details
 		getVoucherDetailsRemoteService(voucherId);
+		
+		int statusCode = response.getStatusCode();
+
+		if (statusCode != 200) {
+			logger.info(response.getBody().asString());
+			Assert.assertTrue(false, "cannot hit API");
+		}
 	}
 	
 	@Test(dependsOnMethods = {"testVoucherDetails"})
 	public void checkData() throws ParseException {
+		int statusCode = response.getStatusCode();
 		
+		if (statusCode == 200) {
+			String responseBody = response.getBody().asString();
+			
+			if (!responseBody.contains("Unexpected") 
+					&& !responseBody.equals("voucher not found")
+					&& !responseBody.equals("For input string: \"\"")) {
+				Assert.assertEquals(Integer.toString(response.body().jsonPath().get("id")), voucherId);
+				Assert.assertNotNull(response.getBody().jsonPath().get("name"));
+				Assert.assertNotNull(response.getBody().jsonPath().get("discount"));
+				Assert.assertNotNull(response.getBody().jsonPath().get("voucherTypeName"));
+				Assert.assertNotNull(response.getBody().jsonPath().get("minPurchase"));
+				Assert.assertNotNull(response.getBody().jsonPath().get("maxDeduction"));
+				Assert.assertNotNull(response.getBody().jsonPath().get("filePath"));
+				Assert.assertNotNull(response.getBody().jsonPath().get("expiryDate"));
+				Assert.assertNotNull(response.getBody().jsonPath().get("active"));
+			}
+		}
 	}
 	
 	@Test(dependsOnMethods = {"checkData"})
@@ -60,9 +94,30 @@ public class TC_Remote_Service_GetVoucherDetail extends TestBase {
 		int statusCode = response.getStatusCode();
 		
 		if (statusCode == 200) {
-			List<Map<String, String>> vouchers = response.jsonPath().get();
-			
-			if(vouchers != null) {
+			String responseBody = response.getBody().asString();
+
+			if (responseBody.equals("voucher not found")) {
+				try {
+					Connection conn = getConnectionPromotion();
+					String queryString = "SELECT * FROM voucher WHERE id = ?";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setLong(1, Long.parseLong(voucherId));
+					
+					ResultSet rs = ps.executeQuery();
+					Assert.assertTrue(!rs.next());
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			} else if (responseBody.contains("Unexpected")) {
+				// do some code
+				
+			} else if (responseBody.equals("For input string: \"\"")) {
+				// do some code
+				
+			} else {
 				try {
 					Connection conn = getConnectionPromotion();
 					String queryString = "SELECT A.*, B.name AS voucherTypeName "
@@ -74,25 +129,22 @@ public class TC_Remote_Service_GetVoucherDetail extends TestBase {
 					
 					ResultSet rs = ps.executeQuery();
 					while(rs.next()) {
-						int index = rs.getRow() - 1;
-						Assert.assertEquals(vouchers.get(index).get("name"), rs.getString("name"));
-						Assert.assertEquals(vouchers.get(index).get("voucherTypeName"), rs.getString("voucherTypeName"));
-						Assert.assertEquals(String.valueOf(vouchers.get(index).get("discount")), rs.getString("discount"));
-						Assert.assertEquals(String.valueOf(vouchers.get(index).get("minPurchase")), rs.getString("minPurchase"));
-						Assert.assertEquals(String.valueOf(vouchers.get(index).get("maxDeduction")), rs.getString("maxDeduction"));
-						Assert.assertEquals(String.valueOf(vouchers.get(index).get("value")), rs.getString("value"));
-						Assert.assertEquals(vouchers.get(index).get("filePath"), rs.getString("filePath"));
-//						Assert.assertEquals(vouchers.get(index).get("expiryDate"), rs.getLong("expiryDate"));
-//						Assert.assertEquals(vouchers.get(index).get("active"), rs.getString("isActive"));
+						Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("id")), rs.getString("id"));
+						Assert.assertEquals(response.getBody().jsonPath().get("name"), rs.getString("name"));
+						Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("discount")), rs.getString("discount"));
+						Assert.assertEquals(response.getBody().jsonPath().get("voucherTypeName"), rs.getString("voucherTypeName"));
+						Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("minPurchase")), rs.getString("minPurchase"));
+						Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("maxDeduction")), rs.getString("maxDeduction"));
+						Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("value")), rs.getString("value"));
+						Assert.assertEquals(response.getBody().jsonPath().get("filePath"), rs.getString("filePath"));
+//						Assert.assertEquals(response.getBody().jsonPath().get("expiryDate"), rs.getString("expiryDate"));
+//						Assert.assertEquals(response.getBody().jsonPath().get("active"), rs.getString("active"));
 					}
 					
 					conn.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-			} else if (statusCode == 400) {
-				Assert.assertEquals(response.getBody().jsonPath().getString("code"), "400");
-				Assert.assertEquals(response.getBody().jsonPath().getString("message"), "voucher not found");
 			}
 		}
 	}

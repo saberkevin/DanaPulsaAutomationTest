@@ -1203,3 +1203,115 @@
 2020-06-14 18:16:30 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetPaymentMethodNameById *****
 2020-06-14 18:16:35 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetPaymentMethodNameById *****
 2020-06-14 18:16:35 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 20:58:44 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 20:58:44 INFO  restAPI:53 - Case:null
+2020-06-14 20:58:44 INFO  restAPI:33 - Call Get Voucher Details API [Promotion Domain]
+2020-06-14 20:58:44 INFO  restAPI:34 - Test Data: 
+2020-06-14 20:58:44 INFO  restAPI:35 - voucher id:1
+2020-06-14 20:58:50 INFO  restAPI:47 - {"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}
+2020-06-14 20:58:51 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 20:59:29 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 20:59:29 INFO  restAPI:53 - Case:null
+2020-06-14 20:59:29 INFO  restAPI:33 - Call Get Voucher Details API [Promotion Domain]
+2020-06-14 20:59:29 INFO  restAPI:34 - Test Data: 
+2020-06-14 20:59:29 INFO  restAPI:35 - voucher id:1
+2020-06-14 20:59:34 INFO  restAPI:47 - {"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}
+2020-06-14 20:59:40 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 20:59:59 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 20:59:59 INFO  restAPI:53 - Case:null
+2020-06-14 20:59:59 INFO  restAPI:33 - Call Get Voucher Details API [Promotion Domain]
+2020-06-14 20:59:59 INFO  restAPI:34 - Test Data: 
+2020-06-14 20:59:59 INFO  restAPI:35 - voucher id:1
+2020-06-14 21:00:05 INFO  restAPI:47 - {"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}
+2020-06-14 21:00:11 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:00:34 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:00:34 INFO  restAPI:53 - Case:null
+2020-06-14 21:00:34 INFO  restAPI:33 - Call Get Voucher Details API [Promotion Domain]
+2020-06-14 21:00:34 INFO  restAPI:34 - Test Data: 
+2020-06-14 21:00:34 INFO  restAPI:35 - voucher id:1
+2020-06-14 21:00:40 INFO  restAPI:47 - {"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}
+2020-06-14 21:00:47 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:10:50 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:10:50 INFO  restAPI:53 - Case:Valid ID
+2020-06-14 21:10:50 INFO  restAPI:33 - Call Get Voucher Details API [Promotion Domain]
+2020-06-14 21:10:50 INFO  restAPI:34 - Test Data: 
+2020-06-14 21:10:50 INFO  restAPI:35 - voucher id:2
+2020-06-14 21:10:56 INFO  restAPI:47 - {"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":15000,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000,"active":true}
+2020-06-14 21:10:56 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:10:56 INFO  restAPI:53 - Case:Empty String
+2020-06-14 21:10:56 INFO  restAPI:33 - Call Get Voucher Details API [Promotion Domain]
+2020-06-14 21:10:56 INFO  restAPI:34 - Test Data: 
+2020-06-14 21:10:56 INFO  restAPI:35 - voucher id:
+2020-06-14 21:11:00 INFO  restAPI:47 - For input string: ""
+2020-06-14 21:11:00 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:11:00 INFO  restAPI:53 - Case:Undefined ID
+2020-06-14 21:11:00 INFO  restAPI:33 - Call Get Voucher Details API [Promotion Domain]
+2020-06-14 21:11:00 INFO  restAPI:34 - Test Data: 
+2020-06-14 21:11:00 INFO  restAPI:35 - voucher id:9999
+2020-06-14 21:11:04 INFO  restAPI:47 - voucher not found
+2020-06-14 21:11:04 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:11:04 INFO  restAPI:53 - Case:Valid ID
+2020-06-14 21:11:04 INFO  restAPI:33 - Call Get Voucher Details API [Promotion Domain]
+2020-06-14 21:11:04 INFO  restAPI:34 - Test Data: 
+2020-06-14 21:11:04 INFO  restAPI:35 - voucher id:1
+2020-06-14 21:11:08 INFO  restAPI:47 - {"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}
+2020-06-14 21:11:15 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:11:15 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:11:21 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:11:27 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:12:17 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:12:17 INFO  restAPI:53 - Case:Valid ID
+2020-06-14 21:12:17 INFO  restAPI:33 - Call Get Voucher Details API [Promotion Domain]
+2020-06-14 21:12:17 INFO  restAPI:34 - Test Data: 
+2020-06-14 21:12:17 INFO  restAPI:35 - voucher id:2
+2020-06-14 21:12:22 INFO  restAPI:47 - {"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":15000,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000,"active":true}
+2020-06-14 21:12:22 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:12:22 INFO  restAPI:53 - Case:Empty String
+2020-06-14 21:12:22 INFO  restAPI:33 - Call Get Voucher Details API [Promotion Domain]
+2020-06-14 21:12:22 INFO  restAPI:34 - Test Data: 
+2020-06-14 21:12:22 INFO  restAPI:35 - voucher id:
+2020-06-14 21:12:26 INFO  restAPI:47 - For input string: ""
+2020-06-14 21:12:26 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:12:26 INFO  restAPI:53 - Case:Undefined ID
+2020-06-14 21:12:26 INFO  restAPI:33 - Call Get Voucher Details API [Promotion Domain]
+2020-06-14 21:12:26 INFO  restAPI:34 - Test Data: 
+2020-06-14 21:12:26 INFO  restAPI:35 - voucher id:9999
+2020-06-14 21:12:30 INFO  restAPI:47 - voucher not found
+2020-06-14 21:12:30 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:12:30 INFO  restAPI:53 - Case:Valid ID
+2020-06-14 21:12:30 INFO  restAPI:33 - Call Get Voucher Details API [Promotion Domain]
+2020-06-14 21:12:30 INFO  restAPI:34 - Test Data: 
+2020-06-14 21:12:30 INFO  restAPI:35 - voucher id:1
+2020-06-14 21:12:34 INFO  restAPI:47 - {"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}
+2020-06-14 21:12:40 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:12:40 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:12:45 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:12:50 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:13:12 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:13:12 INFO  restAPI:53 - Case:Valid ID
+2020-06-14 21:13:12 INFO  restAPI:33 - Call Get Voucher Details API [Promotion Domain]
+2020-06-14 21:13:12 INFO  restAPI:34 - Test Data: 
+2020-06-14 21:13:12 INFO  restAPI:35 - voucher id:2
+2020-06-14 21:13:17 INFO  restAPI:47 - {"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":15000,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000,"active":true}
+2020-06-14 21:13:17 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:13:17 INFO  restAPI:53 - Case:Empty String
+2020-06-14 21:13:17 INFO  restAPI:33 - Call Get Voucher Details API [Promotion Domain]
+2020-06-14 21:13:17 INFO  restAPI:34 - Test Data: 
+2020-06-14 21:13:17 INFO  restAPI:35 - voucher id:
+2020-06-14 21:13:21 INFO  restAPI:47 - For input string: ""
+2020-06-14 21:13:21 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:13:21 INFO  restAPI:53 - Case:Undefined ID
+2020-06-14 21:13:21 INFO  restAPI:33 - Call Get Voucher Details API [Promotion Domain]
+2020-06-14 21:13:21 INFO  restAPI:34 - Test Data: 
+2020-06-14 21:13:21 INFO  restAPI:35 - voucher id:9999
+2020-06-14 21:13:26 INFO  restAPI:47 - voucher not found
+2020-06-14 21:13:26 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:13:26 INFO  restAPI:53 - Case:Valid ID
+2020-06-14 21:13:26 INFO  restAPI:33 - Call Get Voucher Details API [Promotion Domain]
+2020-06-14 21:13:26 INFO  restAPI:34 - Test Data: 
+2020-06-14 21:13:26 INFO  restAPI:35 - voucher id:1
+2020-06-14 21:13:30 INFO  restAPI:47 - {"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}
+2020-06-14 21:13:36 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:13:36 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:13:41 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-14 21:13:46 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
