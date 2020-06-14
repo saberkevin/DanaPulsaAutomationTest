@@ -21,6 +21,7 @@ import model.User;
 
 public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 	private User user = new User();
+	private String description;
 	private String userId;
 	private String page;
 	
@@ -28,7 +29,8 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 		
 	}
 	
-	public TC_Remote_Service_GetVoucherPromotion(String userId, String page) {
+	public TC_Remote_Service_GetVoucherPromotion(String description, String userId, String page) {
+		this.description = description;
 		this.userId = userId;
 		this.page = page;
 	}
@@ -56,6 +58,7 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 	@BeforeClass
 	public void beforeClass() {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Case:" + description);
 
 		// initialize user
 		user.setName("Zanuar");
@@ -78,6 +81,13 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 	public void testPromotionVouchers() {
 		// call API get promotion vouchers
 		getPromotionVoucherRemoteService(userId, page);
+		
+		int statusCode = response.getStatusCode();
+
+		if (statusCode != 200) {
+			logger.info(response.getBody().asString());
+			Assert.assertTrue(false, "cannot hit API");
+		}
 	}
 	
 	@Test(dependsOnMethods = {"testPromotionVouchers"})
@@ -85,23 +95,21 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 		int statusCode = response.getStatusCode();
 		
 		if (statusCode == 200) {
-			if (!response.getBody().asString().equals("[]")) {
-				List<Map<String, String>> vouchers = response.jsonPath().get();
-				
-				for (int i = 0; i < vouchers.size(); i++) {
-					Assert.assertNotNull(vouchers.get(i).get("id"));
-					Assert.assertNotNull(vouchers.get(i).get("name"));
-					Assert.assertNotNull(vouchers.get(i).get("voucherTypeName"));
-					Assert.assertNotNull(vouchers.get(i).get("filePath"));
-					Assert.assertNotNull(vouchers.get(i).get("expiryDate"));
+			String responseBody = response.getBody().asString();
+			
+			if (!responseBody.contains("Unexpected") && !responseBody.equals("There is no promotion right now")) {
+				if (!responseBody.equals("[]")) {
+					List<Map<String, String>> vouchers = response.jsonPath().get();
+					
+					for (int i = 0; i < vouchers.size(); i++) {
+						Assert.assertNotNull(vouchers.get(i).get("id"));
+						Assert.assertNotNull(vouchers.get(i).get("name"));
+						Assert.assertNotNull(vouchers.get(i).get("voucherTypeName"));
+						Assert.assertNotNull(vouchers.get(i).get("filePath"));
+						Assert.assertNotNull(vouchers.get(i).get("expiryDate"));
+					}
 				}
 			}
-		} else if (statusCode == 400) {
-			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "400");
-			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "invalid user id");
-		} else if (statusCode == 404) {
-			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "404");
-			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "invalid page");
 		}
 	}
 	
@@ -110,7 +118,9 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 		int statusCode = response.getStatusCode();
 		
 		if (statusCode == 200) {
-			if (response.getBody().asString().equals("[]")) {
+			String responseBody = response.getBody().asString();
+
+			if (responseBody.equals("There is no promotion right now")) {
 				try {
 					Connection conn = getConnectionPromotion();
 					String queryString = "SELECT "
@@ -134,6 +144,9 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
+			} else if (responseBody.contains("Unexpected")) {
+				// do some code
+				
 			} else {
 				List<Map<String, String>> vouchers = response.jsonPath().get();
 				try {
