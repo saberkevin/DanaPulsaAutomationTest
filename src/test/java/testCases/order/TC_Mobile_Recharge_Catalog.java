@@ -39,7 +39,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 			String query = "SELECT name FROM provider WHERE id = (SELECT providerId FROM provider_prefix WHERE prefix = ?";
 
 			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setString(1, phoneNumber.substring(0,5));
+			ps.setString(1, phoneNumber.substring(1,5));
 			
 			ResultSet rs = ps.executeQuery();
 			if (rs.getString("name").equals(provider.getName()))

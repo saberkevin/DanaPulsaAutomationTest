@@ -173,3 +173,851 @@
 2020-06-14 11:38:35 INFO  restAPI:41 - page:9999
 2020-06-14 11:38:38 INFO  restAPI:53 - {"timestamp":"2020-06-14T04:38:38.203+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
 2020-06-14 11:38:38 INFO  restAPI:175 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-14 12:35:39 INFO  restAPI:50 - ***** Started TC_Remote_Service_GetRecentNumber *****
+2020-06-14 12:36:01 INFO  restAPI:34 - Call Get Recent Number API [Order Domain]
+2020-06-14 12:36:01 INFO  restAPI:35 - Test Data: 
+2020-06-14 12:36:01 INFO  restAPI:36 - user id:130
+2020-06-14 12:36:04 INFO  restAPI:45 - {"timestamp":"2020-06-14T05:36:04.162+00:00","status":404,"error":"Not Found","message":"","path":"/api/test/getRecentNumber/130"}
+2020-06-14 12:36:04 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetRecentNumber *****
+2020-06-14 12:43:40 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetRecentNumber *****
+2020-06-14 12:44:03 INFO  restAPI:36 - Call Get Recent Number API [Order Domain]
+2020-06-14 12:44:03 INFO  restAPI:37 - Test Data: 
+2020-06-14 12:44:03 INFO  restAPI:38 - user id:131
+2020-06-14 12:44:03 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetRecentNumber *****
+2020-06-14 12:44:03 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetRecentNumber *****
+2020-06-14 12:44:24 INFO  restAPI:36 - Call Get Recent Number API [Order Domain]
+2020-06-14 12:44:24 INFO  restAPI:37 - Test Data: 
+2020-06-14 12:44:24 INFO  restAPI:38 - user id:
+2020-06-14 12:44:24 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetRecentNumber *****
+2020-06-14 12:44:24 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetRecentNumber *****
+2020-06-14 12:44:45 INFO  restAPI:36 - Call Get Recent Number API [Order Domain]
+2020-06-14 12:44:45 INFO  restAPI:37 - Test Data: 
+2020-06-14 12:44:45 INFO  restAPI:38 - user id:9999
+2020-06-14 12:44:45 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetRecentNumber *****
+2020-06-14 13:22:44 INFO  restAPI:31 - Call Get Recent Number API [Order Domain]
+2020-06-14 13:22:44 INFO  restAPI:32 - Test Data: 
+2020-06-14 13:22:44 INFO  restAPI:33 - transaction id:null
+2020-06-14 13:22:47 INFO  restAPI:43 - {"timestamp":"2020-06-14T06:22:47.208+00:00","status":415,"error":"Unsupported Media Type","message":"","path":"/api/test/"}
+2020-06-14 13:22:47 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:24:29 INFO  restAPI:31 - Call Get Recent Number API [Order Domain]
+2020-06-14 13:24:29 INFO  restAPI:32 - Test Data: 
+2020-06-14 13:24:29 INFO  restAPI:33 - transaction id:null
+2020-06-14 13:24:33 INFO  restAPI:43 - {"timestamp":"2020-06-14T06:24:32.943+00:00","status":415,"error":"Unsupported Media Type","message":"","path":"/api/test/"}
+2020-06-14 13:24:33 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:29:31 INFO  restAPI:31 - Call Get Recent Number API [Order Domain]
+2020-06-14 13:29:31 INFO  restAPI:32 - Test Data: 
+2020-06-14 13:29:31 INFO  restAPI:33 - transaction id:null
+2020-06-14 13:29:35 INFO  restAPI:43 - {"timestamp":"2020-06-14T06:29:35.200+00:00","status":415,"error":"Unsupported Media Type","message":"","path":"/api/test/"}
+2020-06-14 13:29:35 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:30:37 INFO  restAPI:31 - Call Get Recent Number API [Order Domain]
+2020-06-14 13:30:37 INFO  restAPI:32 - Test Data: 
+2020-06-14 13:30:37 INFO  restAPI:33 - transaction id:null
+2020-06-14 13:30:40 INFO  restAPI:44 - {"timestamp":"2020-06-14T06:30:40.141+00:00","status":400,"error":"Bad Request","message":"","path":"/api/test/"}
+2020-06-14 13:30:40 INFO  restAPI:55 - {"timestamp":"2020-06-14T06:30:40.141+00:00","status":400,"error":"Bad Request","message":"","path":"/api/test/"}
+2020-06-14 13:30:40 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:34:13 INFO  restAPI:31 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 13:34:13 INFO  restAPI:32 - Test Data: 
+2020-06-14 13:34:13 INFO  restAPI:33 - transaction id:1
+2020-06-14 13:34:16 INFO  restAPI:44 - {"timestamp":"2020-06-14T06:34:16.197+00:00","status":400,"error":"Bad Request","message":"","path":"/api/test/"}
+2020-06-14 13:34:16 INFO  restAPI:55 - {"timestamp":"2020-06-14T06:34:16.197+00:00","status":400,"error":"Bad Request","message":"","path":"/api/test/"}
+2020-06-14 13:34:16 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:37:53 INFO  restAPI:31 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 13:37:53 INFO  restAPI:32 - Test Data: 
+2020-06-14 13:37:53 INFO  restAPI:33 - transaction id:1
+2020-06-14 13:37:57 INFO  restAPI:44 - {"timestamp":"2020-06-14T06:37:56.786+00:00","status":400,"error":"Bad Request","message":"","path":"/api/test/"}
+2020-06-14 13:37:57 INFO  restAPI:55 - {"timestamp":"2020-06-14T06:37:56.786+00:00","status":400,"error":"Bad Request","message":"","path":"/api/test/"}
+2020-06-14 13:37:57 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:38:24 INFO  restAPI:54 - ***** Started TC_Remote_Service_GetRecentNumber *****
+2020-06-14 13:39:50 INFO  restAPI:50 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:39:50 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 13:39:50 INFO  restAPI:33 - Test Data: 
+2020-06-14 13:39:50 INFO  restAPI:34 - transaction id:1
+2020-06-14 13:39:53 INFO  restAPI:45 - {"timestamp":"2020-06-14T06:39:53.109+00:00","status":400,"error":"Bad Request","message":"","path":"/api/test/"}
+2020-06-14 13:39:53 INFO  restAPI:61 - {"timestamp":"2020-06-14T06:39:53.109+00:00","status":400,"error":"Bad Request","message":"","path":"/api/test/"}
+2020-06-14 13:39:53 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:40:37 INFO  restAPI:50 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:40:37 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 13:40:37 INFO  restAPI:33 - Test Data: 
+2020-06-14 13:40:37 INFO  restAPI:34 - transaction id:1
+2020-06-14 13:40:39 INFO  restAPI:45 - {"timestamp":"2020-06-14T06:40:39.599+00:00","status":400,"error":"Bad Request","message":"","path":"/api/test/"}
+2020-06-14 13:40:39 INFO  restAPI:61 - {"timestamp":"2020-06-14T06:40:39.599+00:00","status":400,"error":"Bad Request","message":"","path":"/api/test/"}
+2020-06-14 13:40:39 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:41:29 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:41:29 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 13:41:29 INFO  restAPI:33 - Test Data: 
+2020-06-14 13:41:29 INFO  restAPI:34 - transaction id:1
+2020-06-14 13:41:32 INFO  restAPI:46 - {"id":1,"methodId":1,"phoneNumber":"085200872725","catalog":{"id":14,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"value":20000,"price":20000},"voucher":null,"status":"FAILED","createdAt":1591499021000,"updatedAt":1591672931000}
+2020-06-14 13:41:32 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:43:55 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:43:55 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 13:43:55 INFO  restAPI:33 - Test Data: 
+2020-06-14 13:43:55 INFO  restAPI:34 - transaction id:1
+2020-06-14 13:43:59 INFO  restAPI:46 - {"id":1,"methodId":1,"phoneNumber":"085200872725","catalog":{"id":14,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"value":20000,"price":20000},"voucher":null,"status":"FAILED","createdAt":1591499021000,"updatedAt":1591672931000}
+2020-06-14 13:43:59 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:45:02 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:45:02 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 13:45:02 INFO  restAPI:33 - Test Data: 
+2020-06-14 13:45:02 INFO  restAPI:34 - transaction id:1
+2020-06-14 13:45:06 INFO  restAPI:46 - {"id":1,"methodId":1,"phoneNumber":"085200872725","catalog":{"id":14,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"value":20000,"price":20000},"voucher":null,"status":"FAILED","createdAt":1591499021000,"updatedAt":1591672931000}
+2020-06-14 13:45:06 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:45:48 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:45:48 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 13:45:48 INFO  restAPI:33 - Test Data: 
+2020-06-14 13:45:48 INFO  restAPI:34 - transaction id:1
+2020-06-14 13:45:52 INFO  restAPI:46 - {"id":1,"methodId":1,"phoneNumber":"085200872725","catalog":{"id":14,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"value":20000,"price":20000},"voucher":null,"status":"FAILED","createdAt":1591499021000,"updatedAt":1591672931000}
+2020-06-14 13:45:52 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:46:42 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:46:42 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 13:46:42 INFO  restAPI:33 - Test Data: 
+2020-06-14 13:46:42 INFO  restAPI:34 - transaction id:1
+2020-06-14 13:46:45 INFO  restAPI:46 - {"id":1,"methodId":1,"phoneNumber":"085200872725","catalog":{"id":14,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"value":20000,"price":20000},"voucher":null,"status":"FAILED","createdAt":1591499021000,"updatedAt":1591672931000}
+2020-06-14 13:46:46 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:47:56 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:47:56 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 13:47:56 INFO  restAPI:33 - Test Data: 
+2020-06-14 13:47:56 INFO  restAPI:34 - transaction id:1
+2020-06-14 13:47:59 INFO  restAPI:46 - {"id":1,"methodId":1,"phoneNumber":"085200872725","catalog":{"id":14,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"value":20000,"price":20000},"voucher":null,"status":"FAILED","createdAt":1591499021000,"updatedAt":1591672931000}
+2020-06-14 13:48:04 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:48:36 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:48:36 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 13:48:36 INFO  restAPI:33 - Test Data: 
+2020-06-14 13:48:36 INFO  restAPI:34 - transaction id:1
+2020-06-14 13:48:40 INFO  restAPI:46 - {"id":1,"methodId":1,"phoneNumber":"085200872725","catalog":{"id":14,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"value":20000,"price":20000},"voucher":null,"status":"FAILED","createdAt":1591499021000,"updatedAt":1591672931000}
+2020-06-14 13:48:46 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:50:16 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:50:16 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 13:50:16 INFO  restAPI:33 - Test Data: 
+2020-06-14 13:50:16 INFO  restAPI:34 - transaction id:1
+2020-06-14 13:50:20 INFO  restAPI:46 - {"id":1,"methodId":1,"phoneNumber":"085200872725","catalog":{"id":14,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"value":20000,"price":20000},"voucher":null,"status":"FAILED","createdAt":1591499021000,"updatedAt":1591672931000}
+2020-06-14 13:50:25 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:51:09 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:51:09 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 13:51:09 INFO  restAPI:33 - Test Data: 
+2020-06-14 13:51:09 INFO  restAPI:34 - transaction id:1
+2020-06-14 13:51:12 INFO  restAPI:46 - {"id":1,"methodId":1,"phoneNumber":"085200872725","catalog":{"id":14,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"value":20000,"price":20000},"voucher":null,"status":"FAILED","createdAt":1591499021000,"updatedAt":1591672931000}
+2020-06-14 13:51:18 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:51:40 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:51:40 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 13:51:40 INFO  restAPI:33 - Test Data: 
+2020-06-14 13:51:40 INFO  restAPI:34 - transaction id:1
+2020-06-14 13:51:44 INFO  restAPI:46 - {"id":1,"methodId":1,"phoneNumber":"085200872725","catalog":{"id":14,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"value":20000,"price":20000},"voucher":null,"status":"FAILED","createdAt":1591499021000,"updatedAt":1591672931000}
+2020-06-14 13:51:50 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:52:05 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:52:05 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 13:52:05 INFO  restAPI:33 - Test Data: 
+2020-06-14 13:52:05 INFO  restAPI:34 - transaction id:1
+2020-06-14 13:52:08 INFO  restAPI:46 - {"id":1,"methodId":1,"phoneNumber":"085200872725","catalog":{"id":14,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"value":20000,"price":20000},"voucher":null,"status":"FAILED","createdAt":1591499021000,"updatedAt":1591672931000}
+2020-06-14 13:52:13 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:54:00 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 13:54:00 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 13:54:00 INFO  restAPI:33 - Test Data: 
+2020-06-14 13:54:00 INFO  restAPI:34 - transaction id:1
+2020-06-14 13:54:03 INFO  restAPI:46 - {"id":1,"methodId":1,"phoneNumber":"085200872725","catalog":{"id":14,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"value":20000,"price":20000},"voucher":null,"status":"FAILED","createdAt":1591499021000,"updatedAt":1591672931000}
+2020-06-14 13:54:09 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:00:39 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:00:39 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 14:00:39 INFO  restAPI:33 - Test Data: 
+2020-06-14 14:00:39 INFO  restAPI:34 - transaction id:9999
+2020-06-14 14:00:43 INFO  restAPI:46 - unknown transaction
+2020-06-14 14:00:43 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:00:43 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 14:00:43 INFO  restAPI:33 - Test Data: 
+2020-06-14 14:00:43 INFO  restAPI:34 - transaction id:
+2020-06-14 14:00:45 INFO  restAPI:46 - invalid request format
+2020-06-14 14:00:45 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:00:45 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 14:00:45 INFO  restAPI:33 - Test Data: 
+2020-06-14 14:00:45 INFO  restAPI:34 - transaction id:true
+2020-06-14 14:00:47 INFO  restAPI:46 - invalid request format
+2020-06-14 14:00:53 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:00:58 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:01:03 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:02:36 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:02:36 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 14:02:36 INFO  restAPI:33 - Test Data: 
+2020-06-14 14:02:36 INFO  restAPI:34 - transaction id:9999
+2020-06-14 14:02:40 INFO  restAPI:46 - unknown transaction
+2020-06-14 14:02:40 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:02:40 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 14:02:40 INFO  restAPI:33 - Test Data: 
+2020-06-14 14:02:40 INFO  restAPI:34 - transaction id:
+2020-06-14 14:02:42 INFO  restAPI:46 - invalid request format
+2020-06-14 14:02:42 INFO  restAPI:51 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:02:42 INFO  restAPI:32 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 14:02:42 INFO  restAPI:33 - Test Data: 
+2020-06-14 14:02:42 INFO  restAPI:34 - transaction id:1
+2020-06-14 14:02:44 INFO  restAPI:46 - {"id":1,"methodId":1,"phoneNumber":"085200872725","catalog":{"id":14,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"value":20000,"price":20000},"voucher":null,"status":"FAILED","createdAt":1591499021000,"updatedAt":1591672931000}
+2020-06-14 14:02:51 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:02:51 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:02:56 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:06:55 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:07:30 INFO  restAPI:34 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 14:07:30 INFO  restAPI:35 - Test Data: 
+2020-06-14 14:07:30 INFO  restAPI:36 - transaction id:9999
+2020-06-14 14:07:34 INFO  restAPI:48 - unknown transaction
+2020-06-14 14:07:34 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:08:13 INFO  restAPI:34 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 14:08:13 INFO  restAPI:35 - Test Data: 
+2020-06-14 14:08:13 INFO  restAPI:36 - transaction id:
+2020-06-14 14:08:15 INFO  restAPI:48 - invalid request format
+2020-06-14 14:08:15 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:08:54 INFO  restAPI:34 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 14:08:54 INFO  restAPI:35 - Test Data: 
+2020-06-14 14:08:54 INFO  restAPI:36 - transaction id:53
+2020-06-14 14:08:56 INFO  restAPI:48 - {"id":53,"methodId":1,"phoneNumber":"081252930398","catalog":{"id":16,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"value":30000,"price":30000},"voucher":null,"status":"FAILED","createdAt":1592118528000,"updatedAt":null}
+2020-06-14 14:09:02 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:09:02 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:09:02 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:12:28 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:13:03 INFO  restAPI:36 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 14:13:03 INFO  restAPI:37 - Test Data: 
+2020-06-14 14:13:03 INFO  restAPI:38 - transaction id:9999
+2020-06-14 14:13:07 INFO  restAPI:50 - unknown transaction
+2020-06-14 14:13:07 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:13:46 INFO  restAPI:36 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 14:13:46 INFO  restAPI:37 - Test Data: 
+2020-06-14 14:13:46 INFO  restAPI:38 - transaction id:
+2020-06-14 14:13:48 INFO  restAPI:50 - invalid request format
+2020-06-14 14:13:48 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:14:25 INFO  restAPI:36 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 14:14:25 INFO  restAPI:37 - Test Data: 
+2020-06-14 14:14:25 INFO  restAPI:38 - transaction id:56
+2020-06-14 14:14:27 INFO  restAPI:50 - {"id":56,"methodId":1,"phoneNumber":"081252930398","catalog":{"id":16,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"value":30000,"price":30000},"voucher":null,"status":"FAILED","createdAt":1592118859000,"updatedAt":null}
+2020-06-14 14:14:39 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:14:44 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:14:55 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:19:22 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:19:57 INFO  restAPI:36 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 14:19:57 INFO  restAPI:37 - Test Data: 
+2020-06-14 14:19:57 INFO  restAPI:38 - transaction id:9999
+2020-06-14 14:20:04 INFO  restAPI:50 - unknown transaction
+2020-06-14 14:20:04 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:20:36 INFO  restAPI:36 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 14:20:36 INFO  restAPI:37 - Test Data: 
+2020-06-14 14:20:36 INFO  restAPI:38 - transaction id:
+2020-06-14 14:20:37 INFO  restAPI:50 - invalid request format
+2020-06-14 14:20:37 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:21:11 INFO  restAPI:36 - Call Get Transaction By Id API [Order Domain]
+2020-06-14 14:21:11 INFO  restAPI:37 - Test Data: 
+2020-06-14 14:21:11 INFO  restAPI:38 - transaction id:59
+2020-06-14 14:21:13 INFO  restAPI:50 - {"id":59,"methodId":1,"phoneNumber":"081252930398","catalog":{"id":16,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"value":30000,"price":30000},"voucher":null,"status":"FAILED","createdAt":1592119266000,"updatedAt":null}
+2020-06-14 14:21:23 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:21:28 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:21:37 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetTransactionById *****
+2020-06-14 14:51:13 INFO  restAPI:54 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 14:51:13 INFO  restAPI:35 - Call Get All Catalog API [Order Domain]
+2020-06-14 14:51:13 INFO  restAPI:36 - Test Data: 
+2020-06-14 14:51:13 INFO  restAPI:37 - phone prefix:null
+2020-06-14 14:51:16 INFO  restAPI:49 - {"timestamp":"2020-06-14T07:51:16.310+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-14 14:51:16 INFO  restAPI:65 - {"timestamp":"2020-06-14T07:51:16.310+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-14 14:51:16 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 14:53:51 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 14:53:51 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 14:53:51 INFO  restAPI:35 - Test Data: 
+2020-06-14 14:53:51 INFO  restAPI:36 - phone prefix:08125
+2020-06-14 14:53:54 INFO  restAPI:48 - {"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}
+2020-06-14 14:54:00 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 14:54:21 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 14:54:22 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 14:54:22 INFO  restAPI:35 - Test Data: 
+2020-06-14 14:54:22 INFO  restAPI:36 - phone prefix:08125
+2020-06-14 14:54:24 INFO  restAPI:48 - {"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}
+2020-06-14 14:54:30 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 14:54:45 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 14:54:45 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 14:54:45 INFO  restAPI:35 - Test Data: 
+2020-06-14 14:54:45 INFO  restAPI:36 - phone prefix:08125
+2020-06-14 14:54:48 INFO  restAPI:48 - {"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}
+2020-06-14 14:54:54 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:00:29 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:00:29 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:00:29 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:00:29 INFO  restAPI:36 - phone prefix:08125
+2020-06-14 15:00:32 INFO  restAPI:48 - {"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}
+2020-06-14 15:00:39 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:05:37 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:05:37 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:05:37 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:05:37 INFO  restAPI:36 - phone prefix:02125
+2020-06-14 15:05:40 INFO  restAPI:48 - unknown phone number
+2020-06-14 15:05:40 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:05:40 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:05:40 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:05:40 INFO  restAPI:36 - phone prefix:08810
+2020-06-14 15:05:43 INFO  restAPI:48 - {"provider":{"id":5,"name":"Smartfren","image":"https://res.cloudinary.com/alvark/image/upload/v1591240871/danapulsa/Smartfren__282019_29_k5icie.svg"},"catalog":[{"id":58,"value":5000,"price":5400},{"id":59,"value":10000,"price":10400},{"id":60,"value":20000,"price":19900},{"id":61,"value":50000,"price":49250},{"id":62,"value":60000,"price":59000},{"id":63,"value":100000,"price":99000},{"id":64,"value":150000,"price":148000},{"id":65,"value":200000,"price":197000},{"id":66,"value":250000,"price":250000},{"id":67,"value":300000,"price":295000},{"id":68,"value":500000,"price":495000}]}
+2020-06-14 15:05:43 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:05:43 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:05:43 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:05:43 INFO  restAPI:36 - phone prefix:08565
+2020-06-14 15:05:44 INFO  restAPI:48 - {"provider":{"id":4,"name":"Indosat","image":"https://res.cloudinary.com/alvark/image/upload/v1591240690/danapulsa/Indosat_Ooredoo_logo_wcpr2o.svg"},"catalog":[{"id":43,"value":5000,"price":6400},{"id":44,"value":10000,"price":11500},{"id":45,"value":12000,"price":12500},{"id":46,"value":20000,"price":20000},{"id":47,"value":25000,"price":24800},{"id":48,"value":30000,"price":28850},{"id":49,"value":50000,"price":49000},{"id":50,"value":60000,"price":59500},{"id":51,"value":80000,"price":78000},{"id":52,"value":100000,"price":98000},{"id":53,"value":150000,"price":144000},{"id":54,"value":200000,"price":190000},{"id":55,"value":250000,"price":235000},{"id":56,"value":500000,"price":470000},{"id":57,"value":1000000,"price":940000}]}
+2020-06-14 15:05:44 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:05:44 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:05:44 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:05:44 INFO  restAPI:36 - phone prefix:08ABC
+2020-06-14 15:05:46 INFO  restAPI:48 - unknown phone number
+2020-06-14 15:05:46 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:05:46 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:05:46 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:05:46 INFO  restAPI:36 - phone prefix:08125
+2020-06-14 15:05:48 INFO  restAPI:48 - {"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}
+2020-06-14 15:05:48 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:05:48 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:05:48 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:05:48 INFO  restAPI:36 - phone prefix:
+2020-06-14 15:05:50 INFO  restAPI:48 - invalid phone number
+2020-06-14 15:05:50 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:05:50 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:05:50 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:05:50 INFO  restAPI:36 - phone prefix:08312
+2020-06-14 15:05:52 INFO  restAPI:48 - {"provider":{"id":6,"name":"Axis","image":"https://res.cloudinary.com/alvark/image/upload/v1591240915/danapulsa/Axis_logo_2015_fjybli.svg"},"catalog":[{"id":69,"value":5000,"price":6000},{"id":70,"value":10000,"price":11000},{"id":71,"value":25000,"price":24800},{"id":72,"value":50000,"price":49500},{"id":73,"value":100000,"price":98500},{"id":74,"value":200000,"price":197000},{"id":75,"value":300000,"price":295000},{"id":76,"value":500000,"price":495000},{"id":77,"value":1000000,"price":940000}]}
+2020-06-14 15:05:52 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:05:52 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:05:52 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:05:52 INFO  restAPI:36 - phone prefix:08125
+2020-06-14 15:05:54 INFO  restAPI:48 - {"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}
+2020-06-14 15:05:54 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:05:54 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:05:54 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:05:54 INFO  restAPI:36 - phone prefix:08125
+2020-06-14 15:05:55 INFO  restAPI:48 - {"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}
+2020-06-14 15:05:55 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:05:55 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:05:55 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:05:55 INFO  restAPI:36 - phone prefix:08996
+2020-06-14 15:05:58 INFO  restAPI:48 - {"provider":{"id":3,"name":"Tri","image":"https://res.cloudinary.com/alvark/image/upload/v1591240744/danapulsa/3-brand_cawkwp.svg"},"catalog":[{"id":26,"value":1000,"price":1200},{"id":27,"value":2000,"price":2200},{"id":28,"value":3000,"price":3500},{"id":29,"value":4000,"price":4500},{"id":30,"value":5000,"price":5400},{"id":31,"value":8000,"price":8400},{"id":32,"value":10000,"price":10400},{"id":33,"value":15000,"price":15000},{"id":34,"value":20000,"price":19800},{"id":35,"value":25000,"price":24750},{"id":36,"value":30000,"price":29500},{"id":37,"value":50000,"price":49250},{"id":38,"value":100000,"price":98500},{"id":39,"value":150000,"price":148000},{"id":40,"value":200000,"price":197000},{"id":41,"value":300000,"price":295000},{"id":42,"value":500000,"price":495000}]}
+2020-06-14 15:05:58 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:05:58 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:05:58 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:05:58 INFO  restAPI:36 - phone prefix:08773
+2020-06-14 15:06:00 INFO  restAPI:48 - {"provider":{"id":1,"name":"XL","image":"https://res.cloudinary.com/alvark/image/upload/v1591240407/danapulsa/20180111100558_21XL_logo_2016_kyu40w.svg"},"catalog":[{"id":1,"value":5000,"price":6000},{"id":2,"value":10000,"price":10700},{"id":3,"value":15000,"price":14900},{"id":4,"value":25000,"price":24750},{"id":5,"value":30000,"price":29850},{"id":6,"value":50000,"price":49500},{"id":7,"value":100000,"price":98500},{"id":8,"value":150000,"price":148000},{"id":9,"value":200000,"price":197750},{"id":10,"value":300000,"price":295000},{"id":11,"value":500000,"price":495000},{"id":12,"value":1000000,"price":990000}]}
+2020-06-14 15:06:00 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:06:00 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:06:00 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:06:00 INFO  restAPI:36 - phone prefix:6281
+2020-06-14 15:06:01 INFO  restAPI:48 - invalid phone number
+2020-06-14 15:06:01 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:06:01 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:06:01 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:06:01 INFO  restAPI:36 - phone prefix:62812
+2020-06-14 15:06:03 INFO  restAPI:48 - invalid phone number
+2020-06-14 15:06:03 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:06:03 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:06:03 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:06:03 INFO  restAPI:36 - phone prefix:0812
+2020-06-14 15:06:05 INFO  restAPI:48 - invalid phone number
+2020-06-14 15:06:05 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:06:05 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:06:05 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:06:05 INFO  restAPI:36 - phone prefix:081 2
+2020-06-14 15:06:08 INFO  restAPI:48 - unknown phone number
+2020-06-14 15:06:08 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:06:08 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:06:08 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:06:08 INFO  restAPI:36 - phone prefix:081252
+2020-06-14 15:06:09 INFO  restAPI:48 - invalid phone number
+2020-06-14 15:06:15 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:06:20 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:06:25 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:06:30 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:06:36 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:06:36 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:06:41 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:06:46 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:06:51 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:06:55 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:07:00 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:07:00 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:07:00 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:07:00 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:07:04 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:07:04 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:14 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:14 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:08:14 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:08:14 INFO  restAPI:36 - phone prefix:08565
+2020-06-14 15:08:17 INFO  restAPI:48 - {"provider":{"id":4,"name":"Indosat","image":"https://res.cloudinary.com/alvark/image/upload/v1591240690/danapulsa/Indosat_Ooredoo_logo_wcpr2o.svg"},"catalog":[{"id":43,"value":5000,"price":6400},{"id":44,"value":10000,"price":11500},{"id":45,"value":12000,"price":12500},{"id":46,"value":20000,"price":20000},{"id":47,"value":25000,"price":24800},{"id":48,"value":30000,"price":28850},{"id":49,"value":50000,"price":49000},{"id":50,"value":60000,"price":59500},{"id":51,"value":80000,"price":78000},{"id":52,"value":100000,"price":98000},{"id":53,"value":150000,"price":144000},{"id":54,"value":200000,"price":190000},{"id":55,"value":250000,"price":235000},{"id":56,"value":500000,"price":470000},{"id":57,"value":1000000,"price":940000}]}
+2020-06-14 15:08:17 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:17 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:08:17 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:08:17 INFO  restAPI:36 - phone prefix:081 2
+2020-06-14 15:08:19 INFO  restAPI:48 - unknown phone number
+2020-06-14 15:08:19 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:19 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:08:19 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:08:19 INFO  restAPI:36 - phone prefix:0812
+2020-06-14 15:08:21 INFO  restAPI:48 - invalid phone number
+2020-06-14 15:08:21 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:21 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:08:21 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:08:21 INFO  restAPI:36 - phone prefix:
+2020-06-14 15:08:23 INFO  restAPI:48 - invalid phone number
+2020-06-14 15:08:23 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:23 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:08:23 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:08:23 INFO  restAPI:36 - phone prefix:08312
+2020-06-14 15:08:25 INFO  restAPI:48 - {"provider":{"id":6,"name":"Axis","image":"https://res.cloudinary.com/alvark/image/upload/v1591240915/danapulsa/Axis_logo_2015_fjybli.svg"},"catalog":[{"id":69,"value":5000,"price":6000},{"id":70,"value":10000,"price":11000},{"id":71,"value":25000,"price":24800},{"id":72,"value":50000,"price":49500},{"id":73,"value":100000,"price":98500},{"id":74,"value":200000,"price":197000},{"id":75,"value":300000,"price":295000},{"id":76,"value":500000,"price":495000},{"id":77,"value":1000000,"price":940000}]}
+2020-06-14 15:08:25 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:25 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:08:25 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:08:25 INFO  restAPI:36 - phone prefix:081252
+2020-06-14 15:08:27 INFO  restAPI:48 - invalid phone number
+2020-06-14 15:08:27 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:27 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:08:27 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:08:27 INFO  restAPI:36 - phone prefix:08125
+2020-06-14 15:08:29 INFO  restAPI:48 - {"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}
+2020-06-14 15:08:29 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:29 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:08:29 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:08:29 INFO  restAPI:36 - phone prefix:08810
+2020-06-14 15:08:31 INFO  restAPI:48 - {"provider":{"id":5,"name":"Smartfren","image":"https://res.cloudinary.com/alvark/image/upload/v1591240871/danapulsa/Smartfren__282019_29_k5icie.svg"},"catalog":[{"id":58,"value":5000,"price":5400},{"id":59,"value":10000,"price":10400},{"id":60,"value":20000,"price":19900},{"id":61,"value":50000,"price":49250},{"id":62,"value":60000,"price":59000},{"id":63,"value":100000,"price":99000},{"id":64,"value":150000,"price":148000},{"id":65,"value":200000,"price":197000},{"id":66,"value":250000,"price":250000},{"id":67,"value":300000,"price":295000},{"id":68,"value":500000,"price":495000}]}
+2020-06-14 15:08:31 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:31 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:08:31 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:08:31 INFO  restAPI:36 - phone prefix:08996
+2020-06-14 15:08:33 INFO  restAPI:48 - {"provider":{"id":3,"name":"Tri","image":"https://res.cloudinary.com/alvark/image/upload/v1591240744/danapulsa/3-brand_cawkwp.svg"},"catalog":[{"id":26,"value":1000,"price":1200},{"id":27,"value":2000,"price":2200},{"id":28,"value":3000,"price":3500},{"id":29,"value":4000,"price":4500},{"id":30,"value":5000,"price":5400},{"id":31,"value":8000,"price":8400},{"id":32,"value":10000,"price":10400},{"id":33,"value":15000,"price":15000},{"id":34,"value":20000,"price":19800},{"id":35,"value":25000,"price":24750},{"id":36,"value":30000,"price":29500},{"id":37,"value":50000,"price":49250},{"id":38,"value":100000,"price":98500},{"id":39,"value":150000,"price":148000},{"id":40,"value":200000,"price":197000},{"id":41,"value":300000,"price":295000},{"id":42,"value":500000,"price":495000}]}
+2020-06-14 15:08:33 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:33 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:08:33 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:08:33 INFO  restAPI:36 - phone prefix:02125
+2020-06-14 15:08:35 INFO  restAPI:48 - unknown phone number
+2020-06-14 15:08:35 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:35 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:08:35 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:08:35 INFO  restAPI:36 - phone prefix:62812
+2020-06-14 15:08:37 INFO  restAPI:48 - invalid phone number
+2020-06-14 15:08:37 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:37 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:08:37 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:08:37 INFO  restAPI:36 - phone prefix:08773
+2020-06-14 15:08:39 INFO  restAPI:48 - {"provider":{"id":1,"name":"XL","image":"https://res.cloudinary.com/alvark/image/upload/v1591240407/danapulsa/20180111100558_21XL_logo_2016_kyu40w.svg"},"catalog":[{"id":1,"value":5000,"price":6000},{"id":2,"value":10000,"price":10700},{"id":3,"value":15000,"price":14900},{"id":4,"value":25000,"price":24750},{"id":5,"value":30000,"price":29850},{"id":6,"value":50000,"price":49500},{"id":7,"value":100000,"price":98500},{"id":8,"value":150000,"price":148000},{"id":9,"value":200000,"price":197750},{"id":10,"value":300000,"price":295000},{"id":11,"value":500000,"price":495000},{"id":12,"value":1000000,"price":990000}]}
+2020-06-14 15:08:39 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:39 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:08:39 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:08:39 INFO  restAPI:36 - phone prefix:08ABC
+2020-06-14 15:08:41 INFO  restAPI:48 - unknown phone number
+2020-06-14 15:08:41 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:41 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:08:41 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:08:41 INFO  restAPI:36 - phone prefix:6281
+2020-06-14 15:08:43 INFO  restAPI:48 - invalid phone number
+2020-06-14 15:08:50 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:55 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:55 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:55 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:59 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:08:59 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:09:04 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:09:11 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:09:15 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:09:20 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:09:20 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:09:25 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:09:31 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:09:31 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:09:56 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:09:56 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:09:56 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:09:56 INFO  restAPI:36 - phone prefix:08565
+2020-06-14 15:09:59 INFO  restAPI:48 - {"provider":{"id":4,"name":"Indosat","image":"https://res.cloudinary.com/alvark/image/upload/v1591240690/danapulsa/Indosat_Ooredoo_logo_wcpr2o.svg"},"catalog":[{"id":43,"value":5000,"price":6400},{"id":44,"value":10000,"price":11500},{"id":45,"value":12000,"price":12500},{"id":46,"value":20000,"price":20000},{"id":47,"value":25000,"price":24800},{"id":48,"value":30000,"price":28850},{"id":49,"value":50000,"price":49000},{"id":50,"value":60000,"price":59500},{"id":51,"value":80000,"price":78000},{"id":52,"value":100000,"price":98000},{"id":53,"value":150000,"price":144000},{"id":54,"value":200000,"price":190000},{"id":55,"value":250000,"price":235000},{"id":56,"value":500000,"price":470000},{"id":57,"value":1000000,"price":940000}]}
+2020-06-14 15:09:59 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:09:59 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:09:59 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:09:59 INFO  restAPI:36 - phone prefix:081 2
+2020-06-14 15:10:00 INFO  restAPI:48 - unknown phone number
+2020-06-14 15:10:00 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:00 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:10:00 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:10:00 INFO  restAPI:36 - phone prefix:0812
+2020-06-14 15:10:02 INFO  restAPI:48 - invalid phone number
+2020-06-14 15:10:02 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:02 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:10:02 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:10:02 INFO  restAPI:36 - phone prefix:
+2020-06-14 15:10:04 INFO  restAPI:48 - invalid phone number
+2020-06-14 15:10:04 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:04 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:10:04 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:10:04 INFO  restAPI:36 - phone prefix:08312
+2020-06-14 15:10:06 INFO  restAPI:48 - {"provider":{"id":6,"name":"Axis","image":"https://res.cloudinary.com/alvark/image/upload/v1591240915/danapulsa/Axis_logo_2015_fjybli.svg"},"catalog":[{"id":69,"value":5000,"price":6000},{"id":70,"value":10000,"price":11000},{"id":71,"value":25000,"price":24800},{"id":72,"value":50000,"price":49500},{"id":73,"value":100000,"price":98500},{"id":74,"value":200000,"price":197000},{"id":75,"value":300000,"price":295000},{"id":76,"value":500000,"price":495000},{"id":77,"value":1000000,"price":940000}]}
+2020-06-14 15:10:06 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:06 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:10:06 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:10:06 INFO  restAPI:36 - phone prefix:081252
+2020-06-14 15:10:08 INFO  restAPI:48 - invalid phone number
+2020-06-14 15:10:08 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:08 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:10:08 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:10:08 INFO  restAPI:36 - phone prefix:08125
+2020-06-14 15:10:10 INFO  restAPI:48 - {"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}
+2020-06-14 15:10:10 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:10 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:10:10 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:10:10 INFO  restAPI:36 - phone prefix:08810
+2020-06-14 15:10:12 INFO  restAPI:48 - {"provider":{"id":5,"name":"Smartfren","image":"https://res.cloudinary.com/alvark/image/upload/v1591240871/danapulsa/Smartfren__282019_29_k5icie.svg"},"catalog":[{"id":58,"value":5000,"price":5400},{"id":59,"value":10000,"price":10400},{"id":60,"value":20000,"price":19900},{"id":61,"value":50000,"price":49250},{"id":62,"value":60000,"price":59000},{"id":63,"value":100000,"price":99000},{"id":64,"value":150000,"price":148000},{"id":65,"value":200000,"price":197000},{"id":66,"value":250000,"price":250000},{"id":67,"value":300000,"price":295000},{"id":68,"value":500000,"price":495000}]}
+2020-06-14 15:10:13 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:13 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:10:13 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:10:13 INFO  restAPI:36 - phone prefix:08996
+2020-06-14 15:10:15 INFO  restAPI:48 - {"provider":{"id":3,"name":"Tri","image":"https://res.cloudinary.com/alvark/image/upload/v1591240744/danapulsa/3-brand_cawkwp.svg"},"catalog":[{"id":26,"value":1000,"price":1200},{"id":27,"value":2000,"price":2200},{"id":28,"value":3000,"price":3500},{"id":29,"value":4000,"price":4500},{"id":30,"value":5000,"price":5400},{"id":31,"value":8000,"price":8400},{"id":32,"value":10000,"price":10400},{"id":33,"value":15000,"price":15000},{"id":34,"value":20000,"price":19800},{"id":35,"value":25000,"price":24750},{"id":36,"value":30000,"price":29500},{"id":37,"value":50000,"price":49250},{"id":38,"value":100000,"price":98500},{"id":39,"value":150000,"price":148000},{"id":40,"value":200000,"price":197000},{"id":41,"value":300000,"price":295000},{"id":42,"value":500000,"price":495000}]}
+2020-06-14 15:10:15 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:15 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:10:15 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:10:15 INFO  restAPI:36 - phone prefix:02125
+2020-06-14 15:10:16 INFO  restAPI:48 - unknown phone number
+2020-06-14 15:10:16 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:16 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:10:16 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:10:16 INFO  restAPI:36 - phone prefix:62812
+2020-06-14 15:10:18 INFO  restAPI:48 - invalid phone number
+2020-06-14 15:10:18 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:18 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:10:18 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:10:18 INFO  restAPI:36 - phone prefix:08773
+2020-06-14 15:10:19 INFO  restAPI:48 - {"provider":{"id":1,"name":"XL","image":"https://res.cloudinary.com/alvark/image/upload/v1591240407/danapulsa/20180111100558_21XL_logo_2016_kyu40w.svg"},"catalog":[{"id":1,"value":5000,"price":6000},{"id":2,"value":10000,"price":10700},{"id":3,"value":15000,"price":14900},{"id":4,"value":25000,"price":24750},{"id":5,"value":30000,"price":29850},{"id":6,"value":50000,"price":49500},{"id":7,"value":100000,"price":98500},{"id":8,"value":150000,"price":148000},{"id":9,"value":200000,"price":197750},{"id":10,"value":300000,"price":295000},{"id":11,"value":500000,"price":495000},{"id":12,"value":1000000,"price":990000}]}
+2020-06-14 15:10:19 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:19 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:10:19 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:10:19 INFO  restAPI:36 - phone prefix:08ABC
+2020-06-14 15:10:21 INFO  restAPI:48 - unknown phone number
+2020-06-14 15:10:21 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:21 INFO  restAPI:34 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:10:21 INFO  restAPI:35 - Test Data: 
+2020-06-14 15:10:21 INFO  restAPI:36 - phone prefix:+6281
+2020-06-14 15:10:23 INFO  restAPI:48 - invalid phone number
+2020-06-14 15:10:30 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:34 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:34 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:34 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:39 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:39 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:44 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:49 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:53 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:58 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:10:58 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:11:02 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:11:07 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:11:07 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:15:27 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:15:27 INFO  restAPI:56 - Case:White space
+2020-06-14 15:15:27 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:15:27 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:15:27 INFO  restAPI:38 - phone prefix:081 2
+2020-06-14 15:15:30 INFO  restAPI:50 - unknown phone number
+2020-06-14 15:15:30 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:15:30 INFO  restAPI:56 - Case:Tri
+2020-06-14 15:15:30 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:15:30 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:15:30 INFO  restAPI:38 - phone prefix:08996
+2020-06-14 15:15:32 INFO  restAPI:50 - {"provider":{"id":3,"name":"Tri","image":"https://res.cloudinary.com/alvark/image/upload/v1591240744/danapulsa/3-brand_cawkwp.svg"},"catalog":[{"id":26,"value":1000,"price":1200},{"id":27,"value":2000,"price":2200},{"id":28,"value":3000,"price":3500},{"id":29,"value":4000,"price":4500},{"id":30,"value":5000,"price":5400},{"id":31,"value":8000,"price":8400},{"id":32,"value":10000,"price":10400},{"id":33,"value":15000,"price":15000},{"id":34,"value":20000,"price":19800},{"id":35,"value":25000,"price":24750},{"id":36,"value":30000,"price":29500},{"id":37,"value":50000,"price":49250},{"id":38,"value":100000,"price":98500},{"id":39,"value":150000,"price":148000},{"id":40,"value":200000,"price":197000},{"id":41,"value":300000,"price":295000},{"id":42,"value":500000,"price":495000}]}
+2020-06-14 15:15:32 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:15:32 INFO  restAPI:56 - Case:Exceed 5 characters
+2020-06-14 15:15:32 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:15:32 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:15:32 INFO  restAPI:38 - phone prefix:081252
+2020-06-14 15:15:34 INFO  restAPI:50 - invalid phone number
+2020-06-14 15:15:34 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:15:34 INFO  restAPI:56 - Case:Axis
+2020-06-14 15:15:34 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:15:34 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:15:34 INFO  restAPI:38 - phone prefix:08312
+2020-06-14 15:15:35 INFO  restAPI:50 - {"provider":{"id":6,"name":"Axis","image":"https://res.cloudinary.com/alvark/image/upload/v1591240915/danapulsa/Axis_logo_2015_fjybli.svg"},"catalog":[{"id":69,"value":5000,"price":6000},{"id":70,"value":10000,"price":11000},{"id":71,"value":25000,"price":24800},{"id":72,"value":50000,"price":49500},{"id":73,"value":100000,"price":98500},{"id":74,"value":200000,"price":197000},{"id":75,"value":300000,"price":295000},{"id":76,"value":500000,"price":495000},{"id":77,"value":1000000,"price":940000}]}
+2020-06-14 15:15:35 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:15:35 INFO  restAPI:56 - Case:Start with 62
+2020-06-14 15:15:35 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:15:35 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:15:35 INFO  restAPI:38 - phone prefix:62812
+2020-06-14 15:15:37 INFO  restAPI:50 - invalid phone number
+2020-06-14 15:15:37 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:15:37 INFO  restAPI:56 - Case:Indosat
+2020-06-14 15:15:37 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:15:37 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:15:37 INFO  restAPI:38 - phone prefix:08565
+2020-06-14 15:15:39 INFO  restAPI:50 - {"provider":{"id":4,"name":"Indosat","image":"https://res.cloudinary.com/alvark/image/upload/v1591240690/danapulsa/Indosat_Ooredoo_logo_wcpr2o.svg"},"catalog":[{"id":43,"value":5000,"price":6400},{"id":44,"value":10000,"price":11500},{"id":45,"value":12000,"price":12500},{"id":46,"value":20000,"price":20000},{"id":47,"value":25000,"price":24800},{"id":48,"value":30000,"price":28850},{"id":49,"value":50000,"price":49000},{"id":50,"value":60000,"price":59500},{"id":51,"value":80000,"price":78000},{"id":52,"value":100000,"price":98000},{"id":53,"value":150000,"price":144000},{"id":54,"value":200000,"price":190000},{"id":55,"value":250000,"price":235000},{"id":56,"value":500000,"price":470000},{"id":57,"value":1000000,"price":940000}]}
+2020-06-14 15:15:39 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:15:39 INFO  restAPI:56 - Case:Smartfren
+2020-06-14 15:15:39 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:15:39 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:15:39 INFO  restAPI:38 - phone prefix:08810
+2020-06-14 15:15:41 INFO  restAPI:50 - {"provider":{"id":5,"name":"Smartfren","image":"https://res.cloudinary.com/alvark/image/upload/v1591240871/danapulsa/Smartfren__282019_29_k5icie.svg"},"catalog":[{"id":58,"value":5000,"price":5400},{"id":59,"value":10000,"price":10400},{"id":60,"value":20000,"price":19900},{"id":61,"value":50000,"price":49250},{"id":62,"value":60000,"price":59000},{"id":63,"value":100000,"price":99000},{"id":64,"value":150000,"price":148000},{"id":65,"value":200000,"price":197000},{"id":66,"value":250000,"price":250000},{"id":67,"value":300000,"price":295000},{"id":68,"value":500000,"price":495000}]}
+2020-06-14 15:15:41 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:15:41 INFO  restAPI:56 - Case:Start with +62
+2020-06-14 15:15:41 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:15:41 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:15:41 INFO  restAPI:38 - phone prefix:+6281
+2020-06-14 15:15:42 INFO  restAPI:50 - invalid phone number
+2020-06-14 15:15:42 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:15:42 INFO  restAPI:56 - Case:XL
+2020-06-14 15:15:42 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:15:42 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:15:42 INFO  restAPI:38 - phone prefix:08773
+2020-06-14 15:15:45 INFO  restAPI:50 - {"provider":{"id":1,"name":"XL","image":"https://res.cloudinary.com/alvark/image/upload/v1591240407/danapulsa/20180111100558_21XL_logo_2016_kyu40w.svg"},"catalog":[{"id":1,"value":5000,"price":6000},{"id":2,"value":10000,"price":10700},{"id":3,"value":15000,"price":14900},{"id":4,"value":25000,"price":24750},{"id":5,"value":30000,"price":29850},{"id":6,"value":50000,"price":49500},{"id":7,"value":100000,"price":98500},{"id":8,"value":150000,"price":148000},{"id":9,"value":200000,"price":197750},{"id":10,"value":300000,"price":295000},{"id":11,"value":500000,"price":495000},{"id":12,"value":1000000,"price":990000}]}
+2020-06-14 15:15:45 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:15:45 INFO  restAPI:56 - Case:Empty string
+2020-06-14 15:15:45 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:15:45 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:15:45 INFO  restAPI:38 - phone prefix:
+2020-06-14 15:15:47 INFO  restAPI:50 - invalid phone number
+2020-06-14 15:15:47 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:15:47 INFO  restAPI:56 - Case:Undefined provider
+2020-06-14 15:15:47 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:15:47 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:15:47 INFO  restAPI:38 - phone prefix:02125
+2020-06-14 15:15:50 INFO  restAPI:50 - unknown phone number
+2020-06-14 15:15:50 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:15:50 INFO  restAPI:56 - Case:Telkomsel
+2020-06-14 15:15:50 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:15:50 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:15:50 INFO  restAPI:38 - phone prefix:08125
+2020-06-14 15:15:52 INFO  restAPI:50 - {"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}
+2020-06-14 15:15:52 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:15:52 INFO  restAPI:56 - Case:Not numerical only
+2020-06-14 15:15:52 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:15:52 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:15:52 INFO  restAPI:38 - phone prefix:08ABC
+2020-06-14 15:15:53 INFO  restAPI:50 - unknown phone number
+2020-06-14 15:15:53 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:15:53 INFO  restAPI:56 - Case:Below 5 characters
+2020-06-14 15:15:53 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:15:53 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:15:53 INFO  restAPI:38 - phone prefix:0812
+2020-06-14 15:15:55 INFO  restAPI:50 - invalid phone number
+2020-06-14 15:16:01 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:16:06 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:16:06 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:16:12 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:16:12 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:16:18 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:16:23 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:16:23 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:16:29 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:16:29 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:16:34 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:16:40 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:16:44 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:16:44 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:18:52 INFO  restAPI:55 - 
+***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:18:52 INFO  restAPI:56 - Case:White space
+2020-06-14 15:18:52 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:18:52 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:18:52 INFO  restAPI:38 - phone prefix:081 2
+2020-06-14 15:18:55 INFO  restAPI:50 - unknown phone number
+2020-06-14 15:18:55 INFO  restAPI:55 - 
+***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:18:55 INFO  restAPI:56 - Case:Tri
+2020-06-14 15:18:55 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:18:55 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:18:55 INFO  restAPI:38 - phone prefix:08996
+2020-06-14 15:18:57 INFO  restAPI:50 - {"provider":{"id":3,"name":"Tri","image":"https://res.cloudinary.com/alvark/image/upload/v1591240744/danapulsa/3-brand_cawkwp.svg"},"catalog":[{"id":26,"value":1000,"price":1200},{"id":27,"value":2000,"price":2200},{"id":28,"value":3000,"price":3500},{"id":29,"value":4000,"price":4500},{"id":30,"value":5000,"price":5400},{"id":31,"value":8000,"price":8400},{"id":32,"value":10000,"price":10400},{"id":33,"value":15000,"price":15000},{"id":34,"value":20000,"price":19800},{"id":35,"value":25000,"price":24750},{"id":36,"value":30000,"price":29500},{"id":37,"value":50000,"price":49250},{"id":38,"value":100000,"price":98500},{"id":39,"value":150000,"price":148000},{"id":40,"value":200000,"price":197000},{"id":41,"value":300000,"price":295000},{"id":42,"value":500000,"price":495000}]}
+2020-06-14 15:18:57 INFO  restAPI:55 - 
+***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:18:57 INFO  restAPI:56 - Case:Exceed 5 characters
+2020-06-14 15:18:57 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:18:57 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:18:57 INFO  restAPI:38 - phone prefix:081252
+2020-06-14 15:18:59 INFO  restAPI:50 - invalid phone number
+2020-06-14 15:18:59 INFO  restAPI:55 - 
+***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:18:59 INFO  restAPI:56 - Case:Axis
+2020-06-14 15:18:59 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:18:59 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:18:59 INFO  restAPI:38 - phone prefix:08312
+2020-06-14 15:19:00 INFO  restAPI:50 - {"provider":{"id":6,"name":"Axis","image":"https://res.cloudinary.com/alvark/image/upload/v1591240915/danapulsa/Axis_logo_2015_fjybli.svg"},"catalog":[{"id":69,"value":5000,"price":6000},{"id":70,"value":10000,"price":11000},{"id":71,"value":25000,"price":24800},{"id":72,"value":50000,"price":49500},{"id":73,"value":100000,"price":98500},{"id":74,"value":200000,"price":197000},{"id":75,"value":300000,"price":295000},{"id":76,"value":500000,"price":495000},{"id":77,"value":1000000,"price":940000}]}
+2020-06-14 15:19:00 INFO  restAPI:55 - 
+***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:00 INFO  restAPI:56 - Case:Start with 62
+2020-06-14 15:19:00 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:19:00 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:19:00 INFO  restAPI:38 - phone prefix:62812
+2020-06-14 15:19:02 INFO  restAPI:50 - invalid phone number
+2020-06-14 15:19:02 INFO  restAPI:55 - 
+***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:02 INFO  restAPI:56 - Case:Indosat
+2020-06-14 15:19:02 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:19:02 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:19:02 INFO  restAPI:38 - phone prefix:08565
+2020-06-14 15:19:04 INFO  restAPI:50 - {"provider":{"id":4,"name":"Indosat","image":"https://res.cloudinary.com/alvark/image/upload/v1591240690/danapulsa/Indosat_Ooredoo_logo_wcpr2o.svg"},"catalog":[{"id":43,"value":5000,"price":6400},{"id":44,"value":10000,"price":11500},{"id":45,"value":12000,"price":12500},{"id":46,"value":20000,"price":20000},{"id":47,"value":25000,"price":24800},{"id":48,"value":30000,"price":28850},{"id":49,"value":50000,"price":49000},{"id":50,"value":60000,"price":59500},{"id":51,"value":80000,"price":78000},{"id":52,"value":100000,"price":98000},{"id":53,"value":150000,"price":144000},{"id":54,"value":200000,"price":190000},{"id":55,"value":250000,"price":235000},{"id":56,"value":500000,"price":470000},{"id":57,"value":1000000,"price":940000}]}
+2020-06-14 15:19:04 INFO  restAPI:55 - 
+***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:04 INFO  restAPI:56 - Case:Smartfren
+2020-06-14 15:19:04 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:19:04 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:19:04 INFO  restAPI:38 - phone prefix:08810
+2020-06-14 15:19:06 INFO  restAPI:50 - {"provider":{"id":5,"name":"Smartfren","image":"https://res.cloudinary.com/alvark/image/upload/v1591240871/danapulsa/Smartfren__282019_29_k5icie.svg"},"catalog":[{"id":58,"value":5000,"price":5400},{"id":59,"value":10000,"price":10400},{"id":60,"value":20000,"price":19900},{"id":61,"value":50000,"price":49250},{"id":62,"value":60000,"price":59000},{"id":63,"value":100000,"price":99000},{"id":64,"value":150000,"price":148000},{"id":65,"value":200000,"price":197000},{"id":66,"value":250000,"price":250000},{"id":67,"value":300000,"price":295000},{"id":68,"value":500000,"price":495000}]}
+2020-06-14 15:19:06 INFO  restAPI:55 - 
+***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:06 INFO  restAPI:56 - Case:Start with +62
+2020-06-14 15:19:06 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:19:06 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:19:06 INFO  restAPI:38 - phone prefix:+6281
+2020-06-14 15:19:07 INFO  restAPI:50 - invalid phone number
+2020-06-14 15:19:07 INFO  restAPI:55 - 
+***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:07 INFO  restAPI:56 - Case:XL
+2020-06-14 15:19:07 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:19:07 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:19:07 INFO  restAPI:38 - phone prefix:08773
+2020-06-14 15:19:09 INFO  restAPI:50 - {"provider":{"id":1,"name":"XL","image":"https://res.cloudinary.com/alvark/image/upload/v1591240407/danapulsa/20180111100558_21XL_logo_2016_kyu40w.svg"},"catalog":[{"id":1,"value":5000,"price":6000},{"id":2,"value":10000,"price":10700},{"id":3,"value":15000,"price":14900},{"id":4,"value":25000,"price":24750},{"id":5,"value":30000,"price":29850},{"id":6,"value":50000,"price":49500},{"id":7,"value":100000,"price":98500},{"id":8,"value":150000,"price":148000},{"id":9,"value":200000,"price":197750},{"id":10,"value":300000,"price":295000},{"id":11,"value":500000,"price":495000},{"id":12,"value":1000000,"price":990000}]}
+2020-06-14 15:19:09 INFO  restAPI:55 - 
+***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:09 INFO  restAPI:56 - Case:Empty string
+2020-06-14 15:19:09 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:19:09 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:19:09 INFO  restAPI:38 - phone prefix:
+2020-06-14 15:19:11 INFO  restAPI:50 - invalid phone number
+2020-06-14 15:19:11 INFO  restAPI:55 - 
+***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:11 INFO  restAPI:56 - Case:Undefined provider
+2020-06-14 15:19:11 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:19:11 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:19:11 INFO  restAPI:38 - phone prefix:02125
+2020-06-14 15:19:13 INFO  restAPI:50 - unknown phone number
+2020-06-14 15:19:13 INFO  restAPI:55 - 
+***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:13 INFO  restAPI:56 - Case:Telkomsel
+2020-06-14 15:19:13 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:19:13 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:19:13 INFO  restAPI:38 - phone prefix:08125
+2020-06-14 15:19:14 INFO  restAPI:50 - {"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}
+2020-06-14 15:19:14 INFO  restAPI:55 - 
+***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:14 INFO  restAPI:56 - Case:Not numerical only
+2020-06-14 15:19:14 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:19:14 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:19:14 INFO  restAPI:38 - phone prefix:08ABC
+2020-06-14 15:19:17 INFO  restAPI:50 - unknown phone number
+2020-06-14 15:19:17 INFO  restAPI:55 - 
+***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:17 INFO  restAPI:56 - Case:Below 5 characters
+2020-06-14 15:19:17 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:19:17 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:19:17 INFO  restAPI:38 - phone prefix:0812
+2020-06-14 15:19:18 INFO  restAPI:50 - invalid phone number
+2020-06-14 15:19:25 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:30 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:30 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:35 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:35 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:41 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:47 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:47 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:52 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:52 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:19:57 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:02 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:07 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:07 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:16 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:16 INFO  restAPI:56 - Case:White space
+2020-06-14 15:20:16 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:20:16 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:20:16 INFO  restAPI:38 - phone prefix:081 2
+2020-06-14 15:20:19 INFO  restAPI:50 - unknown phone number
+2020-06-14 15:20:19 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:19 INFO  restAPI:56 - Case:Tri
+2020-06-14 15:20:19 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:20:19 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:20:19 INFO  restAPI:38 - phone prefix:08996
+2020-06-14 15:20:21 INFO  restAPI:50 - {"provider":{"id":3,"name":"Tri","image":"https://res.cloudinary.com/alvark/image/upload/v1591240744/danapulsa/3-brand_cawkwp.svg"},"catalog":[{"id":26,"value":1000,"price":1200},{"id":27,"value":2000,"price":2200},{"id":28,"value":3000,"price":3500},{"id":29,"value":4000,"price":4500},{"id":30,"value":5000,"price":5400},{"id":31,"value":8000,"price":8400},{"id":32,"value":10000,"price":10400},{"id":33,"value":15000,"price":15000},{"id":34,"value":20000,"price":19800},{"id":35,"value":25000,"price":24750},{"id":36,"value":30000,"price":29500},{"id":37,"value":50000,"price":49250},{"id":38,"value":100000,"price":98500},{"id":39,"value":150000,"price":148000},{"id":40,"value":200000,"price":197000},{"id":41,"value":300000,"price":295000},{"id":42,"value":500000,"price":495000}]}
+2020-06-14 15:20:21 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:21 INFO  restAPI:56 - Case:Exceed 5 characters
+2020-06-14 15:20:21 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:20:21 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:20:21 INFO  restAPI:38 - phone prefix:081252
+2020-06-14 15:20:23 INFO  restAPI:50 - invalid phone number
+2020-06-14 15:20:23 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:23 INFO  restAPI:56 - Case:Axis
+2020-06-14 15:20:23 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:20:23 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:20:23 INFO  restAPI:38 - phone prefix:08312
+2020-06-14 15:20:25 INFO  restAPI:50 - {"provider":{"id":6,"name":"Axis","image":"https://res.cloudinary.com/alvark/image/upload/v1591240915/danapulsa/Axis_logo_2015_fjybli.svg"},"catalog":[{"id":69,"value":5000,"price":6000},{"id":70,"value":10000,"price":11000},{"id":71,"value":25000,"price":24800},{"id":72,"value":50000,"price":49500},{"id":73,"value":100000,"price":98500},{"id":74,"value":200000,"price":197000},{"id":75,"value":300000,"price":295000},{"id":76,"value":500000,"price":495000},{"id":77,"value":1000000,"price":940000}]}
+2020-06-14 15:20:25 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:25 INFO  restAPI:56 - Case:Start with 62
+2020-06-14 15:20:25 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:20:25 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:20:25 INFO  restAPI:38 - phone prefix:62812
+2020-06-14 15:20:27 INFO  restAPI:50 - invalid phone number
+2020-06-14 15:20:27 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:27 INFO  restAPI:56 - Case:Indosat
+2020-06-14 15:20:27 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:20:27 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:20:27 INFO  restAPI:38 - phone prefix:08565
+2020-06-14 15:20:29 INFO  restAPI:50 - {"provider":{"id":4,"name":"Indosat","image":"https://res.cloudinary.com/alvark/image/upload/v1591240690/danapulsa/Indosat_Ooredoo_logo_wcpr2o.svg"},"catalog":[{"id":43,"value":5000,"price":6400},{"id":44,"value":10000,"price":11500},{"id":45,"value":12000,"price":12500},{"id":46,"value":20000,"price":20000},{"id":47,"value":25000,"price":24800},{"id":48,"value":30000,"price":28850},{"id":49,"value":50000,"price":49000},{"id":50,"value":60000,"price":59500},{"id":51,"value":80000,"price":78000},{"id":52,"value":100000,"price":98000},{"id":53,"value":150000,"price":144000},{"id":54,"value":200000,"price":190000},{"id":55,"value":250000,"price":235000},{"id":56,"value":500000,"price":470000},{"id":57,"value":1000000,"price":940000}]}
+2020-06-14 15:20:29 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:29 INFO  restAPI:56 - Case:Smartfren
+2020-06-14 15:20:29 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:20:29 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:20:29 INFO  restAPI:38 - phone prefix:08810
+2020-06-14 15:20:31 INFO  restAPI:50 - {"provider":{"id":5,"name":"Smartfren","image":"https://res.cloudinary.com/alvark/image/upload/v1591240871/danapulsa/Smartfren__282019_29_k5icie.svg"},"catalog":[{"id":58,"value":5000,"price":5400},{"id":59,"value":10000,"price":10400},{"id":60,"value":20000,"price":19900},{"id":61,"value":50000,"price":49250},{"id":62,"value":60000,"price":59000},{"id":63,"value":100000,"price":99000},{"id":64,"value":150000,"price":148000},{"id":65,"value":200000,"price":197000},{"id":66,"value":250000,"price":250000},{"id":67,"value":300000,"price":295000},{"id":68,"value":500000,"price":495000}]}
+2020-06-14 15:20:31 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:31 INFO  restAPI:56 - Case:Start with +62
+2020-06-14 15:20:31 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:20:31 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:20:31 INFO  restAPI:38 - phone prefix:+6281
+2020-06-14 15:20:33 INFO  restAPI:50 - invalid phone number
+2020-06-14 15:20:33 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:33 INFO  restAPI:56 - Case:XL
+2020-06-14 15:20:33 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:20:33 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:20:33 INFO  restAPI:38 - phone prefix:08773
+2020-06-14 15:20:34 INFO  restAPI:50 - {"provider":{"id":1,"name":"XL","image":"https://res.cloudinary.com/alvark/image/upload/v1591240407/danapulsa/20180111100558_21XL_logo_2016_kyu40w.svg"},"catalog":[{"id":1,"value":5000,"price":6000},{"id":2,"value":10000,"price":10700},{"id":3,"value":15000,"price":14900},{"id":4,"value":25000,"price":24750},{"id":5,"value":30000,"price":29850},{"id":6,"value":50000,"price":49500},{"id":7,"value":100000,"price":98500},{"id":8,"value":150000,"price":148000},{"id":9,"value":200000,"price":197750},{"id":10,"value":300000,"price":295000},{"id":11,"value":500000,"price":495000},{"id":12,"value":1000000,"price":990000}]}
+2020-06-14 15:20:34 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:34 INFO  restAPI:56 - Case:Empty string
+2020-06-14 15:20:34 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:20:34 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:20:34 INFO  restAPI:38 - phone prefix:
+2020-06-14 15:20:36 INFO  restAPI:50 - invalid phone number
+2020-06-14 15:20:36 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:36 INFO  restAPI:56 - Case:Undefined provider
+2020-06-14 15:20:36 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:20:36 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:20:36 INFO  restAPI:38 - phone prefix:02125
+2020-06-14 15:20:38 INFO  restAPI:50 - unknown phone number
+2020-06-14 15:20:38 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:38 INFO  restAPI:56 - Case:Telkomsel
+2020-06-14 15:20:38 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:20:38 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:20:38 INFO  restAPI:38 - phone prefix:08125
+2020-06-14 15:20:40 INFO  restAPI:50 - {"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}
+2020-06-14 15:20:40 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:40 INFO  restAPI:56 - Case:Not numerical only
+2020-06-14 15:20:40 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:20:40 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:20:40 INFO  restAPI:38 - phone prefix:08ABC
+2020-06-14 15:20:41 INFO  restAPI:50 - unknown phone number
+2020-06-14 15:20:41 INFO  restAPI:55 - ***** Started TC_Remote_Service_GetAllCatalog *****
+2020-06-14 15:20:41 INFO  restAPI:56 - Case:Below 5 characters
+2020-06-14 15:20:41 INFO  restAPI:36 - Call Get All Catalog API [Order Domain]
+2020-06-14 15:20:41 INFO  restAPI:37 - Test Data: 
+2020-06-14 15:20:41 INFO  restAPI:38 - phone prefix:0812
+2020-06-14 15:20:43 INFO  restAPI:50 - invalid phone number
+2020-06-14 15:20:49 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog
+ *****
+2020-06-14 15:20:55 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog
+ *****
+2020-06-14 15:20:55 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog
+ *****
+2020-06-14 15:21:01 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog
+ *****
+2020-06-14 15:21:01 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog
+ *****
+2020-06-14 15:21:05 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog
+ *****
+2020-06-14 15:21:12 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog
+ *****
+2020-06-14 15:21:12 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog
+ *****
+2020-06-14 15:21:17 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog
+ *****
+2020-06-14 15:21:17 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog
+ *****
+2020-06-14 15:21:22 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog
+ *****
+2020-06-14 15:21:28 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog
+ *****
+2020-06-14 15:21:33 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog
+ *****
+2020-06-14 15:21:33 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog
+ *****

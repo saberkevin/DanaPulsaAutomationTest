@@ -53,7 +53,8 @@ public class TestBase {
 	public RequestSpecification httpRequest;
 	public Response response;
 
-	public String URI = "http://debrief.herokuapp.com";	
+	public String URI = "http://debrief.herokuapp.com";
+	public String URIOrder = "https://debrief2-pulsa-order.herokuapp.com";
 	public String URIPromotion = "https://pulsa-voucher.herokuapp.com";
 	public String memberURI = "https://member-domain.herokuapp.com/member";
 	public Logger logger;
@@ -715,6 +716,21 @@ public class TestBase {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}	
+	}
+	
+	public void deleteTransactionById(long userId) {
+		try {
+			Connection conn = getConnectionOrder();
+			String queryString = "DELETE FROM transaction WHERE id = ?";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);			
+			ps.setLong(1, userId);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void deleteTransactionByUserId(long userId) {

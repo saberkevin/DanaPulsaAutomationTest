@@ -1,37 +1,349 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="42" passed="42">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="25848" started-at="2020-06-14T04:38:12Z" finished-at="2020-06-14T04:38:38Z">
+  <suite name="Default suite" duration-ms="76747" started-at="2020-06-14T08:20:16Z" finished-at="2020-06-14T08:21:33Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="25848" started-at="2020-06-14T04:38:12Z" finished-at="2020-06-14T04:38:38Z">
-      <class name="remoteService.promotion.TC_Remote_Service_GetVoucherPromotion">
-        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherPromotion@2aa5fe93]" name="setup" is-config="true" duration-ms="58" started-at="2020-06-14T04:38:12Z" finished-at="2020-06-14T04:38:12Z">
+    <test name="Default test" duration-ms="76747" started-at="2020-06-14T08:20:16Z" finished-at="2020-06-14T08:21:33Z">
+      <class name="remoteService.order.TC_Remote_Service_GetAllCatalog">
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="setup" is-config="true" duration-ms="33" started-at="2020-06-14T08:20:16Z" finished-at="2020-06-14T08:20:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherPromotion@2aa5fe93]" name="beforeClass" is-config="true" duration-ms="23094" started-at="2020-06-14T04:38:12Z" finished-at="2020-06-14T04:38:35Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="beforeClass" is-config="true" duration-ms="3" started-at="2020-06-14T08:20:16Z" finished-at="2020-06-14T08:20:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testPromotionVouchers()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherPromotion@2aa5fe93]" name="testPromotionVouchers" duration-ms="2664" started-at="2020-06-14T04:38:35Z" finished-at="2020-06-14T04:38:38Z">
+        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@22f59fa]" name="testGetAllCatalog" duration-ms="3106" started-at="2020-06-14T08:20:16Z" finished-at="2020-06-14T08:20:19Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testPromotionVouchers -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherPromotion@2aa5fe93]" name="checkData" duration-ms="1" started-at="2020-06-14T04:38:38Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherPromotion.testPromotionVouchers" finished-at="2020-06-14T04:38:38Z">
+        </test-method> <!-- testGetAllCatalog -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-14T08:20:19Z" finished-at="2020-06-14T08:20:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-14T08:20:19Z" finished-at="2020-06-14T08:20:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@2bdd8394]" name="testGetAllCatalog" duration-ms="1997" started-at="2020-06-14T08:20:19Z" finished-at="2020-06-14T08:20:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllCatalog -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="setup" is-config="true" duration-ms="5" started-at="2020-06-14T08:20:21Z" finished-at="2020-06-14T08:20:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-14T08:20:21Z" finished-at="2020-06-14T08:20:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@2eea88a1]" name="testGetAllCatalog" duration-ms="1835" started-at="2020-06-14T08:20:21Z" finished-at="2020-06-14T08:20:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllCatalog -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="setup" is-config="true" duration-ms="3" started-at="2020-06-14T08:20:23Z" finished-at="2020-06-14T08:20:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-14T08:20:23Z" finished-at="2020-06-14T08:20:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@2f01783a]" name="testGetAllCatalog" duration-ms="2044" started-at="2020-06-14T08:20:23Z" finished-at="2020-06-14T08:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllCatalog -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="setup" is-config="true" duration-ms="1" started-at="2020-06-14T08:20:25Z" finished-at="2020-06-14T08:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="beforeClass" is-config="true" duration-ms="2" started-at="2020-06-14T08:20:25Z" finished-at="2020-06-14T08:20:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@41488b16]" name="testGetAllCatalog" duration-ms="1787" started-at="2020-06-14T08:20:25Z" finished-at="2020-06-14T08:20:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllCatalog -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="setup" is-config="true" duration-ms="3" started-at="2020-06-14T08:20:27Z" finished-at="2020-06-14T08:20:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-14T08:20:27Z" finished-at="2020-06-14T08:20:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@5f9edf14]" name="testGetAllCatalog" duration-ms="1890" started-at="2020-06-14T08:20:27Z" finished-at="2020-06-14T08:20:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllCatalog -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-14T08:20:29Z" finished-at="2020-06-14T08:20:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-14T08:20:29Z" finished-at="2020-06-14T08:20:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@68746f22]" name="testGetAllCatalog" duration-ms="1843" started-at="2020-06-14T08:20:29Z" finished-at="2020-06-14T08:20:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllCatalog -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-14T08:20:31Z" finished-at="2020-06-14T08:20:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-14T08:20:31Z" finished-at="2020-06-14T08:20:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@68878f6d]" name="testGetAllCatalog" duration-ms="1836" started-at="2020-06-14T08:20:31Z" finished-at="2020-06-14T08:20:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllCatalog -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="setup" is-config="true" duration-ms="1" started-at="2020-06-14T08:20:33Z" finished-at="2020-06-14T08:20:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-14T08:20:33Z" finished-at="2020-06-14T08:20:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@74287ea3]" name="testGetAllCatalog" duration-ms="1686" started-at="2020-06-14T08:20:33Z" finished-at="2020-06-14T08:20:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllCatalog -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="setup" is-config="true" duration-ms="5" started-at="2020-06-14T08:20:34Z" finished-at="2020-06-14T08:20:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-14T08:20:34Z" finished-at="2020-06-14T08:20:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="testGetAllCatalog" duration-ms="1990" started-at="2020-06-14T08:20:34Z" finished-at="2020-06-14T08:20:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllCatalog -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="setup" is-config="true" duration-ms="1" started-at="2020-06-14T08:20:36Z" finished-at="2020-06-14T08:20:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-14T08:20:36Z" finished-at="2020-06-14T08:20:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@7ac296f6]" name="testGetAllCatalog" duration-ms="1786" started-at="2020-06-14T08:20:36Z" finished-at="2020-06-14T08:20:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllCatalog -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="setup" is-config="true" duration-ms="1" started-at="2020-06-14T08:20:38Z" finished-at="2020-06-14T08:20:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-14T08:20:38Z" finished-at="2020-06-14T08:20:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@7d7758be]" name="testGetAllCatalog" duration-ms="1688" started-at="2020-06-14T08:20:38Z" finished-at="2020-06-14T08:20:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllCatalog -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-14T08:20:40Z" finished-at="2020-06-14T08:20:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="beforeClass" is-config="true" duration-ms="2" started-at="2020-06-14T08:20:40Z" finished-at="2020-06-14T08:20:40Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@7fd7a283]" name="testGetAllCatalog" duration-ms="1600" started-at="2020-06-14T08:20:40Z" finished-at="2020-06-14T08:20:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllCatalog -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-14T08:20:41Z" finished-at="2020-06-14T08:20:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-14T08:20:41Z" finished-at="2020-06-14T08:20:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@a8ef162]" name="testGetAllCatalog" duration-ms="1589" started-at="2020-06-14T08:20:41Z" finished-at="2020-06-14T08:20:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllCatalog -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@22f59fa]" name="checkData" duration-ms="1" started-at="2020-06-14T08:20:43Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-14T08:20:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherPromotion@2aa5fe93]" name="checkDB" duration-ms="2" started-at="2020-06-14T04:38:38Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherPromotion.checkData" finished-at="2020-06-14T04:38:38Z">
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@2bdd8394]" name="checkData" duration-ms="334" started-at="2020-06-14T08:20:43Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-14T08:20:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@2eea88a1]" name="checkData" duration-ms="1" started-at="2020-06-14T08:20:43Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-14T08:20:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@2f01783a]" name="checkData" duration-ms="36" started-at="2020-06-14T08:20:43Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-14T08:20:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@41488b16]" name="checkData" duration-ms="0" started-at="2020-06-14T08:20:43Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-14T08:20:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@5f9edf14]" name="checkData" duration-ms="34" started-at="2020-06-14T08:20:43Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-14T08:20:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@68746f22]" name="checkData" duration-ms="30" started-at="2020-06-14T08:20:43Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-14T08:20:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@68878f6d]" name="checkData" duration-ms="0" started-at="2020-06-14T08:20:43Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-14T08:20:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@74287ea3]" name="checkData" duration-ms="29" started-at="2020-06-14T08:20:43Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-14T08:20:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="checkData" duration-ms="1" started-at="2020-06-14T08:20:43Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-14T08:20:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@7ac296f6]" name="checkData" duration-ms="1" started-at="2020-06-14T08:20:43Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-14T08:20:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@7d7758be]" name="checkData" duration-ms="29" started-at="2020-06-14T08:20:43Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-14T08:20:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@7fd7a283]" name="checkData" duration-ms="1" started-at="2020-06-14T08:20:43Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-14T08:20:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@a8ef162]" name="checkData" duration-ms="1" started-at="2020-06-14T08:20:43Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-14T08:20:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@22f59fa]" name="checkDB" duration-ms="5606" started-at="2020-06-14T08:20:44Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.checkData" finished-at="2020-06-14T08:20:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherPromotion@2aa5fe93]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-14T04:38:38Z" finished-at="2020-06-14T04:38:38Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="afterClass" is-config="true" duration-ms="1" started-at="2020-06-14T08:20:49Z" finished-at="2020-06-14T08:20:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- remoteService.promotion.TC_Remote_Service_GetVoucherPromotion -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@2bdd8394]" name="checkDB" duration-ms="6362" started-at="2020-06-14T08:20:49Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.checkData" finished-at="2020-06-14T08:20:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="afterClass" is-config="true" duration-ms="1" started-at="2020-06-14T08:20:55Z" finished-at="2020-06-14T08:20:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@2eea88a1]" name="checkDB" duration-ms="4" started-at="2020-06-14T08:20:55Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.checkData" finished-at="2020-06-14T08:20:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="afterClass" is-config="true" duration-ms="4" started-at="2020-06-14T08:20:55Z" finished-at="2020-06-14T08:20:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@2f01783a]" name="checkDB" duration-ms="5325" started-at="2020-06-14T08:20:55Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.checkData" finished-at="2020-06-14T08:21:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-14T08:21:01Z" finished-at="2020-06-14T08:21:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@41488b16]" name="checkDB" duration-ms="0" started-at="2020-06-14T08:21:01Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.checkData" finished-at="2020-06-14T08:21:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-14T08:21:01Z" finished-at="2020-06-14T08:21:01Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@5f9edf14]" name="checkDB" duration-ms="4468" started-at="2020-06-14T08:21:01Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.checkData" finished-at="2020-06-14T08:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-14T08:21:05Z" finished-at="2020-06-14T08:21:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@68746f22]" name="checkDB" duration-ms="6257" started-at="2020-06-14T08:21:05Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.checkData" finished-at="2020-06-14T08:21:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="afterClass" is-config="true" duration-ms="1" started-at="2020-06-14T08:21:12Z" finished-at="2020-06-14T08:21:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@68878f6d]" name="checkDB" duration-ms="1" started-at="2020-06-14T08:21:12Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.checkData" finished-at="2020-06-14T08:21:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="afterClass" is-config="true" duration-ms="1" started-at="2020-06-14T08:21:12Z" finished-at="2020-06-14T08:21:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@74287ea3]" name="checkDB" duration-ms="5186" started-at="2020-06-14T08:21:12Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.checkData" finished-at="2020-06-14T08:21:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-14T08:21:17Z" finished-at="2020-06-14T08:21:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="checkDB" duration-ms="1" started-at="2020-06-14T08:21:17Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.checkData" finished-at="2020-06-14T08:21:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-14T08:21:17Z" finished-at="2020-06-14T08:21:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@7ac296f6]" name="checkDB" duration-ms="5629" started-at="2020-06-14T08:21:17Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.checkData" finished-at="2020-06-14T08:21:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-14T08:21:22Z" finished-at="2020-06-14T08:21:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@7d7758be]" name="checkDB" duration-ms="5308" started-at="2020-06-14T08:21:22Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.checkData" finished-at="2020-06-14T08:21:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="afterClass" is-config="true" duration-ms="2" started-at="2020-06-14T08:21:28Z" finished-at="2020-06-14T08:21:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@7fd7a283]" name="checkDB" duration-ms="5239" started-at="2020-06-14T08:21:28Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.checkData" finished-at="2020-06-14T08:21:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-14T08:21:33Z" finished-at="2020-06-14T08:21:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@a8ef162]" name="checkDB" duration-ms="0" started-at="2020-06-14T08:21:33Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetAllCatalog.checkData" finished-at="2020-06-14T08:21:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetAllCatalog@78fa769e]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-14T08:21:33Z" finished-at="2020-06-14T08:21:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- remoteService.order.TC_Remote_Service_GetAllCatalog -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
