@@ -1021,3 +1021,122 @@
  *****
 2020-06-14 15:21:33 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetAllCatalog
  *****
+2020-06-14 17:18:11 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:18:11 INFO  restAPI:53 - Case:null
+2020-06-14 17:18:11 INFO  restAPI:33 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:18:11 INFO  restAPI:34 - Test Data: 
+2020-06-14 17:18:11 INFO  restAPI:35 - provider id:1
+2020-06-14 17:18:15 INFO  restAPI:47 - {"id":1,"name":"XL","image":"https://res.cloudinary.com/alvark/image/upload/v1591240407/danapulsa/20180111100558_21XL_logo_2016_kyu40w.svg"}
+2020-06-14 17:18:21 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 17:22:35 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:22:35 INFO  restAPI:53 - Case:null
+2020-06-14 17:22:35 INFO  restAPI:33 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:22:35 INFO  restAPI:34 - Test Data: 
+2020-06-14 17:22:35 INFO  restAPI:35 - provider id:4
+2020-06-14 17:22:39 INFO  restAPI:47 - {"id":4,"name":"Indosat","image":"https://res.cloudinary.com/alvark/image/upload/v1591240690/danapulsa/Indosat_Ooredoo_logo_wcpr2o.svg"}
+2020-06-14 17:22:39 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:22:39 INFO  restAPI:53 - Case:null
+2020-06-14 17:22:39 INFO  restAPI:33 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:22:39 INFO  restAPI:34 - Test Data: 
+2020-06-14 17:22:39 INFO  restAPI:35 - provider id:1
+2020-06-14 17:22:41 INFO  restAPI:47 - {"id":1,"name":"XL","image":"https://res.cloudinary.com/alvark/image/upload/v1591240407/danapulsa/20180111100558_21XL_logo_2016_kyu40w.svg"}
+2020-06-14 17:22:41 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:22:41 INFO  restAPI:53 - Case:null
+2020-06-14 17:22:41 INFO  restAPI:33 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:22:41 INFO  restAPI:34 - Test Data: 
+2020-06-14 17:22:41 INFO  restAPI:35 - provider id:6
+2020-06-14 17:22:42 INFO  restAPI:47 - {"id":6,"name":"Axis","image":"https://res.cloudinary.com/alvark/image/upload/v1591240915/danapulsa/Axis_logo_2015_fjybli.svg"}
+2020-06-14 17:22:42 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:22:42 INFO  restAPI:53 - Case:null
+2020-06-14 17:22:42 INFO  restAPI:33 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:22:42 INFO  restAPI:34 - Test Data: 
+2020-06-14 17:22:42 INFO  restAPI:35 - provider id:2
+2020-06-14 17:22:44 INFO  restAPI:47 - {"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"}
+2020-06-14 17:22:44 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:22:44 INFO  restAPI:53 - Case:null
+2020-06-14 17:22:44 INFO  restAPI:33 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:22:44 INFO  restAPI:34 - Test Data: 
+2020-06-14 17:22:44 INFO  restAPI:35 - provider id:5
+2020-06-14 17:22:46 INFO  restAPI:47 - {"id":5,"name":"Smartfren","image":"https://res.cloudinary.com/alvark/image/upload/v1591240871/danapulsa/Smartfren__282019_29_k5icie.svg"}
+2020-06-14 17:22:46 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:22:46 INFO  restAPI:53 - Case:null
+2020-06-14 17:22:46 INFO  restAPI:33 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:22:46 INFO  restAPI:34 - Test Data: 
+2020-06-14 17:22:46 INFO  restAPI:35 - provider id:7
+2020-06-14 17:22:48 INFO  restAPI:47 - unknown provider
+2020-06-14 17:22:48 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:22:48 INFO  restAPI:53 - Case:null
+2020-06-14 17:22:48 INFO  restAPI:33 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:22:48 INFO  restAPI:34 - Test Data: 
+2020-06-14 17:22:48 INFO  restAPI:35 - provider id:
+2020-06-14 17:22:49 INFO  restAPI:47 - invalid request format
+2020-06-14 17:22:49 INFO  restAPI:52 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:22:49 INFO  restAPI:53 - Case:null
+2020-06-14 17:22:49 INFO  restAPI:33 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:22:49 INFO  restAPI:34 - Test Data: 
+2020-06-14 17:22:49 INFO  restAPI:35 - provider id:3
+2020-06-14 17:22:51 INFO  restAPI:47 - {"id":3,"name":"Tri","image":"https://res.cloudinary.com/alvark/image/upload/v1591240744/danapulsa/3-brand_cawkwp.svg"}
+2020-06-14 17:22:57 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 17:23:03 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 17:23:08 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 17:23:14 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 17:23:20 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 17:23:24 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 17:23:24 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 17:23:31 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 17:24:20 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:24:20 INFO  restAPI:54 - Case:Indosat
+2020-06-14 17:24:20 INFO  restAPI:34 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:24:20 INFO  restAPI:35 - Test Data: 
+2020-06-14 17:24:20 INFO  restAPI:36 - provider id:4
+2020-06-14 17:24:23 INFO  restAPI:48 - {"id":4,"name":"Indosat","image":"https://res.cloudinary.com/alvark/image/upload/v1591240690/danapulsa/Indosat_Ooredoo_logo_wcpr2o.svg"}
+2020-06-14 17:24:23 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:24:23 INFO  restAPI:54 - Case:XL
+2020-06-14 17:24:23 INFO  restAPI:34 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:24:23 INFO  restAPI:35 - Test Data: 
+2020-06-14 17:24:23 INFO  restAPI:36 - provider id:1
+2020-06-14 17:24:25 INFO  restAPI:48 - {"id":1,"name":"XL","image":"https://res.cloudinary.com/alvark/image/upload/v1591240407/danapulsa/20180111100558_21XL_logo_2016_kyu40w.svg"}
+2020-06-14 17:24:25 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:24:25 INFO  restAPI:54 - Case:Axis
+2020-06-14 17:24:25 INFO  restAPI:34 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:24:25 INFO  restAPI:35 - Test Data: 
+2020-06-14 17:24:25 INFO  restAPI:36 - provider id:6
+2020-06-14 17:24:27 INFO  restAPI:48 - {"id":6,"name":"Axis","image":"https://res.cloudinary.com/alvark/image/upload/v1591240915/danapulsa/Axis_logo_2015_fjybli.svg"}
+2020-06-14 17:24:27 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:24:27 INFO  restAPI:54 - Case:Telkomsel
+2020-06-14 17:24:27 INFO  restAPI:34 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:24:27 INFO  restAPI:35 - Test Data: 
+2020-06-14 17:24:27 INFO  restAPI:36 - provider id:2
+2020-06-14 17:24:29 INFO  restAPI:48 - {"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1591240596/danapulsa/Telkomsel_Logo_eviigt.svg"}
+2020-06-14 17:24:29 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:24:29 INFO  restAPI:54 - Case:Smartfren
+2020-06-14 17:24:29 INFO  restAPI:34 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:24:29 INFO  restAPI:35 - Test Data: 
+2020-06-14 17:24:29 INFO  restAPI:36 - provider id:5
+2020-06-14 17:24:31 INFO  restAPI:48 - {"id":5,"name":"Smartfren","image":"https://res.cloudinary.com/alvark/image/upload/v1591240871/danapulsa/Smartfren__282019_29_k5icie.svg"}
+2020-06-14 17:24:31 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:24:31 INFO  restAPI:54 - Case:Undefined ID
+2020-06-14 17:24:31 INFO  restAPI:34 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:24:31 INFO  restAPI:35 - Test Data: 
+2020-06-14 17:24:31 INFO  restAPI:36 - provider id:7
+2020-06-14 17:24:33 INFO  restAPI:48 - unknown provider
+2020-06-14 17:24:33 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:24:33 INFO  restAPI:54 - Case:Empty String
+2020-06-14 17:24:33 INFO  restAPI:34 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:24:33 INFO  restAPI:35 - Test Data: 
+2020-06-14 17:24:33 INFO  restAPI:36 - provider id:
+2020-06-14 17:24:35 INFO  restAPI:48 - invalid request format
+2020-06-14 17:24:35 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetProviderById *****
+2020-06-14 17:24:35 INFO  restAPI:54 - Case:Tri
+2020-06-14 17:24:35 INFO  restAPI:34 - Call Get Provider By Id API [Order Domain]
+2020-06-14 17:24:35 INFO  restAPI:35 - Test Data: 
+2020-06-14 17:24:35 INFO  restAPI:36 - provider id:3
+2020-06-14 17:24:37 INFO  restAPI:48 - {"id":3,"name":"Tri","image":"https://res.cloudinary.com/alvark/image/upload/v1591240744/danapulsa/3-brand_cawkwp.svg"}
+2020-06-14 17:24:43 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 17:24:49 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 17:24:53 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 17:24:58 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 17:25:03 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 17:25:08 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 17:25:08 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 17:25:14 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****

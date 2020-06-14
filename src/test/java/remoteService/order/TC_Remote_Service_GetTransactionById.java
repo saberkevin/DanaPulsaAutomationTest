@@ -32,7 +32,7 @@ public class TC_Remote_Service_GetTransactionById extends TestBase {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public void getTransactinByIdRemoteService(String transactionId) {
+	public void getTransactionByIdRemoteService(String transactionId) {
 		logger.info("Call Get Transaction By Id API [Order Domain]");
 		logger.info("Test Data: ");
 		logger.info("transaction id:" + transactionId);
@@ -81,7 +81,7 @@ public class TC_Remote_Service_GetTransactionById extends TestBase {
 	@Test
 	public void testTransactionById() {
 		// call API get transaction by id
-		getTransactinByIdRemoteService(transactionId);
+		getTransactionByIdRemoteService(transactionId);
 		
 		int statusCode = response.getStatusCode();
 
