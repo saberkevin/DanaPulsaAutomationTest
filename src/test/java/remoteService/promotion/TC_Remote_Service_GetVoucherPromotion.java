@@ -24,8 +24,11 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 	private String userId;
 	private String page;
 	
+	public TC_Remote_Service_GetVoucherPromotion() {
+		
+	}
+	
 	public TC_Remote_Service_GetVoucherPromotion(String userId, String page) {
-		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		this.userId = userId;
 		this.page = page;
 	}
@@ -52,6 +55,8 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 	
 	@BeforeClass
 	public void beforeClass() {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+
 		// initialize user
 		user.setName("Zanuar");
 		user.setEmail("triromadon@gmail.com");
@@ -77,7 +82,27 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 	
 	@Test(dependsOnMethods = {"testPromotionVouchers"})
 	public void checkData() throws ParseException {
+		int statusCode = response.getStatusCode();
 		
+		if (statusCode == 200) {
+			if (!response.getBody().asString().equals("[]")) {
+				List<Map<String, String>> vouchers = response.jsonPath().get();
+				
+				for (int i = 0; i < vouchers.size(); i++) {
+					Assert.assertNotNull(vouchers.get(i).get("id"));
+					Assert.assertNotNull(vouchers.get(i).get("name"));
+					Assert.assertNotNull(vouchers.get(i).get("voucherTypeName"));
+					Assert.assertNotNull(vouchers.get(i).get("filePath"));
+					Assert.assertNotNull(vouchers.get(i).get("expiryDate"));
+				}
+			}
+		} else if (statusCode == 400) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "400");
+			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "invalid user id");
+		} else if (statusCode == 404) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "404");
+			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "invalid page");
+		}
 	}
 	
 	@Test(dependsOnMethods = {"checkData"})
@@ -85,9 +110,7 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 		int statusCode = response.getStatusCode();
 		
 		if (statusCode == 200) {
-			List<Map<String, String>> vouchers = response.jsonPath().get();
-			
-			if(vouchers != null) {
+			if (response.getBody().asString().equals("[]")) {
 				try {
 					Connection conn = getConnectionPromotion();
 					String queryString = "SELECT "
@@ -97,10 +120,37 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 							+ "A.filePath, "
 							+ "A.expiryDate "
 							+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id "
-							+ "WHERE A.id > ? LIMIT 10";
+							+ "WHERE A.isActive = 1 AND A.id NOT IN (SELECT voucherId FROM user_voucher where userId = ? AND voucherStatusId = 2) "
+							+ "LIMIT ?, 10";
 					
 					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setInt(1, Integer.parseInt(page) * 10);
+					ps.setLong(1, user.getId());
+					ps.setInt(2, (Integer.parseInt(page)-1) * 10);
+					
+					ResultSet rs = ps.executeQuery();
+					Assert.assertTrue(!rs.next());
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			} else {
+				List<Map<String, String>> vouchers = response.jsonPath().get();
+				try {
+					Connection conn = getConnectionPromotion();
+					String queryString = "SELECT "
+							+ "A.id, "
+							+ "A.name AS voucherName, "
+							+ "B.name AS voucherTypeName, "
+							+ "A.filePath, "
+							+ "A.expiryDate "
+							+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id "
+							+ "WHERE A.isActive = 1 AND A.id NOT IN (SELECT voucherId FROM user_voucher where userId = ? AND voucherStatusId = 2) "
+							+ "LIMIT ?, 10";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setLong(1, user.getId());
+					ps.setInt(2, (Integer.parseInt(page)-1) * 10);
 					
 					ResultSet rs = ps.executeQuery();
 					while(rs.next()) {
@@ -109,7 +159,7 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 						Assert.assertEquals(vouchers.get(index).get("name"), rs.getString("voucherName"));						
 						Assert.assertEquals(vouchers.get(index).get("voucherTypeName"), rs.getString("voucherTypeName"));						
 						Assert.assertEquals(vouchers.get(index).get("filePath"), rs.getString("filePath"));						
-//						Assert.assertEquals(vouchers.get(index).get("expiryDate"), rs.getLong("expiryDate"));
+//							Assert.assertEquals(vouchers.get(index).get("expiryDate"), rs.getLong("expiryDate"));
 						
 						System.out.print(String.valueOf(vouchers.get(index).get("expiryDate")) + " - ");
 						System.out.println(rs.getLong("expiryDate"));
@@ -119,12 +169,6 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-			} else if (statusCode == 400) {
-				Assert.assertEquals(response.getBody().jsonPath().getString("code"), "400");
-				Assert.assertEquals(response.getBody().jsonPath().getString("message"), "invalid user id");
-			} else if (statusCode == 404) {
-				Assert.assertEquals(response.getBody().jsonPath().getString("code"), "404");
-				Assert.assertEquals(response.getBody().jsonPath().getString("message"), "invalid page");
 			}
 		}
 	}
