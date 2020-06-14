@@ -56,7 +56,7 @@ public class TC_Remote_Service_GetProviderById extends TestBase {
 	
 	@Test
 	public void testGetProviderById() {
-		// call API get all catalog
+		// call API provider by id
 		getProviderByIdRemoteService(providerId);
 		
 		int statusCode = response.getStatusCode();

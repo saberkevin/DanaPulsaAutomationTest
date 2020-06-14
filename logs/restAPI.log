@@ -1140,3 +1140,66 @@
 2020-06-14 17:25:08 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
 2020-06-14 17:25:08 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
 2020-06-14 17:25:14 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetProviderById *****
+2020-06-14 18:11:02 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:11:02 INFO  restAPI:54 - Case:Valid ID
+2020-06-14 18:11:02 INFO  restAPI:34 - Call Get Payment Method Name By Id API [Order Domain]
+2020-06-14 18:11:02 INFO  restAPI:35 - Test Data: 
+2020-06-14 18:11:02 INFO  restAPI:36 - methodId id:1
+2020-06-14 18:11:07 INFO  restAPI:48 - "WALLET"
+2020-06-14 18:11:07 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:11:07 INFO  restAPI:54 - Case:Undefined ID
+2020-06-14 18:11:07 INFO  restAPI:34 - Call Get Payment Method Name By Id API [Order Domain]
+2020-06-14 18:11:07 INFO  restAPI:35 - Test Data: 
+2020-06-14 18:11:07 INFO  restAPI:36 - methodId id:2
+2020-06-14 18:11:09 INFO  restAPI:48 - unknown method
+2020-06-14 18:11:09 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:11:09 INFO  restAPI:54 - Case:Empty String
+2020-06-14 18:11:09 INFO  restAPI:34 - Call Get Payment Method Name By Id API [Order Domain]
+2020-06-14 18:11:09 INFO  restAPI:35 - Test Data: 
+2020-06-14 18:11:09 INFO  restAPI:36 - methodId id:
+2020-06-14 18:11:11 INFO  restAPI:48 - invalid request format
+2020-06-14 18:11:11 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:11:17 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:11:17 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:14:30 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:14:30 INFO  restAPI:54 - Case:Valid ID
+2020-06-14 18:14:30 INFO  restAPI:34 - Call Get Payment Method Name By Id API [Order Domain]
+2020-06-14 18:14:30 INFO  restAPI:35 - Test Data: 
+2020-06-14 18:14:30 INFO  restAPI:36 - methodId id:1
+2020-06-14 18:14:34 INFO  restAPI:48 - "WALLET"
+2020-06-14 18:14:34 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:14:34 INFO  restAPI:54 - Case:Undefined ID
+2020-06-14 18:14:34 INFO  restAPI:34 - Call Get Payment Method Name By Id API [Order Domain]
+2020-06-14 18:14:34 INFO  restAPI:35 - Test Data: 
+2020-06-14 18:14:34 INFO  restAPI:36 - methodId id:2
+2020-06-14 18:14:36 INFO  restAPI:48 - unknown method
+2020-06-14 18:14:36 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:14:36 INFO  restAPI:54 - Case:Empty String
+2020-06-14 18:14:36 INFO  restAPI:34 - Call Get Payment Method Name By Id API [Order Domain]
+2020-06-14 18:14:36 INFO  restAPI:35 - Test Data: 
+2020-06-14 18:14:36 INFO  restAPI:36 - methodId id:
+2020-06-14 18:14:37 INFO  restAPI:48 - invalid request format
+2020-06-14 18:14:44 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:14:49 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:14:49 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:16:18 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:16:18 INFO  restAPI:54 - Case:Valid ID
+2020-06-14 18:16:18 INFO  restAPI:34 - Call Get Payment Method Name By Id API [Order Domain]
+2020-06-14 18:16:18 INFO  restAPI:35 - Test Data: 
+2020-06-14 18:16:18 INFO  restAPI:36 - methodId id:1
+2020-06-14 18:16:21 INFO  restAPI:48 - "WALLET"
+2020-06-14 18:16:21 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:16:21 INFO  restAPI:54 - Case:Undefined ID
+2020-06-14 18:16:21 INFO  restAPI:34 - Call Get Payment Method Name By Id API [Order Domain]
+2020-06-14 18:16:21 INFO  restAPI:35 - Test Data: 
+2020-06-14 18:16:21 INFO  restAPI:36 - methodId id:2
+2020-06-14 18:16:23 INFO  restAPI:48 - unknown method
+2020-06-14 18:16:23 INFO  restAPI:53 - ***** Started TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:16:23 INFO  restAPI:54 - Case:Empty String
+2020-06-14 18:16:23 INFO  restAPI:34 - Call Get Payment Method Name By Id API [Order Domain]
+2020-06-14 18:16:23 INFO  restAPI:35 - Test Data: 
+2020-06-14 18:16:23 INFO  restAPI:36 - methodId id:
+2020-06-14 18:16:25 INFO  restAPI:48 - invalid request format
+2020-06-14 18:16:30 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:16:35 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetPaymentMethodNameById *****
+2020-06-14 18:16:35 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetPaymentMethodNameById *****
