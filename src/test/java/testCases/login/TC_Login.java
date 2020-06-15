@@ -25,6 +25,7 @@ public class TC_Login extends TestBase{
 	void loginUser()
 	{
 		login(phone);
+		System.out.println("phone");
 	}
 	
 	@Test(dependsOnMethods = {"loginUser"})
