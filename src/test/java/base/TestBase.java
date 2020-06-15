@@ -606,21 +606,6 @@ public class TestBase {
 		}	
 	}
 	
-	public void deleteUserById(long id) {
-		try {
-			Connection conn = getConnectionMember();
-			String queryString = "DELETE FROM user WHERE id = ?";
-
-			PreparedStatement ps = conn.prepareStatement(queryString);			
-			ps.setLong(1, id);
-			ps.executeUpdate();
-
-			conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-	
 	public void deleteUserIfExist(String email, String username) {
 		boolean userExist = false;
 		
@@ -681,7 +666,7 @@ public class TestBase {
 		return id;
 	}
 	
-	public void createVoucherForUser(long userId, long voucherId, long voucherStatusId) {
+	public void createVoucher(long userId, long voucherId, long voucherStatusId) {
 		try {
 			Connection conn = getConnectionPromotion();
 			String queryString = "INSERT INTO user_voucher(userId, voucherId, voucherStatusId, createdAt) VALUES(?, ?, ?, ?)";
@@ -733,13 +718,13 @@ public class TestBase {
 		}
 	}
 	
-	public void deleteTransactionByUserId(long userId) {
+	public void deleteTransactionByPhoneNumber(String phoneNumber) {
 		try {
 			Connection conn = getConnectionOrder();
-			String queryString = "DELETE FROM transaction WHERE userId = ?";
+			String queryString = "DELETE FROM transaction WHERE phoneNumber = ?";
 
 			PreparedStatement ps = conn.prepareStatement(queryString);			
-			ps.setLong(1, userId);
+			ps.setString(1, phoneNumber);
 			ps.executeUpdate();
 
 			conn.close();

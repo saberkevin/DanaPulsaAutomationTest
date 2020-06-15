@@ -3,16 +3,58 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId">
+      <class name="remoteService.order.TC_Remote_Service_CreateTransaction">
         <methods>
-          <include name="testTransactionByIdByUserId"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
           <include name="checkData"/>
           <include name="afterClass"/>
-          <include name="checkDB"/>
-          <include name="beforeClass"/>
           <include name="setup"/>
+          <include name="beforeClass"/>
+          <include name="testCreateTransaction"/>
+          <include name="testCreateTransaction"/>
+          <include name="testCreateTransaction"/>
+          <include name="testCreateTransaction"/>
+          <include name="testCreateTransaction"/>
+          <include name="testCreateTransaction"/>
+          <include name="testCreateTransaction"/>
+          <include name="testCreateTransaction"/>
+          <include name="testCreateTransaction"/>
+          <include name="testCreateTransaction"/>
+          <include name="testCreateTransaction"/>
+          <include name="testCreateTransaction"/>
+          <include name="testCreateTransaction"/>
+          <include name="testCreateTransaction"/>
+          <include name="testCreateTransaction"/>
         </methods>
-      </class> <!-- remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId -->
+      </class> <!-- remoteService.order.TC_Remote_Service_CreateTransaction -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

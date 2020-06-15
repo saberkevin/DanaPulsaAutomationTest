@@ -43,7 +43,7 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 	
 	@SuppressWarnings("unchecked")
 	public void getTransactionByIdByUserIdRemoteService(String userId, String transactionId) {
-		logger.info("Call Get Transaction By Id API [Order Domain]");
+		logger.info("Call Get Transaction By Id By User Id API [Order Domain]");
 		logger.info("Test Data: ");
 		logger.info("user id:" + userId);
 		logger.info("transaction id:" + transactionId);

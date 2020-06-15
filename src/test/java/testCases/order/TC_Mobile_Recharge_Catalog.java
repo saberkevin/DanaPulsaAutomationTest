@@ -36,7 +36,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	private boolean isProviderTrue(String phoneNumber, Provider provider) {
 		try {
 			Connection conn = getConnectionOrder();
-			String query = "SELECT name FROM provider WHERE id = (SELECT providerId FROM provider_prefix WHERE prefix = ?";
+			String query = "SELECT name FROM provider WHERE id IN (SELECT providerId FROM provider_prefix WHERE prefix = ?)";
 
 			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setString(1, phoneNumber.substring(1,5));

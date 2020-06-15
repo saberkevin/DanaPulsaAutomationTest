@@ -72,7 +72,7 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 			// insert user into database
 			deleteUserIfExist(user.getEmail(), user.getUsername());
 			createUser(user);
-			user.setId(getUserIdByUsername("081252930398"));
+			user.setId(getUserIdByUsername(user.getUsername()));
 			
 			userId = Long.toString(user.getId());
 						
@@ -193,7 +193,7 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 					Assert.assertEquals(provHashMap.get("image"), rs.getString("image"));						
 
 //					Assert.assertEquals(recentNumbers.get(index).get("date"), rs.getLong("createdAt"));
-			} while(rs.next());
+				} while(rs.next());
 				
 				conn.close();
 			} catch (SQLException e) {
