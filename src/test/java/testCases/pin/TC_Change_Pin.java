@@ -100,6 +100,10 @@ public class TC_Change_Pin extends TestBase{
 		{
 			Assert.assertTrue(message.contains("invalid"));
 		}
+		else
+		{
+			Assert.assertTrue("unhandled error",false);
+		}
 	}
 	
 	@Test(dependsOnMethods = {"changePinUser"})

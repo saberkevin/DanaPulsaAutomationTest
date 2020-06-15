@@ -16,9 +16,15 @@
 			<class name = "testCases.register.Factory_Register"></class>
 		</classes>
 	</test> -->
+	<!-- <test name="DanaPulsaAPITestLogin" group-by-instances="true">
+		<classes>
+			<class name = "testCases.login.TC_Logout"></class>
+		</classes>
+	</test> -->
 	<!-- <test name="DanaPulsaAPITestPIN" group-by-instances="true">
 		<classes>
 			<class name = "testCases.pin.Factory_Verify_Pin_Login"></class>
+			<class name = "testCases.pin.Factory_Change_Pin"></class>
 		</classes>
 	</test> -->
 	<!-- <test name="DanaPulsaServiceTestMember" group-by-instances="true">

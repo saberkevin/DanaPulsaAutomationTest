@@ -64,7 +64,19 @@ public class TC_Verify_Pin_Login extends TestBase{
 		}
 		else if(code == 400)
 		{
-			Assert.assertTrue(message.contains("invalid") || message.contains("incorrect"));
+			Assert.assertTrue(message.contains("invalid pin"));
+		}
+		else if(code == 404)
+		{
+			Assert.assertTrue(message.contains("incorrect pin"));
+		}
+		else if(code == 500)
+		{
+			Assert.assertTrue(message.contains("should not be"));
+		}
+		else
+		{
+			Assert.assertTrue("unhandled error",false);
 		}
 	}
 	
