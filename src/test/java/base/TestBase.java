@@ -27,7 +27,7 @@ import utilities.ExcelUtil;
 @SuppressWarnings("unchecked")
 public class TestBase {
 	private static final String REGISTER_PATH = "/api/register";
-	private static final String LOGIN_PATH = "/api/login";
+	private static final String LOGIN_PATH = "/api/login/";
 	private static final String VERIFY_PIN_LOGIN_PATH = "/api/verifypin-login";
 	private static final String FORGOT_PIN_OTP_PATH = "/api/forgotpin-otp";
 	private static final String CHANGE_PIN_OTP_PATH = "/api/changepin-otp";
@@ -210,14 +210,7 @@ public class TestBase {
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
 		
-		JSONObject requestParams = new JSONObject();
-		
-		requestParams.put("phone", phone);
-		
-		httpRequest.header("Content-Type", "application/json");
-		httpRequest.body(requestParams.toJSONString());
-		
-		response = httpRequest.request(Method.GET, LOGIN_PATH);
+		response = httpRequest.request(Method.GET, LOGIN_PATH + phone);
 		logger.info(response.getBody().asString());
 	}
 	
