@@ -44,7 +44,7 @@ public class TC_Verify_Pin_Login extends TestBase{
 			try {
 				PreparedStatement psGetUserPin = getConnectionMember().prepareStatement(query);
 				psGetUserPin.setLong(1, Long.parseLong(id));
-				psGetUserPin.setLong(1, Long.parseLong(pin));
+				psGetUserPin.setLong(2, Long.parseLong(pin));
 				
 				ResultSet result = psGetUserPin.executeQuery();
 				
@@ -69,7 +69,7 @@ public class TC_Verify_Pin_Login extends TestBase{
 	@Test(dependsOnMethods = {"verifyPinLoginUser"})
 	void assertStatusCode()
 	{
-		String sc = response.jsonPath().get("code");
+		int sc = response.jsonPath().get("code");
 		checkStatusCode(sc);	
 	}
 	

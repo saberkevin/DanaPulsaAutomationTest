@@ -202,7 +202,7 @@ public class TestBase {
 		httpRequest.body(requestParams.toJSONString());
 		
 		response = httpRequest.request(Method.POST, REGISTER_PATH);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void login(String phone) {
@@ -221,7 +221,7 @@ public class TestBase {
 		httpRequest.body(requestParams.toJSONString());
 		
 		response = httpRequest.request(Method.GET, LOGIN_PATH);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void verifyPinLogin(String id, String pin) {
@@ -235,14 +235,14 @@ public class TestBase {
 		
 		JSONObject requestParams = new JSONObject();
 		
-		requestParams.put("id", Long.parseLong(id));
-		requestParams.put("pin", Integer.parseInt(pin));
+		requestParams.put("id", id);
+		requestParams.put("pin", pin);
 		
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 		
 		response = httpRequest.request(Method.POST, VERIFY_PIN_LOGIN_PATH);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void getProfile() {
@@ -252,7 +252,7 @@ public class TestBase {
 		httpRequest = RestAssured.given();
 		
 		response = httpRequest.request(Method.GET, GET_PROFILE_PATH);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void getBalance() {
@@ -262,7 +262,7 @@ public class TestBase {
 		httpRequest = RestAssured.given();
 		
 		response = httpRequest.request(Method.GET, GET_BALANCE_PATH);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void changePinOtp() {
@@ -272,7 +272,7 @@ public class TestBase {
 		httpRequest = RestAssured.given();
 		
 		response = httpRequest.request(Method.POST, CHANGE_PIN_OTP_PATH);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void forgotPinOtp(String id) {
@@ -291,7 +291,7 @@ public class TestBase {
 		httpRequest.body(requestParams.toJSONString());
 		
 		response = httpRequest.request(Method.POST, FORGOT_PIN_OTP_PATH);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void verifyOtp(String id, String code) {
@@ -312,7 +312,7 @@ public class TestBase {
 		httpRequest.body(requestParams.toJSONString());
 		
 		response = httpRequest.request(Method.POST, VERIFY_OTP_PATH);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void changePin(String pin) {
@@ -331,7 +331,7 @@ public class TestBase {
 		httpRequest.body(requestParams.toJSONString());
 		
 		response = httpRequest.request(Method.POST, CHANGE_PIN_PATH);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void GetOtp(String id) {
@@ -343,7 +343,7 @@ public class TestBase {
 		httpRequest = RestAssured.given();
 		
 		response = httpRequest.request(Method.GET, GET_OTP_PATH+id);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void logout(String sessionId) {
@@ -354,7 +354,7 @@ public class TestBase {
 		httpRequest.header("Cookie", "SESSION=" + sessionId);
 		
 		response = httpRequest.request(Method.DELETE, LOGOUT_PATH);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void historyInProgress(String page) {
@@ -366,7 +366,7 @@ public class TestBase {
 		httpRequest = RestAssured.given();
 		
 		response = httpRequest.request(Method.GET, HISTORY_IN_PROGRESS_PATH+page);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void historyCompleted(String page) {
@@ -378,7 +378,7 @@ public class TestBase {
 		httpRequest = RestAssured.given();
 		
 		response = httpRequest.request(Method.GET, HISTORY_COMPLETED_PATH+page);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void historyDetail(String id) {
@@ -390,7 +390,7 @@ public class TestBase {
 		httpRequest = RestAssured.given();
 		
 		response = httpRequest.request(Method.GET, HISTORY_DETAILS_PATH+id);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void getRecentPhoneNumber(String sessionId) {
@@ -403,7 +403,7 @@ public class TestBase {
 		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 
 		response = httpRequest.request(Method.GET, RECENT_PHONE_NUMBER_PATH);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void getCatalog(String sessionId, String phoneNumber) {
@@ -417,7 +417,7 @@ public class TestBase {
 		httpRequest.header("Cookie", "SESSION=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, CATALOG_PATH + phoneNumber);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void createOrder(String sessionId, String phoneNumber, String catalogId) {
@@ -438,7 +438,7 @@ public class TestBase {
 		httpRequest.body(requestParams.toJSONString());
 		
 		response = httpRequest.request(Method.POST, ORDER_PATH);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void cancelOrder(String sessionId, String transactionId) {
@@ -452,7 +452,7 @@ public class TestBase {
 		httpRequest.header("Cookie", "SESSION=" + sessionId);
 		
 		response = httpRequest.request(Method.DELETE, CANCEL_ORDER_PATH + transactionId);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void payOrder(String sessionId, String transactionId, String paymentMethodId, String voucherId) {
@@ -474,7 +474,7 @@ public class TestBase {
 		httpRequest.header("Content-Type", "application/json");
 		
 		response = httpRequest.request(Method.POST, PAYMENT_PATH);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void getMyVoucher(String sessionId, String page) {
@@ -488,7 +488,7 @@ public class TestBase {
 		httpRequest.header("Cookie", "SESSION=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, MY_VOUCHER_PATH + page);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void getPromotionVoucher(String sessionId, String page) {
@@ -502,7 +502,7 @@ public class TestBase {
 		httpRequest.header("Cookie", "SESSION=" + sessionId);
 
 		response = httpRequest.request(Method.GET, PROMOTION_VOUCHER_PATH + page);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void getRecommendationVoucher(String sessionId, String transactionId) {
@@ -516,7 +516,7 @@ public class TestBase {
 		httpRequest.header("Cookie", "SESSION=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, RECOMMENDATION_VOUCHER_PATH + transactionId);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	public void getVoucherDetails(String sessionId, String voucherId) {
