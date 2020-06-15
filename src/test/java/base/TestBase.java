@@ -235,21 +235,23 @@ public class TestBase {
 		logger.info(response.getBody().asString());
 	}
 	
-	public void getProfile() {
+	public void getProfile(String sessionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, GET_PROFILE_PATH);
 		logger.info(response.getBody().asString());
 	}
 	
-	public void getBalance() {
+	public void getBalance(String sessionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, GET_BALANCE_PATH);
 		logger.info(response.getBody().asString());
@@ -275,7 +277,7 @@ public class TestBase {
 		
 		JSONObject requestParams = new JSONObject();
 		
-		requestParams.put("id", Long.parseLong(id));
+		requestParams.put("id", id);
 		
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());

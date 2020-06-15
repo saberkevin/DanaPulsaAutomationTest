@@ -1,5 +1,6 @@
 package testCases.otp;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,7 +41,8 @@ public class TC_Forgot_Pin_Otp extends TestBase{
 			String query = "SELECT userId, code FROM otp\n" + 
 					"WHERE userId = ? AND  ((TIME_TO_SEC(NOW())-TIME_TO_SEC(TIME(updatedAt))/60) <= 5";
 			try {
-				PreparedStatement psGetOtp= getConnectionMember().prepareStatement(query);
+				Connection conMember = getConnectionMember();
+				PreparedStatement psGetOtp= conMember.prepareStatement(query);
 				psGetOtp.setLong(1, Long.parseLong(id));
 				
 				ResultSet result = psGetOtp.executeQuery();
@@ -48,21 +50,33 @@ public class TC_Forgot_Pin_Otp extends TestBase{
 				while(result.next())
 				{
 					Assert.assertEquals(Long.parseLong(id), result.getLong("userId"));
-					Assert.assertNotNull(result.getString("code"));
+					Assert.assertTrue(!result.getString("code").isEmpty());
 				}
 				
-				getConnectionMember().close();
+				conMember.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+		else if(code == 404)
+		{
+			Assert.assertEquals("user not found", message);
+		}
+		else if(code == 500)
+		{
+			Assert.assertEquals("unverified number", message);
+		}
+		else
+		{
+			Assert.assertTrue("unhandled error",false);
 		}
 	}
 	
 	@Test(dependsOnMethods = {"forgotPinOtpUser"})
 	void assertStatusCode()
 	{
-		String sc = response.jsonPath().get("code");
+		int sc = response.jsonPath().get("code");
 		checkStatusCode(sc);	
 	}
 	

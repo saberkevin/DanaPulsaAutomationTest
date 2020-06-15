@@ -18,6 +18,7 @@
 	</test> -->
 	<!-- <test name="DanaPulsaAPITestLogin" group-by-instances="true">
 		<classes>
+			<class name = "testCases.login.Factory_Login"></class>
 			<class name = "testCases.login.TC_Logout"></class>
 		</classes>
 	</test> -->
@@ -25,6 +26,22 @@
 		<classes>
 			<class name = "testCases.pin.Factory_Verify_Pin_Login"></class>
 			<class name = "testCases.pin.Factory_Change_Pin"></class>
+		</classes>
+	</test> -->
+	<!-- <test name="DanaPulsaAPITestUser" group-by-instances="true">
+		<classes>
+			<class name = "testCases.user.TC_Profile"></class>
+			<class name = "testCases.user.TC_Balance"></class>
+		</classes>
+	</test> -->
+	<!-- <test name="DanaPulsaAPITestOTP" group-by-instances="true">
+		<classes>
+			<class name = "testCases.otp.Factory_Forgot_Pin_Otp"></class>
+		</classes>
+	</test> -->
+	<!-- <test name="DanaPulsaAPITestHistory" group-by-instances="true">
+		<classes>
+			<class name = "testCases.history.Factory_History_In_Progress"></class>
 		</classes>
 	</test> -->
 	<!-- <test name="DanaPulsaServiceTestMember" group-by-instances="true">
