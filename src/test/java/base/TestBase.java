@@ -33,7 +33,7 @@ public class TestBase {
 	private static final String CHANGE_PIN_OTP_PATH = "/api/changepin-otp";
 	private static final String VERIFY_OTP_PATH = "/api/verify-otp";
 	private static final String GET_OTP_PATH = "/api/otp/";
-	private static final String CHANGE_PIN_PATH = "/api/changepin";
+	private static final String CHANGE_PIN_PATH = "/api/change-pin";
 	private static final String GET_PROFILE_PATH = "/api/profile";
 	private static final String GET_BALANCE_PATH = "/api/balance";
 	private static final String LOGOUT_PATH = "/api/logout";
@@ -312,22 +312,23 @@ public class TestBase {
 		logger.info(response.getBody().asString());
 	}
 	
-	public void changePin(String pin) {
+	public void changePin(String pin, String sessionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("pin:" + pin);
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		JSONObject requestParams = new JSONObject();
 		
-		requestParams.put("pin", Integer.parseInt(pin));
+		requestParams.put("pin", pin);
 		
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 		
-		response = httpRequest.request(Method.POST, CHANGE_PIN_PATH);
+		response = httpRequest.request(Method.PUT, CHANGE_PIN_PATH);
 		logger.info(response.getBody().asString());
 	}
 	
@@ -343,11 +344,12 @@ public class TestBase {
 		logger.info(response.getBody().asString());
 	}
 	
-	public void logout() {
+	public void logout(String sessionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.DELETE, LOGOUT_PATH);
 		logger.info(response.getBody().asString());
