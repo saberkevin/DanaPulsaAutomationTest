@@ -17,15 +17,17 @@ import io.restassured.RestAssured;
 import io.restassured.http.Method;
 
 public class TC_Remote_Service_GetVoucherDetail extends TestBase {
-	private String description;
+	private String testCase;
 	private String voucherId;
+	private String result;
 
 	public TC_Remote_Service_GetVoucherDetail() {
 	}
 
-	public TC_Remote_Service_GetVoucherDetail(String description, String voucherId) {
-		this.description = description;
+	public TC_Remote_Service_GetVoucherDetail(String testCase, String voucherId, String result) {
+		this.testCase = testCase;
 		this.voucherId = voucherId;
+		this.result = result;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -50,17 +52,14 @@ public class TC_Remote_Service_GetVoucherDetail extends TestBase {
 	@BeforeClass
 	public void BeforeClass() {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
-		logger.info("Case:" + description);
+		logger.info("Case:" + testCase);
 	}
 	
 	@Test
 	public void testVoucherDetails() {
-		// call API get voucher details
 		getVoucherDetailsRemoteService(voucherId);
-		
-		int statusCode = response.getStatusCode();
 
-		if (statusCode != 200) {
+		if (response.getStatusCode() != 200) {
 			logger.info(response.getBody().asString());
 			Assert.assertTrue(false, "cannot hit API");
 		}
@@ -68,83 +67,77 @@ public class TC_Remote_Service_GetVoucherDetail extends TestBase {
 	
 	@Test(dependsOnMethods = {"testVoucherDetails"})
 	public void checkData() throws ParseException {
-		int statusCode = response.getStatusCode();
+		String responseBody = response.getBody().asString();
+		Assert.assertTrue(responseBody.contains(result), responseBody);
 		
-		if (statusCode == 200) {
-			String responseBody = response.getBody().asString();
-			
-			if (!responseBody.contains("Unexpected") 
-					&& !responseBody.equals("voucher not found")
-					&& !responseBody.equals("For input string: \"\"")) {
-				Assert.assertEquals(Integer.toString(response.body().jsonPath().get("id")), voucherId);
-				Assert.assertNotNull(response.getBody().jsonPath().get("name"));
-				Assert.assertNotNull(response.getBody().jsonPath().get("discount"));
-				Assert.assertNotNull(response.getBody().jsonPath().get("voucherTypeName"));
-				Assert.assertNotNull(response.getBody().jsonPath().get("minPurchase"));
-				Assert.assertNotNull(response.getBody().jsonPath().get("maxDeduction"));
-				Assert.assertNotNull(response.getBody().jsonPath().get("filePath"));
-				Assert.assertNotNull(response.getBody().jsonPath().get("expiryDate"));
-				Assert.assertNotNull(response.getBody().jsonPath().get("active"));
-			}
+		if (!responseBody.equals("voucher not found") && !responseBody.equals("For input string: \"\"")) {
+			Assert.assertEquals(Integer.toString(response.body().jsonPath().get("id")), voucherId);
+			Assert.assertNotNull(response.getBody().jsonPath().get("name"));
+			Assert.assertNotNull(response.getBody().jsonPath().get("discount"));
+			Assert.assertNotNull(response.getBody().jsonPath().get("voucherTypeName"));
+			Assert.assertNotNull(response.getBody().jsonPath().get("minPurchase"));
+			Assert.assertNotNull(response.getBody().jsonPath().get("maxDeduction"));
+			Assert.assertNotNull(response.getBody().jsonPath().get("filePath"));
+			Assert.assertNotNull(response.getBody().jsonPath().get("expiryDate"));
+			Assert.assertNotNull(response.getBody().jsonPath().get("active"));
 		}
 	}
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		int statusCode = response.getStatusCode();
-		
-		if (statusCode == 200) {
-			String responseBody = response.getBody().asString();
+		String responseBody = response.getBody().asString();
 
-			if (responseBody.equals("voucher not found")) {
-				try {
-					Connection conn = getConnectionPromotion();
-					String queryString = "SELECT * FROM voucher WHERE id = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, Long.parseLong(voucherId));
-					
-					ResultSet rs = ps.executeQuery();
-					Assert.assertTrue(!rs.next());
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
+		if (responseBody.equals("voucher not found")) {
+			try {
+				Connection conn = getConnectionPromotion();
+				String queryString = "SELECT * FROM voucher WHERE id = ?";
+				
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setLong(1, Long.parseLong(voucherId));
+				
+				ResultSet rs = ps.executeQuery();
+				Assert.assertTrue(!rs.next());
+				
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else if (responseBody.equals("For input string: \"\"")) {
+			// do some code
+			
+		} else {
+			try {
+				Connection conn = getConnectionPromotion();
+				String queryString = "SELECT "
+						+ "A.*, "
+						+ "B.name AS voucherTypeName "
+						+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id "
+						+ "WHERE A.id = ?";
+				
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setLong(1, Long.parseLong(voucherId));
+				
+				ResultSet rs = ps.executeQuery();
+				
+				if (!rs.next()) {
+					Assert.assertTrue(false, "no voucher found in database");
 				}
-			} else if (responseBody.contains("Unexpected")) {
-				// do some code
-				
-			} else if (responseBody.equals("For input string: \"\"")) {
-				// do some code
-				
-			} else {
-				try {
-					Connection conn = getConnectionPromotion();
-					String queryString = "SELECT A.*, B.name AS voucherTypeName "
-							+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id "
-							+ "WHERE A.id = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, Long.parseLong(voucherId));
-					
-					ResultSet rs = ps.executeQuery();
-					while(rs.next()) {
-						Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("id")), rs.getString("id"));
-						Assert.assertEquals(response.getBody().jsonPath().get("name"), rs.getString("name"));
-						Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("discount")), rs.getString("discount"));
-						Assert.assertEquals(response.getBody().jsonPath().get("voucherTypeName"), rs.getString("voucherTypeName"));
-						Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("minPurchase")), rs.getString("minPurchase"));
-						Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("maxDeduction")), rs.getString("maxDeduction"));
-						Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("value")), rs.getString("value"));
-						Assert.assertEquals(response.getBody().jsonPath().get("filePath"), rs.getString("filePath"));
+				do {
+					Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("id")), rs.getString("id"));
+					Assert.assertEquals(response.getBody().jsonPath().get("name"), rs.getString("name"));
+					Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("discount")), rs.getString("discount"));
+					Assert.assertEquals(response.getBody().jsonPath().get("voucherTypeName"), rs.getString("voucherTypeName"));
+					Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("minPurchase")), rs.getString("minPurchase"));
+					Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("maxDeduction")), rs.getString("maxDeduction"));
+					Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("value")), rs.getString("value"));
+					Assert.assertEquals(response.getBody().jsonPath().get("filePath"), rs.getString("filePath"));
 //						Assert.assertEquals(response.getBody().jsonPath().get("expiryDate"), rs.getString("expiryDate"));
 //						Assert.assertEquals(response.getBody().jsonPath().get("active"), rs.getString("active"));
-					}
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+				} while (rs.next());
+				
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 	}

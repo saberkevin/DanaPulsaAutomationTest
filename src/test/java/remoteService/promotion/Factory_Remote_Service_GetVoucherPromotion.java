@@ -9,8 +9,8 @@ import base.TestBase;
 
 public class Factory_Remote_Service_GetVoucherPromotion extends TestBase {
 	@Factory(dataProvider="dp")
-	public Object[] createInstances(String description, String userId, String page) {
-		return new Object[] {new TC_Remote_Service_GetVoucherPromotion(description, userId, page)};
+	public Object[] createInstances(String description, String userId, String page, String result) {
+		return new Object[] {new TC_Remote_Service_GetVoucherPromotion(description, userId, page, result)};
 	}
 	
 	@DataProvider(name="dp")

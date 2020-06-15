@@ -9,8 +9,8 @@ import base.TestBase;
 
 public class Factory_Remote_Service_GetPaymentMethodNameById extends TestBase {
 	@Factory(dataProvider="dp")
-	public Object[] createInstances(String description, String methodId) {
-		return new Object[] {new TC_Remote_Service_GetPaymentMethodNameById(description, methodId)};
+	public Object[] createInstances(String testCase, String methodId, String result) {
+		return new Object[] {new TC_Remote_Service_GetPaymentMethodNameById(testCase, methodId, result)};
 	}
 	
 	@DataProvider(name="dp")

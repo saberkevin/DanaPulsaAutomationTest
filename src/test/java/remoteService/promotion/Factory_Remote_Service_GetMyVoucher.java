@@ -3,12 +3,14 @@ package remoteService.promotion;
 import java.io.IOException;
 
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Factory;
 
 import base.TestBase;
 
 public class Factory_Remote_Service_GetMyVoucher extends TestBase {
-	public Object[] createInstances(String description, String userId, String page) {
-		return new Object[] {new TC_Remote_Service_GetMyVoucher(description, userId, page)};
+	@Factory(dataProvider="dp")
+	public Object[] createInstances(String testCase, String userId, String page, String result) {
+		return new Object[] {new TC_Remote_Service_GetMyVoucher(testCase, userId, page, result)};
 	}
 	
 	@DataProvider(name="dp")

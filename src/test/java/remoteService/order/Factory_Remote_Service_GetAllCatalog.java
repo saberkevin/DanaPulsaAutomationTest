@@ -9,8 +9,8 @@ import base.TestBase;
 
 public class Factory_Remote_Service_GetAllCatalog extends TestBase {
 	@Factory(dataProvider="dp")
-	public Object[] createInstances(String description, String phonePrefix) {
-		return new Object[] {new TC_Remote_Service_GetAllCatalog(description, phonePrefix)};
+	public Object[] createInstances(String testCase, String phonePrefix, String result) {
+		return new Object[] {new TC_Remote_Service_GetAllCatalog(testCase, phonePrefix, result)};
 	}
 	
 	@DataProvider(name="dp")

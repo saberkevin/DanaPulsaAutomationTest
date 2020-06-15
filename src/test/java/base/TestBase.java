@@ -718,13 +718,13 @@ public class TestBase {
 		}	
 	}
 	
-	public void deleteTransactionById(long userId) {
+	public void deleteTransactionById(long id) {
 		try {
 			Connection conn = getConnectionOrder();
 			String queryString = "DELETE FROM transaction WHERE id = ?";
 
 			PreparedStatement ps = conn.prepareStatement(queryString);			
-			ps.setLong(1, userId);
+			ps.setLong(1, id);
 			ps.executeUpdate();
 
 			conn.close();
