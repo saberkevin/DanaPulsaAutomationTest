@@ -60,7 +60,7 @@ public class TC_Register extends TestBase{
 		JsonPath jsonPath = response.jsonPath();
 		String message =  jsonPath.get("message");
 		
-		if(code == 200)
+		if(code == 201)
 		{
 			Assert.assertEquals("created", message);
 			Assert.assertNotNull(Long.parseLong(jsonPath.get("data.id").toString()));
@@ -150,6 +150,43 @@ public class TC_Register extends TestBase{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+		else if(code == 500)
+		{
+			Assert.assertTrue(message.contains("should not be empty"));
+			
+			String query = "SELECT name, email, username, pin FROM user\n" + 
+					"WHERE name = ?  AND email = ? AND username = ? AND pin = ?";
+			try {
+				Connection conUser = getConnectionMember();
+				PreparedStatement psGetUser = conUser.prepareStatement(query);
+				psGetUser.setString(1, name);
+				psGetUser.setString(2, email);
+				psGetUser.setString(3, replacePhoneForAssertion(phone));
+				psGetUser.setString(4, pin);
+				
+				ResultSet result = psGetUser.executeQuery();
+				
+				if(result.next())
+				{
+					Assert.assertTrue("should not exists in database", false);
+				}
+				
+				conUser.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else
+		{
+			Assert.assertTrue("Unhandled error",false);
+			logger.info("Test Data For Error: ");
+			logger.info("name:" + name);
+			logger.info("email:" + email);
+			logger.info("phone:" + phone);
+			logger.info("pin:" + pin);
+			logger.info(response.getBody().asString());
 		}
 	}
 	
