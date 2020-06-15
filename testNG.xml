@@ -11,9 +11,20 @@
 <listeners>
 	<listener class-name="utilities.Listeners"></listener>	
 </listeners>
-	<test name="DanaPulsaAPITestRegister" group-by-instances="true">
+	<!-- <test name="DanaPulsaAPITestRegister" group-by-instances="true">
 		<classes>
 			<class name = "testCases.register.Factory_Register"></class>
 		</classes>
-	</test>
+	</test> -->
+	<!-- <test name="DanaPulsaAPITestPIN" group-by-instances="true">
+		<classes>
+			<class name = "testCases.pin.Factory_Verify_Pin_Login"></class>
+		</classes>
+	</test> -->
+	<!-- <test name="DanaPulsaServiceTestMember" group-by-instances="true">
+		<classes>
+			<class name = "remoteService.member.Factory_Service_Register"></class>
+			<class name = "remoteService.member.Factory_Service_Login"></class>
+		</classes>
+	</test> -->
 </suite>
