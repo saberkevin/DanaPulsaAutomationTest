@@ -709,7 +709,7 @@ public class TestBase {
 			ps.setLong(2, 1);
 			ps.setString(3, phoneNumber);
 			ps.setLong(4, catalogId);
-			ps.setLong(5, 2);
+			ps.setLong(5, 1);
 			ps.executeUpdate();
 
 			conn.close();

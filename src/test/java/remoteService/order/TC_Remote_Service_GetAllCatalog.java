@@ -71,7 +71,7 @@ public class TC_Remote_Service_GetAllCatalog extends TestBase {
 	@Test(dependsOnMethods = {"testGetAllCatalog"})
 	public void checkData() throws ParseException {
 		String responseBody = response.getBody().asString();		
-		Assert.assertTrue(responseBody.contains(result));
+		Assert.assertTrue(responseBody.contains(result), responseBody);
 		
 		if (!responseBody.equals("unknown phone number") 
 				&& !responseBody.equals("invalid phone number") 
@@ -80,7 +80,8 @@ public class TC_Remote_Service_GetAllCatalog extends TestBase {
 			Assert.assertNotNull(response.getBody().jsonPath().get("provider.name"));
 			Assert.assertNotNull(response.getBody().jsonPath().get("provider.image"));
 			
-			List<Map<String, String>> catalog = response.getBody().jsonPath().getList("catalog");	
+			List<Map<String, String>> catalog = response.getBody().jsonPath().getList("catalog");
+			
 			for (int i = 0; i < catalog.size(); i++) {
 				Assert.assertNotNull(catalog.get(i).get("id"));
 				Assert.assertNotNull(catalog.get(i).get("value"));

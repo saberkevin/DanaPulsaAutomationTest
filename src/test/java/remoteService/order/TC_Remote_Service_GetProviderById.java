@@ -58,7 +58,6 @@ public class TC_Remote_Service_GetProviderById extends TestBase {
 	
 	@Test
 	public void testGetProviderById() {
-		// call API provider by id
 		getProviderByIdRemoteService(providerId);
 		
 		if (response.getStatusCode() != 200) {
@@ -70,7 +69,7 @@ public class TC_Remote_Service_GetProviderById extends TestBase {
 	@Test(dependsOnMethods = {"testGetProviderById"})
 	public void checkData() throws ParseException {
 		String responseBody = response.getBody().asString();
-		Assert.assertTrue(responseBody.contains(result));
+		Assert.assertTrue(responseBody.contains(result), responseBody);
 		
 		if (!responseBody.equals("unknown provider") && !responseBody.equals("invalid request format")) {
 			Assert.assertNotNull(response.getBody().jsonPath().get("id"));

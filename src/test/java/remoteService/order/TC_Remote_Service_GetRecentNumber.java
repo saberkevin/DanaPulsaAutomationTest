@@ -5,8 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.testng.Assert;
@@ -17,18 +17,25 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
+import model.Provider;
 import model.User;
 
 public class TC_Remote_Service_GetRecentNumber extends TestBase {
 	private User user = new User();
+	private String[] phoneNumbers = new String[11];
+	private Provider provider = new Provider();
+	private String testCase;
 	private String userId;
+	private String result;
 	
 	public TC_Remote_Service_GetRecentNumber() {
 		
 	}
 	
-	public TC_Remote_Service_GetRecentNumber(String userId) {
+	public TC_Remote_Service_GetRecentNumber(String testCase, String userId, String result) {
+		this.testCase = testCase;
 		this.userId = userId;
+		this.result = result;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -53,106 +60,144 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 	@BeforeClass
 	public void beforeClass() {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
-
-		// initialize user
-		user.setName("Zanuar");
-		user.setEmail("triromadon@gmail.com");
-		user.setUsername("081252930398");
-		user.setPin(123456);
+		logger.info("Case:" + testCase);
 		
-		// insert user into database and get user id from it
-		deleteUserIfExist(user.getEmail(), user.getUsername());
-		createUser(user);
-		user.setId(getUserIdByUsername(user.getUsername()));
-		
-		// if data from excel "true", then get valid user id
 		if (userId.equals("true")) {
-			userId = Long.toString(user.getId());
-		}
-	}
-	
-	@Test
-	public void testRecentNumber() {
-		// call API get promotion vouchers
-		getRecentNumberRemoteService(userId);
-		
-		int statusCode = response.getStatusCode();
-
-		if (statusCode != 200) {
-			logger.info(response.getBody().asString());
-			Assert.assertTrue(false, "cannot hit API");
-		}
-	}
-	
-	@Test(dependsOnMethods = {"testRecentNumber"})
-	public void checkData() throws ParseException {
-		int statusCode = response.getStatusCode();
-		
-		if (statusCode == 200) {
-			String responseBody = response.getBody().asString();
+			// initialize user
+			user.setName("Zanuar");
+			user.setEmail("triromadon@gmail.com");
+			user.setUsername("081252930398");
+			user.setPin(123456);
 			
-			if (!responseBody.equals("unknown user") && !responseBody.equals("invalid request format")) {
-				if (!response.getBody().asString().equals("[]")) {
-					List<Map<String, String>> vouchers = response.jsonPath().get();
-					
-					for (int i = 0; i < vouchers.size(); i++) {
-						Assert.assertNotNull(vouchers.get(i).get("number"));
-						Assert.assertNotNull(vouchers.get(i).get("provider.id"));
-						Assert.assertNotNull(vouchers.get(i).get("provider.name"));
-						Assert.assertNotNull(vouchers.get(i).get("provider.image"));
-						Assert.assertNotNull(vouchers.get(i).get("date"));
-					}
+			// insert user into database
+			deleteUserIfExist(user.getEmail(), user.getUsername());
+			createUser(user);
+			user.setId(getUserIdByUsername("081252930398"));
+			
+			userId = Long.toString(user.getId());
+						
+			// initialize provider - TELKOMSEL
+			provider.setId(2);
+			provider.setName("Telkomsel");
+			provider.setImage("https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png");
+			
+			if (testCase.equals("Valid ID (below 10 transaction history)")) {
+				// insert transaction into database
+				deleteTransactionByUserIdIfExist(user.getId());
+				createTransaction(user.getId(), user.getUsername(), 13);
+				phoneNumbers[0] = user.getUsername();				
+			} else if (testCase.equals("Valid ID (more than 10 transaction history)")) {				
+				deleteTransactionByUserIdIfExist(user.getId());
+
+				for (int i = 0; i < 11; i++) {
+					// insert transaction into database
+					createTransaction(user.getId(), "08125216179" + Integer.toString(i), 13);
+					phoneNumbers[i] = "08125216179" + Integer.toString(i);
 				}
 			}
 		}
 	}
 	
+	@Test
+	public void testRecentNumber() {
+		getRecentNumberRemoteService(userId);
+
+		if (response.getStatusCode() != 200) {
+			logger.info(response.getBody().asString());
+			Assert.assertTrue(false, "cannot hit API");
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Test(dependsOnMethods = {"testRecentNumber"})
+	public void checkData() throws ParseException {
+		String responseBody = response.getBody().asString();
+		Assert.assertTrue(responseBody.contains(result), responseBody);
+		
+		if (!responseBody.equals("unknown user") && !responseBody.equals("invalid request format")) {
+			if (!response.getBody().asString().equals("[]")) {
+				List<HashMap<Object, Object>> recentNumbers = response.jsonPath().get();
+				
+				Assert.assertTrue(recentNumbers.size() <= 10, "maximum recent number is only 10");
+				
+				for (int i = 0; i < recentNumbers.size(); i++) {
+
+					if (recentNumbers.size() > 1) {
+						Assert.assertEquals(recentNumbers.get(i).get("number"), phoneNumbers[recentNumbers.size() - i]);
+					} else {
+						Assert.assertEquals(recentNumbers.get(i).get("number"), user.getUsername());						
+					}
+
+					HashMap<String, String> provHashMap = (HashMap<String, String>) recentNumbers.get(i).get("provider");
+					Assert.assertEquals(String.valueOf(provHashMap.get("id")), Long.toString(provider.getId()));
+					Assert.assertEquals(provHashMap.get("name"), provider.getName());
+					Assert.assertEquals(provHashMap.get("image"), provider.getImage());
+					
+					Assert.assertNotNull(recentNumbers.get(i).get("date"));
+				}
+			}
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		int statusCode = response.getStatusCode();
-		
-		if (statusCode == 200) {
-			if (response.getBody().asString().equals("[]")) {
-				try {
-					Connection conn = getConnectionOrder();
-					String queryString = "SELECT * FROM transaction WHERE userId = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, user.getId());
-					
-					ResultSet rs = ps.executeQuery();
-					Assert.assertTrue(!rs.next());
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
+		String responseBody = response.getBody().asString();
+
+		if (responseBody.equals("[]")) {
+			try {
+				Connection conn = getConnectionOrder();
+				String queryString = "SELECT * FROM transaction WHERE userId = ?";
+				
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setLong(1, Long.parseLong(userId));
+				
+				ResultSet rs = ps.executeQuery();
+				Assert.assertTrue(!rs.next());
+				
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else if (responseBody.equals("unknown user")) {
+			// do some code
+			
+		} else if (responseBody.equals("invalid request format")) {
+			// do some code
+			
+		} else {
+			List<HashMap<Object, Object>> recentNumbers = response.jsonPath().get();
+			
+			try {
+				Connection conn = getConnectionOrder();
+				String queryString = "SELECT A.phoneNumber, A.createdAt, C.* "
+						+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
+						+ "LEFT JOIN provider C on B.providerId = C.id "
+						+ "WHERE A.userId = ? ORDER BY A.createdAt DESC LIMIT 10";
+				
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setLong(1, Long.parseLong(userId));
+				
+				ResultSet rs = ps.executeQuery();
+				
+				if (!rs.next()) {
+					Assert.assertTrue(false, "no transaction found in database");
 				}
-			} else {
-				List<Map<String, String>> vouchers = response.jsonPath().get();
-				try {
-					Connection conn = getConnectionOrder();
-					String queryString = "SELECT A.phoneNumber, A.createdAt, B.* "
-							+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
-							+ "LEFT JOIN provider C on B.providerId = C.id "
-							+ "WHERE A.userId = ? ORDER BY createdAt DESC LIMIT 10";
+				do {
+					int index = rs.getRow() - 1;
+					Assert.assertEquals(recentNumbers.get(index).get("number"), rs.getString("phoneNumber"));
 					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, user.getId());
-					
-					ResultSet rs = ps.executeQuery();
-					while(rs.next()) {
-						int index = rs.getRow() - 1;
-						Assert.assertEquals(vouchers.get(index).get("number"), rs.getString("phoneNumber"));
-						Assert.assertEquals(String.valueOf(vouchers.get(index).get("provider.id")), rs.getString("id"));						
-						Assert.assertEquals(vouchers.get(index).get("provider.name"), rs.getString("name"));						
-						Assert.assertEquals(vouchers.get(index).get("provider.image"), rs.getString("image"));						
-//							Assert.assertEquals(vouchers.get(index).get("date"), rs.getLong("createdAt"));
-					}
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+					HashMap<String, String> provHashMap = (HashMap<String, String>) recentNumbers.get(index).get("provider");
+					Assert.assertEquals(String.valueOf(provHashMap.get("id")), rs.getString("id"));						
+					Assert.assertEquals(provHashMap.get("name"), rs.getString("name"));						
+					Assert.assertEquals(provHashMap.get("image"), rs.getString("image"));						
+
+//					Assert.assertEquals(recentNumbers.get(index).get("date"), rs.getLong("createdAt"));
+			} while(rs.next());
+				
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 	}

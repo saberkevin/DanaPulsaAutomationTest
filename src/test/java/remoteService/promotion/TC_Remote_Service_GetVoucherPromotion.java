@@ -81,6 +81,8 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 		if (!responseBody.contains("Unexpected") && !responseBody.equals("There is no promotion right now")) {
 			List<Map<String, String>> vouchers = response.jsonPath().get();
 			
+			Assert.assertTrue(vouchers.size() <= 10, "maximum vouchers per page is 10");
+			
 			for (int i = 0; i < vouchers.size(); i++) {
 				Assert.assertNotNull(vouchers.get(i).get("id"));
 				Assert.assertNotNull(vouchers.get(i).get("name"));
@@ -95,7 +97,7 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 	public void checkDB() {
 		String responseBody = response.getBody().asString();
 
-		if (responseBody.equals("There is no promotion right now")) {
+		if (responseBody.equals("There is no promotion right now") || responseBody.equals("[]")) {
 			try {
 				Connection conn = getConnectionPromotion();
 				String queryString = "SELECT "
@@ -141,17 +143,21 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 				ps.setInt(2, (Integer.parseInt(page)-1) * 10);
 				
 				ResultSet rs = ps.executeQuery();
-				while(rs.next()) {
+				
+				if (!rs.next()) {
+					Assert.assertTrue(false, "no vouchers found in database");
+				}
+				do {
 					int index = rs.getRow() - 1;
 					Assert.assertEquals(String.valueOf(vouchers.get(index).get("id")), rs.getString("id"));
 					Assert.assertEquals(vouchers.get(index).get("name"), rs.getString("voucherName"));						
 					Assert.assertEquals(vouchers.get(index).get("voucherTypeName"), rs.getString("voucherTypeName"));						
 					Assert.assertEquals(vouchers.get(index).get("filePath"), rs.getString("filePath"));						
-//							Assert.assertEquals(vouchers.get(index).get("expiryDate"), rs.getLong("expiryDate"));
+//					Assert.assertEquals(vouchers.get(index).get("expiryDate"), rs.getLong("expiryDate"));
 					
 					System.out.print(String.valueOf(vouchers.get(index).get("expiryDate")) + " - ");
 					System.out.println(rs.getLong("expiryDate"));
-				}
+				} while(rs.next());
 				
 				conn.close();
 			} catch (SQLException e) {

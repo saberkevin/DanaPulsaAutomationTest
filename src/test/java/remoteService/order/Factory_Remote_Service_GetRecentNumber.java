@@ -9,8 +9,8 @@ import base.TestBase;
 
 public class Factory_Remote_Service_GetRecentNumber extends TestBase {
 	@Factory(dataProvider="dp")
-	public Object[] createInstances(String userId) {
-		return new Object[] {new TC_Remote_Service_GetRecentNumber(userId)};
+	public Object[] createInstances(String testCase, String userId, String result) {
+		return new Object[] {new TC_Remote_Service_GetRecentNumber(testCase, userId, result)};
 	}
 	
 	@DataProvider(name="dp")

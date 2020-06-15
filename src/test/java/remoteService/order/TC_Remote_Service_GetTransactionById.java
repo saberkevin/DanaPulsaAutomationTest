@@ -15,8 +15,16 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
+import model.Catalog;
+import model.Provider;
+import model.Transaction;
+import model.User;
 
 public class TC_Remote_Service_GetTransactionById extends TestBase {
+	private User user = new User();
+	private Transaction transaction = new Transaction();
+	private Catalog catalog = new Catalog();
+	private Provider provider = new Provider();
 	private String testCase;
 	private String transactionId;
 	private String result;
@@ -54,6 +62,43 @@ public class TC_Remote_Service_GetTransactionById extends TestBase {
 	public void beforeClass() {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Case:" + testCase);
+		
+		if (transactionId.equals("true")) {
+			// initialize user
+			user.setName("Zanuar");
+			user.setEmail("triromadon@gmail.com");
+			user.setUsername("081252930398");
+			user.setPin(123456);
+			
+			// insert user into database
+			deleteUserIfExist(user.getEmail(), user.getUsername());
+			createUser(user);
+			user.setId(getUserIdByUsername(user.getUsername()));
+			
+			// initialize catalog - TELKOMSEL 15k
+			catalog.setId(13);
+			catalog.setProviderId(2);
+			catalog.setValue(15000);
+			catalog.setPrice(15000);
+			
+			// initialize provider - TELKOMSEL
+			provider.setId(2);
+			provider.setName("Telkomsel");
+			provider.setImage("https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png");
+			
+			// insert transaction into database
+			deleteTransactionByUserIdIfExist(user.getId());
+			createTransaction(user.getId(), user.getUsername(), catalog.getId());
+			
+			// initialize transaction
+			transaction.setId(getTransactionIdByUserId(user.getId()));
+			transaction.setPhoneNumber(user.getUsername());
+			transaction.setCatalogId(catalog.getId());
+			transaction.setMethodId(1);
+			transaction.setStatus("COMPLETED");
+			
+			transactionId = Long.toString(transaction.getId());
+		}
 	}
 	
 	@Test
@@ -69,20 +114,20 @@ public class TC_Remote_Service_GetTransactionById extends TestBase {
 	@Test(dependsOnMethods = {"testTransactionById"})
 	public void checkData() throws ParseException {
 		String responseBody = response.getBody().asString();
-		Assert.assertTrue(responseBody.contains(result));
+		Assert.assertTrue(responseBody.contains(result), responseBody);
 		
 		if (!responseBody.equals("unknown transaction") && !responseBody.equals("invalid request format")) {
-			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("id")), transactionId);
-			Assert.assertNotNull(response.getBody().jsonPath().get("methodId"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("phoneNumber"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("catalog.id"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("catalog.provider.id"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("catalog.provider.name"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("catalog.provider.image"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("catalog.value"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("catalog.price"));
-//				Assert.assertNotNull(response.getBody().jsonPath().get("voucher"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("status"));
+			Assert.assertEquals(response.getBody().jsonPath().getLong("id"), transaction.getId());
+			Assert.assertEquals(response.getBody().jsonPath().getLong("methodId"), transaction.getMethodId());
+			Assert.assertEquals(response.getBody().jsonPath().get("phoneNumber"), transaction.getPhoneNumber());
+			Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.id"), transaction.getCatalogId());
+			Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.provider.id"), provider.getId());
+			Assert.assertEquals(response.getBody().jsonPath().get("catalog.provider.name"), provider.getName());
+			Assert.assertEquals(response.getBody().jsonPath().get("catalog.provider.image"), provider.getImage());
+			Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.value"), catalog.getValue());
+			Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.price"), catalog.getPrice());
+			Assert.assertNull(response.getBody().jsonPath().get("voucher"));
+			Assert.assertEquals(response.getBody().jsonPath().get("status"), transaction.getStatus());
 			Assert.assertNotNull(response.getBody().jsonPath().get("createdAt"));
 //				Assert.assertNotNull(response.getBody().jsonPath().get("updatedAt"));
 		}

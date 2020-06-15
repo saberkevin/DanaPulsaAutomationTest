@@ -77,6 +77,8 @@ public class TC_Remote_Service_GetMyVoucher extends TestBase {
 		
 		if (!responseBody.contains("Unexpected") && !responseBody.equals("you don’t have any vouchers")) {
 			List<Map<String, String>> vouchers = response.jsonPath().get();
+
+			Assert.assertTrue(vouchers.size() <= 10, "maximum vouchers per page is 10");
 			
 			for (int i = 0; i < vouchers.size(); i++) {
 				Assert.assertNotNull(vouchers.get(i).get("id"));
@@ -127,7 +129,7 @@ public class TC_Remote_Service_GetMyVoucher extends TestBase {
 						+ "B.expiryDate "
 						+ "FROM user_voucher A LEFT JOIN voucher B on A.voucherId = B.id "
 						+ "LEFT JOIN voucher_type C on B.typeId = C.id "
-						+ "WHERE A.voucherStatusId != 1 AND B.isActive = true AND A.userId = ? LIMIT ?, 10";
+						+ "WHERE A.voucherStatusId != 1 AND B.isActive = 1 AND A.userId = ? LIMIT ?, 10";
 				
 				PreparedStatement ps = conn.prepareStatement(queryString);
 				ps.setLong(1,Long.parseLong(userId));
@@ -146,7 +148,7 @@ public class TC_Remote_Service_GetMyVoucher extends TestBase {
 					Assert.assertEquals(vouchers.get(index).get("voucherTypeName"), rs.getString("voucherTypeName"));
 					Assert.assertEquals(String.valueOf(vouchers.get(index).get("maxDeduction")), rs.getString("maxDeduction"));
 					Assert.assertEquals(vouchers.get(index).get("filePath"), rs.getString("filePath"));
-//							Assert.assertEquals(vouchers.get(index).get("expiryDate"), rs.getLong("expiryDate"));
+//					Assert.assertEquals(vouchers.get(index).get("expiryDate"), rs.getLong("expiryDate"));
 				} while (rs.next());
 				
 				conn.close();
