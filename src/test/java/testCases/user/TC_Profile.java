@@ -120,5 +120,6 @@ public class TC_Profile extends TestBase{
 	void end()
 	{
 		tearDown("Finished " + this.getClass().getSimpleName());
+		logout(sessionId);
 	}
 }
