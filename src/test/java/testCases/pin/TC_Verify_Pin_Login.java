@@ -72,7 +72,7 @@ public class TC_Verify_Pin_Login extends TestBase{
 		}
 		else if(code == 500)
 		{
-			Assert.assertTrue(message.contains("should not be"));
+			Assert.assertTrue(message.contains("should not be") || message.equals("invalid request format"));
 		}
 		else
 		{

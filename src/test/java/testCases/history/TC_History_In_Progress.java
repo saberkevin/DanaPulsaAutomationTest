@@ -8,26 +8,59 @@ import java.util.Map;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import base.TestBase;
 import io.restassured.path.json.JsonPath;
-import model.User;
 
 public class TC_History_In_Progress extends TestBase{
 	
 	private String page;
-	private User user;
+	private String userId;
+	private String sessionId;
 	
 	public TC_History_In_Progress(String page) {
 		this.page = page;
+	}
+	
+	@BeforeClass
+	void setSession()
+	{
+		logger.info("***** SET SESSION *****");
+		String userId = "155";
+		String pinForSession = "";
+		
+		String query = "SELECT id, pin FROM user\n" + 
+				"WHERE id = ?";
+		try {
+			Connection conMember = getConnectionMember();
+			PreparedStatement psGetUserPin = conMember.prepareStatement(query);
+			psGetUserPin.setLong(1, Long.parseLong(userId));
+			
+			ResultSet result = psGetUserPin.executeQuery();
+			
+			while(result.next())
+			{
+				pinForSession = result.getString("pin");
+			}
+			
+			conMember.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		verifyPinLogin(userId, pinForSession);
+		sessionId = response.getCookie("JSESSIONID");
+		logger.info("***** END SET SESSION *****");
 	}
 
 	@Test
 	void historyInProgressUser()
 	{
-		historyInProgress(page);
+		historyInProgress(page,sessionId);
 	}
 	
 	@Test(dependsOnMethods = {"historyInProgressUser"})
@@ -55,7 +88,7 @@ public class TC_History_In_Progress extends TestBase{
 				try {
 					
 					for (int i = 0; i < data.size(); i++) {  
-						Assert.assertNotNull(Long.parseLong(data.get(i).get("id")));
+						Assert.assertNotNull(Long.parseLong(data.get(i).get("id").toString()));
 						Assert.assertNotEquals("", data.get(i).get("phone"));
 						Assert.assertNotNull(Long.parseLong(data.get(i).get("price")));
 						Assert.assertNotEquals("", data.get(i).get("voucher"));
@@ -64,13 +97,13 @@ public class TC_History_In_Progress extends TestBase{
 						
 						Connection conOrder = getConnectionOrder();
 						PreparedStatement psGetHistoryInProgress = conOrder.prepareStatement(query);
-						psGetHistoryInProgress.setLong(1, user.getId());
+						psGetHistoryInProgress.setLong(1, Long.parseLong(userId));
 						psGetHistoryInProgress.setLong(2, Long.parseLong(data.get(i).get("id")));
 						ResultSet result = psGetHistoryInProgress.executeQuery();
 						
 						while(result.next())
 						{
-							Assert.assertEquals(result.getLong("id"), data.get(i).get("id"));
+							Assert.assertEquals(result.getLong("id"), Long.parseLong(data.get(i).get("id").toString()));
 							Assert.assertEquals(result.getString("phone"), data.get(i).get("phone"));
 							Assert.assertEquals(result.getLong("price"), data.get(i).get("price"));
 							Assert.assertEquals(result.getString("status"), data.get(i).get("status"));

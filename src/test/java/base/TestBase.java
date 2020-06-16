@@ -350,13 +350,14 @@ public class TestBase {
 		logger.info(response.getBody().asString());
 	}
 	
-	public void historyInProgress(String page) {
+	public void historyInProgress(String page, String sessionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("page:" + page);
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, HISTORY_IN_PROGRESS_PATH+page);
 		logger.info(response.getBody().asString());
