@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -31,19 +30,24 @@ public class TC_Register extends TestBase{
 	@Test
 	void registerUser()
 	{	
-		String query = "DELETE FROM user " + 
+		String query = "DELETE FROM balance " + 
+				"WHERE userId = ( " + 
+				"SELECT tblTemp.id FROM (SELECT id FROM user WHERE email = ? OR username = ? LIMIT 1)tblTemp)";
+		
+		String query2 = "DELETE FROM user " + 
 				"WHERE id = ( " + 
 				"SELECT tblTemp.id FROM (SELECT id FROM user WHERE email = ? OR username = ? LIMIT 1)tblTemp)";
-		String openRestrict= "SET FOREIGN_KEY_CHECKS=0";
 		
 		try {
 			Connection conUser = getConnectionMember();
-			Statement stmtRestrict = conUser.createStatement();
-			stmtRestrict.execute(openRestrict);
-			PreparedStatement psDeleteUser = conUser.prepareStatement(query);
+			PreparedStatement psDeleteBalance = conUser.prepareStatement(query);
+			psDeleteBalance.setString(1, email);
+			psDeleteBalance.setString(2, replacePhoneForAssertion(phone));
+			psDeleteBalance.executeUpdate();
+			PreparedStatement psDeleteUser = conUser.prepareStatement(query2);
 			psDeleteUser.setString(1, email);
 			psDeleteUser.setString(2, replacePhoneForAssertion(phone));
-			psDeleteUser.executeUpdate();
+			psDeleteUser.executeUpdate();		
 			conUser.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

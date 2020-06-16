@@ -298,7 +298,7 @@ public class TestBase {
 		
 		JSONObject requestParams = new JSONObject();
 		
-		requestParams.put("id", Long.parseLong(id));
+		requestParams.put("id", id);
 		requestParams.put("code", code);
 		
 		httpRequest.header("Content-Type", "application/json");
