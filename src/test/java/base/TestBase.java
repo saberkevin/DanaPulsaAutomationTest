@@ -364,25 +364,27 @@ public class TestBase {
 		logger.info(response.getBody().asString());
 	}
 	
-	public void historyCompleted(String page) {
+	public void historyCompleted(String page, String sessionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("page:" + page);
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, HISTORY_COMPLETED_PATH+page);
 		logger.info(response.getBody().asString());
 	}
 	
-	public void historyDetail(String id) {
+	public void historyDetail(String id, String sessionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("id:" + id);
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, HISTORY_DETAILS_PATH+id);
 		logger.info(response.getBody().asString());
