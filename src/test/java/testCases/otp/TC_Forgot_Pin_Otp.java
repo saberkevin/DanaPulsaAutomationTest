@@ -39,7 +39,7 @@ public class TC_Forgot_Pin_Otp extends TestBase{
 			Assert.assertEquals("success", message);
 			
 			String query = "SELECT userId, code FROM otp\n" + 
-					"WHERE userId = ? AND  ((TIME_TO_SEC(NOW())-TIME_TO_SEC(TIME(updatedAt))/60) <= 5";
+					"WHERE userId = ?";
 			try {
 				Connection conMember = getConnectionMember();
 				PreparedStatement psGetOtp= conMember.prepareStatement(query);
@@ -65,7 +65,7 @@ public class TC_Forgot_Pin_Otp extends TestBase{
 		}
 		else if(code == 500)
 		{
-			Assert.assertEquals("unverified number", message);
+			Assert.assertTrue(message.equals("unverified number") || message.equals("invalid request format"));
 		}
 		else
 		{
