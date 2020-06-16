@@ -9568,3 +9568,599 @@
 		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
 	  </body>
 	</html>
+2020-06-17 01:12:39 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:12:39 INFO  restAPI:41 - Case:Empty string page
+2020-06-17 01:13:03 INFO  restAPI:221 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:13:03 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:13:03 INFO  restAPI:223 - id:745
+2020-06-17 01:13:03 INFO  restAPI:224 - pin:123456
+2020-06-17 01:13:07 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:13:07 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:13:07 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:13:11 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:13:11 INFO  restAPI:480 - Test Data: 
+2020-06-17 01:13:11 INFO  restAPI:481 - session id:7E080CBAA96CF5F890AC34178C469D2E
+2020-06-17 01:13:11 INFO  restAPI:482 - page:
+2020-06-17 01:13:12 INFO  restAPI:489 - {"timestamp":"2020-06-16T18:13:12.282+00:00","status":404,"error":"Not Found","message":"","path":"/api/my-vouchers/"}
+2020-06-17 01:13:26 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-17 01:13:26 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:13:26 INFO  restAPI:41 - Case:Valid user id and page (more than 10 vouchers)
+2020-06-17 01:13:46 INFO  restAPI:221 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:13:46 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:13:46 INFO  restAPI:223 - id:746
+2020-06-17 01:13:46 INFO  restAPI:224 - pin:123456
+2020-06-17 01:13:48 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:13:48 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:13:48 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:14:44 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:14:44 INFO  restAPI:480 - Test Data: 
+2020-06-17 01:14:44 INFO  restAPI:481 - session id:0AA21005EAA7D9B8BC106F12420EB6AD
+2020-06-17 01:14:44 INFO  restAPI:482 - page:1
+2020-06-17 01:14:51 INFO  restAPI:489 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":2000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":2500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":3000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":3500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","discount":5,"maxDeduction":5000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","discount":10,"maxDeduction":10000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","discount":15,"maxDeduction":15000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","discount":20,"maxDeduction":20000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]}
+2020-06-17 01:15:11 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-17 01:15:11 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:15:11 INFO  restAPI:41 - Case:Valid user id and page (more than 10 vouchers)
+2020-06-17 01:15:29 INFO  restAPI:221 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:15:29 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:15:29 INFO  restAPI:223 - id:747
+2020-06-17 01:15:29 INFO  restAPI:224 - pin:123456
+2020-06-17 01:15:31 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:15:31 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:15:31 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:16:30 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:16:30 INFO  restAPI:480 - Test Data: 
+2020-06-17 01:16:30 INFO  restAPI:481 - session id:B5B60098C6C6564D63B8577E17DEA7BF
+2020-06-17 01:16:30 INFO  restAPI:482 - page:2
+2020-06-17 01:16:34 INFO  restAPI:489 - {"code":200,"message":"success","data":[{"id":11,"name":"Diskon 25% (max Rp 25.000) buat beli pulsa","voucherTypeName":"discount","discount":25,"maxDeduction":25000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1500508800000}]}
+2020-06-17 01:16:53 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-17 01:16:53 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:16:53 INFO  restAPI:41 - Case:Undefined page
+2020-06-17 01:17:11 INFO  restAPI:221 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:17:11 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:17:11 INFO  restAPI:223 - id:748
+2020-06-17 01:17:11 INFO  restAPI:224 - pin:123456
+2020-06-17 01:17:14 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:17:14 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:17:14 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:17:18 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:17:18 INFO  restAPI:480 - Test Data: 
+2020-06-17 01:17:18 INFO  restAPI:481 - session id:E2DAC4D6C5F2E37B74A82C56B2EF51C5
+2020-06-17 01:17:18 INFO  restAPI:482 - page:9999
+2020-06-17 01:17:22 INFO  restAPI:489 - {"code":404,"message":"you don’t have any vouchers"}
+2020-06-17 01:17:41 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-17 01:17:41 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:17:41 INFO  restAPI:41 - Case:Valid user id and page (no voucher)
+2020-06-17 01:18:01 INFO  restAPI:221 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:18:01 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:18:01 INFO  restAPI:223 - id:749
+2020-06-17 01:18:01 INFO  restAPI:224 - pin:123456
+2020-06-17 01:18:04 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:18:04 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:18:04 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:18:08 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:18:08 INFO  restAPI:480 - Test Data: 
+2020-06-17 01:18:08 INFO  restAPI:481 - session id:D79947F81518A10DA73E74B60233DC16
+2020-06-17 01:18:08 INFO  restAPI:482 - page:1
+2020-06-17 01:18:13 INFO  restAPI:489 - {"code":404,"message":"you don’t have any vouchers"}
+2020-06-17 01:18:32 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-17 01:18:32 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:18:32 INFO  restAPI:41 - Case:Valid user id and page (below 10 vouchers)
+2020-06-17 01:18:51 INFO  restAPI:221 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:18:51 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:18:51 INFO  restAPI:223 - id:750
+2020-06-17 01:18:51 INFO  restAPI:224 - pin:123456
+2020-06-17 01:18:54 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:18:54 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:18:54 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:19:04 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:19:04 INFO  restAPI:480 - Test Data: 
+2020-06-17 01:19:04 INFO  restAPI:481 - session id:8C501C0DE48063B778FF2B686073A013
+2020-06-17 01:19:04 INFO  restAPI:482 - page:1
+2020-06-17 01:19:08 INFO  restAPI:489 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000}]}
+2020-06-17 01:19:27 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-17 01:19:27 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:19:27 INFO  restAPI:41 - Case:Undefined user id
+2020-06-17 01:19:27 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:19:27 INFO  restAPI:480 - Test Data: 
+2020-06-17 01:19:27 INFO  restAPI:481 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-17 01:19:27 INFO  restAPI:482 - page:1
+2020-06-17 01:19:28 INFO  restAPI:489 - {"timestamp":"2020-06-16T18:19:28.588+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/my-vouchers/1"}
+2020-06-17 01:19:28 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-17 01:19:28 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:19:28 INFO  restAPI:41 - Case:Empty string user id
+2020-06-17 01:19:28 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-17 01:19:28 INFO  restAPI:480 - Test Data: 
+2020-06-17 01:19:28 INFO  restAPI:481 - session id:
+2020-06-17 01:19:28 INFO  restAPI:482 - page:1
+2020-06-17 01:19:29 INFO  restAPI:489 - {"timestamp":"2020-06-16T18:19:29.279+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/my-vouchers/1"}
+2020-06-17 01:19:29 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-17 01:26:03 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:26:03 INFO  restAPI:40 - Case:Empty string page
+2020-06-17 01:26:24 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:26:24 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:26:24 INFO  restAPI:223 - id:751
+2020-06-17 01:26:24 INFO  restAPI:224 - pin:123456
+2020-06-17 01:26:29 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:26:29 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:26:29 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:26:34 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:26:34 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:26:34 INFO  restAPI:523 - session id:7D9334318C3CACA401178E3AA2EA6B4A
+2020-06-17 01:26:34 INFO  restAPI:524 - voucher id:
+2020-06-17 01:26:35 INFO  restAPI:531 - io.restassured.internal.RestAssuredResponseImpl@6f89f665
+2020-06-17 01:26:44 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:26:44 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:26:44 INFO  restAPI:40 - Case:Undefined user id
+2020-06-17 01:26:44 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:26:44 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:26:44 INFO  restAPI:523 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-17 01:26:44 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:26:44 INFO  restAPI:531 - io.restassured.internal.RestAssuredResponseImpl@7e31ce0f
+2020-06-17 01:26:45 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:26:45 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:26:45 INFO  restAPI:40 - Case:Empty string user id
+2020-06-17 01:26:45 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:26:45 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:26:45 INFO  restAPI:523 - session id:
+2020-06-17 01:26:45 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:26:45 INFO  restAPI:531 - io.restassured.internal.RestAssuredResponseImpl@2b8d084
+2020-06-17 01:26:45 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:26:45 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:26:45 INFO  restAPI:40 - Case:Valid user id and page (more than 10 vouchers)
+2020-06-17 01:27:04 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:27:04 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:27:04 INFO  restAPI:223 - id:752
+2020-06-17 01:27:04 INFO  restAPI:224 - pin:123456
+2020-06-17 01:27:06 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:27:06 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:27:06 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:27:11 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:27:11 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:27:11 INFO  restAPI:523 - session id:08245A818AB71D2AEE692F387D39F81E
+2020-06-17 01:27:11 INFO  restAPI:524 - voucher id:2
+2020-06-17 01:27:13 INFO  restAPI:531 - io.restassured.internal.RestAssuredResponseImpl@1e6cc850
+2020-06-17 01:27:23 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:27:23 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:27:23 INFO  restAPI:40 - Case:Valid user id and page (no voucher)
+2020-06-17 01:27:42 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:27:42 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:27:42 INFO  restAPI:223 - id:753
+2020-06-17 01:27:42 INFO  restAPI:224 - pin:123456
+2020-06-17 01:27:44 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:27:44 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:27:44 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:27:50 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:27:50 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:27:50 INFO  restAPI:523 - session id:D23BB11FA2C4F2DAD315A7C51980ABFB
+2020-06-17 01:27:50 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:27:51 INFO  restAPI:531 - io.restassured.internal.RestAssuredResponseImpl@2532b351
+2020-06-17 01:28:00 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:28:00 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:28:00 INFO  restAPI:40 - Case:Valid user id and page (more than 10 vouchers)
+2020-06-17 01:28:19 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:28:19 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:28:19 INFO  restAPI:223 - id:754
+2020-06-17 01:28:19 INFO  restAPI:224 - pin:123456
+2020-06-17 01:28:22 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:28:22 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:28:22 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:28:27 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:28:27 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:28:27 INFO  restAPI:523 - session id:95DC78DC6EF8DC44D734ECF7218D7005
+2020-06-17 01:28:27 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:28:29 INFO  restAPI:531 - io.restassured.internal.RestAssuredResponseImpl@40368a46
+2020-06-17 01:28:39 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:28:39 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:28:39 INFO  restAPI:40 - Case:Undefined page
+2020-06-17 01:29:00 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:29:00 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:29:00 INFO  restAPI:223 - id:755
+2020-06-17 01:29:00 INFO  restAPI:224 - pin:123456
+2020-06-17 01:29:02 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:29:02 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:29:02 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:29:07 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:29:07 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:29:07 INFO  restAPI:523 - session id:B348B992AAE1417C46AA0799E44271F3
+2020-06-17 01:29:07 INFO  restAPI:524 - voucher id:9999
+2020-06-17 01:29:09 INFO  restAPI:531 - io.restassured.internal.RestAssuredResponseImpl@22bb5646
+2020-06-17 01:29:19 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:29:19 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:29:19 INFO  restAPI:40 - Case:Valid user id and page (below 10 vouchers)
+2020-06-17 01:31:21 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:31:21 INFO  restAPI:40 - Case:Valid ID
+2020-06-17 01:31:39 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:31:39 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:31:39 INFO  restAPI:223 - id:756
+2020-06-17 01:31:39 INFO  restAPI:224 - pin:123456
+2020-06-17 01:31:43 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:31:43 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:31:43 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:31:49 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:31:49 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:31:49 INFO  restAPI:523 - session id:94C5D0156236FA03045C2535F5659DB5
+2020-06-17 01:31:49 INFO  restAPI:524 - voucher id:2
+2020-06-17 01:31:50 INFO  restAPI:531 - io.restassured.internal.RestAssuredResponseImpl@3dedb4a6
+2020-06-17 01:32:00 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:32:00 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:32:00 INFO  restAPI:40 - Case:Valid ID
+2020-06-17 01:32:21 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:32:21 INFO  restAPI:40 - Case:Valid ID
+2020-06-17 01:32:41 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:32:41 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:32:41 INFO  restAPI:223 - id:757
+2020-06-17 01:32:41 INFO  restAPI:224 - pin:123456
+2020-06-17 01:32:44 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:32:44 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:32:44 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:32:49 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:32:49 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:32:49 INFO  restAPI:523 - session id:2E6C0C66A2392C38E39B40CFE1CED672
+2020-06-17 01:32:49 INFO  restAPI:524 - voucher id:2
+2020-06-17 01:32:50 INFO  restAPI:531 - {"code":200,"message":"success","data":{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":15000,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000,"active":true}}
+2020-06-17 01:33:01 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:33:01 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:33:01 INFO  restAPI:40 - Case:Valid ID
+2020-06-17 01:33:21 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:33:21 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:33:21 INFO  restAPI:223 - id:758
+2020-06-17 01:33:21 INFO  restAPI:224 - pin:123456
+2020-06-17 01:33:23 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:33:23 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:33:23 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:33:28 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:33:28 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:33:28 INFO  restAPI:523 - session id:1465F4ADCCC7C48B0D3CE7F9C3C9D56C
+2020-06-17 01:33:28 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:33:30 INFO  restAPI:531 - {"code":200,"message":"success","data":{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}}
+2020-06-17 01:33:39 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:33:39 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:33:39 INFO  restAPI:40 - Case:Empty string session id
+2020-06-17 01:33:39 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:33:39 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:33:39 INFO  restAPI:523 - session id:
+2020-06-17 01:33:39 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:33:40 INFO  restAPI:531 - {"timestamp":"2020-06-16T18:33:39.974+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/details/1"}
+2020-06-17 01:33:40 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:33:40 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:33:40 INFO  restAPI:40 - Case:Undefined session id
+2020-06-17 01:33:40 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:33:40 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:33:40 INFO  restAPI:523 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-17 01:33:40 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:33:40 INFO  restAPI:531 - {"timestamp":"2020-06-16T18:33:40.695+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/details/1"}
+2020-06-17 01:33:40 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:33:41 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:33:41 INFO  restAPI:40 - Case:Undefined voucher ID
+2020-06-17 01:34:01 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:34:01 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:34:01 INFO  restAPI:223 - id:759
+2020-06-17 01:34:01 INFO  restAPI:224 - pin:123456
+2020-06-17 01:34:02 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:34:02 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:34:02 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:34:07 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:34:07 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:34:07 INFO  restAPI:523 - session id:51D8734E22F389146EE00E69A41FFC54
+2020-06-17 01:34:07 INFO  restAPI:524 - voucher id:9999
+2020-06-17 01:34:09 INFO  restAPI:531 - {"code":404,"message":"voucher not found"}
+2020-06-17 01:34:18 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:34:18 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:34:18 INFO  restAPI:40 - Case:Empty string voucher ID
+2020-06-17 01:34:38 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:34:38 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:34:38 INFO  restAPI:223 - id:760
+2020-06-17 01:34:38 INFO  restAPI:224 - pin:123456
+2020-06-17 01:34:40 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:34:40 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:34:40 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:34:44 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:34:44 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:34:44 INFO  restAPI:523 - session id:3919AE854928628719F0897A4DC13CDA
+2020-06-17 01:34:44 INFO  restAPI:524 - voucher id:
+2020-06-17 01:34:45 INFO  restAPI:531 - {"timestamp":"2020-06-16T18:34:45.125+00:00","status":404,"error":"Not Found","message":"","path":"/api/vouchers/details/"}
+2020-06-17 01:34:55 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:36:13 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:36:13 INFO  restAPI:40 - Case:Valid ID
+2020-06-17 01:36:31 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:36:31 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:36:31 INFO  restAPI:223 - id:761
+2020-06-17 01:36:31 INFO  restAPI:224 - pin:123456
+2020-06-17 01:36:35 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:36:35 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:36:35 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:36:39 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:36:39 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:36:39 INFO  restAPI:523 - session id:3A5C39084A6C6A31BCD50061D961C11B
+2020-06-17 01:36:39 INFO  restAPI:524 - voucher id:2
+2020-06-17 01:36:43 INFO  restAPI:531 - {"code":200,"message":"success","data":{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":15000,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000,"active":true}}
+2020-06-17 01:36:51 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:36:51 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:36:51 INFO  restAPI:40 - Case:Valid ID
+2020-06-17 01:37:10 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:37:10 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:37:10 INFO  restAPI:223 - id:762
+2020-06-17 01:37:10 INFO  restAPI:224 - pin:123456
+2020-06-17 01:37:12 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:37:12 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:37:12 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:37:16 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:37:16 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:37:16 INFO  restAPI:523 - session id:AA484B777A3327E7426B72B70342CD7F
+2020-06-17 01:37:16 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:37:18 INFO  restAPI:531 - {"code":200,"message":"success","data":{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}}
+2020-06-17 01:37:27 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:37:27 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:37:27 INFO  restAPI:40 - Case:Empty string session id
+2020-06-17 01:37:27 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:37:27 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:37:27 INFO  restAPI:523 - session id:
+2020-06-17 01:37:27 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:37:28 INFO  restAPI:531 - {"timestamp":"2020-06-16T18:37:27.893+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/details/1"}
+2020-06-17 01:37:28 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:37:28 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:37:28 INFO  restAPI:40 - Case:Undefined session id
+2020-06-17 01:37:28 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:37:28 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:37:28 INFO  restAPI:523 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-17 01:37:28 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:37:28 INFO  restAPI:531 - {"timestamp":"2020-06-16T18:37:28.584+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/details/1"}
+2020-06-17 01:37:28 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:37:28 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:37:28 INFO  restAPI:40 - Case:Undefined voucher ID
+2020-06-17 01:37:46 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:37:46 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:37:46 INFO  restAPI:223 - id:763
+2020-06-17 01:37:46 INFO  restAPI:224 - pin:123456
+2020-06-17 01:37:48 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:37:48 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:37:48 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:37:53 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:37:53 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:37:53 INFO  restAPI:523 - session id:6E89C90C636C676D4372FA14A4D41A23
+2020-06-17 01:37:53 INFO  restAPI:524 - voucher id:9999
+2020-06-17 01:37:55 INFO  restAPI:531 - {"code":404,"message":"voucher not found"}
+2020-06-17 01:38:04 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:38:04 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:38:04 INFO  restAPI:40 - Case:Empty string voucher ID
+2020-06-17 01:38:23 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:38:23 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:38:23 INFO  restAPI:223 - id:764
+2020-06-17 01:38:23 INFO  restAPI:224 - pin:123456
+2020-06-17 01:38:25 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:38:25 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:38:25 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:38:30 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:38:30 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:38:30 INFO  restAPI:523 - session id:884E6D416883529F2C74EBE33AE5E6B1
+2020-06-17 01:38:30 INFO  restAPI:524 - voucher id:
+2020-06-17 01:38:30 INFO  restAPI:531 - {"timestamp":"2020-06-16T18:38:30.600+00:00","status":404,"error":"Not Found","message":"","path":"/api/vouchers/details/"}
+2020-06-17 01:38:41 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:42:14 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:42:14 INFO  restAPI:40 - Case:Valid ID
+2020-06-17 01:42:34 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:42:34 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:42:34 INFO  restAPI:223 - id:765
+2020-06-17 01:42:34 INFO  restAPI:224 - pin:123456
+2020-06-17 01:42:37 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:42:37 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:42:37 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:42:43 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:42:43 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:42:43 INFO  restAPI:523 - session id:0C037B54829FDFAFB042B751CCE721E3
+2020-06-17 01:42:43 INFO  restAPI:524 - voucher id:2
+2020-06-17 01:42:45 INFO  restAPI:531 - {"code":200,"message":"success","data":{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":15000,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000,"active":true}}
+2020-06-17 01:42:55 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:42:55 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:42:55 INFO  restAPI:40 - Case:Valid ID
+2020-06-17 01:43:16 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:43:16 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:43:16 INFO  restAPI:223 - id:766
+2020-06-17 01:43:16 INFO  restAPI:224 - pin:123456
+2020-06-17 01:43:18 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:43:18 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:43:18 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:43:22 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:43:22 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:43:22 INFO  restAPI:523 - session id:F302184539E88CBCA1F5C940576EE104
+2020-06-17 01:43:22 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:43:24 INFO  restAPI:531 - {"code":200,"message":"success","data":{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}}
+2020-06-17 01:43:34 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:43:34 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:43:34 INFO  restAPI:40 - Case:Empty string session id
+2020-06-17 01:43:34 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:43:34 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:43:34 INFO  restAPI:523 - session id:
+2020-06-17 01:43:34 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:43:35 INFO  restAPI:531 - {"timestamp":"2020-06-16T18:43:35.238+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/details/1"}
+2020-06-17 01:43:35 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:43:35 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:43:35 INFO  restAPI:40 - Case:Undefined session id
+2020-06-17 01:43:35 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:43:35 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:43:35 INFO  restAPI:523 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-17 01:43:35 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:43:36 INFO  restAPI:531 - {"timestamp":"2020-06-16T18:43:36.104+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/details/1"}
+2020-06-17 01:43:36 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:43:36 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:43:36 INFO  restAPI:40 - Case:Undefined voucher ID
+2020-06-17 01:43:56 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:43:56 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:43:56 INFO  restAPI:223 - id:767
+2020-06-17 01:43:56 INFO  restAPI:224 - pin:123456
+2020-06-17 01:43:58 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:43:58 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:43:58 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:44:05 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:44:05 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:44:05 INFO  restAPI:523 - session id:8CE044419B68F5BA23F926922CCE26B9
+2020-06-17 01:44:05 INFO  restAPI:524 - voucher id:9999
+2020-06-17 01:44:06 INFO  restAPI:531 - {"code":404,"message":"voucher not found"}
+2020-06-17 01:44:16 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:44:16 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:44:16 INFO  restAPI:40 - Case:Empty string voucher ID
+2020-06-17 01:44:35 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:44:35 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:44:35 INFO  restAPI:223 - id:768
+2020-06-17 01:44:35 INFO  restAPI:224 - pin:123456
+2020-06-17 01:44:37 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:44:37 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:44:37 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:44:42 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:44:42 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:44:42 INFO  restAPI:523 - session id:8D68E18471C5B7F29271CFDE182C62D0
+2020-06-17 01:44:42 INFO  restAPI:524 - voucher id:
+2020-06-17 01:44:43 INFO  restAPI:531 - {"timestamp":"2020-06-16T18:44:43.169+00:00","status":404,"error":"Not Found","message":"","path":"/api/vouchers/details/"}
+2020-06-17 01:44:54 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:45:36 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:45:36 INFO  restAPI:40 - Case:Valid ID
+2020-06-17 01:45:57 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:45:57 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:45:57 INFO  restAPI:223 - id:769
+2020-06-17 01:45:57 INFO  restAPI:224 - pin:123456
+2020-06-17 01:46:00 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:46:00 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:46:00 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:46:05 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:46:05 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:46:05 INFO  restAPI:523 - session id:71FE579FCB69BD6C96573FF0BB677AEC
+2020-06-17 01:46:05 INFO  restAPI:524 - voucher id:2
+2020-06-17 01:46:07 INFO  restAPI:531 - {"code":200,"message":"success","data":{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":15000,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000,"active":true}}
+2020-06-17 01:46:17 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:46:17 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:46:17 INFO  restAPI:40 - Case:Valid ID
+2020-06-17 01:46:35 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:46:35 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:46:35 INFO  restAPI:223 - id:770
+2020-06-17 01:46:35 INFO  restAPI:224 - pin:123456
+2020-06-17 01:46:37 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:46:37 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:46:37 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:46:43 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:46:43 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:46:43 INFO  restAPI:523 - session id:7132AB564338825836D331CA5CFEE024
+2020-06-17 01:46:43 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:46:45 INFO  restAPI:531 - {"code":200,"message":"success","data":{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}}
+2020-06-17 01:46:55 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:46:55 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:46:55 INFO  restAPI:40 - Case:Empty string session id
+2020-06-17 01:46:55 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:46:55 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:46:55 INFO  restAPI:523 - session id:
+2020-06-17 01:46:55 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:46:55 INFO  restAPI:531 - {"timestamp":"2020-06-16T18:46:55.551+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/details/1"}
+2020-06-17 01:46:55 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:46:55 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:46:55 INFO  restAPI:40 - Case:Undefined session id
+2020-06-17 01:46:55 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:46:55 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:46:55 INFO  restAPI:523 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-17 01:46:55 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:46:56 INFO  restAPI:531 - {"timestamp":"2020-06-16T18:46:56.189+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/details/1"}
+2020-06-17 01:46:56 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:46:56 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:46:56 INFO  restAPI:40 - Case:Undefined voucher ID
+2020-06-17 01:47:17 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:47:17 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:47:17 INFO  restAPI:223 - id:771
+2020-06-17 01:47:17 INFO  restAPI:224 - pin:123456
+2020-06-17 01:47:19 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:47:19 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:47:19 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:47:23 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:47:23 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:47:23 INFO  restAPI:523 - session id:B2E18A4641FFB74EC04A6D9D98C264FE
+2020-06-17 01:47:23 INFO  restAPI:524 - voucher id:9999
+2020-06-17 01:47:25 INFO  restAPI:531 - {"code":404,"message":"voucher not found"}
+2020-06-17 01:47:35 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:47:35 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:47:35 INFO  restAPI:40 - Case:Empty string voucher ID
+2020-06-17 01:47:55 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:47:55 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:47:55 INFO  restAPI:223 - id:772
+2020-06-17 01:47:55 INFO  restAPI:224 - pin:123456
+2020-06-17 01:47:57 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:47:57 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:47:57 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:48:01 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:48:01 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:48:01 INFO  restAPI:523 - session id:467D1B9539C3A4A21AE8C2EBA0AFF4F7
+2020-06-17 01:48:01 INFO  restAPI:524 - voucher id:
+2020-06-17 01:48:02 INFO  restAPI:531 - {"timestamp":"2020-06-16T18:48:02.420+00:00","status":404,"error":"Not Found","message":"","path":"/api/vouchers/details/"}
+2020-06-17 01:48:12 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:48:21 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:48:21 INFO  restAPI:40 - Case:Valid ID
+2020-06-17 01:48:41 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:48:41 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:48:41 INFO  restAPI:223 - id:773
+2020-06-17 01:48:41 INFO  restAPI:224 - pin:123456
+2020-06-17 01:48:44 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:48:44 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:48:44 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:48:49 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:48:49 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:48:49 INFO  restAPI:523 - session id:0CAA1F7A14CBE70E7E23C86F2D08EC01
+2020-06-17 01:48:49 INFO  restAPI:524 - voucher id:2
+2020-06-17 01:48:51 INFO  restAPI:531 - {"code":200,"message":"success","data":{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":15000,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000,"active":true}}
+2020-06-17 01:49:07 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:49:07 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:49:07 INFO  restAPI:40 - Case:Valid ID
+2020-06-17 01:49:27 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:49:27 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:49:27 INFO  restAPI:223 - id:774
+2020-06-17 01:49:27 INFO  restAPI:224 - pin:123456
+2020-06-17 01:49:29 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:49:29 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:49:29 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:49:34 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:49:34 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:49:34 INFO  restAPI:523 - session id:C13541E113B526622500E81EEFA7A439
+2020-06-17 01:49:34 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:49:36 INFO  restAPI:531 - {"code":200,"message":"success","data":{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}}
+2020-06-17 01:49:50 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:49:50 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:49:50 INFO  restAPI:40 - Case:Empty string session id
+2020-06-17 01:49:50 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:49:50 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:49:50 INFO  restAPI:523 - session id:
+2020-06-17 01:49:50 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:49:50 INFO  restAPI:531 - {"timestamp":"2020-06-16T18:49:50.544+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/details/1"}
+2020-06-17 01:49:50 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:49:50 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:49:50 INFO  restAPI:40 - Case:Undefined session id
+2020-06-17 01:49:50 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:49:50 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:49:50 INFO  restAPI:523 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-17 01:49:50 INFO  restAPI:524 - voucher id:1
+2020-06-17 01:49:51 INFO  restAPI:531 - {"timestamp":"2020-06-16T18:49:51.169+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/details/1"}
+2020-06-17 01:49:51 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:49:51 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:49:51 INFO  restAPI:40 - Case:Undefined voucher ID
+2020-06-17 01:50:12 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:50:12 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:50:12 INFO  restAPI:223 - id:775
+2020-06-17 01:50:12 INFO  restAPI:224 - pin:123456
+2020-06-17 01:50:15 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:50:15 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:50:15 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:50:19 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:50:19 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:50:19 INFO  restAPI:523 - session id:51B689C2D8410C31E790D1341C59345D
+2020-06-17 01:50:19 INFO  restAPI:524 - voucher id:9999
+2020-06-17 01:50:21 INFO  restAPI:531 - {"code":404,"message":"voucher not found"}
+2020-06-17 01:50:31 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****
+2020-06-17 01:50:31 INFO  restAPI:39 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:50:31 INFO  restAPI:40 - Case:Empty string voucher ID
+2020-06-17 01:50:52 INFO  restAPI:221 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:50:52 INFO  restAPI:222 - Test Data: 
+2020-06-17 01:50:52 INFO  restAPI:223 - id:776
+2020-06-17 01:50:52 INFO  restAPI:224 - pin:123456
+2020-06-17 01:50:54 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 01:50:54 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 01:50:54 INFO  restAPI:94 - Status Code = 200
+2020-06-17 01:51:00 INFO  restAPI:521 - ***** Started TC_Voucher_Details *****
+2020-06-17 01:51:00 INFO  restAPI:522 - Test Data: 
+2020-06-17 01:51:00 INFO  restAPI:523 - session id:531005E3847A16E4972BCB1DE0DC986C
+2020-06-17 01:51:00 INFO  restAPI:524 - voucher id:
+2020-06-17 01:51:01 INFO  restAPI:531 - {"timestamp":"2020-06-16T18:51:00.984+00:00","status":404,"error":"Not Found","message":"","path":"/api/vouchers/details/"}
+2020-06-17 01:51:11 INFO  restAPI:176 - ***** Finished TC_Voucher_Details *****

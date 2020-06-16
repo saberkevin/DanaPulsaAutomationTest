@@ -3,19 +3,19 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [DANA Pulsa Suite]">
   <test thread-count="5" name="DanaPulsaServiceTestVouchers(failed)">
     <classes>
-      <class name="testCases.voucher.TC_My_Vouchers">
+      <class name="testCases.voucher.TC_Voucher_Details">
         <methods>
           <include name="checkData"/>
+          <include name="checkDB"/>
           <include name="checkData"/>
+          <include name="checkDB"/>
           <include name="beforeClass"/>
-          <include name="testMyVouchers"/>
-          <include name="testMyVouchers"/>
           <include name="afterClass"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
           <include name="setup"/>
+          <include name="testVoucherDetails"/>
+          <include name="testVoucherDetails"/>
         </methods>
-      </class> <!-- testCases.voucher.TC_My_Vouchers -->
+      </class> <!-- testCases.voucher.TC_Voucher_Details -->
     </classes>
   </test> <!-- DanaPulsaServiceTestVouchers(failed) -->
 </suite> <!-- Failed suite [DANA Pulsa Suite] -->

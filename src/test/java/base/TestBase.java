@@ -528,7 +528,7 @@ public class TestBase {
 		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 
 		response = httpRequest.request(Method.GET, VOUCHER_DETAILS_PATH + voucherId);
-		logger.info(response.getBody());
+		logger.info(response.getBody().asString());
 	}
 	
 	//============ DB Connection ==============================//

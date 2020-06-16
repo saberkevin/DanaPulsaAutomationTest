@@ -24,8 +24,9 @@
 	
 	<test name="DanaPulsaServiceTestVouchers" group-by-instances="true">
 		<classes>
-			<!-- <class name = "testCases.voucher.Factory_Promotion_Vouchers"></class> -->
-			<class name = "testCases.voucher.Factory_My_Vouchers"></class>
+			<!-- <class name = "testCases.voucher.Factory_Promotion_Vouchers"></class>
+			<class name = "testCases.voucher.Factory_My_Vouchers"></class> -->
+			<class name = "testCases.voucher.Factory_Voucher_Details"></class>
 		</classes>
 	</test>
 </suite>
