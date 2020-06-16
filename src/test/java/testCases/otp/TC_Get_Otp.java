@@ -67,6 +67,10 @@ public class TC_Get_Otp extends TestBase{
 		{
 			Assert.assertTrue(message.contains("not found"));
 		}
+		else if(code == 500)
+		{
+			Assert.assertTrue(message.equals("invalid request format"));
+		}
 		else
 		{
 			Assert.assertTrue("unhandled error",false);

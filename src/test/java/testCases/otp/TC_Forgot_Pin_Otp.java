@@ -16,6 +16,7 @@ import io.restassured.path.json.JsonPath;
 public class TC_Forgot_Pin_Otp extends TestBase{
 	
 	private String id; 
+	private String codeBefore = "";
 	
 	public TC_Forgot_Pin_Otp(String id) {
 		this.id=id;
@@ -24,10 +25,17 @@ public class TC_Forgot_Pin_Otp extends TestBase{
 	@Test
 	void forgotPinOtpUser()
 	{
+		logger.info("***** GET OTP Before *****");
+		GetOtp(id);
+		if(response.getStatusCode() == 200)
+		{
+			codeBefore = response.jsonPath().get("data.code");
+		}
+		logger.info("***** END GET OTP Before *****");
 		forgotPinOtp(id);
 	}
 	
-	@Test(dependsOnMethods = {"forgotPinOtpUser"})
+	@Test(dependsOnMethods = {"forgotPinOtpUser","assertStatusCode","assertResponseTime"})
 	void checkResult()
 	{
 		int code = response.getStatusCode();
@@ -50,7 +58,7 @@ public class TC_Forgot_Pin_Otp extends TestBase{
 				while(result.next())
 				{
 					Assert.assertEquals(Long.parseLong(id), result.getLong("userId"));
-					Assert.assertTrue(!result.getString("code").isEmpty());
+					Assert.assertNotEquals(codeBefore, result.getString("code"));
 				}
 				
 				conMember.close();
@@ -58,6 +66,11 @@ public class TC_Forgot_Pin_Otp extends TestBase{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			logger.info("***** Assert GET OTP After *****");
+			GetOtp(id);
+			Assert.assertNotEquals(codeBefore, response.jsonPath().get("data.code"));
+			logger.info("***** END Assert GET OTP After *****");
 		}
 		else if(code == 404)
 		{
