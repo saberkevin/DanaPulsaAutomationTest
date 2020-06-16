@@ -21,20 +21,22 @@ import model.User;
 
 public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 	private User user = new User();
-	private String description;
+	private String testCase;
 	private String userId;
 	private String page;
 	private String result;
+	private boolean isCreateUser;
 	
 	public TC_Remote_Service_GetVoucherPromotion() {
 		
 	}
 	
-	public TC_Remote_Service_GetVoucherPromotion(String description, String userId, String page, String result) {
-		this.description = description;
+	public TC_Remote_Service_GetVoucherPromotion(String testCase, String userId, String page, String result) {
+		this.testCase = testCase;
 		this.userId = userId;
 		this.page = page;
 		this.result = result;
+		isCreateUser = false;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -60,21 +62,28 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 	@BeforeClass
 	public void beforeClass() {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
-		logger.info("Case:" + description);
+		logger.info("Case:" + testCase);
 		
 		if (userId.equals("true")) {
+			isCreateUser = true;
+			
 			// initialize user
 			user.setName("Zanuar");
 			user.setEmail("triromadon@gmail.com");
 			user.setUsername("081252930398");
 			user.setPin(123456);
 			
-			// insert user into database
+			// delete if exist
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
 			deleteUserIfExist(user.getEmail(), user.getUsername());
-			createUser(user);
-			user.setId(getUserIdByUsername(user.getUsername()));
 			
+			// insert user into database
+			createUser(user);
+			user.setId(getUserIdByUsername(user.getUsername()));			
 			userId = Long.toString(user.getId());
+
+			// insert balance into database
+			createBalance(user.getId(), 10000000);
 		}
 	}
 	
@@ -93,7 +102,9 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 		String responseBody = response.getBody().asString();
 		Assert.assertTrue(responseBody.contains(result), responseBody);
 		
-		if (!responseBody.contains("Unexpected") && !responseBody.equals("There is no promotion right now")) {
+		if (!responseBody.contains("invalid request format") 
+				&& !responseBody.equals("user not found") 
+				&& !responseBody.equals("There is no promotion right now")) {
 			List<Map<String, String>> vouchers = response.jsonPath().get();
 			
 			Assert.assertTrue(vouchers.size() <= 10, "maximum vouchers per page is 10");
@@ -136,7 +147,22 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		} else if (responseBody.contains("Unexpected")) {
+		} else if (responseBody.contains("user not found")) {
+			try {
+				Connection conn = getConnectionMember();
+				String queryString = "SELECT * FROM user WHERE id = ?";
+				
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setLong(1, Long.parseLong(userId));
+				
+				ResultSet rs = ps.executeQuery();
+				Assert.assertTrue(!rs.next());
+				
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}			
+		} else if (responseBody.contains("invalid request format")) {
 			// do some code
 			
 		} else {
@@ -151,7 +177,7 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 						+ "A.expiryDate "
 						+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id "
 						+ "WHERE A.isActive = 1 AND A.id NOT IN (SELECT voucherId FROM user_voucher where userId = ? AND voucherStatusId = 2) "
-						+ "LIMIT ?, 10";
+						+ "ORDER BY A.id ASC LIMIT ?, 10";
 				
 				PreparedStatement ps = conn.prepareStatement(queryString);
 				ps.setLong(1, user.getId());
@@ -169,9 +195,6 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 					Assert.assertEquals(vouchers.get(index).get("voucherTypeName"), rs.getString("voucherTypeName"));						
 					Assert.assertEquals(vouchers.get(index).get("filePath"), rs.getString("filePath"));						
 //					Assert.assertEquals(vouchers.get(index).get("expiryDate"), rs.getLong("expiryDate"));
-					
-					System.out.print(String.valueOf(vouchers.get(index).get("expiryDate")) + " - ");
-					System.out.println(rs.getLong("expiryDate"));
 				} while(rs.next());
 				
 				conn.close();
@@ -183,6 +206,13 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 	
 	@AfterClass
 	public void afterClass() {
+		// delete user
+		if (isCreateUser == true) {
+			deleteBalanceByUserId(user.getId());
+			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
+		}
+
+		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());
 	}
 }

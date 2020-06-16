@@ -167,8 +167,20 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 				e.printStackTrace();
 			}
 		} else if (responseBody.equals("unknown user")) {
-			// do some code
-			
+			try {
+				Connection conn = getConnectionMember();
+				String queryString = "SELECT * FROM user WHERE id = ?";
+				
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setLong(1, Long.parseLong(userId));
+				
+				ResultSet rs = ps.executeQuery();
+				Assert.assertTrue(!rs.next());
+				
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		} else if (responseBody.equals("invalid request format")) {
 			// do some code
 			
@@ -177,7 +189,10 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 			
 			try {
 				Connection conn = getConnectionOrder();
-				String queryString = "SELECT A.phoneNumber, A.createdAt, C.* "
+				String queryString = "SELECT "
+						+ "A.phoneNumber, "
+						+ "A.createdAt, "
+						+ "C.* "
 						+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
 						+ "LEFT JOIN provider C on B.providerId = C.id "
 						+ "WHERE A.userId = ? ORDER BY A.createdAt DESC LIMIT 10";

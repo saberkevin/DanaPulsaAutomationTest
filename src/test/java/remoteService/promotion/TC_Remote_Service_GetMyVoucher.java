@@ -16,12 +16,15 @@ import org.testng.annotations.Test;
 import base.TestBase;
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
+import model.User;
 
 public class TC_Remote_Service_GetMyVoucher extends TestBase {
+	private User user = new User();
 	private String testCase;
 	private String userId;
 	private String page;
 	private String result;
+	private boolean isCreateUser;
 	
 	public TC_Remote_Service_GetMyVoucher() {
 		
@@ -32,6 +35,7 @@ public class TC_Remote_Service_GetMyVoucher extends TestBase {
 		this.userId = userId;
 		this.page = page;
 		this.result = result;
+		isCreateUser = false;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -58,6 +62,40 @@ public class TC_Remote_Service_GetMyVoucher extends TestBase {
 	public void beforeClass() {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Case:" + testCase);
+		
+		if (userId.equals("true")) {
+			isCreateUser = true;
+			
+			// initialize user
+			user.setName("Zanuar");
+			user.setEmail("triromadon@gmail.com");
+			user.setUsername("081252930398");
+			user.setPin(123456);
+			
+			// delete if exist
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());
+			
+			// insert user into database
+			createUser(user);
+			user.setId(getUserIdByUsername(user.getUsername()));			
+			userId = Long.toString(user.getId());
+
+			// insert balance into database
+			createBalance(user.getId(), 10000000);
+			
+			// insert voucher into database
+			if (testCase.equals("Valid user id and page (below 10 vouchers)")) {	
+				
+				createUserVoucher(user.getId(), 1, 2);			
+
+			} else if (testCase.equals("Valid user id and page (more than 10 vouchers)")) {
+			
+				for (int i = 0; i < 11; i++) {		
+					createUserVoucher(user.getId(), i + 1, 2);			
+				}
+			}
+		}
 	}
 	
 	@Test
@@ -75,7 +113,9 @@ public class TC_Remote_Service_GetMyVoucher extends TestBase {
 		String responseBody = response.getBody().asString();
 		Assert.assertTrue(responseBody.contains(result), responseBody);
 		
-		if (!responseBody.contains("Unexpected") && !responseBody.equals("you don’t have any vouchers")) {
+		if (!responseBody.contains("invalid request format") 
+				&& !responseBody.equals("user not found")
+				&& !responseBody.equals("you don’t have any vouchers")) {
 			List<Map<String, String>> vouchers = response.jsonPath().get();
 
 			Assert.assertTrue(vouchers.size() <= 10, "maximum vouchers per page is 10");
@@ -96,31 +136,11 @@ public class TC_Remote_Service_GetMyVoucher extends TestBase {
 	public void checkDB() {
 		String responseBody = response.getBody().asString();
 
-		if (responseBody.equals("you don’t have any vouchers")) {
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT * FROM user_voucher WHERE userId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1,Long.parseLong(userId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.contains("Unexpected")) {
-			// do some code
-			
-		} else {
-			List<Map<String, String>> vouchers = response.jsonPath().get();
-			
+		if (responseBody.equals("you don’t have any vouchers") || responseBody.equals("[]")) {
 			try {
 				Connection conn = getConnectionPromotion();
 				String queryString = "SELECT "
-						+ "A.id, "
+						+ "A.voucherId, "
 						+ "B.name AS voucherName, "
 						+ "B.discount, "
 						+ "C.name AS voucherTypeName, "
@@ -129,7 +149,55 @@ public class TC_Remote_Service_GetMyVoucher extends TestBase {
 						+ "B.expiryDate "
 						+ "FROM user_voucher A LEFT JOIN voucher B on A.voucherId = B.id "
 						+ "LEFT JOIN voucher_type C on B.typeId = C.id "
-						+ "WHERE A.voucherStatusId != 1 AND B.isActive = 1 AND A.userId = ? LIMIT ?, 10";
+						+ "WHERE A.voucherStatusId != 1 AND B.isActive = 1 AND A.userId = ? "
+						+ "ORDER BY A.voucherId ASC LIMIT ?, 10";
+				
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setLong(1,Long.parseLong(userId));
+				ps.setInt(2, (Integer.parseInt(page)-1) * 10);
+				
+				ResultSet rs = ps.executeQuery();
+				Assert.assertTrue(!rs.next());
+				
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else if (responseBody.contains("user not found")) {
+			try {
+				Connection conn = getConnectionMember();
+				String queryString = "SELECT * FROM user WHERE id = ?";
+				
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setLong(1, Long.parseLong(userId));
+				
+				ResultSet rs = ps.executeQuery();
+				Assert.assertTrue(!rs.next());
+				
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}			
+		} else if (responseBody.contains("invalid request format")) {
+			// do some code
+			
+		} else {
+			List<Map<String, String>> vouchers = response.jsonPath().get();
+			
+			try {
+				Connection conn = getConnectionPromotion();
+				String queryString = "SELECT "
+						+ "A.voucherId, "
+						+ "B.name AS voucherName, "
+						+ "B.discount, "
+						+ "C.name AS voucherTypeName, "
+						+ "B.maxDeduction, "
+						+ "B.filePath, "
+						+ "B.expiryDate "
+						+ "FROM user_voucher A LEFT JOIN voucher B on A.voucherId = B.id "
+						+ "LEFT JOIN voucher_type C on B.typeId = C.id "
+						+ "WHERE A.voucherStatusId != 1 AND B.isActive = 1 AND A.userId = ? "
+						+ "ORDER BY A.voucherId ASC LIMIT ?, 10";
 				
 				PreparedStatement ps = conn.prepareStatement(queryString);
 				ps.setLong(1,Long.parseLong(userId));
@@ -142,7 +210,7 @@ public class TC_Remote_Service_GetMyVoucher extends TestBase {
 				}
 				do {
 					int index = rs.getRow() - 1;
-					Assert.assertEquals(String.valueOf(vouchers.get(index).get("id")), rs.getString("id"));
+					Assert.assertEquals(String.valueOf(vouchers.get(index).get("id")), rs.getString("voucherId"));
 					Assert.assertEquals(vouchers.get(index).get("name"), rs.getString("voucherName"));
 					Assert.assertEquals(String.valueOf(vouchers.get(index).get("discount")), rs.getString("discount"));
 					Assert.assertEquals(vouchers.get(index).get("voucherTypeName"), rs.getString("voucherTypeName"));
@@ -160,6 +228,14 @@ public class TC_Remote_Service_GetMyVoucher extends TestBase {
 	
 	@AfterClass
 	public void afterClass() {
+		// delete user
+		if (isCreateUser == true) {
+			deleteUserVoucherByUserId(user.getId());
+			deleteBalanceByUserId(user.getId());
+			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
+		}
+
+		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());
 	}
 }

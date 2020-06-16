@@ -8072,3 +8072,1499 @@
 2020-06-16 15:27:08 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
 2020-06-16 15:27:08 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
 2020-06-16 15:27:08 INFO  restAPI:66 - Case:Telkomsel
+2020-06-16 15:27:34 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 15:27:34 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:27:34 INFO  restAPI:46 - user id:649
+2020-06-16 15:27:34 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 15:27:34 INFO  restAPI:48 - catalog id:13
+2020-06-16 15:27:39 INFO  restAPI:60 - {"id":355,"phoneNumber":"081252930398","catalog":{"id":13,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":15000,"price":15000}}
+2020-06-16 15:28:05 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:28:05 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:28:05 INFO  restAPI:66 - Case:Different provider
+2020-06-16 15:28:29 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 15:28:29 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:28:29 INFO  restAPI:46 - user id:650
+2020-06-16 15:28:29 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 15:28:29 INFO  restAPI:48 - catalog id:1
+2020-06-16 15:28:34 INFO  restAPI:60 - selected catalog is not available for this phone’s provider
+2020-06-16 15:29:10 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:29:10 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:29:10 INFO  restAPI:66 - Case:Empty string phone number
+2020-06-16 15:29:35 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 15:29:35 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:29:35 INFO  restAPI:46 - user id:651
+2020-06-16 15:29:35 INFO  restAPI:47 - phone number:
+2020-06-16 15:29:35 INFO  restAPI:48 - catalog id:13
+2020-06-16 15:29:40 INFO  restAPI:60 - invalid phone number
+2020-06-16 15:30:06 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:30:06 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:30:06 INFO  restAPI:66 - Case:Empty String user ID
+2020-06-16 15:30:06 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 15:30:06 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:30:06 INFO  restAPI:46 - user id:
+2020-06-16 15:30:06 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 15:30:06 INFO  restAPI:48 - catalog id:13
+2020-06-16 15:30:09 INFO  restAPI:60 - invalid request format
+2020-06-16 15:30:19 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:30:19 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:30:19 INFO  restAPI:66 - Case:XL
+2020-06-16 15:30:44 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 15:30:44 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:30:44 INFO  restAPI:46 - user id:652
+2020-06-16 15:30:44 INFO  restAPI:47 - phone number:087735571982
+2020-06-16 15:30:44 INFO  restAPI:48 - catalog id:1
+2020-06-16 15:30:49 INFO  restAPI:60 - {"id":356,"phoneNumber":"087735571982","catalog":{"id":1,"provider":{"id":1,"name":"XL","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/20180111100558_21XL_logo_2016_kyu40w_vkqgnc.png"},"value":5000,"price":6000}}
+2020-06-16 15:31:13 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:31:13 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:31:13 INFO  restAPI:66 - Case:Undefined catalog ID
+2020-06-16 15:31:36 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 15:31:36 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:31:36 INFO  restAPI:46 - user id:653
+2020-06-16 15:31:36 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 15:31:36 INFO  restAPI:48 - catalog id:9999
+2020-06-16 15:31:41 INFO  restAPI:60 - catalog not found
+2020-06-16 15:32:10 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:32:10 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:32:10 INFO  restAPI:66 - Case:Start with 62
+2020-06-16 15:32:34 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 15:32:34 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:32:34 INFO  restAPI:46 - user id:654
+2020-06-16 15:32:34 INFO  restAPI:47 - phone number:6281252930398
+2020-06-16 15:32:34 INFO  restAPI:48 - catalog id:13
+2020-06-16 15:32:38 INFO  restAPI:60 - invalid phone number
+2020-06-16 15:33:04 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:33:04 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:33:04 INFO  restAPI:66 - Case:Exceed 13 characters
+2020-06-16 15:33:39 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 15:33:39 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:33:39 INFO  restAPI:46 - user id:655
+2020-06-16 15:33:39 INFO  restAPI:47 - phone number:08125293039812
+2020-06-16 15:33:39 INFO  restAPI:48 - catalog id:13
+2020-06-16 15:34:11 INFO  restAPI:60 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+2020-06-16 15:34:11 INFO  restAPI:96 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+2020-06-16 15:34:32 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:34:32 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:34:32 INFO  restAPI:66 - Case:Empty String catalog ID
+2020-06-16 15:34:56 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 15:34:56 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:34:56 INFO  restAPI:46 - user id:656
+2020-06-16 15:34:56 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 15:34:56 INFO  restAPI:48 - catalog id:
+2020-06-16 15:34:58 INFO  restAPI:60 - invalid request format
+2020-06-16 15:35:22 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:35:22 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:35:22 INFO  restAPI:66 - Case:Indosat
+2020-06-16 15:35:47 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 15:35:47 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:35:47 INFO  restAPI:46 - user id:657
+2020-06-16 15:35:47 INFO  restAPI:47 - phone number:085655619187
+2020-06-16 15:35:47 INFO  restAPI:48 - catalog id:44
+2020-06-16 15:35:49 INFO  restAPI:60 - {"timestamp":"2020-06-16T08:35:49.763+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 15:35:49 INFO  restAPI:96 - {"timestamp":"2020-06-16T08:35:49.763+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 15:36:09 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:36:09 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:36:09 INFO  restAPI:66 - Case:Undefined user ID
+2020-06-16 15:36:09 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 15:36:09 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:36:09 INFO  restAPI:46 - user id:9999
+2020-06-16 15:36:09 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 15:36:09 INFO  restAPI:48 - catalog id:13
+2020-06-16 15:36:12 INFO  restAPI:60 - {"timestamp":"2020-06-16T08:36:12.629+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 15:36:12 INFO  restAPI:96 - {"timestamp":"2020-06-16T08:36:12.629+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 15:36:17 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:36:17 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:36:17 INFO  restAPI:66 - Case:Undefined provider
+2020-06-16 15:36:40 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 15:36:41 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:36:41 INFO  restAPI:46 - user id:658
+2020-06-16 15:36:41 INFO  restAPI:47 - phone number:021252930398
+2020-06-16 15:36:41 INFO  restAPI:48 - catalog id:13
+2020-06-16 15:36:43 INFO  restAPI:60 - {"timestamp":"2020-06-16T08:36:43.746+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 15:36:43 INFO  restAPI:96 - {"timestamp":"2020-06-16T08:36:43.746+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 15:37:02 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:37:02 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 15:37:02 INFO  restAPI:66 - Case:Smartfren
+2020-06-16 15:37:26 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 15:37:26 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:37:26 INFO  restAPI:46 - user id:659
+2020-06-16 15:37:26 INFO  restAPI:47 - phone number:0881025984984
+2020-06-16 15:37:26 INFO  restAPI:48 - catalog id:58
+2020-06-16 15:37:29 INFO  restAPI:60 - {"timestamp":"2020-06-16T08:37:29.167+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 15:37:29 INFO  restAPI:96 - {"timestamp":"2020-06-16T08:37:29.167+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 15:42:55 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:42:55 INFO  restAPI:65 - Case:Undefined page
+2020-06-16 15:43:21 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 15:43:21 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:43:21 INFO  restAPI:46 - user id:660
+2020-06-16 15:43:21 INFO  restAPI:47 - page:9999
+2020-06-16 15:43:33 INFO  restAPI:59 - []
+2020-06-16 15:43:48 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:43:48 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:43:48 INFO  restAPI:65 - Case:Empty string page
+2020-06-16 15:44:14 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 15:44:14 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:44:14 INFO  restAPI:46 - user id:661
+2020-06-16 15:44:14 INFO  restAPI:47 - page:
+2020-06-16 15:44:18 INFO  restAPI:59 - invalid request format
+2020-06-16 15:44:29 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:44:29 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:44:29 INFO  restAPI:65 - Case:Valid user id and page
+2020-06-16 15:45:18 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:45:18 INFO  restAPI:65 - Case:Undefined page
+2020-06-16 15:45:44 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 15:45:44 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:45:44 INFO  restAPI:46 - user id:662
+2020-06-16 15:45:44 INFO  restAPI:47 - page:9999
+2020-06-16 15:45:52 INFO  restAPI:59 - []
+2020-06-16 15:46:25 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:46:25 INFO  restAPI:65 - Case:Undefined page
+2020-06-16 15:46:58 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 15:46:58 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:46:58 INFO  restAPI:46 - user id:663
+2020-06-16 15:46:58 INFO  restAPI:47 - page:9999
+2020-06-16 15:47:05 INFO  restAPI:59 - []
+2020-06-16 15:47:21 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:47:21 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:47:21 INFO  restAPI:65 - Case:Empty string page
+2020-06-16 15:47:46 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 15:47:46 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:47:46 INFO  restAPI:46 - user id:664
+2020-06-16 15:47:46 INFO  restAPI:47 - page:
+2020-06-16 15:47:50 INFO  restAPI:59 - invalid request format
+2020-06-16 15:47:59 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:47:59 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:47:59 INFO  restAPI:65 - Case:Valid user id and page
+2020-06-16 15:48:25 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 15:48:25 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:48:25 INFO  restAPI:46 - user id:665
+2020-06-16 15:48:25 INFO  restAPI:47 - page:1
+2020-06-16 15:48:32 INFO  restAPI:59 - [{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]
+2020-06-16 15:48:48 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:48:48 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:48:48 INFO  restAPI:65 - Case:Empty string user id
+2020-06-16 15:48:48 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 15:48:48 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:48:48 INFO  restAPI:46 - user id:
+2020-06-16 15:48:48 INFO  restAPI:47 - page:1
+2020-06-16 15:48:51 INFO  restAPI:59 - invalid request format
+2020-06-16 15:48:51 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:48:51 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:48:51 INFO  restAPI:65 - Case:Undefined user id
+2020-06-16 15:48:51 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 15:48:51 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:48:51 INFO  restAPI:46 - user id:9999
+2020-06-16 15:48:51 INFO  restAPI:47 - page:1
+2020-06-16 15:48:57 INFO  restAPI:59 - invalid request format
+2020-06-16 15:48:57 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:48:57 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 15:48:57 INFO  restAPI:65 - Case:Valid user id and page
+2020-06-16 15:49:23 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 15:49:23 INFO  restAPI:45 - Test Data: 
+2020-06-16 15:49:23 INFO  restAPI:46 - user id:666
+2020-06-16 15:49:23 INFO  restAPI:47 - page:2
+2020-06-16 15:49:30 INFO  restAPI:59 - [{"id":11,"name":"Diskon 25% (max Rp 25.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1500508800000},{"id":12,"name":"Diskon 30% (max Rp 30.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1532044800000},{"id":13,"name":"Diskon 35% (max Rp 35.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1563580800000},{"id":14,"name":"Diskon 40% (max Rp 50.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1595203200000},{"id":15,"name":"Diskon 45% (max Rp 75.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1626739200000},{"id":16,"name":"Diskon 50% (max Rp 100.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1658275200000}]
+2020-06-16 15:49:46 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 16:03:04 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 16:03:04 INFO  restAPI:65 - Case:Undefined page
+2020-06-16 16:03:29 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 16:03:29 INFO  restAPI:45 - Test Data: 
+2020-06-16 16:03:29 INFO  restAPI:46 - user id:668
+2020-06-16 16:03:29 INFO  restAPI:47 - page:9999
+2020-06-16 16:03:40 INFO  restAPI:59 - []
+2020-06-16 16:03:55 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 16:03:55 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 16:03:55 INFO  restAPI:65 - Case:Empty string page
+2020-06-16 16:04:18 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 16:04:18 INFO  restAPI:45 - Test Data: 
+2020-06-16 16:04:18 INFO  restAPI:46 - user id:669
+2020-06-16 16:04:18 INFO  restAPI:47 - page:
+2020-06-16 16:04:22 INFO  restAPI:59 - invalid request format
+2020-06-16 16:04:32 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 16:04:32 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 16:04:32 INFO  restAPI:65 - Case:Valid user id and page
+2020-06-16 16:04:57 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 16:04:57 INFO  restAPI:45 - Test Data: 
+2020-06-16 16:04:57 INFO  restAPI:46 - user id:670
+2020-06-16 16:04:57 INFO  restAPI:47 - page:1
+2020-06-16 16:05:13 INFO  restAPI:59 - [{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]
+2020-06-16 16:05:30 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 16:05:30 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 16:05:30 INFO  restAPI:65 - Case:Empty string user id
+2020-06-16 16:05:30 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 16:05:30 INFO  restAPI:45 - Test Data: 
+2020-06-16 16:05:30 INFO  restAPI:46 - user id:
+2020-06-16 16:05:30 INFO  restAPI:47 - page:1
+2020-06-16 16:05:33 INFO  restAPI:59 - invalid request format
+2020-06-16 16:05:33 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 16:05:33 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 16:05:33 INFO  restAPI:65 - Case:Undefined user id
+2020-06-16 16:05:33 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 16:05:33 INFO  restAPI:45 - Test Data: 
+2020-06-16 16:05:33 INFO  restAPI:46 - user id:9999
+2020-06-16 16:05:33 INFO  restAPI:47 - page:1
+2020-06-16 16:05:38 INFO  restAPI:59 - invalid request format
+2020-06-16 16:05:38 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 16:05:38 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 16:05:38 INFO  restAPI:65 - Case:Valid user id and page
+2020-06-16 16:06:05 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 16:06:05 INFO  restAPI:45 - Test Data: 
+2020-06-16 16:06:05 INFO  restAPI:46 - user id:671
+2020-06-16 16:06:05 INFO  restAPI:47 - page:2
+2020-06-16 16:06:12 INFO  restAPI:59 - [{"id":11,"name":"Diskon 25% (max Rp 25.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1500508800000},{"id":12,"name":"Diskon 30% (max Rp 30.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1532044800000},{"id":13,"name":"Diskon 35% (max Rp 35.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1563580800000},{"id":14,"name":"Diskon 40% (max Rp 50.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1595203200000},{"id":15,"name":"Diskon 45% (max Rp 75.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1626739200000},{"id":16,"name":"Diskon 50% (max Rp 100.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1658275200000}]
+2020-06-16 16:06:27 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 16:31:05 INFO  restAPI:54 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-16 16:31:05 INFO  restAPI:55 - Case:Empty String
+2020-06-16 16:31:05 INFO  restAPI:35 - Call Get Voucher Details API [Promotion Domain]
+2020-06-16 16:31:05 INFO  restAPI:36 - Test Data: 
+2020-06-16 16:31:05 INFO  restAPI:37 - voucher id:
+2020-06-16 16:31:11 INFO  restAPI:49 - invalid request format
+2020-06-16 16:31:11 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-16 16:31:11 INFO  restAPI:54 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-16 16:31:11 INFO  restAPI:55 - Case:Undefined ID
+2020-06-16 16:31:11 INFO  restAPI:35 - Call Get Voucher Details API [Promotion Domain]
+2020-06-16 16:31:11 INFO  restAPI:36 - Test Data: 
+2020-06-16 16:31:11 INFO  restAPI:37 - voucher id:9999
+2020-06-16 16:31:16 INFO  restAPI:49 - voucher not found
+2020-06-16 16:31:23 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-16 16:31:23 INFO  restAPI:54 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-16 16:31:23 INFO  restAPI:55 - Case:Valid ID
+2020-06-16 16:31:23 INFO  restAPI:35 - Call Get Voucher Details API [Promotion Domain]
+2020-06-16 16:31:23 INFO  restAPI:36 - Test Data: 
+2020-06-16 16:31:23 INFO  restAPI:37 - voucher id:2
+2020-06-16 16:31:27 INFO  restAPI:49 - {"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":15000,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000,"active":true}
+2020-06-16 16:31:32 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-16 16:31:32 INFO  restAPI:54 - ***** Started TC_Remote_Service_GetVoucherDetail *****
+2020-06-16 16:31:32 INFO  restAPI:55 - Case:Valid ID
+2020-06-16 16:31:32 INFO  restAPI:35 - Call Get Voucher Details API [Promotion Domain]
+2020-06-16 16:31:32 INFO  restAPI:36 - Test Data: 
+2020-06-16 16:31:32 INFO  restAPI:37 - voucher id:1
+2020-06-16 16:31:36 INFO  restAPI:49 - {"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}
+2020-06-16 16:31:42 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherDetail *****
+2020-06-16 19:29:55 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:29:55 INFO  restAPI:64 - Case:Empty string page
+2020-06-16 19:30:20 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 19:30:20 INFO  restAPI:44 - Test Data: 
+2020-06-16 19:30:20 INFO  restAPI:45 - user id:676
+2020-06-16 19:30:20 INFO  restAPI:46 - page:
+2020-06-16 19:30:26 INFO  restAPI:58 - invalid request format
+2020-06-16 19:33:46 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:33:46 INFO  restAPI:64 - Case:Empty string page
+2020-06-16 19:34:14 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 19:34:14 INFO  restAPI:44 - Test Data: 
+2020-06-16 19:34:14 INFO  restAPI:45 - user id:677
+2020-06-16 19:34:14 INFO  restAPI:46 - page:
+2020-06-16 19:34:20 INFO  restAPI:58 - invalid request format
+2020-06-16 19:34:36 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:34:36 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:34:36 INFO  restAPI:64 - Case:Undefined user id
+2020-06-16 19:34:36 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 19:34:36 INFO  restAPI:44 - Test Data: 
+2020-06-16 19:34:36 INFO  restAPI:45 - user id:9999
+2020-06-16 19:34:36 INFO  restAPI:46 - page:1
+2020-06-16 19:34:43 INFO  restAPI:58 - user not found
+2020-06-16 19:34:47 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:34:47 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:34:47 INFO  restAPI:64 - Case:Empty string user id
+2020-06-16 19:34:47 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 19:34:47 INFO  restAPI:44 - Test Data: 
+2020-06-16 19:34:47 INFO  restAPI:45 - user id:
+2020-06-16 19:34:47 INFO  restAPI:46 - page:1
+2020-06-16 19:34:51 INFO  restAPI:58 - invalid request format
+2020-06-16 19:34:51 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:34:51 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:34:51 INFO  restAPI:64 - Case:Valid user id and page (more than 10 vouchers)
+2020-06-16 19:35:16 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 19:35:16 INFO  restAPI:44 - Test Data: 
+2020-06-16 19:35:16 INFO  restAPI:45 - user id:678
+2020-06-16 19:35:16 INFO  restAPI:46 - page:2
+2020-06-16 19:35:22 INFO  restAPI:58 - you don’t have any vouchers
+2020-06-16 19:35:39 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:35:39 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:35:39 INFO  restAPI:64 - Case:Valid user id and page (no voucher)
+2020-06-16 19:36:05 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 19:36:05 INFO  restAPI:44 - Test Data: 
+2020-06-16 19:36:05 INFO  restAPI:45 - user id:679
+2020-06-16 19:36:05 INFO  restAPI:46 - page:1
+2020-06-16 19:36:12 INFO  restAPI:58 - you don’t have any vouchers
+2020-06-16 19:36:32 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:36:32 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:36:32 INFO  restAPI:64 - Case:Valid user id and page (more than 10 vouchers)
+2020-06-16 19:36:57 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 19:36:57 INFO  restAPI:44 - Test Data: 
+2020-06-16 19:36:57 INFO  restAPI:45 - user id:680
+2020-06-16 19:36:57 INFO  restAPI:46 - page:1
+2020-06-16 19:37:03 INFO  restAPI:58 - you don’t have any vouchers
+2020-06-16 19:37:18 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:37:18 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:37:18 INFO  restAPI:64 - Case:Undefined page
+2020-06-16 19:37:45 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 19:37:45 INFO  restAPI:44 - Test Data: 
+2020-06-16 19:37:45 INFO  restAPI:45 - user id:681
+2020-06-16 19:37:45 INFO  restAPI:46 - page:9999
+2020-06-16 19:37:51 INFO  restAPI:58 - you don’t have any vouchers
+2020-06-16 19:38:11 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:38:11 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:38:11 INFO  restAPI:64 - Case:Valid user id and page ( below 10 vouchers)
+2020-06-16 19:43:00 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:43:00 INFO  restAPI:64 - Case:Empty string page
+2020-06-16 19:43:31 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 19:43:31 INFO  restAPI:44 - Test Data: 
+2020-06-16 19:43:31 INFO  restAPI:45 - user id:683
+2020-06-16 19:43:31 INFO  restAPI:46 - page:
+2020-06-16 19:43:37 INFO  restAPI:58 - invalid request format
+2020-06-16 19:43:51 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:43:51 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:43:51 INFO  restAPI:64 - Case:Undefined user id
+2020-06-16 19:43:51 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 19:43:51 INFO  restAPI:44 - Test Data: 
+2020-06-16 19:43:51 INFO  restAPI:45 - user id:9999
+2020-06-16 19:43:51 INFO  restAPI:46 - page:1
+2020-06-16 19:43:57 INFO  restAPI:58 - user not found
+2020-06-16 19:44:03 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:44:03 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:44:03 INFO  restAPI:64 - Case:Empty string user id
+2020-06-16 19:44:03 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 19:44:03 INFO  restAPI:44 - Test Data: 
+2020-06-16 19:44:03 INFO  restAPI:45 - user id:
+2020-06-16 19:44:03 INFO  restAPI:46 - page:1
+2020-06-16 19:44:06 INFO  restAPI:58 - invalid request format
+2020-06-16 19:44:06 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:44:06 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:44:06 INFO  restAPI:64 - Case:Valid user id and page (more than 10 vouchers)
+2020-06-16 19:45:29 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 19:45:29 INFO  restAPI:44 - Test Data: 
+2020-06-16 19:45:29 INFO  restAPI:45 - user id:684
+2020-06-16 19:45:29 INFO  restAPI:46 - page:2
+2020-06-16 19:45:36 INFO  restAPI:58 - [{"id":11,"name":"Diskon 25% (max Rp 25.000) buat beli pulsa","voucherTypeName":"discount","discount":25,"maxDeduction":25000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1500508800000}]
+2020-06-16 19:45:56 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:45:56 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:45:56 INFO  restAPI:64 - Case:Valid user id and page (no voucher)
+2020-06-16 19:46:24 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 19:46:24 INFO  restAPI:44 - Test Data: 
+2020-06-16 19:46:24 INFO  restAPI:45 - user id:685
+2020-06-16 19:46:24 INFO  restAPI:46 - page:1
+2020-06-16 19:46:30 INFO  restAPI:58 - you don’t have any vouchers
+2020-06-16 19:46:50 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:46:50 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:46:50 INFO  restAPI:64 - Case:Valid user id and page (more than 10 vouchers)
+2020-06-16 19:48:13 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 19:48:13 INFO  restAPI:44 - Test Data: 
+2020-06-16 19:48:13 INFO  restAPI:45 - user id:686
+2020-06-16 19:48:13 INFO  restAPI:46 - page:1
+2020-06-16 19:48:45 INFO  restAPI:58 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+2020-06-16 19:48:45 INFO  restAPI:106 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+2020-06-16 19:49:00 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:49:00 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:49:00 INFO  restAPI:64 - Case:Undefined page
+2020-06-16 19:49:25 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 19:49:25 INFO  restAPI:44 - Test Data: 
+2020-06-16 19:49:25 INFO  restAPI:45 - user id:687
+2020-06-16 19:49:25 INFO  restAPI:46 - page:9999
+2020-06-16 19:49:57 INFO  restAPI:58 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+2020-06-16 19:49:57 INFO  restAPI:106 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+2020-06-16 19:50:13 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:50:13 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 19:50:13 INFO  restAPI:64 - Case:Valid user id and page (below 10 vouchers)
+2020-06-16 19:50:45 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 19:50:45 INFO  restAPI:44 - Test Data: 
+2020-06-16 19:50:45 INFO  restAPI:45 - user id:688
+2020-06-16 19:50:45 INFO  restAPI:46 - page:1
+2020-06-16 19:51:18 INFO  restAPI:58 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+2020-06-16 19:51:18 INFO  restAPI:106 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+2020-06-16 19:51:31 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:06:19 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:06:19 INFO  restAPI:64 - Case:Empty string page
+2020-06-16 20:06:42 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 20:06:42 INFO  restAPI:44 - Test Data: 
+2020-06-16 20:06:42 INFO  restAPI:45 - user id:689
+2020-06-16 20:06:42 INFO  restAPI:46 - page:
+2020-06-16 20:06:48 INFO  restAPI:58 - invalid request format
+2020-06-16 20:07:03 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:07:03 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:07:03 INFO  restAPI:64 - Case:Undefined user id
+2020-06-16 20:07:03 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 20:07:03 INFO  restAPI:44 - Test Data: 
+2020-06-16 20:07:03 INFO  restAPI:45 - user id:9999
+2020-06-16 20:07:03 INFO  restAPI:46 - page:1
+2020-06-16 20:07:09 INFO  restAPI:58 - user not found
+2020-06-16 20:07:14 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:07:14 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:07:14 INFO  restAPI:64 - Case:Empty string user id
+2020-06-16 20:07:14 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 20:07:14 INFO  restAPI:44 - Test Data: 
+2020-06-16 20:07:14 INFO  restAPI:45 - user id:
+2020-06-16 20:07:14 INFO  restAPI:46 - page:1
+2020-06-16 20:07:17 INFO  restAPI:58 - invalid request format
+2020-06-16 20:07:17 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:07:17 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:07:17 INFO  restAPI:64 - Case:Valid user id and page (more than 10 vouchers)
+2020-06-16 20:08:37 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 20:08:37 INFO  restAPI:44 - Test Data: 
+2020-06-16 20:08:37 INFO  restAPI:45 - user id:690
+2020-06-16 20:08:37 INFO  restAPI:46 - page:2
+2020-06-16 20:08:44 INFO  restAPI:58 - [{"id":11,"name":"Diskon 25% (max Rp 25.000) buat beli pulsa","voucherTypeName":"discount","discount":25,"maxDeduction":25000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1500508800000}]
+2020-06-16 20:09:16 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:09:16 INFO  restAPI:64 - Case:Empty string page
+2020-06-16 20:09:49 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 20:09:49 INFO  restAPI:44 - Test Data: 
+2020-06-16 20:09:49 INFO  restAPI:45 - user id:691
+2020-06-16 20:09:49 INFO  restAPI:46 - page:
+2020-06-16 20:09:55 INFO  restAPI:58 - invalid request format
+2020-06-16 20:10:11 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:10:11 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:10:11 INFO  restAPI:64 - Case:Undefined user id
+2020-06-16 20:10:11 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 20:10:11 INFO  restAPI:44 - Test Data: 
+2020-06-16 20:10:11 INFO  restAPI:45 - user id:9999
+2020-06-16 20:10:11 INFO  restAPI:46 - page:1
+2020-06-16 20:10:17 INFO  restAPI:58 - user not found
+2020-06-16 20:10:23 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:10:23 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:10:23 INFO  restAPI:64 - Case:Empty string user id
+2020-06-16 20:10:23 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 20:10:23 INFO  restAPI:44 - Test Data: 
+2020-06-16 20:10:23 INFO  restAPI:45 - user id:
+2020-06-16 20:10:23 INFO  restAPI:46 - page:1
+2020-06-16 20:10:28 INFO  restAPI:58 - invalid request format
+2020-06-16 20:10:28 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:10:28 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:10:28 INFO  restAPI:64 - Case:Valid user id and page (more than 10 vouchers)
+2020-06-16 20:11:50 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 20:11:50 INFO  restAPI:44 - Test Data: 
+2020-06-16 20:11:50 INFO  restAPI:45 - user id:692
+2020-06-16 20:11:50 INFO  restAPI:46 - page:2
+2020-06-16 20:11:57 INFO  restAPI:58 - [{"id":11,"name":"Diskon 25% (max Rp 25.000) buat beli pulsa","voucherTypeName":"discount","discount":25,"maxDeduction":25000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1500508800000}]
+2020-06-16 20:12:16 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:12:16 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:12:16 INFO  restAPI:64 - Case:Valid user id and page (no voucher)
+2020-06-16 20:12:40 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 20:12:40 INFO  restAPI:44 - Test Data: 
+2020-06-16 20:12:40 INFO  restAPI:45 - user id:693
+2020-06-16 20:12:40 INFO  restAPI:46 - page:1
+2020-06-16 20:12:47 INFO  restAPI:58 - you don’t have any vouchers
+2020-06-16 20:13:07 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:13:07 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:13:07 INFO  restAPI:64 - Case:Valid user id and page (more than 10 vouchers)
+2020-06-16 20:14:33 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 20:14:33 INFO  restAPI:44 - Test Data: 
+2020-06-16 20:14:33 INFO  restAPI:45 - user id:694
+2020-06-16 20:14:33 INFO  restAPI:46 - page:1
+2020-06-16 20:14:40 INFO  restAPI:58 - [{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":2000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":2500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":3000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":3500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","discount":5,"maxDeduction":5000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","discount":10,"maxDeduction":10000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","discount":15,"maxDeduction":15000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","discount":20,"maxDeduction":20000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]
+2020-06-16 20:14:59 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:14:59 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:14:59 INFO  restAPI:64 - Case:Undefined page
+2020-06-16 20:15:26 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 20:15:26 INFO  restAPI:44 - Test Data: 
+2020-06-16 20:15:26 INFO  restAPI:45 - user id:695
+2020-06-16 20:15:26 INFO  restAPI:46 - page:9999
+2020-06-16 20:15:33 INFO  restAPI:58 - you don’t have any vouchers
+2020-06-16 20:15:53 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:15:53 INFO  restAPI:63 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:15:53 INFO  restAPI:64 - Case:Valid user id and page (below 10 vouchers)
+2020-06-16 20:16:20 INFO  restAPI:43 - Call Get My Voucher API [Promotion Domain]
+2020-06-16 20:16:20 INFO  restAPI:44 - Test Data: 
+2020-06-16 20:16:20 INFO  restAPI:45 - user id:696
+2020-06-16 20:16:20 INFO  restAPI:46 - page:1
+2020-06-16 20:16:28 INFO  restAPI:58 - [{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000}]
+2020-06-16 20:16:47 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetMyVoucher *****
+2020-06-16 20:18:42 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:18:42 INFO  restAPI:65 - Case:Empty string page
+2020-06-16 20:19:08 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 20:19:08 INFO  restAPI:45 - Test Data: 
+2020-06-16 20:19:08 INFO  restAPI:46 - user id:697
+2020-06-16 20:19:08 INFO  restAPI:47 - page:
+2020-06-16 20:19:15 INFO  restAPI:59 - invalid request format
+2020-06-16 20:19:26 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:19:26 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:19:26 INFO  restAPI:65 - Case:Empty string user id
+2020-06-16 20:19:26 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 20:19:26 INFO  restAPI:45 - Test Data: 
+2020-06-16 20:19:26 INFO  restAPI:46 - user id:
+2020-06-16 20:19:26 INFO  restAPI:47 - page:1
+2020-06-16 20:19:30 INFO  restAPI:59 - invalid request format
+2020-06-16 20:19:30 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:19:30 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:19:30 INFO  restAPI:65 - Case:Undefined user id
+2020-06-16 20:19:30 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 20:19:30 INFO  restAPI:45 - Test Data: 
+2020-06-16 20:19:30 INFO  restAPI:46 - user id:9999
+2020-06-16 20:19:30 INFO  restAPI:47 - page:1
+2020-06-16 20:19:36 INFO  restAPI:59 - user not found
+2020-06-16 20:19:36 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:19:36 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:19:36 INFO  restAPI:65 - Case:Valid user id and page
+2020-06-16 20:20:00 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 20:20:00 INFO  restAPI:45 - Test Data: 
+2020-06-16 20:20:00 INFO  restAPI:46 - user id:698
+2020-06-16 20:20:00 INFO  restAPI:47 - page:1
+2020-06-16 20:20:07 INFO  restAPI:59 - [{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]
+2020-06-16 20:20:22 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:20:22 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:20:22 INFO  restAPI:65 - Case:Valid user id and page
+2020-06-16 20:20:46 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 20:20:46 INFO  restAPI:45 - Test Data: 
+2020-06-16 20:20:46 INFO  restAPI:46 - user id:699
+2020-06-16 20:20:46 INFO  restAPI:47 - page:2
+2020-06-16 20:20:53 INFO  restAPI:59 - [{"id":11,"name":"Diskon 25% (max Rp 25.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1500508800000},{"id":12,"name":"Diskon 30% (max Rp 30.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1532044800000},{"id":13,"name":"Diskon 35% (max Rp 35.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1563580800000},{"id":14,"name":"Diskon 40% (max Rp 50.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1595203200000},{"id":15,"name":"Diskon 45% (max Rp 75.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1626739200000},{"id":16,"name":"Diskon 50% (max Rp 100.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1658275200000}]
+2020-06-16 20:21:08 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:21:08 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:21:08 INFO  restAPI:65 - Case:Undefined page
+2020-06-16 20:21:32 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 20:21:32 INFO  restAPI:45 - Test Data: 
+2020-06-16 20:21:32 INFO  restAPI:46 - user id:700
+2020-06-16 20:21:32 INFO  restAPI:47 - page:9999
+2020-06-16 20:21:39 INFO  restAPI:59 - []
+2020-06-16 20:21:55 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:22:40 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:22:40 INFO  restAPI:65 - Case:Empty string page
+2020-06-16 20:23:08 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 20:23:08 INFO  restAPI:45 - Test Data: 
+2020-06-16 20:23:08 INFO  restAPI:46 - user id:701
+2020-06-16 20:23:08 INFO  restAPI:47 - page:
+2020-06-16 20:23:41 INFO  restAPI:59 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+2020-06-16 20:23:41 INFO  restAPI:95 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+2020-06-16 20:33:31 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:33:31 INFO  restAPI:65 - Case:Empty string page
+2020-06-16 20:34:01 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 20:34:01 INFO  restAPI:45 - Test Data: 
+2020-06-16 20:34:01 INFO  restAPI:46 - user id:702
+2020-06-16 20:34:01 INFO  restAPI:47 - page:
+2020-06-16 20:34:07 INFO  restAPI:59 - invalid request format
+2020-06-16 20:34:17 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:34:17 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:34:17 INFO  restAPI:65 - Case:Empty string user id
+2020-06-16 20:34:17 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 20:34:17 INFO  restAPI:45 - Test Data: 
+2020-06-16 20:34:17 INFO  restAPI:46 - user id:
+2020-06-16 20:34:17 INFO  restAPI:47 - page:1
+2020-06-16 20:34:20 INFO  restAPI:59 - invalid request format
+2020-06-16 20:34:20 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:34:20 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:34:20 INFO  restAPI:65 - Case:Undefined user id
+2020-06-16 20:34:20 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 20:34:20 INFO  restAPI:45 - Test Data: 
+2020-06-16 20:34:20 INFO  restAPI:46 - user id:9999
+2020-06-16 20:34:20 INFO  restAPI:47 - page:1
+2020-06-16 20:34:27 INFO  restAPI:59 - user not found
+2020-06-16 20:34:33 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:34:33 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:34:33 INFO  restAPI:65 - Case:Valid user id and page
+2020-06-16 20:34:57 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 20:34:57 INFO  restAPI:45 - Test Data: 
+2020-06-16 20:34:57 INFO  restAPI:46 - user id:703
+2020-06-16 20:34:57 INFO  restAPI:47 - page:1
+2020-06-16 20:35:05 INFO  restAPI:59 - [{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]
+2020-06-16 20:35:20 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:35:20 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:35:20 INFO  restAPI:65 - Case:Valid user id and page
+2020-06-16 20:35:44 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 20:35:44 INFO  restAPI:45 - Test Data: 
+2020-06-16 20:35:44 INFO  restAPI:46 - user id:704
+2020-06-16 20:35:44 INFO  restAPI:47 - page:2
+2020-06-16 20:35:51 INFO  restAPI:59 - [{"id":11,"name":"Diskon 25% (max Rp 25.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1500508800000},{"id":12,"name":"Diskon 30% (max Rp 30.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1532044800000},{"id":13,"name":"Diskon 35% (max Rp 35.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1563580800000},{"id":14,"name":"Diskon 40% (max Rp 50.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1595203200000},{"id":15,"name":"Diskon 45% (max Rp 75.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1626739200000},{"id":16,"name":"Diskon 50% (max Rp 100.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1658275200000}]
+2020-06-16 20:36:06 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:36:06 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 20:36:06 INFO  restAPI:65 - Case:Undefined page
+2020-06-16 20:36:32 INFO  restAPI:44 - Call Get Promotion Voucher API [Promotion Domain]
+2020-06-16 20:36:32 INFO  restAPI:45 - Test Data: 
+2020-06-16 20:36:32 INFO  restAPI:46 - user id:705
+2020-06-16 20:36:32 INFO  restAPI:47 - page:9999
+2020-06-16 20:36:39 INFO  restAPI:59 - []
+2020-06-16 20:36:53 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherPromotion *****
+2020-06-16 21:39:34 INFO  restAPI:66 - ***** Started TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:39:34 INFO  restAPI:67 - Case:Valid user id and page (below 10 history)
+2020-06-16 21:39:58 INFO  restAPI:47 - Call Get Get History in Progress API [Order Domain]
+2020-06-16 21:39:58 INFO  restAPI:48 - Test Data: 
+2020-06-16 21:39:58 INFO  restAPI:49 - user id:706
+2020-06-16 21:40:02 INFO  restAPI:61 - {"timestamp":"2020-06-16T14:40:01.786+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 21:40:02 INFO  restAPI:116 - {"timestamp":"2020-06-16T14:40:01.786+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 21:40:15 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:40:15 INFO  restAPI:66 - ***** Started TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:40:15 INFO  restAPI:67 - Case:Empty string user id
+2020-06-16 21:40:15 INFO  restAPI:47 - Call Get Get History in Progress API [Order Domain]
+2020-06-16 21:40:15 INFO  restAPI:48 - Test Data: 
+2020-06-16 21:40:15 INFO  restAPI:49 - user id:
+2020-06-16 21:42:38 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:42:38 INFO  restAPI:68 - Case:Valid user id and page (below 10 history)
+2020-06-16 21:43:02 INFO  restAPI:47 - Call Get Get History in Progress API [Order Domain]
+2020-06-16 21:43:02 INFO  restAPI:48 - Test Data: 
+2020-06-16 21:43:02 INFO  restAPI:49 - user id:707
+2020-06-16 21:43:02 INFO  restAPI:50 - page:1
+2020-06-16 21:43:09 INFO  restAPI:62 - []
+2020-06-16 21:43:28 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:43:28 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:43:28 INFO  restAPI:68 - Case:Empty string user id
+2020-06-16 21:43:28 INFO  restAPI:47 - Call Get Get History in Progress API [Order Domain]
+2020-06-16 21:43:28 INFO  restAPI:48 - Test Data: 
+2020-06-16 21:43:28 INFO  restAPI:49 - user id:
+2020-06-16 21:43:28 INFO  restAPI:50 - page:1
+2020-06-16 21:43:30 INFO  restAPI:62 - invalid request format
+2020-06-16 21:43:30 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:43:30 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:43:30 INFO  restAPI:68 - Case:Valid user id and page (more than 10 history)
+2020-06-16 21:43:54 INFO  restAPI:47 - Call Get Get History in Progress API [Order Domain]
+2020-06-16 21:43:54 INFO  restAPI:48 - Test Data: 
+2020-06-16 21:43:54 INFO  restAPI:49 - user id:708
+2020-06-16 21:43:54 INFO  restAPI:50 - page:2
+2020-06-16 21:43:59 INFO  restAPI:62 - []
+2020-06-16 21:44:18 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:44:18 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:44:18 INFO  restAPI:68 - Case:Undefined page
+2020-06-16 21:44:41 INFO  restAPI:47 - Call Get Get History in Progress API [Order Domain]
+2020-06-16 21:44:41 INFO  restAPI:48 - Test Data: 
+2020-06-16 21:44:41 INFO  restAPI:49 - user id:709
+2020-06-16 21:44:41 INFO  restAPI:50 - page:9999
+2020-06-16 21:44:45 INFO  restAPI:62 - []
+2020-06-16 21:45:05 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:45:05 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:45:05 INFO  restAPI:68 - Case:Valid user id and page (no history)
+2020-06-16 21:45:32 INFO  restAPI:47 - Call Get Get History in Progress API [Order Domain]
+2020-06-16 21:45:32 INFO  restAPI:48 - Test Data: 
+2020-06-16 21:45:32 INFO  restAPI:49 - user id:710
+2020-06-16 21:45:32 INFO  restAPI:50 - page:1
+2020-06-16 21:45:36 INFO  restAPI:62 - []
+2020-06-16 21:45:57 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:45:57 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:45:57 INFO  restAPI:68 - Case:Empty string page
+2020-06-16 21:46:21 INFO  restAPI:47 - Call Get Get History in Progress API [Order Domain]
+2020-06-16 21:46:21 INFO  restAPI:48 - Test Data: 
+2020-06-16 21:46:21 INFO  restAPI:49 - user id:711
+2020-06-16 21:46:21 INFO  restAPI:50 - page:
+2020-06-16 21:46:23 INFO  restAPI:62 - invalid request format
+2020-06-16 21:46:39 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:46:39 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:46:39 INFO  restAPI:68 - Case:Undefined user id
+2020-06-16 21:46:39 INFO  restAPI:47 - Call Get Get History in Progress API [Order Domain]
+2020-06-16 21:46:39 INFO  restAPI:48 - Test Data: 
+2020-06-16 21:46:39 INFO  restAPI:49 - user id:9999
+2020-06-16 21:46:39 INFO  restAPI:50 - page:1
+2020-06-16 21:46:43 INFO  restAPI:62 - unknown user
+2020-06-16 21:46:47 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:46:47 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 21:46:47 INFO  restAPI:68 - Case:Valid user id and page (more than 10 history)
+2020-06-16 21:47:12 INFO  restAPI:47 - Call Get Get History in Progress API [Order Domain]
+2020-06-16 21:47:12 INFO  restAPI:48 - Test Data: 
+2020-06-16 21:47:12 INFO  restAPI:49 - user id:712
+2020-06-16 21:47:12 INFO  restAPI:50 - page:1
+2020-06-16 21:47:17 INFO  restAPI:62 - []
+2020-06-16 21:47:38 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetHistoryInProgress *****
+2020-06-16 22:00:16 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryCompleted *****
+2020-06-16 22:00:16 INFO  restAPI:68 - Case:Valid user id and page (below 10 history)
+2020-06-16 22:01:36 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryCompleted *****
+2020-06-16 22:01:36 INFO  restAPI:68 - Case:Empty string user id
+2020-06-16 22:01:36 INFO  restAPI:47 - Call Get Get History Completed API [Order Domain]
+2020-06-16 22:01:36 INFO  restAPI:48 - Test Data: 
+2020-06-16 22:01:36 INFO  restAPI:49 - user id:
+2020-06-16 22:01:36 INFO  restAPI:50 - page:1
+2020-06-16 22:01:39 INFO  restAPI:62 - invalid request format
+2020-06-16 22:01:39 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetHistoryCompleted *****
+2020-06-16 22:01:39 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryCompleted *****
+2020-06-16 22:01:39 INFO  restAPI:68 - Case:Valid user id and page (below 10 history)
+2020-06-16 22:02:05 INFO  restAPI:47 - Call Get Get History Completed API [Order Domain]
+2020-06-16 22:02:05 INFO  restAPI:48 - Test Data: 
+2020-06-16 22:02:05 INFO  restAPI:49 - user id:713
+2020-06-16 22:02:05 INFO  restAPI:50 - page:1
+2020-06-16 22:02:11 INFO  restAPI:62 - []
+2020-06-16 22:02:29 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetHistoryCompleted *****
+2020-06-16 22:02:29 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryCompleted *****
+2020-06-16 22:02:29 INFO  restAPI:68 - Case:Undefined user id
+2020-06-16 22:02:29 INFO  restAPI:47 - Call Get Get History Completed API [Order Domain]
+2020-06-16 22:02:29 INFO  restAPI:48 - Test Data: 
+2020-06-16 22:02:29 INFO  restAPI:49 - user id:9999
+2020-06-16 22:02:29 INFO  restAPI:50 - page:1
+2020-06-16 22:02:33 INFO  restAPI:62 - unknown user
+2020-06-16 22:02:37 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetHistoryCompleted *****
+2020-06-16 22:02:37 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryCompleted *****
+2020-06-16 22:02:37 INFO  restAPI:68 - Case:Empty string page
+2020-06-16 22:03:01 INFO  restAPI:47 - Call Get Get History Completed API [Order Domain]
+2020-06-16 22:03:01 INFO  restAPI:48 - Test Data: 
+2020-06-16 22:03:01 INFO  restAPI:49 - user id:714
+2020-06-16 22:03:01 INFO  restAPI:50 - page:
+2020-06-16 22:03:03 INFO  restAPI:62 - invalid request format
+2020-06-16 22:03:16 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetHistoryCompleted *****
+2020-06-16 22:03:16 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryCompleted *****
+2020-06-16 22:03:16 INFO  restAPI:68 - Case:Undefined page
+2020-06-16 22:03:39 INFO  restAPI:47 - Call Get Get History Completed API [Order Domain]
+2020-06-16 22:03:39 INFO  restAPI:48 - Test Data: 
+2020-06-16 22:03:39 INFO  restAPI:49 - user id:715
+2020-06-16 22:03:39 INFO  restAPI:50 - page:9999
+2020-06-16 22:03:44 INFO  restAPI:62 - []
+2020-06-16 22:04:03 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetHistoryCompleted *****
+2020-06-16 22:04:04 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryCompleted *****
+2020-06-16 22:04:04 INFO  restAPI:68 - Case:Valid user id and page (more than 10 history)
+2020-06-16 22:04:27 INFO  restAPI:47 - Call Get Get History Completed API [Order Domain]
+2020-06-16 22:04:27 INFO  restAPI:48 - Test Data: 
+2020-06-16 22:04:27 INFO  restAPI:49 - user id:716
+2020-06-16 22:04:27 INFO  restAPI:50 - page:1
+2020-06-16 22:04:40 INFO  restAPI:62 - member service unreachable when try to check user exist
+2020-06-16 22:04:55 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetHistoryCompleted *****
+2020-06-16 22:04:55 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryCompleted *****
+2020-06-16 22:04:55 INFO  restAPI:68 - Case:Valid user id and page (more than 10 history)
+2020-06-16 22:05:19 INFO  restAPI:47 - Call Get Get History Completed API [Order Domain]
+2020-06-16 22:05:19 INFO  restAPI:48 - Test Data: 
+2020-06-16 22:05:19 INFO  restAPI:49 - user id:717
+2020-06-16 22:05:19 INFO  restAPI:50 - page:2
+2020-06-16 22:05:22 INFO  restAPI:62 - {"timestamp":"2020-06-16T15:05:21.559+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 22:05:22 INFO  restAPI:117 - {"timestamp":"2020-06-16T15:05:21.559+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 22:05:35 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetHistoryCompleted *****
+2020-06-16 22:05:35 INFO  restAPI:67 - ***** Started TC_Remote_Service_GetHistoryCompleted *****
+2020-06-16 22:05:35 INFO  restAPI:68 - Case:Valid user id and page (no history)
+2020-06-16 22:06:02 INFO  restAPI:47 - Call Get Get History Completed API [Order Domain]
+2020-06-16 22:06:02 INFO  restAPI:48 - Test Data: 
+2020-06-16 22:06:02 INFO  restAPI:49 - user id:718
+2020-06-16 22:06:02 INFO  restAPI:50 - page:1
+2020-06-16 22:06:04 INFO  restAPI:62 - {"timestamp":"2020-06-16T15:06:04.493+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 22:06:04 INFO  restAPI:117 - {"timestamp":"2020-06-16T15:06:04.493+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 22:34:21 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:34:21 INFO  restAPI:41 - Case:null
+2020-06-16 22:35:33 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:35:33 INFO  restAPI:41 - Case:Empty string user id
+2020-06-16 22:35:33 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:35:33 INFO  restAPI:494 - Test Data: 
+2020-06-16 22:35:33 INFO  restAPI:495 - session id:
+2020-06-16 22:35:33 INFO  restAPI:496 - page:1
+2020-06-16 22:35:36 INFO  restAPI:503 - {"timestamp":"2020-06-16T15:35:35.867+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/promotion/1"}
+2020-06-16 22:35:36 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 22:35:36 INFO  restAPI:94 - Status Code = 401
+2020-06-16 22:35:36 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 22:35:36 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:35:36 INFO  restAPI:41 - Case:Valid user id and page
+2020-06-16 22:36:03 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:36:03 INFO  restAPI:222 - Test Data: 
+2020-06-16 22:36:03 INFO  restAPI:223 - id:719
+2020-06-16 22:36:03 INFO  restAPI:224 - pin:123456
+2020-06-16 22:43:11 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:43:11 INFO  restAPI:41 - Case:Empty string session id
+2020-06-16 22:43:11 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:43:11 INFO  restAPI:494 - Test Data: 
+2020-06-16 22:43:11 INFO  restAPI:495 - session id:
+2020-06-16 22:43:11 INFO  restAPI:496 - page:1
+2020-06-16 22:43:14 INFO  restAPI:503 - {"timestamp":"2020-06-16T15:43:13.691+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/promotion/1"}
+2020-06-16 22:43:14 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 22:43:14 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:43:14 INFO  restAPI:41 - Case:Valid session id and page
+2020-06-16 22:43:38 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:43:38 INFO  restAPI:222 - Test Data: 
+2020-06-16 22:43:38 INFO  restAPI:223 - id:720
+2020-06-16 22:43:38 INFO  restAPI:224 - pin:123456
+2020-06-16 22:43:41 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 22:43:41 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 22:43:41 INFO  restAPI:94 - Status Code = 200
+2020-06-16 22:43:47 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:43:47 INFO  restAPI:494 - Test Data: 
+2020-06-16 22:43:47 INFO  restAPI:495 - session id:06AC490E54EF771B94FECADD0601E4FF
+2020-06-16 22:43:47 INFO  restAPI:496 - page:1
+2020-06-16 22:43:48 INFO  restAPI:503 - {"timestamp":"2020-06-16T15:43:47.939+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/promotion/1"}
+2020-06-16 22:44:00 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 22:44:00 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:44:00 INFO  restAPI:41 - Case:Empty string page
+2020-06-16 22:44:21 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:44:21 INFO  restAPI:222 - Test Data: 
+2020-06-16 22:44:21 INFO  restAPI:223 - id:721
+2020-06-16 22:44:21 INFO  restAPI:224 - pin:123456
+2020-06-16 22:44:23 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 22:44:23 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 22:44:23 INFO  restAPI:94 - Status Code = 200
+2020-06-16 22:44:29 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:44:29 INFO  restAPI:494 - Test Data: 
+2020-06-16 22:44:29 INFO  restAPI:495 - session id:7F879A784D57C24CC301BE693091D75E
+2020-06-16 22:44:29 INFO  restAPI:496 - page:
+2020-06-16 22:44:30 INFO  restAPI:503 - {"timestamp":"2020-06-16T15:44:29.945+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/promotion/"}
+2020-06-16 22:44:41 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 22:44:41 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:44:41 INFO  restAPI:41 - Case:Undefined page
+2020-06-16 22:45:01 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:45:01 INFO  restAPI:222 - Test Data: 
+2020-06-16 22:45:01 INFO  restAPI:223 - id:722
+2020-06-16 22:45:01 INFO  restAPI:224 - pin:123456
+2020-06-16 22:45:03 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 22:45:03 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 22:45:03 INFO  restAPI:94 - Status Code = 200
+2020-06-16 22:45:08 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:45:08 INFO  restAPI:494 - Test Data: 
+2020-06-16 22:45:08 INFO  restAPI:495 - session id:54271D1BC665F1B70F3525C9EF925AB5
+2020-06-16 22:45:08 INFO  restAPI:496 - page:9999
+2020-06-16 22:45:09 INFO  restAPI:503 - {"timestamp":"2020-06-16T15:45:09.229+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/promotion/9999"}
+2020-06-16 22:45:18 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 22:45:18 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:45:18 INFO  restAPI:41 - Case:Valid session id and page
+2020-06-16 22:45:38 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:45:38 INFO  restAPI:222 - Test Data: 
+2020-06-16 22:45:38 INFO  restAPI:223 - id:723
+2020-06-16 22:45:38 INFO  restAPI:224 - pin:123456
+2020-06-16 22:45:40 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 22:45:40 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 22:45:40 INFO  restAPI:94 - Status Code = 200
+2020-06-16 22:45:45 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:45:45 INFO  restAPI:494 - Test Data: 
+2020-06-16 22:45:45 INFO  restAPI:495 - session id:63E191F74D747C9EAB28073AEE950526
+2020-06-16 22:45:45 INFO  restAPI:496 - page:2
+2020-06-16 22:45:46 INFO  restAPI:503 - {"timestamp":"2020-06-16T15:45:45.587+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/promotion/2"}
+2020-06-16 22:45:56 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 22:45:56 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:45:56 INFO  restAPI:41 - Case:Undefined session id
+2020-06-16 22:45:56 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:45:56 INFO  restAPI:494 - Test Data: 
+2020-06-16 22:45:56 INFO  restAPI:495 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-16 22:45:56 INFO  restAPI:496 - page:1
+2020-06-16 22:45:56 INFO  restAPI:503 - {"timestamp":"2020-06-16T15:45:56.704+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/promotion/1"}
+2020-06-16 22:45:56 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 22:48:41 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:48:41 INFO  restAPI:41 - Case:Empty string session id
+2020-06-16 22:48:41 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:48:41 INFO  restAPI:494 - Test Data: 
+2020-06-16 22:48:41 INFO  restAPI:495 - session id:
+2020-06-16 22:48:41 INFO  restAPI:496 - page:1
+2020-06-16 22:48:43 INFO  restAPI:503 - {"timestamp":"2020-06-16T15:48:43.343+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/promotion/1"}
+2020-06-16 22:48:43 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 22:48:43 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:48:43 INFO  restAPI:41 - Case:Valid session id and page
+2020-06-16 22:49:04 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:49:04 INFO  restAPI:222 - Test Data: 
+2020-06-16 22:49:04 INFO  restAPI:223 - id:724
+2020-06-16 22:49:04 INFO  restAPI:224 - pin:123456
+2020-06-16 22:49:06 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 22:49:06 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 22:49:06 INFO  restAPI:94 - Status Code = 200
+2020-06-16 22:49:11 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:49:11 INFO  restAPI:494 - Test Data: 
+2020-06-16 22:49:11 INFO  restAPI:495 - session id:E23C485D0B772DC982CEB7A47A215CC4
+2020-06-16 22:49:11 INFO  restAPI:496 - page:1
+2020-06-16 22:49:16 INFO  restAPI:503 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]}
+2020-06-16 22:49:26 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 22:49:26 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:49:26 INFO  restAPI:41 - Case:Empty string page
+2020-06-16 22:49:46 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:49:46 INFO  restAPI:222 - Test Data: 
+2020-06-16 22:49:46 INFO  restAPI:223 - id:725
+2020-06-16 22:49:46 INFO  restAPI:224 - pin:123456
+2020-06-16 22:49:48 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 22:49:48 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 22:49:48 INFO  restAPI:94 - Status Code = 200
+2020-06-16 22:49:52 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:49:52 INFO  restAPI:494 - Test Data: 
+2020-06-16 22:49:52 INFO  restAPI:495 - session id:747505801A6816592FCB7598A3DAC72B
+2020-06-16 22:49:52 INFO  restAPI:496 - page:
+2020-06-16 22:49:53 INFO  restAPI:503 - {"timestamp":"2020-06-16T15:49:53.430+00:00","status":404,"error":"Not Found","message":"","path":"/api/vouchers/promotion/"}
+2020-06-16 22:50:02 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 22:50:02 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:50:02 INFO  restAPI:41 - Case:Undefined page
+2020-06-16 22:50:21 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:50:21 INFO  restAPI:222 - Test Data: 
+2020-06-16 22:50:21 INFO  restAPI:223 - id:726
+2020-06-16 22:50:21 INFO  restAPI:224 - pin:123456
+2020-06-16 22:50:24 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 22:50:24 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 22:50:24 INFO  restAPI:94 - Status Code = 200
+2020-06-16 22:50:29 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:50:29 INFO  restAPI:494 - Test Data: 
+2020-06-16 22:50:29 INFO  restAPI:495 - session id:EC6A3B903D47599BEF4213CC26016957
+2020-06-16 22:50:29 INFO  restAPI:496 - page:9999
+2020-06-16 22:50:33 INFO  restAPI:503 - {"code":200,"message":"success","data":[]}
+2020-06-16 22:50:47 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 22:50:47 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:50:47 INFO  restAPI:41 - Case:Valid session id and page
+2020-06-16 22:51:06 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:51:06 INFO  restAPI:222 - Test Data: 
+2020-06-16 22:51:06 INFO  restAPI:223 - id:727
+2020-06-16 22:51:06 INFO  restAPI:224 - pin:123456
+2020-06-16 22:51:08 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 22:51:08 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 22:51:08 INFO  restAPI:94 - Status Code = 200
+2020-06-16 22:51:12 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:51:12 INFO  restAPI:494 - Test Data: 
+2020-06-16 22:51:12 INFO  restAPI:495 - session id:2D6D638B78F6B3BC9C10F1425CE5A4CF
+2020-06-16 22:51:12 INFO  restAPI:496 - page:2
+2020-06-16 22:51:17 INFO  restAPI:503 - {"code":200,"message":"success","data":[{"id":11,"name":"Diskon 25% (max Rp 25.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1500508800000},{"id":12,"name":"Diskon 30% (max Rp 30.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1532044800000},{"id":13,"name":"Diskon 35% (max Rp 35.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1563580800000},{"id":14,"name":"Diskon 40% (max Rp 50.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1595203200000},{"id":15,"name":"Diskon 45% (max Rp 75.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1626739200000},{"id":16,"name":"Diskon 50% (max Rp 100.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1658275200000}]}
+2020-06-16 22:51:25 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 22:51:25 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:51:25 INFO  restAPI:41 - Case:Undefined session id
+2020-06-16 22:51:25 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:51:25 INFO  restAPI:494 - Test Data: 
+2020-06-16 22:51:25 INFO  restAPI:495 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-16 22:51:25 INFO  restAPI:496 - page:1
+2020-06-16 22:51:26 INFO  restAPI:503 - {"timestamp":"2020-06-16T15:51:26.253+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/promotion/1"}
+2020-06-16 22:51:26 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 22:57:40 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:57:40 INFO  restAPI:41 - Case:Empty string session id
+2020-06-16 22:57:40 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 22:57:40 INFO  restAPI:494 - Test Data: 
+2020-06-16 22:57:40 INFO  restAPI:495 - session id:
+2020-06-16 22:57:40 INFO  restAPI:496 - page:1
+2020-06-16 23:00:43 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:00:43 INFO  restAPI:41 - Case:Empty string session id
+2020-06-16 23:00:43 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:00:43 INFO  restAPI:494 - Test Data: 
+2020-06-16 23:00:43 INFO  restAPI:495 - session id:
+2020-06-16 23:00:43 INFO  restAPI:496 - page:1
+2020-06-16 23:00:45 INFO  restAPI:503 - {"timestamp":"2020-06-16T16:00:45.138+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/promotion/1"}
+2020-06-16 23:00:45 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 23:00:45 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:00:45 INFO  restAPI:41 - Case:Valid session id and page
+2020-06-16 23:01:05 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:01:05 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:01:05 INFO  restAPI:223 - id:728
+2020-06-16 23:01:05 INFO  restAPI:224 - pin:123456
+2020-06-16 23:01:08 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:01:08 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:01:08 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:01:12 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:01:12 INFO  restAPI:494 - Test Data: 
+2020-06-16 23:01:12 INFO  restAPI:495 - session id:98BA2D0EACBD4C40F5A58753641AD9AB
+2020-06-16 23:01:12 INFO  restAPI:496 - page:1
+2020-06-16 23:01:17 INFO  restAPI:503 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]}
+2020-06-16 23:01:27 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 23:01:27 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:01:27 INFO  restAPI:41 - Case:Empty string page
+2020-06-16 23:01:47 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:01:47 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:01:47 INFO  restAPI:223 - id:729
+2020-06-16 23:01:47 INFO  restAPI:224 - pin:123456
+2020-06-16 23:01:49 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:01:49 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:01:49 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:01:54 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:01:54 INFO  restAPI:494 - Test Data: 
+2020-06-16 23:01:54 INFO  restAPI:495 - session id:D89D106F272A48C27277181862B57FC9
+2020-06-16 23:01:54 INFO  restAPI:496 - page:
+2020-06-16 23:01:55 INFO  restAPI:503 - {"timestamp":"2020-06-16T16:01:55.208+00:00","status":404,"error":"Not Found","message":"","path":"/api/vouchers/promotion/"}
+2020-06-16 23:02:05 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 23:02:05 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:02:05 INFO  restAPI:41 - Case:Undefined page
+2020-06-16 23:02:26 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:02:26 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:02:26 INFO  restAPI:223 - id:730
+2020-06-16 23:02:26 INFO  restAPI:224 - pin:123456
+2020-06-16 23:02:28 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:02:28 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:02:28 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:02:34 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:02:34 INFO  restAPI:494 - Test Data: 
+2020-06-16 23:02:34 INFO  restAPI:495 - session id:219740B9359581938C66BE0587FB0E88
+2020-06-16 23:02:34 INFO  restAPI:496 - page:9999
+2020-06-16 23:02:38 INFO  restAPI:503 - {"code":200,"message":"success","data":[]}
+2020-06-16 23:02:54 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 23:02:54 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:02:54 INFO  restAPI:41 - Case:Valid session id and page
+2020-06-16 23:03:15 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:03:15 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:03:15 INFO  restAPI:223 - id:731
+2020-06-16 23:03:15 INFO  restAPI:224 - pin:123456
+2020-06-16 23:03:17 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:03:17 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:03:17 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:03:22 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:03:22 INFO  restAPI:494 - Test Data: 
+2020-06-16 23:03:22 INFO  restAPI:495 - session id:1DCE99B0DEE43EF1A8F4967B18877187
+2020-06-16 23:03:22 INFO  restAPI:496 - page:2
+2020-06-16 23:03:26 INFO  restAPI:503 - {"code":200,"message":"success","data":[{"id":11,"name":"Diskon 25% (max Rp 25.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1500508800000},{"id":12,"name":"Diskon 30% (max Rp 30.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1532044800000},{"id":13,"name":"Diskon 35% (max Rp 35.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1563580800000},{"id":14,"name":"Diskon 40% (max Rp 50.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1595203200000},{"id":15,"name":"Diskon 45% (max Rp 75.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1626739200000},{"id":16,"name":"Diskon 50% (max Rp 100.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1658275200000}]}
+2020-06-16 23:03:35 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 23:03:35 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:03:35 INFO  restAPI:41 - Case:Undefined session id
+2020-06-16 23:03:35 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:03:35 INFO  restAPI:494 - Test Data: 
+2020-06-16 23:03:35 INFO  restAPI:495 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-16 23:03:35 INFO  restAPI:496 - page:1
+2020-06-16 23:03:36 INFO  restAPI:503 - {"timestamp":"2020-06-16T16:03:36.383+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/promotion/1"}
+2020-06-16 23:03:36 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 23:03:55 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:03:55 INFO  restAPI:41 - Case:Empty string session id
+2020-06-16 23:03:55 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:03:55 INFO  restAPI:494 - Test Data: 
+2020-06-16 23:03:55 INFO  restAPI:495 - session id:
+2020-06-16 23:03:55 INFO  restAPI:496 - page:1
+2020-06-16 23:03:57 INFO  restAPI:503 - {"timestamp":"2020-06-16T16:03:57.075+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/promotion/1"}
+2020-06-16 23:03:57 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 23:03:57 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:03:57 INFO  restAPI:41 - Case:Valid session id and page
+2020-06-16 23:04:17 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:04:17 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:04:17 INFO  restAPI:223 - id:732
+2020-06-16 23:04:17 INFO  restAPI:224 - pin:123456
+2020-06-16 23:04:19 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:04:19 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:04:19 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:04:24 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:04:24 INFO  restAPI:494 - Test Data: 
+2020-06-16 23:04:24 INFO  restAPI:495 - session id:928E7557165AE87D1B550C396D5F1428
+2020-06-16 23:04:24 INFO  restAPI:496 - page:1
+2020-06-16 23:04:29 INFO  restAPI:503 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]}
+2020-06-16 23:04:44 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 23:04:44 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:04:44 INFO  restAPI:41 - Case:Empty string page
+2020-06-16 23:05:04 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:05:04 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:05:04 INFO  restAPI:223 - id:733
+2020-06-16 23:05:04 INFO  restAPI:224 - pin:123456
+2020-06-16 23:05:07 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:05:07 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:05:07 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:05:12 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:05:12 INFO  restAPI:494 - Test Data: 
+2020-06-16 23:05:12 INFO  restAPI:495 - session id:EC9491DD6F55392D71820D2BCC643027
+2020-06-16 23:05:12 INFO  restAPI:496 - page:
+2020-06-16 23:05:13 INFO  restAPI:503 - {"timestamp":"2020-06-16T16:05:13.269+00:00","status":404,"error":"Not Found","message":"","path":"/api/vouchers/promotion/"}
+2020-06-16 23:05:23 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 23:05:23 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:05:23 INFO  restAPI:41 - Case:Undefined page
+2020-06-16 23:05:44 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:05:44 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:05:44 INFO  restAPI:223 - id:734
+2020-06-16 23:05:44 INFO  restAPI:224 - pin:123456
+2020-06-16 23:05:47 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:05:47 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:05:47 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:05:52 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:05:52 INFO  restAPI:494 - Test Data: 
+2020-06-16 23:05:52 INFO  restAPI:495 - session id:64ABCFBC23767396C814467376280F56
+2020-06-16 23:05:52 INFO  restAPI:496 - page:9999
+2020-06-16 23:05:56 INFO  restAPI:503 - {"code":200,"message":"success","data":[]}
+2020-06-16 23:06:10 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 23:06:10 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:06:10 INFO  restAPI:41 - Case:Valid session id and page
+2020-06-16 23:06:30 INFO  restAPI:221 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:06:30 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:06:30 INFO  restAPI:223 - id:735
+2020-06-16 23:06:30 INFO  restAPI:224 - pin:123456
+2020-06-16 23:06:32 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:06:32 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:06:32 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:06:36 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:06:36 INFO  restAPI:494 - Test Data: 
+2020-06-16 23:06:36 INFO  restAPI:495 - session id:538C9B1DBE3FDAECCF1FD304ACD50E18
+2020-06-16 23:06:36 INFO  restAPI:496 - page:2
+2020-06-16 23:06:40 INFO  restAPI:503 - {"code":200,"message":"success","data":[{"id":11,"name":"Diskon 25% (max Rp 25.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1500508800000},{"id":12,"name":"Diskon 30% (max Rp 30.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1532044800000},{"id":13,"name":"Diskon 35% (max Rp 35.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1563580800000},{"id":14,"name":"Diskon 40% (max Rp 50.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1595203200000},{"id":15,"name":"Diskon 45% (max Rp 75.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1626739200000},{"id":16,"name":"Diskon 50% (max Rp 100.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1658275200000}]}
+2020-06-16 23:06:55 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 23:06:55 INFO  restAPI:40 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:06:55 INFO  restAPI:41 - Case:Undefined session id
+2020-06-16 23:06:55 INFO  restAPI:493 - ***** Started TC_Promotion_Vouchers *****
+2020-06-16 23:06:55 INFO  restAPI:494 - Test Data: 
+2020-06-16 23:06:55 INFO  restAPI:495 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-16 23:06:55 INFO  restAPI:496 - page:1
+2020-06-16 23:06:56 INFO  restAPI:503 - {"timestamp":"2020-06-16T16:06:56.196+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/vouchers/promotion/1"}
+2020-06-16 23:06:56 INFO  restAPI:176 - ***** Finished TC_Promotion_Vouchers *****
+2020-06-16 23:28:00 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:28:00 INFO  restAPI:41 - Case:Empty string page
+2020-06-16 23:28:19 INFO  restAPI:221 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:28:19 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:28:19 INFO  restAPI:223 - id:736
+2020-06-16 23:28:19 INFO  restAPI:224 - pin:123456
+2020-06-16 23:28:24 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:28:24 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:28:24 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:28:28 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:28:28 INFO  restAPI:480 - Test Data: 
+2020-06-16 23:28:28 INFO  restAPI:481 - session id:387172BDFA3AB71E1E1381EAE160F617
+2020-06-16 23:28:28 INFO  restAPI:482 - page:
+2020-06-16 23:28:29 INFO  restAPI:489 - {"timestamp":"2020-06-16T16:28:28.976+00:00","status":404,"error":"Not Found","message":"","path":"/api/my-vouchers/"}
+2020-06-16 23:28:45 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-16 23:28:45 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:28:45 INFO  restAPI:41 - Case:Valid user id and page (more than 10 vouchers)
+2020-06-16 23:29:04 INFO  restAPI:221 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:29:04 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:29:04 INFO  restAPI:223 - id:737
+2020-06-16 23:29:04 INFO  restAPI:224 - pin:123456
+2020-06-16 23:29:06 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:29:06 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:29:06 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:30:10 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:30:10 INFO  restAPI:480 - Test Data: 
+2020-06-16 23:30:10 INFO  restAPI:481 - session id:8B744FA2C23F18DBB01F8C14B6DF53C5
+2020-06-16 23:30:10 INFO  restAPI:482 - page:1
+2020-06-16 23:30:16 INFO  restAPI:489 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":2000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":2500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":3000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":3500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","discount":5,"maxDeduction":5000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","discount":10,"maxDeduction":10000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","discount":15,"maxDeduction":15000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","discount":20,"maxDeduction":20000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]}
+2020-06-16 23:30:36 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-16 23:30:36 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:30:36 INFO  restAPI:41 - Case:Valid user id and page (more than 10 vouchers)
+2020-06-16 23:30:58 INFO  restAPI:221 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:30:58 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:30:58 INFO  restAPI:223 - id:738
+2020-06-16 23:30:58 INFO  restAPI:224 - pin:123456
+2020-06-16 23:31:00 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:31:00 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:31:00 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:31:59 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:31:59 INFO  restAPI:480 - Test Data: 
+2020-06-16 23:31:59 INFO  restAPI:481 - session id:DDECB9C0CFE9DEFDA340B663442A3852
+2020-06-16 23:31:59 INFO  restAPI:482 - page:2
+2020-06-16 23:32:03 INFO  restAPI:489 - {"code":200,"message":"success","data":[{"id":11,"name":"Diskon 25% (max Rp 25.000) buat beli pulsa","voucherTypeName":"discount","discount":25,"maxDeduction":25000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1500508800000}]}
+2020-06-16 23:32:23 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-16 23:32:23 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:32:23 INFO  restAPI:41 - Case:Undefined page
+2020-06-16 23:32:41 INFO  restAPI:221 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:32:41 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:32:41 INFO  restAPI:223 - id:739
+2020-06-16 23:32:41 INFO  restAPI:224 - pin:123456
+2020-06-16 23:32:43 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:32:43 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:32:43 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:32:47 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:32:47 INFO  restAPI:480 - Test Data: 
+2020-06-16 23:32:47 INFO  restAPI:481 - session id:FAFAA0FB3FC6527C31596E664A6F1AE8
+2020-06-16 23:32:47 INFO  restAPI:482 - page:9999
+2020-06-16 23:32:52 INFO  restAPI:489 - {"code":404,"message":"you don’t have any vouchers"}
+2020-06-16 23:33:08 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-16 23:33:08 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:33:08 INFO  restAPI:41 - Case:Valid user id and page (no voucher)
+2020-06-16 23:33:28 INFO  restAPI:221 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:33:28 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:33:28 INFO  restAPI:223 - id:740
+2020-06-16 23:33:28 INFO  restAPI:224 - pin:123456
+2020-06-16 23:33:30 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:33:30 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:33:30 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:33:35 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:33:35 INFO  restAPI:480 - Test Data: 
+2020-06-16 23:33:35 INFO  restAPI:481 - session id:509AD0A869CD61A1A70A17C00AA43C20
+2020-06-16 23:33:35 INFO  restAPI:482 - page:1
+2020-06-16 23:33:39 INFO  restAPI:489 - {"code":404,"message":"you don’t have any vouchers"}
+2020-06-16 23:33:53 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-16 23:33:53 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:33:53 INFO  restAPI:41 - Case:Valid user id and page (below 10 vouchers)
+2020-06-16 23:34:13 INFO  restAPI:221 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:34:13 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:34:13 INFO  restAPI:223 - id:741
+2020-06-16 23:34:13 INFO  restAPI:224 - pin:123456
+2020-06-16 23:34:15 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:34:15 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:34:15 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:34:24 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:34:24 INFO  restAPI:480 - Test Data: 
+2020-06-16 23:34:24 INFO  restAPI:481 - session id:74A0736A336C60CDF25BFCA4AEC29EF7
+2020-06-16 23:34:24 INFO  restAPI:482 - page:1
+2020-06-16 23:34:29 INFO  restAPI:489 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000}]}
+2020-06-16 23:34:48 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-16 23:34:48 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:34:48 INFO  restAPI:41 - Case:Undefined user id
+2020-06-16 23:34:48 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:34:48 INFO  restAPI:480 - Test Data: 
+2020-06-16 23:34:48 INFO  restAPI:481 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-16 23:34:48 INFO  restAPI:482 - page:1
+2020-06-16 23:34:49 INFO  restAPI:489 - {"timestamp":"2020-06-16T16:34:49.393+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/my-vouchers/1"}
+2020-06-16 23:34:49 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-16 23:34:49 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:34:49 INFO  restAPI:41 - Case:Empty string user id
+2020-06-16 23:34:49 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:34:49 INFO  restAPI:480 - Test Data: 
+2020-06-16 23:34:49 INFO  restAPI:481 - session id:
+2020-06-16 23:34:49 INFO  restAPI:482 - page:1
+2020-06-16 23:34:50 INFO  restAPI:489 - {"timestamp":"2020-06-16T16:34:49.982+00:00","status":401,"error":"Unauthorized","message":"","path":"/api/my-vouchers/1"}
+2020-06-16 23:34:50 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-16 23:45:21 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:45:21 INFO  restAPI:41 - Case:Empty string page
+2020-06-16 23:45:41 INFO  restAPI:221 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:45:41 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:45:41 INFO  restAPI:223 - id:742
+2020-06-16 23:45:41 INFO  restAPI:224 - pin:123456
+2020-06-16 23:45:45 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:45:45 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:45:45 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:45:51 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:45:51 INFO  restAPI:480 - Test Data: 
+2020-06-16 23:45:51 INFO  restAPI:481 - session id:F5E6B7C69B04C6D45F1393543487F28A
+2020-06-16 23:45:51 INFO  restAPI:482 - page:
+2020-06-16 23:45:54 INFO  restAPI:489 - {"timestamp":"2020-06-16T16:45:53.979+00:00","status":404,"error":"Not Found","message":"","path":"/api/my-vouchers/"}
+2020-06-16 23:46:07 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-16 23:46:07 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:46:07 INFO  restAPI:41 - Case:Valid user id and page (more than 10 vouchers)
+2020-06-16 23:46:27 INFO  restAPI:221 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:46:27 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:46:27 INFO  restAPI:223 - id:743
+2020-06-16 23:46:27 INFO  restAPI:224 - pin:123456
+2020-06-16 23:46:29 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:46:29 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:46:29 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:47:31 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:47:31 INFO  restAPI:480 - Test Data: 
+2020-06-16 23:47:31 INFO  restAPI:481 - session id:8B6D731484CA0E7ECCD562DE90193180
+2020-06-16 23:47:31 INFO  restAPI:482 - page:1
+2020-06-16 23:47:36 INFO  restAPI:489 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":2000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":2500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":3000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":3500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","discount":5,"maxDeduction":5000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","discount":10,"maxDeduction":10000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","discount":15,"maxDeduction":15000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","discount":20,"maxDeduction":20000,"value":0,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]}
+2020-06-16 23:47:57 INFO  restAPI:176 - ***** Finished TC_My_Vouchers *****
+2020-06-16 23:47:57 INFO  restAPI:40 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:47:57 INFO  restAPI:41 - Case:Valid user id and page (more than 10 vouchers)
+2020-06-16 23:48:17 INFO  restAPI:221 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:48:17 INFO  restAPI:222 - Test Data: 
+2020-06-16 23:48:17 INFO  restAPI:223 - id:744
+2020-06-16 23:48:17 INFO  restAPI:224 - pin:123456
+2020-06-16 23:48:19 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-16 23:48:19 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-16 23:48:19 INFO  restAPI:94 - Status Code = 200
+2020-06-16 23:49:19 INFO  restAPI:479 - ***** Started TC_My_Vouchers *****
+2020-06-16 23:49:19 INFO  restAPI:480 - Test Data: 
+2020-06-16 23:49:19 INFO  restAPI:481 - session id:150E50D5B071D2333395584EBAA5B199
+2020-06-16 23:49:19 INFO  restAPI:482 - page:2
+2020-06-16 23:49:50 INFO  restAPI:489 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>

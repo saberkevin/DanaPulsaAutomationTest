@@ -1,133 +1,395 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="15" passed="15">
+<testng-results skipped="4" failed="2" ignored="0" total="24" passed="18">
   <reporter-output>
   </reporter-output>
-  <suite name="DANA Pulsa Suite" duration-ms="216254" started-at="2020-06-16T08:21:46Z" finished-at="2020-06-16T08:25:22Z">
+  <suite name="DANA Pulsa Suite" duration-ms="410065" started-at="2020-06-16T16:28:00Z" finished-at="2020-06-16T16:34:50Z">
     <groups>
     </groups>
-    <test name="DanaPulsaServiceTestOrder" duration-ms="216254" started-at="2020-06-16T08:21:46Z" finished-at="2020-06-16T08:25:22Z">
-      <class name="remoteService.order.TC_Remote_Service_GetRecentNumber">
-        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="setup" is-config="true" duration-ms="51" started-at="2020-06-16T08:21:46Z" finished-at="2020-06-16T08:21:46Z">
+    <test name="DanaPulsaServiceTestVouchers" duration-ms="410065" started-at="2020-06-16T16:28:00Z" finished-at="2020-06-16T16:34:50Z">
+      <class name="testCases.voucher.TC_My_Vouchers">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="setup" is-config="true" duration-ms="45" started-at="2020-06-16T16:28:00Z" finished-at="2020-06-16T16:28:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="beforeClass" is-config="true" duration-ms="4" started-at="2020-06-16T08:21:46Z" finished-at="2020-06-16T08:21:46Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="beforeClass" is-config="true" duration-ms="28237" started-at="2020-06-16T16:28:00Z" finished-at="2020-06-16T16:28:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testRecentNumber()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@2e222612]" name="testRecentNumber" duration-ms="5031" started-at="2020-06-16T08:21:46Z" finished-at="2020-06-16T08:21:51Z">
+        <test-method status="PASS" signature="testMyVouchers()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="testMyVouchers" duration-ms="1183" started-at="2020-06-16T16:28:28Z" finished-at="2020-06-16T16:28:29Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testRecentNumber -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@2e222612]" name="checkData" duration-ms="3" started-at="2020-06-16T08:21:51Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetRecentNumber.testRecentNumber" finished-at="2020-06-16T08:21:51Z">
+        </test-method> <!-- testMyVouchers -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="checkData" duration-ms="3" started-at="2020-06-16T16:28:29Z" depends-on-methods="testCases.voucher.TC_My_Vouchers.testMyVouchers" finished-at="2020-06-16T16:28:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@2e222612]" name="checkDB" duration-ms="1" started-at="2020-06-16T08:21:51Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetRecentNumber.checkData" finished-at="2020-06-16T08:21:51Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="checkDB" duration-ms="1" started-at="2020-06-16T16:28:29Z" depends-on-methods="testCases.voucher.TC_My_Vouchers.checkData" finished-at="2020-06-16T16:28:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="afterClass" is-config="true" duration-ms="2" started-at="2020-06-16T08:21:51Z" finished-at="2020-06-16T08:21:51Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="afterClass" is-config="true" duration-ms="16006" started-at="2020-06-16T16:28:29Z" finished-at="2020-06-16T16:28:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="setup" is-config="true" duration-ms="1" started-at="2020-06-16T08:21:51Z" finished-at="2020-06-16T08:21:51Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="setup" is-config="true" duration-ms="3" started-at="2020-06-16T16:28:45Z" finished-at="2020-06-16T16:28:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="beforeClass" is-config="true" duration-ms="80113" started-at="2020-06-16T08:21:51Z" finished-at="2020-06-16T08:23:11Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="beforeClass" is-config="true" duration-ms="85194" started-at="2020-06-16T16:28:45Z" finished-at="2020-06-16T16:30:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testRecentNumber()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@3246fb96]" name="testRecentNumber" duration-ms="4511" started-at="2020-06-16T08:23:11Z" finished-at="2020-06-16T08:23:16Z">
+        <test-method status="PASS" signature="testMyVouchers()[pri:0, instance:testCases.voucher.TC_My_Vouchers@247d8ae]" name="testMyVouchers" duration-ms="5348" started-at="2020-06-16T16:30:10Z" finished-at="2020-06-16T16:30:16Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testRecentNumber -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@3246fb96]" name="checkData" duration-ms="156" started-at="2020-06-16T08:23:16Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetRecentNumber.testRecentNumber" finished-at="2020-06-16T08:23:16Z">
+        </test-method> <!-- testMyVouchers -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.voucher.TC_My_Vouchers@247d8ae]" name="checkData" duration-ms="25" started-at="2020-06-16T16:30:16Z" depends-on-methods="testCases.voucher.TC_My_Vouchers.testMyVouchers" finished-at="2020-06-16T16:30:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@3246fb96]" name="checkDB" duration-ms="5203" started-at="2020-06-16T08:23:16Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetRecentNumber.checkData" finished-at="2020-06-16T08:23:21Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.voucher.TC_My_Vouchers@247d8ae]" name="checkDB" duration-ms="5558" started-at="2020-06-16T16:30:16Z" depends-on-methods="testCases.voucher.TC_My_Vouchers.checkData" finished-at="2020-06-16T16:30:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="afterClass" is-config="true" duration-ms="15452" started-at="2020-06-16T08:23:21Z" finished-at="2020-06-16T08:23:37Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="afterClass" is-config="true" duration-ms="15072" started-at="2020-06-16T16:30:21Z" finished-at="2020-06-16T16:30:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-16T08:23:37Z" finished-at="2020-06-16T08:23:37Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="setup" is-config="true" duration-ms="3" started-at="2020-06-16T16:30:36Z" finished-at="2020-06-16T16:30:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="beforeClass" is-config="true" duration-ms="2" started-at="2020-06-16T08:23:37Z" finished-at="2020-06-16T08:23:37Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="beforeClass" is-config="true" duration-ms="82880" started-at="2020-06-16T16:30:36Z" finished-at="2020-06-16T16:31:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testRecentNumber()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="testRecentNumber" duration-ms="1907" started-at="2020-06-16T08:23:37Z" finished-at="2020-06-16T08:23:39Z">
+        <test-method status="PASS" signature="testMyVouchers()[pri:0, instance:testCases.voucher.TC_My_Vouchers@48974e45]" name="testMyVouchers" duration-ms="4176" started-at="2020-06-16T16:31:59Z" finished-at="2020-06-16T16:32:03Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testRecentNumber -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="checkData" duration-ms="4" started-at="2020-06-16T08:23:39Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetRecentNumber.testRecentNumber" finished-at="2020-06-16T08:23:39Z">
+        </test-method> <!-- testMyVouchers -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.voucher.TC_My_Vouchers@48974e45]" name="checkData" duration-ms="8" started-at="2020-06-16T16:32:03Z" depends-on-methods="testCases.voucher.TC_My_Vouchers.testMyVouchers" finished-at="2020-06-16T16:32:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="checkDB" duration-ms="1" started-at="2020-06-16T08:23:39Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetRecentNumber.checkData" finished-at="2020-06-16T08:23:39Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.voucher.TC_My_Vouchers@48974e45]" name="checkDB" duration-ms="4680" started-at="2020-06-16T16:32:03Z" depends-on-methods="testCases.voucher.TC_My_Vouchers.checkData" finished-at="2020-06-16T16:32:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="afterClass" is-config="true" duration-ms="1" started-at="2020-06-16T08:23:39Z" finished-at="2020-06-16T08:23:39Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="afterClass" is-config="true" duration-ms="14373" started-at="2020-06-16T16:32:08Z" finished-at="2020-06-16T16:32:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-16T08:23:39Z" finished-at="2020-06-16T08:23:39Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="setup" is-config="true" duration-ms="3" started-at="2020-06-16T16:32:23Z" finished-at="2020-06-16T16:32:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="beforeClass" is-config="true" duration-ms="25757" started-at="2020-06-16T08:23:39Z" finished-at="2020-06-16T08:24:04Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="beforeClass" is-config="true" duration-ms="24944" started-at="2020-06-16T16:32:23Z" finished-at="2020-06-16T16:32:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testRecentNumber()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@7690781]" name="testRecentNumber" duration-ms="4082" started-at="2020-06-16T08:24:04Z" finished-at="2020-06-16T08:24:08Z">
+        <test-method status="FAIL" signature="testMyVouchers()[pri:0, instance:testCases.voucher.TC_My_Vouchers@50ad3bc1]" name="testMyVouchers" duration-ms="4377" started-at="2020-06-16T16:32:47Z" finished-at="2020-06-16T16:32:52Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [404] but found [null]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [404] but found [null]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertEqualsImpl(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:453)
+at org.testng.Assert.assertEquals(Assert.java:463)
+at testCases.voucher.TC_My_Vouchers.testMyVouchers(TC_My_Vouchers.java:91)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testRecentNumber -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@7690781]" name="checkData" duration-ms="1" started-at="2020-06-16T08:24:08Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetRecentNumber.testRecentNumber" finished-at="2020-06-16T08:24:08Z">
+        </test-method> <!-- testMyVouchers -->
+        <test-method status="SKIP" signature="checkData()[pri:0, instance:testCases.voucher.TC_My_Vouchers@50ad3bc1]" name="checkData" duration-ms="0" started-at="2020-06-16T16:32:52Z" depends-on-methods="testCases.voucher.TC_My_Vouchers.testMyVouchers" finished-at="2020-06-16T16:32:52Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_My_Vouchers.checkData()[pri:0, instance:testCases.voucher.TC_My_Vouchers@50ad3bc1] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_My_Vouchers.checkData()[pri:0, instance:testCases.voucher.TC_My_Vouchers@50ad3bc1] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@7690781]" name="checkDB" duration-ms="4645" started-at="2020-06-16T08:24:08Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetRecentNumber.checkData" finished-at="2020-06-16T08:24:13Z">
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:testCases.voucher.TC_My_Vouchers@50ad3bc1]" name="checkDB" duration-ms="0" started-at="2020-06-16T16:32:52Z" depends-on-methods="testCases.voucher.TC_My_Vouchers.checkData" finished-at="2020-06-16T16:32:52Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_My_Vouchers.checkDB()[pri:0, instance:testCases.voucher.TC_My_Vouchers@50ad3bc1] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_My_Vouchers.checkDB()[pri:0, instance:testCases.voucher.TC_My_Vouchers@50ad3bc1] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="afterClass" is-config="true" duration-ms="15511" started-at="2020-06-16T08:24:13Z" finished-at="2020-06-16T08:24:29Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="afterClass" is-config="true" duration-ms="15905" started-at="2020-06-16T16:32:52Z" finished-at="2020-06-16T16:33:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="setup" is-config="true" duration-ms="1" started-at="2020-06-16T08:24:29Z" finished-at="2020-06-16T08:24:29Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="setup" is-config="true" duration-ms="3" started-at="2020-06-16T16:33:08Z" finished-at="2020-06-16T16:33:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="beforeClass" is-config="true" duration-ms="29324" started-at="2020-06-16T08:24:29Z" finished-at="2020-06-16T08:24:58Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="beforeClass" is-config="true" duration-ms="27426" started-at="2020-06-16T16:33:08Z" finished-at="2020-06-16T16:33:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testRecentNumber()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@77eca502]" name="testRecentNumber" duration-ms="4425" started-at="2020-06-16T08:24:58Z" finished-at="2020-06-16T08:25:02Z">
+        <test-method status="FAIL" signature="testMyVouchers()[pri:0, instance:testCases.voucher.TC_My_Vouchers@550ee7e5]" name="testMyVouchers" duration-ms="4208" started-at="2020-06-16T16:33:35Z" finished-at="2020-06-16T16:33:39Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [404] but found [null]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [404] but found [null]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertEqualsImpl(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:453)
+at org.testng.Assert.assertEquals(Assert.java:463)
+at testCases.voucher.TC_My_Vouchers.testMyVouchers(TC_My_Vouchers.java:91)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testRecentNumber -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@77eca502]" name="checkData" duration-ms="1" started-at="2020-06-16T08:25:02Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetRecentNumber.testRecentNumber" finished-at="2020-06-16T08:25:02Z">
+        </test-method> <!-- testMyVouchers -->
+        <test-method status="SKIP" signature="checkData()[pri:0, instance:testCases.voucher.TC_My_Vouchers@550ee7e5]" name="checkData" duration-ms="0" started-at="2020-06-16T16:33:39Z" depends-on-methods="testCases.voucher.TC_My_Vouchers.testMyVouchers" finished-at="2020-06-16T16:33:39Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_My_Vouchers.checkData()[pri:0, instance:testCases.voucher.TC_My_Vouchers@550ee7e5] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_My_Vouchers.checkData()[pri:0, instance:testCases.voucher.TC_My_Vouchers@550ee7e5] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@77eca502]" name="checkDB" duration-ms="4672" started-at="2020-06-16T08:25:02Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetRecentNumber.checkData" finished-at="2020-06-16T08:25:07Z">
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:testCases.voucher.TC_My_Vouchers@550ee7e5]" name="checkDB" duration-ms="0" started-at="2020-06-16T16:33:39Z" depends-on-methods="testCases.voucher.TC_My_Vouchers.checkData" finished-at="2020-06-16T16:33:39Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_My_Vouchers.checkDB()[pri:0, instance:testCases.voucher.TC_My_Vouchers@550ee7e5] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_My_Vouchers.checkDB()[pri:0, instance:testCases.voucher.TC_My_Vouchers@550ee7e5] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetRecentNumber@61386958]" name="afterClass" is-config="true" duration-ms="15338" started-at="2020-06-16T08:25:07Z" finished-at="2020-06-16T08:25:22Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="afterClass" is-config="true" duration-ms="14051" started-at="2020-06-16T16:33:39Z" finished-at="2020-06-16T16:33:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- remoteService.order.TC_Remote_Service_GetRecentNumber -->
-    </test> <!-- DanaPulsaServiceTestOrder -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-16T16:33:53Z" finished-at="2020-06-16T16:33:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="beforeClass" is-config="true" duration-ms="30837" started-at="2020-06-16T16:33:53Z" finished-at="2020-06-16T16:34:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testMyVouchers()[pri:0, instance:testCases.voucher.TC_My_Vouchers@5f9b2141]" name="testMyVouchers" duration-ms="4372" started-at="2020-06-16T16:34:24Z" finished-at="2020-06-16T16:34:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMyVouchers -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.voucher.TC_My_Vouchers@5f9b2141]" name="checkData" duration-ms="8" started-at="2020-06-16T16:34:29Z" depends-on-methods="testCases.voucher.TC_My_Vouchers.testMyVouchers" finished-at="2020-06-16T16:34:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.voucher.TC_My_Vouchers@5f9b2141]" name="checkDB" duration-ms="5293" started-at="2020-06-16T16:34:29Z" depends-on-methods="testCases.voucher.TC_My_Vouchers.checkData" finished-at="2020-06-16T16:34:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="afterClass" is-config="true" duration-ms="14335" started-at="2020-06-16T16:34:34Z" finished-at="2020-06-16T16:34:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="setup" is-config="true" duration-ms="1" started-at="2020-06-16T16:34:48Z" finished-at="2020-06-16T16:34:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-16T16:34:48Z" finished-at="2020-06-16T16:34:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testMyVouchers()[pri:0, instance:testCases.voucher.TC_My_Vouchers@6a84a97d]" name="testMyVouchers" duration-ms="733" started-at="2020-06-16T16:34:48Z" finished-at="2020-06-16T16:34:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMyVouchers -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.voucher.TC_My_Vouchers@6a84a97d]" name="checkData" duration-ms="1" started-at="2020-06-16T16:34:49Z" depends-on-methods="testCases.voucher.TC_My_Vouchers.testMyVouchers" finished-at="2020-06-16T16:34:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.voucher.TC_My_Vouchers@6a84a97d]" name="checkDB" duration-ms="0" started-at="2020-06-16T16:34:49Z" depends-on-methods="testCases.voucher.TC_My_Vouchers.checkData" finished-at="2020-06-16T16:34:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="afterClass" is-config="true" duration-ms="1" started-at="2020-06-16T16:34:49Z" finished-at="2020-06-16T16:34:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-16T16:34:49Z" finished-at="2020-06-16T16:34:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-16T16:34:49Z" finished-at="2020-06-16T16:34:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testMyVouchers()[pri:0, instance:testCases.voucher.TC_My_Vouchers@6c130c45]" name="testMyVouchers" duration-ms="698" started-at="2020-06-16T16:34:49Z" finished-at="2020-06-16T16:34:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMyVouchers -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.voucher.TC_My_Vouchers@6c130c45]" name="checkData" duration-ms="1" started-at="2020-06-16T16:34:50Z" depends-on-methods="testCases.voucher.TC_My_Vouchers.testMyVouchers" finished-at="2020-06-16T16:34:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.voucher.TC_My_Vouchers@6c130c45]" name="checkDB" duration-ms="1" started-at="2020-06-16T16:34:50Z" depends-on-methods="testCases.voucher.TC_My_Vouchers.checkData" finished-at="2020-06-16T16:34:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.voucher.TC_My_Vouchers@223aa2f7]" name="afterClass" is-config="true" duration-ms="1" started-at="2020-06-16T16:34:50Z" finished-at="2020-06-16T16:34:50Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- testCases.voucher.TC_My_Vouchers -->
+    </test> <!-- DanaPulsaServiceTestVouchers -->
   </suite> <!-- DANA Pulsa Suite -->
 </testng-results>

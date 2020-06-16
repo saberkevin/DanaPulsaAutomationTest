@@ -412,7 +412,7 @@ public class TestBase {
 
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, CATALOG_PATH + phoneNumber);
 		logger.info(response.getBody().asString());
@@ -431,7 +431,7 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 		
@@ -447,7 +447,7 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.DELETE, CANCEL_ORDER_PATH + transactionId);
 		logger.info(response.getBody().asString());
@@ -468,7 +468,7 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		httpRequest.header("Content-Type", "application/json");
 		
 		response = httpRequest.request(Method.POST, PAYMENT_PATH);
@@ -483,7 +483,7 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, MY_VOUCHER_PATH + page);
 		logger.info(response.getBody().asString());
@@ -497,7 +497,7 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();		
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 
 		response = httpRequest.request(Method.GET, PROMOTION_VOUCHER_PATH + page);
 		logger.info(response.getBody().asString());
@@ -511,7 +511,7 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();		
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, RECOMMENDATION_VOUCHER_PATH + transactionId);
 		logger.info(response.getBody().asString());
@@ -525,7 +525,7 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();		
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 
 		response = httpRequest.request(Method.GET, VOUCHER_DETAILS_PATH + voucherId);
 		logger.info(response.getBody());
@@ -680,24 +680,6 @@ public class TestBase {
 		return id;
 	}
 	
-	public void createVoucher(long userId, long voucherId, long voucherStatusId) {
-		try {
-			Connection conn = getConnectionPromotion();
-			String queryString = "INSERT INTO user_voucher(userId, voucherId, voucherStatusId, createdAt) VALUES(?, ?, ?, ?)";
-
-			PreparedStatement ps = conn.prepareStatement(queryString);
-			ps.setLong(1, userId);
-			ps.setLong(2, voucherId);
-			ps.setLong(3, voucherStatusId);
-			ps.setDate(4, (java.sql.Date) new Date());
-			ps.executeUpdate();
-
-			conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}	
-	}
-	
 	public void createTransaction(long userId, String phoneNumber, long catalogId) {
 		try {
 			Connection conn = getConnectionOrder();
@@ -709,6 +691,25 @@ public class TestBase {
 			ps.setString(3, phoneNumber);
 			ps.setLong(4, catalogId);
 			ps.setLong(5, 1);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void createTransaction(long userId, String phoneNumber, long catalogId, long statusId) {
+		try {
+			Connection conn = getConnectionOrder();
+			String queryString = "INSERT INTO transaction(userId, methodId, phoneNumber, catalogId, statusId) VALUES (?, ?, ?, ?, ?)";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);
+			ps.setLong(1, userId);
+			ps.setLong(2, 1);
+			ps.setString(3, phoneNumber);
+			ps.setLong(4, catalogId);
+			ps.setLong(5, statusId);
 			ps.executeUpdate();
 
 			conn.close();
@@ -809,6 +810,40 @@ public class TestBase {
 			PreparedStatement ps = conn.prepareStatement(queryString);
 			ps.setString(1, email);
 			ps.setString(2, username);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void createUserVoucher(long userId, long voucherId, long voucherStatusId) {
+		Date date = new Date();
+		try {
+			Connection conn = getConnectionPromotion();
+			String queryString = "INSERT INTO user_voucher(userId, voucherId, voucherStatusId, createdAt) VALUES(?, ?, ?, ?)";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);
+			ps.setLong(1, userId);
+			ps.setLong(2, voucherId);
+			ps.setLong(3, voucherStatusId);
+			ps.setDate(4, new java.sql.Date(date.getTime()));
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void deleteUserVoucherByUserId(long userId) {
+		try {
+			Connection conn = getConnectionPromotion();
+			String queryString = "DELETE FROM user_voucher WHERE userId = ?";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);
+			ps.setLong(1, userId);
 			ps.executeUpdate();
 
 			conn.close();

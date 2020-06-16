@@ -70,7 +70,7 @@ public class TC_Remote_Service_GetVoucherDetail extends TestBase {
 		String responseBody = response.getBody().asString();
 		Assert.assertTrue(responseBody.contains(result), responseBody);
 		
-		if (!responseBody.equals("voucher not found") && !responseBody.equals("For input string: \"\"")) {
+		if (!responseBody.equals("voucher not found") && !responseBody.equals("invalid request format")) {
 			Assert.assertEquals(Integer.toString(response.body().jsonPath().get("id")), voucherId);
 			Assert.assertNotNull(response.getBody().jsonPath().get("name"));
 			Assert.assertNotNull(response.getBody().jsonPath().get("discount"));
@@ -102,7 +102,7 @@ public class TC_Remote_Service_GetVoucherDetail extends TestBase {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		} else if (responseBody.equals("For input string: \"\"")) {
+		} else if (responseBody.equals("invalid request format")) {
 			// do some code
 			
 		} else {

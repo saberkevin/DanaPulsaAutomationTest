@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-DANA_Pulsa_Suite">
-              <span class="suite-name border-passed">DANA Pulsa Suite</span>
+              <span class="suite-name border-failed">DANA Pulsa Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,55 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">15 methods,   15 passed</span>
+                    <span class="method-stats">24 methods, 2 failed,  4 skipped,  18 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-DANA_Pulsa_Suite" class="hide-methods failed suite-DANA_Pulsa_Suite"> (hide)</a> <!-- hide-methods failed suite-DANA_Pulsa_Suite -->
+                      <a href="#" panel-name="suite-DANA_Pulsa_Suite" class="show-methods failed suite-DANA_Pulsa_Suite"> (show)</a> <!-- show-methods failed suite-DANA_Pulsa_Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-DANA_Pulsa_Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="testMyVouchers">testMyVouchers</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="testMyVouchers">testMyVouchers</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-DANA_Pulsa_Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-DANA_Pulsa_Suite" class="hide-methods skipped suite-DANA_Pulsa_Suite"> (hide)</a> <!-- hide-methods skipped suite-DANA_Pulsa_Suite -->
+                      <a href="#" panel-name="suite-DANA_Pulsa_Suite" class="show-methods skipped suite-DANA_Pulsa_Suite"> (show)</a> <!-- show-methods skipped suite-DANA_Pulsa_Suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-DANA_Pulsa_Suite">
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-DANA_Pulsa_Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,77 +150,92 @@
                     <div class="method-list-content passed suite-DANA_Pulsa_Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.order.TC_Remote_Service_GetRecentNumber" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.order.TC_Remote_Service_GetRecentNumber" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.order.TC_Remote_Service_GetRecentNumber" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.order.TC_Remote_Service_GetRecentNumber" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.order.TC_Remote_Service_GetRecentNumber" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.order.TC_Remote_Service_GetRecentNumber" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.order.TC_Remote_Service_GetRecentNumber" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.order.TC_Remote_Service_GetRecentNumber" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.order.TC_Remote_Service_GetRecentNumber" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.order.TC_Remote_Service_GetRecentNumber" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.order.TC_Remote_Service_GetRecentNumber" hash-for-method="testRecentNumber">testRecentNumber</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.order.TC_Remote_Service_GetRecentNumber" hash-for-method="testRecentNumber">testRecentNumber</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.order.TC_Remote_Service_GetRecentNumber" hash-for-method="testRecentNumber">testRecentNumber</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="testMyVouchers">testMyVouchers</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.order.TC_Remote_Service_GetRecentNumber" hash-for-method="testRecentNumber">testRecentNumber</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="testMyVouchers">testMyVouchers</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.order.TC_Remote_Service_GetRecentNumber" hash-for-method="testRecentNumber">testRecentNumber</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="testMyVouchers">testMyVouchers</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="testMyVouchers">testMyVouchers</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="testMyVouchers">testMyVouchers</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.voucher.TC_My_Vouchers" hash-for-method="testMyVouchers">testMyVouchers</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-DANA_Pulsa_Suite -->
@@ -187,10 +250,88 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-DANA_Pulsa_Suite" class="panel DANA_Pulsa_Suite">
+          <div class="suite-DANA_Pulsa_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">testCases.voucher.TC_My_Vouchers</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testMyVouchers">
+                  </a> <!-- testMyVouchers -->
+                  <span class="method-name">testMyVouchers</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [404] but found [null]
+	at testCases.voucher.TC_My_Vouchers.testMyVouchers(TC_My_Vouchers.java:91)
+... Removed 31 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testMyVouchers">
+                  </a> <!-- testMyVouchers -->
+                  <span class="method-name">testMyVouchers</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [404] but found [null]
+	at testCases.voucher.TC_My_Vouchers.testMyVouchers(TC_My_Vouchers.java:91)
+... Removed 31 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-DANA_Pulsa_Suite-class-failed -->
+          <div class="suite-DANA_Pulsa_Suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">testCases.voucher.TC_My_Vouchers</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkDB">
+                  </a> <!-- checkDB -->
+                  <span class="method-name">checkDB</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TC_My_Vouchers.checkDB()[pri:0, instance:testCases.voucher.TC_My_Vouchers@50ad3bc1] depends on not successfully finished methods
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkDB">
+                  </a> <!-- checkDB -->
+                  <span class="method-name">checkDB</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TC_My_Vouchers.checkDB()[pri:0, instance:testCases.voucher.TC_My_Vouchers@550ee7e5] depends on not successfully finished methods
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkData">
+                  </a> <!-- checkData -->
+                  <span class="method-name">checkData</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TC_My_Vouchers.checkData()[pri:0, instance:testCases.voucher.TC_My_Vouchers@550ee7e5] depends on not successfully finished methods
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkData">
+                  </a> <!-- checkData -->
+                  <span class="method-name">checkData</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TC_My_Vouchers.checkData()[pri:0, instance:testCases.voucher.TC_My_Vouchers@50ad3bc1] depends on not successfully finished methods
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-DANA_Pulsa_Suite-class-skipped -->
           <div class="suite-DANA_Pulsa_Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">remoteService.order.TC_Remote_Service_GetRecentNumber</span>
+              <span class="class-name">testCases.voucher.TC_My_Vouchers</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -230,9 +371,9 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="checkData">
-                  </a> <!-- checkData -->
-                  <span class="method-name">checkData</span>
+                  <a name="checkDB">
+                  </a> <!-- checkDB -->
+                  <span class="method-name">checkDB</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -265,37 +406,58 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testRecentNumber">
-                  </a> <!-- testRecentNumber -->
-                  <span class="method-name">testRecentNumber</span>
+                  <a name="checkData">
+                  </a> <!-- checkData -->
+                  <span class="method-name">checkData</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testRecentNumber">
-                  </a> <!-- testRecentNumber -->
-                  <span class="method-name">testRecentNumber</span>
+                  <a name="checkData">
+                  </a> <!-- checkData -->
+                  <span class="method-name">checkData</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testRecentNumber">
-                  </a> <!-- testRecentNumber -->
-                  <span class="method-name">testRecentNumber</span>
+                  <a name="testMyVouchers">
+                  </a> <!-- testMyVouchers -->
+                  <span class="method-name">testMyVouchers</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testRecentNumber">
-                  </a> <!-- testRecentNumber -->
-                  <span class="method-name">testRecentNumber</span>
+                  <a name="testMyVouchers">
+                  </a> <!-- testMyVouchers -->
+                  <span class="method-name">testMyVouchers</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testRecentNumber">
-                  </a> <!-- testRecentNumber -->
-                  <span class="method-name">testRecentNumber</span>
+                  <a name="testMyVouchers">
+                  </a> <!-- testMyVouchers -->
+                  <span class="method-name">testMyVouchers</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testMyVouchers">
+                  </a> <!-- testMyVouchers -->
+                  <span class="method-name">testMyVouchers</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testMyVouchers">
+                  </a> <!-- testMyVouchers -->
+                  <span class="method-name">testMyVouchers</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testMyVouchers">
+                  </a> <!-- testMyVouchers -->
+                  <span class="method-name">testMyVouchers</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -310,11 +472,11 @@
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;DANA Pulsa Suite&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;DanaPulsaServiceTestOrder&quot; group-by-instances=&quot;true&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;DanaPulsaServiceTestVouchers&quot; group-by-instances=&quot;true&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;remoteService.order.Factory_Remote_Service_GetRecentNumber&quot;/&gt;
+      &lt;class name=&quot;testCases.voucher.Factory_My_Vouchers&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- DanaPulsaServiceTestOrder --&gt;
+  &lt;/test&gt; &lt;!-- DanaPulsaServiceTestVouchers --&gt;
 &lt;/suite&gt; &lt;!-- DANA Pulsa Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -326,7 +488,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">DanaPulsaServiceTestOrder (1 class)</span>
+                <span class="test-name">DanaPulsaServiceTestVouchers (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -352,72 +514,108 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(15);
+data.addRows(24);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'checkDB')
-data.setCell(0, 2, 'remoteService.order.TC_Remote_Service_GetRecentNumber')
-data.setCell(0, 3, 5203);
+data.setCell(0, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(0, 3, 5558);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testRecentNumber')
-data.setCell(1, 2, 'remoteService.order.TC_Remote_Service_GetRecentNumber')
-data.setCell(1, 3, 5031);
+data.setCell(1, 1, 'testMyVouchers')
+data.setCell(1, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(1, 3, 5348);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'checkDB')
-data.setCell(2, 2, 'remoteService.order.TC_Remote_Service_GetRecentNumber')
-data.setCell(2, 3, 4672);
+data.setCell(2, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(2, 3, 5293);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'checkDB')
-data.setCell(3, 2, 'remoteService.order.TC_Remote_Service_GetRecentNumber')
-data.setCell(3, 3, 4645);
+data.setCell(3, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(3, 3, 4680);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'testRecentNumber')
-data.setCell(4, 2, 'remoteService.order.TC_Remote_Service_GetRecentNumber')
-data.setCell(4, 3, 4511);
+data.setCell(4, 1, 'testMyVouchers')
+data.setCell(4, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(4, 3, 4377);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'testRecentNumber')
-data.setCell(5, 2, 'remoteService.order.TC_Remote_Service_GetRecentNumber')
-data.setCell(5, 3, 4425);
+data.setCell(5, 1, 'testMyVouchers')
+data.setCell(5, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(5, 3, 4372);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'testRecentNumber')
-data.setCell(6, 2, 'remoteService.order.TC_Remote_Service_GetRecentNumber')
-data.setCell(6, 3, 4082);
+data.setCell(6, 1, 'testMyVouchers')
+data.setCell(6, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(6, 3, 4208);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'testRecentNumber')
-data.setCell(7, 2, 'remoteService.order.TC_Remote_Service_GetRecentNumber')
-data.setCell(7, 3, 1907);
+data.setCell(7, 1, 'testMyVouchers')
+data.setCell(7, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(7, 3, 4176);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'checkData')
-data.setCell(8, 2, 'remoteService.order.TC_Remote_Service_GetRecentNumber')
-data.setCell(8, 3, 156);
+data.setCell(8, 1, 'testMyVouchers')
+data.setCell(8, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(8, 3, 1183);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'checkData')
-data.setCell(9, 2, 'remoteService.order.TC_Remote_Service_GetRecentNumber')
-data.setCell(9, 3, 4);
+data.setCell(9, 1, 'testMyVouchers')
+data.setCell(9, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(9, 3, 733);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'checkData')
-data.setCell(10, 2, 'remoteService.order.TC_Remote_Service_GetRecentNumber')
-data.setCell(10, 3, 3);
+data.setCell(10, 1, 'testMyVouchers')
+data.setCell(10, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(10, 3, 698);
 data.setCell(11, 0, 11)
-data.setCell(11, 1, 'checkDB')
-data.setCell(11, 2, 'remoteService.order.TC_Remote_Service_GetRecentNumber')
-data.setCell(11, 3, 1);
+data.setCell(11, 1, 'checkData')
+data.setCell(11, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(11, 3, 25);
 data.setCell(12, 0, 12)
 data.setCell(12, 1, 'checkData')
-data.setCell(12, 2, 'remoteService.order.TC_Remote_Service_GetRecentNumber')
-data.setCell(12, 3, 1);
+data.setCell(12, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(12, 3, 8);
 data.setCell(13, 0, 13)
-data.setCell(13, 1, 'checkDB')
-data.setCell(13, 2, 'remoteService.order.TC_Remote_Service_GetRecentNumber')
-data.setCell(13, 3, 1);
+data.setCell(13, 1, 'checkData')
+data.setCell(13, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(13, 3, 8);
 data.setCell(14, 0, 14)
 data.setCell(14, 1, 'checkData')
-data.setCell(14, 2, 'remoteService.order.TC_Remote_Service_GetRecentNumber')
-data.setCell(14, 3, 1);
+data.setCell(14, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(14, 3, 3);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'checkData')
+data.setCell(15, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(15, 3, 1);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'checkDB')
+data.setCell(16, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(16, 3, 1);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'checkDB')
+data.setCell(17, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(17, 3, 1);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'checkData')
+data.setCell(18, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(18, 3, 1);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'checkDB')
+data.setCell(19, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(19, 3, 0);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'checkData')
+data.setCell(20, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(20, 3, 0);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'checkDB')
+data.setCell(21, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(21, 3, 0);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'checkDB')
+data.setCell(22, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(22, 3, 0);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'checkData')
+data.setCell(23, 2, 'testCases.voucher.TC_My_Vouchers')
+data.setCell(23, 3, 0);
 window.suiteTableData['DANA_Pulsa_Suite']= { tableData: data, tableDiv: 'times-div-DANA_Pulsa_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 34 seconds</span>
+              <span class="suite-total-time">Total running time: 40 seconds</span>
               <div id="times-div-DANA_Pulsa_Suite">
               </div> <!-- times-div-DANA_Pulsa_Suite -->
             </div> <!-- times-div -->
@@ -443,126 +641,186 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">remoteService.order.TC_Remote_Service_GetRecentNumber</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">testCases.voucher.TC_My_Vouchers</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">51 ms</span>
+                <span class="method-start">45 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">testRecentNumber</span>
-                <span class="method-start">61 ms</span>
+                <span class="method-name">testMyVouchers</span>
+                <span class="method-start">28292 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkData</span>
-                <span class="method-start">5097 ms</span>
+                <span class="method-start">29479 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkDB</span>
-                <span class="method-start">5103 ms</span>
+                <span class="method-start">29485 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">5105 ms</span>
+                <span class="method-start">29487 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
-                <span class="method-start">5108 ms</span>
+                <span class="method-start">45494 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">5109 ms</span>
+                <span class="method-start">45497 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">testRecentNumber</span>
-                <span class="method-start">85222 ms</span>
+                <span class="method-name">testMyVouchers</span>
+                <span class="method-start">130692 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkData</span>
-                <span class="method-start">89735 ms</span>
+                <span class="method-start">136042 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkDB</span>
-                <span class="method-start">89894 ms</span>
+                <span class="method-start">136068 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">95099 ms</span>
+                <span class="method-start">141627 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
-                <span class="method-start">110551 ms</span>
+                <span class="method-start">156700 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">110553 ms</span>
+                <span class="method-start">156703 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">testRecentNumber</span>
-                <span class="method-start">110556 ms</span>
+                <span class="method-name">testMyVouchers</span>
+                <span class="method-start">239583 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkData</span>
-                <span class="method-start">112464 ms</span>
+                <span class="method-start">243760 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkDB</span>
-                <span class="method-start">112470 ms</span>
+                <span class="method-start">243769 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">112474 ms</span>
+                <span class="method-start">248451 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
-                <span class="method-start">112475 ms</span>
+                <span class="method-start">262824 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">112477 ms</span>
+                <span class="method-start">262827 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">testRecentNumber</span>
-                <span class="method-start">138234 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">checkData</span>
-                <span class="method-start">142317 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">checkDB</span>
-                <span class="method-start">142319 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testMyVouchers</span>
+                <span class="method-start">287772 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">146965 ms</span>
+                <span class="method-start">292154 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
-                <span class="method-start">162476 ms</span>
+                <span class="method-start">308059 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">162477 ms</span>
+                <span class="method-start">308062 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">testRecentNumber</span>
-                <span class="method-start">191802 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">checkData</span>
-                <span class="method-start">196229 ms</span>
-              </div> <!-- test-method -->
-              <div class="test-method">
-                <span class="method-name">checkDB</span>
-                <span class="method-start">196231 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testMyVouchers</span>
+                <span class="method-start">335488 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">200904 ms</span>
+                <span class="method-start">339703 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class before">
+                <span class="method-name">setup</span>
+                <span class="method-start">353754 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">353756 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">testMyVouchers</span>
+                <span class="method-start">384593 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkData</span>
+                <span class="method-start">388966 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkDB</span>
+                <span class="method-start">388975 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">394269 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class before">
+                <span class="method-name">setup</span>
+                <span class="method-start">408605 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">408606 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">testMyVouchers</span>
+                <span class="method-start">408607 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkData</span>
+                <span class="method-start">409341 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkDB</span>
+                <span class="method-start">409343 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">409344 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class before">
+                <span class="method-name">setup</span>
+                <span class="method-start">409345 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">409347 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">testMyVouchers</span>
+                <span class="method-start">409348 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkData</span>
+                <span class="method-start">410047 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkDB</span>
+                <span class="method-start">410049 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">410050 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
