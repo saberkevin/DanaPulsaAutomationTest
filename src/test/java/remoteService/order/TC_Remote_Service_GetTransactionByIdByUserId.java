@@ -22,6 +22,7 @@ import model.User;
 
 public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 	private User user = new User();
+	private User anotherUser = new User();
 	private Transaction transaction = new Transaction();
 	private Catalog catalog = new Catalog();
 	private Provider provider = new Provider();
@@ -29,6 +30,7 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 	private String userId;
 	private String transactionId;
 	private String result;
+	private boolean isCreateUser;
 	
 	public TC_Remote_Service_GetTransactionByIdByUserId() {
 		
@@ -39,6 +41,7 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 		this.userId = userId;
 		this.transactionId = transactionId;
 		this.result = result;
+		isCreateUser = false;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -67,6 +70,8 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 		logger.info("Case:" + testCase);
 		
 		if (userId.equals("true") || transactionId.equals("true")) {
+			isCreateUser = true;
+			
 			// initialize user
 			user.setName("Zanuar");
 			user.setEmail("triromadon@gmail.com");
@@ -74,13 +79,15 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 			user.setPin(123456);
 			
 			// insert user into database
-			deleteUserIfExist(user.getEmail(), user.getUsername());
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));
 			
 			if (userId.equals("true")) {
 				userId = Long.toString(user.getId());				
 			}
+			
+			// insert balance into database
+			createBalance(user.getId(), 10000000);
 		}
 		
 		if (transactionId.equals("true")) {	
@@ -96,7 +103,6 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 			provider.setImage("https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png");
 
 			// insert transaction into database
-			deleteTransactionByUserIdIfExist(user.getId());
 			createTransaction(user.getId(), user.getUsername(), catalog.getId());
 			
 			// initialize transaction
@@ -110,9 +116,7 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 			transactionId = Long.toString(transaction.getId());
 		}
 		
-		if (testCase.equals("Another user's transaction")) {
-			User anotherUser = new User();
-			
+		if (testCase.equals("Another user's transaction")) {			
 			// initialize user
 			anotherUser.setName("Zanuar 2");
 			anotherUser.setEmail("triromadon2@gmail.com");
@@ -120,9 +124,11 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 			anotherUser.setPin(123456);
 			
 			// insert user into database
-			deleteUserIfExist(anotherUser.getEmail(), anotherUser.getUsername());
 			createUser(anotherUser);
 			anotherUser.setId(getUserIdByUsername(anotherUser.getUsername()));
+			
+			// insert balance into database
+			createBalance(anotherUser.getId(), 10000000);
 			
 			// initialize catalog - TELKOMSEL 15k
 			catalog.setId(13);
@@ -136,7 +142,6 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 			provider.setImage("https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png");
 
 			// insert transaction into database
-			deleteTransactionByUserIdIfExist(anotherUser.getId());
 			createTransaction(anotherUser.getId(), anotherUser.getUsername(), catalog.getId());
 			
 			// initialize transaction
@@ -273,6 +278,25 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 	
 	@AfterClass
 	public void afterClass() {
+		// delete user
+		if (isCreateUser == true) {
+			deleteBalanceByUserId(user.getId());
+			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
+		}
+		
+		// delete transaction
+		if (transactionId.equals("true")) {
+			deleteTransactionByUserId(user.getId());
+		}
+		
+		// delete another user
+		if (testCase.equals("Another user's transaction")) {
+			deleteTransactionByUserId(anotherUser.getId());
+			deleteBalanceByUserId(anotherUser.getId());
+			deleteUserByEmailAndUsername(anotherUser.getEmail(), anotherUser.getUsername());			
+		}
+
+		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());
 	}
 }

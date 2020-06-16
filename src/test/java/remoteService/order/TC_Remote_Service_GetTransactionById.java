@@ -28,6 +28,7 @@ public class TC_Remote_Service_GetTransactionById extends TestBase {
 	private String testCase;
 	private String transactionId;
 	private String result;
+	private boolean isCreateUser;
 	
 	public TC_Remote_Service_GetTransactionById() {
 		
@@ -37,6 +38,7 @@ public class TC_Remote_Service_GetTransactionById extends TestBase {
 		this.testCase = testCase;
 		this.transactionId = transactionId;
 		this.result = result;
+		isCreateUser = false;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -64,6 +66,8 @@ public class TC_Remote_Service_GetTransactionById extends TestBase {
 		logger.info("Case:" + testCase);
 		
 		if (transactionId.equals("true")) {
+			isCreateUser = true;
+			
 			// initialize user
 			user.setName("Zanuar");
 			user.setEmail("triromadon@gmail.com");
@@ -71,9 +75,11 @@ public class TC_Remote_Service_GetTransactionById extends TestBase {
 			user.setPin(123456);
 			
 			// insert user into database
-			deleteUserIfExist(user.getEmail(), user.getUsername());
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));
+
+			// insert balance into database
+			createBalance(user.getId(), 10000000);
 			
 			// initialize catalog - TELKOMSEL 15k
 			catalog.setId(13);
@@ -87,7 +93,6 @@ public class TC_Remote_Service_GetTransactionById extends TestBase {
 			provider.setImage("https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png");
 			
 			// insert transaction into database
-			deleteTransactionByUserIdIfExist(user.getId());
 			createTransaction(user.getId(), user.getUsername(), catalog.getId());
 			
 			// initialize transaction
@@ -202,6 +207,14 @@ public class TC_Remote_Service_GetTransactionById extends TestBase {
 	
 	@AfterClass
 	public void afterClass() {
+		// delete user
+		if (isCreateUser == true) {
+			deleteTransactionByUserId(user.getId());
+			deleteBalanceByUserId(user.getId());
+			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
+		}
+		
+		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());
 	}
 }

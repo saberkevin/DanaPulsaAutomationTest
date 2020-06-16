@@ -70,7 +70,6 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 		
 		// insert transaction into database - TELKOMSEL 30k
 		transaction.setCatalogId(16);
-		deleteTransactionByUserIdIfExist(user.getId());
 		createTransaction(user.getId(), user.getUsername(), transaction.getCatalogId());
 		transaction.setId(getTransactionIdByUserId(user.getId()));
 

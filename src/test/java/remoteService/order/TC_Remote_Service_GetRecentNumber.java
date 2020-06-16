@@ -27,6 +27,7 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 	private String testCase;
 	private String userId;
 	private String result;
+	private boolean isCreateUser;
 	
 	public TC_Remote_Service_GetRecentNumber() {
 		
@@ -36,6 +37,7 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 		this.testCase = testCase;
 		this.userId = userId;
 		this.result = result;
+		isCreateUser = false;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -63,6 +65,8 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 		logger.info("Case:" + testCase);
 		
 		if (userId.equals("true")) {
+			isCreateUser = true;
+			
 			// initialize user
 			user.setName("Zanuar");
 			user.setEmail("triromadon@gmail.com");
@@ -70,27 +74,27 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 			user.setPin(123456);
 			
 			// insert user into database
-			deleteUserIfExist(user.getEmail(), user.getUsername());
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));
 			
 			userId = Long.toString(user.getId());
+
+			// insert balance into database
+			createBalance(user.getId(), 10000000);
 						
 			// initialize provider - TELKOMSEL
 			provider.setId(2);
 			provider.setName("Telkomsel");
 			provider.setImage("https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png");
 			
+			// insert transaction into database
 			if (testCase.equals("Valid ID (below 10 transaction history)")) {
-				// insert transaction into database
-				deleteTransactionByUserIdIfExist(user.getId());
 				createTransaction(user.getId(), user.getUsername(), 13);
-				phoneNumbers[0] = user.getUsername();				
-			} else if (testCase.equals("Valid ID (more than 10 transaction history)")) {				
-				deleteTransactionByUserIdIfExist(user.getId());
+				phoneNumbers[0] = user.getUsername();
+				
+			} else if (testCase.equals("Valid ID (more than 10 transaction history)")) {
 
 				for (int i = 0; i < 11; i++) {
-					// insert transaction into database
 					createTransaction(user.getId(), "08125216179" + Integer.toString(i), 13);
 					phoneNumbers[i] = "08125216179" + Integer.toString(i);
 				}
@@ -204,6 +208,14 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 	
 	@AfterClass
 	public void afterClass() {
+		// delete user
+		if (isCreateUser == true) {
+			deleteTransactionByUserId(user.getId());
+			deleteBalanceByUserId(user.getId());
+			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
+		}
+		
+		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());
 	}
 }

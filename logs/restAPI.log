@@ -6473,3 +6473,941 @@
 2020-06-16 00:53:18 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
 2020-06-16 00:53:29 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
 2020-06-16 00:53:35 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:34:41 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:34:41 INFO  restAPI:64 - Case:White space
+2020-06-16 10:35:06 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:35:06 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:35:06 INFO  restAPI:44 - user id:510
+2020-06-16 10:35:06 INFO  restAPI:45 - phone number:081 252930398
+2020-06-16 10:35:06 INFO  restAPI:46 - catalog id:13
+2020-06-16 10:35:09 INFO  restAPI:58 - invalid phone number
+2020-06-16 10:35:09 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:35:09 INFO  restAPI:64 - Case:Axis
+2020-06-16 10:35:36 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:35:36 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:35:36 INFO  restAPI:44 - user id:511
+2020-06-16 10:35:36 INFO  restAPI:45 - phone number:083124211047
+2020-06-16 10:35:36 INFO  restAPI:46 - catalog id:69
+2020-06-16 10:36:04 INFO  restAPI:58 - member service unreachable when try to check user exist
+2020-06-16 10:36:04 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:36:04 INFO  restAPI:64 - Case:Empty String catalog ID
+2020-06-16 10:36:30 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:36:30 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:36:30 INFO  restAPI:44 - user id:512
+2020-06-16 10:36:30 INFO  restAPI:45 - phone number:081252930398
+2020-06-16 10:36:30 INFO  restAPI:46 - catalog id:
+2020-06-16 10:36:33 INFO  restAPI:58 - invalid request format
+2020-06-16 10:36:33 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:36:33 INFO  restAPI:64 - Case:Smartfren
+2020-06-16 10:36:55 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:36:55 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:36:55 INFO  restAPI:44 - user id:513
+2020-06-16 10:36:55 INFO  restAPI:45 - phone number:0881025984984
+2020-06-16 10:36:55 INFO  restAPI:46 - catalog id:58
+2020-06-16 10:37:09 INFO  restAPI:58 - member service unreachable when try to check user exist
+2020-06-16 10:37:09 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:37:09 INFO  restAPI:64 - Case:Not numerical only
+2020-06-16 10:37:37 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:37:37 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:37:37 INFO  restAPI:44 - user id:514
+2020-06-16 10:37:37 INFO  restAPI:45 - phone number:081252930ABC
+2020-06-16 10:37:37 INFO  restAPI:46 - catalog id:13
+2020-06-16 10:37:51 INFO  restAPI:58 - member service unreachable when try to check user exist
+2020-06-16 10:37:51 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:37:51 INFO  restAPI:64 - Case:Start with +62
+2020-06-16 10:38:17 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:38:17 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:38:17 INFO  restAPI:44 - user id:515
+2020-06-16 10:38:17 INFO  restAPI:45 - phone number:+628125293039
+2020-06-16 10:38:17 INFO  restAPI:46 - catalog id:13
+2020-06-16 10:38:32 INFO  restAPI:58 - member service unreachable when try to check user exist
+2020-06-16 10:38:32 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:38:32 INFO  restAPI:64 - Case:Undefined user ID
+2020-06-16 10:38:32 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:38:32 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:38:32 INFO  restAPI:44 - user id:9999
+2020-06-16 10:38:32 INFO  restAPI:45 - phone number:081252930398
+2020-06-16 10:38:32 INFO  restAPI:46 - catalog id:13
+2020-06-16 10:38:46 INFO  restAPI:58 - member service unreachable when try to check user exist
+2020-06-16 10:38:46 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:38:46 INFO  restAPI:64 - Case:Empty String user ID
+2020-06-16 10:38:46 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:38:46 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:38:46 INFO  restAPI:44 - user id:
+2020-06-16 10:38:46 INFO  restAPI:45 - phone number:081252930398
+2020-06-16 10:38:46 INFO  restAPI:46 - catalog id:13
+2020-06-16 10:38:48 INFO  restAPI:58 - invalid request format
+2020-06-16 10:38:48 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:38:48 INFO  restAPI:64 - Case:Start with 62
+2020-06-16 10:39:17 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:39:17 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:39:17 INFO  restAPI:44 - user id:516
+2020-06-16 10:39:17 INFO  restAPI:45 - phone number:6281252930398
+2020-06-16 10:39:17 INFO  restAPI:46 - catalog id:13
+2020-06-16 10:39:31 INFO  restAPI:58 - member service unreachable when try to check user exist
+2020-06-16 10:39:31 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:39:31 INFO  restAPI:64 - Case:Indosat
+2020-06-16 10:39:56 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:39:56 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:39:56 INFO  restAPI:44 - user id:517
+2020-06-16 10:39:56 INFO  restAPI:45 - phone number:085655619187
+2020-06-16 10:39:56 INFO  restAPI:46 - catalog id:44
+2020-06-16 10:40:09 INFO  restAPI:58 - member service unreachable when try to check user exist
+2020-06-16 10:40:09 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:40:09 INFO  restAPI:64 - Case:Undefined provider
+2020-06-16 10:40:35 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:40:35 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:40:35 INFO  restAPI:44 - user id:518
+2020-06-16 10:40:35 INFO  restAPI:45 - phone number:021252930398
+2020-06-16 10:40:35 INFO  restAPI:46 - catalog id:13
+2020-06-16 10:40:49 INFO  restAPI:58 - member service unreachable when try to check user exist
+2020-06-16 10:40:49 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:40:49 INFO  restAPI:64 - Case:Different provider
+2020-06-16 10:41:14 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:41:14 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:41:14 INFO  restAPI:44 - user id:519
+2020-06-16 10:41:14 INFO  restAPI:45 - phone number:081252930398
+2020-06-16 10:41:14 INFO  restAPI:46 - catalog id:1
+2020-06-16 10:41:27 INFO  restAPI:58 - member service unreachable when try to check user exist
+2020-06-16 10:41:27 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:41:27 INFO  restAPI:64 - Case:XL
+2020-06-16 10:41:52 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:41:52 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:41:52 INFO  restAPI:44 - user id:520
+2020-06-16 10:41:52 INFO  restAPI:45 - phone number:087735571982
+2020-06-16 10:41:52 INFO  restAPI:46 - catalog id:1
+2020-06-16 10:42:05 INFO  restAPI:58 - member service unreachable when try to check user exist
+2020-06-16 10:42:05 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:42:05 INFO  restAPI:64 - Case:Empty string phone number
+2020-06-16 10:42:39 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:42:39 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:42:39 INFO  restAPI:44 - user id:521
+2020-06-16 10:42:39 INFO  restAPI:45 - phone number:
+2020-06-16 10:42:39 INFO  restAPI:46 - catalog id:13
+2020-06-16 10:42:53 INFO  restAPI:58 - member service unreachable when try to check user exist
+2020-06-16 10:42:53 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:42:53 INFO  restAPI:64 - Case:Telkomsel
+2020-06-16 10:43:21 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:43:21 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:43:21 INFO  restAPI:44 - user id:522
+2020-06-16 10:43:21 INFO  restAPI:45 - phone number:081252930398
+2020-06-16 10:43:21 INFO  restAPI:46 - catalog id:13
+2020-06-16 10:43:35 INFO  restAPI:58 - member service unreachable when try to check user exist
+2020-06-16 10:43:35 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:43:35 INFO  restAPI:64 - Case:Undefined catalog ID
+2020-06-16 10:44:03 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:44:03 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:44:03 INFO  restAPI:44 - user id:523
+2020-06-16 10:44:03 INFO  restAPI:45 - phone number:081252930398
+2020-06-16 10:44:03 INFO  restAPI:46 - catalog id:9999
+2020-06-16 10:44:17 INFO  restAPI:58 - member service unreachable when try to check user exist
+2020-06-16 10:44:17 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:44:17 INFO  restAPI:64 - Case:Exceed 13 characters
+2020-06-16 10:44:40 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:44:40 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:44:40 INFO  restAPI:44 - user id:524
+2020-06-16 10:44:40 INFO  restAPI:45 - phone number:08125293039812
+2020-06-16 10:44:40 INFO  restAPI:46 - catalog id:13
+2020-06-16 10:44:54 INFO  restAPI:58 - member service unreachable when try to check user exist
+2020-06-16 10:44:54 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:44:54 INFO  restAPI:64 - Case:Tri
+2020-06-16 10:45:20 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:45:20 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:45:20 INFO  restAPI:44 - user id:525
+2020-06-16 10:45:20 INFO  restAPI:45 - phone number:089962192444
+2020-06-16 10:45:20 INFO  restAPI:46 - catalog id:26
+2020-06-16 10:45:34 INFO  restAPI:58 - member service unreachable when try to check user exist
+2020-06-16 10:45:34 INFO  restAPI:63 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:45:34 INFO  restAPI:64 - Case:Below 9 characters
+2020-06-16 10:46:00 INFO  restAPI:42 - Call Create Transaction API [Order Domain]
+2020-06-16 10:46:00 INFO  restAPI:43 - Test Data: 
+2020-06-16 10:46:00 INFO  restAPI:44 - user id:526
+2020-06-16 10:46:00 INFO  restAPI:45 - phone number:08125293
+2020-06-16 10:46:00 INFO  restAPI:46 - catalog id:13
+2020-06-16 10:46:14 INFO  restAPI:58 - member service unreachable when try to check user exist
+2020-06-16 10:46:20 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:46:24 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:46:33 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:46:38 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:46:43 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:46:48 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:46:54 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:47:02 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:47:07 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:47:13 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:47:18 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:47:23 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:47:27 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:47:33 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:47:38 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:47:43 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:47:49 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:47:55 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 10:48:00 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:34:56 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:34:56 INFO  restAPI:66 - Case:Undefined catalog ID
+2020-06-16 11:35:16 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:35:16 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:35:16 INFO  restAPI:46 - user id:527
+2020-06-16 11:35:16 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 11:35:16 INFO  restAPI:48 - catalog id:9999
+2020-06-16 11:35:24 INFO  restAPI:60 - catalog not found
+2020-06-16 11:35:24 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:35:24 INFO  restAPI:66 - Case:Empty String user ID
+2020-06-16 11:35:24 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:35:24 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:35:24 INFO  restAPI:46 - user id:
+2020-06-16 11:35:24 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 11:35:24 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:35:27 INFO  restAPI:60 - invalid request format
+2020-06-16 11:35:27 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:35:27 INFO  restAPI:66 - Case:Undefined user ID
+2020-06-16 11:35:27 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:35:27 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:35:27 INFO  restAPI:46 - user id:9999
+2020-06-16 11:35:27 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 11:35:27 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:35:31 INFO  restAPI:60 - unknown user
+2020-06-16 11:35:31 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:35:31 INFO  restAPI:66 - Case:Empty string phone number
+2020-06-16 11:35:53 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:35:53 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:35:53 INFO  restAPI:46 - user id:528
+2020-06-16 11:35:53 INFO  restAPI:47 - phone number:
+2020-06-16 11:35:53 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:35:56 INFO  restAPI:60 - invalid phone number
+2020-06-16 11:35:56 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:35:56 INFO  restAPI:66 - Case:Below 9 characters
+2020-06-16 11:36:17 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:36:17 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:36:17 INFO  restAPI:46 - user id:529
+2020-06-16 11:36:17 INFO  restAPI:47 - phone number:08125293
+2020-06-16 11:36:17 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:36:21 INFO  restAPI:60 - invalid phone number
+2020-06-16 11:36:21 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:36:21 INFO  restAPI:66 - Case:Start with +62
+2020-06-16 11:36:41 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:36:41 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:36:41 INFO  restAPI:46 - user id:530
+2020-06-16 11:36:41 INFO  restAPI:47 - phone number:+628125293039
+2020-06-16 11:36:41 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:36:46 INFO  restAPI:60 - invalid phone number
+2020-06-16 11:36:46 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:36:46 INFO  restAPI:66 - Case:Start with 62
+2020-06-16 11:37:07 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:37:07 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:37:07 INFO  restAPI:46 - user id:531
+2020-06-16 11:37:07 INFO  restAPI:47 - phone number:6281252930398
+2020-06-16 11:37:07 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:37:11 INFO  restAPI:60 - invalid phone number
+2020-06-16 11:37:11 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:37:11 INFO  restAPI:66 - Case:Exceed 13 characters
+2020-06-16 11:37:32 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:37:32 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:37:32 INFO  restAPI:46 - user id:532
+2020-06-16 11:37:32 INFO  restAPI:47 - phone number:08125293039812
+2020-06-16 11:37:32 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:37:37 INFO  restAPI:60 - invalid phone number
+2020-06-16 11:37:37 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:37:37 INFO  restAPI:66 - Case:Axis
+2020-06-16 11:37:59 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:37:59 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:37:59 INFO  restAPI:46 - user id:533
+2020-06-16 11:37:59 INFO  restAPI:47 - phone number:083124211047
+2020-06-16 11:37:59 INFO  restAPI:48 - catalog id:69
+2020-06-16 11:38:03 INFO  restAPI:60 - {"id":279,"phoneNumber":"083124211047","catalog":{"id":69,"provider":{"id":6,"name":"Axis","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/Axis_logo_2015_fjybli_kgwzd1.png"},"value":5000,"price":6000}}
+2020-06-16 11:38:03 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:38:03 INFO  restAPI:66 - Case:White space
+2020-06-16 11:38:23 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:38:23 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:38:23 INFO  restAPI:46 - user id:534
+2020-06-16 11:38:23 INFO  restAPI:47 - phone number:081 252930398
+2020-06-16 11:38:23 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:38:27 INFO  restAPI:60 - invalid phone number
+2020-06-16 11:38:27 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:38:27 INFO  restAPI:66 - Case:XL
+2020-06-16 11:38:46 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:38:46 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:38:46 INFO  restAPI:46 - user id:535
+2020-06-16 11:38:46 INFO  restAPI:47 - phone number:087735571982
+2020-06-16 11:38:46 INFO  restAPI:48 - catalog id:1
+2020-06-16 11:38:50 INFO  restAPI:60 - {"id":280,"phoneNumber":"087735571982","catalog":{"id":1,"provider":{"id":1,"name":"XL","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/20180111100558_21XL_logo_2016_kyu40w_vkqgnc.png"},"value":5000,"price":6000}}
+2020-06-16 11:38:50 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:38:50 INFO  restAPI:66 - Case:Tri
+2020-06-16 11:39:08 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:39:08 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:39:08 INFO  restAPI:46 - user id:536
+2020-06-16 11:39:08 INFO  restAPI:47 - phone number:089962192444
+2020-06-16 11:39:08 INFO  restAPI:48 - catalog id:26
+2020-06-16 11:39:13 INFO  restAPI:60 - {"id":281,"phoneNumber":"089962192444","catalog":{"id":26,"provider":{"id":3,"name":"Tri","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/3-brand_cawkwp_pbjnni.png"},"value":1000,"price":1200}}
+2020-06-16 11:39:13 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:39:13 INFO  restAPI:66 - Case:Empty String catalog ID
+2020-06-16 11:39:33 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:39:33 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:39:33 INFO  restAPI:46 - user id:537
+2020-06-16 11:39:33 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 11:39:33 INFO  restAPI:48 - catalog id:
+2020-06-16 11:39:36 INFO  restAPI:60 - invalid request format
+2020-06-16 11:39:36 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:39:36 INFO  restAPI:66 - Case:Indosat
+2020-06-16 11:39:57 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:39:57 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:39:57 INFO  restAPI:46 - user id:538
+2020-06-16 11:39:57 INFO  restAPI:47 - phone number:085655619187
+2020-06-16 11:39:57 INFO  restAPI:48 - catalog id:44
+2020-06-16 11:40:03 INFO  restAPI:60 - {"id":282,"phoneNumber":"085655619187","catalog":{"id":44,"provider":{"id":4,"name":"Indosat","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/Indosat_Ooredoo_logo_wcpr2o_nqcou3.png"},"value":10000,"price":11500}}
+2020-06-16 11:40:03 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:40:03 INFO  restAPI:66 - Case:Different provider
+2020-06-16 11:40:23 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:40:23 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:40:23 INFO  restAPI:46 - user id:539
+2020-06-16 11:40:23 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 11:40:23 INFO  restAPI:48 - catalog id:1
+2020-06-16 11:40:28 INFO  restAPI:60 - selected catalog is not available for this phone’s provider
+2020-06-16 11:40:28 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:40:28 INFO  restAPI:66 - Case:Not numerical only
+2020-06-16 11:40:46 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:40:46 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:40:46 INFO  restAPI:46 - user id:540
+2020-06-16 11:40:46 INFO  restAPI:47 - phone number:081252930ABC
+2020-06-16 11:40:46 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:40:51 INFO  restAPI:60 - invalid phone number
+2020-06-16 11:40:51 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:40:51 INFO  restAPI:66 - Case:Smartfren
+2020-06-16 11:41:11 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:41:11 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:41:11 INFO  restAPI:46 - user id:541
+2020-06-16 11:41:11 INFO  restAPI:47 - phone number:0881025984984
+2020-06-16 11:41:11 INFO  restAPI:48 - catalog id:58
+2020-06-16 11:41:15 INFO  restAPI:60 - {"id":283,"phoneNumber":"0881025984984","catalog":{"id":58,"provider":{"id":5,"name":"Smartfren","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Smartfren__282019_29_k5icie_grwdpg.png"},"value":5000,"price":5400}}
+2020-06-16 11:41:15 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:41:15 INFO  restAPI:66 - Case:Undefined provider
+2020-06-16 11:41:36 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:41:36 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:41:36 INFO  restAPI:46 - user id:542
+2020-06-16 11:41:36 INFO  restAPI:47 - phone number:021252930398
+2020-06-16 11:41:36 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:41:40 INFO  restAPI:60 - unknown phone number
+2020-06-16 11:41:40 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:41:40 INFO  restAPI:66 - Case:Telkomsel
+2020-06-16 11:42:02 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:42:02 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:42:02 INFO  restAPI:46 - user id:543
+2020-06-16 11:42:02 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 11:42:02 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:42:06 INFO  restAPI:60 - {"id":284,"phoneNumber":"081252930398","catalog":{"id":13,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":15000,"price":15000}}
+2020-06-16 11:42:32 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:42:43 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:42:58 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:46:04 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:46:04 INFO  restAPI:66 - Case:Exceed 13 characters
+2020-06-16 11:46:42 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:46:42 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:46:42 INFO  restAPI:46 - user id:544
+2020-06-16 11:46:42 INFO  restAPI:47 - phone number:08125293039812
+2020-06-16 11:46:42 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:46:48 INFO  restAPI:60 - invalid phone number
+2020-06-16 11:46:48 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:46:48 INFO  restAPI:66 - Case:Below 9 characters
+2020-06-16 11:47:27 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:47:27 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:47:27 INFO  restAPI:46 - user id:545
+2020-06-16 11:47:27 INFO  restAPI:47 - phone number:08125293
+2020-06-16 11:47:27 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:47:31 INFO  restAPI:60 - invalid phone number
+2020-06-16 11:47:31 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:47:31 INFO  restAPI:66 - Case:Indosat
+2020-06-16 11:48:09 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:48:09 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:48:09 INFO  restAPI:46 - user id:546
+2020-06-16 11:48:09 INFO  restAPI:47 - phone number:085655619187
+2020-06-16 11:48:09 INFO  restAPI:48 - catalog id:44
+2020-06-16 11:48:14 INFO  restAPI:60 - {"id":285,"phoneNumber":"085655619187","catalog":{"id":44,"provider":{"id":4,"name":"Indosat","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/Indosat_Ooredoo_logo_wcpr2o_nqcou3.png"},"value":10000,"price":11500}}
+2020-06-16 11:48:14 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:48:14 INFO  restAPI:66 - Case:White space
+2020-06-16 11:48:51 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:48:51 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:48:51 INFO  restAPI:46 - user id:547
+2020-06-16 11:48:51 INFO  restAPI:47 - phone number:081 252930398
+2020-06-16 11:48:51 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:48:55 INFO  restAPI:60 - invalid phone number
+2020-06-16 11:48:55 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:48:55 INFO  restAPI:66 - Case:Undefined provider
+2020-06-16 11:49:31 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:49:31 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:49:31 INFO  restAPI:46 - user id:548
+2020-06-16 11:49:31 INFO  restAPI:47 - phone number:021252930398
+2020-06-16 11:49:31 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:49:35 INFO  restAPI:60 - unknown phone number
+2020-06-16 11:49:35 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:49:35 INFO  restAPI:66 - Case:Not numerical only
+2020-06-16 11:50:12 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:50:12 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:50:12 INFO  restAPI:46 - user id:549
+2020-06-16 11:50:12 INFO  restAPI:47 - phone number:081252930ABC
+2020-06-16 11:50:12 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:50:17 INFO  restAPI:60 - invalid phone number
+2020-06-16 11:50:17 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:50:17 INFO  restAPI:66 - Case:Empty string phone number
+2020-06-16 11:50:54 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:50:54 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:50:54 INFO  restAPI:46 - user id:550
+2020-06-16 11:50:54 INFO  restAPI:47 - phone number:
+2020-06-16 11:50:54 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:50:58 INFO  restAPI:60 - invalid phone number
+2020-06-16 11:50:58 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:50:58 INFO  restAPI:66 - Case:Telkomsel
+2020-06-16 11:56:07 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:56:07 INFO  restAPI:66 - Case:White space
+2020-06-16 11:56:39 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:56:39 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:56:39 INFO  restAPI:46 - user id:551
+2020-06-16 11:56:39 INFO  restAPI:47 - phone number:081 252930398
+2020-06-16 11:56:39 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:56:46 INFO  restAPI:60 - invalid phone number
+2020-06-16 11:56:46 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:56:46 INFO  restAPI:66 - Case:Axis
+2020-06-16 11:57:23 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:57:23 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:57:23 INFO  restAPI:46 - user id:552
+2020-06-16 11:57:23 INFO  restAPI:47 - phone number:083124211047
+2020-06-16 11:57:23 INFO  restAPI:48 - catalog id:69
+2020-06-16 11:57:28 INFO  restAPI:60 - {"id":286,"phoneNumber":"083124211047","catalog":{"id":69,"provider":{"id":6,"name":"Axis","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/Axis_logo_2015_fjybli_kgwzd1.png"},"value":5000,"price":6000}}
+2020-06-16 11:57:28 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:57:28 INFO  restAPI:66 - Case:Empty String catalog ID
+2020-06-16 11:58:04 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:58:04 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:58:04 INFO  restAPI:46 - user id:553
+2020-06-16 11:58:04 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 11:58:04 INFO  restAPI:48 - catalog id:
+2020-06-16 11:58:06 INFO  restAPI:60 - invalid request format
+2020-06-16 11:58:06 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:58:06 INFO  restAPI:66 - Case:Smartfren
+2020-06-16 11:58:42 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:58:42 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:58:42 INFO  restAPI:46 - user id:554
+2020-06-16 11:58:42 INFO  restAPI:47 - phone number:0881025984984
+2020-06-16 11:58:42 INFO  restAPI:48 - catalog id:58
+2020-06-16 11:58:47 INFO  restAPI:60 - {"id":287,"phoneNumber":"0881025984984","catalog":{"id":58,"provider":{"id":5,"name":"Smartfren","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Smartfren__282019_29_k5icie_grwdpg.png"},"value":5000,"price":5400}}
+2020-06-16 11:58:47 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:58:47 INFO  restAPI:66 - Case:Not numerical only
+2020-06-16 11:59:21 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 11:59:21 INFO  restAPI:45 - Test Data: 
+2020-06-16 11:59:21 INFO  restAPI:46 - user id:555
+2020-06-16 11:59:21 INFO  restAPI:47 - phone number:081252930ABC
+2020-06-16 11:59:21 INFO  restAPI:48 - catalog id:13
+2020-06-16 11:59:25 INFO  restAPI:60 - invalid phone number
+2020-06-16 11:59:25 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 11:59:25 INFO  restAPI:66 - Case:Start with +62
+2020-06-16 12:13:57 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:13:57 INFO  restAPI:66 - Case:Smartfren
+2020-06-16 12:14:27 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:14:27 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:14:27 INFO  restAPI:46 - user id:556
+2020-06-16 12:14:27 INFO  restAPI:47 - phone number:0881025984984
+2020-06-16 12:14:27 INFO  restAPI:48 - catalog id:58
+2020-06-16 12:14:34 INFO  restAPI:60 - {"id":288,"phoneNumber":"0881025984984","catalog":{"id":58,"provider":{"id":5,"name":"Smartfren","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Smartfren__282019_29_k5icie_grwdpg.png"},"value":5000,"price":5400}}
+2020-06-16 12:14:57 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:14:57 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:14:57 INFO  restAPI:66 - Case:Start with +62
+2020-06-16 12:15:29 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:15:29 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:15:29 INFO  restAPI:46 - user id:557
+2020-06-16 12:15:29 INFO  restAPI:47 - phone number:+628125293039
+2020-06-16 12:15:29 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:15:32 INFO  restAPI:60 - invalid phone number
+2020-06-16 12:23:43 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:23:43 INFO  restAPI:66 - Case:Smartfren
+2020-06-16 12:24:14 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:24:14 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:24:14 INFO  restAPI:46 - user id:558
+2020-06-16 12:24:14 INFO  restAPI:47 - phone number:0881025984984
+2020-06-16 12:24:14 INFO  restAPI:48 - catalog id:58
+2020-06-16 12:24:25 INFO  restAPI:60 - {"id":289,"phoneNumber":"0881025984984","catalog":{"id":58,"provider":{"id":5,"name":"Smartfren","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Smartfren__282019_29_k5icie_grwdpg.png"},"value":5000,"price":5400}}
+2020-06-16 12:24:45 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:24:45 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:24:45 INFO  restAPI:66 - Case:Start with +62
+2020-06-16 12:25:18 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:25:18 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:25:18 INFO  restAPI:46 - user id:559
+2020-06-16 12:25:18 INFO  restAPI:47 - phone number:+628125293039
+2020-06-16 12:25:18 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:25:22 INFO  restAPI:60 - invalid phone number
+2020-06-16 12:25:43 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:25:43 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:25:43 INFO  restAPI:66 - Case:White space
+2020-06-16 12:26:13 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:26:13 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:26:13 INFO  restAPI:46 - user id:560
+2020-06-16 12:26:13 INFO  restAPI:47 - phone number:081 252930398
+2020-06-16 12:26:13 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:26:16 INFO  restAPI:60 - {"timestamp":"2020-06-16T05:26:16.011+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:26:16 INFO  restAPI:97 - {"timestamp":"2020-06-16T05:26:16.011+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:26:31 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:26:31 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:26:31 INFO  restAPI:66 - Case:Empty String user ID
+2020-06-16 12:26:31 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:26:31 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:26:31 INFO  restAPI:46 - user id:
+2020-06-16 12:26:31 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 12:26:31 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:26:32 INFO  restAPI:60 - invalid request format
+2020-06-16 12:26:42 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:26:42 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:26:42 INFO  restAPI:66 - Case:Undefined catalog ID
+2020-06-16 12:27:04 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:27:04 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:27:04 INFO  restAPI:46 - user id:561
+2020-06-16 12:27:04 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 12:27:04 INFO  restAPI:48 - catalog id:9999
+2020-06-16 12:27:07 INFO  restAPI:60 - {"timestamp":"2020-06-16T05:27:06.959+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:27:07 INFO  restAPI:97 - {"timestamp":"2020-06-16T05:27:06.959+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:27:23 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:27:23 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:27:23 INFO  restAPI:66 - Case:Telkomsel
+2020-06-16 12:27:53 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:27:53 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:27:53 INFO  restAPI:46 - user id:562
+2020-06-16 12:27:53 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 12:27:53 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:27:55 INFO  restAPI:60 - {"timestamp":"2020-06-16T05:27:55.523+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:27:55 INFO  restAPI:97 - {"timestamp":"2020-06-16T05:27:55.523+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:28:12 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:28:12 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:28:12 INFO  restAPI:66 - Case:Different provider
+2020-06-16 12:28:43 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:28:43 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:28:43 INFO  restAPI:46 - user id:563
+2020-06-16 12:28:43 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 12:28:43 INFO  restAPI:48 - catalog id:1
+2020-06-16 12:28:46 INFO  restAPI:60 - {"timestamp":"2020-06-16T05:28:46.079+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:28:46 INFO  restAPI:97 - {"timestamp":"2020-06-16T05:28:46.079+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:29:01 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:29:01 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:29:01 INFO  restAPI:66 - Case:Axis
+2020-06-16 12:29:31 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:29:31 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:29:31 INFO  restAPI:46 - user id:564
+2020-06-16 12:29:31 INFO  restAPI:47 - phone number:083124211047
+2020-06-16 12:29:31 INFO  restAPI:48 - catalog id:69
+2020-06-16 12:29:34 INFO  restAPI:60 - {"timestamp":"2020-06-16T05:29:33.878+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:29:34 INFO  restAPI:97 - {"timestamp":"2020-06-16T05:29:33.878+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:29:48 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:29:48 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:29:48 INFO  restAPI:66 - Case:Below 9 characters
+2020-06-16 12:30:20 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:30:20 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:30:20 INFO  restAPI:46 - user id:565
+2020-06-16 12:30:20 INFO  restAPI:47 - phone number:08125293
+2020-06-16 12:30:20 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:30:22 INFO  restAPI:60 - {"timestamp":"2020-06-16T05:30:22.642+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:30:22 INFO  restAPI:97 - {"timestamp":"2020-06-16T05:30:22.642+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:30:38 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:30:38 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:30:38 INFO  restAPI:66 - Case:Not numerical only
+2020-06-16 12:31:08 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:31:08 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:31:08 INFO  restAPI:46 - user id:566
+2020-06-16 12:31:08 INFO  restAPI:47 - phone number:081252930ABC
+2020-06-16 12:31:08 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:31:10 INFO  restAPI:60 - {"timestamp":"2020-06-16T05:31:10.709+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:31:11 INFO  restAPI:97 - {"timestamp":"2020-06-16T05:31:10.709+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:31:24 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:31:24 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:31:24 INFO  restAPI:66 - Case:Exceed 13 characters
+2020-06-16 12:31:53 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:31:53 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:31:53 INFO  restAPI:46 - user id:567
+2020-06-16 12:31:53 INFO  restAPI:47 - phone number:08125293039812
+2020-06-16 12:31:53 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:31:55 INFO  restAPI:60 - {"timestamp":"2020-06-16T05:31:55.482+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:31:55 INFO  restAPI:97 - {"timestamp":"2020-06-16T05:31:55.482+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:32:10 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:32:10 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:32:10 INFO  restAPI:66 - Case:Empty String catalog ID
+2020-06-16 12:32:42 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:32:42 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:32:42 INFO  restAPI:46 - user id:568
+2020-06-16 12:32:42 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 12:32:42 INFO  restAPI:48 - catalog id:
+2020-06-16 12:32:44 INFO  restAPI:60 - invalid request format
+2020-06-16 12:33:04 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:33:04 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:33:04 INFO  restAPI:66 - Case:Empty string phone number
+2020-06-16 12:33:36 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:33:36 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:33:36 INFO  restAPI:46 - user id:569
+2020-06-16 12:33:36 INFO  restAPI:47 - phone number:
+2020-06-16 12:33:36 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:33:38 INFO  restAPI:60 - {"timestamp":"2020-06-16T05:33:38.363+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:33:38 INFO  restAPI:97 - {"timestamp":"2020-06-16T05:33:38.363+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:33:53 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:33:53 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:33:53 INFO  restAPI:66 - Case:XL
+2020-06-16 12:34:24 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:34:24 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:34:24 INFO  restAPI:46 - user id:570
+2020-06-16 12:34:24 INFO  restAPI:47 - phone number:087735571982
+2020-06-16 12:34:24 INFO  restAPI:48 - catalog id:1
+2020-06-16 12:34:26 INFO  restAPI:60 - {"timestamp":"2020-06-16T05:34:26.419+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:34:26 INFO  restAPI:97 - {"timestamp":"2020-06-16T05:34:26.419+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:34:43 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:34:43 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:34:43 INFO  restAPI:66 - Case:Undefined provider
+2020-06-16 12:35:14 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:35:14 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:35:14 INFO  restAPI:46 - user id:571
+2020-06-16 12:35:14 INFO  restAPI:47 - phone number:021252930398
+2020-06-16 12:35:14 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:35:17 INFO  restAPI:60 - {"timestamp":"2020-06-16T05:35:17.034+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:35:17 INFO  restAPI:97 - {"timestamp":"2020-06-16T05:35:17.034+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:35:31 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:35:31 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:35:31 INFO  restAPI:66 - Case:Tri
+2020-06-16 12:35:58 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:35:58 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:35:58 INFO  restAPI:46 - user id:572
+2020-06-16 12:35:58 INFO  restAPI:47 - phone number:089962192444
+2020-06-16 12:35:58 INFO  restAPI:48 - catalog id:26
+2020-06-16 12:36:00 INFO  restAPI:60 - {"timestamp":"2020-06-16T05:36:00.131+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:36:00 INFO  restAPI:97 - {"timestamp":"2020-06-16T05:36:00.131+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:36:15 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:36:15 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:36:15 INFO  restAPI:66 - Case:Start with 62
+2020-06-16 12:36:45 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:36:45 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:36:45 INFO  restAPI:46 - user id:573
+2020-06-16 12:36:45 INFO  restAPI:47 - phone number:6281252930398
+2020-06-16 12:36:45 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:36:47 INFO  restAPI:60 - {"timestamp":"2020-06-16T05:36:47.595+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:36:47 INFO  restAPI:97 - {"timestamp":"2020-06-16T05:36:47.595+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:37:02 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:37:02 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:37:02 INFO  restAPI:66 - Case:Undefined user ID
+2020-06-16 12:37:02 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:37:02 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:37:02 INFO  restAPI:46 - user id:9999
+2020-06-16 12:37:02 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 12:37:02 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:37:04 INFO  restAPI:60 - {"timestamp":"2020-06-16T05:37:04.506+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:37:04 INFO  restAPI:97 - {"timestamp":"2020-06-16T05:37:04.506+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:37:10 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:37:10 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:37:10 INFO  restAPI:66 - Case:Indosat
+2020-06-16 12:37:41 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:37:41 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:37:41 INFO  restAPI:46 - user id:574
+2020-06-16 12:37:41 INFO  restAPI:47 - phone number:085655619187
+2020-06-16 12:37:41 INFO  restAPI:48 - catalog id:44
+2020-06-16 12:37:43 INFO  restAPI:60 - {"timestamp":"2020-06-16T05:37:43.011+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:37:43 INFO  restAPI:97 - {"timestamp":"2020-06-16T05:37:43.011+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-16 12:37:58 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:49:34 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:49:34 INFO  restAPI:66 - Case:Not numerical only
+2020-06-16 12:49:59 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:49:59 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:49:59 INFO  restAPI:46 - user id:575
+2020-06-16 12:49:59 INFO  restAPI:47 - phone number:081252930ABC
+2020-06-16 12:49:59 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:50:05 INFO  restAPI:60 - invalid phone number
+2020-06-16 12:50:30 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:50:30 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:50:30 INFO  restAPI:66 - Case:Telkomsel
+2020-06-16 12:50:54 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:50:54 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:50:54 INFO  restAPI:46 - user id:576
+2020-06-16 12:50:54 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 12:50:54 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:50:58 INFO  restAPI:60 - {"id":291,"phoneNumber":"081252930398","catalog":{"id":13,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":15000,"price":15000}}
+2020-06-16 12:51:20 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:51:20 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:51:20 INFO  restAPI:66 - Case:Different provider
+2020-06-16 12:51:45 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:51:45 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:51:45 INFO  restAPI:46 - user id:577
+2020-06-16 12:51:45 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 12:51:45 INFO  restAPI:48 - catalog id:1
+2020-06-16 12:51:49 INFO  restAPI:60 - selected catalog is not available for this phone’s provider
+2020-06-16 12:52:23 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:52:23 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:52:23 INFO  restAPI:66 - Case:Empty string phone number
+2020-06-16 12:52:47 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:52:47 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:52:47 INFO  restAPI:46 - user id:578
+2020-06-16 12:52:47 INFO  restAPI:47 - phone number:
+2020-06-16 12:52:47 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:52:51 INFO  restAPI:60 - invalid phone number
+2020-06-16 12:53:14 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:53:14 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:53:14 INFO  restAPI:66 - Case:Empty String user ID
+2020-06-16 12:53:14 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:53:14 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:53:14 INFO  restAPI:46 - user id:
+2020-06-16 12:53:14 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 12:53:14 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:53:16 INFO  restAPI:60 - invalid request format
+2020-06-16 12:53:25 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:53:25 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:53:25 INFO  restAPI:66 - Case:XL
+2020-06-16 12:53:49 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:53:49 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:53:49 INFO  restAPI:46 - user id:579
+2020-06-16 12:53:49 INFO  restAPI:47 - phone number:087735571982
+2020-06-16 12:53:49 INFO  restAPI:48 - catalog id:1
+2020-06-16 12:53:54 INFO  restAPI:60 - {"id":292,"phoneNumber":"087735571982","catalog":{"id":1,"provider":{"id":1,"name":"XL","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/20180111100558_21XL_logo_2016_kyu40w_vkqgnc.png"},"value":5000,"price":6000}}
+2020-06-16 12:54:19 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:54:19 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:54:19 INFO  restAPI:66 - Case:Undefined catalog ID
+2020-06-16 12:54:45 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:54:45 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:54:45 INFO  restAPI:46 - user id:580
+2020-06-16 12:54:45 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 12:54:45 INFO  restAPI:48 - catalog id:9999
+2020-06-16 12:54:49 INFO  restAPI:60 - catalog not found
+2020-06-16 12:55:20 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:55:20 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:55:20 INFO  restAPI:66 - Case:Start with 62
+2020-06-16 12:55:44 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:55:44 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:55:44 INFO  restAPI:46 - user id:581
+2020-06-16 12:55:44 INFO  restAPI:47 - phone number:6281252930398
+2020-06-16 12:55:44 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:55:48 INFO  restAPI:60 - invalid phone number
+2020-06-16 12:56:15 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:56:15 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:56:15 INFO  restAPI:66 - Case:Exceed 13 characters
+2020-06-16 12:56:40 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:56:40 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:56:40 INFO  restAPI:46 - user id:582
+2020-06-16 12:56:40 INFO  restAPI:47 - phone number:08125293039812
+2020-06-16 12:56:40 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:56:45 INFO  restAPI:60 - invalid phone number
+2020-06-16 12:57:10 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:57:10 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:57:10 INFO  restAPI:66 - Case:Empty String catalog ID
+2020-06-16 12:57:37 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:57:37 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:57:37 INFO  restAPI:46 - user id:583
+2020-06-16 12:57:37 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 12:57:37 INFO  restAPI:48 - catalog id:
+2020-06-16 12:57:40 INFO  restAPI:60 - invalid request format
+2020-06-16 12:58:08 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:58:08 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:58:08 INFO  restAPI:66 - Case:Indosat
+2020-06-16 12:58:33 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:58:33 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:58:33 INFO  restAPI:46 - user id:584
+2020-06-16 12:58:33 INFO  restAPI:47 - phone number:085655619187
+2020-06-16 12:58:33 INFO  restAPI:48 - catalog id:44
+2020-06-16 12:58:38 INFO  restAPI:60 - {"id":293,"phoneNumber":"085655619187","catalog":{"id":44,"provider":{"id":4,"name":"Indosat","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/Indosat_Ooredoo_logo_wcpr2o_nqcou3.png"},"value":10000,"price":11500}}
+2020-06-16 12:59:05 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:59:05 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:59:05 INFO  restAPI:66 - Case:Undefined user ID
+2020-06-16 12:59:05 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:59:05 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:59:05 INFO  restAPI:46 - user id:9999
+2020-06-16 12:59:05 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 12:59:05 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:59:09 INFO  restAPI:60 - unknown user
+2020-06-16 12:59:26 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:59:26 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 12:59:26 INFO  restAPI:66 - Case:Undefined provider
+2020-06-16 12:59:51 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 12:59:51 INFO  restAPI:45 - Test Data: 
+2020-06-16 12:59:51 INFO  restAPI:46 - user id:585
+2020-06-16 12:59:51 INFO  restAPI:47 - phone number:021252930398
+2020-06-16 12:59:51 INFO  restAPI:48 - catalog id:13
+2020-06-16 12:59:55 INFO  restAPI:60 - unknown phone number
+2020-06-16 13:04:43 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:04:43 INFO  restAPI:66 - Case:Not numerical only
+2020-06-16 13:05:14 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:05:14 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:05:14 INFO  restAPI:46 - user id:586
+2020-06-16 13:05:14 INFO  restAPI:47 - phone number:081252930ABC
+2020-06-16 13:05:14 INFO  restAPI:48 - catalog id:13
+2020-06-16 13:05:22 INFO  restAPI:60 - invalid phone number
+2020-06-16 13:05:49 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:05:49 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:05:49 INFO  restAPI:66 - Case:Telkomsel
+2020-06-16 13:08:24 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:08:24 INFO  restAPI:66 - Case:Empty String catalog ID
+2020-06-16 13:08:50 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:08:50 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:08:50 INFO  restAPI:46 - user id:587
+2020-06-16 13:08:50 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 13:08:50 INFO  restAPI:48 - catalog id:
+2020-06-16 13:08:54 INFO  restAPI:60 - invalid request format
+2020-06-16 13:09:18 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:09:18 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:09:18 INFO  restAPI:66 - Case:Telkomsel
+2020-06-16 13:11:01 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:11:01 INFO  restAPI:66 - Case:Empty String catalog ID
+2020-06-16 13:11:29 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:11:29 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:11:29 INFO  restAPI:46 - user id:588
+2020-06-16 13:11:29 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 13:11:29 INFO  restAPI:48 - catalog id:
+2020-06-16 13:11:32 INFO  restAPI:60 - invalid request format
+2020-06-16 13:11:58 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:11:58 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:11:58 INFO  restAPI:66 - Case:Telkomsel
+2020-06-16 13:12:23 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:12:23 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:12:23 INFO  restAPI:46 - user id:589
+2020-06-16 13:12:23 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 13:12:23 INFO  restAPI:48 - catalog id:13
+2020-06-16 13:12:28 INFO  restAPI:60 - {"id":294,"phoneNumber":"081252930398","catalog":{"id":13,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":15000,"price":15000}}
+2020-06-16 13:12:57 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:12:57 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:12:57 INFO  restAPI:66 - Case:Axis
+2020-06-16 13:13:22 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:13:22 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:13:22 INFO  restAPI:46 - user id:590
+2020-06-16 13:13:22 INFO  restAPI:47 - phone number:083124211047
+2020-06-16 13:13:22 INFO  restAPI:48 - catalog id:69
+2020-06-16 13:13:27 INFO  restAPI:60 - {"id":295,"phoneNumber":"083124211047","catalog":{"id":69,"provider":{"id":6,"name":"Axis","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/Axis_logo_2015_fjybli_kgwzd1.png"},"value":5000,"price":6000}}
+2020-06-16 13:13:51 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:13:51 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:13:51 INFO  restAPI:66 - Case:Exceed 13 characters
+2020-06-16 13:14:15 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:14:15 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:14:15 INFO  restAPI:46 - user id:591
+2020-06-16 13:14:15 INFO  restAPI:47 - phone number:08125293039812
+2020-06-16 13:14:15 INFO  restAPI:48 - catalog id:13
+2020-06-16 13:14:19 INFO  restAPI:60 - invalid phone number
+2020-06-16 13:14:45 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:14:45 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:14:45 INFO  restAPI:66 - Case:Smartfren
+2020-06-16 13:15:10 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:15:10 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:15:10 INFO  restAPI:46 - user id:592
+2020-06-16 13:15:10 INFO  restAPI:47 - phone number:0881025984984
+2020-06-16 13:15:10 INFO  restAPI:48 - catalog id:58
+2020-06-16 13:15:15 INFO  restAPI:60 - {"id":296,"phoneNumber":"0881025984984","catalog":{"id":58,"provider":{"id":5,"name":"Smartfren","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Smartfren__282019_29_k5icie_grwdpg.png"},"value":5000,"price":5400}}
+2020-06-16 13:15:38 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:15:38 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:15:38 INFO  restAPI:66 - Case:Not numerical only
+2020-06-16 13:16:02 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:16:02 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:16:02 INFO  restAPI:46 - user id:593
+2020-06-16 13:16:02 INFO  restAPI:47 - phone number:081252930ABC
+2020-06-16 13:16:02 INFO  restAPI:48 - catalog id:13
+2020-06-16 13:16:06 INFO  restAPI:60 - invalid phone number
+2020-06-16 13:16:31 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:16:31 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:16:31 INFO  restAPI:66 - Case:Empty string phone number
+2020-06-16 13:16:56 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:16:56 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:16:56 INFO  restAPI:46 - user id:594
+2020-06-16 13:16:56 INFO  restAPI:47 - phone number:
+2020-06-16 13:16:56 INFO  restAPI:48 - catalog id:13
+2020-06-16 13:17:00 INFO  restAPI:60 - invalid phone number
+2020-06-16 13:17:24 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:17:24 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:17:24 INFO  restAPI:66 - Case:Tri
+2020-06-16 13:17:50 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:17:50 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:17:50 INFO  restAPI:46 - user id:595
+2020-06-16 13:17:50 INFO  restAPI:47 - phone number:089962192444
+2020-06-16 13:17:50 INFO  restAPI:48 - catalog id:26
+2020-06-16 13:17:54 INFO  restAPI:60 - {"id":297,"phoneNumber":"089962192444","catalog":{"id":26,"provider":{"id":3,"name":"Tri","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/3-brand_cawkwp_pbjnni.png"},"value":1000,"price":1200}}
+2020-06-16 13:18:20 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:18:20 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:18:20 INFO  restAPI:66 - Case:Empty String user ID
+2020-06-16 13:18:20 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:18:20 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:18:20 INFO  restAPI:46 - user id:
+2020-06-16 13:18:20 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 13:18:20 INFO  restAPI:48 - catalog id:13
+2020-06-16 13:18:22 INFO  restAPI:60 - invalid request format
+2020-06-16 13:18:32 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:18:32 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:18:32 INFO  restAPI:66 - Case:Below 9 characters
+2020-06-16 13:19:00 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:19:00 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:19:00 INFO  restAPI:46 - user id:596
+2020-06-16 13:19:00 INFO  restAPI:47 - phone number:08125293
+2020-06-16 13:19:00 INFO  restAPI:48 - catalog id:13
+2020-06-16 13:19:04 INFO  restAPI:60 - invalid phone number
+2020-06-16 13:19:30 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:19:30 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:19:30 INFO  restAPI:66 - Case:Undefined catalog ID
+2020-06-16 13:19:52 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:19:52 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:19:52 INFO  restAPI:46 - user id:597
+2020-06-16 13:19:52 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 13:19:52 INFO  restAPI:48 - catalog id:9999
+2020-06-16 13:19:57 INFO  restAPI:60 - catalog not found
+2020-06-16 13:20:26 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:20:26 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:20:26 INFO  restAPI:66 - Case:Start with +62
+2020-06-16 13:20:51 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:20:51 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:20:51 INFO  restAPI:46 - user id:598
+2020-06-16 13:20:51 INFO  restAPI:47 - phone number:+628125293039
+2020-06-16 13:20:51 INFO  restAPI:48 - catalog id:13
+2020-06-16 13:20:55 INFO  restAPI:60 - invalid phone number
+2020-06-16 13:21:20 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:21:20 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:21:20 INFO  restAPI:66 - Case:White space
+2020-06-16 13:21:44 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:21:44 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:21:44 INFO  restAPI:46 - user id:599
+2020-06-16 13:21:44 INFO  restAPI:47 - phone number:081 252930398
+2020-06-16 13:21:44 INFO  restAPI:48 - catalog id:13
+2020-06-16 13:21:48 INFO  restAPI:60 - invalid phone number
+2020-06-16 13:22:08 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:22:08 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:22:08 INFO  restAPI:66 - Case:Undefined provider
+2020-06-16 13:22:35 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:22:35 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:22:35 INFO  restAPI:46 - user id:600
+2020-06-16 13:22:35 INFO  restAPI:47 - phone number:021252930398
+2020-06-16 13:22:35 INFO  restAPI:48 - catalog id:13
+2020-06-16 13:22:39 INFO  restAPI:60 - unknown phone number
+2020-06-16 13:23:03 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:23:03 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:23:03 INFO  restAPI:66 - Case:Different provider
+2020-06-16 13:23:29 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:23:29 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:23:29 INFO  restAPI:46 - user id:601
+2020-06-16 13:23:29 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 13:23:29 INFO  restAPI:48 - catalog id:1
+2020-06-16 13:23:33 INFO  restAPI:60 - selected catalog is not available for this phone’s provider
+2020-06-16 13:24:07 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:24:07 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:24:07 INFO  restAPI:66 - Case:Start with 62
+2020-06-16 13:24:31 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:24:31 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:24:31 INFO  restAPI:46 - user id:602
+2020-06-16 13:24:31 INFO  restAPI:47 - phone number:6281252930398
+2020-06-16 13:24:31 INFO  restAPI:48 - catalog id:13
+2020-06-16 13:24:35 INFO  restAPI:60 - invalid phone number
+2020-06-16 13:25:00 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:25:00 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:25:00 INFO  restAPI:66 - Case:Undefined user ID
+2020-06-16 13:25:00 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:25:00 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:25:00 INFO  restAPI:46 - user id:9999
+2020-06-16 13:25:00 INFO  restAPI:47 - phone number:081252930398
+2020-06-16 13:25:00 INFO  restAPI:48 - catalog id:13
+2020-06-16 13:25:04 INFO  restAPI:60 - unknown user
+2020-06-16 13:25:19 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:25:19 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:25:19 INFO  restAPI:66 - Case:Indosat
+2020-06-16 13:25:43 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:25:43 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:25:43 INFO  restAPI:46 - user id:603
+2020-06-16 13:25:43 INFO  restAPI:47 - phone number:085655619187
+2020-06-16 13:25:43 INFO  restAPI:48 - catalog id:44
+2020-06-16 13:25:48 INFO  restAPI:60 - {"id":299,"phoneNumber":"085655619187","catalog":{"id":44,"provider":{"id":4,"name":"Indosat","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/Indosat_Ooredoo_logo_wcpr2o_nqcou3.png"},"value":10000,"price":11500}}
+2020-06-16 13:26:14 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:26:14 INFO  restAPI:65 - ***** Started TC_Remote_Service_CreateTransaction *****
+2020-06-16 13:26:14 INFO  restAPI:66 - Case:XL
+2020-06-16 13:26:39 INFO  restAPI:44 - Call Create Transaction API [Order Domain]
+2020-06-16 13:26:39 INFO  restAPI:45 - Test Data: 
+2020-06-16 13:26:39 INFO  restAPI:46 - user id:604
+2020-06-16 13:26:39 INFO  restAPI:47 - phone number:087735571982
+2020-06-16 13:26:39 INFO  restAPI:48 - catalog id:1
+2020-06-16 13:26:44 INFO  restAPI:60 - {"id":300,"phoneNumber":"087735571982","catalog":{"id":1,"provider":{"id":1,"name":"XL","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/20180111100558_21XL_logo_2016_kyu40w_vkqgnc.png"},"value":5000,"price":6000}}
+2020-06-16 13:27:08 INFO  restAPI:176 - ***** Finished TC_Remote_Service_CreateTransaction *****

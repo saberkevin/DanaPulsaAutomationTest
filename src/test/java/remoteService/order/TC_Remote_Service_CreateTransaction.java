@@ -24,6 +24,7 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 	private String phoneNumber;
 	private String catalogId;
 	private String result;
+	private boolean isCreateUser;
 	
 	public TC_Remote_Service_CreateTransaction() {
 		
@@ -35,6 +36,7 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 		this.phoneNumber = phoneNumber;
 		this.catalogId = catalogId;
 		this.result = result;
+		isCreateUser = false;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -64,21 +66,25 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 		logger.info("Case:" + testCase);
 		
 		if (userId.equals("true")) {
+			isCreateUser = true;
+
 			// initialize user
 			user.setName("Zanuar");
 			user.setEmail("triromadon@gmail.com");
 			user.setUsername("081252930398");
 			user.setPin(123456);
 			
-			// insert user into database
+			// delete if exist
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
 			deleteUserIfExist(user.getEmail(), user.getUsername());
+					
+			// insert user into database
 			createUser(user);
-			user.setId(getUserIdByUsername(user.getUsername()));
-			
+			user.setId(getUserIdByUsername(user.getUsername()));			
 			userId = Long.toString(user.getId());
 			
-			// delete transaction
-			deleteTransactionByUserIdIfExist(user.getId());
+			// insert balance into database
+			createBalance(user.getId(), 10000000);
 		}
 	}
 	
@@ -153,7 +159,7 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 			
 			try {
 				Connection conn = getConnectionOrder();
-				String queryString = "SELECT COUNT(*) AS count FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
+				String queryString = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
 				
 				PreparedStatement ps = conn.prepareStatement(queryString);
 				ps.setLong(1, Long.parseLong(userId));
@@ -189,7 +195,7 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 			
 			try {
 				Connection conn = getConnectionOrder();
-				String queryString = "SELECT COUNT(*) AS count FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
+				String queryString = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
 				
 				PreparedStatement ps = conn.prepareStatement(queryString);
 				ps.setLong(1, Long.parseLong(userId));
@@ -247,7 +253,7 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 			
 			try {
 				Connection conn = getConnectionOrder();
-				String queryString = "SELECT COUNT(*) AS count FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
+				String queryString = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
 				
 				PreparedStatement ps = conn.prepareStatement(queryString);
 				ps.setLong(1, Long.parseLong(userId));
@@ -266,12 +272,12 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 				|| responseBody.equals("invalid request format")) {
 			try {
 				Connection conn = getConnectionOrder();
-				String queryString = "SELECT COUNT(*) AS count FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
+				String queryString = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
 				
 				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(userId));
+				ps.setString(1, userId);
 				ps.setString(2, phoneNumber);
-				ps.setLong(3, Long.parseLong(catalogId));
+				ps.setString(3, catalogId);
 				
 				ResultSet rs = ps.executeQuery();
 				Assert.assertTrue(!rs.next());
@@ -307,7 +313,17 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 	
 	@AfterClass
 	public void afterClass() {
-		deleteTransactionByPhoneNumber(phoneNumber);
+		// delete user
+		if (isCreateUser == true) {
+			deleteTransactionByUserId(user.getId());
+			deleteBalanceByUserId(user.getId());
+			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
+		}
+		
+		// delete transaction
+		deleteTransactionByPhoneNumber(phoneNumber);			
+		
+		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());
 	}
 }

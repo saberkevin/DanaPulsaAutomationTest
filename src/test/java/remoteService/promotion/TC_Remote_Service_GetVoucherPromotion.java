@@ -61,6 +61,21 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 	public void beforeClass() {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Case:" + description);
+		
+		if (userId.equals("true")) {
+			// initialize user
+			user.setName("Zanuar");
+			user.setEmail("triromadon@gmail.com");
+			user.setUsername("081252930398");
+			user.setPin(123456);
+			
+			// insert user into database
+			deleteUserIfExist(user.getEmail(), user.getUsername());
+			createUser(user);
+			user.setId(getUserIdByUsername(user.getUsername()));
+			
+			userId = Long.toString(user.getId());
+		}
 	}
 	
 	@Test
