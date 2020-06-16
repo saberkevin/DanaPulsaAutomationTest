@@ -1,5 +1,6 @@
 package testCases.otp;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,14 +37,15 @@ public class TC_Get_Otp extends TestBase{
 		if(code == 200)
 		{
 			Assert.assertEquals("success", message);
-			Assert.assertNotNull(Long.parseLong(jsonPath.get("data.id")));
-			Assert.assertNotNull(Long.parseLong(jsonPath.get("data.userId")));
-			Assert.assertNotEquals("", jsonPath.get("data.code"));
+			Assert.assertNotNull(Long.parseLong(jsonPath.get("data.id").toString()));
+			Assert.assertNotNull(Long.parseLong(jsonPath.get("data.userId").toString()));
+			Assert.assertTrue(!jsonPath.get("data.code").toString().isEmpty());
 			checkCodeValid(jsonPath.get("data.code"));
 			
 			String query = "SELECT userId, code FROM otp\n" + 
 					"WHERE userId = ?";
 			try {
+				Connection conMember = getConnectionMember();
 				PreparedStatement psGetOtp= getConnectionMember().prepareStatement(query);
 				psGetOtp.setLong(1, Long.parseLong(id));
 				
@@ -55,7 +57,7 @@ public class TC_Get_Otp extends TestBase{
 					Assert.assertEquals(jsonPath.get("data.code"), result.getString("code"));
 				}
 				
-				getConnectionMember().close();
+				conMember.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -63,14 +65,18 @@ public class TC_Get_Otp extends TestBase{
 		}
 		else if(code == 404)
 		{
-			Assert.assertEquals("OTP not found", message);
+			Assert.assertTrue(message.contains("not found"));
+		}
+		else
+		{
+			Assert.assertTrue("unhandled error",false);
 		}
 	}
 	
 	@Test(dependsOnMethods = {"getOtpUser"})
 	void assertStatusCode()
 	{
-		String sc = response.jsonPath().get("code");
+		int sc = response.jsonPath().get("code");
 		checkStatusCode(sc);	
 	}
 	

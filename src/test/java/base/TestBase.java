@@ -257,11 +257,12 @@ public class TestBase {
 		logger.info(response.getBody().asString());
 	}
 	
-	public void changePinOtp() {
+	public void changePinOtp(String sessionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.POST, CHANGE_PIN_OTP_PATH);
 		logger.info(response.getBody().asString());
