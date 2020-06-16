@@ -1,5 +1,6 @@
 package testCases.otp;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,6 +16,7 @@ import io.restassured.path.json.JsonPath;
 public class TC_Forgot_Pin_Otp extends TestBase{
 	
 	private String id; 
+	private String codeBefore = "";
 	
 	public TC_Forgot_Pin_Otp(String id) {
 		this.id=id;
@@ -23,10 +25,17 @@ public class TC_Forgot_Pin_Otp extends TestBase{
 	@Test
 	void forgotPinOtpUser()
 	{
+		logger.info("***** GET OTP Before *****");
+		GetOtp(id);
+		if(response.getStatusCode() == 200)
+		{
+			codeBefore = response.jsonPath().get("data.code");
+		}
+		logger.info("***** END GET OTP Before *****");
 		forgotPinOtp(id);
 	}
 	
-	@Test(dependsOnMethods = {"forgotPinOtpUser"})
+	@Test(dependsOnMethods = {"forgotPinOtpUser","assertStatusCode","assertResponseTime"})
 	void checkResult()
 	{
 		int code = response.getStatusCode();
@@ -38,9 +47,10 @@ public class TC_Forgot_Pin_Otp extends TestBase{
 			Assert.assertEquals("success", message);
 			
 			String query = "SELECT userId, code FROM otp\n" + 
-					"WHERE userId = ? AND  ((TIME_TO_SEC(NOW())-TIME_TO_SEC(TIME(updatedAt))/60) <= 5";
+					"WHERE userId = ?";
 			try {
-				PreparedStatement psGetOtp= getConnectionMember().prepareStatement(query);
+				Connection conMember = getConnectionMember();
+				PreparedStatement psGetOtp= conMember.prepareStatement(query);
 				psGetOtp.setLong(1, Long.parseLong(id));
 				
 				ResultSet result = psGetOtp.executeQuery();
@@ -48,21 +58,38 @@ public class TC_Forgot_Pin_Otp extends TestBase{
 				while(result.next())
 				{
 					Assert.assertEquals(Long.parseLong(id), result.getLong("userId"));
-					Assert.assertNotNull(result.getString("code"));
+					Assert.assertNotEquals(codeBefore, result.getString("code"));
 				}
 				
-				getConnectionMember().close();
+				conMember.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			logger.info("***** Assert GET OTP After *****");
+			GetOtp(id);
+			Assert.assertNotEquals(codeBefore, response.jsonPath().get("data.code"));
+			logger.info("***** END Assert GET OTP After *****");
+		}
+		else if(code == 404)
+		{
+			Assert.assertEquals("user not found", message);
+		}
+		else if(code == 500)
+		{
+			Assert.assertTrue(message.equals("unverified number") || message.equals("invalid request format"));
+		}
+		else
+		{
+			Assert.assertTrue("unhandled error",false);
 		}
 	}
 	
 	@Test(dependsOnMethods = {"forgotPinOtpUser"})
 	void assertStatusCode()
 	{
-		String sc = response.jsonPath().get("code");
+		int sc = response.jsonPath().get("code");
 		checkStatusCode(sc);	
 	}
 	

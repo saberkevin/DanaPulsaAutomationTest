@@ -27,13 +27,13 @@ import utilities.ExcelUtil;
 @SuppressWarnings("unchecked")
 public class TestBase {
 	private static final String REGISTER_PATH = "/api/register";
-	private static final String LOGIN_PATH = "/api/login";
+	private static final String LOGIN_PATH = "/api/login/";
 	private static final String VERIFY_PIN_LOGIN_PATH = "/api/verifypin-login";
 	private static final String FORGOT_PIN_OTP_PATH = "/api/forgotpin-otp";
 	private static final String CHANGE_PIN_OTP_PATH = "/api/changepin-otp";
 	private static final String VERIFY_OTP_PATH = "/api/verify-otp";
 	private static final String GET_OTP_PATH = "/api/otp/";
-	private static final String CHANGE_PIN_PATH = "/api/changepin";
+	private static final String CHANGE_PIN_PATH = "/api/change-pin";
 	private static final String GET_PROFILE_PATH = "/api/profile";
 	private static final String GET_BALANCE_PATH = "/api/balance";
 	private static final String LOGOUT_PATH = "/api/logout";
@@ -213,14 +213,7 @@ public class TestBase {
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
 		
-		JSONObject requestParams = new JSONObject();
-		
-		requestParams.put("phone", phone);
-		
-		httpRequest.header("Content-Type", "application/json");
-		httpRequest.body(requestParams.toJSONString());
-		
-		response = httpRequest.request(Method.GET, LOGIN_PATH);
+		response = httpRequest.request(Method.GET, LOGIN_PATH + phone);
 		logger.info(response.getBody().asString());
 	}
 	
@@ -245,31 +238,34 @@ public class TestBase {
 		logger.info(response.getBody().asString());
 	}
 	
-	public void getProfile() {
+	public void getProfile(String sessionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, GET_PROFILE_PATH);
 		logger.info(response.getBody().asString());
 	}
 	
-	public void getBalance() {
+	public void getBalance(String sessionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, GET_BALANCE_PATH);
 		logger.info(response.getBody().asString());
 	}
 	
-	public void changePinOtp() {
+	public void changePinOtp(String sessionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.POST, CHANGE_PIN_OTP_PATH);
 		logger.info(response.getBody().asString());
@@ -285,7 +281,7 @@ public class TestBase {
 		
 		JSONObject requestParams = new JSONObject();
 		
-		requestParams.put("id", Long.parseLong(id));
+		requestParams.put("id", id);
 		
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
@@ -315,22 +311,23 @@ public class TestBase {
 		logger.info(response.getBody().asString());
 	}
 	
-	public void changePin(String pin) {
+	public void changePin(String pin, String sessionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("pin:" + pin);
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		JSONObject requestParams = new JSONObject();
 		
-		requestParams.put("pin", Integer.parseInt(pin));
+		requestParams.put("pin", pin);
 		
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 		
-		response = httpRequest.request(Method.POST, CHANGE_PIN_PATH);
+		response = httpRequest.request(Method.PUT, CHANGE_PIN_PATH);
 		logger.info(response.getBody().asString());
 	}
 	
@@ -351,19 +348,20 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.DELETE, LOGOUT_PATH);
 		logger.info(response.getBody().asString());
 	}
 	
-	public void historyInProgress(String page) {
+	public void historyInProgress(String page, String sessionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("page:" + page);
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, HISTORY_IN_PROGRESS_PATH+page);
 		logger.info(response.getBody().asString());

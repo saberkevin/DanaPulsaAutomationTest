@@ -1,31 +1,66 @@
 package testCases.pin;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+
 import base.TestBase;
 import io.restassured.path.json.JsonPath;
-import model.User;
 
 public class TC_Change_Pin extends TestBase{
 	
+	private String userId;
 	private String pin; 
-	private User user;
+	private String sessionId;
 	
 	public TC_Change_Pin(String pin) {
 		this.pin=pin;
+	}
+	
+	@BeforeClass
+	void setSession()
+	{
+		logger.info("***** SET SESSION *****");
+		userId = "155";
+		String pinForSession = "";
+		
+		String query = "SELECT id, pin FROM user\n" + 
+				"WHERE id = ?";
+		try {
+			Connection conMember = getConnectionMember();
+			PreparedStatement psGetUserPin = conMember.prepareStatement(query);
+			psGetUserPin.setLong(1, Long.parseLong(userId));
+			
+			ResultSet result = psGetUserPin.executeQuery();
+			
+			while(result.next())
+			{
+				pinForSession = result.getString("pin");
+			}
+			
+			conMember.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		verifyPinLogin(userId, pinForSession);
+		sessionId = response.getCookie("JSESSIONID");
+		logger.info("***** END SET SESSION *****");
 	}
 
 	@Test
 	void changePinUser()
 	{
-		changePin(pin);
+		changePin(pin,sessionId);
 	}
 	
 	@Test(dependsOnMethods = {"changePinUser"})
@@ -42,19 +77,20 @@ public class TC_Change_Pin extends TestBase{
 			String query = "SELECT id, pin FROM user\n" + 
 					"WHERE id = ? AND pin = ?";
 			try {
-				PreparedStatement psGetUserPin = getConnectionMember().prepareStatement(query);
-				psGetUserPin.setLong(1, user.getId());
-				psGetUserPin.setLong(1, Long.parseLong(pin));
+				Connection conMember = getConnectionMember();
+				PreparedStatement psGetUserPin = conMember.prepareStatement(query);
+				psGetUserPin.setLong(1, Long.parseLong(userId));
+				psGetUserPin.setLong(2, Long.parseLong(pin));
 				
 				ResultSet result = psGetUserPin.executeQuery();
 				
 				while(result.next())
 				{
-					Assert.assertEquals(user.getId(), result.getLong("id"));
+					Assert.assertEquals(Long.parseLong(userId), result.getLong("id"));
 					Assert.assertEquals(Long.parseLong(pin), result.getLong("pin"));
 				}
 				
-				getConnectionMember().close();
+				conMember.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -64,12 +100,16 @@ public class TC_Change_Pin extends TestBase{
 		{
 			Assert.assertTrue(message.contains("invalid"));
 		}
+		else
+		{
+			Assert.assertTrue("unhandled error",false);
+		}
 	}
 	
 	@Test(dependsOnMethods = {"changePinUser"})
 	void assertStatusCode()
 	{
-		String sc = response.jsonPath().get("code");
+		int sc = response.jsonPath().get("code");
 		checkStatusCode(sc);	
 	}
 	
@@ -84,5 +124,6 @@ public class TC_Change_Pin extends TestBase{
 	void end()
 	{
 		tearDown("Finished " + this.getClass().getSimpleName());
+		logout(sessionId);
 	}
 }

@@ -1,4 +1,4 @@
-package testCases.register;
+package remoteService.member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,28 +6,32 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.json.simple.JSONObject;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import io.restassured.RestAssured;
+import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
 
-public class TC_Register extends TestBase{
+public class TC_Service_Register extends TestBase{
 	
 	private String name;
 	private String email; 
 	private String phone; 
 	private String pin; 
 	
-	public TC_Register(String name, String email, String phone, String pin) {
+	public TC_Service_Register(String name, String email, String phone, String pin) {
 		this.name=name;
 		this.email=email;
 		this.phone=phone;
 		this.pin=pin;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test
 	void registerUser()
 	{	
@@ -50,57 +54,36 @@ public class TC_Register extends TestBase{
 			e.printStackTrace();
 		}
 		
-		register(name,email,phone,pin);
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Test Data: ");
+		logger.info("name:" + name);
+		logger.info("email:" + email);
+		logger.info("phone:" + phone);
+		logger.info("pin:" + pin);
+		
+		RestAssured.baseURI = memberURI;
+		httpRequest = RestAssured.given();
+		
+		JSONObject requestParams = new JSONObject();
+		
+		requestParams.put("queue", "register");
+		requestParams.put("message", "{\"name\":\""+name+"\",\"email\":\""+email+"\",\"phone\":\""+phone+"\",\"pin\":"+pin+"}");
+		
+		httpRequest.header("Content-Type", "application/json");
+		httpRequest.body(requestParams.toJSONString());
+		
+		response = httpRequest.request(Method.GET);
+		logger.info(response.getBody().asString());
 	}
 	
 	@Test(dependsOnMethods = {"registerUser"})
 	void checkResult()
 	{
-		int code = response.getStatusCode();
+		String responseBody = response.getBody().asString();
 		JsonPath jsonPath = response.jsonPath();
-		String message =  jsonPath.get("message");
 		
-		if(code == 201)
+		if(responseBody.contains("invalid"))
 		{
-			Assert.assertEquals("created", message);
-			Assert.assertNotNull(Long.parseLong(jsonPath.get("data.id").toString()));
-			Assert.assertEquals(name, jsonPath.get("data.name"));
-			Assert.assertEquals(email, jsonPath.get("data.email"));
-			Assert.assertEquals(replacePhoneForAssertion(phone), jsonPath.get("data.username"));
-			checkEmailValid(jsonPath.get("data.email"));
-			checkResultPhoneValid(jsonPath.get("data.username"));
-			
-			String query = "SELECT id, name, email, username, pin FROM user\n" + 
-					"WHERE id = ? AND name = ?  AND email = ? AND username = ?";
-			try {
-				Connection conUser = getConnectionMember();
-				PreparedStatement psGetUser = conUser.prepareStatement(query);
-				psGetUser.setLong(1, Long.parseLong(jsonPath.get("data.id").toString()));
-				psGetUser.setString(2, jsonPath.get("data.name"));
-				psGetUser.setString(3, jsonPath.get("data.email"));
-				psGetUser.setString(4, jsonPath.get("data.username"));
-				
-				ResultSet result = psGetUser.executeQuery();
-				
-				while(result.next())
-				{
-					Assert.assertEquals(Long.parseLong(jsonPath.get("data.id").toString()), result.getLong("id"));
-					Assert.assertEquals(jsonPath.get("data.name"), result.getString("name"));
-					Assert.assertEquals(jsonPath.get("data.email"), result.getString("email"));
-					Assert.assertEquals(jsonPath.get("data.username"), result.getString("username"));
-					Assert.assertEquals(Long.parseLong(pin), result.getLong("pin"));
-				}
-				
-				conUser.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		else if(code == 400)
-		{
-			Assert.assertTrue(message.contains("invalid") || message.contains("must not be null"));
-			
 			String query = "SELECT name, email, username, pin FROM user\n" + 
 					"WHERE name = ?  AND email = ? AND username = ? AND pin = ?";
 			try {
@@ -124,10 +107,8 @@ public class TC_Register extends TestBase{
 				e.printStackTrace();
 			}
 		}
-		else if(code == 409)
+		else if(responseBody.equals("user already exists"))
 		{
-			Assert.assertEquals("user already exists", message);
-			
 			String query = "SELECT COUNT(id) as count FROM user\n" + 
 					"WHERE name = ?  AND email = ? AND username = ? AND pin = ?";
 			try {
@@ -151,25 +132,34 @@ public class TC_Register extends TestBase{
 				e.printStackTrace();
 			}
 		}
-		else if(code == 500)
-		{
-			Assert.assertTrue(message.contains("should not be empty"));
+		else if(responseBody.contains("{\"id\""))
+		{	
+			Assert.assertNotNull(Long.parseLong(jsonPath.get("id").toString()));
+			Assert.assertEquals(name, jsonPath.get("name"));
+			Assert.assertEquals(email, jsonPath.get("email"));
+			Assert.assertEquals(replacePhoneForAssertion(phone), jsonPath.get("username"));
+			checkEmailValid(jsonPath.get("email"));
+			checkResultPhoneValid(jsonPath.get("username"));
 			
-			String query = "SELECT name, email, username, pin FROM user\n" + 
-					"WHERE name = ?  AND email = ? AND username = ? AND pin = ?";
+			String query = "SELECT id, name, email, username, pin FROM user\n" + 
+					"WHERE id = ? AND name = ?  AND email = ? AND username = ?";
 			try {
 				Connection conUser = getConnectionMember();
 				PreparedStatement psGetUser = conUser.prepareStatement(query);
-				psGetUser.setString(1, name);
-				psGetUser.setString(2, email);
-				psGetUser.setString(3, replacePhoneForAssertion(phone));
-				psGetUser.setString(4, pin);
+				psGetUser.setLong(1, Long.parseLong(jsonPath.get("id").toString()));
+				psGetUser.setString(2, jsonPath.get("name"));
+				psGetUser.setString(3, jsonPath.get("email"));
+				psGetUser.setString(4, jsonPath.get("username"));
 				
 				ResultSet result = psGetUser.executeQuery();
 				
-				if(result.next())
+				while(result.next())
 				{
-					Assert.assertTrue("should not exists in database", false);
+					Assert.assertEquals(Long.parseLong(jsonPath.get("id").toString()), result.getLong("id"));
+					Assert.assertEquals(jsonPath.get("name"), result.getString("name"));
+					Assert.assertEquals(jsonPath.get("email"), result.getString("email"));
+					Assert.assertEquals(jsonPath.get("username"), result.getString("username"));
+					Assert.assertEquals(Long.parseLong(pin), result.getLong("pin"));
 				}
 				
 				conUser.close();
@@ -178,23 +168,6 @@ public class TC_Register extends TestBase{
 				e.printStackTrace();
 			}
 		}
-		else
-		{
-			Assert.assertTrue("Unhandled error",false);
-			logger.info("Test Data For Error: ");
-			logger.info("name:" + name);
-			logger.info("email:" + email);
-			logger.info("phone:" + phone);
-			logger.info("pin:" + pin);
-			logger.info(response.getBody().asString());
-		}
-	}
-	
-	@Test(dependsOnMethods = {"registerUser"})
-	void assertStatusCode()
-	{
-		int sc = response.jsonPath().get("code");
-		checkStatusCode(sc);	
 	}
 	
 	@Test(dependsOnMethods = {"registerUser"})

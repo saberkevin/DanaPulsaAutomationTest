@@ -1,7 +1,13 @@
 package testCases.login;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.junit.AfterClass;
 import org.junit.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -10,10 +16,44 @@ import io.restassured.path.json.JsonPath;
 
 public class TC_Logout extends TestBase{
 	
+	String sessionId;
+	
+	@BeforeClass
+	void setSession()
+	{
+		logger.info("***** SET SESSION *****");
+		String userId = "155";
+		String pinForSession = "";
+		
+		String query = "SELECT id, pin FROM user\n" + 
+				"WHERE id = ?";
+		try {
+			Connection conMember = getConnectionMember();
+			PreparedStatement psGetUserPin = conMember.prepareStatement(query);
+			psGetUserPin.setLong(1, Long.parseLong(userId));
+			
+			ResultSet result = psGetUserPin.executeQuery();
+			
+			while(result.next())
+			{
+				pinForSession = result.getString("pin");
+			}
+			
+			conMember.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		verifyPinLogin(userId, pinForSession);
+		sessionId = response.getCookie("JSESSIONID");
+		logger.info("***** END SET SESSION *****");
+	}
+	
 	@Test
 	void logoutUser()
 	{
-		logout("");
+		logout(sessionId);
 	}
 	
 	@Test(dependsOnMethods = {"logoutUser"})
@@ -36,7 +76,7 @@ public class TC_Logout extends TestBase{
 	@Test(dependsOnMethods = {"logoutUser"})
 	void assertStatusCode()
 	{
-		String sc = response.jsonPath().get("code");
+		int sc = response.jsonPath().get("code");
 		checkStatusCode(sc);	
 	}
 	

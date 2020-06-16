@@ -1,5 +1,6 @@
 package testCases.pin;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,7 +43,8 @@ public class TC_Verify_Pin_Login extends TestBase{
 			String query = "SELECT id, pin FROM user\n" + 
 					"WHERE id = ? AND pin = ?";
 			try {
-				PreparedStatement psGetUserPin = getConnectionMember().prepareStatement(query);
+				Connection conMember = getConnectionMember();
+				PreparedStatement psGetUserPin = conMember.prepareStatement(query);
 				psGetUserPin.setLong(1, Long.parseLong(id));
 				psGetUserPin.setLong(2, Long.parseLong(pin));
 				
@@ -54,7 +56,7 @@ public class TC_Verify_Pin_Login extends TestBase{
 					Assert.assertEquals(Long.parseLong(pin), result.getLong("pin"));
 				}
 				
-				getConnectionMember().close();
+				conMember.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -62,7 +64,19 @@ public class TC_Verify_Pin_Login extends TestBase{
 		}
 		else if(code == 400)
 		{
-			Assert.assertTrue(message.contains("invalid") || message.contains("incorrect"));
+			Assert.assertTrue(message.contains("invalid pin"));
+		}
+		else if(code == 404)
+		{
+			Assert.assertTrue(message.contains("incorrect pin"));
+		}
+		else if(code == 500)
+		{
+			Assert.assertTrue(message.contains("should not be") || message.equals("invalid request format"));
+		}
+		else
+		{
+			Assert.assertTrue("unhandled error",false);
 		}
 	}
 	

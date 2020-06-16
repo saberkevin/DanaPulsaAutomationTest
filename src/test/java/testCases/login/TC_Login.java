@@ -1,5 +1,6 @@
 package testCases.login;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,6 +25,7 @@ public class TC_Login extends TestBase{
 	void loginUser()
 	{
 		login(phone);
+		
 	}
 	
 	@Test(dependsOnMethods = {"loginUser"})
@@ -35,7 +37,7 @@ public class TC_Login extends TestBase{
 		
 		if(code == 200)
 		{
-			Assert.assertNotNull(Long.parseLong(jsonPath.get("data.id")));
+			Assert.assertNotNull(Long.parseLong(jsonPath.get("data.id").toString()));
 			Assert.assertNotEquals("", jsonPath.get("data.name"));
 			Assert.assertNotEquals("", jsonPath.get("data.email"));
 			Assert.assertEquals(replacePhoneForAssertion(phone), jsonPath.get("data.username"));
@@ -45,8 +47,9 @@ public class TC_Login extends TestBase{
 			String query = "SELECT id, name, email, username FROM user\n" + 
 					"WHERE id = ? AND name = ?  AND email = ? AND username = ?";
 			try {
-				PreparedStatement psGetUser = getConnectionMember().prepareStatement(query);
-				psGetUser.setLong(1, jsonPath.get("data.id"));
+				Connection conMember = getConnectionMember();
+				PreparedStatement psGetUser = conMember.prepareStatement(query);
+				psGetUser.setLong(1, Long.parseLong(jsonPath.get("data.id").toString()));
 				psGetUser.setString(2, jsonPath.get("data.name"));
 				psGetUser.setString(3, jsonPath.get("data.email"));
 				psGetUser.setString(4, replacePhoneForAssertion(phone));
@@ -55,13 +58,13 @@ public class TC_Login extends TestBase{
 				
 				while(result.next())
 				{
-					Assert.assertEquals(Long.parseLong(jsonPath.get("data.id")), result.getLong("id"));
+					Assert.assertEquals(Long.parseLong(jsonPath.get("data.id").toString()), result.getLong("id"));
 					Assert.assertEquals(jsonPath.get("data.name"), result.getString("name"));
 					Assert.assertEquals(jsonPath.get("data.email"), result.getString("email"));
 					Assert.assertEquals(jsonPath.get("data.username"), result.getString("username"));
 				}
 				
-				getConnectionMember().close();
+				conMember.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -70,14 +73,22 @@ public class TC_Login extends TestBase{
 		}
 		else if(code == 400)
 		{
-			Assert.assertTrue(message.contains("invalid") || message.contains("incorrect"));
+			Assert.assertTrue(message.equals("invalid phone number"));
+		}
+		else if(code == 404)
+		{
+			Assert.assertTrue(message.equals("incorrect phone number"));
+		}
+		else
+		{
+			Assert.assertTrue("unhandled error",false);
 		}
 	}
 	
 	@Test(dependsOnMethods = {"loginUser"})
 	void assertStatusCode()
 	{
-		String sc = response.jsonPath().get("code");
+		int sc = response.jsonPath().get("code");
 		checkStatusCode(sc);	
 	}
 	

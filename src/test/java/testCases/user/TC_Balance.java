@@ -1,26 +1,60 @@
 package testCases.user;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import base.TestBase;
 import io.restassured.path.json.JsonPath;
-import model.User;
 
 public class TC_Balance extends TestBase{
 	
-	private User user;
+	private String userId;
+	private String sessionId;
+
+	@BeforeClass
+	void setSession()
+	{
+		logger.info("***** SET SESSION *****");
+		userId = "155";
+		String pinForSession = "";
+		
+		String query = "SELECT id, pin FROM user\n" + 
+				"WHERE id = ?";
+		try {
+			Connection conMember = getConnectionMember();
+			PreparedStatement psGetUserPin = conMember.prepareStatement(query);
+			psGetUserPin.setLong(1, Long.parseLong(userId));
+			
+			ResultSet result = psGetUserPin.executeQuery();
+			
+			while(result.next())
+			{
+				pinForSession = result.getString("pin");
+			}
+			
+			conMember.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		verifyPinLogin(userId, pinForSession);
+		sessionId = response.getCookie("JSESSIONID");
+		logger.info("***** END SET SESSION *****");
+	}
 
 	@Test
 	void balanceUser()
 	{
-		balanceUser();
+		getBalance(sessionId);
 	}
 	
 	@Test(dependsOnMethods = {"balanceUser"})
@@ -28,42 +62,41 @@ public class TC_Balance extends TestBase{
 	{
 		int code = response.getStatusCode();
 		JsonPath jsonPath = response.jsonPath();
-		String message =  jsonPath.get("message");
 		
 		if(code == 200)
 		{
-			Assert.assertNotNull(Long.parseLong(jsonPath.get("data.balance")));
+			Assert.assertNotNull(Long.parseLong(jsonPath.get("data").toString()));
 			
 			String query = "SELECT userId, balance FROM balance\n" + 
 					"WHERE userId = ?";
 			try {
-				PreparedStatement psGetBalance = getConnectionMember().prepareStatement(query);
-				psGetBalance.setLong(1, user.getId());
+				Connection conMember = getConnectionMember();
+				PreparedStatement psGetBalance = conMember.prepareStatement(query);
+				psGetBalance.setLong(1, Long.parseLong(userId));
 				
 				ResultSet result = psGetBalance.executeQuery();
-				
 				while(result.next())
 				{
-					Assert.assertEquals(user.getId(), result.getLong("userId"));
-					Assert.assertEquals(Long.parseLong(jsonPath.get("data.balance")), result.getLong("balance"));
+					Assert.assertEquals(Long.parseLong(userId), result.getLong("userId"));
+					Assert.assertEquals(Long.parseLong(jsonPath.get("data")), result.getLong("balance"));
 				}
 				
-				getConnectionMember().close();
+				conMember.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		else if(code == 404)
+		else 
 		{
-			Assert.assertEquals("user not found", message);
+			Assert.assertTrue("unhandled error",false);
 		}
 	}
 	
 	@Test(dependsOnMethods = {"balanceUser"})
 	void assertStatusCode()
 	{
-		String sc = response.jsonPath().get("code");
+		int sc = response.jsonPath().get("code");
 		checkStatusCode(sc);	
 	}
 	
@@ -78,5 +111,6 @@ public class TC_Balance extends TestBase{
 	void end()
 	{
 		tearDown("Finished " + this.getClass().getSimpleName());
+		logout(sessionId);
 	}
 }
