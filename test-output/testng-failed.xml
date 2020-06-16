@@ -3,16 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [DANA Pulsa Suite]">
   <test thread-count="5" name="DanaPulsaServiceTestOrder(failed)">
     <classes>
-      <class name="remoteService.order.TC_Remote_Service_CreateTransaction">
+      <class name="remoteService.order.TC_Remote_Service_GetRecentNumber">
         <methods>
+          <include name="afterClass"/>
           <include name="checkData"/>
           <include name="checkDB"/>
-          <include name="afterClass"/>
-          <include name="testCreateTransaction"/>
-          <include name="setup"/>
           <include name="beforeClass"/>
+          <include name="testRecentNumber"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- remoteService.order.TC_Remote_Service_CreateTransaction -->
+      </class> <!-- remoteService.order.TC_Remote_Service_GetRecentNumber -->
     </classes>
   </test> <!-- DanaPulsaServiceTestOrder(failed) -->
 </suite> <!-- Failed suite [DANA Pulsa Suite] -->

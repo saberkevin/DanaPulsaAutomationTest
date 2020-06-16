@@ -78,6 +78,10 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 			user.setUsername("081252930398");
 			user.setPin(123456);
 			
+			// delete if exist
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());
+			
 			// insert user into database
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));
@@ -122,6 +126,10 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 			anotherUser.setEmail("triromadon2@gmail.com");
 			anotherUser.setUsername("081252930397");
 			anotherUser.setPin(123456);
+			
+			// delete if exist
+			deleteBalanceByEmailByUsername(anotherUser.getEmail(), anotherUser.getUsername());
+			deleteUserIfExist(anotherUser.getEmail(), anotherUser.getUsername());
 			
 			// insert user into database
 			createUser(anotherUser);
@@ -280,13 +288,9 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 	public void afterClass() {
 		// delete user
 		if (isCreateUser == true) {
+			deleteTransactionByUserId(user.getId());
 			deleteBalanceByUserId(user.getId());
 			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
-		}
-		
-		// delete transaction
-		if (transactionId.equals("true")) {
-			deleteTransactionByUserId(user.getId());
 		}
 		
 		// delete another user

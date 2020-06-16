@@ -73,10 +73,13 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 			user.setUsername("081252930398");
 			user.setPin(123456);
 			
+			// delete if exist
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());
+			
 			// insert user into database
 			createUser(user);
-			user.setId(getUserIdByUsername(user.getUsername()));
-			
+			user.setId(getUserIdByUsername(user.getUsername()));			
 			userId = Long.toString(user.getId());
 
 			// insert balance into database

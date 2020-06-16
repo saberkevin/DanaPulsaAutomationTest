@@ -74,6 +74,10 @@ public class TC_Remote_Service_GetTransactionById extends TestBase {
 			user.setUsername("081252930398");
 			user.setPin(123456);
 			
+			// delete if exist
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());
+			
 			// insert user into database
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));
