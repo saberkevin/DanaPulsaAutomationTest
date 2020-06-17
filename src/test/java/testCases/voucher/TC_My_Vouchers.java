@@ -83,16 +83,19 @@ public class TC_My_Vouchers extends TestBase {
 	public void testMyVouchers() {
 		getMyVoucher(sessionId, page);
 		
+		Assert.assertTrue(response.getBody().asString().contains(result));
+
 		int statusCode = response.getStatusCode();
 		
 		if (statusCode == 401) {
-			Assert.assertEquals(response.getBody().jsonPath().getString("error"), "Unauthorized");
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "401");
+			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "Unauthorized");
 		} else if (statusCode == 404) {
 			Assert.assertTrue(response.getBody().asString().contains("Not Found") 
 					|| response.getBody().asString().contains("you don’t have any vouchers"));
 		} else if (statusCode == 200) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "200");
 			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "success");
-			Assert.assertTrue(response.getBody().asString().contains(result));
 		}
 	}
 	

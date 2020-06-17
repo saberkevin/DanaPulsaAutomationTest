@@ -71,16 +71,19 @@ public class TC_Promotion_Vouchers extends TestBase {
 	public void testPromotionVouchers() {
 		getPromotionVoucher(sessionId, page);
 		
+		Assert.assertTrue(response.getBody().asString().contains(result));
+
 		int statusCode = response.getStatusCode();
 		
 		if (statusCode == 401) {
-			Assert.assertEquals(response.getBody().jsonPath().getString("error"), "Unauthorized");
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "401");
+			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "Unauthorized");
 		} else if (statusCode == 404) {
 			Assert.assertEquals(response.getBody().jsonPath().getString("status"), "404");			
 			Assert.assertEquals(response.getBody().jsonPath().getString("error"), "Not Found");
 		} else if (statusCode == 200) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "200");
 			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "success");
-			Assert.assertTrue(response.getBody().asString().contains(result));
 		}
 	}
 	
@@ -89,16 +92,18 @@ public class TC_Promotion_Vouchers extends TestBase {
 		int statusCode = response.getStatusCode();
 		
 		if (statusCode == 200) {
-			List<Map<String, String>> vouchers = response.getBody().jsonPath().getList("data");
-			
-			Assert.assertTrue(vouchers.size() <= 10, "maximum vouchers per page is 10");
-			
-			for (int i = 0; i < vouchers.size(); i++) {
-				Assert.assertNotNull(vouchers.get(i).get("id"));
-				Assert.assertNotNull(vouchers.get(i).get("name"));
-				Assert.assertNotNull(vouchers.get(i).get("voucherTypeName"));
-				Assert.assertNotNull(vouchers.get(i).get("filePath"));
-				Assert.assertNotNull(vouchers.get(i).get("expiryDate"));
+			if (!response.getBody().jsonPath().getString("data").equals("[]")) {
+				List<Map<String, String>> vouchers = response.getBody().jsonPath().getList("data");
+				
+				Assert.assertTrue(vouchers.size() <= 10, "maximum vouchers per page is 10");
+				
+				for (int i = 0; i < vouchers.size(); i++) {
+					Assert.assertNotNull(vouchers.get(i).get("id"));
+					Assert.assertNotNull(vouchers.get(i).get("name"));
+					Assert.assertNotNull(vouchers.get(i).get("voucherTypeName"));
+					Assert.assertNotNull(vouchers.get(i).get("filePath"));
+					Assert.assertNotNull(vouchers.get(i).get("expiryDate"));
+				}
 			}
 		}
 	}

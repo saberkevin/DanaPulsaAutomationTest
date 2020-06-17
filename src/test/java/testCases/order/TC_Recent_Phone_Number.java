@@ -5,10 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -21,114 +19,118 @@ import model.User;
 
 public class TC_Recent_Phone_Number extends TestBase {
 	private User user = new User();
-	private Provider[] providers;
-	private String[] phoneNumbers;
-	private String[] dateString;
+	private String[] phoneNumbers = new String[11];
+	private Provider provider = new Provider();
+	private String testCase;
 	private String sessionId;
+	private String result;
+	private boolean isCreateUser;
 	
-	public TC_Recent_Phone_Number(String sessionId) {
+	public TC_Recent_Phone_Number() {
+		
+	}
+	
+	public TC_Recent_Phone_Number(String testCase, String sessionId, String result) {
+		this.testCase = testCase;
 		this.sessionId = sessionId;
-	}
-	
-	private boolean isPhoneNumberRegexTrue(String phoneNumber) {
-		String regex = "^08[0-9]{9,13}$";
-		Pattern pattern = Pattern.compile(regex);
-		Matcher matcher = pattern.matcher(phoneNumber);
-		return matcher.matches();
-	}
-	
-	private boolean isProviderTrue(String phoneNumber, Provider provider) {
-		try {
-			Connection conn = getConnectionOrder();
-			String query = "SELECT name FROM provider WHERE id IN (SELECT providerId FROM provider_prefix WHERE prefix = ?)";
-
-			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setString(1, phoneNumber.substring(1,5));
-			
-			ResultSet rs = ps.executeQuery();			
-			if (rs.getString("name").equals(provider.getName()))
-				return true;
-			
-			conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return false;
+		this.result = result;
+		isCreateUser = false;
 	}
 	
 	@BeforeClass
 	public void beforeClass() {
-		// initialize user
-		user.setName("Zanuar");
-		user.setEmail("triromadon@gmail.com");
-		user.setUsername("081252930398");
-		user.setPin(123456);
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Case:" + testCase);
 		
-		// insert user into database and get user id from it
-		deleteUserIfExist(user.getEmail(), user.getUsername());
-		createUser(user);
-		user.setId(getUserIdByUsername(user.getUsername()));
+		if (sessionId.equals("true")) {
+			isCreateUser = true;
+			
+			// initialize user
+			user.setName("Zanuar");
+			user.setEmail("triromadon@gmail.com");
+			user.setUsername("081252930398");
+			user.setPin(123456);
+			
+			// delete if exist
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());
+			
+			// insert user into database
+			createUser(user);
+			user.setId(getUserIdByUsername(user.getUsername()));
+			
+			verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
+			checkStatusCode("200");
+			user.setSessionId(response.getCookie("JSESSIONID"));
+			sessionId = user.getSessionId();
 
-		// get session from mobile domain - API verify pin login
-		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
-		user.setSessionId(response.getCookie("JSESSIONID"));	
-		Assert.assertEquals(response.getStatusCode(), 200);
+			// insert balance into database
+			createBalance(user.getId(), 10000000);
+						
+			// initialize provider - TELKOMSEL
+			provider.setId(2);
+			provider.setName("Telkomsel");
+			provider.setImage("https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png");
+			
+			// insert transaction into database
+			if (testCase.equals("Valid ID (below 10 transaction history)")) {
+				createTransaction(user.getId(), user.getUsername(), 13);
+				phoneNumbers[0] = user.getUsername();
+				
+			} else if (testCase.equals("Valid ID (more than 10 transaction history)")) {
 
-		// if data from excel "true", then get valid session
-//		if (user.getSessionId().equals("true")) {
-//			sessionId = user.getSessionId();
-//		}
-		sessionId = user.getSessionId();
-		
-		// insert transaction into database - TELKOMSEL 15k
-		createTransaction(user.getId(), user.getUsername(), 13);
+				for (int i = 0; i < 11; i++) {
+					createTransaction(user.getId(), "08125216179" + Integer.toString(i), 13);
+					phoneNumbers[i] = "08125216179" + Integer.toString(i);
+				}
+			}
+		}
 	}
 		
 	@Test
 	public void testRecentPhoneNumber() throws ParseException {
-		// call API recent phone number
 		getRecentPhoneNumber(sessionId);
-		System.out.println(response.getBody().asString());
+		
+		Assert.assertTrue(response.getBody().asString().contains(result));
 
-		if (response.getStatusCode() == 401) {
-			Assert.assertTrue(response.getBody().jsonPath().getInt("status") == 401);
-			Assert.assertTrue(response.getBody().jsonPath().getString("error").equals("Unauthorized"));
-			Assert.assertTrue(response.getBody().jsonPath().getString("message").equals(""));
-			Assert.assertTrue(response.getBody().jsonPath().getString("path").equals("/api/recent-number"));
-		} else {
+		int statusCode = response.getStatusCode();
+		
+		if (statusCode == 401) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "401");
+			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "Unauthorized");
+		} else if (statusCode == 404) {
+			Assert.assertTrue(response.getBody().asString().contains("Not Found") );
+		} else if (statusCode == 200) {
 			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "200");
 			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "success");
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Test(dependsOnMethods = {"testRecentPhoneNumber"})
 	public void checkData() throws ParseException {
 		int statusCode = response.getStatusCode();
 		
 		if (statusCode == 200) {
-			if(!response.getBody().jsonPath().get("data").equals("[]")) {
-				// convert "data" to list
-				List<Map<String, String>> data = response.getBody().jsonPath().getList("data");	
+			if (!response.getBody().jsonPath().getString("data").equals("[]")) {
+				List<HashMap<Object, Object>> recentNumbers = response.jsonPath().getList("data");
 				
-				// allocating memory to array by data size
-				providers = new Provider[data.size()];
-				phoneNumbers = new String[data.size()];
-				dateString = new String[data.size()];
+				Assert.assertTrue(recentNumbers.size() <= 10, "maximum recent number is only 10");
 				
-				for (int i = 0; i < data.size(); i++) {
-					// get phone number
-					phoneNumbers[i] = data.get(i).get("number");
-					Assert.assertTrue(isPhoneNumberRegexTrue(phoneNumbers[i]));
-	
-					// get provider
-					providers[i].setId(Long.parseLong(data.get(i).get("provider.id")));
-					providers[i].setName(data.get(i).get("provider.name"));
-					providers[i].setImage(data.get(i).get("provider.image"));
-					Assert.assertTrue(isProviderTrue(phoneNumbers[i], providers[i]));
+				for (int i = 0; i < recentNumbers.size(); i++) {
+
+					if (recentNumbers.size() > 1) {
+						Assert.assertEquals(recentNumbers.get(i).get("number"), phoneNumbers[recentNumbers.size() - i]);
+					} else {
+						Assert.assertEquals(recentNumbers.get(i).get("number"), user.getUsername());						
+					}
+
+					HashMap<String, String> provHashMap = (HashMap<String, String>) recentNumbers.get(i).get("provider");
+					Assert.assertEquals(String.valueOf(provHashMap.get("id")), Long.toString(provider.getId()));
+					Assert.assertEquals(provHashMap.get("name"), provider.getName());
+					Assert.assertEquals(provHashMap.get("image"), provider.getImage());
 					
-					// get date
-					dateString[i] = data.get(i).get("date");
-					Assert.assertNotNull(dateString[i]);
+					Assert.assertNotNull(recentNumbers.get(i).get("date"));
 				}
 			}
 		}
@@ -139,40 +141,54 @@ public class TC_Recent_Phone_Number extends TestBase {
 		int statusCode = response.getStatusCode();
 		
 		if (statusCode == 200) {
-			// check recent phone number with data from transaction table in database
-			try {
-				Connection conn = getConnectionOrder();
-				String query = "SELECT * FROM transaction WHERE userId = ? ORDER BY createdAt DESC LIMIT 10";
-	
-				PreparedStatement ps = conn.prepareStatement(query);
-				ps.setLong(1, user.getId());
-				
-				ResultSet rs = ps.executeQuery();
-				while(rs.next()) {
-					Assert.assertEquals(phoneNumbers[rs.getRow()], rs.getString("phoneNumber"));
-					Assert.assertEquals(providers[rs.getRow()].getId(), rs.getString("providerId"));
-					Assert.assertEquals(dateString[rs.getRow()], rs.getString("createdAt"));
-				}
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			
-			// check each of providers with data from provider table in database
-			for (int i = 0; i < providers.length; i++) {
+			if (response.getBody().jsonPath().getString("data").equals("[]")) {
 				try {
 					Connection conn = getConnectionOrder();
-					String query = "SELECT * FROM provider WHERE id = ?";
-		
-					PreparedStatement ps = conn.prepareStatement(query);
-					ps.setLong(1, providers[i].getId());
+					String queryString = "SELECT * FROM transaction WHERE userId = ?";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setLong(1, user.getId());
 					
 					ResultSet rs = ps.executeQuery();
-					while(rs.next()) {
-						Assert.assertEquals(providers[rs.getRow()].getName(), rs.getString("name"));
-						Assert.assertEquals(providers[rs.getRow()].getImage(), rs.getString("image"));
+					Assert.assertTrue(!rs.next());
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			} else {
+				List<HashMap<Object, Object>> recentNumbers = response.jsonPath().getList("data");
+				
+				try {
+					Connection conn = getConnectionOrder();
+					String queryString = "SELECT "
+							+ "A.phoneNumber, "
+							+ "A.createdAt, "
+							+ "C.* "
+							+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
+							+ "LEFT JOIN provider C on B.providerId = C.id "
+							+ "WHERE A.userId = ? ORDER BY A.createdAt DESC LIMIT 10";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setLong(1, user.getId());
+					
+					ResultSet rs = ps.executeQuery();
+					
+					if (!rs.next()) {
+						Assert.assertTrue(false, "no transaction found in database");
 					}
+					do {
+						int index = rs.getRow() - 1;
+						Assert.assertEquals(recentNumbers.get(index).get("number"), rs.getString("phoneNumber"));
+						
+						@SuppressWarnings("unchecked")
+						HashMap<String, String> provHashMap = (HashMap<String, String>) recentNumbers.get(index).get("provider");
+						Assert.assertEquals(String.valueOf(provHashMap.get("id")), rs.getString("id"));						
+						Assert.assertEquals(provHashMap.get("name"), rs.getString("name"));						
+						Assert.assertEquals(provHashMap.get("image"), rs.getString("image"));						
+
+//						Assert.assertEquals(recentNumbers.get(index).get("date"), rs.getLong("createdAt"));
+					} while(rs.next());
 					
 					conn.close();
 				} catch (SQLException e) {
@@ -184,9 +200,13 @@ public class TC_Recent_Phone_Number extends TestBase {
 	
 	@AfterClass
 	public void afterClass() {
-		// logout (destroy session)
-		logout(user.getSessionId());
-
+		// delete user
+		if (isCreateUser == true) {
+			deleteTransactionByUserId(user.getId());
+			deleteBalanceByUserId(user.getId());
+			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
+		}
+		
 		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());
 	}

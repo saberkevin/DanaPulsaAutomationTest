@@ -1,157 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="18" passed="18">
+<testng-results skipped="0" failed="0" ignored="0" total="15" passed="15">
   <reporter-output>
   </reporter-output>
-  <suite name="DANA Pulsa Suite" duration-ms="169903" started-at="2020-06-16T18:48:21Z" finished-at="2020-06-16T18:51:11Z">
+  <suite name="DANA Pulsa Suite" duration-ms="226647" started-at="2020-06-17T07:19:56Z" finished-at="2020-06-17T07:23:43Z">
     <groups>
     </groups>
-    <test name="DanaPulsaServiceTestVouchers" duration-ms="169903" started-at="2020-06-16T18:48:21Z" finished-at="2020-06-16T18:51:11Z">
-      <class name="testCases.voucher.TC_Voucher_Details">
-        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="setup" is-config="true" duration-ms="52" started-at="2020-06-16T18:48:21Z" finished-at="2020-06-16T18:48:21Z">
+    <test name="DanaPulsaTestOrder" duration-ms="226647" started-at="2020-06-17T07:19:56Z" finished-at="2020-06-17T07:23:43Z">
+      <class name="testCases.order.TC_Recent_Phone_Number">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="setup" is-config="true" duration-ms="68" started-at="2020-06-17T07:19:56Z" finished-at="2020-06-17T07:19:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="beforeClass" is-config="true" duration-ms="27934" started-at="2020-06-16T18:48:21Z" finished-at="2020-06-16T18:48:49Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="beforeClass" is-config="true" duration-ms="34466" started-at="2020-06-17T07:19:56Z" finished-at="2020-06-17T07:20:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testVoucherDetails()[pri:0, instance:testCases.voucher.TC_Voucher_Details@140c9f39]" name="testVoucherDetails" duration-ms="2476" started-at="2020-06-16T18:48:49Z" finished-at="2020-06-16T18:48:52Z">
+        <test-method status="PASS" signature="testRecentPhoneNumber()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@152aa092]" name="testRecentPhoneNumber" duration-ms="4649" started-at="2020-06-17T07:20:31Z" finished-at="2020-06-17T07:20:36Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testVoucherDetails -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.voucher.TC_Voucher_Details@140c9f39]" name="checkData" duration-ms="18" started-at="2020-06-16T18:48:52Z" depends-on-methods="testCases.voucher.TC_Voucher_Details.testVoucherDetails" finished-at="2020-06-16T18:48:52Z">
+        </test-method> <!-- testRecentPhoneNumber -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@152aa092]" name="checkData" duration-ms="19" started-at="2020-06-17T07:20:36Z" depends-on-methods="testCases.order.TC_Recent_Phone_Number.testRecentPhoneNumber" finished-at="2020-06-17T07:20:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.voucher.TC_Voucher_Details@140c9f39]" name="checkDB" duration-ms="5748" started-at="2020-06-16T18:48:52Z" depends-on-methods="testCases.voucher.TC_Voucher_Details.checkData" finished-at="2020-06-16T18:48:58Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@152aa092]" name="checkDB" duration-ms="5146" started-at="2020-06-17T07:20:36Z" depends-on-methods="testCases.order.TC_Recent_Phone_Number.checkData" finished-at="2020-06-17T07:20:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="afterClass" is-config="true" duration-ms="9329" started-at="2020-06-16T18:48:58Z" finished-at="2020-06-16T18:49:07Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="afterClass" is-config="true" duration-ms="17407" started-at="2020-06-17T07:20:41Z" finished-at="2020-06-17T07:20:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-16T18:49:07Z" finished-at="2020-06-16T18:49:07Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="setup" is-config="true" duration-ms="3" started-at="2020-06-17T07:20:58Z" finished-at="2020-06-17T07:20:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="beforeClass" is-config="true" duration-ms="27131" started-at="2020-06-16T18:49:07Z" finished-at="2020-06-16T18:49:34Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="beforeClass" is-config="true" duration-ms="84941" started-at="2020-06-17T07:20:58Z" finished-at="2020-06-17T07:22:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testVoucherDetails()[pri:0, instance:testCases.voucher.TC_Voucher_Details@1f97cf0d]" name="testVoucherDetails" duration-ms="1808" started-at="2020-06-16T18:49:34Z" finished-at="2020-06-16T18:49:36Z">
+        <test-method status="PASS" signature="testRecentPhoneNumber()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@44a7bfbc]" name="testRecentPhoneNumber" duration-ms="4177" started-at="2020-06-17T07:22:23Z" finished-at="2020-06-17T07:22:27Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testVoucherDetails -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.voucher.TC_Voucher_Details@1f97cf0d]" name="checkData" duration-ms="10" started-at="2020-06-16T18:49:36Z" depends-on-methods="testCases.voucher.TC_Voucher_Details.testVoucherDetails" finished-at="2020-06-16T18:49:36Z">
+        </test-method> <!-- testRecentPhoneNumber -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@44a7bfbc]" name="checkData" duration-ms="272" started-at="2020-06-17T07:22:27Z" depends-on-methods="testCases.order.TC_Recent_Phone_Number.testRecentPhoneNumber" finished-at="2020-06-17T07:22:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.voucher.TC_Voucher_Details@1f97cf0d]" name="checkDB" duration-ms="4695" started-at="2020-06-16T18:49:36Z" depends-on-methods="testCases.voucher.TC_Voucher_Details.checkData" finished-at="2020-06-16T18:49:41Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@44a7bfbc]" name="checkDB" duration-ms="5323" started-at="2020-06-17T07:22:28Z" depends-on-methods="testCases.order.TC_Recent_Phone_Number.checkData" finished-at="2020-06-17T07:22:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="afterClass" is-config="true" duration-ms="9047" started-at="2020-06-16T18:49:41Z" finished-at="2020-06-16T18:49:50Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="afterClass" is-config="true" duration-ms="15050" started-at="2020-06-17T07:22:33Z" finished-at="2020-06-17T07:22:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-16T18:49:50Z" finished-at="2020-06-16T18:49:50Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="setup" is-config="true" duration-ms="3" started-at="2020-06-17T07:22:48Z" finished-at="2020-06-17T07:22:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-16T18:49:50Z" finished-at="2020-06-16T18:49:50Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-17T07:22:48Z" finished-at="2020-06-17T07:22:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testVoucherDetails()[pri:0, instance:testCases.voucher.TC_Voucher_Details@26275bef]" name="testVoucherDetails" duration-ms="625" started-at="2020-06-16T18:49:50Z" finished-at="2020-06-16T18:49:50Z">
+        <test-method status="PASS" signature="testRecentPhoneNumber()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@4ef37659]" name="testRecentPhoneNumber" duration-ms="938" started-at="2020-06-17T07:22:48Z" finished-at="2020-06-17T07:22:49Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testVoucherDetails -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.voucher.TC_Voucher_Details@26275bef]" name="checkData" duration-ms="1" started-at="2020-06-16T18:49:50Z" depends-on-methods="testCases.voucher.TC_Voucher_Details.testVoucherDetails" finished-at="2020-06-16T18:49:50Z">
+        </test-method> <!-- testRecentPhoneNumber -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@4ef37659]" name="checkData" duration-ms="1" started-at="2020-06-17T07:22:49Z" depends-on-methods="testCases.order.TC_Recent_Phone_Number.testRecentPhoneNumber" finished-at="2020-06-17T07:22:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.voucher.TC_Voucher_Details@26275bef]" name="checkDB" duration-ms="0" started-at="2020-06-16T18:49:50Z" depends-on-methods="testCases.voucher.TC_Voucher_Details.checkData" finished-at="2020-06-16T18:49:50Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@4ef37659]" name="checkDB" duration-ms="1" started-at="2020-06-17T07:22:49Z" depends-on-methods="testCases.order.TC_Recent_Phone_Number.checkData" finished-at="2020-06-17T07:22:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="afterClass" is-config="true" duration-ms="1" started-at="2020-06-16T18:49:50Z" finished-at="2020-06-16T18:49:50Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="afterClass" is-config="true" duration-ms="1" started-at="2020-06-17T07:22:49Z" finished-at="2020-06-17T07:22:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-16T18:49:50Z" finished-at="2020-06-16T18:49:50Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-17T07:22:49Z" finished-at="2020-06-17T07:22:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-16T18:49:50Z" finished-at="2020-06-16T18:49:50Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="beforeClass" is-config="true" duration-ms="28441" started-at="2020-06-17T07:22:49Z" finished-at="2020-06-17T07:23:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testVoucherDetails()[pri:0, instance:testCases.voucher.TC_Voucher_Details@4d910fd6]" name="testVoucherDetails" duration-ms="1014" started-at="2020-06-16T18:49:50Z" finished-at="2020-06-16T18:49:51Z">
+        <test-method status="PASS" signature="testRecentPhoneNumber()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@524d6d96]" name="testRecentPhoneNumber" duration-ms="4218" started-at="2020-06-17T07:23:17Z" finished-at="2020-06-17T07:23:22Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testVoucherDetails -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.voucher.TC_Voucher_Details@4d910fd6]" name="checkData" duration-ms="1" started-at="2020-06-16T18:49:51Z" depends-on-methods="testCases.voucher.TC_Voucher_Details.testVoucherDetails" finished-at="2020-06-16T18:49:51Z">
+        </test-method> <!-- testRecentPhoneNumber -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@524d6d96]" name="checkData" duration-ms="7" started-at="2020-06-17T07:23:22Z" depends-on-methods="testCases.order.TC_Recent_Phone_Number.testRecentPhoneNumber" finished-at="2020-06-17T07:23:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.voucher.TC_Voucher_Details@4d910fd6]" name="checkDB" duration-ms="1" started-at="2020-06-16T18:49:51Z" depends-on-methods="testCases.voucher.TC_Voucher_Details.checkData" finished-at="2020-06-16T18:49:51Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@524d6d96]" name="checkDB" duration-ms="4784" started-at="2020-06-17T07:23:22Z" depends-on-methods="testCases.order.TC_Recent_Phone_Number.checkData" finished-at="2020-06-17T07:23:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="setup" is-config="true" duration-ms="1" started-at="2020-06-16T18:49:51Z" finished-at="2020-06-16T18:49:51Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="afterClass" is-config="true" duration-ms="15485" started-at="2020-06-17T07:23:26Z" finished-at="2020-06-17T07:23:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-17T07:23:42Z" finished-at="2020-06-17T07:23:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-16T18:49:51Z" finished-at="2020-06-16T18:49:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="beforeClass" is-config="true" duration-ms="28244" started-at="2020-06-16T18:49:51Z" finished-at="2020-06-16T18:50:19Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-17T07:23:42Z" finished-at="2020-06-17T07:23:42Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testVoucherDetails()[pri:0, instance:testCases.voucher.TC_Voucher_Details@7690781]" name="testVoucherDetails" duration-ms="1845" started-at="2020-06-16T18:50:19Z" finished-at="2020-06-16T18:50:21Z">
+        <test-method status="PASS" signature="testRecentPhoneNumber()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="testRecentPhoneNumber" duration-ms="1186" started-at="2020-06-17T07:23:42Z" finished-at="2020-06-17T07:23:43Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testVoucherDetails -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.voucher.TC_Voucher_Details@7690781]" name="checkData" duration-ms="1" started-at="2020-06-16T18:50:21Z" depends-on-methods="testCases.voucher.TC_Voucher_Details.testVoucherDetails" finished-at="2020-06-16T18:50:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.voucher.TC_Voucher_Details@7690781]" name="checkDB" duration-ms="1" started-at="2020-06-16T18:50:21Z" depends-on-methods="testCases.voucher.TC_Voucher_Details.checkData" finished-at="2020-06-16T18:50:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="afterClass" is-config="true" duration-ms="9821" started-at="2020-06-16T18:50:21Z" finished-at="2020-06-16T18:50:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-16T18:50:31Z" finished-at="2020-06-16T18:50:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="beforeClass" is-config="true" duration-ms="28853" started-at="2020-06-16T18:50:31Z" finished-at="2020-06-16T18:51:00Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testVoucherDetails()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="testVoucherDetails" duration-ms="607" started-at="2020-06-16T18:51:00Z" finished-at="2020-06-16T18:51:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testVoucherDetails -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="checkData" duration-ms="1" started-at="2020-06-16T18:51:01Z" depends-on-methods="testCases.voucher.TC_Voucher_Details.testVoucherDetails" finished-at="2020-06-16T18:51:01Z">
+        </test-method> <!-- testRecentPhoneNumber -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="checkData" duration-ms="4" started-at="2020-06-17T07:23:43Z" depends-on-methods="testCases.order.TC_Recent_Phone_Number.testRecentPhoneNumber" finished-at="2020-06-17T07:23:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="checkDB" duration-ms="1" started-at="2020-06-16T18:51:01Z" depends-on-methods="testCases.voucher.TC_Voucher_Details.checkData" finished-at="2020-06-16T18:51:01Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="checkDB" duration-ms="1" started-at="2020-06-17T07:23:43Z" depends-on-methods="testCases.order.TC_Recent_Phone_Number.checkData" finished-at="2020-06-17T07:23:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.voucher.TC_Voucher_Details@77eca502]" name="afterClass" is-config="true" duration-ms="10571" started-at="2020-06-16T18:51:01Z" finished-at="2020-06-16T18:51:11Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.order.TC_Recent_Phone_Number@776b83cc]" name="afterClass" is-config="true" duration-ms="4" started-at="2020-06-17T07:23:43Z" finished-at="2020-06-17T07:23:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- testCases.voucher.TC_Voucher_Details -->
-    </test> <!-- DanaPulsaServiceTestVouchers -->
+      </class> <!-- testCases.order.TC_Recent_Phone_Number -->
+    </test> <!-- DanaPulsaTestOrder -->
   </suite> <!-- DANA Pulsa Suite -->
 </testng-results>

@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [DANA Pulsa Suite]">
-  <test thread-count="5" name="DanaPulsaServiceTestVouchers(failed)">
+  <test thread-count="5" name="DanaPulsaTestOrder(failed)">
     <classes>
-      <class name="testCases.voucher.TC_Voucher_Details">
+      <class name="testCases.order.TC_Mobile_Recharge_Catalog">
         <methods>
+          <include name="testMobileRechargeCatalog"/>
           <include name="checkData"/>
           <include name="checkDB"/>
-          <include name="checkData"/>
-          <include name="checkDB"/>
+          <include name="setup"/>
           <include name="beforeClass"/>
           <include name="afterClass"/>
-          <include name="setup"/>
-          <include name="testVoucherDetails"/>
-          <include name="testVoucherDetails"/>
         </methods>
-      </class> <!-- testCases.voucher.TC_Voucher_Details -->
+      </class> <!-- testCases.order.TC_Mobile_Recharge_Catalog -->
     </classes>
-  </test> <!-- DanaPulsaServiceTestVouchers(failed) -->
+  </test> <!-- DanaPulsaTestOrder(failed) -->
 </suite> <!-- Failed suite [DANA Pulsa Suite] -->

@@ -70,16 +70,19 @@ public class TC_Voucher_Details extends TestBase {
 	public void testVoucherDetails() {		
 		getVoucherDetails(sessionId, voucherId);
 		
+		Assert.assertTrue(response.getBody().asString().contains(result));
+
 		int statusCode = response.getStatusCode();
 		
 		if (statusCode == 401) {
-			Assert.assertEquals(response.getBody().jsonPath().getString("error"), "Unauthorized");
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "401");
+			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "Unauthorized");
 		} else if (statusCode == 404) {
 			Assert.assertTrue(response.getBody().asString().contains("Not Found") 
 					|| response.getBody().asString().contains("voucher not found"));
 		} else if (statusCode == 200) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "200");
 			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "success");
-			Assert.assertTrue(response.getBody().asString().contains(result));
 		}
 	}
 	
@@ -144,7 +147,7 @@ public class TC_Voucher_Details extends TestBase {
 				e.printStackTrace();
 			}
 		} else if (statusCode == 404) {
-			if (response.getBody().asString().contains("vpucher not found")) {
+			if (response.getBody().asString().contains("voucher not found")) {
 				try {
 					Connection conn = getConnectionPromotion();
 					String queryString = "SELECT * FROM voucher WHERE id = ?";

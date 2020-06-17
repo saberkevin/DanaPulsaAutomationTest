@@ -9,8 +9,8 @@ import base.TestBase;
 
 public class Factory_Recent_Phone_Number extends TestBase {	
 	@Factory(dataProvider="dp")
-	public Object[] createInstances(String sessionId) {
-		return new Object[] {new TC_Recent_Phone_Number(sessionId)};
+	public Object[] createInstances(String testCase, String sessionId, String result) {
+		return new Object[] {new TC_Recent_Phone_Number(testCase, sessionId, result)};
 	}
 	
 	@DataProvider(name="dp")

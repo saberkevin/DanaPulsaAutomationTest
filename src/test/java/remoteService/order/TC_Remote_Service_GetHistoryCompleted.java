@@ -136,11 +136,15 @@ public class TC_Remote_Service_GetHistoryCompleted extends TestBase {
 					if (history.size() > 1) {
 						Assert.assertEquals(history.get(i).get("phoneNumber"), phoneNumbers[history.size() - i]);
 					} else {
-						Assert.assertEquals(history.get(i).get("phoneNumber"), user.getUsername());						
+						if (page.equals("2")) {
+							Assert.assertEquals(history.get(i).get("phoneNumber"), phoneNumbers[0]);													
+						} else {							
+							Assert.assertEquals(history.get(i).get("phoneNumber"), user.getUsername());						
+						}
 					}
 					
-					Assert.assertEquals(history.get(i).get("price"),catalog.getPrice());
-					Assert.assertNull(history.get(i).get("voucher"));
+					Assert.assertEquals(String.valueOf(history.get(i).get("price")), Long.toString(catalog.getPrice()));
+					Assert.assertNotNull(history.get(i).get("voucher"));
 					Assert.assertEquals(history.get(i).get("status"), "COMPLETED");
 					Assert.assertNotNull(history.get(i).get("createdAt"));
 				}
@@ -198,10 +202,11 @@ public class TC_Remote_Service_GetHistoryCompleted extends TestBase {
 						+ "C.name "
 						+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
 						+ "LEFT JOIN transaction_status C on A.statusId = C.id "
-						+ "WHERE A.userId = ? ORDER BY A.createdAt DESC LIMIT 10";
+						+ "WHERE A.userId = ? AND A.statusId NOT IN (3,4) ORDER BY A.createdAt DESC LIMIT ?, 10";
 				
 				PreparedStatement ps = conn.prepareStatement(queryString);
 				ps.setLong(1, Long.parseLong(userId));
+				ps.setInt(2, (Integer.parseInt(page)-1) * 10);
 				
 				ResultSet rs = ps.executeQuery();
 				
@@ -210,10 +215,10 @@ public class TC_Remote_Service_GetHistoryCompleted extends TestBase {
 				}
 				do {
 					int index = rs.getRow() - 1;
-					Assert.assertEquals(history.get(index).get("id"), rs.getString("id"));
+					Assert.assertEquals(String.valueOf(history.get(index).get("id")), rs.getString("id"));
 					Assert.assertEquals(history.get(index).get("phoneNumber"), rs.getString("phoneNumber"));
-					Assert.assertEquals(history.get(index).get("price"), rs.getString("price"));
-					Assert.assertEquals(history.get(index).get("status"), rs.getString("status"));
+					Assert.assertEquals(String.valueOf(history.get(index).get("price")), rs.getString("price"));
+					Assert.assertEquals(history.get(index).get("status"), rs.getString("name"));
 //					Assert.assertEquals(history.get(index).get("createdAt"), rs.getLong("createdAt"));
 				} while(rs.next());
 				

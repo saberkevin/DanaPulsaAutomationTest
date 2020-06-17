@@ -426,7 +426,7 @@ public class TestBase {
 		logger.info("catalog id:" + catalogId);
 				
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("phone", phoneNumber);
+		requestParams.put("phoneNumber", phoneNumber);
 		requestParams.put("catalogId", catalogId);
 		
 		RestAssured.baseURI = URI;
