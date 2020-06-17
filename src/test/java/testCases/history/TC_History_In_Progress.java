@@ -77,7 +77,7 @@ public class TC_History_In_Progress extends TestBase{
 					"JOIN transaction_status b ON a.statusId = b.id AND b.typeId = 1\n" +  
 					"JOIN pulsa_catalog d ON a.catalogId = d.id \n" +
 					"WHERE a.userId = ? and a.id = ? \n" + 
-					"ORDER BY a.createdAt";
+					"ORDER BY a.createdAt DESC LIMIT 10 OFFSET ?";
 			String query2 = "SELECT name AS voucher FROM voucher WHERE id = ? ";
 			
 			Assert.assertEquals("success", message);
@@ -100,6 +100,7 @@ public class TC_History_In_Progress extends TestBase{
 						PreparedStatement psGetHistoryInProgress = conOrder.prepareStatement(query);
 						psGetHistoryInProgress.setLong(1, Long.parseLong(userId));
 						psGetHistoryInProgress.setLong(2, Long.parseLong(String.valueOf(data.get(i).get("id"))));
+						psGetHistoryInProgress.setLong(3, Long.parseLong(page)*10-10);
 						ResultSet result = psGetHistoryInProgress.executeQuery();
 						
 						while(result.next())

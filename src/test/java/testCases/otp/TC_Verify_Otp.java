@@ -41,7 +41,7 @@ public class TC_Verify_Otp extends TestBase{
 		}
 		else if(code.equals("3digit"))
 		{
-			code = otp.substring(0, 3);
+			code = otp.substring(0, 2);
 		}
 		else if(code.equals("5digit"))
 		{
@@ -62,7 +62,6 @@ public class TC_Verify_Otp extends TestBase{
 		if(code == 200)
 		{
 			Assert.assertEquals("success", message);
-			Assert.assertNotEquals("", jsonPath.get("data.token"));
 			
 			String query = "SELECT userId, code FROM otp\n" + 
 					"WHERE userId = ?";

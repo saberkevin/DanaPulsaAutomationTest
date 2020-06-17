@@ -37,9 +37,7 @@ public class TC_Verify_Pin_Login extends TestBase{
 		String message =  jsonPath.get("message");
 		
 		if(code == 200)
-		{
-			Assert.assertNotEquals("", jsonPath.get("data.token"));
-			
+		{	
 			String query = "SELECT id, pin FROM user\n" + 
 					"WHERE id = ? AND pin = ?";
 			try {

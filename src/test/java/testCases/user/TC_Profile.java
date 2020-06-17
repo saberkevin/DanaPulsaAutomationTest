@@ -74,7 +74,8 @@ public class TC_Profile extends TestBase{
 			String query = "SELECT id, name, email, username FROM user\n" + 
 					"WHERE id = ? AND name = ?  AND email = ? AND username = ?";
 			try {
-				PreparedStatement psGetUser = getConnectionMember().prepareStatement(query);
+				Connection conMember = getConnectionMember();
+				PreparedStatement psGetUser = conMember.prepareStatement(query);
 				psGetUser.setLong(1, Long.parseLong(jsonPath.get("data.id").toString()));
 				psGetUser.setString(2, jsonPath.get("data.name"));
 				psGetUser.setString(3, jsonPath.get("data.email"));
@@ -90,7 +91,7 @@ public class TC_Profile extends TestBase{
 					Assert.assertEquals(jsonPath.get("data.username"), result.getString("username"));
 				}
 				
-				getConnectionMember().close();
+				conMember.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
