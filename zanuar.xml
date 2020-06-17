@@ -30,11 +30,20 @@
 		</classes>
 	</test> -->
 	
-	<test name="DanaPulsaTestOrder" group-by-instances="true">
+	<!-- <test name="DanaPulsaTestOrder" group-by-instances="true">
 		<classes>
-			<!-- <class name = "testCases.order.Factory_Mobile_Recharge_Catalog"></class>
-			<class name = "testCases.order.Factory_Recent_Phone_Number"></class> -->
+			<class name = "testCases.order.Factory_Mobile_Recharge_Catalog"></class>
+			<class name = "testCases.order.Factory_Recent_Phone_Number"></class>
 			<class name = "testCases.order.Factory_Create_Order"></class>
+			<class name = "testCases.order.Factory_Cancel_Order"></class>
+		</classes>
+	</test> -->
+	
+	<test name="DanaPulsaTestIntegrationVoucher" group-by-instances="true">
+		<classes>
+			<!-- <class name = "integrationtest.voucher.Factory_Integration_VoucherDetails"></class>
+			<class name = "integrationtest.voucher.Factory_Integration_VoucherPromotion"></class> -->
+			<class name = "integrationtest.voucher.Factory_Integration_MyVoucher"></class>
 		</classes>
 	</test>
 </suite>

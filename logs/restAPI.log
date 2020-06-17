@@ -12814,3 +12814,977 @@
 		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
 	  </body>
 	</html>
+2020-06-17 19:51:00 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 19:51:00 INFO  restAPI:41 - Case:Different provider
+2020-06-17 19:51:24 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 19:51:24 INFO  restAPI:222 - Test Data: 
+2020-06-17 19:51:24 INFO  restAPI:223 - id:955
+2020-06-17 19:51:24 INFO  restAPI:224 - pin:123456
+2020-06-17 19:51:28 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 19:51:28 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 19:51:28 INFO  restAPI:94 - Status Code = 200
+2020-06-17 19:51:32 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 19:51:32 INFO  restAPI:423 - Test Data: 
+2020-06-17 19:51:32 INFO  restAPI:424 - session id:C2165257C2DC44766AC9B9AEFF2087C9
+2020-06-17 19:51:32 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 19:51:32 INFO  restAPI:426 - catalog id:1
+2020-06-17 19:51:37 INFO  restAPI:439 - {"code":400,"message":"selected catalog is not available for this phone’s provider"}
+2020-06-17 19:52:13 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 19:52:13 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 19:52:13 INFO  restAPI:41 - Case:Undefined provider
+2020-06-17 19:52:33 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 19:52:33 INFO  restAPI:222 - Test Data: 
+2020-06-17 19:52:33 INFO  restAPI:223 - id:956
+2020-06-17 19:52:33 INFO  restAPI:224 - pin:123456
+2020-06-17 19:52:35 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 19:52:35 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 19:52:35 INFO  restAPI:94 - Status Code = 200
+2020-06-17 19:52:41 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 19:52:41 INFO  restAPI:423 - Test Data: 
+2020-06-17 19:52:41 INFO  restAPI:424 - session id:29B61ADE5C5777AE5D68A4A824B419A9
+2020-06-17 19:52:41 INFO  restAPI:425 - phone number:021252930398
+2020-06-17 19:52:41 INFO  restAPI:426 - catalog id:13
+2020-06-17 19:52:45 INFO  restAPI:439 - {"code":404,"message":"unknown phone number"}
+2020-06-17 19:53:14 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 19:53:14 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 19:53:14 INFO  restAPI:41 - Case:Empty String catalog ID
+2020-06-17 20:26:02 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:26:02 INFO  restAPI:41 - Case:Different provider
+2020-06-17 20:26:21 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:26:21 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:26:21 INFO  restAPI:223 - id:957
+2020-06-17 20:26:21 INFO  restAPI:224 - pin:123456
+2020-06-17 20:26:24 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:26:24 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:26:24 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:26:29 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:26:29 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:26:29 INFO  restAPI:426 - session id:7B3C3EFCC05C77CC0B3D1AE0FB48D06F
+2020-06-17 20:26:29 INFO  restAPI:427 - phone number:081252930398
+2020-06-17 20:26:29 INFO  restAPI:428 - catalog id:1
+2020-06-17 20:26:33 INFO  restAPI:441 - {"code":400,"message":"selected catalog is not available for this phone’s provider"}
+2020-06-17 20:27:11 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:27:11 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:27:11 INFO  restAPI:41 - Case:Undefined provider
+2020-06-17 20:27:33 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:27:33 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:27:33 INFO  restAPI:223 - id:958
+2020-06-17 20:27:33 INFO  restAPI:224 - pin:123456
+2020-06-17 20:27:35 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:27:35 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:27:35 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:27:40 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:27:40 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:27:40 INFO  restAPI:426 - session id:FA9F13CA85601AE9A6B17F127576BD43
+2020-06-17 20:27:40 INFO  restAPI:427 - phone number:021252930398
+2020-06-17 20:27:40 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:27:45 INFO  restAPI:441 - {"code":404,"message":"unknown phone number"}
+2020-06-17 20:28:16 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:28:16 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:28:16 INFO  restAPI:41 - Case:Empty String catalog ID
+2020-06-17 20:28:34 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:28:34 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:28:34 INFO  restAPI:223 - id:959
+2020-06-17 20:28:34 INFO  restAPI:224 - pin:123456
+2020-06-17 20:28:36 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:28:36 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:28:36 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:28:42 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:28:42 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:28:42 INFO  restAPI:426 - session id:0DF3CAE64F829537FA809DC2CF4F3733
+2020-06-17 20:28:42 INFO  restAPI:427 - phone number:081252930398
+2020-06-17 20:28:42 INFO  restAPI:428 - catalog id:
+2020-06-17 20:28:43 INFO  restAPI:441 - {"code":400,"message":["catalog ID must not be null"]}
+2020-06-17 20:29:03 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:29:03 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:29:03 INFO  restAPI:41 - Case:Undefined session id
+2020-06-17 20:29:03 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:29:03 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:29:03 INFO  restAPI:426 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-17 20:29:03 INFO  restAPI:427 - phone number:081252930398
+2020-06-17 20:29:03 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:29:04 INFO  restAPI:441 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 20:29:08 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:29:08 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:29:08 INFO  restAPI:41 - Case:Start with 62
+2020-06-17 20:29:27 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:29:27 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:29:27 INFO  restAPI:223 - id:960
+2020-06-17 20:29:27 INFO  restAPI:224 - pin:123456
+2020-06-17 20:29:29 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:29:29 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:29:29 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:29:34 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:29:34 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:29:34 INFO  restAPI:426 - session id:DBD530FE6F6EB781E6570EC4571A6E8D
+2020-06-17 20:29:34 INFO  restAPI:427 - phone number:6281252930398
+2020-06-17 20:29:34 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:29:38 INFO  restAPI:441 - {"code":400,"message":"invalid phone number"}
+2020-06-17 20:29:57 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:29:57 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:29:57 INFO  restAPI:41 - Case:Empty string session id
+2020-06-17 20:29:57 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:29:57 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:29:57 INFO  restAPI:426 - session id:
+2020-06-17 20:29:57 INFO  restAPI:427 - phone number:081252930398
+2020-06-17 20:29:57 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:29:57 INFO  restAPI:441 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 20:30:02 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:30:02 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:30:02 INFO  restAPI:41 - Case:Below 9 characters
+2020-06-17 20:30:21 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:30:21 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:30:21 INFO  restAPI:223 - id:961
+2020-06-17 20:30:21 INFO  restAPI:224 - pin:123456
+2020-06-17 20:30:23 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:30:23 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:30:23 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:30:28 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:30:28 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:30:28 INFO  restAPI:426 - session id:A50B1D985E3F1330BB540D4EDAE1109D
+2020-06-17 20:30:28 INFO  restAPI:427 - phone number:08125293
+2020-06-17 20:30:28 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:30:33 INFO  restAPI:441 - {"code":400,"message":"invalid phone number"}
+2020-06-17 20:30:54 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:30:54 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:30:54 INFO  restAPI:41 - Case:Start with +62
+2020-06-17 20:31:14 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:31:14 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:31:14 INFO  restAPI:223 - id:962
+2020-06-17 20:31:14 INFO  restAPI:224 - pin:123456
+2020-06-17 20:31:16 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:31:16 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:31:16 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:31:20 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:31:20 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:31:20 INFO  restAPI:426 - session id:CE9583612F3E7203A76B8B50D97B6521
+2020-06-17 20:31:20 INFO  restAPI:427 - phone number:+628125293039
+2020-06-17 20:31:20 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:31:24 INFO  restAPI:441 - {"code":400,"message":"invalid phone number"}
+2020-06-17 20:31:44 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:31:44 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:31:44 INFO  restAPI:41 - Case:Valid parameters
+2020-06-17 20:32:15 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:32:15 INFO  restAPI:41 - Case:Different provider
+2020-06-17 20:32:39 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:32:39 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:32:39 INFO  restAPI:223 - id:964
+2020-06-17 20:32:39 INFO  restAPI:224 - pin:123456
+2020-06-17 20:32:42 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:32:42 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:32:42 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:32:47 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:32:47 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:32:47 INFO  restAPI:426 - session id:DF6816F29CF244E53CBEB440E0313A6C
+2020-06-17 20:32:47 INFO  restAPI:427 - phone number:081252930398
+2020-06-17 20:32:47 INFO  restAPI:428 - catalog id:1
+2020-06-17 20:32:52 INFO  restAPI:441 - {"code":400,"message":"selected catalog is not available for this phone’s provider"}
+2020-06-17 20:33:28 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:33:28 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:33:28 INFO  restAPI:41 - Case:Undefined provider
+2020-06-17 20:33:48 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:33:48 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:33:48 INFO  restAPI:223 - id:965
+2020-06-17 20:33:48 INFO  restAPI:224 - pin:123456
+2020-06-17 20:33:50 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:33:50 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:33:50 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:33:55 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:33:55 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:33:55 INFO  restAPI:426 - session id:04469793133DCAC0BC7000150842C1CC
+2020-06-17 20:33:55 INFO  restAPI:427 - phone number:021252930398
+2020-06-17 20:33:55 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:33:59 INFO  restAPI:441 - {"code":404,"message":"unknown phone number"}
+2020-06-17 20:34:27 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:34:27 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:34:27 INFO  restAPI:41 - Case:Empty String catalog ID
+2020-06-17 20:34:47 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:34:47 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:34:47 INFO  restAPI:223 - id:966
+2020-06-17 20:34:47 INFO  restAPI:224 - pin:123456
+2020-06-17 20:34:49 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:34:49 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:34:49 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:34:55 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:34:55 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:34:55 INFO  restAPI:426 - session id:25701B3822A7C8448DD65B6613195A9E
+2020-06-17 20:34:55 INFO  restAPI:427 - phone number:081252930398
+2020-06-17 20:34:55 INFO  restAPI:428 - catalog id:
+2020-06-17 20:34:56 INFO  restAPI:441 - {"code":400,"message":["catalog ID must not be null"]}
+2020-06-17 20:35:14 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:35:14 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:35:14 INFO  restAPI:41 - Case:Undefined session id
+2020-06-17 20:35:14 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:35:14 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:35:14 INFO  restAPI:426 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-17 20:35:14 INFO  restAPI:427 - phone number:081252930398
+2020-06-17 20:35:14 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:35:15 INFO  restAPI:441 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 20:35:19 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:35:19 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:35:19 INFO  restAPI:41 - Case:Start with 62
+2020-06-17 20:35:38 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:35:38 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:35:38 INFO  restAPI:223 - id:967
+2020-06-17 20:35:38 INFO  restAPI:224 - pin:123456
+2020-06-17 20:35:41 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:35:41 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:35:41 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:35:45 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:35:45 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:35:45 INFO  restAPI:426 - session id:8DA05AA4462FC97D3C01C551344DCAB0
+2020-06-17 20:35:45 INFO  restAPI:427 - phone number:6281252930398
+2020-06-17 20:35:45 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:35:49 INFO  restAPI:441 - {"code":400,"message":"invalid phone number"}
+2020-06-17 20:36:09 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:36:09 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:36:09 INFO  restAPI:41 - Case:Empty string session id
+2020-06-17 20:36:09 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:36:09 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:36:09 INFO  restAPI:426 - session id:
+2020-06-17 20:36:09 INFO  restAPI:427 - phone number:081252930398
+2020-06-17 20:36:09 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:36:10 INFO  restAPI:441 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 20:36:15 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:36:15 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:36:15 INFO  restAPI:41 - Case:Below 9 characters
+2020-06-17 20:36:34 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:36:34 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:36:34 INFO  restAPI:223 - id:968
+2020-06-17 20:36:34 INFO  restAPI:224 - pin:123456
+2020-06-17 20:36:36 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:36:36 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:36:36 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:36:41 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:36:41 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:36:41 INFO  restAPI:426 - session id:AA2067CA45C4C9E62E375725F5268D80
+2020-06-17 20:36:41 INFO  restAPI:427 - phone number:08125293
+2020-06-17 20:36:41 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:36:46 INFO  restAPI:441 - {"code":400,"message":"invalid phone number"}
+2020-06-17 20:37:05 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:37:05 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:37:05 INFO  restAPI:41 - Case:Start with +62
+2020-06-17 20:37:24 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:37:24 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:37:24 INFO  restAPI:223 - id:969
+2020-06-17 20:37:24 INFO  restAPI:224 - pin:123456
+2020-06-17 20:37:26 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:37:26 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:37:26 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:37:31 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:37:31 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:37:31 INFO  restAPI:426 - session id:25586FDC5EA60E4ED0F4E6886E1B7859
+2020-06-17 20:37:31 INFO  restAPI:427 - phone number:+628125293039
+2020-06-17 20:37:31 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:37:35 INFO  restAPI:441 - {"code":400,"message":"invalid phone number"}
+2020-06-17 20:37:55 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:37:55 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:37:55 INFO  restAPI:41 - Case:Valid parameters
+2020-06-17 20:38:16 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:38:16 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:38:16 INFO  restAPI:223 - id:970
+2020-06-17 20:38:16 INFO  restAPI:224 - pin:123456
+2020-06-17 20:38:18 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:38:18 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:38:18 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:38:22 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:38:22 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:38:22 INFO  restAPI:426 - session id:1F15724C9FBC05087E50A23E3D96D969
+2020-06-17 20:38:22 INFO  restAPI:427 - phone number:081252930398
+2020-06-17 20:38:22 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:38:27 INFO  restAPI:441 - {"code":201,"message":"created","data":{"id":650,"phoneNumber":"081252930398","catalog":{"id":13,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":15000,"price":15000}}}
+2020-06-17 20:38:53 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:38:53 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:38:53 INFO  restAPI:41 - Case:Not numerical only
+2020-06-17 20:39:12 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:39:12 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:39:12 INFO  restAPI:223 - id:971
+2020-06-17 20:39:12 INFO  restAPI:224 - pin:123456
+2020-06-17 20:39:14 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:39:14 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:39:14 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:39:20 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:39:20 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:39:20 INFO  restAPI:426 - session id:6FEFC8E4165CA84C0FD039613EED72F6
+2020-06-17 20:39:20 INFO  restAPI:427 - phone number:081252930ABC
+2020-06-17 20:39:20 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:39:25 INFO  restAPI:441 - {"code":400,"message":"invalid phone number"}
+2020-06-17 20:39:46 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:39:46 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:39:46 INFO  restAPI:41 - Case:Empty string phone number
+2020-06-17 20:40:03 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:40:03 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:40:03 INFO  restAPI:223 - id:972
+2020-06-17 20:40:03 INFO  restAPI:224 - pin:123456
+2020-06-17 20:40:06 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:40:06 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:40:06 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:40:11 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:40:11 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:40:11 INFO  restAPI:426 - session id:F3C94DF7A28D93B4837D977A23C03D60
+2020-06-17 20:40:11 INFO  restAPI:427 - phone number:
+2020-06-17 20:40:11 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:40:12 INFO  restAPI:441 - {"code":400,"message":["phone number must not be null"]}
+2020-06-17 20:40:32 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:40:32 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:40:32 INFO  restAPI:41 - Case:Undefined catalog ID
+2020-06-17 20:40:53 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:40:53 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:40:53 INFO  restAPI:223 - id:973
+2020-06-17 20:40:53 INFO  restAPI:224 - pin:123456
+2020-06-17 20:40:55 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:40:55 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:40:55 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:41:01 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:41:01 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:41:01 INFO  restAPI:426 - session id:8BF9B41EA31EF39674A3A1CFFACCDE85
+2020-06-17 20:41:01 INFO  restAPI:427 - phone number:081252930398
+2020-06-17 20:41:01 INFO  restAPI:428 - catalog id:9999
+2020-06-17 20:41:05 INFO  restAPI:441 - {"code":404,"message":"catalog not found"}
+2020-06-17 20:41:37 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:41:37 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:41:37 INFO  restAPI:41 - Case:White space
+2020-06-17 20:41:59 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:41:59 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:41:59 INFO  restAPI:223 - id:974
+2020-06-17 20:41:59 INFO  restAPI:224 - pin:123456
+2020-06-17 20:42:01 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:42:01 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:42:01 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:42:06 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:42:06 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:42:06 INFO  restAPI:426 - session id:FE14A4F9DE814F0484AB3FB9323D9064
+2020-06-17 20:42:06 INFO  restAPI:427 - phone number:081 252930398
+2020-06-17 20:42:06 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:42:11 INFO  restAPI:441 - {"code":400,"message":"invalid phone number"}
+2020-06-17 20:42:32 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:42:32 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 20:42:32 INFO  restAPI:41 - Case:Exceed 13 characters
+2020-06-17 20:42:53 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 20:42:53 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:42:53 INFO  restAPI:223 - id:975
+2020-06-17 20:42:53 INFO  restAPI:224 - pin:123456
+2020-06-17 20:43:00 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:43:00 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:43:00 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:43:05 INFO  restAPI:424 - ***** Started TC_Create_Order *****
+2020-06-17 20:43:05 INFO  restAPI:425 - Test Data: 
+2020-06-17 20:43:05 INFO  restAPI:426 - session id:4E28EB50A18C797827C4C1EEB0AEA1B5
+2020-06-17 20:43:05 INFO  restAPI:427 - phone number:08125293039812
+2020-06-17 20:43:05 INFO  restAPI:428 - catalog id:13
+2020-06-17 20:43:09 INFO  restAPI:441 - {"code":400,"message":"invalid phone number"}
+2020-06-17 20:43:28 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 20:45:12 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:45:12 INFO  restAPI:46 - Case:Empty String session ID
+2020-06-17 20:45:45 INFO  restAPI:445 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:45:45 INFO  restAPI:446 - Test Data: 
+2020-06-17 20:45:45 INFO  restAPI:447 - session id:
+2020-06-17 20:45:45 INFO  restAPI:448 - transaction id:651
+2020-06-17 20:45:47 INFO  restAPI:455 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 20:46:02 INFO  restAPI:176 - ***** Finished TC_Cancel_Order *****
+2020-06-17 20:46:02 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:46:02 INFO  restAPI:46 - Case:Valid ID (with transaction)
+2020-06-17 20:46:53 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:46:53 INFO  restAPI:46 - Case:Empty String session ID
+2020-06-17 20:47:31 INFO  restAPI:445 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:47:31 INFO  restAPI:446 - Test Data: 
+2020-06-17 20:47:31 INFO  restAPI:447 - session id:
+2020-06-17 20:47:31 INFO  restAPI:448 - transaction id:652
+2020-06-17 20:47:33 INFO  restAPI:455 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 20:47:49 INFO  restAPI:176 - ***** Finished TC_Cancel_Order *****
+2020-06-17 20:47:49 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:47:49 INFO  restAPI:46 - Case:Valid ID (with transaction)
+2020-06-17 20:48:25 INFO  restAPI:445 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:48:25 INFO  restAPI:446 - Test Data: 
+2020-06-17 20:48:25 INFO  restAPI:447 - session id:979
+2020-06-17 20:48:25 INFO  restAPI:448 - transaction id:653
+2020-06-17 20:48:26 INFO  restAPI:455 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 20:48:40 INFO  restAPI:176 - ***** Finished TC_Cancel_Order *****
+2020-06-17 20:48:40 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:48:40 INFO  restAPI:46 - Case:Transaction already completed
+2020-06-17 20:49:13 INFO  restAPI:445 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:49:13 INFO  restAPI:446 - Test Data: 
+2020-06-17 20:49:13 INFO  restAPI:447 - session id:980
+2020-06-17 20:49:13 INFO  restAPI:448 - transaction id:654
+2020-06-17 20:49:14 INFO  restAPI:455 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 20:49:29 INFO  restAPI:176 - ***** Finished TC_Cancel_Order *****
+2020-06-17 20:49:29 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:49:29 INFO  restAPI:46 - Case:Valid ID (no transaction)
+2020-06-17 20:50:31 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:50:31 INFO  restAPI:46 - Case:Empty String session ID
+2020-06-17 20:51:12 INFO  restAPI:445 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:51:12 INFO  restAPI:446 - Test Data: 
+2020-06-17 20:51:12 INFO  restAPI:447 - session id:
+2020-06-17 20:51:12 INFO  restAPI:448 - transaction id:655
+2020-06-17 20:51:13 INFO  restAPI:455 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 20:51:52 INFO  restAPI:176 - ***** Finished TC_Cancel_Order *****
+2020-06-17 20:51:52 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:51:52 INFO  restAPI:46 - Case:Valid ID (with transaction)
+2020-06-17 20:52:12 INFO  restAPI:221 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:52:12 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:52:12 INFO  restAPI:223 - id:983
+2020-06-17 20:52:12 INFO  restAPI:224 - pin:123456
+2020-06-17 20:52:14 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 20:52:14 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:52:14 INFO  restAPI:94 - Status Code = 200
+2020-06-17 20:52:29 INFO  restAPI:445 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:52:29 INFO  restAPI:446 - Test Data: 
+2020-06-17 20:52:29 INFO  restAPI:447 - session id:7A9409FE598989E8519D411B860259F3
+2020-06-17 20:52:29 INFO  restAPI:448 - transaction id:656
+2020-06-17 20:52:30 INFO  restAPI:455 - 
+2020-06-17 20:52:45 INFO  restAPI:176 - ***** Finished TC_Cancel_Order *****
+2020-06-17 20:52:45 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:52:45 INFO  restAPI:46 - Case:Transaction already completed
+2020-06-17 20:53:07 INFO  restAPI:221 - ***** Started TC_Cancel_Order *****
+2020-06-17 20:53:07 INFO  restAPI:222 - Test Data: 
+2020-06-17 20:53:07 INFO  restAPI:223 - id:984
+2020-06-17 20:53:07 INFO  restAPI:224 - pin:123456
+2020-06-17 20:53:38 INFO  restAPI:238 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+2020-06-17 20:53:38 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 20:53:38 INFO  restAPI:94 - Status Code = 503
+2020-06-17 22:08:56 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:08:56 INFO  restAPI:46 - Case:Empty String session ID
+2020-06-17 22:09:38 INFO  restAPI:445 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:09:38 INFO  restAPI:446 - Test Data: 
+2020-06-17 22:09:38 INFO  restAPI:447 - session id:
+2020-06-17 22:09:38 INFO  restAPI:448 - transaction id:657
+2020-06-17 22:09:40 INFO  restAPI:455 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 22:09:55 INFO  restAPI:176 - ***** Finished TC_Cancel_Order *****
+2020-06-17 22:09:55 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:09:55 INFO  restAPI:46 - Case:Valid ID (with transaction)
+2020-06-17 22:10:16 INFO  restAPI:221 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:10:16 INFO  restAPI:222 - Test Data: 
+2020-06-17 22:10:16 INFO  restAPI:223 - id:986
+2020-06-17 22:10:16 INFO  restAPI:224 - pin:123456
+2020-06-17 22:10:18 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 22:10:18 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:10:18 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:10:34 INFO  restAPI:445 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:10:34 INFO  restAPI:446 - Test Data: 
+2020-06-17 22:10:34 INFO  restAPI:447 - session id:6DBE93E6951FF3080E216499A0927828
+2020-06-17 22:10:34 INFO  restAPI:448 - transaction id:658
+2020-06-17 22:10:35 INFO  restAPI:455 - 
+2020-06-17 22:10:49 INFO  restAPI:176 - ***** Finished TC_Cancel_Order *****
+2020-06-17 22:10:49 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:10:49 INFO  restAPI:46 - Case:Transaction already completed
+2020-06-17 22:11:08 INFO  restAPI:221 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:11:08 INFO  restAPI:222 - Test Data: 
+2020-06-17 22:11:08 INFO  restAPI:223 - id:987
+2020-06-17 22:11:08 INFO  restAPI:224 - pin:123456
+2020-06-17 22:11:11 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 22:11:11 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:11:11 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:11:26 INFO  restAPI:445 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:11:26 INFO  restAPI:446 - Test Data: 
+2020-06-17 22:11:26 INFO  restAPI:447 - session id:19FD39A0D96561F9B4DADF8BE72998C2
+2020-06-17 22:11:26 INFO  restAPI:448 - transaction id:659
+2020-06-17 22:11:27 INFO  restAPI:455 - 
+2020-06-17 22:11:43 INFO  restAPI:176 - ***** Finished TC_Cancel_Order *****
+2020-06-17 22:11:43 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:11:43 INFO  restAPI:46 - Case:Valid ID (no transaction)
+2020-06-17 22:12:05 INFO  restAPI:221 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:12:05 INFO  restAPI:222 - Test Data: 
+2020-06-17 22:12:05 INFO  restAPI:223 - id:988
+2020-06-17 22:12:05 INFO  restAPI:224 - pin:123456
+2020-06-17 22:12:07 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 22:12:07 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:12:07 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:12:13 INFO  restAPI:445 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:12:13 INFO  restAPI:446 - Test Data: 
+2020-06-17 22:12:13 INFO  restAPI:447 - session id:4C29E3D7B7484D2878366354061F56AD
+2020-06-17 22:12:13 INFO  restAPI:448 - transaction id:9999
+2020-06-17 22:12:14 INFO  restAPI:455 - 
+2020-06-17 22:12:28 INFO  restAPI:176 - ***** Finished TC_Cancel_Order *****
+2020-06-17 22:12:28 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:12:28 INFO  restAPI:46 - Case:Undefined session ID
+2020-06-17 22:13:03 INFO  restAPI:445 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:13:03 INFO  restAPI:446 - Test Data: 
+2020-06-17 22:13:03 INFO  restAPI:447 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-17 22:13:03 INFO  restAPI:448 - transaction id:660
+2020-06-17 22:13:04 INFO  restAPI:455 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 22:13:20 INFO  restAPI:176 - ***** Finished TC_Cancel_Order *****
+2020-06-17 22:13:20 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:13:20 INFO  restAPI:46 - Case:Undefined transaction ID
+2020-06-17 22:13:43 INFO  restAPI:221 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:13:43 INFO  restAPI:222 - Test Data: 
+2020-06-17 22:13:43 INFO  restAPI:223 - id:990
+2020-06-17 22:13:43 INFO  restAPI:224 - pin:123456
+2020-06-17 22:13:45 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 22:13:45 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:13:45 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:13:50 INFO  restAPI:445 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:13:50 INFO  restAPI:446 - Test Data: 
+2020-06-17 22:13:50 INFO  restAPI:447 - session id:0B01143AEEA928F0ED3C54FA0B6D4C8A
+2020-06-17 22:13:50 INFO  restAPI:448 - transaction id:9999
+2020-06-17 22:13:51 INFO  restAPI:455 - 
+2020-06-17 22:14:07 INFO  restAPI:176 - ***** Finished TC_Cancel_Order *****
+2020-06-17 22:14:07 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:14:07 INFO  restAPI:46 - Case:Empty String transaction ID
+2020-06-17 22:14:27 INFO  restAPI:221 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:14:27 INFO  restAPI:222 - Test Data: 
+2020-06-17 22:14:27 INFO  restAPI:223 - id:991
+2020-06-17 22:14:27 INFO  restAPI:224 - pin:123456
+2020-06-17 22:14:30 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 22:14:30 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:14:30 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:14:35 INFO  restAPI:445 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:14:35 INFO  restAPI:446 - Test Data: 
+2020-06-17 22:14:35 INFO  restAPI:447 - session id:6E5857FF010C3484AD6C4ADE5CD3C89C
+2020-06-17 22:14:35 INFO  restAPI:448 - transaction id:
+2020-06-17 22:14:35 INFO  restAPI:455 - {"timestamp":"2020-06-17T15:14:35.587+00:00","status":404,"error":"Not Found","message":"","path":"/api/transaction/cancel/"}
+2020-06-17 22:14:49 INFO  restAPI:176 - ***** Finished TC_Cancel_Order *****
+2020-06-17 22:14:49 INFO  restAPI:45 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:14:49 INFO  restAPI:46 - Case:Another user's transaction
+2020-06-17 22:15:09 INFO  restAPI:221 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:15:09 INFO  restAPI:222 - Test Data: 
+2020-06-17 22:15:09 INFO  restAPI:223 - id:992
+2020-06-17 22:15:09 INFO  restAPI:224 - pin:123456
+2020-06-17 22:15:11 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 22:15:11 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:15:11 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:15:52 INFO  restAPI:445 - ***** Started TC_Cancel_Order *****
+2020-06-17 22:15:52 INFO  restAPI:446 - Test Data: 
+2020-06-17 22:15:52 INFO  restAPI:447 - session id:74B7DDE7E16DD2E17459DF8CBF8D186C
+2020-06-17 22:15:52 INFO  restAPI:448 - transaction id:661
+2020-06-17 22:15:54 INFO  restAPI:455 - 
+2020-06-17 22:16:26 INFO  restAPI:176 - ***** Finished TC_Cancel_Order *****
+2020-06-17 22:39:21 INFO  restAPI:29 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:39:21 INFO  restAPI:30 - Case:null
+2020-06-17 22:39:34 INFO  restAPI:184 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:39:34 INFO  restAPI:185 - Test Data: 
+2020-06-17 22:39:34 INFO  restAPI:186 - name:Zanuar
+2020-06-17 22:39:34 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-17 22:39:34 INFO  restAPI:188 - phone:081252930398
+2020-06-17 22:39:34 INFO  restAPI:189 - pin:123456
+2020-06-17 22:39:39 INFO  restAPI:205 - {"code":201,"message":"created"}
+2020-06-17 22:39:39 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:39:39 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:40:35 INFO  restAPI:29 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:40:35 INFO  restAPI:30 - Case:null
+2020-06-17 22:40:52 INFO  restAPI:184 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:40:52 INFO  restAPI:185 - Test Data: 
+2020-06-17 22:40:52 INFO  restAPI:186 - name:Zanuar
+2020-06-17 22:40:52 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-17 22:40:52 INFO  restAPI:188 - phone:081252930398
+2020-06-17 22:40:52 INFO  restAPI:189 - pin:123456
+2020-06-17 22:40:55 INFO  restAPI:205 - {"code":201,"message":"created"}
+2020-06-17 22:40:55 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:40:55 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:40:55 INFO  restAPI:209 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:40:55 INFO  restAPI:210 - Test Data: 
+2020-06-17 22:40:55 INFO  restAPI:211 - phone:081252930398
+2020-06-17 22:40:57 INFO  restAPI:217 - {"code":404,"message":"incorrect phone number"}
+2020-06-17 22:40:57 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:40:57 INFO  restAPI:94 - Status Code = 404
+2020-06-17 22:42:35 INFO  restAPI:29 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:42:35 INFO  restAPI:30 - Case:null
+2020-06-17 22:42:50 INFO  restAPI:184 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:42:50 INFO  restAPI:185 - Test Data: 
+2020-06-17 22:42:50 INFO  restAPI:186 - name:Zanuar
+2020-06-17 22:42:50 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-17 22:42:50 INFO  restAPI:188 - phone:081252930398
+2020-06-17 22:42:50 INFO  restAPI:189 - pin:123456
+2020-06-17 22:42:54 INFO  restAPI:205 - {"code":201,"message":"created"}
+2020-06-17 22:42:54 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:42:54 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:42:54 INFO  restAPI:209 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:42:54 INFO  restAPI:210 - Test Data: 
+2020-06-17 22:42:54 INFO  restAPI:211 - phone:6281252930398
+2020-06-17 22:42:56 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":996,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-17 22:42:56 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:42:56 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:42:57 INFO  restAPI:221 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:42:57 INFO  restAPI:222 - Test Data: 
+2020-06-17 22:42:57 INFO  restAPI:223 - id:996
+2020-06-17 22:42:57 INFO  restAPI:224 - pin:123456
+2020-06-17 22:42:58 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 22:42:58 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:42:58 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:43:04 INFO  restAPI:523 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:43:04 INFO  restAPI:524 - Test Data: 
+2020-06-17 22:43:04 INFO  restAPI:525 - session id:5941FB0771104937412794211135ED62
+2020-06-17 22:43:04 INFO  restAPI:526 - voucher id:1
+2020-06-17 22:43:06 INFO  restAPI:533 - {"code":200,"message":"success","data":{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}}
+2020-06-17 22:43:17 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherDetails *****
+2020-06-17 22:47:45 INFO  restAPI:32 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:47:45 INFO  restAPI:33 - Case:null
+2020-06-17 22:48:01 INFO  restAPI:184 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:48:01 INFO  restAPI:185 - Test Data: 
+2020-06-17 22:48:01 INFO  restAPI:186 - name:Zanuar
+2020-06-17 22:48:01 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-17 22:48:01 INFO  restAPI:188 - phone:081252930398
+2020-06-17 22:48:01 INFO  restAPI:189 - pin:123456
+2020-06-17 22:48:06 INFO  restAPI:205 - {"code":201,"message":"created"}
+2020-06-17 22:48:06 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:48:06 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:48:06 INFO  restAPI:209 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:48:06 INFO  restAPI:210 - Test Data: 
+2020-06-17 22:48:06 INFO  restAPI:211 - phone:6281252930398
+2020-06-17 22:48:08 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":997,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-17 22:48:08 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:48:08 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:48:08 INFO  restAPI:221 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:48:08 INFO  restAPI:222 - Test Data: 
+2020-06-17 22:48:08 INFO  restAPI:223 - id:997
+2020-06-17 22:48:08 INFO  restAPI:224 - pin:123456
+2020-06-17 22:48:10 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 22:48:10 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:48:10 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:48:16 INFO  restAPI:495 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:48:16 INFO  restAPI:496 - Test Data: 
+2020-06-17 22:48:16 INFO  restAPI:497 - session id:5030E3CA3A3974D023C086F95068D340
+2020-06-17 22:48:16 INFO  restAPI:498 - page:1
+2020-06-17 22:48:20 INFO  restAPI:505 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]}
+2020-06-17 22:48:20 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:48:20 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:48:20 INFO  restAPI:523 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:48:20 INFO  restAPI:524 - Test Data: 
+2020-06-17 22:48:20 INFO  restAPI:525 - session id:5030E3CA3A3974D023C086F95068D340
+2020-06-17 22:48:20 INFO  restAPI:526 - voucher id:1
+2020-06-17 22:48:22 INFO  restAPI:533 - {"code":200,"message":"success","data":{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}}
+2020-06-17 22:48:33 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherDetails *****
+2020-06-17 22:48:46 INFO  restAPI:32 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:48:46 INFO  restAPI:33 - Case:null
+2020-06-17 22:49:01 INFO  restAPI:184 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:49:01 INFO  restAPI:185 - Test Data: 
+2020-06-17 22:49:01 INFO  restAPI:186 - name:Zanuar
+2020-06-17 22:49:01 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-17 22:49:01 INFO  restAPI:188 - phone:081252930398
+2020-06-17 22:49:01 INFO  restAPI:189 - pin:123456
+2020-06-17 22:49:06 INFO  restAPI:205 - {"code":201,"message":"created"}
+2020-06-17 22:49:06 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:49:06 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:49:06 INFO  restAPI:209 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:49:06 INFO  restAPI:210 - Test Data: 
+2020-06-17 22:49:06 INFO  restAPI:211 - phone:6281252930398
+2020-06-17 22:49:07 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":998,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-17 22:49:07 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:49:07 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:49:08 INFO  restAPI:221 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:49:08 INFO  restAPI:222 - Test Data: 
+2020-06-17 22:49:08 INFO  restAPI:223 - id:998
+2020-06-17 22:49:08 INFO  restAPI:224 - pin:123456
+2020-06-17 22:49:10 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 22:49:10 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:49:10 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:49:14 INFO  restAPI:495 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:49:14 INFO  restAPI:496 - Test Data: 
+2020-06-17 22:49:14 INFO  restAPI:497 - session id:4E85BA543CA2099A7CE89136614F6ECE
+2020-06-17 22:49:14 INFO  restAPI:498 - page:1
+2020-06-17 22:49:19 INFO  restAPI:505 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]}
+2020-06-17 22:49:19 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:49:19 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:49:19 INFO  restAPI:523 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:49:19 INFO  restAPI:524 - Test Data: 
+2020-06-17 22:49:19 INFO  restAPI:525 - session id:4E85BA543CA2099A7CE89136614F6ECE
+2020-06-17 22:49:19 INFO  restAPI:526 - voucher id:2
+2020-06-17 22:49:21 INFO  restAPI:533 - {"code":200,"message":"success","data":{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":15000,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000,"active":true}}
+2020-06-17 22:49:31 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherDetails *****
+2020-06-17 22:53:26 INFO  restAPI:32 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:53:26 INFO  restAPI:33 - Case:Valid ID 1
+2020-06-17 22:53:41 INFO  restAPI:184 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:53:41 INFO  restAPI:185 - Test Data: 
+2020-06-17 22:53:41 INFO  restAPI:186 - name:Zanuar
+2020-06-17 22:53:41 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-17 22:53:41 INFO  restAPI:188 - phone:081252930398
+2020-06-17 22:53:41 INFO  restAPI:189 - pin:123456
+2020-06-17 22:53:45 INFO  restAPI:205 - {"code":201,"message":"created"}
+2020-06-17 22:53:45 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:53:45 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:53:45 INFO  restAPI:209 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:53:45 INFO  restAPI:210 - Test Data: 
+2020-06-17 22:53:45 INFO  restAPI:211 - phone:6281252930398
+2020-06-17 22:53:47 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":999,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-17 22:53:47 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:53:47 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:53:48 INFO  restAPI:221 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:53:48 INFO  restAPI:222 - Test Data: 
+2020-06-17 22:53:48 INFO  restAPI:223 - id:999
+2020-06-17 22:53:48 INFO  restAPI:224 - pin:123456
+2020-06-17 22:53:49 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 22:53:49 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:53:49 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:53:55 INFO  restAPI:495 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:53:55 INFO  restAPI:496 - Test Data: 
+2020-06-17 22:53:55 INFO  restAPI:497 - session id:A2300482D32440E58D11FCFEFDE44AEC
+2020-06-17 22:53:55 INFO  restAPI:498 - page:1
+2020-06-17 22:53:59 INFO  restAPI:505 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]}
+2020-06-17 22:53:59 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:53:59 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:53:59 INFO  restAPI:523 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:53:59 INFO  restAPI:524 - Test Data: 
+2020-06-17 22:53:59 INFO  restAPI:525 - session id:A2300482D32440E58D11FCFEFDE44AEC
+2020-06-17 22:53:59 INFO  restAPI:526 - voucher id:1
+2020-06-17 22:54:01 INFO  restAPI:533 - {"code":200,"message":"success","data":{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}}
+2020-06-17 22:54:12 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherDetails *****
+2020-06-17 22:54:12 INFO  restAPI:32 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:54:12 INFO  restAPI:33 - Case:Valid ID 2
+2020-06-17 22:54:28 INFO  restAPI:184 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:54:28 INFO  restAPI:185 - Test Data: 
+2020-06-17 22:54:28 INFO  restAPI:186 - name:Zanuar
+2020-06-17 22:54:28 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-17 22:54:28 INFO  restAPI:188 - phone:081252930398
+2020-06-17 22:54:28 INFO  restAPI:189 - pin:123456
+2020-06-17 22:54:31 INFO  restAPI:205 - {"code":201,"message":"created"}
+2020-06-17 22:54:31 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:54:31 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:54:31 INFO  restAPI:209 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:54:31 INFO  restAPI:210 - Test Data: 
+2020-06-17 22:54:31 INFO  restAPI:211 - phone:6281252930398
+2020-06-17 22:54:32 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1000,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-17 22:54:32 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:54:32 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:54:33 INFO  restAPI:221 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:54:33 INFO  restAPI:222 - Test Data: 
+2020-06-17 22:54:33 INFO  restAPI:223 - id:1000
+2020-06-17 22:54:33 INFO  restAPI:224 - pin:123456
+2020-06-17 22:54:35 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 22:54:35 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:54:35 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:54:40 INFO  restAPI:495 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:54:40 INFO  restAPI:496 - Test Data: 
+2020-06-17 22:54:40 INFO  restAPI:497 - session id:7C906A3D67E564CBD4738A42AAAF0501
+2020-06-17 22:54:40 INFO  restAPI:498 - page:1
+2020-06-17 22:54:44 INFO  restAPI:505 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]}
+2020-06-17 22:54:44 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:54:44 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:54:44 INFO  restAPI:523 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:54:44 INFO  restAPI:524 - Test Data: 
+2020-06-17 22:54:44 INFO  restAPI:525 - session id:7C906A3D67E564CBD4738A42AAAF0501
+2020-06-17 22:54:44 INFO  restAPI:526 - voucher id:2
+2020-06-17 22:54:46 INFO  restAPI:533 - {"code":200,"message":"success","data":{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":15000,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000,"active":true}}
+2020-06-17 22:54:57 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherDetails *****
+2020-06-17 22:56:40 INFO  restAPI:36 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:56:40 INFO  restAPI:37 - Case:Valid ID 1
+2020-06-17 22:56:57 INFO  restAPI:184 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:56:57 INFO  restAPI:185 - Test Data: 
+2020-06-17 22:56:57 INFO  restAPI:186 - name:Zanuar
+2020-06-17 22:56:57 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-17 22:56:57 INFO  restAPI:188 - phone:081252930398
+2020-06-17 22:56:57 INFO  restAPI:189 - pin:123456
+2020-06-17 22:57:03 INFO  restAPI:205 - {"code":201,"message":"created"}
+2020-06-17 22:57:03 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:57:03 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:57:03 INFO  restAPI:209 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:57:03 INFO  restAPI:210 - Test Data: 
+2020-06-17 22:57:03 INFO  restAPI:211 - phone:6281252930398
+2020-06-17 22:57:04 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1001,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-17 22:57:04 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:57:04 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:57:05 INFO  restAPI:221 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:57:05 INFO  restAPI:222 - Test Data: 
+2020-06-17 22:57:05 INFO  restAPI:223 - id:1001
+2020-06-17 22:57:05 INFO  restAPI:224 - pin:123456
+2020-06-17 22:57:07 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 22:57:07 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:57:07 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:57:13 INFO  restAPI:495 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:57:13 INFO  restAPI:496 - Test Data: 
+2020-06-17 22:57:13 INFO  restAPI:497 - session id:E003584C927E746049A966659353389A
+2020-06-17 22:57:13 INFO  restAPI:498 - page:1
+2020-06-17 22:57:17 INFO  restAPI:505 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]}
+2020-06-17 22:57:17 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:57:17 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:57:17 INFO  restAPI:523 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:57:17 INFO  restAPI:524 - Test Data: 
+2020-06-17 22:57:17 INFO  restAPI:525 - session id:E003584C927E746049A966659353389A
+2020-06-17 22:57:17 INFO  restAPI:526 - voucher id:1
+2020-06-17 22:57:19 INFO  restAPI:533 - {"code":200,"message":"success","data":{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":10000,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000,"active":true}}
+2020-06-17 22:57:19 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:57:19 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:57:33 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherDetails *****
+2020-06-17 22:57:33 INFO  restAPI:36 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:57:33 INFO  restAPI:37 - Case:Valid ID 2
+2020-06-17 22:57:46 INFO  restAPI:184 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:57:46 INFO  restAPI:185 - Test Data: 
+2020-06-17 22:57:46 INFO  restAPI:186 - name:Zanuar
+2020-06-17 22:57:46 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-17 22:57:46 INFO  restAPI:188 - phone:081252930398
+2020-06-17 22:57:46 INFO  restAPI:189 - pin:123456
+2020-06-17 22:57:49 INFO  restAPI:205 - {"code":201,"message":"created"}
+2020-06-17 22:57:49 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:57:49 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:57:49 INFO  restAPI:209 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:57:49 INFO  restAPI:210 - Test Data: 
+2020-06-17 22:57:49 INFO  restAPI:211 - phone:6281252930398
+2020-06-17 22:57:51 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1002,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-17 22:57:51 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:57:51 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:57:51 INFO  restAPI:221 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:57:51 INFO  restAPI:222 - Test Data: 
+2020-06-17 22:57:51 INFO  restAPI:223 - id:1002
+2020-06-17 22:57:51 INFO  restAPI:224 - pin:123456
+2020-06-17 22:57:53 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 22:57:53 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:57:53 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:57:58 INFO  restAPI:495 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:57:58 INFO  restAPI:496 - Test Data: 
+2020-06-17 22:57:58 INFO  restAPI:497 - session id:A09488DC3728C43627E49F12CC0A174C
+2020-06-17 22:57:58 INFO  restAPI:498 - page:1
+2020-06-17 22:58:02 INFO  restAPI:505 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]}
+2020-06-17 22:58:02 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:58:02 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:58:02 INFO  restAPI:523 - ***** Started TC_Integration_VoucherDetails *****
+2020-06-17 22:58:02 INFO  restAPI:524 - Test Data: 
+2020-06-17 22:58:02 INFO  restAPI:525 - session id:A09488DC3728C43627E49F12CC0A174C
+2020-06-17 22:58:02 INFO  restAPI:526 - voucher id:2
+2020-06-17 22:58:04 INFO  restAPI:533 - {"code":200,"message":"success","data":{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","discount":0,"voucherTypeName":"cashback","minPurchase":15000,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000,"active":true}}
+2020-06-17 22:58:04 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 22:58:04 INFO  restAPI:94 - Status Code = 200
+2020-06-17 22:58:20 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherDetails *****
+2020-06-17 23:04:56 INFO  restAPI:36 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-17 23:04:56 INFO  restAPI:37 - Case:Valid session id and page
+2020-06-17 23:05:12 INFO  restAPI:184 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-17 23:05:12 INFO  restAPI:185 - Test Data: 
+2020-06-17 23:05:12 INFO  restAPI:186 - name:Zanuar
+2020-06-17 23:05:12 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-17 23:05:12 INFO  restAPI:188 - phone:081252930398
+2020-06-17 23:05:12 INFO  restAPI:189 - pin:123456
+2020-06-17 23:05:16 INFO  restAPI:205 - {"code":201,"message":"created"}
+2020-06-17 23:05:16 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 23:05:16 INFO  restAPI:94 - Status Code = 200
+2020-06-17 23:05:16 INFO  restAPI:209 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-17 23:05:16 INFO  restAPI:210 - Test Data: 
+2020-06-17 23:05:16 INFO  restAPI:211 - phone:6281252930398
+2020-06-17 23:05:18 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1003,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-17 23:05:18 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 23:05:18 INFO  restAPI:94 - Status Code = 200
+2020-06-17 23:05:18 INFO  restAPI:221 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-17 23:05:18 INFO  restAPI:222 - Test Data: 
+2020-06-17 23:05:18 INFO  restAPI:223 - id:1003
+2020-06-17 23:05:18 INFO  restAPI:224 - pin:123456
+2020-06-17 23:05:20 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 23:05:20 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 23:05:20 INFO  restAPI:94 - Status Code = 200
+2020-06-17 23:05:21 INFO  restAPI:495 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-17 23:05:21 INFO  restAPI:496 - Test Data: 
+2020-06-17 23:05:21 INFO  restAPI:497 - session id:6FA5DF146DD91E5AA53C5720CBDE47DB
+2020-06-17 23:05:21 INFO  restAPI:498 - page:2
+2020-06-17 23:05:25 INFO  restAPI:505 - {"code":200,"message":"success","data":[{"id":11,"name":"Diskon 25% (max Rp 25.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1500508800000},{"id":12,"name":"Diskon 30% (max Rp 30.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1532044800000},{"id":13,"name":"Diskon 35% (max Rp 35.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1563580800000},{"id":14,"name":"Diskon 40% (max Rp 50.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1595203200000},{"id":15,"name":"Diskon 45% (max Rp 75.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1626739200000},{"id":16,"name":"Diskon 50% (max Rp 100.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1658275200000}]}
+2020-06-17 23:05:25 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 23:05:25 INFO  restAPI:94 - Status Code = 200
+2020-06-17 23:05:38 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherPromotion *****
+2020-06-17 23:05:38 INFO  restAPI:36 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-17 23:05:38 INFO  restAPI:37 - Case:Valid session id and page
+2020-06-17 23:05:53 INFO  restAPI:184 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-17 23:05:53 INFO  restAPI:185 - Test Data: 
+2020-06-17 23:05:53 INFO  restAPI:186 - name:Zanuar
+2020-06-17 23:05:53 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-17 23:05:53 INFO  restAPI:188 - phone:081252930398
+2020-06-17 23:05:53 INFO  restAPI:189 - pin:123456
+2020-06-17 23:05:55 INFO  restAPI:205 - {"code":201,"message":"created"}
+2020-06-17 23:05:55 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 23:05:55 INFO  restAPI:94 - Status Code = 200
+2020-06-17 23:05:55 INFO  restAPI:209 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-17 23:05:55 INFO  restAPI:210 - Test Data: 
+2020-06-17 23:05:55 INFO  restAPI:211 - phone:6281252930398
+2020-06-17 23:05:57 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1004,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-17 23:05:57 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 23:05:57 INFO  restAPI:94 - Status Code = 200
+2020-06-17 23:05:57 INFO  restAPI:221 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-17 23:05:57 INFO  restAPI:222 - Test Data: 
+2020-06-17 23:05:57 INFO  restAPI:223 - id:1004
+2020-06-17 23:05:57 INFO  restAPI:224 - pin:123456
+2020-06-17 23:05:59 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 23:05:59 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 23:05:59 INFO  restAPI:94 - Status Code = 200
+2020-06-17 23:05:59 INFO  restAPI:495 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-17 23:05:59 INFO  restAPI:496 - Test Data: 
+2020-06-17 23:05:59 INFO  restAPI:497 - session id:BAC5B8F44047C5A7C203C0C65E29A91E
+2020-06-17 23:05:59 INFO  restAPI:498 - page:1
+2020-06-17 23:06:03 INFO  restAPI:505 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]}
+2020-06-17 23:06:03 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 23:06:03 INFO  restAPI:94 - Status Code = 200
+2020-06-17 23:06:18 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherPromotion *****
+2020-06-17 23:17:17 INFO  restAPI:36 - ***** Started TC_Integration_MyVoucher *****
+2020-06-17 23:17:17 INFO  restAPI:37 - Case:Valid user id and page (more than 10 vouchers)
+2020-06-17 23:17:31 INFO  restAPI:184 - ***** Started TC_Integration_MyVoucher *****
+2020-06-17 23:17:31 INFO  restAPI:185 - Test Data: 
+2020-06-17 23:17:31 INFO  restAPI:186 - name:Zanuar
+2020-06-17 23:17:31 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-17 23:17:31 INFO  restAPI:188 - phone:081252930398
+2020-06-17 23:17:31 INFO  restAPI:189 - pin:123456
+2020-06-17 23:17:36 INFO  restAPI:205 - {"code":201,"message":"created"}
+2020-06-17 23:17:36 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 23:17:36 INFO  restAPI:94 - Status Code = 200
+2020-06-17 23:17:36 INFO  restAPI:209 - ***** Started TC_Integration_MyVoucher *****
+2020-06-17 23:17:36 INFO  restAPI:210 - Test Data: 
+2020-06-17 23:17:36 INFO  restAPI:211 - phone:6281252930398
+2020-06-17 23:17:38 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1005,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-17 23:17:38 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 23:17:38 INFO  restAPI:94 - Status Code = 200
+2020-06-17 23:17:39 INFO  restAPI:221 - ***** Started TC_Integration_MyVoucher *****
+2020-06-17 23:17:39 INFO  restAPI:222 - Test Data: 
+2020-06-17 23:17:39 INFO  restAPI:223 - id:1005
+2020-06-17 23:17:39 INFO  restAPI:224 - pin:123456
+2020-06-17 23:17:41 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 23:17:41 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 23:17:41 INFO  restAPI:94 - Status Code = 200
+2020-06-17 23:18:43 INFO  restAPI:481 - ***** Started TC_Integration_MyVoucher *****
+2020-06-17 23:18:43 INFO  restAPI:482 - Test Data: 
+2020-06-17 23:18:43 INFO  restAPI:483 - session id:245B659A96176DC58F1478A50377B2C9
+2020-06-17 23:18:43 INFO  restAPI:484 - page:1
+2020-06-17 23:19:14 INFO  restAPI:491 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+2020-06-17 23:19:14 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 23:19:14 INFO  restAPI:94 - Status Code = 503

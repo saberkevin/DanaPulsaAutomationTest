@@ -62,8 +62,11 @@ public class TC_Cancel_Order extends TestBase {
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));
 			
-			if (sessionId.equals("true")) {
-				sessionId = Long.toString(user.getId());				
+			if (sessionId.equals("true")) {				
+				verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
+				checkStatusCode("200");
+				user.setSessionId(response.getCookie("JSESSIONID"));
+				sessionId = user.getSessionId();		
 			}
 			
 			// insert balance into database
@@ -157,8 +160,8 @@ public class TC_Cancel_Order extends TestBase {
 			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "401");
 			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "Unauthorized");
 		} else if (statusCode == 404) {
-			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "404");
-			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "unknown transaction");
+			Assert.assertTrue(response.getBody().asString().contains("Not Found") 
+					|| response.getBody().asString().contains("unknown transaction"));
 		} else if (statusCode == 200) {
 			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "200");
 			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "deleted");
