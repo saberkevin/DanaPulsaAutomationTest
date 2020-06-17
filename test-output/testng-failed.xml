@@ -3,16 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [DANA Pulsa Suite]">
   <test thread-count="5" name="DanaPulsaTestOrder(failed)">
     <classes>
-      <class name="testCases.order.TC_Mobile_Recharge_Catalog">
+      <class name="testCases.order.TC_Create_Order">
         <methods>
-          <include name="testMobileRechargeCatalog"/>
+          <include name="testCreateOrder"/>
           <include name="checkData"/>
           <include name="checkDB"/>
-          <include name="setup"/>
           <include name="beforeClass"/>
+          <include name="setup"/>
           <include name="afterClass"/>
         </methods>
-      </class> <!-- testCases.order.TC_Mobile_Recharge_Catalog -->
+      </class> <!-- testCases.order.TC_Create_Order -->
     </classes>
   </test> <!-- DanaPulsaTestOrder(failed) -->
 </suite> <!-- Failed suite [DANA Pulsa Suite] -->

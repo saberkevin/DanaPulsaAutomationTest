@@ -7,8 +7,8 @@ import org.testng.annotations.DataProvider;
 import base.TestBase;
 
 public class Factory_Cancel_Order extends TestBase {
-	public Object[] createInstances(String sessionId, String transactionId) {
-		return new Object[] {new TC_Cancel_Order(sessionId, transactionId)};
+	public Object[] createInstances(String testCase, String sessionId, String transactionId, String result) {
+		return new Object[] {new TC_Cancel_Order(testCase, sessionId, transactionId, result)};
 	}
 	
 	@DataProvider(name="dp")

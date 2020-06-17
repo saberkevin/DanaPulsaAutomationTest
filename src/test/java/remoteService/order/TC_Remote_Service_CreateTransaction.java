@@ -126,14 +126,15 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 			// do some code
 
 		} else {
-			Assert.assertNotNull(response.getBody().jsonPath().get("id"));
+			Assert.assertNotNull(Integer.toString(response.getBody().jsonPath().get("id")));
 			Assert.assertEquals(response.getBody().jsonPath().get("phoneNumber"), phoneNumber);
-			Assert.assertEquals(response.getBody().jsonPath().get("catalog.id"), catalogId);
-			Assert.assertNotNull(response.getBody().jsonPath().get("catalog.provider.id"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("catalog.provider.name"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("catalog.provider.image"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("catalog.value"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("catalog.price"));
+			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("catalog.id")), catalogId);
+			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("catalog.provider.id")), "2");
+			Assert.assertEquals(response.getBody().jsonPath().get("catalog.provider.name"), "Telkomsel");
+			Assert.assertEquals(response.getBody().jsonPath().get("catalog.provider.image"), 
+					"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png");
+			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("catalog.value")), "15000");
+			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("catalog.price")), "15000");
 		}
 	}
 	

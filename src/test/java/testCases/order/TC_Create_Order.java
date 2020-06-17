@@ -79,8 +79,8 @@ public class TC_Create_Order extends TestBase {
 			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "400");
 			Assert.assertTrue(response.getBody().jsonPath().getString("message").equals("invalid phone number")
 					|| response.getBody().jsonPath().getString("message").equals("selected catalog is not available for this phone’s provider")
-					|| response.getBody().jsonPath().getString("message").equals("phone number must not be null")
-					|| response.getBody().jsonPath().getString("message").equals("catalog ID must not be null"));
+					|| response.getBody().jsonPath().getString("message").contains("phone number must not be null")
+					|| response.getBody().jsonPath().getString("message").contains("catalog ID must not be null"));
 		} else if (statusCode == 401) {
 			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "401");
 			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "Unauthorized");
@@ -103,17 +103,17 @@ public class TC_Create_Order extends TestBase {
 		int statusCode = response.getStatusCode();
 		
 		if (statusCode == 201) {
-			Assert.assertNotNull(String.valueOf(response.getBody().jsonPath().get("data.id")));
+			Assert.assertNotNull(Integer.toString(response.getBody().jsonPath().get("data.id")));
 			Assert.assertEquals(response.getBody().jsonPath().get("data.phoneNumber"), phoneNumber);
-			Assert.assertEquals(response.getBody().jsonPath().get("data.catalog.id"), catalogId);
+			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("data.catalog.id")), catalogId);
 			
-			Assert.assertEquals(String.valueOf(response.getBody().jsonPath().get("data.catalog.provider.id")), 2);
+			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("data.catalog.provider.id")), "2");
 			Assert.assertEquals(response.getBody().jsonPath().get("data.catalog.provider.name"), "Telkomsel");
 			Assert.assertEquals(response.getBody().jsonPath().get("data.catalog.provider.image"), 
 					"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png");
 			
-			Assert.assertEquals(String.valueOf(response.getBody().jsonPath().get("data.catalog.value")), "15000");
-			Assert.assertEquals(String.valueOf(response.getBody().jsonPath().get("data.catalog.price")), "15000");
+			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("data.catalog.value")), "15000");
+			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("data.catalog.price")), "15000");
 		}
 	}
 	
@@ -163,27 +163,28 @@ public class TC_Create_Order extends TestBase {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
+				
+
+				try {
+					Connection conn = getConnectionOrder();
+					String queryString = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setLong(1, user.getId());
+					ps.setString(2, phoneNumber);
+					ps.setLong(3, Long.parseLong(catalogId));
+					
+					ResultSet rs = ps.executeQuery();
+					Assert.assertTrue(!rs.next());
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			} else if (response.getBody().asString().contains("invalid phone number")) {
 				// do some code
 				
-			}
-			
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, user.getId());
-				ps.setString(2, phoneNumber);
-				ps.setLong(3, Long.parseLong(catalogId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			}			
 		} else if (statusCode == 404) {
 			if (response.getBody().asString().contains("catalog not found")) {
 				try {

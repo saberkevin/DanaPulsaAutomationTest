@@ -12057,3 +12057,760 @@
 		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
 	  </body>
 	</html>
+2020-06-17 17:21:55 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:21:55 INFO  restAPI:41 - Case:Different provider
+2020-06-17 17:22:21 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:22:21 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:22:21 INFO  restAPI:223 - id:915
+2020-06-17 17:22:21 INFO  restAPI:224 - pin:123456
+2020-06-17 17:22:25 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:22:25 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:22:25 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:22:30 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:22:30 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:22:30 INFO  restAPI:424 - session id:49016C56E4D241D5959D2211E73282B0
+2020-06-17 17:22:30 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 17:22:30 INFO  restAPI:426 - catalog id:1
+2020-06-17 17:23:01 INFO  restAPI:439 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+2020-06-17 17:33:16 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:33:16 INFO  restAPI:41 - Case:Different provider
+2020-06-17 17:33:36 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:33:36 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:33:36 INFO  restAPI:223 - id:916
+2020-06-17 17:33:36 INFO  restAPI:224 - pin:123456
+2020-06-17 17:33:40 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:33:40 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:33:40 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:33:45 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:33:45 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:33:45 INFO  restAPI:424 - session id:AC8E4EB6EE79846DFFFA302611292456
+2020-06-17 17:33:45 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 17:33:45 INFO  restAPI:426 - catalog id:1
+2020-06-17 17:33:50 INFO  restAPI:439 - {"code":400,"message":"selected catalog is not available for this phone’s provider"}
+2020-06-17 17:34:26 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:34:26 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:34:26 INFO  restAPI:41 - Case:Undefined provider
+2020-06-17 17:34:45 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:34:45 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:34:45 INFO  restAPI:223 - id:917
+2020-06-17 17:34:45 INFO  restAPI:224 - pin:123456
+2020-06-17 17:34:48 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:34:48 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:34:48 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:34:55 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:34:55 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:34:55 INFO  restAPI:424 - session id:1AAD989EB5C853B9DFAE9CF98D40C997
+2020-06-17 17:34:55 INFO  restAPI:425 - phone number:021252930398
+2020-06-17 17:34:55 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:35:00 INFO  restAPI:439 - {"code":404,"message":"unknown phone number"}
+2020-06-17 17:35:30 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:35:30 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:35:30 INFO  restAPI:41 - Case:Empty String catalog ID
+2020-06-17 17:35:51 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:35:51 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:35:51 INFO  restAPI:223 - id:918
+2020-06-17 17:35:51 INFO  restAPI:224 - pin:123456
+2020-06-17 17:35:53 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:35:53 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:35:53 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:35:57 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:35:57 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:35:57 INFO  restAPI:424 - session id:E5061F1CBF51437CA3766CDD388ED4D0
+2020-06-17 17:35:57 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 17:35:57 INFO  restAPI:426 - catalog id:
+2020-06-17 17:35:59 INFO  restAPI:439 - {"code":400,"message":["catalog ID must not be null"]}
+2020-06-17 17:36:18 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:36:18 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:36:18 INFO  restAPI:41 - Case:Undefined session id
+2020-06-17 17:36:18 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:36:18 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:36:18 INFO  restAPI:424 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-17 17:36:18 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 17:36:18 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:36:19 INFO  restAPI:439 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 17:36:24 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:36:24 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:36:24 INFO  restAPI:41 - Case:Start with 62
+2020-06-17 17:36:44 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:36:44 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:36:44 INFO  restAPI:223 - id:919
+2020-06-17 17:36:44 INFO  restAPI:224 - pin:123456
+2020-06-17 17:36:46 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:36:46 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:36:46 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:36:51 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:36:51 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:36:51 INFO  restAPI:424 - session id:9653704F51C87A29340C60111FF28515
+2020-06-17 17:36:51 INFO  restAPI:425 - phone number:6281252930398
+2020-06-17 17:36:51 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:36:56 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 17:37:21 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:37:21 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:37:21 INFO  restAPI:41 - Case:Empty string session id
+2020-06-17 17:37:21 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:37:21 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:37:21 INFO  restAPI:424 - session id:
+2020-06-17 17:37:21 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 17:37:21 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:37:23 INFO  restAPI:439 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 17:37:28 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:37:28 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:37:28 INFO  restAPI:41 - Case:Below 9 characters
+2020-06-17 17:37:48 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:37:48 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:37:48 INFO  restAPI:223 - id:920
+2020-06-17 17:37:48 INFO  restAPI:224 - pin:123456
+2020-06-17 17:37:50 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:37:50 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:37:50 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:37:55 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:37:55 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:37:55 INFO  restAPI:424 - session id:2A07A6E0D3A0D6D4E8E161EB612CB164
+2020-06-17 17:37:55 INFO  restAPI:425 - phone number:08125293
+2020-06-17 17:37:55 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:38:00 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 17:38:25 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:38:25 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:38:25 INFO  restAPI:41 - Case:Start with +62
+2020-06-17 17:38:45 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:38:45 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:38:45 INFO  restAPI:223 - id:921
+2020-06-17 17:38:45 INFO  restAPI:224 - pin:123456
+2020-06-17 17:38:47 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:38:47 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:38:47 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:38:52 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:38:52 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:38:52 INFO  restAPI:424 - session id:2CF11861D0C989DEDB524C9491CABA4D
+2020-06-17 17:38:52 INFO  restAPI:425 - phone number:+628125293039
+2020-06-17 17:38:52 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:38:57 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 17:39:21 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:39:21 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:39:21 INFO  restAPI:41 - Case:Valid parameters
+2020-06-17 17:39:42 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:39:42 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:39:42 INFO  restAPI:223 - id:922
+2020-06-17 17:39:42 INFO  restAPI:224 - pin:123456
+2020-06-17 17:39:44 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:39:44 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:39:44 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:39:50 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:39:50 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:39:50 INFO  restAPI:424 - session id:F9DE991DA774961A154E5DC6522E1D8B
+2020-06-17 17:39:50 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 17:39:50 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:39:55 INFO  restAPI:439 - {"code":201,"message":"created","data":{"id":643,"phoneNumber":"081252930398","catalog":{"id":13,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":15000,"price":15000}}}
+2020-06-17 17:40:15 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:40:15 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:40:15 INFO  restAPI:41 - Case:Not numerical only
+2020-06-17 17:40:36 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:40:36 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:40:36 INFO  restAPI:223 - id:923
+2020-06-17 17:40:36 INFO  restAPI:224 - pin:123456
+2020-06-17 17:40:39 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:40:39 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:40:39 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:40:44 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:40:44 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:40:44 INFO  restAPI:424 - session id:3825EE8F1EA04965B6F7B02BD0C44E75
+2020-06-17 17:40:44 INFO  restAPI:425 - phone number:081252930ABC
+2020-06-17 17:40:44 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:40:48 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 17:41:14 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:41:14 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:41:14 INFO  restAPI:41 - Case:Empty string phone number
+2020-06-17 17:41:34 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:41:34 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:41:34 INFO  restAPI:223 - id:924
+2020-06-17 17:41:34 INFO  restAPI:224 - pin:123456
+2020-06-17 17:41:36 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:41:36 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:41:36 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:41:43 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:41:43 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:41:43 INFO  restAPI:424 - session id:28D08B88F758EED28A3C26E482DCBF8B
+2020-06-17 17:41:43 INFO  restAPI:425 - phone number:
+2020-06-17 17:41:43 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:41:44 INFO  restAPI:439 - {"code":400,"message":["phone number must not be null"]}
+2020-06-17 17:42:06 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:42:06 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:42:06 INFO  restAPI:41 - Case:Undefined catalog ID
+2020-06-17 17:42:25 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:42:25 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:42:25 INFO  restAPI:223 - id:925
+2020-06-17 17:42:25 INFO  restAPI:224 - pin:123456
+2020-06-17 17:42:27 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:42:27 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:42:27 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:42:32 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:42:32 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:42:32 INFO  restAPI:424 - session id:87801948BA7063C53AB716FF8A91F627
+2020-06-17 17:42:32 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 17:42:32 INFO  restAPI:426 - catalog id:9999
+2020-06-17 17:42:36 INFO  restAPI:439 - {"code":404,"message":"catalog not found"}
+2020-06-17 17:43:10 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:43:10 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:43:10 INFO  restAPI:41 - Case:White space
+2020-06-17 17:43:30 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:43:30 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:43:30 INFO  restAPI:223 - id:926
+2020-06-17 17:43:30 INFO  restAPI:224 - pin:123456
+2020-06-17 17:43:32 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:43:32 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:43:32 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:43:39 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:43:39 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:43:39 INFO  restAPI:424 - session id:C8B20872BEDB666541966EAC21472A62
+2020-06-17 17:43:39 INFO  restAPI:425 - phone number:081 252930398
+2020-06-17 17:43:39 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:43:43 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 17:44:43 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:44:44 INFO  restAPI:41 - Case:Different provider
+2020-06-17 17:45:09 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:45:09 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:45:09 INFO  restAPI:223 - id:927
+2020-06-17 17:45:09 INFO  restAPI:224 - pin:123456
+2020-06-17 17:45:12 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:45:12 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:45:12 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:45:18 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:45:18 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:45:18 INFO  restAPI:424 - session id:A43EEBFA66767E5726A606C06316B63B
+2020-06-17 17:45:18 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 17:45:18 INFO  restAPI:426 - catalog id:1
+2020-06-17 17:45:22 INFO  restAPI:439 - {"code":400,"message":"selected catalog is not available for this phone’s provider"}
+2020-06-17 17:45:58 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:45:58 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:45:58 INFO  restAPI:41 - Case:Undefined provider
+2020-06-17 17:46:18 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:46:18 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:46:18 INFO  restAPI:223 - id:928
+2020-06-17 17:46:18 INFO  restAPI:224 - pin:123456
+2020-06-17 17:46:20 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:46:20 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:46:20 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:46:25 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:46:25 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:46:25 INFO  restAPI:424 - session id:EA9B9749D795AA7A3F1781BFE5B7845F
+2020-06-17 17:46:25 INFO  restAPI:425 - phone number:021252930398
+2020-06-17 17:46:25 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:46:30 INFO  restAPI:439 - {"code":404,"message":"unknown phone number"}
+2020-06-17 17:47:00 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:47:00 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:47:00 INFO  restAPI:41 - Case:Empty String catalog ID
+2020-06-17 17:47:19 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:47:19 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:47:19 INFO  restAPI:223 - id:929
+2020-06-17 17:47:19 INFO  restAPI:224 - pin:123456
+2020-06-17 17:47:21 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:47:21 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:47:21 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:47:25 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:47:25 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:47:25 INFO  restAPI:424 - session id:EA78300DB1FB4F36AC129F8EADAE1AD9
+2020-06-17 17:47:25 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 17:47:25 INFO  restAPI:426 - catalog id:
+2020-06-17 17:47:26 INFO  restAPI:439 - {"code":400,"message":["catalog ID must not be null"]}
+2020-06-17 17:47:49 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:47:49 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:47:49 INFO  restAPI:41 - Case:Undefined session id
+2020-06-17 17:47:49 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:47:49 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:47:49 INFO  restAPI:424 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-17 17:47:49 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 17:47:49 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:47:50 INFO  restAPI:439 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 17:47:55 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:47:55 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:47:55 INFO  restAPI:41 - Case:Start with 62
+2020-06-17 17:48:13 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:48:13 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:48:13 INFO  restAPI:223 - id:930
+2020-06-17 17:48:13 INFO  restAPI:224 - pin:123456
+2020-06-17 17:48:15 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:48:15 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:48:15 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:48:20 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:48:20 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:48:20 INFO  restAPI:424 - session id:62DCA41F0705A1FEA5699E0AA5E11CC6
+2020-06-17 17:48:20 INFO  restAPI:425 - phone number:6281252930398
+2020-06-17 17:48:20 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:48:25 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 17:48:50 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:48:50 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:48:50 INFO  restAPI:41 - Case:Empty string session id
+2020-06-17 17:48:50 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:48:50 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:48:50 INFO  restAPI:424 - session id:
+2020-06-17 17:48:50 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 17:48:50 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:48:51 INFO  restAPI:439 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 17:48:56 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:48:56 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:48:56 INFO  restAPI:41 - Case:Below 9 characters
+2020-06-17 17:49:17 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:49:17 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:49:17 INFO  restAPI:223 - id:931
+2020-06-17 17:49:17 INFO  restAPI:224 - pin:123456
+2020-06-17 17:49:19 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:49:19 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:49:19 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:49:23 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:49:23 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:49:23 INFO  restAPI:424 - session id:EEBF13340F1BBBA51F6DB7D999B1DB02
+2020-06-17 17:49:23 INFO  restAPI:425 - phone number:08125293
+2020-06-17 17:49:23 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:49:28 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 17:49:54 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:49:54 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:49:54 INFO  restAPI:41 - Case:Start with +62
+2020-06-17 17:50:16 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:50:16 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:50:16 INFO  restAPI:223 - id:932
+2020-06-17 17:50:16 INFO  restAPI:224 - pin:123456
+2020-06-17 17:50:18 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:50:18 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:50:18 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:50:23 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:50:23 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:50:23 INFO  restAPI:424 - session id:A9F1C9F56CD0B5B5BA8DA5436E02F76E
+2020-06-17 17:50:23 INFO  restAPI:425 - phone number:+628125293039
+2020-06-17 17:50:23 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:50:28 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 17:50:55 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:50:55 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:50:55 INFO  restAPI:41 - Case:Valid parameters
+2020-06-17 17:51:16 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:51:16 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:51:16 INFO  restAPI:223 - id:933
+2020-06-17 17:51:16 INFO  restAPI:224 - pin:123456
+2020-06-17 17:51:19 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:51:19 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:51:19 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:51:23 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:51:23 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:51:23 INFO  restAPI:424 - session id:79C965E164B149EEE086BAC453B43A78
+2020-06-17 17:51:23 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 17:51:23 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:51:29 INFO  restAPI:439 - {"code":201,"message":"created","data":{"id":644,"phoneNumber":"081252930398","catalog":{"id":13,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":15000,"price":15000}}}
+2020-06-17 17:51:48 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:51:48 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:51:48 INFO  restAPI:41 - Case:Not numerical only
+2020-06-17 17:52:08 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:52:08 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:52:08 INFO  restAPI:223 - id:934
+2020-06-17 17:52:08 INFO  restAPI:224 - pin:123456
+2020-06-17 17:52:10 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:52:10 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:52:10 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:52:15 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:52:15 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:52:15 INFO  restAPI:424 - session id:C4C64FE10C770F677C604597DB801C68
+2020-06-17 17:52:15 INFO  restAPI:425 - phone number:081252930ABC
+2020-06-17 17:52:15 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:52:20 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 17:52:47 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:52:47 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:52:47 INFO  restAPI:41 - Case:Empty string phone number
+2020-06-17 17:53:06 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:53:06 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:53:06 INFO  restAPI:223 - id:935
+2020-06-17 17:53:06 INFO  restAPI:224 - pin:123456
+2020-06-17 17:53:09 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:53:09 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:53:09 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:53:13 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:53:13 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:53:13 INFO  restAPI:424 - session id:06BD0201017F0AAC03BBE511FEEBC852
+2020-06-17 17:53:13 INFO  restAPI:425 - phone number:
+2020-06-17 17:53:13 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:53:14 INFO  restAPI:439 - {"code":400,"message":["phone number must not be null"]}
+2020-06-17 17:53:40 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:53:40 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:53:40 INFO  restAPI:41 - Case:Undefined catalog ID
+2020-06-17 17:54:00 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:54:00 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:54:00 INFO  restAPI:223 - id:936
+2020-06-17 17:54:00 INFO  restAPI:224 - pin:123456
+2020-06-17 17:54:02 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:54:02 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:54:02 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:54:07 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:54:07 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:54:07 INFO  restAPI:424 - session id:62F548E0CD655DFF1D32CC585B8E68C1
+2020-06-17 17:54:07 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 17:54:07 INFO  restAPI:426 - catalog id:9999
+2020-06-17 17:54:12 INFO  restAPI:439 - {"code":404,"message":"catalog not found"}
+2020-06-17 17:54:41 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:54:41 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:54:41 INFO  restAPI:41 - Case:White space
+2020-06-17 17:55:02 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:55:02 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:55:02 INFO  restAPI:223 - id:937
+2020-06-17 17:55:02 INFO  restAPI:224 - pin:123456
+2020-06-17 17:55:04 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:55:04 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:55:04 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:55:09 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:55:09 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:55:09 INFO  restAPI:424 - session id:8B9B4AE3F4A612634CE399D74427CDFF
+2020-06-17 17:55:09 INFO  restAPI:425 - phone number:081 252930398
+2020-06-17 17:55:09 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:55:13 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 17:55:38 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 17:55:38 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 17:55:38 INFO  restAPI:41 - Case:Exceed 13 characters
+2020-06-17 17:55:57 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 17:55:57 INFO  restAPI:222 - Test Data: 
+2020-06-17 17:55:57 INFO  restAPI:223 - id:938
+2020-06-17 17:55:57 INFO  restAPI:224 - pin:123456
+2020-06-17 17:55:59 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 17:55:59 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 17:55:59 INFO  restAPI:94 - Status Code = 200
+2020-06-17 17:56:04 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 17:56:04 INFO  restAPI:423 - Test Data: 
+2020-06-17 17:56:04 INFO  restAPI:424 - session id:EB71AF20CB24FD3D877A290078FC8ACA
+2020-06-17 17:56:04 INFO  restAPI:425 - phone number:08125293039812
+2020-06-17 17:56:04 INFO  restAPI:426 - catalog id:13
+2020-06-17 17:56:09 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 17:56:33 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:20:04 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:20:04 INFO  restAPI:41 - Case:Different provider
+2020-06-17 18:20:22 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 18:20:22 INFO  restAPI:222 - Test Data: 
+2020-06-17 18:20:22 INFO  restAPI:223 - id:939
+2020-06-17 18:20:22 INFO  restAPI:224 - pin:123456
+2020-06-17 18:20:25 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 18:20:25 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 18:20:25 INFO  restAPI:94 - Status Code = 200
+2020-06-17 18:20:30 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:20:30 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:20:30 INFO  restAPI:424 - session id:09B3F436A88A1125E4958A65A4AE1420
+2020-06-17 18:20:30 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 18:20:30 INFO  restAPI:426 - catalog id:1
+2020-06-17 18:20:35 INFO  restAPI:439 - {"code":400,"message":"selected catalog is not available for this phone’s provider"}
+2020-06-17 18:21:06 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:21:06 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:21:06 INFO  restAPI:41 - Case:Undefined provider
+2020-06-17 18:21:24 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 18:21:24 INFO  restAPI:222 - Test Data: 
+2020-06-17 18:21:24 INFO  restAPI:223 - id:940
+2020-06-17 18:21:24 INFO  restAPI:224 - pin:123456
+2020-06-17 18:21:26 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 18:21:26 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 18:21:26 INFO  restAPI:94 - Status Code = 200
+2020-06-17 18:21:31 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:21:31 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:21:31 INFO  restAPI:424 - session id:598DF2673312335FB75FE5737AE021C3
+2020-06-17 18:21:31 INFO  restAPI:425 - phone number:021252930398
+2020-06-17 18:21:31 INFO  restAPI:426 - catalog id:13
+2020-06-17 18:21:35 INFO  restAPI:439 - {"code":404,"message":"unknown phone number"}
+2020-06-17 18:22:04 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:22:04 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:22:04 INFO  restAPI:41 - Case:Empty String catalog ID
+2020-06-17 18:22:23 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 18:22:23 INFO  restAPI:222 - Test Data: 
+2020-06-17 18:22:23 INFO  restAPI:223 - id:941
+2020-06-17 18:22:23 INFO  restAPI:224 - pin:123456
+2020-06-17 18:22:25 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 18:22:25 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 18:22:25 INFO  restAPI:94 - Status Code = 200
+2020-06-17 18:22:30 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:22:30 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:22:30 INFO  restAPI:424 - session id:A245C997F5BA81A725785863FF3558D1
+2020-06-17 18:22:30 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 18:22:30 INFO  restAPI:426 - catalog id:
+2020-06-17 18:22:31 INFO  restAPI:439 - {"code":400,"message":["catalog ID must not be null"]}
+2020-06-17 18:22:49 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:22:49 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:22:49 INFO  restAPI:41 - Case:Undefined session id
+2020-06-17 18:22:49 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:22:49 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:22:49 INFO  restAPI:424 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-17 18:22:49 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 18:22:49 INFO  restAPI:426 - catalog id:13
+2020-06-17 18:22:50 INFO  restAPI:439 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 18:22:54 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:22:54 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:22:54 INFO  restAPI:41 - Case:Start with 62
+2020-06-17 18:23:12 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 18:23:12 INFO  restAPI:222 - Test Data: 
+2020-06-17 18:23:12 INFO  restAPI:223 - id:942
+2020-06-17 18:23:12 INFO  restAPI:224 - pin:123456
+2020-06-17 18:23:14 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 18:23:14 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 18:23:14 INFO  restAPI:94 - Status Code = 200
+2020-06-17 18:23:18 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:23:18 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:23:18 INFO  restAPI:424 - session id:25EF453A7A624179B152FF59726A55C0
+2020-06-17 18:23:18 INFO  restAPI:425 - phone number:6281252930398
+2020-06-17 18:23:18 INFO  restAPI:426 - catalog id:13
+2020-06-17 18:23:23 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 18:23:42 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:23:42 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:23:42 INFO  restAPI:41 - Case:Empty string session id
+2020-06-17 18:23:42 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:23:42 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:23:42 INFO  restAPI:424 - session id:
+2020-06-17 18:23:42 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 18:23:42 INFO  restAPI:426 - catalog id:13
+2020-06-17 18:23:43 INFO  restAPI:439 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 18:23:48 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:23:48 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:23:48 INFO  restAPI:41 - Case:Below 9 characters
+2020-06-17 18:24:07 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 18:24:07 INFO  restAPI:222 - Test Data: 
+2020-06-17 18:24:07 INFO  restAPI:223 - id:943
+2020-06-17 18:24:07 INFO  restAPI:224 - pin:123456
+2020-06-17 18:24:09 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 18:24:09 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 18:24:09 INFO  restAPI:94 - Status Code = 200
+2020-06-17 18:24:14 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:24:14 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:24:14 INFO  restAPI:424 - session id:613B63A84CD4A460AFD9365C1350B373
+2020-06-17 18:24:14 INFO  restAPI:425 - phone number:08125293
+2020-06-17 18:24:14 INFO  restAPI:426 - catalog id:13
+2020-06-17 18:24:19 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 18:24:39 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:24:39 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:24:39 INFO  restAPI:41 - Case:Start with +62
+2020-06-17 18:24:58 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 18:24:58 INFO  restAPI:222 - Test Data: 
+2020-06-17 18:24:58 INFO  restAPI:223 - id:944
+2020-06-17 18:24:58 INFO  restAPI:224 - pin:123456
+2020-06-17 18:25:00 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 18:25:00 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 18:25:00 INFO  restAPI:94 - Status Code = 200
+2020-06-17 18:25:05 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:25:05 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:25:05 INFO  restAPI:424 - session id:B5999E91E1449528F971E1C636C20587
+2020-06-17 18:25:05 INFO  restAPI:425 - phone number:+628125293039
+2020-06-17 18:25:05 INFO  restAPI:426 - catalog id:13
+2020-06-17 18:25:10 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 18:25:33 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:25:33 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:25:33 INFO  restAPI:41 - Case:Valid parameters
+2020-06-17 18:25:52 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 18:25:52 INFO  restAPI:222 - Test Data: 
+2020-06-17 18:25:52 INFO  restAPI:223 - id:945
+2020-06-17 18:25:52 INFO  restAPI:224 - pin:123456
+2020-06-17 18:25:54 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 18:25:54 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 18:25:54 INFO  restAPI:94 - Status Code = 200
+2020-06-17 18:25:59 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:25:59 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:25:59 INFO  restAPI:424 - session id:96436E7D6A06DBCB33F30CC78EC63F22
+2020-06-17 18:25:59 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 18:25:59 INFO  restAPI:426 - catalog id:13
+2020-06-17 18:26:04 INFO  restAPI:439 - {"code":201,"message":"created","data":{"id":645,"phoneNumber":"081252930398","catalog":{"id":13,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":15000,"price":15000}}}
+2020-06-17 18:26:25 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:26:25 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:26:25 INFO  restAPI:41 - Case:Not numerical only
+2020-06-17 18:26:44 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 18:26:44 INFO  restAPI:222 - Test Data: 
+2020-06-17 18:26:44 INFO  restAPI:223 - id:946
+2020-06-17 18:26:44 INFO  restAPI:224 - pin:123456
+2020-06-17 18:26:46 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 18:26:46 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 18:26:46 INFO  restAPI:94 - Status Code = 200
+2020-06-17 18:26:51 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:26:51 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:26:51 INFO  restAPI:424 - session id:1F246C866E66562FEFECC1DEAA3DF21C
+2020-06-17 18:26:51 INFO  restAPI:425 - phone number:081252930ABC
+2020-06-17 18:26:51 INFO  restAPI:426 - catalog id:13
+2020-06-17 18:26:59 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 18:27:21 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:27:21 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:27:21 INFO  restAPI:41 - Case:Empty string phone number
+2020-06-17 18:27:42 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 18:27:42 INFO  restAPI:222 - Test Data: 
+2020-06-17 18:27:42 INFO  restAPI:223 - id:947
+2020-06-17 18:27:42 INFO  restAPI:224 - pin:123456
+2020-06-17 18:27:44 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 18:27:44 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 18:27:44 INFO  restAPI:94 - Status Code = 200
+2020-06-17 18:27:49 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:27:49 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:27:49 INFO  restAPI:424 - session id:27C471B59D8209559DAB269269B94E2B
+2020-06-17 18:27:49 INFO  restAPI:425 - phone number:
+2020-06-17 18:27:49 INFO  restAPI:426 - catalog id:13
+2020-06-17 18:27:50 INFO  restAPI:439 - {"code":400,"message":["phone number must not be null"]}
+2020-06-17 18:28:11 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:28:11 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:28:11 INFO  restAPI:41 - Case:Undefined catalog ID
+2020-06-17 18:28:31 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 18:28:31 INFO  restAPI:222 - Test Data: 
+2020-06-17 18:28:31 INFO  restAPI:223 - id:948
+2020-06-17 18:28:31 INFO  restAPI:224 - pin:123456
+2020-06-17 18:28:33 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 18:28:33 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 18:28:33 INFO  restAPI:94 - Status Code = 200
+2020-06-17 18:28:39 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:28:39 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:28:39 INFO  restAPI:424 - session id:2397EFDE34B42012BDD74EC933F7A503
+2020-06-17 18:28:39 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 18:28:39 INFO  restAPI:426 - catalog id:9999
+2020-06-17 18:28:44 INFO  restAPI:439 - {"code":404,"message":"catalog not found"}
+2020-06-17 18:29:14 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:29:14 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:29:14 INFO  restAPI:41 - Case:White space
+2020-06-17 18:29:36 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 18:29:36 INFO  restAPI:222 - Test Data: 
+2020-06-17 18:29:36 INFO  restAPI:223 - id:949
+2020-06-17 18:29:36 INFO  restAPI:224 - pin:123456
+2020-06-17 18:29:38 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 18:29:38 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 18:29:38 INFO  restAPI:94 - Status Code = 200
+2020-06-17 18:29:44 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:29:44 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:29:44 INFO  restAPI:424 - session id:8BC6A25BDF2A56CECCA72F445A848524
+2020-06-17 18:29:44 INFO  restAPI:425 - phone number:081 252930398
+2020-06-17 18:29:44 INFO  restAPI:426 - catalog id:13
+2020-06-17 18:29:49 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 18:30:09 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:30:09 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:30:09 INFO  restAPI:41 - Case:Exceed 13 characters
+2020-06-17 18:30:30 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 18:30:30 INFO  restAPI:222 - Test Data: 
+2020-06-17 18:30:30 INFO  restAPI:223 - id:950
+2020-06-17 18:30:30 INFO  restAPI:224 - pin:123456
+2020-06-17 18:30:37 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 18:30:37 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 18:30:37 INFO  restAPI:94 - Status Code = 200
+2020-06-17 18:30:44 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:30:44 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:30:44 INFO  restAPI:424 - session id:53BF393FAA6F36BC5B736010E9DEDD98
+2020-06-17 18:30:44 INFO  restAPI:425 - phone number:08125293039812
+2020-06-17 18:30:44 INFO  restAPI:426 - catalog id:13
+2020-06-17 18:30:49 INFO  restAPI:439 - {"code":400,"message":"invalid phone number"}
+2020-06-17 18:31:09 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:34:29 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:34:29 INFO  restAPI:41 - Case:Different provider
+2020-06-17 18:34:49 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 18:34:49 INFO  restAPI:222 - Test Data: 
+2020-06-17 18:34:49 INFO  restAPI:223 - id:951
+2020-06-17 18:34:49 INFO  restAPI:224 - pin:123456
+2020-06-17 18:34:54 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 18:34:54 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 18:34:54 INFO  restAPI:94 - Status Code = 200
+2020-06-17 18:34:59 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:34:59 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:34:59 INFO  restAPI:424 - session id:828016188CDDFA49E210B61FE6918E7B
+2020-06-17 18:34:59 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 18:34:59 INFO  restAPI:426 - catalog id:1
+2020-06-17 18:35:03 INFO  restAPI:439 - {"code":400,"message":"selected catalog is not available for this phone’s provider"}
+2020-06-17 18:35:36 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:35:36 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:35:36 INFO  restAPI:41 - Case:Undefined provider
+2020-06-17 18:35:56 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 18:35:56 INFO  restAPI:222 - Test Data: 
+2020-06-17 18:35:56 INFO  restAPI:223 - id:952
+2020-06-17 18:35:56 INFO  restAPI:224 - pin:123456
+2020-06-17 18:35:58 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 18:35:58 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 18:35:58 INFO  restAPI:94 - Status Code = 200
+2020-06-17 18:36:03 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:36:03 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:36:03 INFO  restAPI:424 - session id:3BC28A1454438BF1C078D140085F3046
+2020-06-17 18:36:03 INFO  restAPI:425 - phone number:021252930398
+2020-06-17 18:36:03 INFO  restAPI:426 - catalog id:13
+2020-06-17 18:36:07 INFO  restAPI:439 - {"code":404,"message":"unknown phone number"}
+2020-06-17 18:36:37 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:36:37 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:36:37 INFO  restAPI:41 - Case:Empty String catalog ID
+2020-06-17 18:36:56 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 18:36:56 INFO  restAPI:222 - Test Data: 
+2020-06-17 18:36:56 INFO  restAPI:223 - id:953
+2020-06-17 18:36:56 INFO  restAPI:224 - pin:123456
+2020-06-17 18:36:58 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 18:36:58 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 18:36:58 INFO  restAPI:94 - Status Code = 200
+2020-06-17 18:37:04 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:37:04 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:37:04 INFO  restAPI:424 - session id:E55A222A86773BD5A12ABC0F32299EF0
+2020-06-17 18:37:04 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 18:37:04 INFO  restAPI:426 - catalog id:
+2020-06-17 18:37:05 INFO  restAPI:439 - {"code":400,"message":["catalog ID must not be null"]}
+2020-06-17 18:37:27 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:37:27 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:37:27 INFO  restAPI:41 - Case:Undefined session id
+2020-06-17 18:37:27 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:37:27 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:37:27 INFO  restAPI:424 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-17 18:37:27 INFO  restAPI:425 - phone number:081252930398
+2020-06-17 18:37:27 INFO  restAPI:426 - catalog id:13
+2020-06-17 18:37:28 INFO  restAPI:439 - {"code":401,"message":"Unauthorized"}
+
+2020-06-17 18:37:32 INFO  restAPI:176 - ***** Finished TC_Create_Order *****
+2020-06-17 18:37:32 INFO  restAPI:40 - ***** Started TC_Create_Order *****
+2020-06-17 18:37:32 INFO  restAPI:41 - Case:Start with 62
+2020-06-17 18:37:51 INFO  restAPI:221 - ***** Started TC_Create_Order *****
+2020-06-17 18:37:51 INFO  restAPI:222 - Test Data: 
+2020-06-17 18:37:51 INFO  restAPI:223 - id:954
+2020-06-17 18:37:51 INFO  restAPI:224 - pin:123456
+2020-06-17 18:37:53 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-17 18:37:53 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-17 18:37:53 INFO  restAPI:94 - Status Code = 200
+2020-06-17 18:37:59 INFO  restAPI:422 - ***** Started TC_Create_Order *****
+2020-06-17 18:37:59 INFO  restAPI:423 - Test Data: 
+2020-06-17 18:37:59 INFO  restAPI:424 - session id:C5C275FBBDD6920C834094F7A94554C8
+2020-06-17 18:37:59 INFO  restAPI:425 - phone number:6281252930398
+2020-06-17 18:37:59 INFO  restAPI:426 - catalog id:13
+2020-06-17 18:38:30 INFO  restAPI:439 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
