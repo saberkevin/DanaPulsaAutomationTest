@@ -3,31 +3,65 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import base.TestBase;
 import io.restassured.path.json.JsonPath;
-import model.User;
 
 public class TC_History_Completed extends TestBase{
 	
 	private String page;
-	private User user;
+	private String userId;
+	private String sessionId;
 	
 	public TC_History_Completed(String page) {
 		this.page = page;
+	}
+	
+	@BeforeClass
+	void setSession()
+	{
+		logger.info("***** SET SESSION *****");
+		userId = "155";
+		String pinForSession = "";
+		
+		String query = "SELECT id, pin FROM user\n" + 
+				"WHERE id = ?";
+		try {
+			Connection conMember = getConnectionMember();
+			PreparedStatement psGetUserPin = conMember.prepareStatement(query);
+			psGetUserPin.setLong(1, Long.parseLong(userId));
+			
+			ResultSet result = psGetUserPin.executeQuery();
+			
+			while(result.next())
+			{
+				pinForSession = result.getString("pin");
+			}
+			
+			conMember.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		verifyPinLogin(userId, pinForSession);
+		sessionId = response.getCookie("JSESSIONID");
+		logger.info("***** END SET SESSION *****");
 	}
 
 	@Test
 	void historyCompletedUser()
 	{
-		historyCompleted(page);
+		historyCompleted(page,sessionId);
 	}
 	
 	@Test(dependsOnMethods = {"historyCompletedUser"})
@@ -43,7 +77,7 @@ public class TC_History_Completed extends TestBase{
 					"JOIN transaction_status b ON a.statusId = b.id AND b.typeId = 2\n" +  
 					"JOIN pulsa_catalog d ON a.catalogId = d.id \n" +
 					"WHERE a.userId = ? and a.id = ? \n" + 
-					"ORDER BY a.createdAt";
+					"ORDER BY a.createdAt DESC LIMIT 10 OFFSET ?";
 			String query2 = "SELECT name AS voucher FROM voucher WHERE id = ? ";
 			
 			Assert.assertEquals("success", message);
@@ -52,11 +86,12 @@ public class TC_History_Completed extends TestBase{
 			{
 				List<Map<String, String>> data = jsonPath.getList("data");
 				
-				try {		
+				try {
+					
 					for (int i = 0; i < data.size(); i++) {  
-						Assert.assertNotNull(Long.parseLong(data.get(i).get("id")));
-						Assert.assertNotEquals("", data.get(i).get("phone"));
-						Assert.assertNotNull(Long.parseLong(data.get(i).get("price")));
+						Assert.assertNotNull(Long.parseLong(String.valueOf(data.get(i).get("id"))));
+						Assert.assertNotEquals("", data.get(i).get("phoneNumber"));
+						Assert.assertNotNull(Long.parseLong(String.valueOf(data.get(i).get("price"))));
 						Assert.assertNotEquals("", data.get(i).get("voucher"));
 						Assert.assertNotEquals("", data.get(i).get("createdAt"));
 						Assert.assertTrue(data.get(i).get("status").equals("COMPLETED") || 
@@ -67,17 +102,22 @@ public class TC_History_Completed extends TestBase{
 						
 						Connection conOrder = getConnectionOrder();
 						PreparedStatement psGetHistoryCompleted = conOrder.prepareStatement(query);
-						psGetHistoryCompleted.setLong(1, user.getId());
-						psGetHistoryCompleted.setLong(2, Long.parseLong(data.get(i).get("id")));
+						psGetHistoryCompleted.setLong(1, Long.parseLong(userId));
+						psGetHistoryCompleted.setLong(2, Long.parseLong(String.valueOf(data.get(i).get("id"))));
+						psGetHistoryCompleted.setLong(3, Long.parseLong(page)*10-10);
 						ResultSet result = psGetHistoryCompleted.executeQuery();
 						
 						while(result.next())
 						{
-							Assert.assertEquals(result.getLong("id"), data.get(i).get("id"));
-							Assert.assertEquals(result.getString("phone"), data.get(i).get("phone"));
-							Assert.assertEquals(result.getLong("price"), data.get(i).get("price"));
+							SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+						    String resultDate= formatter.format(result.getDate("createdAt"));
+						    String responseDate= formatter.format(data.get(i).get("createdAt"));
+						    
+							Assert.assertEquals(result.getLong("id"), Long.parseLong(String.valueOf(data.get(i).get("id"))));
+							Assert.assertEquals(result.getString("phoneNumber"), data.get(i).get("phoneNumber"));
+							Assert.assertEquals(result.getLong("price"), Long.parseLong(String.valueOf(data.get(i).get("price"))));
 							Assert.assertEquals(result.getString("status"), data.get(i).get("status"));
-							Assert.assertEquals(result.getDate("createdAt"), data.get(i).get("createdAt"));
+							Assert.assertEquals(resultDate, responseDate);
 							
 							Connection conPromotion = getConnectionPromotion();
 							PreparedStatement psGetVoucherName = conPromotion.prepareStatement(query2);
@@ -98,12 +138,20 @@ public class TC_History_Completed extends TestBase{
 				}		
 			}	
 		}
+		else if(code == 500)
+		{
+			Assert.assertEquals("invalid request format",message);
+		}
+		else
+		{
+			Assert.assertTrue("unhandled error", false);
+		}
 	}
 	
 	@Test(dependsOnMethods = {"historyCompletedUser"})
 	void assertStatusCode()
 	{
-		String sc = response.jsonPath().get("code");
+		int sc = response.jsonPath().get("code");
 		checkStatusCode(sc);	
 	}
 	
@@ -118,5 +166,6 @@ public class TC_History_Completed extends TestBase{
 	void end()
 	{
 		tearDown("Finished " + this.getClass().getSimpleName());
+		logout(sessionId);
 	}
 }

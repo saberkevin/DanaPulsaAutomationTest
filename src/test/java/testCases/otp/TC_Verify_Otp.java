@@ -1,5 +1,6 @@
 package testCases.otp;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,8 +26,9 @@ public class TC_Verify_Otp extends TestBase{
 	@Test
 	void verifyOtpUser()
 	{
+		logger.info("***** GET OTP *****");
 		GetOtp(id);
-		
+		logger.info("***** END GET OTP *****");
 		String otp = response.jsonPath().get("data.code");
 		
 		if(code.equals("valid"))
@@ -60,12 +62,12 @@ public class TC_Verify_Otp extends TestBase{
 		if(code == 200)
 		{
 			Assert.assertEquals("success", message);
-			Assert.assertNotEquals("", jsonPath.get("data.token"));
 			
 			String query = "SELECT userId, code FROM otp\n" + 
 					"WHERE userId = ?";
 			try {
-				PreparedStatement psGetOtp= getConnectionMember().prepareStatement(query);
+				Connection conMember = getConnectionMember();
+				PreparedStatement psGetOtp= conMember.prepareStatement(query);
 				psGetOtp.setLong(1, Long.parseLong(id));
 				
 				ResultSet result = psGetOtp.executeQuery();
@@ -76,22 +78,34 @@ public class TC_Verify_Otp extends TestBase{
 					Assert.assertEquals(this.code, result.getString("code"));
 				}
 				
-				getConnectionMember().close();
+				conMember.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+		else if(code == 400)
+		{
+			Assert.assertTrue(message.equals("invalid OTP") || message.contains("must not be null"));
+		}
 		else if(code == 404)
 		{
 			Assert.assertEquals("incorrect OTP", message);
+		}
+		else if(code == 500)
+		{
+			Assert.assertEquals("invalid request format", message);
+		}
+		else
+		{
+			Assert.assertTrue("unhandled error", false);
 		}
 	}
 	
 	@Test(dependsOnMethods = {"verifyOtpUser"})
 	void assertStatusCode()
 	{
-		String sc = response.jsonPath().get("code");
+		int sc = response.jsonPath().get("code");
 		checkStatusCode(sc);	
 	}
 	

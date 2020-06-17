@@ -46,7 +46,7 @@ public class TC_Get_Otp extends TestBase{
 					"WHERE userId = ?";
 			try {
 				Connection conMember = getConnectionMember();
-				PreparedStatement psGetOtp= getConnectionMember().prepareStatement(query);
+				PreparedStatement psGetOtp= conMember.prepareStatement(query);
 				psGetOtp.setLong(1, Long.parseLong(id));
 				
 				ResultSet result = psGetOtp.executeQuery();

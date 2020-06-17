@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -29,7 +30,7 @@ public class TC_History_In_Progress extends TestBase{
 	void setSession()
 	{
 		logger.info("***** SET SESSION *****");
-		String userId = "155";
+		userId = "155";
 		String pinForSession = "";
 		
 		String query = "SELECT id, pin FROM user\n" + 
@@ -76,7 +77,7 @@ public class TC_History_In_Progress extends TestBase{
 					"JOIN transaction_status b ON a.statusId = b.id AND b.typeId = 1\n" +  
 					"JOIN pulsa_catalog d ON a.catalogId = d.id \n" +
 					"WHERE a.userId = ? and a.id = ? \n" + 
-					"ORDER BY a.createdAt";
+					"ORDER BY a.createdAt DESC LIMIT 10 OFFSET ?";
 			String query2 = "SELECT name AS voucher FROM voucher WHERE id = ? ";
 			
 			Assert.assertEquals("success", message);
@@ -88,9 +89,9 @@ public class TC_History_In_Progress extends TestBase{
 				try {
 					
 					for (int i = 0; i < data.size(); i++) {  
-						Assert.assertNotNull(Long.parseLong(data.get(i).get("id").toString()));
-						Assert.assertNotEquals("", data.get(i).get("phone"));
-						Assert.assertNotNull(Long.parseLong(data.get(i).get("price")));
+						Assert.assertNotNull(Long.parseLong(String.valueOf(data.get(i).get("id"))));
+						Assert.assertNotEquals("", data.get(i).get("phoneNumber"));
+						Assert.assertNotNull(Long.parseLong(String.valueOf(data.get(i).get("price"))));
 						Assert.assertNotEquals("", data.get(i).get("voucher"));
 						Assert.assertNotEquals("", data.get(i).get("createdAt"));
 						Assert.assertTrue(data.get(i).get("status").equals("WAITING") || data.get(i).get("status").equals("VERIFYING"));
@@ -98,16 +99,21 @@ public class TC_History_In_Progress extends TestBase{
 						Connection conOrder = getConnectionOrder();
 						PreparedStatement psGetHistoryInProgress = conOrder.prepareStatement(query);
 						psGetHistoryInProgress.setLong(1, Long.parseLong(userId));
-						psGetHistoryInProgress.setLong(2, Long.parseLong(data.get(i).get("id")));
+						psGetHistoryInProgress.setLong(2, Long.parseLong(String.valueOf(data.get(i).get("id"))));
+						psGetHistoryInProgress.setLong(3, Long.parseLong(page)*10-10);
 						ResultSet result = psGetHistoryInProgress.executeQuery();
 						
 						while(result.next())
 						{
-							Assert.assertEquals(result.getLong("id"), Long.parseLong(data.get(i).get("id").toString()));
-							Assert.assertEquals(result.getString("phone"), data.get(i).get("phone"));
-							Assert.assertEquals(result.getLong("price"), data.get(i).get("price"));
+							SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+						    String resultDate= formatter.format(result.getDate("createdAt"));
+						    String responseDate= formatter.format(data.get(i).get("createdAt"));
+						    
+							Assert.assertEquals(result.getLong("id"), Long.parseLong(String.valueOf(data.get(i).get("id"))));
+							Assert.assertEquals(result.getString("phoneNumber"), data.get(i).get("phoneNumber"));
+							Assert.assertEquals(result.getLong("price"), Long.parseLong(String.valueOf(data.get(i).get("price"))));
 							Assert.assertEquals(result.getString("status"), data.get(i).get("status"));
-							Assert.assertEquals(result.getDate("createdAt"), data.get(i).get("createdAt"));
+							Assert.assertEquals(resultDate, responseDate);
 							
 							Connection conPromotion = getConnectionPromotion();
 							PreparedStatement psGetVoucherName = conPromotion.prepareStatement(query2);
@@ -128,12 +134,20 @@ public class TC_History_In_Progress extends TestBase{
 				}		
 			}	
 		}
+		else if(code == 500)
+		{
+			Assert.assertEquals("invalid request format",message);
+		}
+		else
+		{
+			Assert.assertTrue("unhandled error", false);
+		}
 	}
 	
 	@Test(dependsOnMethods = {"historyInProgressUser"})
 	void assertStatusCode()
 	{
-		String sc = response.jsonPath().get("code");
+		int sc = response.jsonPath().get("code");
 		checkStatusCode(sc);	
 	}
 	
@@ -148,5 +162,6 @@ public class TC_History_In_Progress extends TestBase{
 	void end()
 	{
 		tearDown("Finished " + this.getClass().getSimpleName());
+		logout(sessionId);
 	}
 }

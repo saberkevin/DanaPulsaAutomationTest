@@ -4,31 +4,84 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import base.TestBase;
 import io.restassured.path.json.JsonPath;
-import model.User;
 
 public class TC_History_Details extends TestBase{
 	
 	private String id; 
-	private User user;
+	private String sessionId;
+	private String userId;
 	
 	public TC_History_Details(String id) {
 		this.id=id;
+	}
+	
+	@BeforeClass
+	void setSession()
+	{
+		logger.info("***** SET SESSION *****");
+		userId = "155";
+		String pinForSession = "";
+		
+		String query = "SELECT id, pin FROM user\n" + 
+				"WHERE id = ?";
+		try {
+			Connection conMember = getConnectionMember();
+			PreparedStatement psGetUserPin = conMember.prepareStatement(query);
+			psGetUserPin.setLong(1, Long.parseLong(userId));
+			
+			ResultSet result = psGetUserPin.executeQuery();
+			
+			while(result.next())
+			{
+				pinForSession = result.getString("pin");
+			}
+			
+			conMember.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		verifyPinLogin(userId, pinForSession);
+		sessionId = response.getCookie("JSESSIONID");
+		logger.info("***** END SET SESSION *****");
 	}
 
 	@Test
 	void historyDetailsUser()
 	{
-		historyDetail(id);
+		String query = "SELECT id FROM transaction\n" + 
+				"WHERE userId = ? ORDER BY createdAt DESC LIMIT 1";
+		try {
+			Connection conOrder = getConnectionOrder();
+			PreparedStatement psGetUserPin = conOrder.prepareStatement(query);
+			psGetUserPin.setLong(1, Long.parseLong(userId));
+			
+			ResultSet result = psGetUserPin.executeQuery();
+			
+			while(result.next())
+			{
+				if(id.equals("valid")) id = String.valueOf(result.getLong("id"));
+				else if(id.equals("-")) id = "-"+String.valueOf(result.getLong("id"));
+			}
+			
+			conOrder.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		historyDetail(id,sessionId);
 	}
 	
 	@Test(dependsOnMethods = {"historyDetailsUser"})
@@ -52,86 +105,110 @@ public class TC_History_Details extends TestBase{
 			String query2 = "SELECT name AS voucher, deduction, maxDeduction FROM voucher WHERE id = ? ";
 			
 			Assert.assertEquals("success", message);
-			
-			if(!jsonPath.get("data").toString().equals("[]"))
-			{
-				List<Map<String, String>> data = jsonPath.getList("data");
+			try { 
+				Assert.assertNotNull(Long.parseLong(jsonPath.get("data.id").toString()));
+				Assert.assertNotEquals("", jsonPath.get("data.phoneNumber"));
+				Assert.assertNotEquals("", jsonPath.get("data.method"));
+				Assert.assertNotEquals("", jsonPath.get("data.updatedAt"));
+				Assert.assertNotEquals("", jsonPath.get("data.createdAt"));
+				Assert.assertTrue(jsonPath.get("data.status").equals("COMPLETED") || 
+						jsonPath.get("data.status").equals("CANCELLED") || 
+						jsonPath.get("data.status").equals("FAILED") || 
+						jsonPath.get("data.status").equals("EXPIRED") ||
+						jsonPath.get("data.status").equals("WAITING") ||
+						jsonPath.get("data.status").equals("VERIFYING")
+						);
+				Assert.assertNotNull(Long.parseLong(jsonPath.get("data.catalog.id").toString()));
+				Assert.assertNotNull(Long.parseLong(jsonPath.get("data.catalog.value").toString()));
+				Assert.assertNotNull(Long.parseLong(jsonPath.get("data.catalog.price").toString()));
+				Assert.assertNotNull(Long.parseLong(jsonPath.get("data.catalog.provider.id").toString()));
+				Assert.assertNotEquals("", jsonPath.get("data.catalog.provider.name"));
+				Assert.assertNotEquals("", jsonPath.get("data.catalog.provider.image"));
+				if(jsonPath.get("data.voucher.id") != null)
+				{
+					Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.id")));
+					Assert.assertNotEquals("", jsonPath.get("data.catalog.voucher.name"));
+					Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.deduction").toString()));
+					Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.maxDeduction").toString()));
+				}
+				Connection conOrder = getConnectionOrder();
+				PreparedStatement psGetHistoryDetails = conOrder.prepareStatement(query);
+				psGetHistoryDetails.setLong(1, Long.parseLong(userId));
+				psGetHistoryDetails.setLong(2, Long.parseLong(jsonPath.get("data.id").toString()));
+				ResultSet result = psGetHistoryDetails.executeQuery();
 				
-				try {
-					
-					for (int i = 0; i < data.size(); i++) {  
-						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.id")));
-						Assert.assertNotEquals("", jsonPath.get("data.phone"));
-						Assert.assertNotEquals("", jsonPath.get("data.method"));
-						Assert.assertNotEquals("", jsonPath.get("data.updatedAt"));
-						Assert.assertNotEquals("", jsonPath.get("data.createdAt"));
-						Assert.assertTrue(jsonPath.get("data.status").equals("COMPLETED") || 
-								jsonPath.get("data.status").equals("CANCELLED") || 
-								jsonPath.get("data.status").equals("FAILED") || 
-								jsonPath.get("data.status").equals("EXPIRED") ||
-								jsonPath.get("data.status").equals("WAITING") ||
-								jsonPath.get("data.status").equals("VERIFYING")
-								);
-						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.catalog.id")));
-						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.catalog.value")));
-						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.catalog.price")));
-						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.catalog.provider.id")));
-						Assert.assertNotEquals("", jsonPath.get("data.catalog.provider.name"));
-						Assert.assertNotEquals("", jsonPath.get("data.catalog.provider.image"));
-						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.id")));
-						Assert.assertNotEquals("", jsonPath.get("data.catalog.voucher.name"));
-						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.deduction")));
-						Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.maxDeduction")));
+				while(result.next())
+				{	    
+					Date dateResultCreatedAt = new Date(jsonPath.getLong("data.createdAt"));
+			        
+			        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+				    String resultCreatedAt= formatter.format(result.getDate("createdAt"));
+				    String responseCreatedAt= formatter.format(dateResultCreatedAt);
+				    
+				    if((jsonPath.get("updatedAt") != null))
+					{
+				    	Date dateResultUpdatedAt = new Date(jsonPath.getLong("data.updatedAt"));
+				    	String resultUpdatedAt= formatter.format(result.getDate("updatedAt"));
+					    String responseUpdatedAt= formatter.format(dateResultUpdatedAt);
+						Assert.assertEquals(resultUpdatedAt, responseUpdatedAt);	
+					}
+			        
+					Assert.assertEquals(result.getLong("id"), Long.parseLong(jsonPath.get("data.id").toString()));
+					Assert.assertEquals(result.getString("method"), jsonPath.get("data.method"));
+					Assert.assertEquals(result.getString("phoneNumber"), jsonPath.get("data.phoneNumber"));
+					Assert.assertEquals(result.getLong("catalogId"), Long.parseLong(jsonPath.get("data.catalog.id").toString()));
+					Assert.assertEquals(result.getLong("value"), Long.parseLong(jsonPath.get("data.catalog.value").toString()));
+					Assert.assertEquals(result.getLong("price"), Long.parseLong(jsonPath.get("data.catalog.price").toString()));
+					Assert.assertEquals(result.getLong("providerId"), Long.parseLong(jsonPath.get("data.catalog.provider.id").toString()));
+					Assert.assertEquals(result.getString("provider"), jsonPath.get("data.catalog.provider.name"));
+					Assert.assertEquals(result.getString("image"), jsonPath.get("data.catalog.provider.image"));
+					if(jsonPath.get("data.voucher.id") != null)
+					{
+						Assert.assertEquals(result.getLong("voucherId"), Long.parseLong(jsonPath.get("data.voucher.id").toString()));
+					}
+					Assert.assertEquals(result.getString("status"), jsonPath.get("data.status"));
+					Assert.assertEquals(resultCreatedAt, responseCreatedAt);
 						
-						Connection conOrder = getConnectionOrder();
-						PreparedStatement psGetHistoryDetails = conOrder.prepareStatement(query);
-						psGetHistoryDetails.setLong(1, user.getId());
-						psGetHistoryDetails.setLong(2, Long.parseLong(data.get(i).get("id")));
-						ResultSet result = psGetHistoryDetails.executeQuery();
+					if(jsonPath.get("data.voucher.id") != null)
+					{
+						Connection conPromotion = getConnectionPromotion();
+						PreparedStatement psGetVoucherName = conPromotion.prepareStatement(query2);
+						psGetVoucherName.setLong(1, result.getLong("voucherId"));
+						ResultSet resultVoucher = psGetVoucherName.executeQuery();
 						
-						while(result.next())
+						while(resultVoucher.next())
 						{
-							Assert.assertEquals(result.getLong("id"), data.get(i).get("id"));
-							Assert.assertEquals(result.getString("method"), data.get(i).get("method"));
-							Assert.assertEquals(result.getString("phone"), data.get(i).get("phone"));
-							Assert.assertEquals(result.getLong("catalogId"), data.get(i).get("catalog.id"));
-							Assert.assertEquals(result.getLong("value"), data.get(i).get("catalog.value"));
-							Assert.assertEquals(result.getLong("price"), data.get(i).get("catalog.price"));
-							Assert.assertEquals(result.getLong("providerId"), data.get(i).get("provider.id"));
-							Assert.assertEquals(result.getString("provider"), data.get(i).get("provider.name"));
-							Assert.assertEquals(result.getString("image"), data.get(i).get("provider.image"));
-							Assert.assertEquals(result.getLong("voucherId"), data.get(i).get("voucher.id"));
-							Assert.assertEquals(result.getString("status"), data.get(i).get("status"));
-							Assert.assertEquals(result.getDate("createdAt"), data.get(i).get("createdAt"));
-							Assert.assertEquals(result.getDate("updatedAt"), data.get(i).get("updatedAt"));
-							
-							Connection conPromotion = getConnectionPromotion();
-							PreparedStatement psGetVoucherName = conPromotion.prepareStatement(query2);
-							psGetVoucherName.setLong(1, result.getLong("voucherId"));
-							ResultSet resultVoucher = psGetVoucherName.executeQuery();
-							
-							while(resultVoucher.next())
-							{
-								Assert.assertEquals(resultVoucher.getString("voucher"), data.get(i).get("voucher.name"));
-								Assert.assertEquals(resultVoucher.getLong("deduction"), data.get(i).get("voucher.deduction"));
-								Assert.assertEquals(resultVoucher.getLong("maxDeduction"), data.get(i).get("voucher.maxDeduction"));
-							}
-							conPromotion.close();
+							Assert.assertEquals(resultVoucher.getString("voucher"), jsonPath.get("data.catalog.voucher.name"));
+							Assert.assertEquals(resultVoucher.getLong("deduction"), Long.parseLong(jsonPath.get("data.voucher.deduction").toString()));
+							Assert.assertEquals(resultVoucher.getLong("maxDeduction"), Long.parseLong(jsonPath.get("data.voucher.maxDeduction").toString()));
 						}
-						conOrder.close();
+						conPromotion.close();
 					}	
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}		
-			}
+				}
+				conOrder.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}		
+		}
+		else if(code == 404)
+		{
+			Assert.assertEquals("unknown transaction", message);
+		}
+		else if(code == 500)
+		{
+			Assert.assertEquals("invalid request format", message);
+		}
+		else
+		{
+			Assert.assertTrue("unhandled error",false);
 		}
 	}
 	
 	@Test(dependsOnMethods = {"historyDetailsUser"})
 	void assertStatusCode()
 	{
-		String sc = response.jsonPath().get("code");
+		int sc = response.jsonPath().get("code");
 		checkStatusCode(sc);	
 	}
 	
@@ -146,5 +223,6 @@ public class TC_History_Details extends TestBase{
 	void end()
 	{
 		tearDown("Finished " + this.getClass().getSimpleName());
+		logout(sessionId);
 	}
 }
