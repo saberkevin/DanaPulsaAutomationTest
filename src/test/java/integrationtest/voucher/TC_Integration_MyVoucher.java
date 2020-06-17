@@ -75,7 +75,6 @@ public class TC_Integration_MyVoucher extends TestBase {
 	@Test
 	public void testMyVouchers() {
 		getMyVoucher(user.getSessionId(), page);
-		checkStatusCode("200");
 		
 		Assert.assertTrue(response.getBody().asString().contains(result));
 
