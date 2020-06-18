@@ -24,6 +24,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	private boolean isCreateUser;
 	
 	public TC_Mobile_Recharge_Catalog() {
+		
 	}
 	
 	public TC_Mobile_Recharge_Catalog(String testCase, String sessionId, String phonePrefix, String result) {
@@ -176,7 +177,6 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	public void afterClass() {
 		// delete user
 		if (isCreateUser == true) {
-			deleteUserVoucherByUserId(user.getId());
 			deleteBalanceByUserId(user.getId());
 			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
 		}

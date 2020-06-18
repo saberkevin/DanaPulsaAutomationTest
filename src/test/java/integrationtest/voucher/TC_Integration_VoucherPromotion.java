@@ -55,6 +55,7 @@ public class TC_Integration_VoucherPromotion extends TestBase {
 		checkStatusCode("200");
 		user.setId(response.getBody().jsonPath().getLong("data.id"));
 		
+		// verify pin login
 		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
 		checkStatusCode("200");
 		user.setSessionId(response.getCookie("JSESSIONID"));

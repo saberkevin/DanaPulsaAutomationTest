@@ -164,7 +164,7 @@ public class TC_Recommendation_Vouchers extends TestBase {
 		}
 	}
 
-	@Test(dependsOnMethods = {"testMyVouchers"})
+	@Test(dependsOnMethods = {"testRecommendationVouchers"})
 	public void checkData() {
 		int statusCode = response.getStatusCode();
 		

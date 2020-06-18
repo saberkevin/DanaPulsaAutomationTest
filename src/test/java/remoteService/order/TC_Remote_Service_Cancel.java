@@ -194,7 +194,6 @@ public class TC_Remote_Service_Cancel extends TestBase {
 			Assert.assertEquals(response.getBody().jsonPath().get("catalog.provider.image"), provider.getImage());
 			Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.value"), catalog.getValue());
 			Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.price"), catalog.getPrice());
-			Assert.assertNull(response.getBody().jsonPath().get("voucher"));
 			Assert.assertEquals(response.getBody().jsonPath().get("status"), "CANCELED");
 			Assert.assertNotNull(response.getBody().jsonPath().get("createdAt"));
 			Assert.assertNotNull(response.getBody().jsonPath().get("updatedAt"));

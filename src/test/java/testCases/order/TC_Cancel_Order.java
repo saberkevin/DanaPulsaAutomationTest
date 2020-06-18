@@ -173,19 +173,18 @@ public class TC_Cancel_Order extends TestBase {
 		int statusCode = response.getStatusCode();
 		
 		if (statusCode == 200) {
-			Assert.assertEquals(response.getBody().jsonPath().getLong("id"), transaction.getId());
-			Assert.assertEquals(response.getBody().jsonPath().get("method"), transaction.getPaymentMethodName());
-			Assert.assertEquals(response.getBody().jsonPath().get("phoneNumber"), transaction.getPhoneNumber());
-			Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.id"), transaction.getCatalogId());
-			Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.provider.id"), provider.getId());
-			Assert.assertEquals(response.getBody().jsonPath().get("catalog.provider.name"), provider.getName());
-			Assert.assertEquals(response.getBody().jsonPath().get("catalog.provider.image"), provider.getImage());
-			Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.value"), catalog.getValue());
-			Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.price"), catalog.getPrice());
-			Assert.assertNull(response.getBody().jsonPath().get("voucher"));
-			Assert.assertEquals(response.getBody().jsonPath().get("status"), "CANCELED");
-			Assert.assertNotNull(response.getBody().jsonPath().get("createdAt"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("updatedAt"));
+			Assert.assertEquals(response.getBody().jsonPath().getLong("data.id"), transaction.getId());
+			Assert.assertEquals(response.getBody().jsonPath().get("data.method"), transaction.getPaymentMethodName());
+			Assert.assertEquals(response.getBody().jsonPath().get("data.phoneNumber"), transaction.getPhoneNumber());
+			Assert.assertEquals(response.getBody().jsonPath().getLong("data.catalog.id"), transaction.getCatalogId());
+			Assert.assertEquals(response.getBody().jsonPath().getLong("data.catalog.provider.id"), provider.getId());
+			Assert.assertEquals(response.getBody().jsonPath().get("data.catalog.provider.name"), provider.getName());
+			Assert.assertEquals(response.getBody().jsonPath().get("data.catalog.provider.image"), provider.getImage());
+			Assert.assertEquals(response.getBody().jsonPath().getLong("data.catalog.value"), catalog.getValue());
+			Assert.assertEquals(response.getBody().jsonPath().getLong("data.catalog.price"), catalog.getPrice());
+			Assert.assertEquals(response.getBody().jsonPath().get("data.status"), "CANCELED");
+			Assert.assertNotNull(response.getBody().jsonPath().get("data.createdAt"));
+			Assert.assertNotNull(response.getBody().jsonPath().get("data.updatedAt"));
 		}
 	}
 	
@@ -263,15 +262,15 @@ public class TC_Cancel_Order extends TestBase {
 					Assert.assertTrue(false, "no transaction found in database");
 				}
 				do {
-					Assert.assertEquals(response.getBody().jsonPath().getLong("id"), rs.getLong("id"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("method"), rs.getString("paymentMethodName"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("phoneNumber"), rs.getString("phoneNumber"));
-					Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.provider.id"), rs.getLong("providerId"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("catalog.provider.name"), rs.getString("providerName"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("catalog.provider.image"), rs.getString("providerImage"));
-					Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.value"), rs.getLong("value"));
-					Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.price"), rs.getLong("price"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("status"), rs.getString("transactionStatus"));
+					Assert.assertEquals(response.getBody().jsonPath().getLong("data.id"), rs.getLong("id"));
+					Assert.assertEquals(response.getBody().jsonPath().getString("data.method"), rs.getString("paymentMethodName"));
+					Assert.assertEquals(response.getBody().jsonPath().getString("data.phoneNumber"), rs.getString("phoneNumber"));
+					Assert.assertEquals(response.getBody().jsonPath().getLong("data.catalog.provider.id"), rs.getLong("providerId"));
+					Assert.assertEquals(response.getBody().jsonPath().getString("data.catalog.provider.name"), rs.getString("providerName"));
+					Assert.assertEquals(response.getBody().jsonPath().getString("data.catalog.provider.image"), rs.getString("providerImage"));
+					Assert.assertEquals(response.getBody().jsonPath().getLong("data.catalog.value"), rs.getLong("value"));
+					Assert.assertEquals(response.getBody().jsonPath().getLong("data.catalog.price"), rs.getLong("price"));
+					Assert.assertEquals(response.getBody().jsonPath().getString("data.status"), rs.getString("transactionStatus"));
 //					Assert.assertEquals(response.getBody().jsonPath().getString("createdAt"), rs.getString("createdAt"));
 //					Assert.assertEquals(response.getBody().jsonPath().getString("updatedAt"), rs.getString("updatedAt"));
 				} while(rs.next());
