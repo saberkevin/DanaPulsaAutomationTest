@@ -197,7 +197,7 @@ public class TC_Remote_Service_Cancel extends TestBase {
 			Assert.assertNull(response.getBody().jsonPath().get("voucher"));
 			Assert.assertEquals(response.getBody().jsonPath().get("status"), "CANCELED");
 			Assert.assertNotNull(response.getBody().jsonPath().get("createdAt"));
-			Assert.assertNull(response.getBody().jsonPath().get("updatedAt"));
+			Assert.assertNotNull(response.getBody().jsonPath().get("updatedAt"));
 		}
 	}
 	
@@ -237,7 +237,27 @@ public class TC_Remote_Service_Cancel extends TestBase {
 				e.printStackTrace();
 			}
 		} else if (responseBody.equals("can't cancel completed transaction")) {
-			// do some code
+			try {
+				Connection conn = getConnectionOrder();
+				String queryString = "SELECT * FROM transaction WHERE id = ? AND userId = ?";
+				
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setLong(1, Long.parseLong(transactionId));
+				ps.setLong(2, Long.parseLong(userId));
+				
+				ResultSet rs = ps.executeQuery();
+				
+				if (!rs.next()) {
+					Assert.assertTrue(false, "no transaction found in database");
+				}
+				do {
+					Assert.assertEquals("1", rs.getString("statusId"));
+				} while(rs.next());
+				
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 			
 		} else if (responseBody.equals("invalid request format")) {
 			// do some code

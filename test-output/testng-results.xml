@@ -1,109 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="12" passed="12">
+<testng-results skipped="0" failed="0" ignored="0" total="21" passed="21">
   <reporter-output>
   </reporter-output>
-  <suite name="DANA Pulsa Suite" duration-ms="346959" started-at="2020-06-17T17:08:58Z" finished-at="2020-06-17T17:14:45Z">
+  <suite name="DANA Pulsa Suite" duration-ms="499461" started-at="2020-06-18T06:19:32Z" finished-at="2020-06-18T06:27:52Z">
     <groups>
     </groups>
-    <test name="DanaPulsaTestIntegrationVoucher" duration-ms="346959" started-at="2020-06-17T17:08:58Z" finished-at="2020-06-17T17:14:45Z">
-      <class name="integrationtest.voucher.TC_Integration_MyVoucher">
-        <test-method status="PASS" signature="setup()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@524d6d96]" name="setup" is-config="true" duration-ms="82" started-at="2020-06-17T17:08:59Z" finished-at="2020-06-17T17:08:59Z">
+    <test name="DanaPulsaServiceTestPromotion" duration-ms="499461" started-at="2020-06-18T06:19:32Z" finished-at="2020-06-18T06:27:52Z">
+      <class name="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation">
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="setup" is-config="true" duration-ms="52" started-at="2020-06-18T06:19:32Z" finished-at="2020-06-18T06:19:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@524d6d96]" name="beforeClass" is-config="true" duration-ms="90424" started-at="2020-06-17T17:08:59Z" finished-at="2020-06-17T17:10:29Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="beforeClass" is-config="true" duration-ms="28818" started-at="2020-06-18T06:19:32Z" finished-at="2020-06-18T06:20:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testMyVouchers()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@2525ff7e]" name="testMyVouchers" duration-ms="4791" started-at="2020-06-17T17:10:29Z" finished-at="2020-06-17T17:10:34Z">
+        <test-method status="PASS" signature="testVoucherRecommendation()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@14555e0a]" name="testVoucherRecommendation" duration-ms="5661" started-at="2020-06-18T06:20:01Z" finished-at="2020-06-18T06:20:07Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testMyVouchers -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@2525ff7e]" name="checkData" duration-ms="28" started-at="2020-06-17T17:10:34Z" depends-on-methods="integrationtest.voucher.TC_Integration_MyVoucher.testMyVouchers" finished-at="2020-06-17T17:10:34Z">
+        </test-method> <!-- testVoucherRecommendation -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@14555e0a]" name="checkData" duration-ms="5" started-at="2020-06-18T06:20:07Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation.testVoucherRecommendation" finished-at="2020-06-18T06:20:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@2525ff7e]" name="checkDB" duration-ms="5988" started-at="2020-06-17T17:10:34Z" depends-on-methods="integrationtest.voucher.TC_Integration_MyVoucher.checkData" finished-at="2020-06-17T17:10:40Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@14555e0a]" name="checkDB" duration-ms="3" started-at="2020-06-18T06:20:07Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation.checkData" finished-at="2020-06-18T06:20:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@524d6d96]" name="afterClass" is-config="true" duration-ms="17855" started-at="2020-06-17T17:10:40Z" finished-at="2020-06-17T17:10:58Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="afterClass" is-config="true" duration-ms="20456" started-at="2020-06-18T06:20:07Z" finished-at="2020-06-18T06:20:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@524d6d96]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-17T17:10:58Z" finished-at="2020-06-17T17:10:58Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="setup" is-config="true" duration-ms="3" started-at="2020-06-18T06:20:27Z" finished-at="2020-06-18T06:20:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@524d6d96]" name="beforeClass" is-config="true" duration-ms="24002" started-at="2020-06-17T17:10:58Z" finished-at="2020-06-17T17:11:22Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="beforeClass" is-config="true" duration-ms="40662" started-at="2020-06-18T06:20:27Z" finished-at="2020-06-18T06:21:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testMyVouchers()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@2e1d27ba]" name="testMyVouchers" duration-ms="4164" started-at="2020-06-17T17:11:22Z" finished-at="2020-06-17T17:11:26Z">
+        <test-method status="PASS" signature="testVoucherRecommendation()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@1e683a3e]" name="testVoucherRecommendation" duration-ms="6554" started-at="2020-06-18T06:21:08Z" finished-at="2020-06-18T06:21:14Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testMyVouchers -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@2e1d27ba]" name="checkData" duration-ms="1" started-at="2020-06-17T17:11:26Z" depends-on-methods="integrationtest.voucher.TC_Integration_MyVoucher.testMyVouchers" finished-at="2020-06-17T17:11:26Z">
+        </test-method> <!-- testVoucherRecommendation -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@1e683a3e]" name="checkData" duration-ms="2" started-at="2020-06-18T06:21:14Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation.testVoucherRecommendation" finished-at="2020-06-18T06:21:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@2e1d27ba]" name="checkDB" duration-ms="5935" started-at="2020-06-17T17:11:26Z" depends-on-methods="integrationtest.voucher.TC_Integration_MyVoucher.checkData" finished-at="2020-06-17T17:11:32Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@1e683a3e]" name="checkDB" duration-ms="5380" started-at="2020-06-18T06:21:14Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation.checkData" finished-at="2020-06-18T06:21:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@524d6d96]" name="afterClass" is-config="true" duration-ms="16942" started-at="2020-06-17T17:11:32Z" finished-at="2020-06-17T17:11:49Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="afterClass" is-config="true" duration-ms="18962" started-at="2020-06-18T06:21:20Z" finished-at="2020-06-18T06:21:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@524d6d96]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-17T17:11:49Z" finished-at="2020-06-17T17:11:49Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="setup" is-config="true" duration-ms="1" started-at="2020-06-18T06:21:39Z" finished-at="2020-06-18T06:21:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@524d6d96]" name="beforeClass" is-config="true" duration-ms="88415" started-at="2020-06-17T17:11:49Z" finished-at="2020-06-17T17:13:17Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="beforeClass" is-config="true" duration-ms="36030" started-at="2020-06-18T06:21:39Z" finished-at="2020-06-18T06:22:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testMyVouchers()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@524d6d96]" name="testMyVouchers" duration-ms="4620" started-at="2020-06-17T17:13:17Z" finished-at="2020-06-17T17:13:22Z">
+        <test-method status="PASS" signature="testVoucherRecommendation()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@2053d869]" name="testVoucherRecommendation" duration-ms="4442" started-at="2020-06-18T06:22:15Z" finished-at="2020-06-18T06:22:19Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testMyVouchers -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@524d6d96]" name="checkData" duration-ms="9" started-at="2020-06-17T17:13:22Z" depends-on-methods="integrationtest.voucher.TC_Integration_MyVoucher.testMyVouchers" finished-at="2020-06-17T17:13:22Z">
+        </test-method> <!-- testVoucherRecommendation -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@2053d869]" name="checkData" duration-ms="1" started-at="2020-06-18T06:22:19Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation.testVoucherRecommendation" finished-at="2020-06-18T06:22:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@524d6d96]" name="checkDB" duration-ms="6354" started-at="2020-06-17T17:13:22Z" depends-on-methods="integrationtest.voucher.TC_Integration_MyVoucher.checkData" finished-at="2020-06-17T17:13:28Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@2053d869]" name="checkDB" duration-ms="1" started-at="2020-06-18T06:22:19Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation.checkData" finished-at="2020-06-18T06:22:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@524d6d96]" name="afterClass" is-config="true" duration-ms="18089" started-at="2020-06-17T17:13:28Z" finished-at="2020-06-17T17:13:46Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="afterClass" is-config="true" duration-ms="18118" started-at="2020-06-18T06:22:19Z" finished-at="2020-06-18T06:22:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@524d6d96]" name="setup" is-config="true" duration-ms="3" started-at="2020-06-17T17:13:46Z" finished-at="2020-06-17T17:13:46Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-18T06:22:37Z" finished-at="2020-06-18T06:22:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@524d6d96]" name="beforeClass" is-config="true" duration-ms="30320" started-at="2020-06-17T17:13:46Z" finished-at="2020-06-17T17:14:17Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="beforeClass" is-config="true" duration-ms="41980" started-at="2020-06-18T06:22:37Z" finished-at="2020-06-18T06:23:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testMyVouchers()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@61d6015a]" name="testMyVouchers" duration-ms="4187" started-at="2020-06-17T17:14:17Z" finished-at="2020-06-17T17:14:21Z">
+        <test-method status="PASS" signature="testVoucherRecommendation()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@2b48a640]" name="testVoucherRecommendation" duration-ms="10872" started-at="2020-06-18T06:23:19Z" finished-at="2020-06-18T06:23:30Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testMyVouchers -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@61d6015a]" name="checkData" duration-ms="10" started-at="2020-06-17T17:14:21Z" depends-on-methods="integrationtest.voucher.TC_Integration_MyVoucher.testMyVouchers" finished-at="2020-06-17T17:14:21Z">
+        </test-method> <!-- testVoucherRecommendation -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@2b48a640]" name="checkData" duration-ms="174" started-at="2020-06-18T06:23:30Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation.testVoucherRecommendation" finished-at="2020-06-18T06:23:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@61d6015a]" name="checkDB" duration-ms="6513" started-at="2020-06-17T17:14:21Z" depends-on-methods="integrationtest.voucher.TC_Integration_MyVoucher.checkData" finished-at="2020-06-17T17:14:27Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@2b48a640]" name="checkDB" duration-ms="5253" started-at="2020-06-18T06:23:30Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation.checkData" finished-at="2020-06-18T06:23:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:integrationtest.voucher.TC_Integration_MyVoucher@524d6d96]" name="afterClass" is-config="true" duration-ms="18155" started-at="2020-06-17T17:14:27Z" finished-at="2020-06-17T17:14:45Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="afterClass" is-config="true" duration-ms="19641" started-at="2020-06-18T06:23:36Z" finished-at="2020-06-18T06:23:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- integrationtest.voucher.TC_Integration_MyVoucher -->
-    </test> <!-- DanaPulsaTestIntegrationVoucher -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="setup" is-config="true" duration-ms="1" started-at="2020-06-18T06:23:55Z" finished-at="2020-06-18T06:23:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="beforeClass" is-config="true" duration-ms="61280" started-at="2020-06-18T06:23:55Z" finished-at="2020-06-18T06:24:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testVoucherRecommendation()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="testVoucherRecommendation" duration-ms="9428" started-at="2020-06-18T06:24:56Z" finished-at="2020-06-18T06:25:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testVoucherRecommendation -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="checkData" duration-ms="3" started-at="2020-06-18T06:25:06Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation.testVoucherRecommendation" finished-at="2020-06-18T06:25:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="checkDB" duration-ms="4254" started-at="2020-06-18T06:25:06Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation.checkData" finished-at="2020-06-18T06:25:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="afterClass" is-config="true" duration-ms="33677" started-at="2020-06-18T06:25:10Z" finished-at="2020-06-18T06:25:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-18T06:25:44Z" finished-at="2020-06-18T06:25:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="beforeClass" is-config="true" duration-ms="41121" started-at="2020-06-18T06:25:44Z" finished-at="2020-06-18T06:26:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testVoucherRecommendation()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4d02f94e]" name="testVoucherRecommendation" duration-ms="8941" started-at="2020-06-18T06:26:25Z" finished-at="2020-06-18T06:26:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testVoucherRecommendation -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4d02f94e]" name="checkData" duration-ms="15" started-at="2020-06-18T06:26:34Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation.testVoucherRecommendation" finished-at="2020-06-18T06:26:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4d02f94e]" name="checkDB" duration-ms="4722" started-at="2020-06-18T06:26:34Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation.checkData" finished-at="2020-06-18T06:26:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="afterClass" is-config="true" duration-ms="20069" started-at="2020-06-18T06:26:39Z" finished-at="2020-06-18T06:26:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-18T06:26:59Z" finished-at="2020-06-18T06:26:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="beforeClass" is-config="true" duration-ms="24038" started-at="2020-06-18T06:26:59Z" finished-at="2020-06-18T06:27:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="testVoucherRecommendation()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@7a419da4]" name="testVoucherRecommendation" duration-ms="9000" started-at="2020-06-18T06:27:23Z" finished-at="2020-06-18T06:27:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testVoucherRecommendation -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@7a419da4]" name="checkData" duration-ms="0" started-at="2020-06-18T06:27:32Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation.testVoucherRecommendation" finished-at="2020-06-18T06:27:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@7a419da4]" name="checkDB" duration-ms="1" started-at="2020-06-18T06:27:32Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation.checkData" finished-at="2020-06-18T06:27:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation@4bb33f74]" name="afterClass" is-config="true" duration-ms="19779" started-at="2020-06-18T06:27:32Z" finished-at="2020-06-18T06:27:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation -->
+    </test> <!-- DanaPulsaServiceTestPromotion -->
   </suite> <!-- DANA Pulsa Suite -->
 </testng-results>

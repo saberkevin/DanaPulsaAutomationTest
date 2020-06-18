@@ -87,7 +87,7 @@ public class TC_Remote_Service_GetMyVoucher extends TestBase {
 			// insert voucher into database
 			if (testCase.equals("Valid user id and page (below 10 vouchers)")) {	
 				
-				createUserVoucher(user.getId(), 1, 2);			
+				createUserVoucher(user.getId(), 1, 2);	
 
 			} else if (testCase.equals("Valid user id and page (more than 10 vouchers)")) {
 			

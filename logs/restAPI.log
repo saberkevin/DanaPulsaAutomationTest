@@ -14095,3 +14095,276 @@
 2020-06-18 00:14:17 INFO  restAPI:484 - page:1
 2020-06-18 00:14:21 INFO  restAPI:491 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":1000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000}]}
 2020-06-18 00:14:45 INFO  restAPI:176 - ***** Finished TC_Integration_MyVoucher *****
+2020-06-18 11:59:06 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 11:59:06 INFO  restAPI:71 - Case:Empty string page
+2020-06-18 12:00:18 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:00:18 INFO  restAPI:71 - Case:Empty string transaction id
+2020-06-18 12:01:12 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 12:01:12 INFO  restAPI:51 - Test Data: 
+2020-06-18 12:01:12 INFO  restAPI:52 - user id:1018
+2020-06-18 12:01:12 INFO  restAPI:53 - transactionId:
+2020-06-18 12:01:20 INFO  restAPI:65 - invalid request format
+2020-06-18 12:01:40 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:01:40 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:01:40 INFO  restAPI:71 - Case:Undefined user id
+2020-06-18 12:02:39 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 12:02:39 INFO  restAPI:51 - Test Data: 
+2020-06-18 12:02:39 INFO  restAPI:52 - user id:9999
+2020-06-18 12:02:39 INFO  restAPI:53 - transactionId:0
+2020-06-18 12:04:17 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:04:17 INFO  restAPI:71 - Case:Empty string transaction id
+2020-06-18 12:05:13 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 12:05:13 INFO  restAPI:51 - Test Data: 
+2020-06-18 12:05:13 INFO  restAPI:52 - user id:1020
+2020-06-18 12:05:13 INFO  restAPI:53 - transactionId:
+2020-06-18 12:05:18 INFO  restAPI:65 - invalid request format
+2020-06-18 12:05:38 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:05:38 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:05:38 INFO  restAPI:71 - Case:Undefined user id
+2020-06-18 12:06:36 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 12:06:36 INFO  restAPI:51 - Test Data: 
+2020-06-18 12:06:36 INFO  restAPI:52 - user id:9999
+2020-06-18 12:06:36 INFO  restAPI:53 - transactionId:0
+2020-06-18 12:13:56 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:13:56 INFO  restAPI:71 - Case:Empty string transaction id
+2020-06-18 12:14:26 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 12:14:26 INFO  restAPI:51 - Test Data: 
+2020-06-18 12:14:26 INFO  restAPI:52 - user id:1022
+2020-06-18 12:14:26 INFO  restAPI:53 - transactionId:
+2020-06-18 12:14:31 INFO  restAPI:65 - invalid request format
+2020-06-18 12:14:50 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:14:50 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:14:50 INFO  restAPI:71 - Case:Undefined user id
+2020-06-18 12:15:49 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 12:15:49 INFO  restAPI:51 - Test Data: 
+2020-06-18 12:15:49 INFO  restAPI:52 - user id:9999
+2020-06-18 12:15:49 INFO  restAPI:53 - transactionId:672
+2020-06-18 12:15:55 INFO  restAPI:65 - user not found
+2020-06-18 12:16:20 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:16:20 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:16:20 INFO  restAPI:71 - Case:Empty string user id
+2020-06-18 12:17:20 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 12:17:20 INFO  restAPI:51 - Test Data: 
+2020-06-18 12:17:20 INFO  restAPI:52 - user id:
+2020-06-18 12:17:20 INFO  restAPI:53 - transactionId:673
+2020-06-18 12:17:25 INFO  restAPI:65 - invalid request format
+2020-06-18 12:17:44 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:17:44 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:17:44 INFO  restAPI:71 - Case:Valid user id and page (meets minimum purchase)
+2020-06-18 12:18:44 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 12:18:44 INFO  restAPI:51 - Test Data: 
+2020-06-18 12:18:44 INFO  restAPI:52 - user id:1025
+2020-06-18 12:18:44 INFO  restAPI:53 - transactionId:674
+2020-06-18 12:18:55 INFO  restAPI:65 - [{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":3000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000}]
+2020-06-18 12:19:21 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:19:21 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:19:21 INFO  restAPI:71 - Case:Another user's transaction
+2020-06-18 12:20:24 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 12:20:24 INFO  restAPI:51 - Test Data: 
+2020-06-18 12:20:24 INFO  restAPI:52 - user id:1026
+2020-06-18 12:20:24 INFO  restAPI:53 - transactionId:675
+2020-06-18 12:20:41 INFO  restAPI:65 - other service unreachable
+2020-06-18 12:21:18 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:21:18 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:21:18 INFO  restAPI:71 - Case:Valid user id and page (below minimum purchase)
+2020-06-18 12:22:17 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 12:22:17 INFO  restAPI:51 - Test Data: 
+2020-06-18 12:22:17 INFO  restAPI:52 - user id:1028
+2020-06-18 12:22:17 INFO  restAPI:53 - transactionId:676
+2020-06-18 12:22:27 INFO  restAPI:65 - [{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":3000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":1500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":2000,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":2500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000}]
+2020-06-18 12:22:54 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:22:54 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:22:54 INFO  restAPI:71 - Case:Undefined transaction id
+2020-06-18 12:23:19 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 12:23:19 INFO  restAPI:51 - Test Data: 
+2020-06-18 12:23:19 INFO  restAPI:52 - user id:1029
+2020-06-18 12:23:19 INFO  restAPI:53 - transactionId:9999
+2020-06-18 12:23:22 INFO  restAPI:65 - {"timestamp":"2020-06-18T05:23:21.887+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-18 12:23:22 INFO  restAPI:173 - {"timestamp":"2020-06-18T05:23:21.887+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-18 12:23:43 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 12:48:30 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 12:48:30 INFO  restAPI:70 - Case:Another user's transaction
+2020-06-18 12:49:35 INFO  restAPI:49 - Call Get Get History Completed API [Order Domain]
+2020-06-18 12:49:35 INFO  restAPI:50 - Test Data: 
+2020-06-18 12:49:35 INFO  restAPI:51 - user id:1032
+2020-06-18 12:49:35 INFO  restAPI:52 - transaction id:677
+2020-06-18 12:49:41 INFO  restAPI:64 - unknown transaction
+2020-06-18 12:50:17 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Cancel *****
+2020-06-18 12:50:17 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 12:50:17 INFO  restAPI:70 - Case:Transaction already completed
+2020-06-18 12:50:53 INFO  restAPI:49 - Call Get Get History Completed API [Order Domain]
+2020-06-18 12:50:53 INFO  restAPI:50 - Test Data: 
+2020-06-18 12:50:53 INFO  restAPI:51 - user id:1034
+2020-06-18 12:50:53 INFO  restAPI:52 - transaction id:678
+2020-06-18 12:50:57 INFO  restAPI:64 - can't cancel completed transaction
+2020-06-18 12:51:12 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Cancel *****
+2020-06-18 12:51:12 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 12:51:12 INFO  restAPI:70 - Case:Valid ID (with transaction)
+2020-06-18 12:51:46 INFO  restAPI:49 - Call Get Get History Completed API [Order Domain]
+2020-06-18 12:51:46 INFO  restAPI:50 - Test Data: 
+2020-06-18 12:51:46 INFO  restAPI:51 - user id:1035
+2020-06-18 12:51:46 INFO  restAPI:52 - transaction id:679
+2020-06-18 12:51:51 INFO  restAPI:64 - {"id":679,"method":"WALLET","phoneNumber":"081252930398","catalog":{"id":13,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":15000,"price":15000},"status":"CANCELED","createdAt":1592459500000,"updatedAt":1592459510000}
+2020-06-18 12:52:09 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Cancel *****
+2020-06-18 12:52:09 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 12:52:09 INFO  restAPI:70 - Case:Undefined transaction ID
+2020-06-18 12:52:35 INFO  restAPI:49 - Call Get Get History Completed API [Order Domain]
+2020-06-18 12:52:35 INFO  restAPI:50 - Test Data: 
+2020-06-18 12:52:35 INFO  restAPI:51 - user id:1036
+2020-06-18 12:52:35 INFO  restAPI:52 - transaction id:9999
+2020-06-18 12:52:40 INFO  restAPI:64 - unknown transaction
+2020-06-18 12:53:00 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Cancel *****
+2020-06-18 12:53:00 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 12:53:00 INFO  restAPI:70 - Case:Empty String user ID
+2020-06-18 12:53:37 INFO  restAPI:49 - Call Get Get History Completed API [Order Domain]
+2020-06-18 12:53:37 INFO  restAPI:50 - Test Data: 
+2020-06-18 12:53:37 INFO  restAPI:51 - user id:
+2020-06-18 12:53:37 INFO  restAPI:52 - transaction id:680
+2020-06-18 12:53:39 INFO  restAPI:64 - invalid request format
+2020-06-18 12:53:53 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Cancel *****
+2020-06-18 12:53:53 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 12:53:53 INFO  restAPI:70 - Case:Undefined user ID
+2020-06-18 12:54:28 INFO  restAPI:49 - Call Get Get History Completed API [Order Domain]
+2020-06-18 12:54:28 INFO  restAPI:50 - Test Data: 
+2020-06-18 12:54:28 INFO  restAPI:51 - user id:9999
+2020-06-18 12:54:28 INFO  restAPI:52 - transaction id:681
+2020-06-18 12:54:32 INFO  restAPI:64 - unknown user
+2020-06-18 12:54:52 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Cancel *****
+2020-06-18 12:54:52 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 12:54:52 INFO  restAPI:70 - Case:Empty String transaction ID
+2020-06-18 12:55:18 INFO  restAPI:49 - Call Get Get History Completed API [Order Domain]
+2020-06-18 12:55:18 INFO  restAPI:50 - Test Data: 
+2020-06-18 12:55:18 INFO  restAPI:51 - user id:1039
+2020-06-18 12:55:18 INFO  restAPI:52 - transaction id:
+2020-06-18 12:55:21 INFO  restAPI:64 - invalid request format
+2020-06-18 12:55:38 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Cancel *****
+2020-06-18 12:55:38 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 12:55:38 INFO  restAPI:70 - Case:Valid ID (no transaction)
+2020-06-18 12:56:03 INFO  restAPI:49 - Call Get Get History Completed API [Order Domain]
+2020-06-18 12:56:03 INFO  restAPI:50 - Test Data: 
+2020-06-18 12:56:03 INFO  restAPI:51 - user id:1040
+2020-06-18 12:56:03 INFO  restAPI:52 - transaction id:9999
+2020-06-18 12:56:08 INFO  restAPI:64 - unknown transaction
+2020-06-18 12:56:27 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Cancel *****
+2020-06-18 12:57:03 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 12:57:03 INFO  restAPI:70 - Case:Another user's transaction
+2020-06-18 12:58:15 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 12:58:15 INFO  restAPI:70 - Case:Empty String user ID
+2020-06-18 12:58:55 INFO  restAPI:49 - Call Get Get History Completed API [Order Domain]
+2020-06-18 12:58:55 INFO  restAPI:50 - Test Data: 
+2020-06-18 12:58:55 INFO  restAPI:51 - user id:
+2020-06-18 12:58:55 INFO  restAPI:52 - transaction id:682
+2020-06-18 12:58:58 INFO  restAPI:64 - invalid request format
+2020-06-18 12:59:13 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Cancel *****
+2020-06-18 12:59:13 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 12:59:13 INFO  restAPI:70 - Case:Valid ID (with transaction)
+2020-06-18 12:59:46 INFO  restAPI:49 - Call Get Get History Completed API [Order Domain]
+2020-06-18 12:59:46 INFO  restAPI:50 - Test Data: 
+2020-06-18 12:59:46 INFO  restAPI:51 - user id:1044
+2020-06-18 12:59:46 INFO  restAPI:52 - transaction id:683
+2020-06-18 12:59:51 INFO  restAPI:64 - {"id":683,"method":"WALLET","phoneNumber":"081252930398","catalog":{"id":13,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":15000,"price":15000},"status":"CANCELED","createdAt":1592459981000,"updatedAt":1592459990000}
+2020-06-18 13:00:10 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Cancel *****
+2020-06-18 13:00:10 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 13:00:10 INFO  restAPI:70 - Case:Valid ID (no transaction)
+2020-06-18 13:00:36 INFO  restAPI:49 - Call Get Get History Completed API [Order Domain]
+2020-06-18 13:00:36 INFO  restAPI:50 - Test Data: 
+2020-06-18 13:00:36 INFO  restAPI:51 - user id:1045
+2020-06-18 13:00:36 INFO  restAPI:52 - transaction id:9999
+2020-06-18 13:00:40 INFO  restAPI:64 - unknown transaction
+2020-06-18 13:01:01 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Cancel *****
+2020-06-18 13:01:01 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 13:01:01 INFO  restAPI:70 - Case:Another user's transaction
+2020-06-18 13:02:03 INFO  restAPI:49 - Call Get Get History Completed API [Order Domain]
+2020-06-18 13:02:03 INFO  restAPI:50 - Test Data: 
+2020-06-18 13:02:03 INFO  restAPI:51 - user id:1046
+2020-06-18 13:02:03 INFO  restAPI:52 - transaction id:684
+2020-06-18 13:02:07 INFO  restAPI:64 - unknown transaction
+2020-06-18 13:02:44 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Cancel *****
+2020-06-18 13:02:44 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 13:02:44 INFO  restAPI:70 - Case:Empty String transaction ID
+2020-06-18 13:03:08 INFO  restAPI:49 - Call Get Get History Completed API [Order Domain]
+2020-06-18 13:03:08 INFO  restAPI:50 - Test Data: 
+2020-06-18 13:03:08 INFO  restAPI:51 - user id:1048
+2020-06-18 13:03:08 INFO  restAPI:52 - transaction id:
+2020-06-18 13:03:10 INFO  restAPI:64 - invalid request format
+2020-06-18 13:03:25 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Cancel *****
+2020-06-18 13:03:25 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 13:03:25 INFO  restAPI:70 - Case:Undefined transaction ID
+2020-06-18 13:03:49 INFO  restAPI:49 - Call Get Get History Completed API [Order Domain]
+2020-06-18 13:03:49 INFO  restAPI:50 - Test Data: 
+2020-06-18 13:03:49 INFO  restAPI:51 - user id:1049
+2020-06-18 13:03:49 INFO  restAPI:52 - transaction id:9999
+2020-06-18 13:03:53 INFO  restAPI:64 - unknown transaction
+2020-06-18 13:04:15 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Cancel *****
+2020-06-18 13:04:15 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 13:04:15 INFO  restAPI:70 - Case:Transaction already completed
+2020-06-18 13:04:51 INFO  restAPI:49 - Call Get Get History Completed API [Order Domain]
+2020-06-18 13:04:51 INFO  restAPI:50 - Test Data: 
+2020-06-18 13:04:51 INFO  restAPI:51 - user id:1050
+2020-06-18 13:04:51 INFO  restAPI:52 - transaction id:685
+2020-06-18 13:04:55 INFO  restAPI:64 - can't cancel completed transaction
+2020-06-18 13:05:15 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Cancel *****
+2020-06-18 13:05:15 INFO  restAPI:69 - ***** Started TC_Remote_Service_Cancel *****
+2020-06-18 13:05:15 INFO  restAPI:70 - Case:Undefined user ID
+2020-06-18 13:05:47 INFO  restAPI:49 - Call Get Get History Completed API [Order Domain]
+2020-06-18 13:05:47 INFO  restAPI:50 - Test Data: 
+2020-06-18 13:05:47 INFO  restAPI:51 - user id:9999
+2020-06-18 13:05:47 INFO  restAPI:52 - transaction id:686
+2020-06-18 13:05:53 INFO  restAPI:64 - unknown user
+2020-06-18 13:06:12 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Cancel *****
+2020-06-18 13:19:32 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 13:19:32 INFO  restAPI:71 - Case:Empty string transaction id
+2020-06-18 13:20:01 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 13:20:01 INFO  restAPI:51 - Test Data: 
+2020-06-18 13:20:01 INFO  restAPI:52 - user id:1052
+2020-06-18 13:20:01 INFO  restAPI:53 - transactionId:
+2020-06-18 13:20:07 INFO  restAPI:65 - invalid request format
+2020-06-18 13:20:27 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 13:20:27 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 13:20:27 INFO  restAPI:71 - Case:Undefined user id
+2020-06-18 13:21:08 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 13:21:08 INFO  restAPI:51 - Test Data: 
+2020-06-18 13:21:08 INFO  restAPI:52 - user id:9999
+2020-06-18 13:21:08 INFO  restAPI:53 - transactionId:687
+2020-06-18 13:21:14 INFO  restAPI:65 - user not found
+2020-06-18 13:21:39 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 13:21:39 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 13:21:39 INFO  restAPI:71 - Case:Empty string user id
+2020-06-18 13:22:15 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 13:22:15 INFO  restAPI:51 - Test Data: 
+2020-06-18 13:22:15 INFO  restAPI:52 - user id:
+2020-06-18 13:22:15 INFO  restAPI:53 - transactionId:688
+2020-06-18 13:22:19 INFO  restAPI:65 - invalid request format
+2020-06-18 13:22:37 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 13:22:37 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 13:22:37 INFO  restAPI:71 - Case:Valid user id (meets minimum purchase)
+2020-06-18 13:23:19 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 13:23:19 INFO  restAPI:51 - Test Data: 
+2020-06-18 13:23:19 INFO  restAPI:52 - user id:1055
+2020-06-18 13:23:19 INFO  restAPI:53 - transactionId:689
+2020-06-18 13:23:30 INFO  restAPI:65 - []
+2020-06-18 13:23:55 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 13:23:55 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 13:23:55 INFO  restAPI:71 - Case:Another user's transaction
+2020-06-18 13:24:56 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 13:24:56 INFO  restAPI:51 - Test Data: 
+2020-06-18 13:24:56 INFO  restAPI:52 - user id:1056
+2020-06-18 13:24:56 INFO  restAPI:53 - transactionId:690
+2020-06-18 13:25:06 INFO  restAPI:65 - []
+2020-06-18 13:25:44 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 13:25:44 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 13:25:44 INFO  restAPI:71 - Case:Valid user id (below minimum purchase)
+2020-06-18 13:26:25 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 13:26:25 INFO  restAPI:51 - Test Data: 
+2020-06-18 13:26:25 INFO  restAPI:52 - user id:1058
+2020-06-18 13:26:25 INFO  restAPI:53 - transactionId:691
+2020-06-18 13:26:34 INFO  restAPI:65 - [{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","discount":0,"maxDeduction":0,"value":2500,"filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000}]
+2020-06-18 13:26:59 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 13:26:59 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-18 13:26:59 INFO  restAPI:71 - Case:Undefined transaction id
+2020-06-18 13:27:23 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-18 13:27:23 INFO  restAPI:51 - Test Data: 
+2020-06-18 13:27:23 INFO  restAPI:52 - user id:1059
+2020-06-18 13:27:23 INFO  restAPI:53 - transactionId:9999
+2020-06-18 13:27:32 INFO  restAPI:65 - invalid request format
+2020-06-18 13:27:52 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
