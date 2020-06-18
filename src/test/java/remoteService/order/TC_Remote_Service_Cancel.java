@@ -258,7 +258,6 @@ public class TC_Remote_Service_Cancel extends TestBase {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			
 		} else if (responseBody.equals("invalid request format")) {
 			// do some code
 			

@@ -15,23 +15,24 @@
 		</classes>
 	</test> -->
 	
-	<test name="DanaPulsaServiceTestPromotion" group-by-instances="true">
+	<!-- <test name="DanaPulsaServiceTestPromotion" group-by-instances="true">
 		<classes>
-			<!-- <class name = "remoteService.promotion.Factory_Remote_Service_GetVoucherPromotion"></class>
+ 			<class name = "remoteService.promotion.Factory_Remote_Service_GetVoucherPromotion"></class>
 			<class name = "remoteService.promotion.Factory_Remote_Service_GetMyVoucher"></class>
-			<class name = "remoteService.promotion.Factory_Remote_Service_GetVoucherDetail"></class> -->
+			<class name = "remoteService.promotion.Factory_Remote_Service_GetVoucherDetail"></class>
 			<class name = "remoteService.promotion.Factory_Remote_Service_GetVoucherRecommendation"></class>
-		</classes>
-	</test>
-	
-	<!-- <test name="DanaPulsaTestOrder" group-by-instances="true">
-		<classes>
-			<class name = "testCases.order.Factory_Mobile_Recharge_Catalog"></class>
-			<class name = "testCases.order.Factory_Recent_Phone_Number"></class>
-			<class name = "testCases.order.Factory_Create_Order"></class>
-			<class name = "testCases.order.Factory_Cancel_Order"></class>
+			<class name = "remoteService.promotion.Factory_Remote_Service_Redeem"></class>
 		</classes>
 	</test> -->
+	
+	<test name="DanaPulsaTestOrder" group-by-instances="true">
+		<classes>
+			<!-- <class name = "testCases.order.Factory_Mobile_Recharge_Catalog"></class>
+			<class name = "testCases.order.Factory_Recent_Phone_Number"></class> -->
+			<class name = "testCases.order.Factory_Create_Order"></class>
+			<!-- <class name = "testCases.order.Factory_Cancel_Order"></class> -->
+		</classes>
+	</test>
 	
 	<!-- <test name="DanaPulsaTestPayment" group-by-instances="true">
 		<classes>

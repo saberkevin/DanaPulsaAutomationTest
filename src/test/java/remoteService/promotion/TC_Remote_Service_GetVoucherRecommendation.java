@@ -121,10 +121,12 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 			transactionId = Long.toString(transaction.getId());
 			
 			// insert voucher into database
-			createUserVoucher(user.getId(), 4, 2);
+			if (!testCase.equals("Valid user id (have no vouchers)")) {
+				createUserVoucher(user.getId(), 4, 2);
+			}
 		}
 		
-		if (testCase.equals("Another user's transaction")) {			
+		if (testCase.equals("Another user's transaction")) {		
 			// initialize user
 			anotherUser.setName("Zanuar 2");
 			anotherUser.setEmail("triromadon2@gmail.com");
@@ -178,7 +180,9 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 		Assert.assertTrue(responseBody.contains(result), responseBody);
 		
 		if (!responseBody.contains("invalid request format") 
-				&& !responseBody.equals("user not found")) {
+				&& !responseBody.equals("user not found")
+				&& !responseBody.equals("transaction not found or expired")
+				&& !responseBody.equals("[]")) {
 			List<Map<String, String>> vouchers = response.jsonPath().get();
 
 			Assert.assertTrue(vouchers.size() <= 10, "maximum vouchers is 10");
@@ -200,7 +204,7 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 	public void checkDB() {
 		String responseBody = response.getBody().asString();
 
-		if (responseBody.equals("[]")) {
+		if (responseBody.equals("transaction not found or expired") || responseBody.equals("[]")) {
 			try {
 				Connection conn = getConnectionPromotion();
 				String queryString = "SELECT "

@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-DANA_Pulsa_Suite">
-              <span class="suite-name border-passed">DANA Pulsa Suite</span>
+              <span class="suite-name border-failed">DANA Pulsa Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,70 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">21 methods,   21 passed</span>
+                    <span class="method-stats">42 methods, 3 failed,  6 skipped,  33 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-DANA_Pulsa_Suite" class="hide-methods failed suite-DANA_Pulsa_Suite"> (hide)</a> <!-- hide-methods failed suite-DANA_Pulsa_Suite -->
+                      <a href="#" panel-name="suite-DANA_Pulsa_Suite" class="show-methods failed suite-DANA_Pulsa_Suite"> (show)</a> <!-- show-methods failed suite-DANA_Pulsa_Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-DANA_Pulsa_Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="testCreateOrder">testCreateOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="testCreateOrder">testCreateOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="testCreateOrder">testCreateOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-DANA_Pulsa_Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-DANA_Pulsa_Suite" class="hide-methods skipped suite-DANA_Pulsa_Suite"> (hide)</a> <!-- hide-methods skipped suite-DANA_Pulsa_Suite -->
+                      <a href="#" panel-name="suite-DANA_Pulsa_Suite" class="show-methods skipped suite-DANA_Pulsa_Suite"> (show)</a> <!-- show-methods skipped suite-DANA_Pulsa_Suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-DANA_Pulsa_Suite">
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-DANA_Pulsa_Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,107 +165,167 @@
                     <div class="method-list-content passed suite-DANA_Pulsa_Suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkDB">checkDB</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="testVoucherRecommendation">testVoucherRecommendation</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="testVoucherRecommendation">testVoucherRecommendation</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="testVoucherRecommendation">testVoucherRecommendation</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="testVoucherRecommendation">testVoucherRecommendation</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="testVoucherRecommendation">testVoucherRecommendation</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="testVoucherRecommendation">testVoucherRecommendation</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation" hash-for-method="testVoucherRecommendation">testVoucherRecommendation</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="checkData">checkData</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="testCreateOrder">testCreateOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="testCreateOrder">testCreateOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="testCreateOrder">testCreateOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="testCreateOrder">testCreateOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="testCreateOrder">testCreateOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="testCreateOrder">testCreateOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="testCreateOrder">testCreateOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="testCreateOrder">testCreateOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="testCreateOrder">testCreateOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="testCreateOrder">testCreateOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DANA_Pulsa_Suite" title="testCases.order.TC_Create_Order" hash-for-method="testCreateOrder">testCreateOrder</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-DANA_Pulsa_Suite -->
@@ -217,10 +340,119 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-DANA_Pulsa_Suite" class="panel DANA_Pulsa_Suite">
+          <div class="suite-DANA_Pulsa_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">testCases.order.TC_Create_Order</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCreateOrder">
+                  </a> <!-- testCreateOrder -->
+                  <span class="method-name">testCreateOrder</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+	at testCases.order.TC_Create_Order.testCreateOrder(TC_Create_Order.java:74)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCreateOrder">
+                  </a> <!-- testCreateOrder -->
+                  <span class="method-name">testCreateOrder</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+	at testCases.order.TC_Create_Order.testCreateOrder(TC_Create_Order.java:74)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCreateOrder">
+                  </a> <!-- testCreateOrder -->
+                  <span class="method-name">testCreateOrder</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [true] but found [false]
+	at testCases.order.TC_Create_Order.testCreateOrder(TC_Create_Order.java:74)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-DANA_Pulsa_Suite-class-failed -->
+          <div class="suite-DANA_Pulsa_Suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">testCases.order.TC_Create_Order</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkDB">
+                  </a> <!-- checkDB -->
+                  <span class="method-name">checkDB</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TC_Create_Order.checkDB()[pri:0, instance:testCases.order.TC_Create_Order@75437611] depends on not successfully finished methods
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkDB">
+                  </a> <!-- checkDB -->
+                  <span class="method-name">checkDB</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TC_Create_Order.checkDB()[pri:0, instance:testCases.order.TC_Create_Order@7bba5817] depends on not successfully finished methods
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkDB">
+                  </a> <!-- checkDB -->
+                  <span class="method-name">checkDB</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TC_Create_Order.checkDB()[pri:0, instance:testCases.order.TC_Create_Order@cb0755b] depends on not successfully finished methods
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkData">
+                  </a> <!-- checkData -->
+                  <span class="method-name">checkData</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TC_Create_Order.checkData()[pri:0, instance:testCases.order.TC_Create_Order@7bba5817] depends on not successfully finished methods
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkData">
+                  </a> <!-- checkData -->
+                  <span class="method-name">checkData</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TC_Create_Order.checkData()[pri:0, instance:testCases.order.TC_Create_Order@cb0755b] depends on not successfully finished methods
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkData">
+                  </a> <!-- checkData -->
+                  <span class="method-name">checkData</span>
+                  <div class="stack-trace">java.lang.Throwable: Method TC_Create_Order.checkData()[pri:0, instance:testCases.order.TC_Create_Order@75437611] depends on not successfully finished methods
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-DANA_Pulsa_Suite-class-skipped -->
           <div class="suite-DANA_Pulsa_Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation</span>
+              <span class="class-name">testCases.order.TC_Create_Order</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -274,9 +506,30 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="checkData">
-                  </a> <!-- checkData -->
-                  <span class="method-name">checkData</span>
+                  <a name="checkDB">
+                  </a> <!-- checkDB -->
+                  <span class="method-name">checkDB</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkDB">
+                  </a> <!-- checkDB -->
+                  <span class="method-name">checkDB</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkDB">
+                  </a> <!-- checkDB -->
+                  <span class="method-name">checkDB</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkDB">
+                  </a> <!-- checkDB -->
+                  <span class="method-name">checkDB</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -323,51 +576,114 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testVoucherRecommendation">
-                  </a> <!-- testVoucherRecommendation -->
-                  <span class="method-name">testVoucherRecommendation</span>
+                  <a name="checkData">
+                  </a> <!-- checkData -->
+                  <span class="method-name">checkData</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testVoucherRecommendation">
-                  </a> <!-- testVoucherRecommendation -->
-                  <span class="method-name">testVoucherRecommendation</span>
+                  <a name="checkData">
+                  </a> <!-- checkData -->
+                  <span class="method-name">checkData</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testVoucherRecommendation">
-                  </a> <!-- testVoucherRecommendation -->
-                  <span class="method-name">testVoucherRecommendation</span>
+                  <a name="checkData">
+                  </a> <!-- checkData -->
+                  <span class="method-name">checkData</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testVoucherRecommendation">
-                  </a> <!-- testVoucherRecommendation -->
-                  <span class="method-name">testVoucherRecommendation</span>
+                  <a name="checkData">
+                  </a> <!-- checkData -->
+                  <span class="method-name">checkData</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testVoucherRecommendation">
-                  </a> <!-- testVoucherRecommendation -->
-                  <span class="method-name">testVoucherRecommendation</span>
+                  <a name="checkData">
+                  </a> <!-- checkData -->
+                  <span class="method-name">checkData</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testVoucherRecommendation">
-                  </a> <!-- testVoucherRecommendation -->
-                  <span class="method-name">testVoucherRecommendation</span>
+                  <a name="testCreateOrder">
+                  </a> <!-- testCreateOrder -->
+                  <span class="method-name">testCreateOrder</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="testVoucherRecommendation">
-                  </a> <!-- testVoucherRecommendation -->
-                  <span class="method-name">testVoucherRecommendation</span>
+                  <a name="testCreateOrder">
+                  </a> <!-- testCreateOrder -->
+                  <span class="method-name">testCreateOrder</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCreateOrder">
+                  </a> <!-- testCreateOrder -->
+                  <span class="method-name">testCreateOrder</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCreateOrder">
+                  </a> <!-- testCreateOrder -->
+                  <span class="method-name">testCreateOrder</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCreateOrder">
+                  </a> <!-- testCreateOrder -->
+                  <span class="method-name">testCreateOrder</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCreateOrder">
+                  </a> <!-- testCreateOrder -->
+                  <span class="method-name">testCreateOrder</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCreateOrder">
+                  </a> <!-- testCreateOrder -->
+                  <span class="method-name">testCreateOrder</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCreateOrder">
+                  </a> <!-- testCreateOrder -->
+                  <span class="method-name">testCreateOrder</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCreateOrder">
+                  </a> <!-- testCreateOrder -->
+                  <span class="method-name">testCreateOrder</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCreateOrder">
+                  </a> <!-- testCreateOrder -->
+                  <span class="method-name">testCreateOrder</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCreateOrder">
+                  </a> <!-- testCreateOrder -->
+                  <span class="method-name">testCreateOrder</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -382,11 +698,11 @@
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;DANA Pulsa Suite&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;DanaPulsaServiceTestPromotion&quot; group-by-instances=&quot;true&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;DanaPulsaTestOrder&quot; group-by-instances=&quot;true&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;remoteService.promotion.Factory_Remote_Service_GetVoucherRecommendation&quot;/&gt;
+      &lt;class name=&quot;testCases.order.Factory_Create_Order&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- DanaPulsaServiceTestPromotion --&gt;
+  &lt;/test&gt; &lt;!-- DanaPulsaTestOrder --&gt;
 &lt;/suite&gt; &lt;!-- DANA Pulsa Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -398,7 +714,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">DanaPulsaServiceTestPromotion (1 class)</span>
+                <span class="test-name">DanaPulsaTestOrder (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -424,96 +740,180 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(21);
+data.addRows(42);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testVoucherRecommendation')
-data.setCell(0, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(0, 3, 10872);
+data.setCell(0, 1, 'testCreateOrder')
+data.setCell(0, 2, 'testCases.order.TC_Create_Order')
+data.setCell(0, 3, 30849);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testVoucherRecommendation')
-data.setCell(1, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(1, 3, 9428);
+data.setCell(1, 1, 'testCreateOrder')
+data.setCell(1, 2, 'testCases.order.TC_Create_Order')
+data.setCell(1, 3, 30831);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'testVoucherRecommendation')
-data.setCell(2, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(2, 3, 9000);
+data.setCell(2, 1, 'checkDB')
+data.setCell(2, 2, 'testCases.order.TC_Create_Order')
+data.setCell(2, 3, 15974);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'testVoucherRecommendation')
-data.setCell(3, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(3, 3, 8941);
+data.setCell(3, 1, 'testCreateOrder')
+data.setCell(3, 2, 'testCases.order.TC_Create_Order')
+data.setCell(3, 3, 13920);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'testVoucherRecommendation')
-data.setCell(4, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(4, 3, 6554);
+data.setCell(4, 1, 'checkDB')
+data.setCell(4, 2, 'testCases.order.TC_Create_Order')
+data.setCell(4, 3, 10213);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'testVoucherRecommendation')
-data.setCell(5, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(5, 3, 5661);
+data.setCell(5, 1, 'checkDB')
+data.setCell(5, 2, 'testCases.order.TC_Create_Order')
+data.setCell(5, 3, 5025);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'checkDB')
-data.setCell(6, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(6, 3, 5380);
+data.setCell(6, 1, 'testCreateOrder')
+data.setCell(6, 2, 'testCases.order.TC_Create_Order')
+data.setCell(6, 3, 4855);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'checkDB')
-data.setCell(7, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(7, 3, 5253);
+data.setCell(7, 1, 'testCreateOrder')
+data.setCell(7, 2, 'testCases.order.TC_Create_Order')
+data.setCell(7, 3, 4765);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'checkDB')
-data.setCell(8, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(8, 3, 4722);
+data.setCell(8, 1, 'testCreateOrder')
+data.setCell(8, 2, 'testCases.order.TC_Create_Order')
+data.setCell(8, 3, 4740);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'testVoucherRecommendation')
-data.setCell(9, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(9, 3, 4442);
+data.setCell(9, 1, 'testCreateOrder')
+data.setCell(9, 2, 'testCases.order.TC_Create_Order')
+data.setCell(9, 3, 4687);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'checkDB')
-data.setCell(10, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(10, 3, 4254);
+data.setCell(10, 1, 'testCreateOrder')
+data.setCell(10, 2, 'testCases.order.TC_Create_Order')
+data.setCell(10, 3, 4604);
 data.setCell(11, 0, 11)
-data.setCell(11, 1, 'checkData')
-data.setCell(11, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(11, 3, 174);
+data.setCell(11, 1, 'testCreateOrder')
+data.setCell(11, 2, 'testCases.order.TC_Create_Order')
+data.setCell(11, 3, 4495);
 data.setCell(12, 0, 12)
-data.setCell(12, 1, 'checkData')
-data.setCell(12, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(12, 3, 15);
+data.setCell(12, 1, 'testCreateOrder')
+data.setCell(12, 2, 'testCases.order.TC_Create_Order')
+data.setCell(12, 3, 4290);
 data.setCell(13, 0, 13)
-data.setCell(13, 1, 'checkData')
-data.setCell(13, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(13, 3, 5);
+data.setCell(13, 1, 'testCreateOrder')
+data.setCell(13, 2, 'testCases.order.TC_Create_Order')
+data.setCell(13, 3, 1202);
 data.setCell(14, 0, 14)
-data.setCell(14, 1, 'checkDB')
-data.setCell(14, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(14, 3, 3);
+data.setCell(14, 1, 'testCreateOrder')
+data.setCell(14, 2, 'testCases.order.TC_Create_Order')
+data.setCell(14, 3, 1133);
 data.setCell(15, 0, 15)
-data.setCell(15, 1, 'checkData')
-data.setCell(15, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(15, 3, 3);
+data.setCell(15, 1, 'testCreateOrder')
+data.setCell(15, 2, 'testCases.order.TC_Create_Order')
+data.setCell(15, 3, 1054);
 data.setCell(16, 0, 16)
-data.setCell(16, 1, 'checkData')
-data.setCell(16, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(16, 3, 2);
+data.setCell(16, 1, 'testCreateOrder')
+data.setCell(16, 2, 'testCases.order.TC_Create_Order')
+data.setCell(16, 3, 851);
 data.setCell(17, 0, 17)
-data.setCell(17, 1, 'checkDB')
-data.setCell(17, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(17, 3, 1);
+data.setCell(17, 1, 'checkData')
+data.setCell(17, 2, 'testCases.order.TC_Create_Order')
+data.setCell(17, 3, 78);
 data.setCell(18, 0, 18)
 data.setCell(18, 1, 'checkData')
-data.setCell(18, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(18, 3, 1);
+data.setCell(18, 2, 'testCases.order.TC_Create_Order')
+data.setCell(18, 3, 7);
 data.setCell(19, 0, 19)
-data.setCell(19, 1, 'checkDB')
-data.setCell(19, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(19, 3, 1);
+data.setCell(19, 1, 'checkData')
+data.setCell(19, 2, 'testCases.order.TC_Create_Order')
+data.setCell(19, 3, 2);
 data.setCell(20, 0, 20)
 data.setCell(20, 1, 'checkData')
-data.setCell(20, 2, 'remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation')
-data.setCell(20, 3, 0);
+data.setCell(20, 2, 'testCases.order.TC_Create_Order')
+data.setCell(20, 3, 2);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'checkDB')
+data.setCell(21, 2, 'testCases.order.TC_Create_Order')
+data.setCell(21, 3, 1);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'checkData')
+data.setCell(22, 2, 'testCases.order.TC_Create_Order')
+data.setCell(22, 3, 1);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'checkDB')
+data.setCell(23, 2, 'testCases.order.TC_Create_Order')
+data.setCell(23, 3, 1);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'checkData')
+data.setCell(24, 2, 'testCases.order.TC_Create_Order')
+data.setCell(24, 3, 1);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'checkDB')
+data.setCell(25, 2, 'testCases.order.TC_Create_Order')
+data.setCell(25, 3, 1);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'checkDB')
+data.setCell(26, 2, 'testCases.order.TC_Create_Order')
+data.setCell(26, 3, 1);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'checkData')
+data.setCell(27, 2, 'testCases.order.TC_Create_Order')
+data.setCell(27, 3, 1);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'checkData')
+data.setCell(28, 2, 'testCases.order.TC_Create_Order')
+data.setCell(28, 3, 1);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'checkData')
+data.setCell(29, 2, 'testCases.order.TC_Create_Order')
+data.setCell(29, 3, 1);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'checkData')
+data.setCell(30, 2, 'testCases.order.TC_Create_Order')
+data.setCell(30, 3, 1);
+data.setCell(31, 0, 31)
+data.setCell(31, 1, 'checkData')
+data.setCell(31, 2, 'testCases.order.TC_Create_Order')
+data.setCell(31, 3, 0);
+data.setCell(32, 0, 32)
+data.setCell(32, 1, 'checkDB')
+data.setCell(32, 2, 'testCases.order.TC_Create_Order')
+data.setCell(32, 3, 0);
+data.setCell(33, 0, 33)
+data.setCell(33, 1, 'checkDB')
+data.setCell(33, 2, 'testCases.order.TC_Create_Order')
+data.setCell(33, 3, 0);
+data.setCell(34, 0, 34)
+data.setCell(34, 1, 'checkDB')
+data.setCell(34, 2, 'testCases.order.TC_Create_Order')
+data.setCell(34, 3, 0);
+data.setCell(35, 0, 35)
+data.setCell(35, 1, 'checkDB')
+data.setCell(35, 2, 'testCases.order.TC_Create_Order')
+data.setCell(35, 3, 0);
+data.setCell(36, 0, 36)
+data.setCell(36, 1, 'checkDB')
+data.setCell(36, 2, 'testCases.order.TC_Create_Order')
+data.setCell(36, 3, 0);
+data.setCell(37, 0, 37)
+data.setCell(37, 1, 'checkData')
+data.setCell(37, 2, 'testCases.order.TC_Create_Order')
+data.setCell(37, 3, 0);
+data.setCell(38, 0, 38)
+data.setCell(38, 1, 'checkData')
+data.setCell(38, 2, 'testCases.order.TC_Create_Order')
+data.setCell(38, 3, 0);
+data.setCell(39, 0, 39)
+data.setCell(39, 1, 'checkData')
+data.setCell(39, 2, 'testCases.order.TC_Create_Order')
+data.setCell(39, 3, 0);
+data.setCell(40, 0, 40)
+data.setCell(40, 1, 'checkDB')
+data.setCell(40, 2, 'testCases.order.TC_Create_Order')
+data.setCell(40, 3, 0);
+data.setCell(41, 0, 41)
+data.setCell(41, 1, 'checkDB')
+data.setCell(41, 2, 'testCases.order.TC_Create_Order')
+data.setCell(41, 3, 0);
 window.suiteTableData['DANA_Pulsa_Suite']= { tableData: data, tableDiv: 'times-div-DANA_Pulsa_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
               <div id="times-div-DANA_Pulsa_Suite">
               </div> <!-- times-div-DANA_Pulsa_Suite -->
             </div> <!-- times-div -->
@@ -539,174 +939,324 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">remoteService.promotion.TC_Remote_Service_GetVoucherRecommendation</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">testCases.order.TC_Create_Order</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">52 ms</span>
+                <span class="method-start">51 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">testVoucherRecommendation</span>
-                <span class="method-start">28878 ms</span>
+                <span class="method-name">testCreateOrder</span>
+                <span class="method-start">34686 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkData</span>
-                <span class="method-start">34543 ms</span>
+                <span class="method-start">39431 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkDB</span>
-                <span class="method-start">34550 ms</span>
+                <span class="method-start">39435 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">34554 ms</span>
+                <span class="method-start">55410 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
-                <span class="method-start">55011 ms</span>
+                <span class="method-start">75050 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">55014 ms</span>
+                <span class="method-start">75054 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">testVoucherRecommendation</span>
-                <span class="method-start">95677 ms</span>
+                <span class="method-name">testCreateOrder</span>
+                <span class="method-start">101115 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkData</span>
-                <span class="method-start">102234 ms</span>
+                <span class="method-start">105612 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkDB</span>
-                <span class="method-start">102237 ms</span>
+                <span class="method-start">105614 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">107618 ms</span>
+                <span class="method-start">115828 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
-                <span class="method-start">126580 ms</span>
+                <span class="method-start">134668 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">126581 ms</span>
+                <span class="method-start">134670 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">testVoucherRecommendation</span>
-                <span class="method-start">162611 ms</span>
+                <span class="method-name">testCreateOrder</span>
+                <span class="method-start">160675 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkData</span>
-                <span class="method-start">167055 ms</span>
+                <span class="method-start">161879 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkDB</span>
-                <span class="method-start">167058 ms</span>
+                <span class="method-start">161881 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">167060 ms</span>
+                <span class="method-start">161882 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
-                <span class="method-start">185178 ms</span>
+                <span class="method-start">179747 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">185180 ms</span>
+                <span class="method-start">179748 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">testVoucherRecommendation</span>
-                <span class="method-start">227161 ms</span>
+                <span class="method-name">testCreateOrder</span>
+                <span class="method-start">179749 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkData</span>
-                <span class="method-start">238035 ms</span>
+                <span class="method-start">180883 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkDB</span>
-                <span class="method-start">238210 ms</span>
+                <span class="method-start">180885 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">243464 ms</span>
+                <span class="method-start">180886 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
-                <span class="method-start">263106 ms</span>
+                <span class="method-start">186480 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">263107 ms</span>
+                <span class="method-start">186481 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">testVoucherRecommendation</span>
-                <span class="method-start">324388 ms</span>
+                <span class="method-name">testCreateOrder</span>
+                <span class="method-start">212565 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkData</span>
-                <span class="method-start">333817 ms</span>
+                <span class="method-start">217253 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkDB</span>
-                <span class="method-start">333821 ms</span>
+                <span class="method-start">217264 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">338075 ms</span>
+                <span class="method-start">217278 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
-                <span class="method-start">371753 ms</span>
+                <span class="method-start">236354 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">371755 ms</span>
+                <span class="method-start">236356 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">testVoucherRecommendation</span>
-                <span class="method-start">412876 ms</span>
+                <span class="method-name">testCreateOrder</span>
+                <span class="method-start">236357 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkData</span>
-                <span class="method-start">421819 ms</span>
+                <span class="method-start">237413 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkDB</span>
-                <span class="method-start">421835 ms</span>
+                <span class="method-start">237414 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">426558 ms</span>
+                <span class="method-start">237418 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-class before">
                 <span class="method-name">setup</span>
-                <span class="method-start">446627 ms</span>
+                <span class="method-start">242800 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">446629 ms</span>
+                <span class="method-start">242802 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
-                <span class="method-name">testVoucherRecommendation</span>
-                <span class="method-start">470668 ms</span>
+                <span class="method-name">testCreateOrder</span>
+                <span class="method-start">270037 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkData</span>
-                <span class="method-start">479670 ms</span>
+                <span class="method-start">274328 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">checkDB</span>
-                <span class="method-start">479672 ms</span>
+                <span class="method-start">274330 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">479673 ms</span>
+                <span class="method-start">274333 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class before">
+                <span class="method-name">setup</span>
+                <span class="method-start">293614 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">293616 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">testCreateOrder</span>
+                <span class="method-start">319935 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkData</span>
+                <span class="method-start">324540 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkDB</span>
+                <span class="method-start">324544 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">324545 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class before">
+                <span class="method-name">setup</span>
+                <span class="method-start">344476 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">344478 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">testCreateOrder</span>
+                <span class="method-start">372031 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkData</span>
+                <span class="method-start">376887 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkDB</span>
+                <span class="method-start">376966 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">381993 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class before">
+                <span class="method-name">setup</span>
+                <span class="method-start">401319 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">401321 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">testCreateOrder</span>
+                <span class="method-start">428144 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkData</span>
+                <span class="method-start">432910 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkDB</span>
+                <span class="method-start">432912 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">432913 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class before">
+                <span class="method-name">setup</span>
+                <span class="method-start">453101 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">453102 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">testCreateOrder</span>
+                <span class="method-start">479253 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkData</span>
+                <span class="method-start">480105 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkDB</span>
+                <span class="method-start">480108 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">480109 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class before">
+                <span class="method-name">setup</span>
+                <span class="method-start">498928 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">498931 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testCreateOrder</span>
+                <span class="method-start">525173 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">539101 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class before">
+                <span class="method-name">setup</span>
+                <span class="method-start">554207 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">554209 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testCreateOrder</span>
+                <span class="method-start">576442 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">607299 ms</span>
+              </div> <!-- configuration-class after -->
+              <div class="configuration-class before">
+                <span class="method-name">setup</span>
+                <span class="method-start">622197 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="configuration-class before">
+                <span class="method-name">beforeClass</span>
+                <span class="method-start">622200 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testCreateOrder</span>
+                <span class="method-start">643061 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-class after">
+                <span class="method-name">afterClass</span>
+                <span class="method-start">673898 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

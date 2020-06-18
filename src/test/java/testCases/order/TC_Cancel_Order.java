@@ -185,7 +185,7 @@ public class TC_Cancel_Order extends TestBase {
 			Assert.assertNull(response.getBody().jsonPath().get("voucher"));
 			Assert.assertEquals(response.getBody().jsonPath().get("status"), "CANCELED");
 			Assert.assertNotNull(response.getBody().jsonPath().get("createdAt"));
-			Assert.assertNull(response.getBody().jsonPath().get("updatedAt"));
+			Assert.assertNotNull(response.getBody().jsonPath().get("updatedAt"));
 		}
 	}
 	
@@ -194,8 +194,29 @@ public class TC_Cancel_Order extends TestBase {
 		int statusCode = response.getStatusCode();
 		
 		if (statusCode == 400) {
-			// do some code
-			
+			if (response.getBody().asString().equals("can't cancel completed transaction")) {
+				try {
+					Connection conn = getConnectionOrder();
+					String queryString = "SELECT * FROM transaction WHERE id = ? AND userId = ?";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setLong(1, Long.parseLong(transactionId));
+					ps.setLong(2, user.getId());
+					
+					ResultSet rs = ps.executeQuery();
+					
+					if (!rs.next()) {
+						Assert.assertTrue(false, "no transaction found in database");
+					}
+					do {
+						Assert.assertEquals("1", rs.getString("statusId"));
+					} while(rs.next());
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
 		} else if (statusCode == 404) {
 			if (response.getBody().asString().equals("unknown transaction")) {
 				try {

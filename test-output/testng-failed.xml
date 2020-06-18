@@ -1,39 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [DANA Pulsa Suite]">
-  <test thread-count="5" name="DanaPulsaServiceTestOrder(failed)">
+  <test thread-count="5" name="DanaPulsaTestOrder(failed)">
     <classes>
-      <class name="remoteService.order.TC_Remote_Service_Cancel">
+      <class name="testCases.order.TC_Create_Order">
         <methods>
-          <include name="testCancel"/>
-          <include name="testCancel"/>
-          <include name="testCancel"/>
-          <include name="testCancel"/>
-          <include name="testCancel"/>
-          <include name="testCancel"/>
-          <include name="testCancel"/>
-          <include name="testCancel"/>
+          <include name="testCreateOrder"/>
+          <include name="testCreateOrder"/>
+          <include name="testCreateOrder"/>
+          <include name="checkData"/>
+          <include name="checkDB"/>
+          <include name="checkData"/>
+          <include name="checkDB"/>
+          <include name="checkData"/>
+          <include name="checkDB"/>
           <include name="beforeClass"/>
-          <include name="afterClass"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
           <include name="setup"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
+          <include name="afterClass"/>
         </methods>
-      </class> <!-- remoteService.order.TC_Remote_Service_Cancel -->
+      </class> <!-- testCases.order.TC_Create_Order -->
     </classes>
-  </test> <!-- DanaPulsaServiceTestOrder(failed) -->
+  </test> <!-- DanaPulsaTestOrder(failed) -->
 </suite> <!-- Failed suite [DANA Pulsa Suite] -->
