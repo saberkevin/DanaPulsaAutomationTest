@@ -48,7 +48,7 @@ public class TC_Integration_VoucherDetails extends TestBase {
 		
 		// register new user
 		register(user.getName(), user.getEmail(), user.getUsername(), Integer.toString(user.getPin()));
-		checkStatusCode("200");
+		checkStatusCode("201");
 		
 		// login to system
 		login("62" + user.getUsername().substring(1));

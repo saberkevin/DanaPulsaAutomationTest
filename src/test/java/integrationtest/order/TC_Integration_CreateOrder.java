@@ -48,7 +48,7 @@ public class TC_Integration_CreateOrder extends TestBase {
 		
 		// register new user
 		register(user.getName(), user.getEmail(), user.getUsername(), Integer.toString(user.getPin()));
-		checkStatusCode("200");
+		checkStatusCode("201");
 		
 		// login to system
 		login("62" + user.getUsername().substring(1));
@@ -61,7 +61,7 @@ public class TC_Integration_CreateOrder extends TestBase {
 		user.setSessionId(response.getCookie("JSESSIONID"));
 		
 		// get catalog
-		getCatalog(user.getSessionId(), user.getUsername().substring(0,6));
+		getCatalog(user.getSessionId(), user.getUsername().substring(0,5));
 		checkStatusCode("200");
 	}
 	

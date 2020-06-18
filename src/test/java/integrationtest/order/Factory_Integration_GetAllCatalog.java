@@ -1,5 +1,20 @@
 package integrationtest.order;
 
-public class Factory_Integration_GetAllCatalog {
+import java.io.IOException;
 
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Factory;
+
+import base.TestBase;
+
+public class Factory_Integration_GetAllCatalog extends TestBase {
+	@Factory(dataProvider="dp")
+	public Object[] createInstances(String testCase, String phonePrefix, String result) {
+		return new Object[] {new TC_Integration_GetAllCatalog(testCase, phonePrefix, result)};
+	}
+	
+	@DataProvider(name="dp")
+	public String[][] dataProvider() throws IOException {
+		return getExcelData("../DanaPulsaAutomationTest/src/test/java/integrationtest/order/OrderIntegrationTestData.xlsx", "Get ALl Catalog");
+	}
 }

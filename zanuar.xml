@@ -25,14 +25,14 @@
 		</classes>
 	</test> -->
 	
-	<test name="DanaPulsaTestOrder" group-by-instances="true">
+	<!-- <test name="DanaPulsaTestOrder" group-by-instances="true">
 		<classes>
-		 	<!-- <class name = "testCases.order.Factory_Mobile_Recharge_Catalog"></class>
-			<class name = "testCases.order.Factory_Recent_Phone_Number"></class> -->
+		 	<class name = "testCases.order.Factory_Mobile_Recharge_Catalog"></class>
+			<class name = "testCases.order.Factory_Recent_Phone_Number"></class>
 			<class name = "testCases.order.Factory_Create_Order"></class>
-			<!-- <class name = "testCases.order.Factory_Cancel_Order"></class> -->
+			<class name = "testCases.order.Factory_Cancel_Order"></class>
 		</classes>
-	</test>
+	</test> -->
 	
 	<!-- <test name="DanaPulsaTestPayment" group-by-instances="true">
 		<classes>
@@ -48,14 +48,14 @@
 		</classes>
 	</test> -->
 	
-	<!-- <test name="DanaPulsaTestIntegrationOrder" group-by-instances="true">
+	<test name="DanaPulsaTestIntegrationOrder" group-by-instances="true">
 		<classes>
-			<class name = "integrationtest.voucher.Factory_Integration_GetRecentNumbers"></class>
-			<class name = "integrationtest.voucher.Factory_Integration_GetAllCatalog"></class>
-			<class name = "integrationtest.voucher.Factory_Integration_CreateOrder"></class>
-			<class name = "integrationtest.voucher.Factory_Integration_CancelOrder"></class>
+			<!-- <class name = "integrationtest.order.Factory_Integration_GetRecentNumbers"></class>
+			<class name = "integrationtest.order.Factory_Integration_GetAllCatalog"></class> -->
+			<class name = "integrationtest.order.Factory_Integration_CreateOrder"></class>
+			<!-- <class name = "integrationtest.order.Factory_Integration_CancelOrder"></class> -->
 		</classes>
-	</test> -->
+	</test>
 	
 	<!-- <test name="DanaPulsaTestIntegrationPayment" group-by-instances="true">
 		<classes>
