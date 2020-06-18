@@ -65,12 +65,14 @@ public class TC_Integration_CancelOrder extends TestBase {
 		// get catalog TELKOMSEL 15K
 		getCatalog(user.getSessionId(), user.getUsername().substring(0,6));
 		checkStatusCode("200");
+		user.setSessionId(response.getCookie("JSESSIONID"));
 		List<Map<String, String>> vouchers = response.getBody().jsonPath().getList("data.catalog");
 		catalog.setId(Long.parseLong(vouchers.get(3).get("id")));
 		
 		// create order
 		createOrder(user.getSessionId(), user.getUsername(), Long.toString(catalog.getId()));
 		checkStatusCode("201");
+		user.setSessionId(response.getCookie("JSESSIONID"));
 		transaction.setId(response.getBody().jsonPath().getLong("data.id"));
 	}
 	

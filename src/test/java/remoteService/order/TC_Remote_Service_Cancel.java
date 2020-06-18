@@ -46,7 +46,7 @@ public class TC_Remote_Service_Cancel extends TestBase {
 	
 	@SuppressWarnings("unchecked")
 	public void cancelTransactionRemoteService(String userId, String transactionId) {
-		logger.info("Call Get Get History Completed API [Order Domain]");
+		logger.info("Call Cancel API [Order Domain]");
 		logger.info("Test Data: ");
 		logger.info("user id:" + userId);
 		logger.info("transaction id:" + transactionId);

@@ -63,6 +63,7 @@ public class TC_Integration_CreateOrder extends TestBase {
 		// get catalog
 		getCatalog(user.getSessionId(), user.getUsername().substring(0,5));
 		checkStatusCode("200");
+		user.setSessionId(response.getCookie("JSESSIONID"));
 	}
 	
 	@Test

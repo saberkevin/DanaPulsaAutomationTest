@@ -62,6 +62,7 @@ public class TC_Integration_VoucherDetails extends TestBase {
 		// get voucher id from promotion
 		getPromotionVoucher(user.getSessionId(), "1");
 		checkStatusCode("200");
+		user.setSessionId(response.getCookie("JSESSIONID"));
 		List<Map<String, String>> vouchers = response.getBody().jsonPath().getList("data");
 		voucherId = String.valueOf(vouchers.get(Integer.parseInt(voucherId) - 1).get("id"));
 	}

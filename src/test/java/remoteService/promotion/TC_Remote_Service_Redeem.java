@@ -44,7 +44,7 @@ public class TC_Remote_Service_Redeem extends TestBase {
 	
 	@SuppressWarnings("unchecked")
 	public void redeemRemoteService(String userId, String voucherId, String price, String paymentMethodId, String providerId) {
-		logger.info("Call Get Voucher Recommendation API [Promotion Domain]");
+		logger.info("Call Redeem API [Promotion Domain]");
 		logger.info("Test Data: ");
 		logger.info("user id:" + userId);
 		logger.info("voucherId:" + voucherId);
