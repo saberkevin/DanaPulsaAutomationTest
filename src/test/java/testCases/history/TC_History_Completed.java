@@ -1,9 +1,6 @@
 package testCases.history;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -50,7 +47,7 @@ public class TC_History_Completed extends TestBase{
 		
 		if(code == 200)
 		{			
-			String query = "SELECT a.id,a.userId,a.phoneNumber,d.price,a.voucherId ,b.name AS status,a.createdAt FROM transaction a\n" + 
+			String query = "SELECT a.id,a.userId,a.phoneNumber,d.price,a.voucherId ,b.name as 'status',a.createdAt FROM transaction a\n" + 
 					"JOIN transaction_status b ON a.statusId = b.id AND b.typeId = 2\n" +  
 					"JOIN pulsa_catalog d ON a.catalogId = d.id \n" +
 					"WHERE a.userId = ? and a.id = ? \n" + 
@@ -63,56 +60,46 @@ public class TC_History_Completed extends TestBase{
 			{
 				List<Map<String, String>> data = jsonPath.getList("data");
 				
-				try {
 					
-					for (int i = 0; i < data.size(); i++) {  
-						Assert.assertNotNull(Long.parseLong(String.valueOf(data.get(i).get("id"))));
-						Assert.assertNotEquals("", data.get(i).get("phoneNumber"));
-						Assert.assertNotNull(Long.parseLong(String.valueOf(data.get(i).get("price"))));
-						Assert.assertNotEquals("", data.get(i).get("voucher"));
-						Assert.assertNotEquals("", data.get(i).get("createdAt"));
-						Assert.assertTrue(data.get(i).get("status").equals("COMPLETED") || 
-								data.get(i).get("status").equals("CANCELED") ||
-								data.get(i).get("status").equals("EXPIRED") ||
-								data.get(i).get("status").equals("FAILED") 
-						);
+				for (int i = 0; i < data.size(); i++) {  
+					Assert.assertNotNull(Long.parseLong(String.valueOf(data.get(i).get("id"))));
+					Assert.assertNotEquals("", data.get(i).get("phoneNumber"));
+					Assert.assertNotNull(Long.parseLong(String.valueOf(data.get(i).get("price"))));
+					Assert.assertNotEquals("", data.get(i).get("voucher"));
+					Assert.assertNotEquals("", data.get(i).get("createdAt"));
+					Assert.assertTrue(data.get(i).get("status").equals("COMPLETED") || 
+							data.get(i).get("status").equals("CANCELED") ||
+							data.get(i).get("status").equals("EXPIRED") ||
+							data.get(i).get("status").equals("FAILED") 
+					);
+					
+					Map<String, Object> param = new LinkedHashMap<String, Object>();
+					param.put("userId",Long.parseLong(userId));
+					param.put("id",Long.parseLong(String.valueOf(data.get(i).get("id"))));
+					param.put("page", Long.parseLong(page)*10-10);
+					List<Map<String, Object>> response = sqlExec(query, param, "ORDER");
+					
+					for (Map<String, Object> result : response) 
+					{
+						SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+					    String resultDate= formatter.format(result.get("createdAt"));
+					    String responseDate= formatter.format(data.get(i).get("createdAt"));
+					    
+						Assert.assertEquals(result.get("id"), Long.parseLong(String.valueOf(data.get(i).get("id"))));
+						Assert.assertEquals(result.get("phoneNumber"), data.get(i).get("phoneNumber"));
+						Assert.assertEquals(result.get("price"), Long.parseLong(String.valueOf(data.get(i).get("price"))));
+						Assert.assertEquals(result.get("status"), data.get(i).get("status"));
+						Assert.assertEquals(resultDate, responseDate);
 						
-						Connection conOrder = setConnection("ORDER");
-						PreparedStatement psGetHistoryCompleted = conOrder.prepareStatement(query);
-						psGetHistoryCompleted.setLong(1, Long.parseLong(userId));
-						psGetHistoryCompleted.setLong(2, Long.parseLong(String.valueOf(data.get(i).get("id"))));
-						psGetHistoryCompleted.setLong(3, Long.parseLong(page)*10-10);
-						ResultSet result = psGetHistoryCompleted.executeQuery();
-						
-						while(result.next())
+						Map<String, Object> param2 = new LinkedHashMap<String, Object>();
+						param2.put("voucherId",Long.parseLong(result.get("voucherId").toString()));
+						List<Map<String, Object>> response2 = sqlExec(query2, param2, "PROMOTION");
+						for (Map<String, Object> result2 : response2) 
 						{
-							SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
-						    String resultDate= formatter.format(result.getDate("createdAt"));
-						    String responseDate= formatter.format(data.get(i).get("createdAt"));
-						    
-							Assert.assertEquals(result.getLong("id"), Long.parseLong(String.valueOf(data.get(i).get("id"))));
-							Assert.assertEquals(result.getString("phoneNumber"), data.get(i).get("phoneNumber"));
-							Assert.assertEquals(result.getLong("price"), Long.parseLong(String.valueOf(data.get(i).get("price"))));
-							Assert.assertEquals(result.getString("status"), data.get(i).get("status"));
-							Assert.assertEquals(resultDate, responseDate);
-							
-							Connection conPromotion = setConnection("PROMOTION");
-							PreparedStatement psGetVoucherName = conPromotion.prepareStatement(query2);
-							psGetVoucherName.setLong(1, result.getLong("voucherId"));
-							ResultSet resultVoucher = psGetVoucherName.executeQuery();
-							
-							while(resultVoucher.next())
-							{
-								Assert.assertEquals(result.getString("voucher"), data.get(i).get("voucher"));
-							}
-							conPromotion.close();
+							Assert.assertEquals(result2.get("voucher"), data.get(i).get("voucher"));
 						}
-						conOrder.close();
-					}	
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}		
+					}
+				}	
 			}	
 		}
 		else if(code == 400)

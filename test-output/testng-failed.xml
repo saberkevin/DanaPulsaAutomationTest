@@ -1,36 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [DANA Pulsa Suite]">
-  <test thread-count="5" name="DanaPulsaServiceTestOrder(failed)">
+  <parameter name="statusCodePost" value="201"/>
+  <parameter name="responseTime" value="10000"/>
+  <parameter name="statusCodeFail" value="404"/>
+  <parameter name="statusCodeForbidden" value="409"/>
+  <parameter name="statusCode" value="200"/>
+  <listeners>
+    <listener class-name="utilities.Listeners"/>
+  </listeners>
+  <test thread-count="5" name="DanaPulsaAPITestHistory(failed)">
     <classes>
-      <class name="remoteService.order.TC_Remote_Service_GetProviderById">
+      <class name="testCases.history.TC_History_Completed">
         <methods>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
+          <include name="checkResult"/>
+          <include name="setSession"/>
+          <include name="historyCompletedUser"/>
           <include name="setup"/>
-          <include name="beforeClass"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="afterClass"/>
         </methods>
-      </class> <!-- remoteService.order.TC_Remote_Service_GetProviderById -->
+      </class> <!-- testCases.history.TC_History_Completed -->
     </classes>
-  </test> <!-- DanaPulsaServiceTestOrder(failed) -->
+  </test> <!-- DanaPulsaAPITestHistory(failed) -->
 </suite> <!-- Failed suite [DANA Pulsa Suite] -->

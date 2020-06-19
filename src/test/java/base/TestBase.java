@@ -67,6 +67,7 @@ public class TestBase {
 
 	public String URI = "http://debrief.herokuapp.com";
 	public String URIOrder = "https://debrief2-pulsa-order.herokuapp.com";
+	public String URIOrderBackup = "https://debrief2-pulsa-order-backup.herokuapp.com";
 	public String URIPromotion = "https://pulsa-voucher.herokuapp.com";
 	public String memberURI = "https://member-domain.herokuapp.com/member";
 	public String memberAMQP = "amqp://ynjauqav:K83KvUARdw7DyYLJF2_gt2RVzO-NS2YM@lively-peacock.rmq.cloudamqp.com/ynjauqav";
@@ -983,7 +984,7 @@ public class TestBase {
 				Map<String, Object> row = new HashMap<String, Object>(md.getColumnCount());
 				
 		        for(int i = 1; i <= md.getColumnCount(); ++i) {
-		            row.put(md.getColumnName(i), rs.getObject(i));
+		            row.put(md.getColumnLabel(i), rs.getObject(i));
 		        }
 		        
 		        result.add(row);
