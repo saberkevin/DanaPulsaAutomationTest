@@ -39,7 +39,7 @@ public class TC_Register extends TestBase{
 				"SELECT tblTemp.id FROM (SELECT id FROM user WHERE email = ? OR username = ? LIMIT 1)tblTemp)";
 		
 		try {
-			Connection conUser = getConnectionMember();
+			Connection conUser = setConnection("MEMBER");
 			PreparedStatement psDeleteBalance = conUser.prepareStatement(query);
 			psDeleteBalance.setString(1, email);
 			psDeleteBalance.setString(2, replacePhoneForAssertion(phone));
@@ -62,7 +62,7 @@ public class TC_Register extends TestBase{
 	{
 		int code = response.getStatusCode();
 		JsonPath jsonPath = response.jsonPath();
-		String message =  jsonPath.get("message");
+		String message =  jsonPath.getString("message");
 		
 		if(code == 201)
 		{
@@ -77,7 +77,7 @@ public class TC_Register extends TestBase{
 			String query = "SELECT id, name, email, username, pin FROM user\n" + 
 					"WHERE id = ? AND name = ?  AND email = ? AND username = ?";
 			try {
-				Connection conUser = getConnectionMember();
+				Connection conUser = setConnection("MEMBER");
 				PreparedStatement psGetUser = conUser.prepareStatement(query);
 				psGetUser.setLong(1, Long.parseLong(jsonPath.get("data.id").toString()));
 				psGetUser.setString(2, jsonPath.get("data.name"));
@@ -108,7 +108,7 @@ public class TC_Register extends TestBase{
 			String query = "SELECT name, email, username, pin FROM user\n" + 
 					"WHERE name = ?  AND email = ? AND username = ? AND pin = ?";
 			try {
-				Connection conUser = getConnectionMember();
+				Connection conUser = setConnection("MEMBER");
 				PreparedStatement psGetUser = conUser.prepareStatement(query);
 				psGetUser.setString(1, name);
 				psGetUser.setString(2, email);
@@ -135,7 +135,7 @@ public class TC_Register extends TestBase{
 			String query = "SELECT COUNT(id) as count FROM user\n" + 
 					"WHERE name = ?  AND email = ? AND username = ? AND pin = ?";
 			try {
-				Connection conUser = getConnectionMember();
+				Connection conUser = setConnection("MEMBER");
 				PreparedStatement psGetUser = conUser.prepareStatement(query);
 				psGetUser.setString(1, name);
 				psGetUser.setString(2, email);
@@ -147,33 +147,6 @@ public class TC_Register extends TestBase{
 				while(result.next())
 				{
 					Assert.assertEquals(1, result.getInt("count"));
-				}
-				
-				conUser.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		else if(code == 500)
-		{
-			Assert.assertTrue(message.contains("should not be empty"));
-			
-			String query = "SELECT name, email, username, pin FROM user\n" + 
-					"WHERE name = ?  AND email = ? AND username = ? AND pin = ?";
-			try {
-				Connection conUser = getConnectionMember();
-				PreparedStatement psGetUser = conUser.prepareStatement(query);
-				psGetUser.setString(1, name);
-				psGetUser.setString(2, email);
-				psGetUser.setString(3, replacePhoneForAssertion(phone));
-				psGetUser.setString(4, pin);
-				
-				ResultSet result = psGetUser.executeQuery();
-				
-				if(result.next())
-				{
-					Assert.assertTrue("should not exists in database", false);
 				}
 				
 				conUser.close();

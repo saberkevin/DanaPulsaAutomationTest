@@ -185,7 +185,7 @@ public class TC_Recent_Phone_Number extends TestBase {
 						HashMap<String, String> provHashMap = (HashMap<String, String>) recentNumbers.get(index).get("provider");
 						Assert.assertEquals(String.valueOf(provHashMap.get("id")), rs.getString("id"));						
 						Assert.assertEquals(provHashMap.get("name"), rs.getString("name"));						
-						Assert.assertEquals(provHashMap.get("image"), rs.getString("image"));						
+						Assert.assertEquals(provHashMap.get("image"), rs.getString("image"));
 
 //						Assert.assertEquals(recentNumbers.get(index).get("date"), rs.getLong("createdAt"));
 					} while(rs.next());

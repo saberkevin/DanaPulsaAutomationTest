@@ -1,59 +1,47 @@
 package remoteService.member;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.json.simple.JSONObject;
 import org.junit.AfterClass;
 import org.junit.Assert;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import io.restassured.RestAssured;
-import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
 
 public class TC_Service_Login extends TestBase{
 	
 	private String phone; 
 	
+	private JsonPath jsonPath = null;
+	private String responseResult;
+	
 	public TC_Service_Login(String phone) {
 		this.phone=phone;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Test
 	void loginUser()
 	{
-		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		String routingKey = "login";
+		String message = "\""+phone+"\"";
+		
+		responseResult = callRP(memberAMQP, routingKey, message);
+		jsonPath = new JsonPath(responseResult);
+		
 		logger.info("Test Data: ");
 		logger.info("phone:" + phone);
-		
-		RestAssured.baseURI = memberURI;
-		httpRequest = RestAssured.given();
-		
-		JSONObject requestParams = new JSONObject();
-		
-		requestParams.put("queue", "login");
-		requestParams.put("message", phone);
-		
-		httpRequest.header("Content-Type", "application/json");
-		httpRequest.body(requestParams.toJSONString());
-		
-		response = httpRequest.request(Method.GET);
-		logger.info(response.getBody().asString());
+		logger.info(responseResult);
 	}
 	
 	@Test(dependsOnMethods = {"loginUser"})
 	void checkResult()
-	{
-		String responseBody =  response.getBody().asString();
-		
-		if(responseBody.contains("{\"id\""))
+	{	
+		if(responseResult.startsWith("{\"id\""))
 		{
-			JsonPath jsonPath = response.jsonPath();
 			Assert.assertNotNull(Long.parseLong(jsonPath.get("id").toString()));
 			Assert.assertNotEquals("", jsonPath.get("name"));
 			Assert.assertNotEquals("", jsonPath.get("email"));
@@ -64,8 +52,9 @@ public class TC_Service_Login extends TestBase{
 			String query = "SELECT id, name, email, username FROM user\n" + 
 					"WHERE id = ? AND name = ?  AND email = ? AND username = ?";
 			try {
-				PreparedStatement psGetUser = getConnectionMember().prepareStatement(query);
-				psGetUser.setLong(1, Long.parseLong(jsonPath.get("id")));
+				Connection conMember = setConnection("MEMBER");
+				PreparedStatement psGetUser = conMember.prepareStatement(query);
+				psGetUser.setLong(1, Long.parseLong(jsonPath.get("id").toString()));
 				psGetUser.setString(2, jsonPath.get("name"));
 				psGetUser.setString(3, jsonPath.get("email"));
 				psGetUser.setString(4, replacePhoneForAssertion(phone));
@@ -74,30 +63,27 @@ public class TC_Service_Login extends TestBase{
 				
 				while(result.next())
 				{
-					Assert.assertEquals(Long.parseLong(jsonPath.get("id")), result.getLong("id"));
+					Assert.assertEquals(Long.parseLong(jsonPath.get("id").toString()), result.getLong("id"));
 					Assert.assertEquals(jsonPath.get("name"), result.getString("name"));
 					Assert.assertEquals(jsonPath.get("email"), result.getString("email"));
 					Assert.assertEquals(jsonPath.get("username"), result.getString("username"));
 				}
 				
-				getConnectionMember().close();
+				conMember.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
 		}
-		else if(responseBody.contains("invalid") || responseBody.contains("incorrect"))
+		else if(responseResult.contains("should not be empty") || responseResult.startsWith("invalid") || responseResult.startsWith("incorrect"))
 		{
-			Assert.assertTrue(responseBody.equals("invalid phone number") || responseBody.equals("incorrect phone number"));
+			Assert.assertTrue(responseResult.contains("should not be empty") || responseResult.startsWith("invalid") || responseResult.startsWith("incorrect"));
 		}
-	}
-	
-	@Test(dependsOnMethods = {"loginUser"})
-	@Parameters("responseTime")
-	void assertResponseTime(String rt)
-	{
-		checkResponseTime(rt);
+		else
+		{
+			Assert.assertTrue("unhandled error",false);
+		}
 	}
 	
 	@AfterClass

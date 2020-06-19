@@ -1,20 +1,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="DANA Pulsa Suite">
-	<!-- <test name="DanaPulsaServiceTestOrder" group-by-instances="true">
+	<test name="DanaPulsaServiceTestOrder" group-by-instances="true">
 		<classes>
-			<class name = "remoteService.order.Factory_Remote_Service_GetAllCatalog"></class>
-			<class name = "remoteService.order.Factory_Remote_Service_GetPaymentMethodNameById"></class>
+			<!-- <class name = "remoteService.order.Factory_Remote_Service_GetAllCatalog"></class>
+			<class name = "remoteService.order.Factory_Remote_Service_GetPaymentMethodNameById"></class> -->
 			<class name = "remoteService.order.Factory_Remote_Service_GetProviderById"></class>
-			<class name = "remoteService.order.Factory_Remote_Service_GetTransactionById"></class>
+			<!-- <class name = "remoteService.order.Factory_Remote_Service_GetTransactionById"></class>
 			<class name = "remoteService.order.Factory_Remote_Service_GetTransactionByIdByUserId"></class>
 			<class name = "remoteService.order.Factory_Remote_Service_GetRecentNumber"></class>
 			<class name = "remoteService.order.Factory_Remote_Service_CreateTransaction"></class>
 			<class name = "remoteService.order.Factory_Remote_Service_GetHistoryInProgress"></class>
 			<class name = "remoteService.order.Factory_Remote_Service_GetHistoryCompleted"></class>
 			<class name = "remoteService.order.Factory_Remote_Service_Cancel"></class>
-			<class name = "remoteService.order.Factory_Remote_Service_Pay"></class>
+			<class name = "remoteService.order.Factory_Remote_Service_Pay"></class> -->
 		</classes>
-	</test> -->
+	</test>
 	
 	<!-- <test name="DanaPulsaServiceTestPromotion" group-by-instances="true">
 		<classes>
@@ -49,14 +49,14 @@
 		</classes>
 	</test> -->
 	
-	<test name="DanaPulsaTestIntegrationOrder" group-by-instances="true">
+	<!-- <test name="DanaPulsaTestIntegrationOrder" group-by-instances="true">
 		<classes>
-			<!-- <class name = "integrationtest.order.Factory_Integration_GetRecentNumbers"></class> -->
+			<class name = "integrationtest.order.Factory_Integration_GetRecentNumbers"></class>
 			<class name = "integrationtest.order.Factory_Integration_GetAllCatalog"></class>
-			<!-- <class name = "integrationtest.order.Factory_Integration_CreateOrder"></class>
-			<class name = "integrationtest.order.Factory_Integration_CancelOrder"></class> -->
+			<class name = "integrationtest.order.Factory_Integration_CreateOrder"></class>
+			<class name = "integrationtest.order.Factory_Integration_CancelOrder"></class>
 		</classes>
-	</test>
+	</test> -->
 	
 	<!-- <test name="DanaPulsaTestIntegrationPayment" group-by-instances="true">
 		<classes>

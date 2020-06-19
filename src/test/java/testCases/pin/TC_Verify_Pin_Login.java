@@ -34,14 +34,14 @@ public class TC_Verify_Pin_Login extends TestBase{
 	{
 		int code = response.getStatusCode();
 		JsonPath jsonPath = response.jsonPath();
-		String message =  jsonPath.get("message");
+		String message =  jsonPath.getString("message");
 		
 		if(code == 200)
 		{	
 			String query = "SELECT id, pin FROM user\n" + 
 					"WHERE id = ? AND pin = ?";
 			try {
-				Connection conMember = getConnectionMember();
+				Connection conMember = setConnection("MEMBER");
 				PreparedStatement psGetUserPin = conMember.prepareStatement(query);
 				psGetUserPin.setLong(1, Long.parseLong(id));
 				psGetUserPin.setLong(2, Long.parseLong(pin));
@@ -62,15 +62,11 @@ public class TC_Verify_Pin_Login extends TestBase{
 		}
 		else if(code == 400)
 		{
-			Assert.assertTrue(message.contains("invalid pin"));
+			Assert.assertTrue(message.contains("invalid pin") || message.equals("invalid request format") || message.contains("must not be null"));
 		}
 		else if(code == 404)
 		{
 			Assert.assertTrue(message.contains("incorrect pin"));
-		}
-		else if(code == 500)
-		{
-			Assert.assertTrue(message.contains("should not be") || message.equals("invalid request format"));
 		}
 		else
 		{

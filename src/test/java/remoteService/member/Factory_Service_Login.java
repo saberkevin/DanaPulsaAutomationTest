@@ -15,6 +15,6 @@ public class Factory_Service_Login extends TestBase{
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/remoteService/member/loginTestData.xlsx","Sheet1");
+		return getExcelData(excelPrefix+"remoteService/member/loginServiceTestData.xlsx","Sheet1");
 	}
 }

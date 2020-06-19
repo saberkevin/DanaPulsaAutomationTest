@@ -24,30 +24,7 @@ public class TC_Balance extends TestBase{
 	{
 		logger.info("***** SET SESSION *****");
 		userId = "155";
-		String pinForSession = "";
-		
-		String query = "SELECT id, pin FROM user\n" + 
-				"WHERE id = ?";
-		try {
-			Connection conMember = getConnectionMember();
-			PreparedStatement psGetUserPin = conMember.prepareStatement(query);
-			psGetUserPin.setLong(1, Long.parseLong(userId));
-			
-			ResultSet result = psGetUserPin.executeQuery();
-			
-			while(result.next())
-			{
-				pinForSession = result.getString("pin");
-			}
-			
-			conMember.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		verifyPinLogin(userId, pinForSession);
-		sessionId = response.getCookie("JSESSIONID");
+		sessionId = setSession(userId);
 		logger.info("***** END SET SESSION *****");
 	}
 
@@ -70,7 +47,7 @@ public class TC_Balance extends TestBase{
 			String query = "SELECT userId, balance FROM balance\n" + 
 					"WHERE userId = ?";
 			try {
-				Connection conMember = getConnectionMember();
+				Connection conMember = setConnection("MEMBER");
 				PreparedStatement psGetBalance = conMember.prepareStatement(query);
 				psGetBalance.setLong(1, Long.parseLong(userId));
 				

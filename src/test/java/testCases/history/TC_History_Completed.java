@@ -31,30 +31,7 @@ public class TC_History_Completed extends TestBase{
 	{
 		logger.info("***** SET SESSION *****");
 		userId = "155";
-		String pinForSession = "";
-		
-		String query = "SELECT id, pin FROM user\n" + 
-				"WHERE id = ?";
-		try {
-			Connection conMember = getConnectionMember();
-			PreparedStatement psGetUserPin = conMember.prepareStatement(query);
-			psGetUserPin.setLong(1, Long.parseLong(userId));
-			
-			ResultSet result = psGetUserPin.executeQuery();
-			
-			while(result.next())
-			{
-				pinForSession = result.getString("pin");
-			}
-			
-			conMember.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		verifyPinLogin(userId, pinForSession);
-		sessionId = response.getCookie("JSESSIONID");
+		sessionId = setSession(userId);
 		logger.info("***** END SET SESSION *****");
 	}
 
@@ -100,7 +77,7 @@ public class TC_History_Completed extends TestBase{
 								data.get(i).get("status").equals("FAILED") 
 						);
 						
-						Connection conOrder = getConnectionOrder();
+						Connection conOrder = setConnection("ORDER");
 						PreparedStatement psGetHistoryCompleted = conOrder.prepareStatement(query);
 						psGetHistoryCompleted.setLong(1, Long.parseLong(userId));
 						psGetHistoryCompleted.setLong(2, Long.parseLong(String.valueOf(data.get(i).get("id"))));
@@ -119,7 +96,7 @@ public class TC_History_Completed extends TestBase{
 							Assert.assertEquals(result.getString("status"), data.get(i).get("status"));
 							Assert.assertEquals(resultDate, responseDate);
 							
-							Connection conPromotion = getConnectionPromotion();
+							Connection conPromotion = setConnection("PROMOTION");
 							PreparedStatement psGetVoucherName = conPromotion.prepareStatement(query2);
 							psGetVoucherName.setLong(1, result.getLong("voucherId"));
 							ResultSet resultVoucher = psGetVoucherName.executeQuery();
@@ -138,7 +115,7 @@ public class TC_History_Completed extends TestBase{
 				}		
 			}	
 		}
-		else if(code == 500)
+		else if(code == 400)
 		{
 			Assert.assertEquals("invalid request format",message);
 		}

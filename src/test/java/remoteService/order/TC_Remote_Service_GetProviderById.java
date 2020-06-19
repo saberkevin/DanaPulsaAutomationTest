@@ -1,10 +1,9 @@
 package remoteService.order;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.testng.Assert;
@@ -83,45 +82,33 @@ public class TC_Remote_Service_GetProviderById extends TestBase {
 		String responseBody = response.getBody().asString();
 
 		if (responseBody.equals("unknown provider")) {
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT * FROM provider WHERE id = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(providerId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			String queryString = "SELECT * FROM provider WHERE id = ?";
+			
+			Map<String, Object> param = new LinkedHashMap<String, Object>();
+			param.put("id", Long.parseLong(providerId));
+			
+			List<Map<String, Object>> data = sqlExec(queryString, param, "order");			
+			Assert.assertTrue(data.size() == 0, "no provider found in database");
+			
 		} else if (responseBody.equals("invalid request format")) {
 			// do some code
 			
 		} else {
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT * FROM provider WHERE id = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(providerId));
-				
-				ResultSet rs = ps.executeQuery();
-				
-				if (!rs.next()) {
-					Assert.assertTrue(false, "no provider found in database");
-				}
-				do {
-					Assert.assertEquals(response.getBody().jsonPath().getLong("id"), rs.getLong("id"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("name"), rs.getString("name"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("image"), rs.getString("image"));
-				} while(rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+			String queryString = "SELECT * FROM provider WHERE id = ?";
+			
+			Map<String, Object> param = new LinkedHashMap<String, Object>();
+			param.put("id", Long.parseLong(providerId));
+			
+			List<Map<String, Object>> data = sqlExec(queryString, param, "order");
+			
+			if (data.size() == 0) {
+				Assert.assertTrue(false, "no provider found in database");
+			}
+			
+			for (Map<String, Object> map : data) {
+				Assert.assertEquals(response.getBody().jsonPath().getLong("id"), map.get("id"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("name"), map.get("name"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("image"), map.get("image"));
 			}
 		}
 	}

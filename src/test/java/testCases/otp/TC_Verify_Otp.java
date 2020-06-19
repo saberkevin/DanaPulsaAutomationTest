@@ -66,7 +66,7 @@ public class TC_Verify_Otp extends TestBase{
 			String query = "SELECT userId, code FROM otp\n" + 
 					"WHERE userId = ?";
 			try {
-				Connection conMember = getConnectionMember();
+				Connection conMember = setConnection("MEMBER");
 				PreparedStatement psGetOtp= conMember.prepareStatement(query);
 				psGetOtp.setLong(1, Long.parseLong(id));
 				
@@ -86,15 +86,11 @@ public class TC_Verify_Otp extends TestBase{
 		}
 		else if(code == 400)
 		{
-			Assert.assertTrue(message.equals("invalid OTP") || message.contains("must not be null"));
+			Assert.assertTrue(message.equals("invalid OTP") || message.contains("must not be null") || message.equals("invalid request format"));
 		}
 		else if(code == 404)
 		{
 			Assert.assertEquals("incorrect OTP", message);
-		}
-		else if(code == 500)
-		{
-			Assert.assertEquals("invalid request format", message);
 		}
 		else
 		{

@@ -15,6 +15,6 @@ public class Factory_Forgot_Pin_Otp extends TestBase{
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/testCases/otp/otpTestData.xlsx","ForgotPinOtp");
+		return getExcelData(excelPrefix+"testCases/otp/otpTestData.xlsx","ForgotPinOtp");
 	}
 }

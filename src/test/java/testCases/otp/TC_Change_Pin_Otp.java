@@ -25,30 +25,7 @@ public class TC_Change_Pin_Otp extends TestBase{
 	{
 		logger.info("***** SET SESSION *****");
 		userId = "155";
-		String pinForSession = "";
-		
-		String query = "SELECT id, pin FROM user\n" + 
-				"WHERE id = ?";
-		try {
-			Connection conMember = getConnectionMember();
-			PreparedStatement psGetUserPin = conMember.prepareStatement(query);
-			psGetUserPin.setLong(1, Long.parseLong(userId));
-			
-			ResultSet result = psGetUserPin.executeQuery();
-			
-			while(result.next())
-			{
-				pinForSession = result.getString("pin");
-			}
-			
-			conMember.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		verifyPinLogin(userId, pinForSession);
-		sessionId = response.getCookie("JSESSIONID");
+		sessionId = setSession(userId);
 		logger.info("***** END SET SESSION *****");
 		
 		logger.info("***** GET OTP Before *****");
@@ -85,7 +62,7 @@ public class TC_Change_Pin_Otp extends TestBase{
 			String query = "SELECT userId, code FROM otp\n" + 
 					"WHERE userId = ?";
 			try {
-				Connection conMember = getConnectionMember();
+				Connection conMember = setConnection("MEMBER");
 				PreparedStatement psGetOtp= conMember.prepareStatement(query);
 				psGetOtp.setLong(1, Long.parseLong(jsonPath.get("data.userId").toString()));
 				
@@ -114,7 +91,11 @@ public class TC_Change_Pin_Otp extends TestBase{
 		}
 		else if(code == 500)
 		{
-			Assert.assertTrue(message.equals("unverified number") || message.equals("invalid request format"));
+			Assert.assertEquals("unverified number", message);
+		}
+		else if(code == 400)
+		{
+			Assert.assertEquals("invalid request format", message);
 		}
 		else
 		{

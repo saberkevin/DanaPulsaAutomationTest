@@ -1,6 +1,8 @@
 package base;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,6 +14,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeoutException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,6 +24,10 @@ import org.apache.log4j.PropertyConfigurator;
 import org.json.simple.JSONObject;
 import org.junit.Assert;
 import org.testng.annotations.BeforeClass;
+
+import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.RpcClient;
+import com.rabbitmq.client.RpcClientParams;
 
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
@@ -62,6 +69,8 @@ public class TestBase {
 	public String URIOrder = "https://debrief2-pulsa-order.herokuapp.com";
 	public String URIPromotion = "https://pulsa-voucher.herokuapp.com";
 	public String memberURI = "https://member-domain.herokuapp.com/member";
+	public String memberAMQP = "amqp://ynjauqav:K83KvUARdw7DyYLJF2_gt2RVzO-NS2YM@lively-peacock.rmq.cloudamqp.com/ynjauqav";
+	public String excelPrefix = "../DanaPulsaAutomationTest/src/test/java/";
 	public Logger logger;
 	
 	@BeforeClass
@@ -71,6 +80,64 @@ public class TestBase {
 		PropertyConfigurator.configure("../DanaPulsaAutomationTest/src/Log4j.properties");
 		logger.setLevel(Level.DEBUG);
 	}
+	
+	public String setSession(String userId)
+	{
+		String pinForSession = "";
+		
+		String query = "SELECT id, pin FROM user\n" + 
+				"WHERE id = ?";
+		try {
+			Connection conMember = setConnection("MEMBER");
+			PreparedStatement psGetUserPin = conMember.prepareStatement(query);
+			psGetUserPin.setLong(1, Long.parseLong(userId));
+			
+			ResultSet result = psGetUserPin.executeQuery();
+			
+			while(result.next())
+			{
+				pinForSession = result.getString("pin");
+			}
+			
+			conMember.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		verifyPinLogin(userId, pinForSession);
+		return response.getCookie("JSESSIONID");
+	}
+	
+	public String callRP(String url, String routingKey, String message) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		try {
+			URI rabbitMqUrl = new URI(url);
+			ConnectionFactory factory = new ConnectionFactory();
+		    factory.setUsername(rabbitMqUrl.getUserInfo().split(":")[0]);
+		    factory.setPassword(rabbitMqUrl.getUserInfo().split(":")[1]);
+		    factory.setHost(rabbitMqUrl.getHost());
+		    factory.setPort(rabbitMqUrl.getPort());
+		    factory.setVirtualHost(rabbitMqUrl.getPath().substring(1));
+		    com.rabbitmq.client.Connection connection = factory.newConnection();
+		    RpcClientParams params = new RpcClientParams();
+		    params.channel(connection.createChannel());
+		    params.exchange("");
+		    params.routingKey(routingKey);
+		    params.timeout(10000);
+		    return new RpcClient(params).stringCall(message);
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TimeoutException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    return "Error in try catch!";
+	  }
 	
 	public String[][] getExcelData(String filePath, String sheetName) throws IOException
 	{
@@ -591,14 +658,34 @@ public class TestBase {
 		return conn;
 	}
 	
+	public Connection setConnection(String service)
+	{
+		Connection conn = null;
+		
+		if(service.equalsIgnoreCase("MEMBER"))
+		{
+			conn = getConnectionMember();
+		}
+		else if(service.equalsIgnoreCase("ORDER"))
+		{
+			conn = getConnectionOrder();
+		}
+		else if(service.equalsIgnoreCase("PROMOTION"))
+		{
+			conn = getConnectionPromotion();
+		}
+		
+		return conn;
+	}
+	
 	//============ Some Command to DB ==============================//
 	
 	public void createUser(User user) {
 		try {
-			Connection conn = getConnectionMember();
-			String queryString = "INSERT INTO user(name, email, username, pin) VALUES(?, ?, ?, ?)";
+			Connection conn = setConnection("MEMBER");
+			String query = "INSERT INTO user(name, email, username, pin) VALUES(?, ?, ?, ?)";
 
-			PreparedStatement ps = conn.prepareStatement(queryString);
+			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setString(1, user.getName());
 			ps.setString(2, user.getEmail());
 			ps.setString(3, user.getUsername());
@@ -611,14 +698,29 @@ public class TestBase {
 		}	
 	}
 	
+	public void deleteUserById(long id) {
+		try {
+			Connection conn = setConnection("MEMBER");
+			String query = "DELETE FROM user WHERE id = ?";
+
+			PreparedStatement ps = conn.prepareStatement(query);			
+			ps.setLong(1, id);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void deleteUserIfExist(String email, String username) {
 		boolean userExist = false;
 		
 		try {
-			Connection conn = getConnectionMember();
-			String queryString = "SELECT * FROM user WHERE email = ? OR username = ?";
+			Connection conn = setConnection("MEMBER");
+			String query = "SELECT * FROM user WHERE email = ? OR username = ?";
 
-			PreparedStatement ps = conn.prepareStatement(queryString);
+			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setString(1, email);
 			ps.setString(2, username);
 
@@ -633,10 +735,10 @@ public class TestBase {
 		
 		if (userExist) {
 			try {
-				Connection conn = getConnectionMember();
-				String queryString = "DELETE FROM user WHERE email = ? OR username = ?";
+				Connection conn = setConnection("MEMBER");
+				String query = "DELETE FROM user WHERE email = ? OR username = ?";
 
-				PreparedStatement ps = conn.prepareStatement(queryString);
+				PreparedStatement ps = conn.prepareStatement(query);
 				ps.setString(1, email);
 				ps.setString(2, username);
 				ps.executeUpdate();
@@ -668,10 +770,10 @@ public class TestBase {
 		long id = 0;
 		
 		try {
-			Connection conn = getConnectionMember();
-			String queryString = "SELECT id FROM user WHERE username = ?";
+			Connection conn = setConnection("MEMBER");
+			String query = "SELECT id FROM user WHERE username = ?";
 
-			PreparedStatement ps = conn.prepareStatement(queryString);
+			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setString(1, username);
 			
 			ResultSet rs = ps.executeQuery();
@@ -828,10 +930,10 @@ public class TestBase {
 	public void createUserVoucher(long userId, long voucherId, long voucherStatusId) {
 		Date date = new Date();
 		try {
-			Connection conn = getConnectionPromotion();
-			String queryString = "INSERT INTO user_voucher(userId, voucherId, voucherStatusId, createdAt) VALUES(?, ?, ?, ?)";
+			Connection conn = setConnection("PROMOTION");
+			String query = "INSERT INTO user_voucher(userId, voucherId, voucherStatusId, createdAt) VALUES(?, ?, ?, ?)";
 
-			PreparedStatement ps = conn.prepareStatement(queryString);
+			PreparedStatement ps = conn.prepareStatement(query);
 			ps.setLong(1, userId);
 			ps.setLong(2, voucherId);
 			ps.setLong(3, voucherStatusId);
@@ -859,18 +961,16 @@ public class TestBase {
 		}	
 	}
 	
-	public List<Map<String, Object>> sqlExec(String query, Map<String, Object> param) {
+	public List<Map<String, Object>> sqlExec(String query, Map<String, Object> param, String domain) {
 		List<Map<String, Object>> result = new ArrayList<Map<String,Object>>();
 		
 		try {
-			Connection conn = getConnectionPromotion();
+			Connection conn = setConnection(domain);
 			PreparedStatement ps = conn.prepareStatement(query);
 			
 			int index = 0;
 			for (Map.Entry<String, Object> data: param.entrySet()) {
 				index++;
-				System.out.println(data.getValue());
-				
 				if (data.getValue() instanceof String) ps.setString(index, (String) data.getValue());
 				else if (data.getValue() instanceof Integer) ps.setInt(index, (Integer) data.getValue());
 				else if (data.getValue() instanceof Long) ps.setLong(index, (Long) data.getValue());

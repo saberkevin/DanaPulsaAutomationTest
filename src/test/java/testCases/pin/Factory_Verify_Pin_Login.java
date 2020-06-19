@@ -15,6 +15,6 @@ public class Factory_Verify_Pin_Login extends TestBase{
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/testCases/pin/pinTestData.xlsx","VerifyPin");
+		return getExcelData(excelPrefix+"testCases/pin/pinTestData.xlsx","VerifyPin");
 	}
 }

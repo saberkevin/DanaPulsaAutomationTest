@@ -372,7 +372,6 @@ public class TC_Pay_Order extends TestBase {
 				
 				conn.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
 			}
 		}
 	}

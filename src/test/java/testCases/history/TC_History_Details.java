@@ -31,30 +31,7 @@ public class TC_History_Details extends TestBase{
 	{
 		logger.info("***** SET SESSION *****");
 		userId = "155";
-		String pinForSession = "";
-		
-		String query = "SELECT id, pin FROM user\n" + 
-				"WHERE id = ?";
-		try {
-			Connection conMember = getConnectionMember();
-			PreparedStatement psGetUserPin = conMember.prepareStatement(query);
-			psGetUserPin.setLong(1, Long.parseLong(userId));
-			
-			ResultSet result = psGetUserPin.executeQuery();
-			
-			while(result.next())
-			{
-				pinForSession = result.getString("pin");
-			}
-			
-			conMember.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		verifyPinLogin(userId, pinForSession);
-		sessionId = response.getCookie("JSESSIONID");
+		sessionId = setSession(userId);
 		logger.info("***** END SET SESSION *****");
 	}
 
@@ -64,7 +41,7 @@ public class TC_History_Details extends TestBase{
 		String query = "SELECT id FROM transaction\n" + 
 				"WHERE userId = ? ORDER BY createdAt DESC LIMIT 1";
 		try {
-			Connection conOrder = getConnectionOrder();
+			Connection conOrder = setConnection("ORDER");
 			PreparedStatement psGetUserPin = conOrder.prepareStatement(query);
 			psGetUserPin.setLong(1, Long.parseLong(userId));
 			
@@ -131,7 +108,7 @@ public class TC_History_Details extends TestBase{
 					Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.deduction").toString()));
 					Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.maxDeduction").toString()));
 				}
-				Connection conOrder = getConnectionOrder();
+				Connection conOrder = setConnection("ORDER");
 				PreparedStatement psGetHistoryDetails = conOrder.prepareStatement(query);
 				psGetHistoryDetails.setLong(1, Long.parseLong(userId));
 				psGetHistoryDetails.setLong(2, Long.parseLong(jsonPath.get("data.id").toString()));
@@ -171,7 +148,7 @@ public class TC_History_Details extends TestBase{
 						
 					if(jsonPath.get("data.voucher.id") != null)
 					{
-						Connection conPromotion = getConnectionPromotion();
+						Connection conPromotion = setConnection("PROMOTION");
 						PreparedStatement psGetVoucherName = conPromotion.prepareStatement(query2);
 						psGetVoucherName.setLong(1, result.getLong("voucherId"));
 						ResultSet resultVoucher = psGetVoucherName.executeQuery();
@@ -195,7 +172,7 @@ public class TC_History_Details extends TestBase{
 		{
 			Assert.assertEquals("unknown transaction", message);
 		}
-		else if(code == 500)
+		else if(code == 400)
 		{
 			Assert.assertEquals("invalid request format", message);
 		}

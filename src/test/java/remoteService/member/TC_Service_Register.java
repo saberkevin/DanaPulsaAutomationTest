@@ -4,17 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
-import org.json.simple.JSONObject;
 import org.junit.AfterClass;
 import org.junit.Assert;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import io.restassured.RestAssured;
-import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
 
 public class TC_Service_Register extends TestBase{
@@ -24,6 +19,9 @@ public class TC_Service_Register extends TestBase{
 	private String phone; 
 	private String pin; 
 	
+	private JsonPath jsonPath = null;
+	private String responseResult;
+	
 	public TC_Service_Register(String name, String email, String phone, String pin) {
 		this.name=name;
 		this.email=email;
@@ -31,109 +29,52 @@ public class TC_Service_Register extends TestBase{
 		this.pin=pin;
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Test
 	void registerUser()
 	{	
-		String query = "DELETE FROM user " + 
+		String query = "DELETE FROM balance " + 
+				"WHERE userId = ( " + 
+				"SELECT tblTemp.id FROM (SELECT id FROM user WHERE email = ? OR username = ? LIMIT 1)tblTemp)";
+		
+		String query2 = "DELETE FROM user " + 
 				"WHERE id = ( " + 
 				"SELECT tblTemp.id FROM (SELECT id FROM user WHERE email = ? OR username = ? LIMIT 1)tblTemp)";
-		String openRestrict= "SET FOREIGN_KEY_CHECKS=0";
 		
 		try {
-			Connection conUser = getConnectionMember();
-			Statement stmtRestrict = conUser.createStatement();
-			stmtRestrict.execute(openRestrict);
-			PreparedStatement psDeleteUser = conUser.prepareStatement(query);
+			Connection conUser = setConnection("MEMBER");
+			PreparedStatement psDeleteBalance = conUser.prepareStatement(query);
+			psDeleteBalance.setString(1, email);
+			psDeleteBalance.setString(2, replacePhoneForAssertion(phone));
+			psDeleteBalance.executeUpdate();
+			PreparedStatement psDeleteUser = conUser.prepareStatement(query2);
 			psDeleteUser.setString(1, email);
 			psDeleteUser.setString(2, replacePhoneForAssertion(phone));
-			psDeleteUser.executeUpdate();
+			psDeleteUser.executeUpdate();		
 			conUser.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		String routingKey = "register";
+		String message = "{\"name\":\""+name+"\",\"email\":\""+email+"\",\"phone\":\""+phone+"\",\"pin\":\""+pin+"\"}";
+		
+		responseResult = callRP(memberAMQP, routingKey, message);
+		jsonPath = new JsonPath(responseResult);
+		
 		logger.info("Test Data: ");
 		logger.info("name:" + name);
 		logger.info("email:" + email);
 		logger.info("phone:" + phone);
 		logger.info("pin:" + pin);
-		
-		RestAssured.baseURI = memberURI;
-		httpRequest = RestAssured.given();
-		
-		JSONObject requestParams = new JSONObject();
-		
-		requestParams.put("queue", "register");
-		requestParams.put("message", "{\"name\":\""+name+"\",\"email\":\""+email+"\",\"phone\":\""+phone+"\",\"pin\":"+pin+"}");
-		
-		httpRequest.header("Content-Type", "application/json");
-		httpRequest.body(requestParams.toJSONString());
-		
-		response = httpRequest.request(Method.GET);
-		logger.info(response.getBody().asString());
+		logger.info(responseResult);
 	}
 	
 	@Test(dependsOnMethods = {"registerUser"})
 	void checkResult()
-	{
-		String responseBody = response.getBody().asString();
-		JsonPath jsonPath = response.jsonPath();
-		
-		if(responseBody.contains("invalid"))
+	{	
+		if(responseResult.startsWith("{\"id\""))
 		{
-			String query = "SELECT name, email, username, pin FROM user\n" + 
-					"WHERE name = ?  AND email = ? AND username = ? AND pin = ?";
-			try {
-				Connection conUser = getConnectionMember();
-				PreparedStatement psGetUser = conUser.prepareStatement(query);
-				psGetUser.setString(1, name);
-				psGetUser.setString(2, email);
-				psGetUser.setString(3, replacePhoneForAssertion(phone));
-				psGetUser.setString(4, pin);
-				
-				ResultSet result = psGetUser.executeQuery();
-				
-				if(result.next())
-				{
-					Assert.assertTrue("should not exists in database", false);
-				}
-				
-				conUser.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		else if(responseBody.equals("user already exists"))
-		{
-			String query = "SELECT COUNT(id) as count FROM user\n" + 
-					"WHERE name = ?  AND email = ? AND username = ? AND pin = ?";
-			try {
-				Connection conUser = getConnectionMember();
-				PreparedStatement psGetUser = conUser.prepareStatement(query);
-				psGetUser.setString(1, name);
-				psGetUser.setString(2, email);
-				psGetUser.setString(3, replacePhoneForAssertion(phone));
-				psGetUser.setLong(4, Long.parseLong(pin));
-				
-				ResultSet result = psGetUser.executeQuery();
-				
-				while(result.next())
-				{
-					Assert.assertEquals(1, result.getInt("count"));
-				}
-				
-				conUser.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		else if(responseBody.contains("{\"id\""))
-		{	
 			Assert.assertNotNull(Long.parseLong(jsonPath.get("id").toString()));
 			Assert.assertEquals(name, jsonPath.get("name"));
 			Assert.assertEquals(email, jsonPath.get("email"));
@@ -144,7 +85,7 @@ public class TC_Service_Register extends TestBase{
 			String query = "SELECT id, name, email, username, pin FROM user\n" + 
 					"WHERE id = ? AND name = ?  AND email = ? AND username = ?";
 			try {
-				Connection conUser = getConnectionMember();
+				Connection conUser = setConnection("MEMBER");
 				PreparedStatement psGetUser = conUser.prepareStatement(query);
 				psGetUser.setLong(1, Long.parseLong(jsonPath.get("id").toString()));
 				psGetUser.setString(2, jsonPath.get("name"));
@@ -168,13 +109,66 @@ public class TC_Service_Register extends TestBase{
 				e.printStackTrace();
 			}
 		}
-	}
-	
-	@Test(dependsOnMethods = {"registerUser"})
-	@Parameters("responseTime")
-	void assertResponseTime(String rt)
-	{
-		checkResponseTime(rt);
+		else if(responseResult.startsWith("invalid") || responseResult.contains("should not be empty"))
+		{	
+			String query = "SELECT name, email, username, pin FROM user\n" + 
+					"WHERE name = ?  AND email = ? AND username = ? AND pin = ?";
+			try {
+				Connection conUser = setConnection("MEMBER");
+				PreparedStatement psGetUser = conUser.prepareStatement(query);
+				psGetUser.setString(1, name);
+				psGetUser.setString(2, email);
+				psGetUser.setString(3, replacePhoneForAssertion(phone));
+				psGetUser.setString(4, pin);
+				
+				ResultSet result = psGetUser.executeQuery();
+				
+				if(result.next())
+				{
+					Assert.assertTrue("should not exists in database", false);
+				}
+				
+				conUser.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else if(responseResult.equals("user already exist"))
+		{	
+			String query = "SELECT COUNT(id) as count FROM user\n" + 
+					"WHERE name = ?  AND email = ? AND username = ? AND pin = ?";
+			try {
+				Connection conUser = setConnection("MEMBER");
+				PreparedStatement psGetUser = conUser.prepareStatement(query);
+				psGetUser.setString(1, name);
+				psGetUser.setString(2, email);
+				psGetUser.setString(3, replacePhoneForAssertion(phone));
+				psGetUser.setLong(4, Long.parseLong(pin));
+				
+				ResultSet result = psGetUser.executeQuery();
+				
+				while(result.next())
+				{
+					Assert.assertEquals(1, result.getInt("count"));
+				}
+				
+				conUser.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else
+		{
+			Assert.assertTrue("Unhandled error",false);
+			logger.info("Test Data For Error: ");
+			logger.info("name:" + name);
+			logger.info("email:" + email);
+			logger.info("phone:" + phone);
+			logger.info("pin:" + pin);
+			logger.info(responseResult);
+		}
 	}
 	
 	@AfterClass
