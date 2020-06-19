@@ -15,6 +15,6 @@ public class Factory_Mobile_Recharge_Catalog extends TestBase {
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/testCases/order/OrderTestData.xlsx", "Catalog");
+		return getExcelData(ConfigApiTestOrder.FILE_PATH, ConfigApiTestOrder.SHEET_CATALOG);
 	}
 }

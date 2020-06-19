@@ -1,6 +1,7 @@
 package remoteService.order;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -46,15 +47,15 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 		logger.info("user id:" + userId);
 		
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("method", "getRecentNumber");
+		requestParams.put("method", ConfigRemoteServiceOrder.QUEUE_GET_RECENT_NUMBER);
 		requestParams.put("message", userId);
 		
-		RestAssured.baseURI = URIOrder;
+		RestAssured.baseURI = ConfigRemoteServiceOrder.BASE_URI;
 		httpRequest = RestAssured.given();
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 				
-		response = httpRequest.request(Method.POST, "/api/test/");
+		response = httpRequest.request(Method.POST, ConfigRemoteServiceOrder.ENDPOINT_PATH);
 		logger.info(response.getBody().asString());
 	}
 	
@@ -187,6 +188,7 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 			data = sqlExec(query, param, "order");
 
 			List<HashMap<Object, Object>> recentNumbers = response.jsonPath().get();
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 			int index = 0;
 
 			if (data.size() == 0) Assert.assertTrue(false, "no transaction found in database");
@@ -198,7 +200,7 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 				Assert.assertEquals(provHashMap.get("name"), map.get("name"));
 				Assert.assertEquals(provHashMap.get("image"), map.get("image"));
 
-//				Assert.assertEquals(recentNumbers.get(index).get("date"), rs.getLong("createdAt"));
+				Assert.assertEquals(formatter.format(recentNumbers.get(index).get("date")), formatter.format(map.get("createdAt")));
 				index++;
 			}
 			break;

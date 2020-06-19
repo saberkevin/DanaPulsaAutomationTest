@@ -51,15 +51,15 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 		logger.info("transactionId:" + transactionId);
 		
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("queue", "getVoucherRecommendation");
+		requestParams.put("queue", ConfigRemoteServicePromotion.QUEUE_GET_VOUCHER_RECOMMENDATION);
 		requestParams.put("request", "{\"userId\":" + userId + ",\"transactionId\":" + transactionId + "}");
 		
-		RestAssured.baseURI = URIPromotion;
+		RestAssured.baseURI = ConfigRemoteServicePromotion.BASE_URI;
 		httpRequest = RestAssured.given();
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 		
-		response = httpRequest.request(Method.GET, "/test");
+		response = httpRequest.request(Method.GET, ConfigRemoteServicePromotion.ENDPOINT_PATH);
 		logger.info(response.getBody().asString());
 	}
 
@@ -69,28 +69,24 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 		logger.info("Case:" + testCase);
 		
 		if (userId.equals("true") || transactionId.equals("true")) {
-			isCreateUser = true;
-			
 			// initialize user
-			user.setName("Zanuar");
-			user.setEmail("triromadon@gmail.com");
-			user.setUsername("081252930398");
-			user.setPin(123456);
-			
-			// delete if exist
-			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
-			deleteUserIfExist(user.getEmail(), user.getUsername());
+			user.setName(ConfigRemoteServicePromotion.USER_NAME);
+			user.setEmail(ConfigRemoteServicePromotion.USER_EMAIL);
+			user.setUsername(ConfigRemoteServicePromotion.USER_USERNAME);
+			user.setPin(ConfigRemoteServicePromotion.USER_PIN);
 			
 			// insert user into database
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());			
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));
-			
-			if (userId.equals("true")) {
-				userId = Long.toString(user.getId());				
-			}
-			
-			// insert balance into database
 			createBalance(user.getId(), 10000000);
+			
+			if (userId.equals("true")) 
+				userId = Long.toString(user.getId());				
+
+			// set flag
+			isCreateUser = true;
 		}
 		
 		if (transactionId.equals("true")) {			
@@ -113,8 +109,6 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 
 			// insert transaction into database
 			createTransaction(user.getId(), user.getUsername(), catalog.getId(), 4);
-			
-			// initialize transaction
 			transaction.setId(getTransactionIdByUserId(user.getId()));
 			transactionId = Long.toString(transaction.getId());
 			
@@ -130,16 +124,12 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 			anotherUser.setEmail("triromadon2@gmail.com");
 			anotherUser.setUsername("081252930397");
 			anotherUser.setPin(123456);
-			
-			// delete if exist
+						
+			// insert user into database
 			deleteBalanceByEmailByUsername(anotherUser.getEmail(), anotherUser.getUsername());
 			deleteUserIfExist(anotherUser.getEmail(), anotherUser.getUsername());
-			
-			// insert user into database
 			createUser(anotherUser);
 			anotherUser.setId(getUserIdByUsername(anotherUser.getUsername()));
-			
-			// insert balance into database
 			createBalance(anotherUser.getId(), 10000000);
 			
 			// initialize catalog - TELKOMSEL 15k
@@ -155,8 +145,6 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 
 			// insert transaction into database
 			createTransaction(anotherUser.getId(), anotherUser.getUsername(), catalog.getId(), 4);
-			
-			// initialize transaction
 			transaction.setId(getTransactionIdByUserId(anotherUser.getId()));			
 			transactionId = Long.toString(transaction.getId());
 		}

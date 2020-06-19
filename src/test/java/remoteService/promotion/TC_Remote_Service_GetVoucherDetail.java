@@ -37,15 +37,15 @@ public class TC_Remote_Service_GetVoucherDetail extends TestBase {
 		logger.info("voucher id:" + voucherId);
 		
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("queue", "getVoucherDetail");
+		requestParams.put("queue", ConfigRemoteServicePromotion.QUEUE_GET_VOUCHER_DETAILS);
 		requestParams.put("request", voucherId);
 		
-		RestAssured.baseURI = URIPromotion;
+		RestAssured.baseURI = ConfigRemoteServicePromotion.BASE_URI;
 		httpRequest = RestAssured.given();
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 		
-		response = httpRequest.request(Method.GET, "/test");
+		response = httpRequest.request(Method.GET, ConfigRemoteServicePromotion.ENDPOINT_PATH);
 		logger.info(response.getBody().asString());
 	}
 	

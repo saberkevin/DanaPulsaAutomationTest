@@ -15,6 +15,6 @@ public class Factory_Recommendation_Vouchers extends TestBase {
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/testCases/voucher/VouchersTestData.xlsx", "Recommendation Vouchers");
+		return getExcelData(ConfigApiTestVoucher.FILE_PATH, ConfigApiTestVoucher.SHEET_VOUCHER_RECOMMENDATION);
 	}
 }

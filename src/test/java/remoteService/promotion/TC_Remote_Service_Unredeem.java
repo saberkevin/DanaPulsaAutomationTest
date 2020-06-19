@@ -35,21 +35,21 @@ public class TC_Remote_Service_Unredeem extends TestBase {
 	
 	@SuppressWarnings("unchecked")
 	public void getUnredeemRemoteService(String userId, String voucherId) {
-		logger.info("Call Get Provider By Id API [Order Domain]");
+		logger.info("Call Unredeem API [Promotion Domain]");
 		logger.info("Test Data: ");
 		logger.info("user id:" + userId);
 		logger.info("voucher id:" + voucherId);
 		
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("method", "unredeem");
+		requestParams.put("queue", ConfigRemoteServicePromotion.QUEUE_UNREDEEM);
 		requestParams.put("request", "{\"userId\":" + userId + ",\"voucherId\":" + voucherId + "}");
 		
-		RestAssured.baseURI = URIOrder;
+		RestAssured.baseURI = ConfigRemoteServicePromotion.BASE_URI;
 		httpRequest = RestAssured.given();
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 				
-		response = httpRequest.request(Method.POST, "/api/test/");
+		response = httpRequest.request(Method.GET, ConfigRemoteServicePromotion.ENDPOINT_PATH);
 		logger.info(response.getBody().asString());
 	}
 	
@@ -59,10 +59,10 @@ public class TC_Remote_Service_Unredeem extends TestBase {
 		logger.info("Case:" + description);
 
 		// initialize user
-		user.setName("Zanuar");
-		user.setEmail("triromadon@gmail.com");
-		user.setUsername("081252930398");
-		user.setPin(123456);
+		user.setName(ConfigRemoteServicePromotion.USER_NAME);
+		user.setEmail(ConfigRemoteServicePromotion.USER_EMAIL);
+		user.setUsername(ConfigRemoteServicePromotion.USER_USERNAME);
+		user.setPin(ConfigRemoteServicePromotion.USER_PIN);
 		
 		// insert user into database and get user id from it
 		deleteUserIfExist(user.getEmail(), user.getUsername());
@@ -90,67 +90,59 @@ public class TC_Remote_Service_Unredeem extends TestBase {
 	
 	@Test(dependsOnMethods = {"testUnredeem"})
 	public void checkData() throws ParseException {
-		int statusCode = response.getStatusCode();
+		String responseBody = response.getBody().asString();
 		
-		if (statusCode == 200) {
-			String responseBody = response.getBody().asString();
-			
-			if (!responseBody.equals("unknown voucher") && !responseBody.equals("invalid request format")) {
-				Assert.assertNotNull(response.getBody().jsonPath().get("id"));
-				Assert.assertNotNull(response.getBody().jsonPath().get("name"));
-			}
+		if (!responseBody.equals("unknown voucher") && !responseBody.equals("invalid request format")) {
+			Assert.assertNotNull(response.getBody().jsonPath().get("id"));
+			Assert.assertNotNull(response.getBody().jsonPath().get("name"));
 		}
 	}
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		int statusCode = response.getStatusCode();
-		
-		if (statusCode == 200) {
-			String responseBody = response.getBody().asString();
+		String responseBody = response.getBody().asString();
 
-			if (responseBody.equals("unknown provider")) {
-				try {
-					Connection conn = getConnectionOrder();
-					String queryString = "SELECT * FROM user_voucher WHERE userId = ? AND voucherId = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, Long.parseLong(userId));
-					ps.setLong(2, Long.parseLong(voucherId));
-					
-					ResultSet rs = ps.executeQuery();
-					Assert.assertTrue(!rs.next());
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			} else if (responseBody.equals("invalid request format")) {
-				// do some code
+		if (responseBody.equals("unknown provider")) {
+			try {
+				Connection conn = getConnectionOrder();
+				String queryString = "SELECT * FROM user_voucher WHERE userId = ? AND voucherId = ?";
 				
-			} else {
-				try {
-					Connection conn = getConnectionOrder();
-					String queryString = "SELECT * FROM user_voucher WHERE userId = ? AND voucherId = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, Long.parseLong(userId));
-					ps.setLong(2, Long.parseLong(voucherId));
-					
-					ResultSet rs = ps.executeQuery();
-					
-					if (!rs.next()) {
-						Assert.assertTrue(false, "no voucher data");
-					}
-					do {
-						Assert.assertEquals(response.getBody().jsonPath().getLong("id"), rs.getLong("id"));
-						Assert.assertEquals(response.getBody().jsonPath().getString("name"), rs.getString("name"));
-					} while(rs.next());
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setLong(1, Long.parseLong(userId));
+				ps.setLong(2, Long.parseLong(voucherId));
+				
+				ResultSet rs = ps.executeQuery();
+				Assert.assertTrue(!rs.next());
+				
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else if (responseBody.equals("invalid request format")) {
+			// do some code
+			
+		} else {
+			try {
+				Connection conn = getConnectionOrder();
+				String queryString = "SELECT * FROM user_voucher WHERE userId = ? AND voucherId = ?";
+				
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setLong(1, Long.parseLong(userId));
+				ps.setLong(2, Long.parseLong(voucherId));
+				
+				ResultSet rs = ps.executeQuery();
+				
+				if (!rs.next()) {
+					Assert.assertTrue(false, "no voucher data");
 				}
+				do {
+					Assert.assertEquals(response.getBody().jsonPath().getLong("id"), rs.getLong("id"));
+					Assert.assertEquals(response.getBody().jsonPath().getString("name"), rs.getString("name"));
+				} while(rs.next());
+				
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 	}

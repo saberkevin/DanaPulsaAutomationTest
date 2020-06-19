@@ -1,10 +1,10 @@
 package remoteService.order;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.testng.Assert;
@@ -32,10 +32,6 @@ public class TC_Remote_Service_Cancel extends TestBase {
 	private String result;
 	private boolean isCreateUser;
 	
-	public TC_Remote_Service_Cancel() {
-		
-	}
-	
 	public TC_Remote_Service_Cancel(String testCase, String userId, String transactionId, String result) {
 		this.testCase = testCase;
 		this.userId = userId;
@@ -52,15 +48,15 @@ public class TC_Remote_Service_Cancel extends TestBase {
 		logger.info("transaction id:" + transactionId);
 		
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("method", "cancel");
+		requestParams.put("method", ConfigRemoteServiceOrder.QUEUE_CANCEL);
 		requestParams.put("message", "{\"userId\":" + userId + ",\"transactionId\":" + transactionId + "}");
 		
-		RestAssured.baseURI = URIOrder;
+		RestAssured.baseURI = ConfigRemoteServiceOrder.BASE_URI;
 		httpRequest = RestAssured.given();
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 				
-		response = httpRequest.request(Method.POST, "/api/test/");
+		response = httpRequest.request(Method.POST, ConfigRemoteServiceOrder.ENDPOINT_PATH);
 		logger.info(response.getBody().asString());
 	}
 	
@@ -69,57 +65,49 @@ public class TC_Remote_Service_Cancel extends TestBase {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Case:" + testCase);
 		
+		// initialize catalog - TELKOMSEL 15k
+		catalog.setId(13);
+		catalog.setProviderId(2);
+		catalog.setValue(15000);
+		catalog.setPrice(15000);
+		
+		// initialize provider - TELKOMSEL
+		provider.setId(2);
+		provider.setName("Telkomsel");
+		provider.setImage("https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png");
+		
 		if (userId.equals("true") || transactionId.equals("true")) {
-			isCreateUser = true;
-			
 			// initialize user
-			user.setName("Zanuar");
-			user.setEmail("triromadon@gmail.com");
-			user.setUsername("081252930398");
-			user.setPin(123456);
-			
-			// delete if exist
-			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
-			deleteUserIfExist(user.getEmail(), user.getUsername());
+			user.setName(ConfigRemoteServiceOrder.USER_NAME);
+			user.setEmail(ConfigRemoteServiceOrder.USER_EMAIL);
+			user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
+			user.setPin(ConfigRemoteServiceOrder.USER_PIN);
 			
 			// insert user into database
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));
-			
-			if (userId.equals("true")) {
-				userId = Long.toString(user.getId());				
-			}
-			
-			// insert balance into database
 			createBalance(user.getId(), 10000000);
+			if (userId.equals("true")) userId = Long.toString(user.getId());
+
+			// set flag
+			isCreateUser = true;
 		}
 		
-		if (transactionId.equals("true")) {	
-			// initialize catalog - TELKOMSEL 15k
-			catalog.setId(13);
-			catalog.setProviderId(2);
-			catalog.setValue(15000);
-			catalog.setPrice(15000);
-			
-			// initialize provider - TELKOMSEL
-			provider.setId(2);
-			provider.setName("Telkomsel");
-			provider.setImage("https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png");
-
+		if (transactionId.equals("true")) {
 			// insert transaction into database
-			if (testCase.equals("Transaction already completed")) {
+			if (testCase.equals("Transaction already completed")) 
 				createTransaction(user.getId(), user.getUsername(), catalog.getId(), 1);
-			} else {
-				createTransaction(user.getId(), user.getUsername(), catalog.getId(), 4);				
-			}
+			else 
+				createTransaction(user.getId(), user.getUsername(), catalog.getId(), 4);
 			
 			// initialize transaction
 			transaction.setId(getTransactionIdByUserId(user.getId()));
 			transaction.setPhoneNumber(user.getUsername());
 			transaction.setCatalogId(catalog.getId());
 			transaction.setMethodId(1);
-			transaction.setPaymentMethodName("WALLET");
-			
+			transaction.setPaymentMethodName("WALLET");			
 			transactionId = Long.toString(transaction.getId());
 		}
 		
@@ -130,38 +118,16 @@ public class TC_Remote_Service_Cancel extends TestBase {
 			anotherUser.setUsername("081252930397");
 			anotherUser.setPin(123456);
 			
-			// delete if exist
-			deleteBalanceByEmailByUsername(anotherUser.getEmail(), anotherUser.getUsername());
-			deleteUserIfExist(anotherUser.getEmail(), anotherUser.getUsername());
-			
 			// insert user into database
+			deleteBalanceByEmailByUsername(anotherUser.getEmail(), anotherUser.getUsername());
+			deleteUserIfExist(anotherUser.getEmail(), anotherUser.getUsername());			
 			createUser(anotherUser);
-			anotherUser.setId(getUserIdByUsername(anotherUser.getUsername()));
-			
-			// insert balance into database
 			createBalance(anotherUser.getId(), 10000000);
-			
-			// initialize catalog - TELKOMSEL 15k
-			catalog.setId(13);
-			catalog.setProviderId(2);
-			catalog.setValue(15000);
-			catalog.setPrice(15000);
-			
-			// initialize provider - TELKOMSEL
-			provider.setId(2);
-			provider.setName("Telkomsel");
-			provider.setImage("https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png");
+			anotherUser.setId(getUserIdByUsername(anotherUser.getUsername()));
 
 			// insert transaction into database
 			createTransaction(anotherUser.getId(), anotherUser.getUsername(), catalog.getId(), 4);
-			
-			// initialize transaction
 			transaction.setId(getTransactionIdByUserId(anotherUser.getId()));
-			transaction.setPhoneNumber(anotherUser.getUsername());
-			transaction.setCatalogId(catalog.getId());
-			transaction.setMethodId(1);
-			transaction.setPaymentMethodName("WALLET");
-			
 			transactionId = Long.toString(transaction.getId());
 		}
 	}
@@ -181,10 +147,20 @@ public class TC_Remote_Service_Cancel extends TestBase {
 		String responseBody = response.getBody().asString();
 		Assert.assertTrue(responseBody.contains(result), responseBody);
 		
-		if (!responseBody.equals("unknown user")
-				&& !responseBody.equals("unknown transaction") 
-				&& !responseBody.equals("can't cancel completed transaction") 
-				&& !responseBody.equals("invalid request format")) {
+		final String errorMessage1 = "unknown user";
+		final String errorMessage2 = "unknown transaction";
+		final String errorMessage3 = "can't cancel completed transaction";
+		final String errorMessage4 = "invalid request format";
+		
+		if (responseBody.contains(errorMessage1)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage2)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage3)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage4)) {
+			// do some code
+		} else {
 			Assert.assertEquals(response.getBody().jsonPath().getLong("id"), transaction.getId());
 			Assert.assertEquals(response.getBody().jsonPath().get("method"), transaction.getPaymentMethodName());
 			Assert.assertEquals(response.getBody().jsonPath().get("phoneNumber"), transaction.getPhoneNumber());
@@ -202,129 +178,88 @@ public class TC_Remote_Service_Cancel extends TestBase {
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
+		
+		final String errorMessage1 = "unknown user";
+		final String errorMessage2 = "unknown transaction";
+		final String errorMessage3 = "can't cancel completed transaction";
+		final String errorMessage4 = "invalid request format";
+		
 		String responseBody = response.getBody().asString();
+		switch (responseBody) {
+		case errorMessage1:
+			query = "SELECT * FROM user WHERE id = ?";
+			param.put("1", Long.parseLong(userId));
+			data = sqlExec(query, param, "member");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage2:
+			query = "SELECT * FROM transaction WHERE id = ? AND userId = ?";
+			param.put("1", Long.parseLong(transactionId));
+			param.put("2", Long.parseLong(userId));
+			data = sqlExec(query, param, "order");
+			Assert.assertTrue(data.size() == 0);			
+			break;			
+		case errorMessage3:
+			query = "SELECT * FROM transaction WHERE id = ? AND userId = ?";
+			param.put("1", Long.parseLong(transactionId));
+			param.put("2", Long.parseLong(userId));
+			data = sqlExec(query, param, "order");
 
-		if (responseBody.equals("unknown transaction")) {
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT * FROM transaction WHERE id = ? AND userId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(transactionId));
-				ps.setLong(2, Long.parseLong(userId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.equals("unknown user")) {
-			try {
-				Connection conn = getConnectionMember();
-				String queryString = "SELECT * FROM user WHERE id = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(userId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.equals("can't cancel completed transaction")) {
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT * FROM transaction WHERE id = ? AND userId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(transactionId));
-				ps.setLong(2, Long.parseLong(userId));
-				
-				ResultSet rs = ps.executeQuery();
-				
-				if (!rs.next()) {
-					Assert.assertTrue(false, "no transaction found in database");
-				}
-				do {
-					Assert.assertEquals("1", rs.getString("statusId"));
-				} while(rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.equals("invalid request format")) {
+			if (data.size() == 0) Assert.assertTrue(false,  "no transaction found in database");			
+			for (Map<String, Object> map : data)
+				Assert.assertEquals(1, map.get("statusId"));	
+
+			break;
+		case errorMessage4:
 			// do some code
-			
-		} else {
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT "
-						+ "A.*, "
-						+ "B.value, "
-						+ "B.price, "
-						+ "C.id AS providerId, "
-						+ "C.name AS providerName, "
-						+ "C.image AS providerImage, "
-						+ "D.name AS transactionStatus, "
-						+ "E.name AS paymentMethodName "
-						+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
-						+ "LEFT JOIN provider C on B.providerId = C.id "
-						+ "LEFT JOIN transaction_status D on A.statusId = D.id "
-						+ "LEFT JOIN payment_method E on A.methodId = E.id "
-						+ "WHERE A.id = ? AND A.userId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(transactionId));
-				ps.setLong(2, Long.parseLong(userId));
-				
-				ResultSet rs = ps.executeQuery();
-				
-				if (!rs.next()) {
-					Assert.assertTrue(false, "no transaction found in database");
-				}
-				do {
-					Assert.assertEquals(response.getBody().jsonPath().getLong("id"), rs.getLong("id"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("method"), rs.getString("paymentMethodName"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("phoneNumber"), rs.getString("phoneNumber"));
-					Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.provider.id"), rs.getLong("providerId"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("catalog.provider.name"), rs.getString("providerName"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("catalog.provider.image"), rs.getString("providerImage"));
-					Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.value"), rs.getLong("value"));
-					Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.price"), rs.getLong("price"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("status"), rs.getString("transactionStatus"));
-//					Assert.assertEquals(response.getBody().jsonPath().getString("createdAt"), rs.getString("createdAt"));
-//					Assert.assertEquals(response.getBody().jsonPath().getString("updatedAt"), rs.getString("updatedAt"));
-				} while(rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+			break;
+		default:
+			query = "SELECT A.*, B.value, B.price, C.id AS providerId, C.name AS providerName, C.image AS providerImage, "
+					+ "D.name AS transactionStatus, E.name AS paymentMethodName "
+					+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
+					+ "LEFT JOIN provider C on B.providerId = C.id "
+					+ "LEFT JOIN transaction_status D on A.statusId = D.id "
+					+ "LEFT JOIN payment_method E on A.methodId = E.id "
+					+ "WHERE A.id = ? AND A.userId = ?";
+			param.put("1", Long.parseLong(transactionId));
+			param.put("2", Long.parseLong(userId));
+			data = sqlExec(query, param, "order");
+
+			if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");
+			for (Map<String, Object> map : data) {
+				Assert.assertEquals(response.getBody().jsonPath().getLong("id"), map.get("id"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("method"), map.get("paymentMethodName"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("phoneNumber"), map.get("phoneNumber"));
+				Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.provider.id"), map.get("providerId"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("catalog.provider.name"), map.get("providerName"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("catalog.provider.image"), map.get("providerImage"));
+				Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.value"), map.get("value"));
+				Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.price"), map.get("price"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("status"), map.get("transactionStatus"));
+//				Assert.assertEquals(response.getBody().jsonPath().getString("createdAt"), map.get("createdAt"));
+//				Assert.assertEquals(response.getBody().jsonPath().getString("updatedAt"), map.get("updatedAt"));
 			}
+			break;
 		}
 	}
 	
 	@AfterClass
 	public void afterClass() {
-		// delete user
 		if (isCreateUser == true) {
 			deleteTransactionByUserId(user.getId());
 			deleteBalanceByUserId(user.getId());
 			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
 		}
 		
-		// delete another user
 		if (testCase.equals("Another user's transaction")) {
 			deleteTransactionByUserId(anotherUser.getId());
 			deleteBalanceByUserId(anotherUser.getId());
 			deleteUserByEmailAndUsername(anotherUser.getEmail(), anotherUser.getUsername());			
 		}
 
-		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());
 	}
 }

@@ -38,15 +38,15 @@ public class TC_Remote_Service_GetPaymentMethodNameById extends TestBase {
 		logger.info("methodId id:" + methodId);
 		
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("method", "getPaymentMethodNameById");
+		requestParams.put("method", ConfigRemoteServiceOrder.QUEUE_GET_PAYMENT_METHOD_NAME_BY_ID);
 		requestParams.put("message", methodId);
 		
-		RestAssured.baseURI = URIOrder;
+		RestAssured.baseURI = ConfigRemoteServiceOrder.BASE_URI;
 		httpRequest = RestAssured.given();
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 				
-		response = httpRequest.request(Method.POST, "/api/test/");
+		response = httpRequest.request(Method.POST, ConfigRemoteServiceOrder.ENDPOINT_PATH);
 		logger.info(response.getBody().asString());
 	}
 	

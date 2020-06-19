@@ -50,15 +50,15 @@ public class TC_Remote_Service_GetHistoryInProgress extends TestBase {
 		logger.info("page:" + page);
 		
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("method", "getHistoryInProgress");
+		requestParams.put("method", ConfigRemoteServiceOrder.QUEUE_GET_HISTORY_IN_PROGRESS);
 		requestParams.put("message", "{\"userId\":" + userId + ",\"page\":" + page + "}");
 		
-		RestAssured.baseURI = URIOrder;
+		RestAssured.baseURI = ConfigRemoteServiceOrder.BASE_URI;
 		httpRequest = RestAssured.given();
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 				
-		response = httpRequest.request(Method.POST, "/api/test/");
+		response = httpRequest.request(Method.POST, ConfigRemoteServiceOrder.ENDPOINT_PATH);
 		logger.info(response.getBody().asString());
 	}
 	

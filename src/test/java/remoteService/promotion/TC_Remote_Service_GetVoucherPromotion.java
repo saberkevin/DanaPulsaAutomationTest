@@ -47,15 +47,15 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 		logger.info("page:" + page);
 		
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("queue", "getVoucherPromotion");
+		requestParams.put("queue", ConfigRemoteServicePromotion.QUEUE_GET_VOUCHER_PROMOTION);
 		requestParams.put("request", "{\"userId\":" + userId + ",\"page\":" + page + "}");
 		
-		RestAssured.baseURI = URIPromotion;
+		RestAssured.baseURI = ConfigRemoteServicePromotion.BASE_URI;
 		httpRequest = RestAssured.given();
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 		
-		response = httpRequest.request(Method.GET, "/test");
+		response = httpRequest.request(Method.GET, ConfigRemoteServicePromotion.ENDPOINT_PATH);
 		logger.info(response.getBody().asString());
 	}
 	

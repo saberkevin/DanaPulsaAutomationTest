@@ -38,15 +38,15 @@ public class TC_Remote_Service_GetAllCatalog extends TestBase {
 		logger.info("phone prefix:" + phonePrefix);
 		
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("method", "getAllCatalog");
+		requestParams.put("method", ConfigRemoteServiceOrder.QUEUE_GET_ALL_CATALOG);
 		requestParams.put("message", phonePrefix);
 		
-		RestAssured.baseURI = URIOrder;
+		RestAssured.baseURI = ConfigRemoteServiceOrder.BASE_URI;
 		httpRequest = RestAssured.given();
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 				
-		response = httpRequest.request(Method.POST, "/api/test/");
+		response = httpRequest.request(Method.POST, ConfigRemoteServiceOrder.ENDPOINT_PATH);
 		logger.info(response.getBody().asString());
 	}
 	

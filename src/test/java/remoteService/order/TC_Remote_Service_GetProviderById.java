@@ -38,15 +38,15 @@ public class TC_Remote_Service_GetProviderById extends TestBase {
 		logger.info("provider id:" + providerId);
 		
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("method", "getProviderById");
+		requestParams.put("method", ConfigRemoteServiceOrder.QUEUE_GET_PROVIDER_BY_ID);
 		requestParams.put("message", providerId);
 		
-		RestAssured.baseURI = URIOrder;
+		RestAssured.baseURI = ConfigRemoteServiceOrder.BASE_URI;
 		httpRequest = RestAssured.given();
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 				
-		response = httpRequest.request(Method.POST, "/api/test/");
+		response = httpRequest.request(Method.POST, ConfigRemoteServiceOrder.ENDPOINT_PATH);
 		logger.info(response.getBody().asString());
 	}
 	

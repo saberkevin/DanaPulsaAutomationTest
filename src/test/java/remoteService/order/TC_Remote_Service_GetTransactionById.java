@@ -48,15 +48,15 @@ public class TC_Remote_Service_GetTransactionById extends TestBase {
 		logger.info("transaction id:" + transactionId);
 		
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("method", "getTransactionById");
+		requestParams.put("method", ConfigRemoteServiceOrder.QUEUE_TRANSACTION_BY_ID);
 		requestParams.put("message", transactionId);
 		
-		RestAssured.baseURI = URIOrder;
+		RestAssured.baseURI = ConfigRemoteServiceOrder.BASE_URI;
 		httpRequest = RestAssured.given();
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 				
-		response = httpRequest.request(Method.POST, "/api/test/");
+		response = httpRequest.request(Method.POST, ConfigRemoteServiceOrder.ENDPOINT_PATH);
 		logger.info(response.getBody().asString());
 	}
 	
