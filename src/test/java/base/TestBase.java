@@ -983,7 +983,7 @@ public class TestBase {
 				Map<String, Object> row = new HashMap<String, Object>(md.getColumnCount());
 				
 		        for(int i = 1; i <= md.getColumnCount(); ++i) {
-		            row.put(md.getColumnName(i), rs.getObject(i));
+		            row.put(md.getColumnLabel(i), rs.getObject(i));
 		        }
 		        
 		        result.add(row);

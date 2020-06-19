@@ -1,10 +1,10 @@
 package remoteService.order;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.testng.Assert;
@@ -179,9 +179,17 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 		String responseBody = response.getBody().asString();
 		Assert.assertTrue(responseBody.contains(result), responseBody);
 		
-		if (!responseBody.equals("unknown user")
-				&& !responseBody.equals("unknown transaction") 
-				&& !responseBody.equals("invalid request format")) {
+		final String errorMessage1 = "unknown user";
+		final String errorMessage2 = "unknown transaction";
+		final String errorMessage3 = "invalid request format";
+		
+		if (responseBody.contains(errorMessage1)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage2)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage3)) {
+			// do some code
+		} else {
 			Assert.assertEquals(response.getBody().jsonPath().getLong("id"), transaction.getId());
 			Assert.assertEquals(response.getBody().jsonPath().get("method"), transaction.getPaymentMethodName());
 			Assert.assertEquals(response.getBody().jsonPath().get("phoneNumber"), transaction.getPhoneNumber());
@@ -200,107 +208,76 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
+		
+		final String errorMessage1 = "unknown user";
+		final String errorMessage2 = "unknown transaction";
+		final String errorMessage3 = "invalid request format";
+		
 		String responseBody = response.getBody().asString();
-
-		if (responseBody.equals("unknown transaction")) {
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT * FROM transaction WHERE id = ? AND userId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(transactionId));
-				ps.setLong(2, Long.parseLong(userId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.equals("unknown user")) {
-			try {
-				Connection conn = getConnectionMember();
-				String queryString = "SELECT * FROM user WHERE id = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(userId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.equals("invalid request format")) {
+		switch (responseBody) {
+		case errorMessage1:
+			query = "SELECT * FROM user WHERE id = ?";
+			param.put("1", Long.parseLong(userId));
+			data = sqlExec(query, param, "member");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage2:
+			query = "SELECT * FROM transaction WHERE id = ? AND userId = ?";
+			param.put("1", Long.parseLong(transactionId));
+			param.put("2", Long.parseLong(userId));
+			data = sqlExec(query, param, "order");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage3:
 			// do some code
+			break;
+		default:
+			query = "SELECT A.*, B.value, B.price, C.id AS providerId, C.name AS providerName, C.image AS providerImage, "
+					+ "D.name AS transactionStatus, E.name AS paymentMethodName "
+					+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
+					+ "LEFT JOIN provider C on B.providerId = C.id "
+					+ "LEFT JOIN transaction_status D on A.statusId = D.id "
+					+ "LEFT JOIN payment_method E on A.methodId = E.id "
+					+ "WHERE A.id = ? AND A.userId = ?";
+			param.put("1", Long.parseLong(transactionId));
+			param.put("2", Long.parseLong(userId));
+			data = sqlExec(query, param, "order");
 			
-		} else {
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT "
-						+ "A.*, "
-						+ "B.value, "
-						+ "B.price, "
-						+ "C.id AS providerId, "
-						+ "C.name AS providerName, "
-						+ "C.image AS providerImage, "
-						+ "D.name AS transactionStatus, "
-						+ "E.name AS paymentMethodName "
-						+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
-						+ "LEFT JOIN provider C on B.providerId = C.id "
-						+ "LEFT JOIN transaction_status D on A.statusId = D.id "
-						+ "LEFT JOIN payment_method E on A.methodId = E.id "
-						+ "WHERE A.id = ? AND A.userId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(transactionId));
-				ps.setLong(2, Long.parseLong(userId));
-				
-				ResultSet rs = ps.executeQuery();
-				
-				if (!rs.next()) {
-					Assert.assertTrue(false, "no transaction found in database");
-				}
-				do {
-					Assert.assertEquals(response.getBody().jsonPath().getLong("id"), rs.getLong("id"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("method"), rs.getString("paymentMethodName"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("phoneNumber"), rs.getString("phoneNumber"));
-					Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.provider.id"), rs.getLong("providerId"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("catalog.provider.name"), rs.getString("providerName"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("catalog.provider.image"), rs.getString("providerImage"));
-					Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.value"), rs.getLong("value"));
-					Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.price"), rs.getLong("price"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("status"), rs.getString("transactionStatus"));
-//					Assert.assertEquals(response.getBody().jsonPath().getString("createdAt"), rs.getString("createdAt"));
-//					Assert.assertEquals(response.getBody().jsonPath().getString("updatedAt"), rs.getString("updatedAt"));
-				} while(rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+			if (data.size() == 0) Assert.assertTrue(false, "no transaction found in database");
+			for (Map<String, Object> map : data) {
+				Assert.assertEquals(response.getBody().jsonPath().getLong("id"), map.get("id"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("method"), map.get("paymentMethodName"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("phoneNumber"), map.get("phoneNumber"));
+				Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.provider.id"), map.get("providerId"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("catalog.provider.name"), map.get("providerName"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("catalog.provider.image"), map.get("providerImage"));
+				Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.value"), map.get("value"));
+				Assert.assertEquals(response.getBody().jsonPath().getLong("catalog.price"), map.get("price"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("status"), map.get("transactionStatus"));
+//				Assert.assertEquals(response.getBody().jsonPath().getString("createdAt"), map.get("createdAt"));
+//				Assert.assertEquals(response.getBody().jsonPath().getString("updatedAt"), map.get("updatedAt"));
 			}
+			break;
 		}
 	}
 	
 	@AfterClass
 	public void afterClass() {
-		// delete user
 		if (isCreateUser == true) {
 			deleteTransactionByUserId(user.getId());
 			deleteBalanceByUserId(user.getId());
 			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
 		}
 		
-		// delete another user
 		if (testCase.equals("Another user's transaction")) {
 			deleteTransactionByUserId(anotherUser.getId());
 			deleteBalanceByUserId(anotherUser.getId());
 			deleteUserByEmailAndUsername(anotherUser.getEmail(), anotherUser.getUsername());			
 		}
 
-		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());
 	}
 }

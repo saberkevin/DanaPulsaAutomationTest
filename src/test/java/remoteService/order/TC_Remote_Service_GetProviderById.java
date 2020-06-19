@@ -1,6 +1,7 @@
 package remoteService.order;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,47 +70,53 @@ public class TC_Remote_Service_GetProviderById extends TestBase {
 	public void checkData() throws ParseException {
 		String responseBody = response.getBody().asString();
 		Assert.assertTrue(responseBody.contains(result), responseBody);
+
+		final String errorMessage1 = "unknown provider";
+		final String errorMessage2 = "invalid request format";
 		
-		if (!responseBody.equals("unknown provider") && !responseBody.equals("invalid request format")) {
+		if (responseBody.contains(errorMessage1)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage2)) {
+			// do some code
+		} else {
 			Assert.assertNotNull(response.getBody().jsonPath().get("id"));
 			Assert.assertNotNull(response.getBody().jsonPath().get("name"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("image"));
+			Assert.assertNotNull(response.getBody().jsonPath().get("image"));			
 		}
 	}
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
+		
+		final String errorMessage1 = "unknown provider";
+		final String errorMessage2 = "invalid request format";
+		
 		String responseBody = response.getBody().asString();
-
-		if (responseBody.equals("unknown provider")) {
-			String queryString = "SELECT * FROM provider WHERE id = ?";
-			
-			Map<String, Object> param = new LinkedHashMap<String, Object>();
-			param.put("id", Long.parseLong(providerId));
-			
-			List<Map<String, Object>> data = sqlExec(queryString, param, "order");			
-			Assert.assertTrue(data.size() == 0, "no provider found in database");
-			
-		} else if (responseBody.equals("invalid request format")) {
+		switch (responseBody) {
+		case errorMessage1:
+			query = "SELECT * FROM provider WHERE id = ?";
+			param.put("1", Long.parseLong(providerId));
+			data = sqlExec(query, param, "order");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage2:
 			// do some code
+			break;
+		default:
+			query = "SELECT * FROM provider WHERE id = ?";
+			param.put("1", Long.parseLong(providerId));
+			data = sqlExec(query, param, "order");
 			
-		} else {
-			String queryString = "SELECT * FROM provider WHERE id = ?";
-			
-			Map<String, Object> param = new LinkedHashMap<String, Object>();
-			param.put("id", Long.parseLong(providerId));
-			
-			List<Map<String, Object>> data = sqlExec(queryString, param, "order");
-			
-			if (data.size() == 0) {
-				Assert.assertTrue(false, "no provider found in database");
-			}
-			
+			if (data.size() == 0) Assert.assertTrue(false, "no provider found in database");
 			for (Map<String, Object> map : data) {
 				Assert.assertEquals(response.getBody().jsonPath().getLong("id"), map.get("id"));
 				Assert.assertEquals(response.getBody().jsonPath().getString("name"), map.get("name"));
 				Assert.assertEquals(response.getBody().jsonPath().getString("image"), map.get("image"));
 			}
+			break;
 		}
 	}
 	

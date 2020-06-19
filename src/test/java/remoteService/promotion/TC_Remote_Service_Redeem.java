@@ -1,9 +1,9 @@
 package remoteService.promotion;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.testng.Assert;
@@ -116,216 +116,148 @@ public class TC_Remote_Service_Redeem extends TestBase {
 		String responseBody = response.getBody().asString();
 		Assert.assertTrue(responseBody.contains(result), responseBody);
 		
-		if (!responseBody.contains("invalid request format") 
-				&& !responseBody.equals("user not found")
-				&& !responseBody.equals("unknown payment method")
-				&& !responseBody.equals("your voucher not found")
-				&& !responseBody.equals("unknown provider")
-				&& !responseBody.equals("insufficient purchase amount to use this voucher")
-				&& !responseBody.equals("your voucher is not applicable with your number")
-				&& !responseBody.equals("your voucher is not applicable with payment method")) {
-
-			Assert.assertTrue(response.getBody().jsonPath().getString("voucherTypeName").equals("cashback")
-					|| response.getBody().jsonPath().getString("voucherTypeName").equals("discount"));
+		final String errorMessage1 = "your voucher not found";
+		final String errorMessage2 = "user not found";
+		final String errorMessage3 = "insufficient purchase amount to use this voucher";
+		final String errorMessage4 = "your voucher is not applicable with your number";
+		final String errorMessage5 = "unknown provider";
+		final String errorMessage6 = "unknown payment method";
+		final String errorMessage7 = "your voucher is not applicable with payment method";
+		final String errorMessage8 = "invalid request format";
+		
+		if (responseBody.contains(errorMessage1)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage2)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage3)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage4)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage5)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage6)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage7)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage8)) {
+			// do some code
+		} else {
+			String voucherTypeName = response.getBody().jsonPath().getString("voucherTypeName");
+			Assert.assertTrue(voucherTypeName.equals("cashback") || voucherTypeName.equals("discount"));
 			
-			if (response.getBody().jsonPath().getString("voucherTypeName").equals("cashback")) {
+			if (voucherTypeName.equals("cashback")) 
 				Assert.assertEquals(response.getBody().jsonPath().getString("finalPrice"), price);								
-			} else if (response.getBody().jsonPath().getString("voucherTypeName").equals("discount")) {
+			else 
 				Assert.assertEquals(response.getBody().jsonPath().getString("value"), "0");								
-			}
 		}
 	}
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
+
+		final String errorMessage1 = "your voucher not found";
+		final String errorMessage2 = "user not found";
+		final String errorMessage3 = "insufficient purchase amount to use this voucher";
+		final String errorMessage4 = "your voucher is not applicable with your number";
+		final String errorMessage5 = "unknown provider";
+		final String errorMessage6 = "unknown payment method";
+		final String errorMessage7 = "your voucher is not applicable with payment method";
+		final String errorMessage8 = "invalid request format";
+
 		String responseBody = response.getBody().asString();
-
-		if (responseBody.equals("your voucher not found")) {
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT * FROM user_voucher A "
-						+ "LEFT JOIN voucher B ON A.voucherId = B.id "
-						+ "WHERE A.id = ? AND A.voucherId = ? AND A.voucherStatusId != 1 AND B.isActive = 1";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(userId));
-				ps.setLong(2, Long.parseLong(voucherId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.contains("user not found")) {
-			try {
-				Connection conn = getConnectionMember();
-				String queryString = "SELECT * FROM user WHERE id = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(userId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.contains("invalid request format")) {
-			// do some code
+		switch (responseBody) {
+		case errorMessage1:
+			query = "SELECT * FROM user_voucher A LEFT JOIN voucher B ON A.voucherId = B.id "
+					+ "WHERE A.userId = ? AND A.voucherId = ? AND A.voucherStatusId != 1 AND B.isActive = 1";
+			param.put("1", Long.parseLong(userId));
+			param.put("2", Long.parseLong(voucherId));
+			data = sqlExec(query, param, "promotion");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage2:
+			query = "SELECT * FROM user WHERE id = ?";
+			param.put("1", Long.parseLong(userId));
+			data = sqlExec(query, param, "member");			
+			Assert.assertTrue(data.size() == 0);			
+			break;			
+		case errorMessage3:
+			query = "SELECT * FROM voucher WHERE id = ?";
+			param.put("1", Long.parseLong(voucherId));
+			data = sqlExec(query, param, "promotion");
 			
-		} else if (responseBody.equals("insufficient purchase amount to use this voucher")) {
-			try {	
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT * FROM voucher WHERE id = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(voucherId));
-				
-				ResultSet rs = ps.executeQuery();
-				
-				if (!rs.next()) {
-					Assert.assertTrue(false, "no transaction found in database");
-				}
-				do {
-					Assert.assertTrue(Long.parseLong(price) < rs.getLong("minPurchase"));
-				} while (rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}			
-		} else if (responseBody.contains("your voucher is not applicable with your number")) {
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT * FROM voucher A "
-						+ "LEFT JOIN voucher_provider B on A.id = B.voucherId "
-						+ "WHERE A.id = ? AND B.providerId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(voucherId));
-				ps.setLong(2, Long.parseLong(providerId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.contains("unknown provider")) {
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT * FROM voucher A "
-						+ "LEFT JOIN voucher_provider B on A.id = B.voucherId "
-						+ "WHERE A.id = ? AND B.providerId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(voucherId));
-				ps.setLong(2, Long.parseLong(providerId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.contains("unknown payment method")) {
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT * FROM voucher_payment_method WHERE paymentMethodId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(paymentMethodId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}			
-		} else if (responseBody.contains("your voucher is not applicable with payment method")) {
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT * FROM voucher_payment_method WHERE paymentMethodId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(paymentMethodId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}			
-		} else {
-			if (response.getBody().jsonPath().getString("voucherTypeName").equals("cashback")) {
-				try {
-					Connection conn = getConnectionPromotion();
-					String queryString = "SELECT * FROM voucher WHERE id = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1,Long.parseLong(voucherId));
-					
-					ResultSet rs = ps.executeQuery();
-					
-					if (!rs.next()) {
-						Assert.assertTrue(false, "no voucher found in database");
-					}
-					do {
-						Assert.assertEquals(response.getBody().jsonPath().getLong("value"), rs.getLong("value"));
-					} while (rs.next());
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			} else if (response.getBody().jsonPath().getString("voucherTypeName").equals("discount")) {
-				try {
-					Connection conn = getConnectionPromotion();
-					String queryString = "SELECT * FROM voucher WHERE id = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, Long.parseLong(voucherId));
-					
-					ResultSet rs = ps.executeQuery();
-					
-					if (!rs.next()) {
-						Assert.assertTrue(false, "no voucher found in database");
-					}
-					do {
-						long discount = rs.getLong("discount") * Long.parseLong(price);
+			if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");			
+			for (Map<String, Object> map : data)
+				Assert.assertTrue(Long.parseLong(price) < (Long) map.get("minPurchase"));	
+			
+			break;
+		case errorMessage4:
+			query = "SELECT * FROM voucher A LEFT JOIN voucher_provider B on A.id = B.voucherId WHERE A.id = ? AND B.providerId = ?";
+			param.put("1", Long.parseLong(voucherId));
+			param.put("2", Long.parseLong(providerId));
+			data = sqlExec(query, param, "promotion");
+			Assert.assertTrue(data.size() == 0);
+			break;			
+		case errorMessage5:
+			query = "SELECT * FROM provider id = ?";
+			param.put("1", Long.parseLong(providerId));
+			data = sqlExec(query, param, "order");
+			Assert.assertTrue(data.size() == 0);
+			break;			
+		case errorMessage6:
+			query = "SELECT * FROM voucher_payment_method WHERE paymentMethodId = ?";
+			param.put("1", Long.parseLong(paymentMethodId));
+			data = sqlExec(query, param, "promotion");			
+			Assert.assertTrue(data.size() == 0);
+			break;		
+		case errorMessage7:
+			query = "SELECT * FROM voucher_payment_method WHERE paymentMethodId = ? AND voucherId = ?";	
+			param.put("1", Long.parseLong(paymentMethodId));
+			param.put("2", Long.parseLong(voucherId));
+			data = sqlExec(query, param, "promotion");	
+			Assert.assertTrue(data.size() == 0);
+			break;		
+		case errorMessage8:
+			// do some code
+			break;
+		default:
+			String voucherTypeName = response.getBody().jsonPath().getString("voucherTypeName");
 
-						if (discount > rs.getLong("maxDeduction")) {
-							discount = rs.getLong("maxDeduction");
-						}
-						
-						Assert.assertEquals(response.getBody().jsonPath().getLong("finalPrice"), Long.parseLong(price) - discount);
-					} while (rs.next());
+			if (voucherTypeName.equals("cashback")) {
+				query = "SELECT * FROM voucher WHERE id = ?";
+				param.put("1", Long.parseLong(voucherId));
+				data = sqlExec(query, param, "promotion");
+				
+				if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");				
+				for (Map<String, Object> map : data)
+					Assert.assertEquals(response.getBody().jsonPath().getString("value"), (String) map.get("value"));
+				
+			} else if (voucherTypeName.equals("discount")) {
+				query = "SELECT * FROM voucher WHERE id = ?";
+				param.put("1", Long.parseLong(voucherId));
+				data = sqlExec(query, param, "promotion");
+				
+				if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");				
+				for (Map<String, Object> map : data) {
+					long discount = (Integer) map.get("discount") * Long.parseLong(price);
 					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
+					if (discount > (Long) map.get("maxDeduction")) discount = (Long) map.get("maxDeduction");										
+					Assert.assertEquals(response.getBody().jsonPath().getLong("finalPrice"), Long.parseLong(price) - discount);
 				}
-			}
+			}			
+			break;
 		}
 	}
 	
 	@AfterClass
 	public void afterClass() {
-		// delete user
 		if (isCreateUser == true) {
 			deleteUserVoucherByUserId(user.getId());
 			deleteBalanceByUserId(user.getId());
 			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
 		}
-		
-		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());
 	}
 }

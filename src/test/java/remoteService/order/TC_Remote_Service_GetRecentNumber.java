@@ -1,12 +1,11 @@
 package remoteService.order;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.testng.Assert;
@@ -121,27 +120,30 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 		String responseBody = response.getBody().asString();
 		Assert.assertTrue(responseBody.contains(result), responseBody);
 		
-		if (!responseBody.equals("unknown user") && !responseBody.equals("invalid request format")) {
-			if (!response.getBody().asString().equals("[]")) {
-				List<HashMap<Object, Object>> recentNumbers = response.jsonPath().get();
-				
-				Assert.assertTrue(recentNumbers.size() <= 10, "maximum recent number is only 10");
-				
-				for (int i = 0; i < recentNumbers.size(); i++) {
+		final String errorMessage1 = "unknown user";
+		final String errorMessage2 = "[]";
+		final String errorMessage3 = "invalid request format";
+		
+		if (responseBody.contains(errorMessage1)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage2)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage3)) {
+			// do some code
+		} else {
+			List<HashMap<Object, Object>> recentNumbers = response.jsonPath().get();			
+			Assert.assertTrue(recentNumbers.size() <= 10, "maximum recent number is only 10");
+			
+			for (int i = 0; i < recentNumbers.size(); i++) {
+				if (recentNumbers.size() > 1) Assert.assertEquals(recentNumbers.get(i).get("number"), phoneNumbers[recentNumbers.size() - i]);
+				else Assert.assertEquals(recentNumbers.get(i).get("number"), user.getUsername());						
 
-					if (recentNumbers.size() > 1) {
-						Assert.assertEquals(recentNumbers.get(i).get("number"), phoneNumbers[recentNumbers.size() - i]);
-					} else {
-						Assert.assertEquals(recentNumbers.get(i).get("number"), user.getUsername());						
-					}
-
-					HashMap<String, String> provHashMap = (HashMap<String, String>) recentNumbers.get(i).get("provider");
-					Assert.assertEquals(String.valueOf(provHashMap.get("id")), Long.toString(provider.getId()));
-					Assert.assertEquals(provHashMap.get("name"), provider.getName());
-					Assert.assertEquals(provHashMap.get("image"), provider.getImage());
-					
-					Assert.assertNotNull(recentNumbers.get(i).get("date"));
-				}
+				HashMap<String, String> provHashMap = (HashMap<String, String>) recentNumbers.get(i).get("provider");
+				Assert.assertEquals(String.valueOf(provHashMap.get("id")), Long.toString(provider.getId()));
+				Assert.assertEquals(provHashMap.get("name"), provider.getName());
+				Assert.assertEquals(provHashMap.get("image"), provider.getImage());
+				
+				Assert.assertNotNull(recentNumbers.get(i).get("date"));
 			}
 		}
 	}
@@ -149,91 +151,67 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 	@SuppressWarnings("unchecked")
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
+
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
+		
+		final String errorMessage1 = "unknown user";
+		final String errorMessage2 = "[]";
+		final String errorMessage3 = "invalid request format";
+		
 		String responseBody = response.getBody().asString();
-
-		if (responseBody.equals("[]")) {
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT * FROM transaction WHERE userId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(userId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.equals("unknown user")) {
-			try {
-				Connection conn = getConnectionMember();
-				String queryString = "SELECT * FROM user WHERE id = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(userId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.equals("invalid request format")) {
+		switch (responseBody) {
+		case errorMessage1:
+			query = "SELECT * FROM user WHERE id = ?";
+			param.put("1", Long.parseLong(userId));
+			data = sqlExec(query, param, "member");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage2:
+			query = "SELECT * FROM transaction WHERE userId = ?";
+			param.put("1", Long.parseLong(userId));
+			data = sqlExec(query, param, "order");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage3:
 			// do some code
-			
-		} else {
-			List<HashMap<Object, Object>> recentNumbers = response.jsonPath().get();
-			
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT "
-						+ "A.phoneNumber, "
-						+ "A.createdAt, "
-						+ "C.* "
-						+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
-						+ "LEFT JOIN provider C on B.providerId = C.id "
-						+ "WHERE A.userId = ? ORDER BY A.createdAt DESC LIMIT 10";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(userId));
-				
-				ResultSet rs = ps.executeQuery();
-				
-				if (!rs.next()) {
-					Assert.assertTrue(false, "no transaction found in database");
-				}
-				do {
-					int index = rs.getRow() - 1;
-					Assert.assertEquals(recentNumbers.get(index).get("number"), rs.getString("phoneNumber"));
-					
-					HashMap<String, String> provHashMap = (HashMap<String, String>) recentNumbers.get(index).get("provider");
-					Assert.assertEquals(String.valueOf(provHashMap.get("id")), rs.getString("id"));						
-					Assert.assertEquals(provHashMap.get("name"), rs.getString("name"));						
-					Assert.assertEquals(provHashMap.get("image"), rs.getString("image"));						
+			break;
+		default:
+			query =  "SELECT A.phoneNumber, A.createdAt, C.* "
+					+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
+					+ "LEFT JOIN provider C on B.providerId = C.id "
+					+ "WHERE A.userId = ? "
+					+ "ORDER BY A.createdAt DESC LIMIT 10";
+			param.put("1", Long.parseLong(userId));
+			data = sqlExec(query, param, "order");
 
-//					Assert.assertEquals(recentNumbers.get(index).get("date"), rs.getLong("createdAt"));
-				} while(rs.next());
+			List<HashMap<Object, Object>> recentNumbers = response.jsonPath().get();
+			int index = 0;
+
+			if (data.size() == 0) Assert.assertTrue(false, "no transaction found in database");
+			for (Map<String, Object> map : data) {
+				Assert.assertEquals(recentNumbers.get(index).get("number"), map.get("phoneNumber"));
 				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+				HashMap<String, Object> provHashMap = (HashMap<String, Object>) recentNumbers.get(index).get("provider");
+				Assert.assertEquals(Long.valueOf((Integer) provHashMap.get("id")), map.get("id"));
+				Assert.assertEquals(provHashMap.get("name"), map.get("name"));
+				Assert.assertEquals(provHashMap.get("image"), map.get("image"));
+
+//				Assert.assertEquals(recentNumbers.get(index).get("date"), rs.getLong("createdAt"));
+				index++;
 			}
+			break;
 		}
 	}
 	
 	@AfterClass
 	public void afterClass() {
-		// delete user
 		if (isCreateUser == true) {
 			deleteTransactionByUserId(user.getId());
 			deleteBalanceByUserId(user.getId());
 			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
 		}
-		
-		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());
 	}
 }

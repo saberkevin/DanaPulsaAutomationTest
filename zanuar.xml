@@ -3,12 +3,12 @@
 	<test name="DanaPulsaServiceTestOrder" group-by-instances="true">
 		<classes>
 			<!-- <class name = "remoteService.order.Factory_Remote_Service_GetAllCatalog"></class>
-			<class name = "remoteService.order.Factory_Remote_Service_GetPaymentMethodNameById"></class> -->
+			<class name = "remoteService.order.Factory_Remote_Service_GetPaymentMethodNameById"></class>
 			<class name = "remoteService.order.Factory_Remote_Service_GetProviderById"></class>
-			<!-- <class name = "remoteService.order.Factory_Remote_Service_GetTransactionById"></class>
-			<class name = "remoteService.order.Factory_Remote_Service_GetTransactionByIdByUserId"></class>
+			<class name = "remoteService.order.Factory_Remote_Service_GetTransactionById"></class>
+			<class name = "remoteService.order.Factory_Remote_Service_GetTransactionByIdByUserId"></class> -->
 			<class name = "remoteService.order.Factory_Remote_Service_GetRecentNumber"></class>
-			<class name = "remoteService.order.Factory_Remote_Service_CreateTransaction"></class>
+			<!-- <class name = "remoteService.order.Factory_Remote_Service_CreateTransaction"></class>
 			<class name = "remoteService.order.Factory_Remote_Service_GetHistoryInProgress"></class>
 			<class name = "remoteService.order.Factory_Remote_Service_GetHistoryCompleted"></class>
 			<class name = "remoteService.order.Factory_Remote_Service_Cancel"></class>

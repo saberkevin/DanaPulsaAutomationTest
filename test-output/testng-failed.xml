@@ -3,34 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [DANA Pulsa Suite]">
   <test thread-count="5" name="DanaPulsaServiceTestOrder(failed)">
     <classes>
-      <class name="remoteService.order.TC_Remote_Service_GetProviderById">
+      <class name="remoteService.order.TC_Remote_Service_GetAllCatalog">
         <methods>
           <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
-          <include name="setup"/>
-          <include name="beforeClass"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
           <include name="checkDB"/>
           <include name="afterClass"/>
+          <include name="testGetAllCatalog"/>
+          <include name="setup"/>
+          <include name="beforeClass"/>
         </methods>
-      </class> <!-- remoteService.order.TC_Remote_Service_GetProviderById -->
+      </class> <!-- remoteService.order.TC_Remote_Service_GetAllCatalog -->
     </classes>
   </test> <!-- DanaPulsaServiceTestOrder(failed) -->
 </suite> <!-- Failed suite [DANA Pulsa Suite] -->

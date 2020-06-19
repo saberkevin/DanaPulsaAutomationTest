@@ -1,10 +1,8 @@
 package remoteService.order;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -72,10 +70,18 @@ public class TC_Remote_Service_GetAllCatalog extends TestBase {
 	public void checkData() throws ParseException {
 		String responseBody = response.getBody().asString();		
 		Assert.assertTrue(responseBody.contains(result), responseBody);
+
+		final String errorMessage1 = "unknown phone number";
+		final String errorMessage2 = "invalid phone number";
+		final String errorMessage3 = "invalid request format";
 		
-		if (!responseBody.equals("unknown phone number") 
-				&& !responseBody.equals("invalid phone number") 
-				&& !responseBody.equals("invalid request format")) {
+		if (responseBody.contains(errorMessage1)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage2)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage3)) {
+			// do some code
+		} else {
 			Assert.assertNotNull(response.getBody().jsonPath().get("provider.id"));
 			Assert.assertNotNull(response.getBody().jsonPath().get("provider.name"));
 			Assert.assertNotNull(response.getBody().jsonPath().get("provider.image"));
@@ -86,70 +92,56 @@ public class TC_Remote_Service_GetAllCatalog extends TestBase {
 				Assert.assertNotNull(catalog.get(i).get("id"));
 				Assert.assertNotNull(catalog.get(i).get("value"));
 				Assert.assertNotNull(catalog.get(i).get("price"));
-			}
+			}		
 		}
 	}
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
+
+		final String errorMessage1 = "unknown phone number";
+		final String errorMessage2 = "invalid phone number";
+		final String errorMessage3 = "invalid request format";
+		
 		String responseBody = response.getBody().asString();
-
-		if (responseBody.equals("unknown phone number")) {
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT * FROM provider_prefix WHERE prefix = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setString(1, phonePrefix);
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.equals("invalid phone number")) {
+		switch (responseBody) {
+		case errorMessage1:
+			query = "SELECT * FROM provider_prefix WHERE prefix = ?";
+			param.put("1", phonePrefix);
+			data = sqlExec(query, param, "order");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage2:
 			// do some code
-			
-		} else if (responseBody.equals("invalid request format")) {
+				break;
+		case errorMessage3:
 			// do some code
+			break;
+		default:
+			query = "SELECT A.*, B.id AS providerId, B.name AS providerName, B.image AS providerImage "
+					+ "FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id "
+					+ "LEFT JOIN provider_prefix C on B.id = C.providerId "
+					+ "WHERE C.prefix = ?";
+			param.put("1", phonePrefix.substring(1));
+			data = sqlExec(query, param, "order");
 			
-		} else {
-			List<Map<String, String>> catalog = response.getBody().jsonPath().getList("catalog");	
-
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT "
-						+ "A.*, "
-						+ "B.id AS providerId, "
-						+ "B.name AS providerName, "
-						+ "B.image AS providerImage "
-						+ "FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id "
-						+ "LEFT JOIN provider_prefix C on B.id = C.providerId "
-						+ "WHERE C.prefix = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setString(1, phonePrefix.substring(1));
-				
-				ResultSet rs = ps.executeQuery();
-				
-				if (!rs.next()) {
-					Assert.assertTrue(false, "no catalog found in database");
-				}
-				do {
-					Assert.assertEquals(response.getBody().jsonPath().getLong("provider.id"), rs.getLong("providerId"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("provider.name"), rs.getString("providerName"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("provider.image"), rs.getString("providerImage"));
-					Assert.assertEquals(String.valueOf(catalog.get(rs.getRow()-1).get("id")), rs.getString("id"));
-					Assert.assertEquals(String.valueOf(catalog.get(rs.getRow()-1).get("value")), rs.getString("value"));
-					Assert.assertEquals(String.valueOf(catalog.get(rs.getRow()-1).get("price")), rs.getString("price"));
-				} while(rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+			List<Map<String, Object>> catalog = response.getBody().jsonPath().getList("catalog");
+			int index = 0;
+			
+			if (data.size() == 0) Assert.assertTrue(false, "no catalog found in database");
+			for (Map<String, Object> map : data) {
+				Assert.assertEquals(response.getBody().jsonPath().getLong("provider.id"), map.get("providerId"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("provider.name"), map.get("providerName"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("provider.image"), map.get("providerImage"));
+				Assert.assertEquals(Long.valueOf((Integer) catalog.get(index).get("id")), map.get("id"));
+				Assert.assertEquals(Long.valueOf((Integer) catalog.get(index).get("value")), map.get("value"));
+				Assert.assertEquals(Long.valueOf((Integer) catalog.get(index).get("price")), map.get("price"));
+				index++;
 			}
+			break;
 		}
 	}
 	

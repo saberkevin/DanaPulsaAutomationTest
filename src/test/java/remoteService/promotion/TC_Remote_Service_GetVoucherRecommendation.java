@@ -1,9 +1,7 @@
 package remoteService.promotion;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -179,10 +177,20 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 		String responseBody = response.getBody().asString();
 		Assert.assertTrue(responseBody.contains(result), responseBody);
 		
-		if (!responseBody.contains("invalid request format") 
-				&& !responseBody.equals("user not found")
-				&& !responseBody.equals("transaction not found or expired")
-				&& !responseBody.equals("[]")) {
+		final String errorMessage1 = "user not found";
+		final String errorMessage2 = "transaction not found or expired";
+		final String errorMessage3 = "[]";
+		final String errorMessage4 = "invalid request format";
+		
+		if (responseBody.contains(errorMessage1)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage2)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage3)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage4)) {
+			// do some code
+		} else {
 			List<Map<String, String>> vouchers = response.jsonPath().get();
 
 			Assert.assertTrue(vouchers.size() <= 10, "maximum vouchers is 10");
@@ -202,116 +210,94 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		String responseBody = response.getBody().asString();
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
 
-		if (responseBody.equals("transaction not found or expired") || responseBody.equals("[]")) {
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT "
-						+ "A.id, "
-						+ "A.name, "
-						+ "D.name AS voucherTypeName, "
-						+ "A.value, "
-						+ "A.discount, "
-						+ "A.maxDeduction, "
-						+ "A.filePath, "
-						+ "A.expiryDate "
-						+ "FROM voucher AS A "
-						+ "JOIN user_voucher AS B ON B.voucherId = A.id "
-						+ "JOIN user_voucher_status AS C ON B.voucherStatusId = C.id "
-						+ "JOIN voucher_type AS D ON D.id = A.typeId "
-						+ "JOIN voucher_provider AS E ON E.voucherId = A.id "
-						+ "JOIN issue_voucher_rule AS F ON F.voucherId = A.id "
-						+ "JOIN voucher_payment_method AS G ON G.voucherId = A.id "
-						+ "WHERE B.userId = ? AND B.voucherStatusId != 1 AND G.paymentMethodId = 1 "
-						+ "AND E.providerId = ? AND F.minPurchase <= ? ORDER BY A.maxDeduction DESC";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1,Long.parseLong(userId));
-				ps.setLong(2, provider.getId());
-				ps.setLong(3, catalog.getPrice());
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.contains("user not found")) {
-			try {
-				Connection conn = getConnectionMember();
-				String queryString = "SELECT * FROM user WHERE id = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(userId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}			
-		} else if (responseBody.contains("invalid request format")) {
+		final String errorMessage1 = "user not found";
+		final String errorMessage2 = "transaction not found or expired";
+		final String errorMessage3 = "[]";
+		final String errorMessage4 = "invalid request format";
+		
+		String responseBody = response.getBody().asString();
+		switch (responseBody) {
+		case errorMessage1:
+			query = "SELECT * FROM user WHERE id = ?";
+			param.put("1", Long.parseLong(userId));
+			data = sqlExec(query, param, "member");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage2:
+			query = "SELECT A.id, A.name, D.name AS voucherTypeName, A.value, A.discount, A.maxDeduction, A.filePath, A.expiryDate "
+					+ "FROM voucher AS A OIN user_voucher AS B ON B.voucherId = A.id "
+					+ "JOIN user_voucher_status AS C ON B.voucherStatusId = C.id "
+					+ "JOIN voucher_type AS D ON D.id = A.typeId "
+					+ "JOIN voucher_provider AS E ON E.voucherId = A.id "
+					+ "JOIN issue_voucher_rule AS F ON F.voucherId = A.id "
+					+ "JOIN voucher_payment_method AS G ON G.voucherId = A.id "
+					+ "WHERE B.userId = ? AND B.voucherStatusId != 1 AND G.paymentMethodId = 1 AND E.providerId = ? AND F.minPurchase <= ? "
+					+ "ORDER BY A.maxDeduction DESC";
+			param.put("1", Long.parseLong(userId));
+			param.put("2", provider.getId());
+			param.put("3", catalog.getPrice());
+			data = sqlExec(query, param, "promotion");
+			Assert.assertTrue(data.size() == 0);			
+			break;			
+		case errorMessage3:
+			query = "SELECT A.id, A.name, D.name AS voucherTypeName, A.value, A.discount, A.maxDeduction, A.filePath, A.expiryDate "
+					+ "FROM voucher AS A OIN user_voucher AS B ON B.voucherId = A.id "
+					+ "JOIN user_voucher_status AS C ON B.voucherStatusId = C.id "
+					+ "JOIN voucher_type AS D ON D.id = A.typeId "
+					+ "JOIN voucher_provider AS E ON E.voucherId = A.id "
+					+ "JOIN issue_voucher_rule AS F ON F.voucherId = A.id "
+					+ "JOIN voucher_payment_method AS G ON G.voucherId = A.id "
+					+ "WHERE B.userId = ? AND B.voucherStatusId != 1 AND G.paymentMethodId = 1 AND E.providerId = ? AND F.minPurchase <= ? "
+					+ "ORDER BY A.maxDeduction DESC";
+			param.put("1", Long.parseLong(userId));
+			param.put("2", provider.getId());
+			param.put("3", catalog.getPrice());
+			data = sqlExec(query, param, "promotion");
+			Assert.assertTrue(data.size() == 0);
+			break;	
+		case errorMessage4:
 			// do some code
+			break;
+		default:
+			query = "SELECT A.id, A.name, D.name AS voucherTypeName, A.value, A.discount, A.maxDeduction, A.filePath, A.expiryDate "
+					+ "FROM voucher AS A JOIN user_voucher AS B ON B.voucherId = A.id "
+					+ "JOIN user_voucher_status AS C ON B.voucherStatusId = C.id "
+					+ "JOIN voucher_type AS D ON D.id = A.typeId "
+					+ "JOIN voucher_provider AS E ON E.voucherId = A.id "
+					+ "JOIN issue_voucher_rule AS F ON F.voucherId = A.id "
+					+ "JOIN voucher_payment_method AS G ON G.voucherId = A.id "
+					+ "WHERE B.userId = ? AND B.voucherStatusId != 1 AND G.paymentMethodId = 1 AND E.providerId = ? AND F.minPurchase <= ? "
+					+ "ORDER BY A.maxDeduction DESC";
+			param.put("1", Long.parseLong(userId));
+			param.put("2", provider.getId());
+			param.put("3", catalog.getPrice());
+			data = sqlExec(query, param, "promotion");
 			
-		} else {
 			List<Map<String, String>> vouchers = response.jsonPath().get();
-			
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT "
-						+ "A.id, "
-						+ "A.name, "
-						+ "D.name AS voucherTypeName, "
-						+ "A.value, "
-						+ "A.discount, "
-						+ "A.maxDeduction, "
-						+ "A.filePath, "
-						+ "A.expiryDate "
-						+ "FROM voucher AS A "
-						+ "JOIN user_voucher AS B ON B.voucherId = A.id "
-						+ "JOIN user_voucher_status AS C ON B.voucherStatusId = C.id "
-						+ "JOIN voucher_type AS D ON D.id = A.typeId "
-						+ "JOIN voucher_provider AS E ON E.voucherId = A.id "
-						+ "JOIN issue_voucher_rule AS F ON F.voucherId = A.id "
-						+ "JOIN voucher_payment_method AS G ON G.voucherId = A.id "
-						+ "WHERE B.userId = ? AND B.voucherStatusId != 1 AND G.paymentMethodId = 1 "
-						+ "AND E.providerId = ? AND F.minPurchase <= ? ORDER BY A.maxDeduction DESC";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1,Long.parseLong(userId));
-				ps.setLong(2, provider.getId());
-				ps.setLong(3, catalog.getPrice());
-				
-				ResultSet rs = ps.executeQuery();
-				
-				if (!rs.next()) {
-					Assert.assertTrue(false, "no voucher found in database");
-				}
-				do {
-					int index = rs.getRow() - 1;
-					Assert.assertEquals(String.valueOf(vouchers.get(index).get("id")), rs.getString("id"));
-					Assert.assertEquals(vouchers.get(index).get("name"), rs.getString("name"));
-					Assert.assertEquals(String.valueOf(vouchers.get(index).get("discount")), rs.getString("discount"));
-					Assert.assertEquals(vouchers.get(index).get("voucherTypeName"), rs.getString("voucherTypeName"));
-					Assert.assertEquals(String.valueOf(vouchers.get(index).get("maxDeduction")), rs.getString("maxDeduction"));
-					Assert.assertEquals(String.valueOf(vouchers.get(index).get("value")), rs.getString("value"));
-					Assert.assertEquals(vouchers.get(index).get("filePath"), rs.getString("filePath"));
-//					Assert.assertEquals(vouchers.get(index).get("expiryDate"), rs.getLong("expiryDate"));
-				} while (rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+			int index = 0;
+
+			if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");
+			for (Map<String, Object> map : data) {
+				Assert.assertEquals(String.valueOf(vouchers.get(index).get("id")), (String) map.get("id"));
+				Assert.assertEquals(vouchers.get(index).get("name"), map.get("name"));
+				Assert.assertEquals(String.valueOf(vouchers.get(index).get("discount")),(String) map.get("discount"));
+				Assert.assertEquals(vouchers.get(index).get("voucherTypeName"), map.get("voucherTypeName"));
+				Assert.assertEquals(String.valueOf(vouchers.get(index).get("maxDeduction")), (String) map.get("maxDeduction"));
+				Assert.assertEquals(String.valueOf(vouchers.get(index).get("value")), (String) map.get("value"));
+				Assert.assertEquals(vouchers.get(index).get("filePath"), map.get("filePath"));
+//				Assert.assertEquals(vouchers.get(index).get("expiryDate"), map.get("expiryDate"));
+				index++;
 			}
+			break;
 		}
 	}
-	
+
 	@AfterClass
 	public void afterClass() {
-		// delete user
 		if (isCreateUser == true) {
 			deleteTransactionByUserId(user.getId());
 			deleteUserVoucherByUserId(user.getId());
@@ -319,14 +305,12 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
 		}
 		
-		// delete another user
 		if (testCase.equals("Another user's transaction")) {
 			deleteTransactionByUserId(anotherUser.getId());
 			deleteBalanceByUserId(anotherUser.getId());
 			deleteUserByEmailAndUsername(anotherUser.getEmail(), anotherUser.getUsername());			
 		}
 		
-		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());
 	}
 }

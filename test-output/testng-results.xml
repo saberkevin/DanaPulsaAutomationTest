@@ -1,205 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="24" passed="24">
+<testng-results skipped="0" failed="0" ignored="0" total="21" passed="21">
   <reporter-output>
   </reporter-output>
-  <suite name="DANA Pulsa Suite" duration-ms="53121" started-at="2020-06-19T12:46:03Z" finished-at="2020-06-19T12:46:56Z">
+  <suite name="DANA Pulsa Suite" duration-ms="497798" started-at="2020-06-19T16:23:10Z" finished-at="2020-06-19T16:31:28Z">
     <groups>
     </groups>
-    <test name="DanaPulsaServiceTestOrder" duration-ms="53121" started-at="2020-06-19T12:46:03Z" finished-at="2020-06-19T12:46:56Z">
-      <class name="remoteService.order.TC_Remote_Service_GetProviderById">
-        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="setup" is-config="true" duration-ms="36" started-at="2020-06-19T12:46:03Z" finished-at="2020-06-19T12:46:03Z">
+    <test name="DanaPulsaServiceTestOrder" duration-ms="497798" started-at="2020-06-19T16:23:10Z" finished-at="2020-06-19T16:31:28Z">
+      <class name="remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId">
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="setup" is-config="true" duration-ms="33" started-at="2020-06-19T16:23:10Z" finished-at="2020-06-19T16:23:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="beforeClass" is-config="true" duration-ms="3" started-at="2020-06-19T12:46:03Z" finished-at="2020-06-19T12:46:03Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="beforeClass" is-config="true" duration-ms="46476" started-at="2020-06-19T16:23:10Z" finished-at="2020-06-19T16:23:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testGetProviderById()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@21e360a]" name="testGetProviderById" duration-ms="3132" started-at="2020-06-19T12:46:03Z" finished-at="2020-06-19T12:46:06Z">
+        <test-method status="PASS" signature="testTransactionByIdByUserId()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@12aba8be]" name="testTransactionByIdByUserId" duration-ms="5034" started-at="2020-06-19T16:23:57Z" finished-at="2020-06-19T16:24:02Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testGetProviderById -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@21e360a]" name="checkData" duration-ms="315" started-at="2020-06-19T12:46:06Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetProviderById.testGetProviderById" finished-at="2020-06-19T12:46:06Z">
+        </test-method> <!-- testTransactionByIdByUserId -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@12aba8be]" name="checkData" duration-ms="3" started-at="2020-06-19T16:24:02Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId.testTransactionByIdByUserId" finished-at="2020-06-19T16:24:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@21e360a]" name="checkDB" duration-ms="4895" started-at="2020-06-19T12:46:06Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetProviderById.checkData" finished-at="2020-06-19T12:46:11Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@12aba8be]" name="checkDB" duration-ms="6629" started-at="2020-06-19T16:24:02Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId.checkData" finished-at="2020-06-19T16:24:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-19T12:46:11Z" finished-at="2020-06-19T12:46:11Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="afterClass" is-config="true" duration-ms="18014" started-at="2020-06-19T16:24:08Z" finished-at="2020-06-19T16:24:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="setup" is-config="true" duration-ms="1" started-at="2020-06-19T12:46:11Z" finished-at="2020-06-19T12:46:11Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="setup" is-config="true" duration-ms="3" started-at="2020-06-19T16:24:26Z" finished-at="2020-06-19T16:24:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-19T12:46:11Z" finished-at="2020-06-19T12:46:11Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="beforeClass" is-config="true" duration-ms="29826" started-at="2020-06-19T16:24:26Z" finished-at="2020-06-19T16:24:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testGetProviderById()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@2c35e847]" name="testGetProviderById" duration-ms="1880" started-at="2020-06-19T12:46:11Z" finished-at="2020-06-19T12:46:13Z">
+        <test-method status="PASS" signature="testTransactionByIdByUserId()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@1e1a0406]" name="testTransactionByIdByUserId" duration-ms="5468" started-at="2020-06-19T16:24:56Z" finished-at="2020-06-19T16:25:02Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testGetProviderById -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@2c35e847]" name="checkData" duration-ms="21" started-at="2020-06-19T12:46:13Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetProviderById.testGetProviderById" finished-at="2020-06-19T12:46:13Z">
+        </test-method> <!-- testTransactionByIdByUserId -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@1e1a0406]" name="checkData" duration-ms="15" started-at="2020-06-19T16:25:02Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId.testTransactionByIdByUserId" finished-at="2020-06-19T16:25:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@2c35e847]" name="checkDB" duration-ms="4926" started-at="2020-06-19T12:46:13Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetProviderById.checkData" finished-at="2020-06-19T12:46:18Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@1e1a0406]" name="checkDB" duration-ms="5115" started-at="2020-06-19T16:25:02Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId.checkData" finished-at="2020-06-19T16:25:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="afterClass" is-config="true" duration-ms="1" started-at="2020-06-19T12:46:18Z" finished-at="2020-06-19T12:46:18Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="afterClass" is-config="true" duration-ms="15605" started-at="2020-06-19T16:25:07Z" finished-at="2020-06-19T16:25:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="setup" is-config="true" duration-ms="3" started-at="2020-06-19T12:46:18Z" finished-at="2020-06-19T12:46:18Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-19T16:25:23Z" finished-at="2020-06-19T16:25:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="beforeClass" is-config="true" duration-ms="3" started-at="2020-06-19T12:46:18Z" finished-at="2020-06-19T12:46:18Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="beforeClass" is-config="true" duration-ms="41773" started-at="2020-06-19T16:25:23Z" finished-at="2020-06-19T16:26:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testGetProviderById()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@58d75e99]" name="testGetProviderById" duration-ms="1533" started-at="2020-06-19T12:46:18Z" finished-at="2020-06-19T12:46:19Z">
+        <test-method status="PASS" signature="testTransactionByIdByUserId()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@290222c1]" name="testTransactionByIdByUserId" duration-ms="2239" started-at="2020-06-19T16:26:04Z" finished-at="2020-06-19T16:26:07Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testGetProviderById -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@58d75e99]" name="checkData" duration-ms="23" started-at="2020-06-19T12:46:19Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetProviderById.testGetProviderById" finished-at="2020-06-19T12:46:19Z">
+        </test-method> <!-- testTransactionByIdByUserId -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@290222c1]" name="checkData" duration-ms="2" started-at="2020-06-19T16:26:07Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId.testTransactionByIdByUserId" finished-at="2020-06-19T16:26:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@58d75e99]" name="checkDB" duration-ms="5206" started-at="2020-06-19T12:46:19Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetProviderById.checkData" finished-at="2020-06-19T12:46:25Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@290222c1]" name="checkDB" duration-ms="2" started-at="2020-06-19T16:26:07Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId.checkData" finished-at="2020-06-19T16:26:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-19T12:46:25Z" finished-at="2020-06-19T12:46:25Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="afterClass" is-config="true" duration-ms="20281" started-at="2020-06-19T16:26:07Z" finished-at="2020-06-19T16:26:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="setup" is-config="true" duration-ms="1" started-at="2020-06-19T12:46:25Z" finished-at="2020-06-19T12:46:25Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="setup" is-config="true" duration-ms="3" started-at="2020-06-19T16:26:27Z" finished-at="2020-06-19T16:26:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-19T12:46:25Z" finished-at="2020-06-19T12:46:25Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="beforeClass" is-config="true" duration-ms="42184" started-at="2020-06-19T16:26:27Z" finished-at="2020-06-19T16:27:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testGetProviderById()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@5ba3f27a]" name="testGetProviderById" duration-ms="2214" started-at="2020-06-19T12:46:25Z" finished-at="2020-06-19T12:46:27Z">
+        <test-method status="PASS" signature="testTransactionByIdByUserId()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@3cebbb30]" name="testTransactionByIdByUserId" duration-ms="4378" started-at="2020-06-19T16:27:09Z" finished-at="2020-06-19T16:27:13Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testGetProviderById -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@5ba3f27a]" name="checkData" duration-ms="38" started-at="2020-06-19T12:46:27Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetProviderById.testGetProviderById" finished-at="2020-06-19T12:46:27Z">
+        </test-method> <!-- testTransactionByIdByUserId -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@3cebbb30]" name="checkData" duration-ms="766" started-at="2020-06-19T16:27:13Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId.testTransactionByIdByUserId" finished-at="2020-06-19T16:27:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@5ba3f27a]" name="checkDB" duration-ms="5532" started-at="2020-06-19T12:46:27Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetProviderById.checkData" finished-at="2020-06-19T12:46:32Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@3cebbb30]" name="checkDB" duration-ms="5770" started-at="2020-06-19T16:27:14Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId.checkData" finished-at="2020-06-19T16:27:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-19T12:46:32Z" finished-at="2020-06-19T12:46:32Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="afterClass" is-config="true" duration-ms="18806" started-at="2020-06-19T16:27:20Z" finished-at="2020-06-19T16:27:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-19T12:46:32Z" finished-at="2020-06-19T12:46:32Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="setup" is-config="true" duration-ms="1" started-at="2020-06-19T16:27:39Z" finished-at="2020-06-19T16:27:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-19T12:46:32Z" finished-at="2020-06-19T12:46:32Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="beforeClass" is-config="true" duration-ms="73087" started-at="2020-06-19T16:27:39Z" finished-at="2020-06-19T16:28:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testGetProviderById()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="testGetProviderById" duration-ms="1893" started-at="2020-06-19T12:46:32Z" finished-at="2020-06-19T12:46:34Z">
+        <test-method status="PASS" signature="testTransactionByIdByUserId()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="testTransactionByIdByUserId" duration-ms="4507" started-at="2020-06-19T16:28:52Z" finished-at="2020-06-19T16:28:56Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testGetProviderById -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="checkData" duration-ms="1" started-at="2020-06-19T12:46:34Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetProviderById.testGetProviderById" finished-at="2020-06-19T12:46:34Z">
+        </test-method> <!-- testTransactionByIdByUserId -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="checkData" duration-ms="1" started-at="2020-06-19T16:28:56Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId.testTransactionByIdByUserId" finished-at="2020-06-19T16:28:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="checkDB" duration-ms="2" started-at="2020-06-19T12:46:34Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetProviderById.checkData" finished-at="2020-06-19T12:46:34Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="checkDB" duration-ms="6487" started-at="2020-06-19T16:28:56Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId.checkData" finished-at="2020-06-19T16:29:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="afterClass" is-config="true" duration-ms="1" started-at="2020-06-19T12:46:34Z" finished-at="2020-06-19T12:46:34Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="afterClass" is-config="true" duration-ms="36282" started-at="2020-06-19T16:29:03Z" finished-at="2020-06-19T16:29:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-19T12:46:34Z" finished-at="2020-06-19T12:46:34Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-19T16:29:39Z" finished-at="2020-06-19T16:29:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-19T12:46:34Z" finished-at="2020-06-19T12:46:34Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="beforeClass" is-config="true" duration-ms="30193" started-at="2020-06-19T16:29:39Z" finished-at="2020-06-19T16:30:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testGetProviderById()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@74751b3]" name="testGetProviderById" duration-ms="1985" started-at="2020-06-19T12:46:34Z" finished-at="2020-06-19T12:46:36Z">
+        <test-method status="PASS" signature="testTransactionByIdByUserId()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@6253c26]" name="testTransactionByIdByUserId" duration-ms="2086" started-at="2020-06-19T16:30:09Z" finished-at="2020-06-19T16:30:11Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testGetProviderById -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@74751b3]" name="checkData" duration-ms="2" started-at="2020-06-19T12:46:36Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetProviderById.testGetProviderById" finished-at="2020-06-19T12:46:36Z">
+        </test-method> <!-- testTransactionByIdByUserId -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@6253c26]" name="checkData" duration-ms="1" started-at="2020-06-19T16:30:11Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId.testTransactionByIdByUserId" finished-at="2020-06-19T16:30:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@74751b3]" name="checkDB" duration-ms="5466" started-at="2020-06-19T12:46:36Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetProviderById.checkData" finished-at="2020-06-19T12:46:42Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@6253c26]" name="checkDB" duration-ms="1" started-at="2020-06-19T16:30:11Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId.checkData" finished-at="2020-06-19T16:30:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="afterClass" is-config="true" duration-ms="1" started-at="2020-06-19T12:46:42Z" finished-at="2020-06-19T12:46:42Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="afterClass" is-config="true" duration-ms="18385" started-at="2020-06-19T16:30:11Z" finished-at="2020-06-19T16:30:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="setup" is-config="true" duration-ms="1" started-at="2020-06-19T12:46:42Z" finished-at="2020-06-19T12:46:42Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="setup" is-config="true" duration-ms="3" started-at="2020-06-19T16:30:30Z" finished-at="2020-06-19T16:30:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="beforeClass" is-config="true" duration-ms="1" started-at="2020-06-19T12:46:42Z" finished-at="2020-06-19T12:46:42Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="beforeClass" is-config="true" duration-ms="30954" started-at="2020-06-19T16:30:30Z" finished-at="2020-06-19T16:31:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testGetProviderById()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@7bd4937b]" name="testGetProviderById" duration-ms="1646" started-at="2020-06-19T12:46:42Z" finished-at="2020-06-19T12:46:43Z">
+        <test-method status="PASS" signature="testTransactionByIdByUserId()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@67f639d3]" name="testTransactionByIdByUserId" duration-ms="4712" started-at="2020-06-19T16:31:01Z" finished-at="2020-06-19T16:31:05Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testGetProviderById -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@7bd4937b]" name="checkData" duration-ms="19" started-at="2020-06-19T12:46:43Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetProviderById.testGetProviderById" finished-at="2020-06-19T12:46:43Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@7bd4937b]" name="checkDB" duration-ms="5115" started-at="2020-06-19T12:46:43Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetProviderById.checkData" finished-at="2020-06-19T12:46:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-19T12:46:49Z" finished-at="2020-06-19T12:46:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-19T12:46:49Z" finished-at="2020-06-19T12:46:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-19T12:46:49Z" finished-at="2020-06-19T12:46:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testGetProviderById()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@7c24b813]" name="testGetProviderById" duration-ms="2029" started-at="2020-06-19T12:46:49Z" finished-at="2020-06-19T12:46:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testGetProviderById -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@7c24b813]" name="checkData" duration-ms="19" started-at="2020-06-19T12:46:51Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetProviderById.testGetProviderById" finished-at="2020-06-19T12:46:51Z">
+        </test-method> <!-- testTransactionByIdByUserId -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@67f639d3]" name="checkData" duration-ms="2" started-at="2020-06-19T16:31:05Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId.testTransactionByIdByUserId" finished-at="2020-06-19T16:31:05Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@7c24b813]" name="checkDB" duration-ms="5112" started-at="2020-06-19T12:46:51Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetProviderById.checkData" finished-at="2020-06-19T12:46:56Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@67f639d3]" name="checkDB" duration-ms="5434" started-at="2020-06-19T16:31:05Z" depends-on-methods="remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId.checkData" finished-at="2020-06-19T16:31:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetProviderById@741a8937]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-19T12:46:56Z" finished-at="2020-06-19T12:46:56Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId@49049a04]" name="afterClass" is-config="true" duration-ms="17086" started-at="2020-06-19T16:31:11Z" finished-at="2020-06-19T16:31:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- remoteService.order.TC_Remote_Service_GetProviderById -->
+      </class> <!-- remoteService.order.TC_Remote_Service_GetTransactionByIdByUserId -->
     </test> <!-- DanaPulsaServiceTestOrder -->
   </suite> <!-- DANA Pulsa Suite -->
 </testng-results>
