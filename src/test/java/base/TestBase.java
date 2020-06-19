@@ -80,7 +80,7 @@ public class TestBase {
 		String query = "SELECT id, pin FROM user\n" + 
 				"WHERE id = ?";
 		try {
-			Connection conMember = getConnectionMember();
+			Connection conMember = setConnection("MEMBER");
 			PreparedStatement psGetUserPin = conMember.prepareStatement(query);
 			psGetUserPin.setLong(1, Long.parseLong(userId));
 			
@@ -650,11 +650,31 @@ public class TestBase {
 		return conn;
 	}
 	
+	public Connection setConnection(String service)
+	{
+		Connection conn = null;
+		
+		if(service.equalsIgnoreCase("MEMBER"))
+		{
+			conn = setConnection("MEMBER");
+		}
+		else if(service.equalsIgnoreCase("ORDER"))
+		{
+			conn = setConnection("ORDER");
+		}
+		else if(service.equalsIgnoreCase("PROMOTION"))
+		{
+			conn = setConnection("PROMOTION");
+		}
+		
+		return conn;
+	}
+	
 	//============ Some Command to DB ==============================//
 	
 	public void createUser(User user) {
 		try {
-			Connection conn = getConnectionMember();
+			Connection conn = setConnection("MEMBER");
 			String query = "INSERT INTO user(name, email, username, pin) VALUES(?, ?, ?, ?)";
 
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -672,7 +692,7 @@ public class TestBase {
 	
 	public void deleteUserById(long id) {
 		try {
-			Connection conn = getConnectionMember();
+			Connection conn = setConnection("MEMBER");
 			String query = "DELETE FROM user WHERE id = ?";
 
 			PreparedStatement ps = conn.prepareStatement(query);			
@@ -689,7 +709,7 @@ public class TestBase {
 		boolean userExist = false;
 		
 		try {
-			Connection conn = getConnectionMember();
+			Connection conn = setConnection("MEMBER");
 			String query = "SELECT * FROM user WHERE email = ? OR username = ?";
 
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -707,7 +727,7 @@ public class TestBase {
 		
 		if (userExist) {
 			try {
-				Connection conn = getConnectionMember();
+				Connection conn = setConnection("MEMBER");
 				String query = "DELETE FROM user WHERE email = ? OR username = ?";
 
 				PreparedStatement ps = conn.prepareStatement(query);
@@ -726,7 +746,7 @@ public class TestBase {
 		long id = 0;
 		
 		try {
-			Connection conn = getConnectionMember();
+			Connection conn = setConnection("MEMBER");
 			String query = "SELECT id FROM user WHERE username = ?";
 
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -747,7 +767,7 @@ public class TestBase {
 	
 	public void createVoucherForUser(long userId, long voucherId, long voucherStatusId) {
 		try {
-			Connection conn = getConnectionPromotion();
+			Connection conn = setConnection("PROMOTION");
 			String query = "INSERT INTO user_voucher(userId, voucherId, voucherStatusId, createdAt) VALUES(?, ?, ?, ?)";
 
 			PreparedStatement ps = conn.prepareStatement(query);

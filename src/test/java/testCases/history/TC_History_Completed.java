@@ -77,7 +77,7 @@ public class TC_History_Completed extends TestBase{
 								data.get(i).get("status").equals("FAILED") 
 						);
 						
-						Connection conOrder = getConnectionOrder();
+						Connection conOrder = setConnection("ORDER");
 						PreparedStatement psGetHistoryCompleted = conOrder.prepareStatement(query);
 						psGetHistoryCompleted.setLong(1, Long.parseLong(userId));
 						psGetHistoryCompleted.setLong(2, Long.parseLong(String.valueOf(data.get(i).get("id"))));
@@ -96,7 +96,7 @@ public class TC_History_Completed extends TestBase{
 							Assert.assertEquals(result.getString("status"), data.get(i).get("status"));
 							Assert.assertEquals(resultDate, responseDate);
 							
-							Connection conPromotion = getConnectionPromotion();
+							Connection conPromotion = setConnection("PROMOTION");
 							PreparedStatement psGetVoucherName = conPromotion.prepareStatement(query2);
 							psGetVoucherName.setLong(1, result.getLong("voucherId"));
 							ResultSet resultVoucher = psGetVoucherName.executeQuery();

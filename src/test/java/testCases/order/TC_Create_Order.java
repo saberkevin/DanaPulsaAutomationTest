@@ -89,7 +89,7 @@ public class TC_Create_Order extends TestBase {
 		
 		if (code.equals("201")) {
 			try {
-				Connection conn = getConnectionOrder();
+				Connection conn = setConnection("ORDER");
 				String query = "SELECT A.id [providerId], A.name, A.image, "
 						+ "B.id [catalogId], B.value, B.price "
 						+ "FROM provider A LEFT JOIN pulsa_catalog B on A.id = B.providerId "
@@ -130,7 +130,7 @@ public class TC_Create_Order extends TestBase {
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
 		try {
-			Connection conn = getConnectionOrder();
+			Connection conn = setConnection("ORDER");
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM transaction WHERE id = ?");
 			ps.setLong(1, transaction.getId());
 			

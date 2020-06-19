@@ -41,7 +41,7 @@ public class TC_Service_Register extends TestBase{
 				"SELECT tblTemp.id FROM (SELECT id FROM user WHERE email = ? OR username = ? LIMIT 1)tblTemp)";
 		
 		try {
-			Connection conUser = getConnectionMember();
+			Connection conUser = setConnection("MEMBER");
 			PreparedStatement psDeleteBalance = conUser.prepareStatement(query);
 			psDeleteBalance.setString(1, email);
 			psDeleteBalance.setString(2, replacePhoneForAssertion(phone));
@@ -85,7 +85,7 @@ public class TC_Service_Register extends TestBase{
 			String query = "SELECT id, name, email, username, pin FROM user\n" + 
 					"WHERE id = ? AND name = ?  AND email = ? AND username = ?";
 			try {
-				Connection conUser = getConnectionMember();
+				Connection conUser = setConnection("MEMBER");
 				PreparedStatement psGetUser = conUser.prepareStatement(query);
 				psGetUser.setLong(1, Long.parseLong(jsonPath.get("id").toString()));
 				psGetUser.setString(2, jsonPath.get("name"));
@@ -114,7 +114,7 @@ public class TC_Service_Register extends TestBase{
 			String query = "SELECT name, email, username, pin FROM user\n" + 
 					"WHERE name = ?  AND email = ? AND username = ? AND pin = ?";
 			try {
-				Connection conUser = getConnectionMember();
+				Connection conUser = setConnection("MEMBER");
 				PreparedStatement psGetUser = conUser.prepareStatement(query);
 				psGetUser.setString(1, name);
 				psGetUser.setString(2, email);
@@ -139,7 +139,7 @@ public class TC_Service_Register extends TestBase{
 			String query = "SELECT COUNT(id) as count FROM user\n" + 
 					"WHERE name = ?  AND email = ? AND username = ? AND pin = ?";
 			try {
-				Connection conUser = getConnectionMember();
+				Connection conUser = setConnection("MEMBER");
 				PreparedStatement psGetUser = conUser.prepareStatement(query);
 				psGetUser.setString(1, name);
 				psGetUser.setString(2, email);

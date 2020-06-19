@@ -32,7 +32,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	
 	private boolean isProviderTrue(String phoneNumber, Provider provider) {
 		try {
-			Connection conn = getConnectionOrder();
+			Connection conn = setConnection("ORDER");
 			String query = "SELECT name FROM provider WHERE id = (SELECT providerId FROM provider_prefix WHERE prefix = ?";
 
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -113,7 +113,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
 		try {
-			Connection conn = getConnectionOrder();
+			Connection conn = setConnection("ORDER");
 			String query = "SELECT * FROM pulsa_catalog WHERE providerId = ? ORDER BY value DESC";
 
 			PreparedStatement ps = conn.prepareStatement(query);

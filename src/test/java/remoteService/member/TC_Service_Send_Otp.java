@@ -51,8 +51,8 @@ public class TC_Service_Send_Otp extends TestBase{
 			String query = "SELECT userId, code FROM otp\n" + 
 					"WHERE userId = ?";
 			try {
-				Connection conMember = getConnectionMember();
-				PreparedStatement psGetOtp= getConnectionMember().prepareStatement(query);
+				Connection conMember = setConnection("MEMBER");
+				PreparedStatement psGetOtp= setConnection("MEMBER").prepareStatement(query);
 				psGetOtp.setLong(1, Long.parseLong(id));
 				
 				ResultSet result = psGetOtp.executeQuery();

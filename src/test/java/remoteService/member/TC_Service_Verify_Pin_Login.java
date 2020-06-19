@@ -56,7 +56,7 @@ public class TC_Service_Verify_Pin_Login extends TestBase{
 			String query = "SELECT id, name, email, username, pin FROM user\n" + 
 					"WHERE id = ? AND name = ?  AND email = ? AND username = ?";
 			try {
-				Connection conMember = getConnectionMember();
+				Connection conMember = setConnection("MEMBER");
 				PreparedStatement psGetUser = conMember.prepareStatement(query);
 				psGetUser.setLong(1, Long.parseLong(jsonPath.get("id").toString()));
 				psGetUser.setString(2, jsonPath.get("name"));

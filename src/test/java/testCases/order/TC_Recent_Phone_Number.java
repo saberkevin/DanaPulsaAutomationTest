@@ -39,7 +39,7 @@ public class TC_Recent_Phone_Number extends TestBase {
 	
 	private boolean isProviderTrue(String phoneNumber, Provider provider) {
 		try {
-			Connection conn = getConnectionOrder();
+			Connection conn = setConnection("ORDER");
 			String query = "SELECT name FROM provider WHERE id = (SELECT providerId FROM provider_prefix WHERE prefix = ?";
 
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -116,7 +116,7 @@ public class TC_Recent_Phone_Number extends TestBase {
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
 		try {
-			Connection conn = getConnectionOrder();
+			Connection conn = setConnection("ORDER");
 			String query = "SELECT * FROM transaction WHERE userId = ? ORDER BY createdAt DESC LIMIT 10";
 
 			PreparedStatement ps = conn.prepareStatement(query);

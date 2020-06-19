@@ -32,7 +32,7 @@ public class TC_IntegrationTest_001 extends TestBase {
 				"SELECT tblTemp.id FROM (SELECT id FROM user WHERE email = ? OR username = ? LIMIT 1)tblTemp)";
 		
 		try {
-			Connection conUser = getConnectionMember();
+			Connection conUser = setConnection("MEMBER");
 			PreparedStatement psDeleteBalance = conUser.prepareStatement(query);
 			psDeleteBalance.setString(1, user.getEmail());
 			psDeleteBalance.setString(2, user.getUsername());

@@ -59,7 +59,7 @@ public class TC_Service_Balance extends TestBase{
 			String query = "SELECT userId, balance FROM balance\n" + 
 					"WHERE userId = ?";
 			try {
-				Connection conMember = getConnectionMember();
+				Connection conMember = setConnection("MEMBER");
 				PreparedStatement psGetBalance = conMember.prepareStatement(query);
 				psGetBalance.setLong(1, Long.parseLong(id));
 				

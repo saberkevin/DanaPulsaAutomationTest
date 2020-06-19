@@ -87,7 +87,7 @@ public class TC_Promotion_Vouchers extends TestBase {
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
 		try {
-			Connection conn = getConnectionPromotion();
+			Connection conn = setConnection("PROMOTION");
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM voucher");			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {

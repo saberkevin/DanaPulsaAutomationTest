@@ -47,7 +47,7 @@ public class TC_Login extends TestBase{
 			String query = "SELECT id, name, email, username FROM user\n" + 
 					"WHERE id = ? AND name = ?  AND email = ? AND username = ?";
 			try {
-				Connection conMember = getConnectionMember();
+				Connection conMember = setConnection("MEMBER");
 				PreparedStatement psGetUser = conMember.prepareStatement(query);
 				psGetUser.setLong(1, Long.parseLong(jsonPath.get("data.id").toString()));
 				psGetUser.setString(2, jsonPath.get("data.name"));

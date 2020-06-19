@@ -81,7 +81,7 @@ public class TC_Cancel_Order extends TestBase {
 		
 		if (code.equals("200")) {
 			try {
-				Connection conn = getConnectionOrder();
+				Connection conn = setConnection("ORDER");
 				String query = "SELECT A.userId, A.phoneNumber, A.createdAt, A.voucherId"
 						+ "B.id [catalogId], B.value, B.price, "
 						+ "C.id [providerId], C.name [providerName], C.image "
@@ -114,7 +114,7 @@ public class TC_Cancel_Order extends TestBase {
 			}
 			
 			try {
-				Connection conn = getConnectionPromotion();
+				Connection conn = setConnection("PROMOTION");
 				PreparedStatement ps = conn.prepareStatement("SELECT * FROM voucher WHERE A.id = ?");
 				ps.setLong(1, voucher.getId());
 				

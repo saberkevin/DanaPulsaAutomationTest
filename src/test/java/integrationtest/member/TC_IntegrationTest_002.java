@@ -169,7 +169,7 @@ public class TC_IntegrationTest_002 extends TestBase {
 		String query = "SELECT id FROM transaction\n" + 
 				"WHERE userId = ? ORDER BY createdAt DESC LIMIT 1";
 		try {
-			Connection conOrder = getConnectionOrder();
+			Connection conOrder = setConnection("ORDER");
 			PreparedStatement psGetUserPin = conOrder.prepareStatement(query);
 			psGetUserPin.setLong(1, user.getId());
 			

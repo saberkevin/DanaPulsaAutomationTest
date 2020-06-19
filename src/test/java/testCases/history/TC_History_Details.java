@@ -41,7 +41,7 @@ public class TC_History_Details extends TestBase{
 		String query = "SELECT id FROM transaction\n" + 
 				"WHERE userId = ? ORDER BY createdAt DESC LIMIT 1";
 		try {
-			Connection conOrder = getConnectionOrder();
+			Connection conOrder = setConnection("ORDER");
 			PreparedStatement psGetUserPin = conOrder.prepareStatement(query);
 			psGetUserPin.setLong(1, Long.parseLong(userId));
 			
@@ -108,7 +108,7 @@ public class TC_History_Details extends TestBase{
 					Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.deduction").toString()));
 					Assert.assertNotNull(Long.parseLong(jsonPath.get("data.voucher.maxDeduction").toString()));
 				}
-				Connection conOrder = getConnectionOrder();
+				Connection conOrder = setConnection("ORDER");
 				PreparedStatement psGetHistoryDetails = conOrder.prepareStatement(query);
 				psGetHistoryDetails.setLong(1, Long.parseLong(userId));
 				psGetHistoryDetails.setLong(2, Long.parseLong(jsonPath.get("data.id").toString()));
@@ -148,7 +148,7 @@ public class TC_History_Details extends TestBase{
 						
 					if(jsonPath.get("data.voucher.id") != null)
 					{
-						Connection conPromotion = getConnectionPromotion();
+						Connection conPromotion = setConnection("PROMOTION");
 						PreparedStatement psGetVoucherName = conPromotion.prepareStatement(query2);
 						psGetVoucherName.setLong(1, result.getLong("voucherId"));
 						ResultSet resultVoucher = psGetVoucherName.executeQuery();

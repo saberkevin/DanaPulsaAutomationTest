@@ -85,7 +85,7 @@ public class TC_Pay_Order extends TestBase {
 		
 		if (code.equals("200")) {
 			try {
-				Connection conn = getConnectionOrder();
+				Connection conn = setConnection("ORDER");
 				String query = "SELECT A.userId, A.phoneNumber, a.voucherId, A.createdAt, A.updatedAt, "
 						+ "B.id [catalogId], B.value, B.price, "
 						+ "C.id [providerId], C.name [providerName], C.image "
@@ -118,7 +118,7 @@ public class TC_Pay_Order extends TestBase {
 			}
 			
 			try {
-				Connection conn = getConnectionPromotion();
+				Connection conn = setConnection("PROMOTION");
 				PreparedStatement ps = conn.prepareStatement("SELECT * FROM voucher WHERE A.id = ?");
 				ps.setLong(1, transaction.getVoucherId());
 				
@@ -158,7 +158,7 @@ public class TC_Pay_Order extends TestBase {
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
 		try {
-			Connection conn = getConnectionOrder();
+			Connection conn = setConnection("ORDER");
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM transaction WHERE id = ?");
 			ps.setLong(1, transaction.getId());
 			
