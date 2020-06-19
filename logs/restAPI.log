@@ -18261,3 +18261,5 @@
 2020-06-19 16:01:58 INFO  restAPI:91 - ***** Check Status Code *****
 2020-06-19 16:01:58 INFO  restAPI:94 - Status Code = 200
 2020-06-19 16:02:14 INFO  restAPI:176 - ***** Finished TC_Integration_GetAllCatalog *****
+2020-06-19 18:50:10 INFO  restAPI:64 - ***** Started TC_Remote_Service_GetMyVoucher *****
+2020-06-19 18:50:10 INFO  restAPI:65 - Case:null

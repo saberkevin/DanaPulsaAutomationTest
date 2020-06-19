@@ -3,14 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="integrationtest.voucher.TC_Integration_VoucherDetails">
+      <class name="remoteService.promotion.TC_Remote_Service_GetMyVoucher">
         <methods>
-          <include name="testVoucherDetails"/>
-          <include name="beforeClass"/>
-          <include name="setup"/>
           <include name="afterClass"/>
+          <include name="test"/>
+          <include name="setup"/>
+          <include name="beforeClass"/>
         </methods>
-      </class> <!-- integrationtest.voucher.TC_Integration_VoucherDetails -->
+      </class> <!-- remoteService.promotion.TC_Remote_Service_GetMyVoucher -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

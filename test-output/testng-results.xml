@@ -1,157 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="18" passed="18">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="DANA Pulsa Suite" duration-ms="247436" started-at="2020-06-19T08:58:07Z" finished-at="2020-06-19T09:02:14Z">
+  <suite name="Default suite" duration-ms="5495" started-at="2020-06-19T12:05:04Z" finished-at="2020-06-19T12:05:09Z">
     <groups>
     </groups>
-    <test name="DanaPulsaTestIntegrationOrder" duration-ms="247436" started-at="2020-06-19T08:58:07Z" finished-at="2020-06-19T09:02:14Z">
-      <class name="integrationtest.order.TC_Integration_GetAllCatalog">
-        <test-method status="PASS" signature="setup()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="setup" is-config="true" duration-ms="51" started-at="2020-06-19T08:58:07Z" finished-at="2020-06-19T08:58:07Z">
+    <test name="Default test" duration-ms="5495" started-at="2020-06-19T12:05:04Z" finished-at="2020-06-19T12:05:09Z">
+      <class name="remoteService.promotion.TC_Remote_Service_GetMyVoucher">
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetMyVoucher@5ad851c9]" name="setup" is-config="true" duration-ms="65" started-at="2020-06-19T12:05:04Z" finished-at="2020-06-19T12:05:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="beforeClass" is-config="true" duration-ms="26236" started-at="2020-06-19T08:58:07Z" finished-at="2020-06-19T08:58:33Z">
+        <test-method status="PASS" signature="test()[pri:0, instance:remoteService.promotion.TC_Remote_Service_GetMyVoucher@5ad851c9]" name="test" duration-ms="5407" started-at="2020-06-19T12:05:04Z" finished-at="2020-06-19T12:05:09Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@152aa092]" name="testGetAllCatalog" duration-ms="2951" started-at="2020-06-19T08:58:33Z" finished-at="2020-06-19T08:58:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testGetAllCatalog -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@152aa092]" name="checkData" duration-ms="18" started-at="2020-06-19T08:58:36Z" depends-on-methods="integrationtest.order.TC_Integration_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-19T08:58:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@152aa092]" name="checkDB" duration-ms="5086" started-at="2020-06-19T08:58:36Z" depends-on-methods="integrationtest.order.TC_Integration_GetAllCatalog.checkData" finished-at="2020-06-19T08:58:41Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="afterClass" is-config="true" duration-ms="9832" started-at="2020-06-19T08:58:41Z" finished-at="2020-06-19T08:58:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="setup" is-config="true" duration-ms="3" started-at="2020-06-19T08:58:51Z" finished-at="2020-06-19T08:58:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="beforeClass" is-config="true" duration-ms="21904" started-at="2020-06-19T08:58:51Z" finished-at="2020-06-19T08:59:13Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="testGetAllCatalog" duration-ms="2681" started-at="2020-06-19T08:59:13Z" finished-at="2020-06-19T08:59:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testGetAllCatalog -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="checkData" duration-ms="45" started-at="2020-06-19T08:59:16Z" depends-on-methods="integrationtest.order.TC_Integration_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-19T08:59:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="checkDB" duration-ms="4518" started-at="2020-06-19T08:59:16Z" depends-on-methods="integrationtest.order.TC_Integration_GetAllCatalog.checkData" finished-at="2020-06-19T08:59:20Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="afterClass" is-config="true" duration-ms="10633" started-at="2020-06-19T08:59:20Z" finished-at="2020-06-19T08:59:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-19T08:59:31Z" finished-at="2020-06-19T08:59:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="beforeClass" is-config="true" duration-ms="22116" started-at="2020-06-19T08:59:31Z" finished-at="2020-06-19T08:59:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@44a7bfbc]" name="testGetAllCatalog" duration-ms="2878" started-at="2020-06-19T08:59:53Z" finished-at="2020-06-19T08:59:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testGetAllCatalog -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@44a7bfbc]" name="checkData" duration-ms="10" started-at="2020-06-19T08:59:56Z" depends-on-methods="integrationtest.order.TC_Integration_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-19T08:59:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@44a7bfbc]" name="checkDB" duration-ms="6058" started-at="2020-06-19T08:59:56Z" depends-on-methods="integrationtest.order.TC_Integration_GetAllCatalog.checkData" finished-at="2020-06-19T09:00:02Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="afterClass" is-config="true" duration-ms="10204" started-at="2020-06-19T09:00:02Z" finished-at="2020-06-19T09:00:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-19T09:00:12Z" finished-at="2020-06-19T09:00:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="beforeClass" is-config="true" duration-ms="22115" started-at="2020-06-19T09:00:12Z" finished-at="2020-06-19T09:00:34Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@4ef37659]" name="testGetAllCatalog" duration-ms="2775" started-at="2020-06-19T09:00:34Z" finished-at="2020-06-19T09:00:37Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testGetAllCatalog -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@4ef37659]" name="checkData" duration-ms="12" started-at="2020-06-19T09:00:37Z" depends-on-methods="integrationtest.order.TC_Integration_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-19T09:00:37Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@4ef37659]" name="checkDB" duration-ms="4913" started-at="2020-06-19T09:00:37Z" depends-on-methods="integrationtest.order.TC_Integration_GetAllCatalog.checkData" finished-at="2020-06-19T09:00:42Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="afterClass" is-config="true" duration-ms="10148" started-at="2020-06-19T09:00:42Z" finished-at="2020-06-19T09:00:52Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="setup" is-config="true" duration-ms="2" started-at="2020-06-19T09:00:52Z" finished-at="2020-06-19T09:00:52Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="beforeClass" is-config="true" duration-ms="22791" started-at="2020-06-19T09:00:52Z" finished-at="2020-06-19T09:01:15Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@524d6d96]" name="testGetAllCatalog" duration-ms="2715" started-at="2020-06-19T09:01:15Z" finished-at="2020-06-19T09:01:18Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testGetAllCatalog -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@524d6d96]" name="checkData" duration-ms="11" started-at="2020-06-19T09:01:18Z" depends-on-methods="integrationtest.order.TC_Integration_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-19T09:01:18Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@524d6d96]" name="checkDB" duration-ms="5247" started-at="2020-06-19T09:01:18Z" depends-on-methods="integrationtest.order.TC_Integration_GetAllCatalog.checkData" finished-at="2020-06-19T09:01:23Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="afterClass" is-config="true" duration-ms="10278" started-at="2020-06-19T09:01:23Z" finished-at="2020-06-19T09:01:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="setup" is-config="true" duration-ms="5" started-at="2020-06-19T09:01:33Z" finished-at="2020-06-19T09:01:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="beforeClass" is-config="true" duration-ms="22291" started-at="2020-06-19T09:01:33Z" finished-at="2020-06-19T09:01:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testGetAllCatalog()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@776b83cc]" name="testGetAllCatalog" duration-ms="2680" started-at="2020-06-19T09:01:55Z" finished-at="2020-06-19T09:01:58Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testGetAllCatalog -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@776b83cc]" name="checkData" duration-ms="8" started-at="2020-06-19T09:01:58Z" depends-on-methods="integrationtest.order.TC_Integration_GetAllCatalog.testGetAllCatalog" finished-at="2020-06-19T09:01:58Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@776b83cc]" name="checkDB" duration-ms="5419" started-at="2020-06-19T09:01:58Z" depends-on-methods="integrationtest.order.TC_Integration_GetAllCatalog.checkData" finished-at="2020-06-19T09:02:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:integrationtest.order.TC_Integration_GetAllCatalog@37858383]" name="afterClass" is-config="true" duration-ms="10719" started-at="2020-06-19T09:02:04Z" finished-at="2020-06-19T09:02:14Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
-      </class> <!-- integrationtest.order.TC_Integration_GetAllCatalog -->
-    </test> <!-- DanaPulsaTestIntegrationOrder -->
-  </suite> <!-- DANA Pulsa Suite -->
+        </test-method> <!-- test -->
+      </class> <!-- remoteService.promotion.TC_Remote_Service_GetMyVoucher -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

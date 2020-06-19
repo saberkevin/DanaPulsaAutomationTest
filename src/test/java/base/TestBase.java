@@ -5,8 +5,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -852,5 +857,43 @@ public class TestBase {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}	
+	}
+	
+	public List<Map<String, Object>> sqlExec(String query, Map<String, Object> param) {
+		List<Map<String, Object>> result = new ArrayList<Map<String,Object>>();
+		
+		try {
+			Connection conn = getConnectionPromotion();
+			PreparedStatement ps = conn.prepareStatement(query);
+			
+			int index = 0;
+			for (Map.Entry<String, Object> data: param.entrySet()) {
+				index++;
+				System.out.println(data.getValue());
+				
+				if (data.getValue() instanceof String) ps.setString(index, (String) data.getValue());
+				else if (data.getValue() instanceof Integer) ps.setInt(index, (Integer) data.getValue());
+				else if (data.getValue() instanceof Long) ps.setLong(index, (Long) data.getValue());
+			}
+
+			ResultSet rs = ps.executeQuery();
+			ResultSetMetaData md = rs.getMetaData();
+						
+			while (rs.next()) {
+				Map<String, Object> row = new HashMap<String, Object>(md.getColumnCount());
+				
+		        for(int i = 1; i <= md.getColumnCount(); ++i) {
+		            row.put(md.getColumnName(i), rs.getObject(i));
+		        }
+		        
+		        result.add(row);
+			}
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		
+		return result;
 	}
 }
