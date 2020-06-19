@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeoutException;
@@ -88,24 +89,15 @@ public class TestBase {
 		
 		String query = "SELECT id, pin FROM user\n" + 
 				"WHERE id = ?";
-		try {
-			Connection conMember = setConnection("MEMBER");
-			PreparedStatement psGetUserPin = conMember.prepareStatement(query);
-			psGetUserPin.setLong(1, Long.parseLong(userId));
-			
-			ResultSet result = psGetUserPin.executeQuery();
-			
-			while(result.next())
-			{
-				pinForSession = result.getString("pin");
-			}
-			
-			conMember.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		param.put("id", userId);
+		List<Map<String, Object>> responseResult = sqlExec(query, param, "MEMBER");
+
+		for (Map<String, Object> result : responseResult) 
+		{
+			pinForSession = result.get("pin").toString();
+		}		
 		verifyPinLogin(userId, pinForSession);
 		return response.getCookie("JSESSIONID");
 	}

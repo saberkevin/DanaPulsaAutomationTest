@@ -1,9 +1,8 @@
 package testCases.user;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -50,28 +49,20 @@ public class TC_Profile extends TestBase{
 			
 			String query = "SELECT id, name, email, username FROM user\n" + 
 					"WHERE id = ? AND name = ?  AND email = ? AND username = ?";
-			try {
-				Connection conMember = setConnection("MEMBER");
-				PreparedStatement psGetUser = conMember.prepareStatement(query);
-				psGetUser.setLong(1, Long.parseLong(jsonPath.get("data.id").toString()));
-				psGetUser.setString(2, jsonPath.get("data.name"));
-				psGetUser.setString(3, jsonPath.get("data.email"));
-				psGetUser.setString(4, jsonPath.get("data.username"));
-				
-				ResultSet result = psGetUser.executeQuery();
-				
-				while(result.next())
-				{
-					Assert.assertEquals(Long.parseLong(jsonPath.get("data.id").toString()), result.getLong("id"));
-					Assert.assertEquals(jsonPath.get("data.name"), result.getString("name"));
-					Assert.assertEquals(jsonPath.get("data.email"), result.getString("email"));
-					Assert.assertEquals(jsonPath.get("data.username"), result.getString("username"));
-				}
-				
-				conMember.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			
+			Map<String, Object> param = new LinkedHashMap<String, Object>();
+			param.put("id", Long.parseLong(jsonPath.get("data.id").toString()));
+			param.put("name", jsonPath.get("data.name"));
+			param.put("email", jsonPath.get("data.email"));
+			param.put("username", jsonPath.get("data.username"));
+			List<Map<String, Object>> responseResult = sqlExec(query, param, "MEMBER");
+			
+			for (Map<String, Object> result : responseResult) 
+			{
+				Assert.assertEquals(Long.parseLong(jsonPath.get("data.id").toString()), result.get("id"));
+				Assert.assertEquals(jsonPath.get("data.name"), result.get("name"));
+				Assert.assertEquals(jsonPath.get("data.email"), result.get("email"));
+				Assert.assertEquals(jsonPath.get("data.username"), result.get("username"));
 			}
 		}
 		else 

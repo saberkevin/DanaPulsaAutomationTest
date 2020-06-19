@@ -1,11 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="DANA Pulsa Suite">
 
-<parameter name="statusCode" value="200"></parameter>
-<parameter name="statusCodePost" value="201"></parameter>
-<parameter name="statusCodeFail" value="404"></parameter>
-<parameter name="statusCodeForbidden" value="409"></parameter>
-
 <parameter name="responseTime" value="10000"></parameter>
 
 <listeners>

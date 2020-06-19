@@ -1,9 +1,7 @@
 package testCases.user;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -46,22 +44,15 @@ public class TC_Balance extends TestBase{
 			
 			String query = "SELECT userId, balance FROM balance\n" + 
 					"WHERE userId = ?";
-			try {
-				Connection conMember = setConnection("MEMBER");
-				PreparedStatement psGetBalance = conMember.prepareStatement(query);
-				psGetBalance.setLong(1, Long.parseLong(userId));
-				
-				ResultSet result = psGetBalance.executeQuery();
-				while(result.next())
-				{
-					Assert.assertEquals(Long.parseLong(userId), result.getLong("userId"));
-					Assert.assertEquals(Long.parseLong(jsonPath.get("data")), result.getLong("balance"));
-				}
-				
-				conMember.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			
+			Map<String, Object> param = new LinkedHashMap<String, Object>();
+			param.put("userId", userId);
+			List<Map<String, Object>> responseResult = sqlExec(query, param, "MEMBER");
+			
+			for (Map<String, Object> result : responseResult) 
+			{
+				Assert.assertEquals(Long.parseLong(userId), result.get("userId"));
+				Assert.assertEquals(Long.parseLong(jsonPath.get("data")), result.get("balance"));
 			}
 		}
 		else 
