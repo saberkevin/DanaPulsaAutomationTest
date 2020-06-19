@@ -5,150 +5,276 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import model.Catalog;
-import model.Provider;
-import model.Transaction;
 import model.User;
 
 public class TC_Create_Order extends TestBase {
 	private User user = new User();
+	private String testCase;
 	private String sessionId;
-	private Transaction transaction = new Transaction();
-	private Catalog catalog = new Catalog();
-	private Provider provider = new Provider();
+	private String phoneNumber;
+	private String catalogId;
+	private String result;
+	private boolean isCreateUser;
 	
-	public TC_Create_Order(String sessionId, String phoneNumber, String catalogId) {
+	public TC_Create_Order() {
+		
+	}
+	
+	public TC_Create_Order(String testCase, String sessionId, String phoneNumber, String catalogId, String result) {
+		this.testCase = testCase;
 		this.sessionId = sessionId;
-		transaction.setPhoneNumber(phoneNumber);
-		transaction.setCatalogId(Long.parseLong(catalogId));
+		this.phoneNumber = phoneNumber;
+		this.catalogId = catalogId;
+		this.result = result;
+		isCreateUser = false;
 	}
 	
 	@BeforeClass
 	public void beforeClass() {
-		user.setName("Zanuar");
-		user.setEmail("triromadon@gmail.com");
-		user.setUsername("081252930398");
-		user.setPin(123456);
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Case:" + testCase);
 		
-		deleteUserIfExist(user.getEmail(), user.getUsername());
-		createUser(user);
-		user.setId(getUserIdByUsername(user.getUsername()));
-		
-		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
-		checkStatusCode("200");
-		user.setSessionId(response.getHeader("Cookie"));
+		if (sessionId.equals("true")) {
+			isCreateUser = true;
+			
+			// initialize user
+			user.setName("Zanuar");
+			user.setEmail("triromadon@gmail.com");
+			user.setUsername("081252930398");
+			user.setPin(123456);
+			
+			// delete if exist
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());
+			
+			// insert user into database
+			createUser(user);
+			user.setId(getUserIdByUsername(user.getUsername()));	
+			
+			verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
+			checkStatusCode("200");
+			user.setSessionId(response.getCookie("JSESSIONID"));
+			sessionId = user.getSessionId();
 
-		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
-		checkStatusCode("200");
-		user.setSessionId(response.getHeader("Cookie"));
-
-		getCatalog(user.getSessionId(), transaction.getPhoneNumber());
-		checkStatusCode("200");
+			// insert balance into database
+			createBalance(user.getId(), 10000000);
+		}
 	}
 	
 	@Test
-	public void testCreateOrder() {
-		if (sessionId.contentEquals("true"))
-			sessionId = user.getSessionId();		
-		createOrder(sessionId, transaction.getPhoneNumber(), transaction.getCatalogId());
+	public void testCreateOrder() {	
+		createOrder(sessionId, phoneNumber, catalogId);
 		
-		String code = response.getBody().jsonPath().getString("code");
-		checkStatusCode(code);
+		Assert.assertTrue(response.getBody().asString().contains(result));
+
+		int statusCode = response.getStatusCode();
 		
-		String message = response.getBody().jsonPath().getString("message");
-		
-		if(code.equals("400")) {
-			Assert.assertTrue(
-					message.equals("selected catalog is not available for this phone’s provider") || 
-					message.equals("invalid phone number")
-					);
-		} else if(code.equals("404")) {
-			Assert.assertTrue(
-					message.equals("catalog not found") || 
-					message.equals("unknown phone number")
-					);			
-		} else if(code.equals("409")) {
-			Assert.assertEquals(message, "you’ve already requested this exact order within the last 30 seconds, "
-					+ "please try again later if you actually intended to do that"
-					);
-		} else if (code.equals("201")) {
-			Assert.assertEquals(message, "created");			
+		if (statusCode == 400) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "400");
+			Assert.assertTrue(response.getBody().jsonPath().getString("message").equals("invalid phone number")
+					|| response.getBody().jsonPath().getString("message").equals("selected catalog is not available for this phone’s provider")
+					|| response.getBody().jsonPath().getString("message").contains("phone number must not be null")
+					|| response.getBody().jsonPath().getString("message").contains("catalog ID must not be null"));
+		} else if (statusCode == 401) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "401");
+			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "Unauthorized");
+		} else if (statusCode == 404) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "404");
+			Assert.assertTrue(response.getBody().jsonPath().getString("message").equals("catalog not found")
+					|| response.getBody().jsonPath().getString("message").equals("unknown phone number"));
+		} else if (statusCode == 409) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "409");
+			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "you’ve already requested this exact order within the last 30 seconds, "
+					+ "please try again later if you actually intended to do that");
+		} else if (statusCode == 201) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "201");
+			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "created");
 		}
 	}
 	
 	@Test(dependsOnMethods = {"testCreateOrder"})
 	public void checkData() {
-		String code = response.getBody().jsonPath().getString("code");
+		int statusCode = response.getStatusCode();
 		
-		if (code.equals("201")) {
-			try {
-				Connection conn = setConnection("ORDER");
-				String query = "SELECT A.id [providerId], A.name, A.image, "
-						+ "B.id [catalogId], B.value, B.price "
-						+ "FROM provider A LEFT JOIN pulsa_catalog B on A.id = B.providerId "
-						+ "WHERE B.id = ? ";
-				
-				PreparedStatement ps = conn.prepareStatement(query);
-				ps.setLong(1, transaction.getCatalogId());
-				
-				ResultSet rs = ps.executeQuery();
-				while(rs.next()) {
-					provider.setId(rs.getLong("providerId"));
-					provider.setName(rs.getString("name"));
-					provider.setImage(rs.getString("image"));
-					catalog.setId(rs.getLong("catalogId"));
-					catalog.setValue(rs.getLong("value"));
-					catalog.setPrice(rs.getLong("price"));					
-				}
-				
-				conn.close();
-			} catch (SQLException e) {
-				
-			}
+		if (statusCode == 201) {
+			Assert.assertNotNull(Integer.toString(response.getBody().jsonPath().get("data.id")));
+			Assert.assertEquals(response.getBody().jsonPath().get("data.phoneNumber"), phoneNumber);
+			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("data.catalog.id")), catalogId);
 			
-			JSONObject data = response.getBody().jsonPath().getJsonObject("data");
-			Assert.assertNotNull(data.get("id"));
-			Assert.assertEquals(data.get("phone"), transaction.getPhoneNumber());
-			Assert.assertEquals(data.get("catalog.id"), catalog.getId());
-			Assert.assertEquals(data.get("catalog.provider.id"), provider.getId());
-			Assert.assertEquals(data.get("catalog.provider.name"), provider.getName());
-			Assert.assertEquals(data.get("catalog.provider.image"), provider.getImage());
-			Assert.assertEquals(data.get("catalog.value"), catalog.getValue());
-			Assert.assertEquals(data.get("catalog.price"), catalog.getPrice());
+			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("data.catalog.provider.id")), "2");
+			Assert.assertEquals(response.getBody().jsonPath().get("data.catalog.provider.name"), "Telkomsel");
+			Assert.assertEquals(response.getBody().jsonPath().get("data.catalog.provider.image"), 
+					"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png");
 			
-			transaction.setId((Long) data.get("id"));
+			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("data.catalog.value")), "15000");
+			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("data.catalog.price")), "15000");
 		}
 	}
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		try {
-			Connection conn = setConnection("ORDER");
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM transaction WHERE id = ?");
-			ps.setLong(1, transaction.getId());
-			
-			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
-				Assert.assertEquals(rs.getString("userId"), user.getId());
-				Assert.assertEquals(rs.getString("phoneNumber"), transaction.getPhoneNumber());
-				Assert.assertEquals(rs.getString("catalogId"), catalog.getId());
+		int statusCode = response.getStatusCode();
+		
+		if (statusCode == 400) {
+			if (response.getBody().asString().contains("selected catalog is not available for this phone’s provider")) {
+				String providerName = "";
+				
+				try {
+					Connection conn = getConnectionOrder();
+					String queryString = "SELECT name FROM provider WHERE id IN (SELECT providerId FROM provider_prefix WHERE prefix = ?)";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setString(1, phoneNumber.substring(1,5));
+					
+					ResultSet rs = ps.executeQuery();
+					
+					if (!rs.next()) {
+						Assert.assertTrue(false, "no provider found in database");
+					}
+					providerName = rs.getString("name");
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				
+				try {
+					Connection conn = getConnectionOrder();
+					String queryString = "SELECT B.name "
+							+ "FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id "
+							+ "WHERE A.id = ?";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setLong(1, Long.parseLong(catalogId));
+					
+					ResultSet rs = ps.executeQuery();
+					if (!rs.next()) {
+						Assert.assertTrue(false, "no provider found in database");
+					}
+					Assert.assertNotEquals(rs.getString("name"), providerName);
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				
+
+				try {
+					Connection conn = getConnectionOrder();
+					String queryString = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setLong(1, user.getId());
+					ps.setString(2, phoneNumber);
+					ps.setLong(3, Long.parseLong(catalogId));
+					
+					ResultSet rs = ps.executeQuery();
+					Assert.assertTrue(!rs.next());
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			} else if (response.getBody().asString().contains("invalid phone number")) {
+				// do some code
+				
+			}			
+		} else if (statusCode == 404) {
+			if (response.getBody().asString().contains("catalog not found")) {
+				try {
+					Connection conn = getConnectionOrder();
+					String queryString = "SELECT * FROM pulsa_catalog WHERE id = ?";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setLong(1, Long.parseLong(catalogId));
+					
+					ResultSet rs = ps.executeQuery();
+					Assert.assertTrue(!rs.next());
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			} else if (response.getBody().asString().contains("unknown phone number")) {
+				try {
+					Connection conn = getConnectionOrder();
+					String queryString = "SELECT * FROM provider_prefix WHERE prefix = ?";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setString(1, phoneNumber.substring(1,5));
+					
+					ResultSet rs = ps.executeQuery();
+					Assert.assertTrue(!rs.next());
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
 			
-			conn.close();
-		} catch (SQLException e) {
+			try {
+				Connection conn = getConnectionOrder();
+				String queryString = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
+				
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setLong(1, user.getId());
+				ps.setString(2, phoneNumber);
+				ps.setLong(3, Long.parseLong(catalogId));
+				
+				ResultSet rs = ps.executeQuery();
+				Assert.assertTrue(!rs.next());
+				
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		} else if (statusCode == 409) {
+			// do some code
 			
+		} else if (statusCode == 201) {
+			try {
+				Connection conn = getConnectionOrder();
+				String queryString = "SELECT COUNT(*) AS count FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
+				
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setLong(1, user.getId());
+				ps.setString(2, phoneNumber);
+				ps.setLong(3, Long.parseLong(catalogId));
+				
+				ResultSet rs = ps.executeQuery();
+				if (!rs.next()) {
+					Assert.assertTrue(false, "no transaction found in database");
+				}
+				do {
+					Assert.assertEquals(rs.getInt("count"), 1);
+				} while(rs.next());
+				
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
 	@AfterClass
 	public void afterClass() {
+		// delete user
+		if (isCreateUser == true) {
+			deleteTransactionByUserId(user.getId());
+			deleteBalanceByUserId(user.getId());
+			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
+		}
+		
+		// delete transaction
+		deleteTransactionByPhoneNumber(phoneNumber);			
+		
+		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());		
 	}
 }

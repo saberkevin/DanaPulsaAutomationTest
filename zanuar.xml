@@ -1,0 +1,75 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="DANA Pulsa Suite">
+	<test name="DanaPulsaServiceTestOrder" group-by-instances="true">
+		<classes>
+			<!-- <class name = "remoteService.order.Factory_Remote_Service_GetAllCatalog"></class>
+			<class name = "remoteService.order.Factory_Remote_Service_GetPaymentMethodNameById"></class> -->
+			<class name = "remoteService.order.Factory_Remote_Service_GetProviderById"></class>
+			<!-- <class name = "remoteService.order.Factory_Remote_Service_GetTransactionById"></class>
+			<class name = "remoteService.order.Factory_Remote_Service_GetTransactionByIdByUserId"></class>
+			<class name = "remoteService.order.Factory_Remote_Service_GetRecentNumber"></class>
+			<class name = "remoteService.order.Factory_Remote_Service_CreateTransaction"></class>
+			<class name = "remoteService.order.Factory_Remote_Service_GetHistoryInProgress"></class>
+			<class name = "remoteService.order.Factory_Remote_Service_GetHistoryCompleted"></class>
+			<class name = "remoteService.order.Factory_Remote_Service_Cancel"></class>
+			<class name = "remoteService.order.Factory_Remote_Service_Pay"></class> -->
+		</classes>
+	</test>
+	
+	<!-- <test name="DanaPulsaServiceTestPromotion" group-by-instances="true">
+		<classes>
+ 			<class name = "remoteService.promotion.Factory_Remote_Service_GetVoucherPromotion"></class>
+			<class name = "remoteService.promotion.Factory_Remote_Service_GetMyVoucher"></class>
+			<class name = "remoteService.promotion.Factory_Remote_Service_GetVoucherDetail"></class>
+			<class name = "remoteService.promotion.Factory_Remote_Service_GetVoucherRecommendation"></class>
+			<class name = "remoteService.promotion.Factory_Remote_Service_Redeem"></class>
+		</classes>
+	</test> -->
+	
+	<!-- <test name="DanaPulsaTestOrder" group-by-instances="true">
+		<classes>
+		 	<class name = "testCases.order.Factory_Mobile_Recharge_Catalog"></class>
+			<class name = "testCases.order.Factory_Recent_Phone_Number"></class>
+			<class name = "testCases.order.Factory_Create_Order"></class>
+			<class name = "testCases.order.Factory_Cancel_Order"></class>
+		</classes>
+	</test> -->
+	
+	<!-- <test name="DanaPulsaTestPayment" group-by-instances="true">
+		<classes>
+			<class name = "testCases.payment.Factory_Pay_Order"></class>
+		</classes>
+	</test> -->
+	
+	<!-- <test name="DanaPulsaTestVouchers" group-by-instances="true">
+		<classes>
+			<class name = "testCases.voucher.Factory_Promotion_Vouchers"></class>
+			<class name = "testCases.voucher.Factory_My_Vouchers"></class>
+			<class name = "testCases.voucher.Factory_Voucher_Details"></class>
+		</classes>
+	</test> -->
+	
+	<!-- <test name="DanaPulsaTestIntegrationOrder" group-by-instances="true">
+		<classes>
+			<class name = "integrationtest.order.Factory_Integration_GetRecentNumbers"></class>
+			<class name = "integrationtest.order.Factory_Integration_GetAllCatalog"></class>
+			<class name = "integrationtest.order.Factory_Integration_CreateOrder"></class>
+			<class name = "integrationtest.order.Factory_Integration_CancelOrder"></class>
+		</classes>
+	</test> -->
+	
+	<!-- <test name="DanaPulsaTestIntegrationPayment" group-by-instances="true">
+		<classes>
+			<class name = "integrationtest.voucher.Factory_Integration_Payment"></class>
+		</classes>
+	</test> -->
+		
+	<!-- <test name="DanaPulsaTestIntegrationVoucher" group-by-instances="true">
+		<classes>
+			<class name = "integrationtest.voucher.Factory_Integration_VoucherDetails"></class>
+			<class name = "integrationtest.voucher.Factory_Integration_VoucherPromotion"></class>
+			<class name = "integrationtest.voucher.Factory_Integration_MyVoucher"></class>
+			<class name = "integrationtest.voucher.Factory_Integration_VoucherRecommendation"></class>
+		</classes>
+	</test> -->
+</suite>

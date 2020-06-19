@@ -4,136 +4,184 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import model.Catalog;
-import model.Provider;
 import model.User;
 
 public class TC_Mobile_Recharge_Catalog extends TestBase {
 	private User user = new User();
+	private String testCase;
 	private String sessionId;
-	private String phoneNumber;
-	private Provider provider;
-	private JSONArray catalogs;
+	private String phonePrefix;
+	private String result;
+	private boolean isCreateUser;
 	
-	public TC_Mobile_Recharge_Catalog(String sessionId, String phoneNumber) {
-		this.sessionId = sessionId;
-		this.phoneNumber = phoneNumber;
+	public TC_Mobile_Recharge_Catalog() {
+		
 	}
 	
-	private boolean isProviderTrue(String phoneNumber, Provider provider) {
-		try {
-			Connection conn = setConnection("ORDER");
-			String query = "SELECT name FROM provider WHERE id = (SELECT providerId FROM provider_prefix WHERE prefix = ?";
-
-			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setString(1, phoneNumber.substring(0,5));
-			
-			ResultSet rs = ps.executeQuery();
-			if (rs.getString("name").equals(provider.getName()))
-				return true;
-			
-			conn.close();
-		} catch (SQLException e) {
-			
-		}
-		return false;
+	public TC_Mobile_Recharge_Catalog(String testCase, String sessionId, String phonePrefix, String result) {
+		this.testCase = testCase;
+		this.sessionId = sessionId;
+		this.phonePrefix = phonePrefix;
+		this.result = result;
+		isCreateUser = false;
 	}
 	
 	@BeforeClass
 	public void beforeClass() {
-		user.setName("Zanuar");
-		user.setEmail("triromadon@gmail.com");
-		user.setUsername("081252930398");
-		user.setPin(123456);
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Case:" + testCase);
 		
-		deleteUserIfExist(user.getEmail(), user.getUsername());
-		createUser(user);
-		user.setId(getUserIdByUsername(user.getUsername()));
+		if (sessionId.equals("true")) {
+			isCreateUser = true;
+			
+			// initialize user
+			user.setName("Zanuar");
+			user.setEmail("triromadon@gmail.com");
+			user.setUsername("081252930398");
+			user.setPin(123456);
+			
+			// delete if exist
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());
+			
+			// insert user into database
+			createUser(user);
+			user.setId(getUserIdByUsername(user.getUsername()));	
+			
+			verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
+			checkStatusCode("200");
+			user.setSessionId(response.getCookie("JSESSIONID"));
+			sessionId = user.getSessionId();
 
-		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
-		System.out.println(response.getBody().asString());
-		checkStatusCode("200");
-		user.setSessionId(response.getHeader("Cookie"));
+			// insert balance into database
+			createBalance(user.getId(), 10000000);
+		}
 	}
 	
 	@Test
 	public void testMobileRechargeCatalog() {
-		if (sessionId.contentEquals("true"))
-			sessionId = user.getSessionId();	
-		getCatalog(sessionId, phoneNumber);
-		System.out.println(response.getBody().asString());
+		getCatalog(sessionId, phonePrefix);
 		
-		String code = response.getBody().jsonPath().getString("code");
-		checkStatusCode(code);
+		Assert.assertTrue(response.getBody().asString().contains(result));
 
-		String message = response.getBody().jsonPath().getString("message");
+		int statusCode = response.getStatusCode();
 		
-		if (code.equals("400")) {
-			Assert.assertEquals(message, "invalid phone number");
-		} else if(code.equals("404")) {
-			Assert.assertEquals(message, "unknown phone number");
-		} else if(code.equals("200")) {
-			Assert.assertEquals(message, "success");
+		if (statusCode == 400) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "400");
+			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "invalid phone number");
+		} else if (statusCode == 401) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "401");
+			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "Unauthorized");
+		} else if (statusCode == 404) {
+			Assert.assertTrue(response.getBody().asString().contains("Not Found") 
+					|| response.getBody().asString().contains("unknown phone number"));
+		} else if (statusCode == 200) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "200");
+			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "success");
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Test(dependsOnMethods = {"testMobileRechargeCatalog"})
 	public void checkData() {
-		String code = response.getBody().jsonPath().getString("code");
+		int statusCode = response.getStatusCode();
 		
-		if (code.equals("200")) {
-			JSONObject data = response.getBody().jsonPath().getJsonObject("data");
-
-			provider = (Provider) data.get("provider");					
-			Assert.assertTrue(isProviderTrue(phoneNumber, provider));
+		if (statusCode == 200) {
+			Map<String, String> provider = response.getBody().jsonPath().getMap("data.provider");
+					
+			Assert.assertNotNull(provider.get("id"));
+			Assert.assertNotNull(provider.get("name"));
+			Assert.assertNotNull(provider.get("image"));
 			
-			catalogs = (JSONArray) data.get("catalog");
+			List<Map<String, String>> catalog = response.getBody().jsonPath().getList("data.catalog");
 			
-			Iterator<Catalog> itr = catalogs.iterator();
-			while(itr.hasNext()) {
-				Catalog catalog = itr.next();
-				Assert.assertNotNull(catalog.getId());
-				Assert.assertNotNull(catalog.getValue());
-				Assert.assertNotNull(catalog.getPrice());				
-			}				
+			for (int i = 0; i < catalog.size(); i++) {
+				Assert.assertNotNull(catalog.get(i).get("id"));
+				Assert.assertNotNull(catalog.get(i).get("value"));
+				Assert.assertNotNull(catalog.get(i).get("price"));
+			}
 		}
 	}
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		try {
-			Connection conn = setConnection("ORDER");
-			String query = "SELECT * FROM pulsa_catalog WHERE providerId = ? ORDER BY value DESC";
-
-			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setLong(1, provider.getId());
-			
-			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
-				Assert.assertEquals(rs.getString("id"), ((Catalog) catalogs.get(rs.getRow())).getId());
-				Assert.assertEquals(rs.getLong("value"), ((Catalog) catalogs.get(rs.getRow())).getValue());
-				Assert.assertEquals(rs.getLong("price"), ((Catalog) catalogs.get(rs.getRow())).getPrice());
+		int statusCode = response.getStatusCode();
+		
+		if (statusCode == 404) {
+			if (response.getBody().asString().contains("unknown phone number")) {
+				try {
+					Connection conn = getConnectionOrder();
+					String queryString = "SELECT * FROM provider_prefix WHERE prefix = ?";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setString(1, phonePrefix);
+					
+					ResultSet rs = ps.executeQuery();
+					Assert.assertTrue(!rs.next());
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
+		} else if (statusCode == 400) {
+			// do some code
 			
-			conn.close();
-		} catch (SQLException e) {
-			
+		} else if (statusCode == 200) {
+			List<Map<String, String>> catalog = response.getBody().jsonPath().getList("data.catalog");
+
+			try {
+				Connection conn = getConnectionOrder();
+				String queryString = "SELECT "
+						+ "A.*, "
+						+ "B.id AS providerId, "
+						+ "B.name AS providerName, "
+						+ "B.image AS providerImage "
+						+ "FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id "
+						+ "LEFT JOIN provider_prefix C on B.id = C.providerId "
+						+ "WHERE C.prefix = ?";
+				
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setString(1, phonePrefix.substring(1));
+				
+				ResultSet rs = ps.executeQuery();
+				
+				if (!rs.next()) {
+					Assert.assertTrue(false, "no catalog found in database");
+				}
+				do {
+					Assert.assertEquals(response.getBody().jsonPath().getLong("data.provider.id"), rs.getLong("providerId"));
+					Assert.assertEquals(response.getBody().jsonPath().getString("data.provider.name"), rs.getString("providerName"));
+					Assert.assertEquals(response.getBody().jsonPath().getString("data.provider.image"), rs.getString("providerImage"));
+					Assert.assertEquals(String.valueOf(catalog.get(rs.getRow()-1).get("id")), rs.getString("id"));
+					Assert.assertEquals(String.valueOf(catalog.get(rs.getRow()-1).get("value")), rs.getString("value"));
+					Assert.assertEquals(String.valueOf(catalog.get(rs.getRow()-1).get("price")), rs.getString("price"));
+				} while(rs.next());
+				
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 	
 	@AfterClass
 	public void afterClass() {
+		// delete user
+		if (isCreateUser == true) {
+			deleteBalanceByUserId(user.getId());
+			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
+		}
+
+		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());		
 	}
 }

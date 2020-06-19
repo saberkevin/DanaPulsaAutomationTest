@@ -7,8 +7,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeoutException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -59,7 +64,10 @@ public class TestBase {
 	
 	public RequestSpecification httpRequest;
 	public Response response;
-	public String URI = "https://debrief.herokuapp.com";	
+
+	public String URI = "http://debrief.herokuapp.com";
+	public String URIOrder = "https://debrief2-pulsa-order.herokuapp.com";
+	public String URIPromotion = "https://pulsa-voucher.herokuapp.com";
 	public String memberURI = "https://member-domain.herokuapp.com/member";
 	public String memberAMQP = "amqp://ynjauqav:K83KvUARdw7DyYLJF2_gt2RVzO-NS2YM@lively-peacock.rmq.cloudamqp.com/ynjauqav";
 	public String excelPrefix = "../DanaPulsaAutomationTest/src/test/java/";
@@ -464,7 +472,7 @@ public class TestBase {
 
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 
 		response = httpRequest.request(Method.GET, RECENT_PHONE_NUMBER_PATH);
 		logger.info(response.getBody().asString());
@@ -478,13 +486,13 @@ public class TestBase {
 
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, CATALOG_PATH + phoneNumber);
 		logger.info(response.getBody().asString());
 	}
 	
-	public void createOrder(String sessionId, String phoneNumber, long catalogId) {
+	public void createOrder(String sessionId, String phoneNumber, String catalogId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("session id:" + sessionId);
@@ -492,12 +500,12 @@ public class TestBase {
 		logger.info("catalog id:" + catalogId);
 				
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("phone", phoneNumber);
+		requestParams.put("phoneNumber", phoneNumber);
 		requestParams.put("catalogId", catalogId);
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 		
@@ -505,7 +513,7 @@ public class TestBase {
 		logger.info(response.getBody().asString());
 	}
 	
-	public void cancelOrder(String sessionId, long transactionId) {
+	public void cancelOrder(String sessionId, String transactionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("session id:" + sessionId);
@@ -513,13 +521,13 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.DELETE, CANCEL_ORDER_PATH + transactionId);
 		logger.info(response.getBody().asString());
 	}
 	
-	public void payOrder(String sessionId, long transactionId, long paymentMethodId, long voucherId) {
+	public void payOrder(String sessionId, String transactionId, String paymentMethodId, String voucherId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("session id:" + sessionId);
@@ -534,7 +542,7 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		httpRequest.header("Content-Type", "application/json");
 		
 		response = httpRequest.request(Method.POST, PAYMENT_PATH);
@@ -549,7 +557,7 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, MY_VOUCHER_PATH + page);
 		logger.info(response.getBody().asString());
@@ -563,13 +571,13 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();		
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 
 		response = httpRequest.request(Method.GET, PROMOTION_VOUCHER_PATH + page);
 		logger.info(response.getBody().asString());
 	}
 	
-	public void getRecommendationVoucher(String sessionId, long transactionId) {
+	public void getRecommendationVoucher(String sessionId, String transactionId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("session id:" + sessionId);
@@ -577,13 +585,13 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();		
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		
 		response = httpRequest.request(Method.GET, RECOMMENDATION_VOUCHER_PATH + transactionId);
 		logger.info(response.getBody().asString());
 	}
 	
-	public void getVoucherDetails(String sessionId, long voucherId) {
+	public void getVoucherDetails(String sessionId, String voucherId) {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Test Data: ");
 		logger.info("session id:" + sessionId);
@@ -591,9 +599,9 @@ public class TestBase {
 		
 		RestAssured.baseURI = URI;
 		httpRequest = RestAssured.given();		
-		httpRequest.header("Cookie", "SESSION=" + sessionId);
+		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 
-		response = httpRequest.request(Method.GET, VOUCHER_DETAILS_PATH + Long.toString(voucherId));
+		response = httpRequest.request(Method.GET, VOUCHER_DETAILS_PATH + voucherId);
 		logger.info(response.getBody().asString());
 	}
 	
@@ -656,15 +664,15 @@ public class TestBase {
 		
 		if(service.equalsIgnoreCase("MEMBER"))
 		{
-			conn = setConnection("MEMBER");
+			conn = getConnectionMember();
 		}
 		else if(service.equalsIgnoreCase("ORDER"))
 		{
-			conn = setConnection("ORDER");
+			conn = getConnectionOrder();
 		}
 		else if(service.equalsIgnoreCase("PROMOTION"))
 		{
-			conn = setConnection("PROMOTION");
+			conn = getConnectionPromotion();
 		}
 		
 		return conn;
@@ -716,7 +724,7 @@ public class TestBase {
 			ps.setString(1, email);
 			ps.setString(2, username);
 
-			ResultSet rs = ps.executeQuery();			
+			ResultSet rs = ps.executeQuery();
 			if (rs.next())
 				userExist = true;
 
@@ -739,6 +747,22 @@ public class TestBase {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+		}
+	}
+	
+	public void deleteUserByEmailAndUsername(String email, String username) {
+		try {
+			Connection conn = getConnectionMember();
+			String queryString = "DELETE FROM user WHERE email = ? AND username = ?";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);
+			ps.setString(1, email);
+			ps.setString(2, username);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 	
@@ -765,7 +789,146 @@ public class TestBase {
 		return id;
 	}
 	
-	public void createVoucherForUser(long userId, long voucherId, long voucherStatusId) {
+	public void createTransaction(long userId, String phoneNumber, long catalogId) {
+		try {
+			Connection conn = getConnectionOrder();
+			String queryString = "INSERT INTO transaction(userId, methodId, phoneNumber, catalogId, statusId) VALUES (?, ?, ?, ?, ?)";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);
+			ps.setLong(1, userId);
+			ps.setLong(2, 1);
+			ps.setString(3, phoneNumber);
+			ps.setLong(4, catalogId);
+			ps.setLong(5, 1);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void createTransaction(long userId, String phoneNumber, long catalogId, long statusId) {
+		try {
+			Connection conn = getConnectionOrder();
+			String queryString = "INSERT INTO transaction(userId, methodId, phoneNumber, catalogId, statusId) VALUES (?, ?, ?, ?, ?)";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);
+			ps.setLong(1, userId);
+			ps.setLong(2, 1);
+			ps.setString(3, phoneNumber);
+			ps.setLong(4, catalogId);
+			ps.setLong(5, statusId);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void deleteTransactionByPhoneNumber(String phoneNumber) {
+		try {
+			Connection conn = getConnectionOrder();
+			String queryString = "DELETE FROM transaction WHERE phoneNumber = ?";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);			
+			ps.setString(1, phoneNumber);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void deleteTransactionByUserId(long userId) {
+		try {
+			Connection conn = getConnectionOrder();
+			String queryString = "DELETE FROM transaction WHERE userId = ?";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);
+			ps.setLong(1, userId);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public long getTransactionIdByUserId(long userId) {
+		long id = 0;
+		
+		try {
+			Connection conn = getConnectionOrder();
+			String queryString = "SELECT id FROM transaction WHERE userId = ?";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);
+			ps.setLong(1, userId);
+			
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				id = rs.getLong("id");
+			}
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return id;
+	}
+	
+	public void createBalance(long userId, long balance) {
+		try {
+			Connection conn = getConnectionMember();
+			String queryString = "INSERT INTO balance(userId, balance) VALUES(?, ?)";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);
+			ps.setLong(1, userId);
+			ps.setLong(2, balance);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void deleteBalanceByUserId(long userId) {
+		try {
+			Connection conn = getConnectionMember();
+			String queryString = "DELETE FROM balance WHERE userId = ?";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);
+			ps.setLong(1, userId);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void deleteBalanceByEmailByUsername(String email, String username) {
+		try {
+			Connection conn = getConnectionMember();
+			String queryString = "DELETE FROM balance WHERE userId in (select id from user where email = ? or username = ?)";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);
+			ps.setString(1, email);
+			ps.setString(2, username);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public void createUserVoucher(long userId, long voucherId, long voucherStatusId) {
+		Date date = new Date();
 		try {
 			Connection conn = setConnection("PROMOTION");
 			String query = "INSERT INTO user_voucher(userId, voucherId, voucherStatusId, createdAt) VALUES(?, ?, ?, ?)";
@@ -774,12 +937,63 @@ public class TestBase {
 			ps.setLong(1, userId);
 			ps.setLong(2, voucherId);
 			ps.setLong(3, voucherStatusId);
-			ps.setDate(4, (java.sql.Date) new Date());
+			ps.setDate(4, new java.sql.Date(date.getTime()));
 			ps.executeUpdate();
 
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}	
+	}
+	
+	public void deleteUserVoucherByUserId(long userId) {
+		try {
+			Connection conn = getConnectionPromotion();
+			String queryString = "DELETE FROM user_voucher WHERE userId = ?";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);
+			ps.setLong(1, userId);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
+	public List<Map<String, Object>> sqlExec(String query, Map<String, Object> param, String domain) {
+		List<Map<String, Object>> result = new ArrayList<Map<String,Object>>();
+		
+		try {
+			Connection conn = setConnection(domain);
+			PreparedStatement ps = conn.prepareStatement(query);
+			
+			int index = 0;
+			for (Map.Entry<String, Object> data: param.entrySet()) {
+				index++;
+				if (data.getValue() instanceof String) ps.setString(index, (String) data.getValue());
+				else if (data.getValue() instanceof Integer) ps.setInt(index, (Integer) data.getValue());
+				else if (data.getValue() instanceof Long) ps.setLong(index, (Long) data.getValue());
+			}
+
+			ResultSet rs = ps.executeQuery();
+			ResultSetMetaData md = rs.getMetaData();
+						
+			while (rs.next()) {
+				Map<String, Object> row = new HashMap<String, Object>(md.getColumnCount());
+				
+		        for(int i = 1; i <= md.getColumnCount(); ++i) {
+		            row.put(md.getColumnName(i), rs.getObject(i));
+		        }
+		        
+		        result.add(row);
+			}
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		
+		return result;
 	}
 }

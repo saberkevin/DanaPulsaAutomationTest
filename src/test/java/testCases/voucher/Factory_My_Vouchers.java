@@ -3,12 +3,14 @@ package testCases.voucher;
 import java.io.IOException;
 
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Factory;
 
 import base.TestBase;
 
 public class Factory_My_Vouchers extends TestBase {
-	public Object[] createInstances(String sessionId, String page) {
-		return new Object[] {new TC_My_Vouchers(sessionId, page)};
+	@Factory(dataProvider="dp")
+	public Object[] createInstances(String testCase, String sessionId, String page, String result) {
+		return new Object[] {new TC_My_Vouchers(testCase, sessionId, page, result)};
 	}
 	
 	@DataProvider(name="dp")
