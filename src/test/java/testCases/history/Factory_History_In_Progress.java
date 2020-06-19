@@ -15,6 +15,6 @@ public class Factory_History_In_Progress extends TestBase{
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/testCases/history/historyTestData.xlsx", "InProgress");
+		return getExcelData(excelPrefix+"testCases/history/historyTestData.xlsx", "InProgress");
 	}
 }

@@ -53,6 +53,21 @@
 		<classes>
 			<class name = "remoteService.member.Factory_Service_Register"></class>
 			<class name = "remoteService.member.Factory_Service_Login"></class>
+			<class name = "remoteService.member.Factory_Service_Verify_Pin_Login"></class>
+			<class name = "remoteService.member.Factory_Service_Change_Pin"></class>
+			<class name = "remoteService.member.Factory_Service_Profile"></class>
+			<class name = "remoteService.member.Factory_Service_Balance"></class>
+			<class name = "remoteService.member.Factory_Service_Increase_Balance"></class>
+			<class name = "remoteService.member.Factory_Service_Decrease_Balance"></class>
+			<class name = "remoteService.member.Factory_Service_Get_Otp"></class>
+			<class name = "remoteService.member.Factory_Service_Send_Otp"></class>
+			<class name = "remoteService.member.Factory_Service_Verify_Otp"></class>
+		</classes>
+	</test> -->
+	<!-- <test name="DanaPulsaIntegrationTestMember" group-by-instances="true">
+		<classes>
+			<class name = "integrationtest.member.TC_IntegrationTest_001"></class>
+			<class name = "integrationtest.member.TC_IntegrationTest_002"></class>
 		</classes>
 	</test> -->
 </suite>

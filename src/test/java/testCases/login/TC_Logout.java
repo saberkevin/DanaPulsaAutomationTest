@@ -67,9 +67,9 @@ public class TC_Logout extends TestBase{
 		{
 			Assert.assertEquals("success", message);
 		}
-		else if(code == 404)
+		else
 		{
-			Assert.assertEquals("user session not found", message);
+			Assert.assertTrue("unhandled error",false);
 		}
 	}
 	

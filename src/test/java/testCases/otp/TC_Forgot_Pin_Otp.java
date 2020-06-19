@@ -78,7 +78,11 @@ public class TC_Forgot_Pin_Otp extends TestBase{
 		}
 		else if(code == 500)
 		{
-			Assert.assertTrue(message.equals("unverified number") || message.equals("invalid request format"));
+			Assert.assertEquals("unverified number", message);
+		}
+		else if(code == 400)
+		{
+			Assert.assertEquals("invalid request format", message);
 		}
 		else
 		{

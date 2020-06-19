@@ -1,4 +1,4 @@
-package testCases.pin;
+package remoteService.member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,37 +7,41 @@ import java.sql.SQLException;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import base.TestBase;
-import io.restassured.path.json.JsonPath;
 
-public class TC_Verify_Pin_Login extends TestBase{
+import base.TestBase;
+
+public class TC_Service_Change_Pin extends TestBase{
 	
 	private String id;
 	private String pin; 
+	private String responseResult;
 	
-	public TC_Verify_Pin_Login(String id, String pin) {
-		this.id=id;
+	public TC_Service_Change_Pin(String id, String pin) {
+		this.id = id;
 		this.pin=pin;
 	}
 
 	@Test
-	void verifyPinLoginUser()
+	void changePinUser()
 	{
-		verifyPinLogin(id, pin);
+		String routingKey = "changePin";
+		String message = "{\"id\":\""+id+"\",\"pin\":\""+pin+"\"}";
+		
+		responseResult = callRP(memberAMQP, routingKey, message);
+		
+		logger.info("Test Data: ");
+		logger.info("id:" + id);
+		logger.info("pin:" + pin);
+		logger.info(responseResult);
 	}
 	
-	@Test(dependsOnMethods = {"verifyPinLoginUser"})
+	@Test(dependsOnMethods = {"changePinUser"})
 	void checkResult()
-	{
-		int code = response.getStatusCode();
-		JsonPath jsonPath = response.jsonPath();
-		String message =  jsonPath.getString("message");
-		
-		if(code == 200)
-		{	
+	{		
+		if(responseResult.equals("updated"))
+		{
 			String query = "SELECT id, pin FROM user\n" + 
 					"WHERE id = ? AND pin = ?";
 			try {
@@ -60,32 +64,14 @@ public class TC_Verify_Pin_Login extends TestBase{
 				e.printStackTrace();
 			}
 		}
-		else if(code == 400)
+		else if(responseResult.startsWith("invalid") || responseResult.equals("user not found") || responseResult.contains("should not be empty"))
 		{
-			Assert.assertTrue(message.contains("invalid pin") || message.equals("invalid request format") || message.contains("must not be null"));
-		}
-		else if(code == 404)
-		{
-			Assert.assertTrue(message.contains("incorrect pin"));
+			Assert.assertTrue(responseResult.startsWith("invalid") || responseResult.equals("user not found") || responseResult.contains("should not be empty"));
 		}
 		else
 		{
 			Assert.assertTrue("unhandled error",false);
 		}
-	}
-	
-	@Test(dependsOnMethods = {"verifyPinLoginUser"})
-	void assertStatusCode()
-	{
-		int sc = response.jsonPath().get("code");
-		checkStatusCode(sc);	
-	}
-	
-	@Test(dependsOnMethods = {"verifyPinLoginUser"})
-	@Parameters("responseTime")
-	void assertResponseTime(String rt)
-	{
-		checkResponseTime(rt);
 	}
 	
 	@AfterClass

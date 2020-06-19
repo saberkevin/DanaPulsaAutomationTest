@@ -1,12 +1,15 @@
 package base;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.concurrent.TimeoutException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,6 +19,10 @@ import org.apache.log4j.PropertyConfigurator;
 import org.json.simple.JSONObject;
 import org.junit.Assert;
 import org.testng.annotations.BeforeClass;
+
+import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.RpcClient;
+import com.rabbitmq.client.RpcClientParams;
 
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
@@ -54,6 +61,8 @@ public class TestBase {
 	public Response response;
 	public String URI = "https://debrief.herokuapp.com";	
 	public String memberURI = "https://member-domain.herokuapp.com/member";
+	public String memberAMQP = "amqp://ynjauqav:K83KvUARdw7DyYLJF2_gt2RVzO-NS2YM@lively-peacock.rmq.cloudamqp.com/ynjauqav";
+	public String excelPrefix = "../DanaPulsaAutomationTest/src/test/java/";
 	public Logger logger;
 	
 	@BeforeClass
@@ -63,6 +72,36 @@ public class TestBase {
 		PropertyConfigurator.configure("../DanaPulsaAutomationTest/src/Log4j.properties");
 		logger.setLevel(Level.DEBUG);
 	}
+	
+	public String callRP(String url, String routingKey, String message) {
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		try {
+			URI rabbitMqUrl = new URI(url);
+			ConnectionFactory factory = new ConnectionFactory();
+		    factory.setUsername(rabbitMqUrl.getUserInfo().split(":")[0]);
+		    factory.setPassword(rabbitMqUrl.getUserInfo().split(":")[1]);
+		    factory.setHost(rabbitMqUrl.getHost());
+		    factory.setPort(rabbitMqUrl.getPort());
+		    factory.setVirtualHost(rabbitMqUrl.getPath().substring(1));
+		    com.rabbitmq.client.Connection connection = factory.newConnection();
+		    RpcClientParams params = new RpcClientParams();
+		    params.channel(connection.createChannel());
+		    params.exchange("");
+		    params.routingKey(routingKey);
+		    params.timeout(10000);
+		    return new RpcClient(params).stringCall(message);
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TimeoutException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    return "Error in try catch!";
+	  }
 	
 	public String[][] getExcelData(String filePath, String sheetName) throws IOException
 	{

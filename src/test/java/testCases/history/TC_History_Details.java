@@ -195,7 +195,7 @@ public class TC_History_Details extends TestBase{
 		{
 			Assert.assertEquals("unknown transaction", message);
 		}
-		else if(code == 500)
+		else if(code == 400)
 		{
 			Assert.assertEquals("invalid request format", message);
 		}
