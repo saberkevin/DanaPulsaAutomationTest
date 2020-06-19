@@ -15,6 +15,6 @@ public class Factory_Integration_CreateOrder extends TestBase {
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/integrationtest/order/OrderIntegrationTestData.xlsx", "Create Order");
+		return getExcelData(ConfigIntegrationTestOrder.FILE_PATH, ConfigIntegrationTestOrder.SHEET_CATALOG);
 	}
 }

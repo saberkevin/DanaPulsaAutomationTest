@@ -15,6 +15,6 @@ public class Factory_Remote_Service_GetRecentNumber extends TestBase {
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/remoteService/order/RemoteServiceOrderTestData.xlsx", "Get Recent Number");
+		return getExcelData(ConfigRemoteServiceOrder.FILE_PATH, ConfigRemoteServiceOrder.SHEET_GET_RECENT_NUMBER);
 	}
 }

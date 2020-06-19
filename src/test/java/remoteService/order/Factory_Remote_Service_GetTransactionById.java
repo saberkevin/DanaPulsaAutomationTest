@@ -15,6 +15,6 @@ public class Factory_Remote_Service_GetTransactionById extends TestBase {
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/remoteService/order/RemoteServiceOrderTestData.xlsx", "Get Transaction By ID");
+		return getExcelData(ConfigRemoteServiceOrder.FILE_PATH, ConfigRemoteServiceOrder.SHEET_GET_TRANSACTION_BY_ID);
 	}
 }

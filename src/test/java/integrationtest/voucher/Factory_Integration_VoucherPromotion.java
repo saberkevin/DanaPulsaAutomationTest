@@ -15,6 +15,6 @@ public class Factory_Integration_VoucherPromotion  extends TestBase {
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/integrationtest/voucher/VouchersIntegrationTestData.xlsx", "Voucher Promotion");
+		return getExcelData(ConfigIntegrationTestVoucher.FILE_PATH, ConfigIntegrationTestVoucher.SHEET_VOUCHER_PROMOTION);
 	}
 }

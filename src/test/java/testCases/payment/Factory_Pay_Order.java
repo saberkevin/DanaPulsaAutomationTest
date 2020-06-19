@@ -3,12 +3,14 @@ package testCases.payment;
 import java.io.IOException;
 
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Factory;
 
 import base.TestBase;
 
 public class Factory_Pay_Order extends TestBase {
-	public Object[] createInstances(String sessionId, String transactionId, String paymentMethodId, String voucherId) {
-		return new Object[] {new TC_Pay_Order(sessionId, transactionId, paymentMethodId, voucherId)};
+	@Factory(dataProvider="dp")
+	public Object[] createInstances(String testCase, String sessionId, String transactionId, String paymentMethodId, String voucherId, String result) {
+		return new Object[] {new TC_Pay_Order(testCase, sessionId, transactionId, paymentMethodId, voucherId, result)};
 	}
 	
 	@DataProvider(name="dp")

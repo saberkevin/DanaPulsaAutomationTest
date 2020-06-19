@@ -15,6 +15,6 @@ public class Factory_Remote_Service_GetVoucherDetail extends TestBase {
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/remoteService/promotion/RemoteServicePromotionTestData.xlsx", "Get Voucher Details");
+		return getExcelData(ConfigRemoteServicePromotion.FILE_PATH, ConfigRemoteServicePromotion.SHEET_GET_VOUCHER_DETAILS);
 	}
 }

@@ -171,6 +171,10 @@ public class TC_Integration_VoucherRecommendation extends TestBase {
 	
 	@AfterClass
 	public void afterClass() {
+		// logout
+		logout(user.getSessionId());
+		checkStatusCode("200");
+		
 		// delete user
 		deleteTransactionByUserId(user.getId());
 		deleteUserVoucherByUserId(user.getId());

@@ -15,6 +15,6 @@ public class Factory_Remote_Service_GetProviderById extends TestBase {
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/remoteService/order/RemoteServiceOrderTestData.xlsx", "Get Provider By ID");
+		return getExcelData(ConfigRemoteServiceOrder.SHEET_GET_PROVIDER_BY_ID, ConfigRemoteServiceOrder.SHEET_GET_PROVIDER_BY_ID);
 	}
 }

@@ -55,12 +55,12 @@ public class TC_Remote_Service_Pay extends TestBase {
 		logger.info("user id:" + userId);
 		logger.info("transaction id:" + transactionId);
 		logger.info("payment method id:" + paymentMethodId);
-		logger.info("voucher id:" + transactionId);
+		logger.info("voucher id:" + voucherId);
 		
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("queue", "pay");
-		requestParams.put("request", "{\"userId\":" + userId + ",\"transactionId\":" + transactionId 
-				+ ",\"paymentMethodId\":" + paymentMethodId + ",\"voucherId\":" + voucherId + "}");
+		requestParams.put("method", "pay");
+		requestParams.put("message", "{\"userId\":" + userId + ",\"transactionId\":" + transactionId 
+				+ ",\"methodId\":" + paymentMethodId + ",\"voucherId\":" + voucherId + "}");
 		
 		RestAssured.baseURI = URIOrder;
 		httpRequest = RestAssured.given();
@@ -106,18 +106,19 @@ public class TC_Remote_Service_Pay extends TestBase {
 			}
 			
 			// insert voucher into database
-			createUserVoucher(user.getId(), 1, 2);
-			createUserVoucher(user.getId(), 7, 2);
-			createUserVoucher(user.getId(), 3, 1);
-			createUserVoucher(user.getId(), 4, 1);
+			createUserVoucher(user.getId(), 1, 2); // cashback not used
+			createUserVoucher(user.getId(), 7, 2); // discount not used
+			createUserVoucher(user.getId(), 3, 1); // used
+			createUserVoucher(user.getId(), 4, 1); // used
+			createUserVoucher(user.getId(), 16, 2); // discount minpurchase 500K
 		}
 		
 		if (transactionId.equals("true")) {	
-			// initialize catalog - TELKOMSEL 30k
-			catalog.setId(16);
+			// initialize catalog - TELKOMSEL 75k
+			catalog.setId(19);
 			catalog.setProviderId(2);
-			catalog.setValue(30000);
-			catalog.setPrice(30000);
+			catalog.setValue(75000);
+			catalog.setPrice(75000);
 			
 			// initialize provider - TELKOMSEL
 			provider.setId(2);
@@ -207,7 +208,8 @@ public class TC_Remote_Service_Pay extends TestBase {
 				&& !responseBody.equals("unknown transaction")
 				&& !responseBody.equals("not enough balance")
 				&& !responseBody.equals("user not found")
-				&& !responseBody.equals("unknown payment method")
+				&& !responseBody.equals("unknown method")
+				&& !responseBody.equals("insufficient purchase amount to use this voucher")
 				&& !responseBody.equals("your voucher not found")
 				&& !responseBody.equals("your voucher is not applicable with your number")
 				&& !responseBody.equals("your voucher is not applicable with payment method")
@@ -237,7 +239,7 @@ public class TC_Remote_Service_Pay extends TestBase {
 		if (responseBody.equals("unknown transaction")) {
 			try {
 				Connection conn = getConnectionOrder();
-				String queryString = "SELECT * FROM transaction WHERE id = ? AND userId = ?";
+				String queryString = "SELECT * FROM transaction WHERE id = ? AND userId = ? AND statusId IN (3, 4)";
 				
 				PreparedStatement ps = conn.prepareStatement(queryString);
 				ps.setLong(1, Long.parseLong(transactionId));
@@ -265,14 +267,19 @@ public class TC_Remote_Service_Pay extends TestBase {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		} else if (responseBody.equals("can't cancel completed transaction")) {
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT * FROM transaction WHERE id = ? AND userId = ?";
+		} else if (responseBody.equals("invalid request format")) {
+			// do some code
+			
+		} else if (responseBody.equals("not enough balance")) {
+			// do some code
+			
+		} else if (responseBody.equals("insufficient purchase amount to use this voucher")) {
+			try {	
+				Connection conn = getConnectionPromotion();
+				String queryString = "SELECT * FROM voucher WHERE id = ?";
 				
 				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(transactionId));
-				ps.setLong(2, Long.parseLong(userId));
+				ps.setLong(1, Long.parseLong(voucherId));
 				
 				ResultSet rs = ps.executeQuery();
 				
@@ -280,16 +287,13 @@ public class TC_Remote_Service_Pay extends TestBase {
 					Assert.assertTrue(false, "no transaction found in database");
 				}
 				do {
-					Assert.assertEquals("1", rs.getString("statusId"));
-				} while(rs.next());
+					Assert.assertTrue(catalog.getPrice() < rs.getLong("minPurchase"));
+				} while (rs.next());
 				
 				conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
-			}
-		} else if (responseBody.equals("invalid request format")) {
-			// do some code
-			
+			}			
 		} else if (responseBody.equals("your voucher not found")) {
 			try {
 				Connection conn = getConnectionPromotion();
@@ -326,28 +330,10 @@ public class TC_Remote_Service_Pay extends TestBase {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-		} else if (responseBody.contains("unknown provider")) {
+		} else if (responseBody.contains("unknown method")) {
 			try {
 				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT * FROM voucher A "
-						+ "LEFT JOIN voucher_provider B on A.id = B.voucherId "
-						+ "WHERE A.id = ? AND B.providerId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(voucherId));
-				ps.setLong(2, provider.getId());
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.contains("unknown payment method")) {
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT * FROM voucher_payment_method WHERE paymentMethodId = ?";
+				String queryString = "SELECT * FROM payment_method WHERE id = ?";
 				
 				PreparedStatement ps = conn.prepareStatement(queryString);
 				ps.setLong(1, Long.parseLong(paymentMethodId));
@@ -411,8 +397,8 @@ public class TC_Remote_Service_Pay extends TestBase {
 					Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.catalog.value"), rs.getLong("value"));
 					Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.catalog.price"), rs.getLong("price"));
 					Assert.assertEquals(response.getBody().jsonPath().getString("transaction.status"), rs.getString("transactionStatus"));
-//					Assert.assertEquals(response.getBody().jsonPath().getString("createdAt"), rs.getString("createdAt"));
-//					Assert.assertEquals(response.getBody().jsonPath().getString("updatedAt"), rs.getString("updatedAt"));
+//					Assert.assertEquals(response.getBody().jsonPath().getString("transaction.createdAt"), rs.getString("createdAt"));
+//					Assert.assertEquals(response.getBody().jsonPath().getString("transaction.updatedAt"), rs.getString("updatedAt"));
 				} while(rs.next());
 				
 				conn.close();

@@ -4,11 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Map;
+import java.text.ParseException;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -17,171 +16,385 @@ import model.Catalog;
 import model.Provider;
 import model.Transaction;
 import model.User;
-import model.Voucher;
 
 public class TC_Pay_Order extends TestBase {
 	private User user = new User();
-	private String sessionId;
+	private User anotherUser = new User();
 	private Transaction transaction = new Transaction();
 	private Catalog catalog = new Catalog();
 	private Provider provider = new Provider();
-	private Voucher voucher = new Voucher();
-
-	public TC_Pay_Order(String sessionId, String transactionId, String paymentMethodId, String voucherId) {
+	private String testCase;
+	private String sessionId;
+	private String transactionId;
+	private String paymentMethodId;
+	private String voucherId;
+	private String result;
+	private boolean isCreateUser;
+	
+	public TC_Pay_Order() {
+		
+	}
+	
+	public TC_Pay_Order(String testCase, String sessionId, String transactionId, String paymentMethodId, String voucherId, String result) {
+		this.testCase = testCase;
 		this.sessionId = sessionId;
-		transaction.setId(Long.parseLong(transactionId));
-		transaction.setMethodId(Long.parseLong(paymentMethodId));
-		transaction.setVoucherId(Long.parseLong(voucherId));
+		this.transactionId = transactionId;
+		this.paymentMethodId = paymentMethodId;
+		this.voucherId = voucherId;
+		this.result = result;
+		isCreateUser = false;
 	}
 	
 	@BeforeClass
 	public void beforeClass() {
-		user.setName("Zanuar");
-		user.setEmail("triromadon@gmail.com");
-		user.setUsername("081252930398");
-		user.setPin(123456);
+		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
+		logger.info("Case:" + testCase);
+		
+		if (sessionId.equals("true") || transactionId.equals("true")) {
+			isCreateUser = true;
+			
+			// initialize user
+			user.setName("Zanuar");
+			user.setEmail("triromadon@gmail.com");
+			user.setUsername("081252930398");
+			user.setPin(123456);
+			
+			// delete if exist
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());
+			
+			// insert user into database
+			createUser(user);
+			user.setId(getUserIdByUsername(user.getUsername()));
+			
+			if (sessionId.equals("true")) {				
+				verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
+				checkStatusCode("200");
+				user.setSessionId(response.getCookie("JSESSIONID"));
+				sessionId = user.getSessionId();			
+			}
+			
+			// insert balance into database
+			if (testCase.equals("Not enough balance")) {
+				createBalance(user.getId(), 1000);
+			} else {
+				createBalance(user.getId(), 10000000);
+				user.setBalance(10000000);
+			}
+			
+			// insert voucher into database
+			createUserVoucher(user.getId(), 1, 2); // cashback not used
+			createUserVoucher(user.getId(), 7, 2); // discount not used
+			createUserVoucher(user.getId(), 3, 1); // used
+			createUserVoucher(user.getId(), 4, 1); // used
+			createUserVoucher(user.getId(), 16, 2); // discount minpurchase 500K
+		}
+		
+		if (transactionId.equals("true")) {	
+			// initialize catalog - TELKOMSEL 30k
+			catalog.setId(16);
+			catalog.setProviderId(2);
+			catalog.setValue(30000);
+			catalog.setPrice(30000);
+			
+			// initialize provider - TELKOMSEL
+			provider.setId(2);
+			provider.setName("Telkomsel");
+			provider.setImage("https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png");
 
-		deleteUserIfExist(user.getEmail(), user.getUsername());
-		createUser(user);
-		user.setId(getUserIdByUsername(user.getUsername()));
+			// insert transaction into database
+			if (testCase.equals("Transaction already completed")) {
+				createTransaction(user.getId(), user.getUsername(), catalog.getId(), 1);
+			} else if (testCase.equals("Transaction already canceled")) {
+				createTransaction(user.getId(), user.getUsername(), catalog.getId(), 5);
+			} else if (testCase.equals("Transaction already expired")) {
+				createTransaction(user.getId(), user.getUsername(), catalog.getId(), 6);
+			} else {
+				createTransaction(user.getId(), user.getUsername(), catalog.getId(), 4);				
+			}
+			
+			// initialize transaction
+			transaction.setId(getTransactionIdByUserId(user.getId()));
+			transaction.setPhoneNumber(user.getUsername());
+			transaction.setCatalogId(catalog.getId());
+			transaction.setMethodId(1);
+			transaction.setPaymentMethodName("WALLET");
+			
+			transactionId = Long.toString(transaction.getId());
+		}
 		
-		getCatalog(user.getSessionId(), user.getUsername());
-		checkStatusCode("200");
-		
-		createOrder(user.getSessionId(), user.getUsername(), "13");
-		checkStatusCode("201");
+		if (testCase.equals("Another user's transaction")) {			
+			// initialize user
+			anotherUser.setName("Zanuar 2");
+			anotherUser.setEmail("triromadon2@gmail.com");
+			anotherUser.setUsername("081252930397");
+			anotherUser.setPin(123456);
+			
+			// delete if exist
+			deleteBalanceByEmailByUsername(anotherUser.getEmail(), anotherUser.getUsername());
+			deleteUserIfExist(anotherUser.getEmail(), anotherUser.getUsername());
+			
+			// insert user into database
+			createUser(anotherUser);
+			anotherUser.setId(getUserIdByUsername(anotherUser.getUsername()));
+			
+			// insert balance into database
+			createBalance(anotherUser.getId(), 10000000);
+			
+			// initialize catalog - TELKOMSEL 15k
+			catalog.setId(13);
+			catalog.setProviderId(2);
+			catalog.setValue(15000);
+			catalog.setPrice(15000);
+			
+			// initialize provider - TELKOMSEL
+			provider.setId(2);
+			provider.setName("Telkomsel");
+			provider.setImage("https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png");
+
+			// insert transaction into database
+			createTransaction(anotherUser.getId(), anotherUser.getUsername(), catalog.getId(), 4);
+			
+			// initialize transaction
+			transaction.setId(getTransactionIdByUserId(anotherUser.getId()));
+			transaction.setPhoneNumber(anotherUser.getUsername());
+			transaction.setCatalogId(catalog.getId());
+			transaction.setMethodId(1);
+			transaction.setPaymentMethodName("WALLET");
+			
+			transactionId = Long.toString(transaction.getId());
+		}
 	}
 	
 	@Test
 	public void testPayOrder() {
-		if (sessionId.contentEquals("true"))
-			sessionId = user.getSessionId();
-		payOrder(sessionId, Long.toString(transaction.getId()), Long.toString(transaction.getMethodId()), Long.toString(transaction.getVoucherId()));
+		payOrder(sessionId, transactionId, paymentMethodId, voucherId);
 		
-		String code = response.getBody().jsonPath().getString("code");
-		checkStatusCode(code);
+		Assert.assertTrue(response.getBody().asString().contains(result));
+
+		int statusCode = response.getStatusCode();
 		
-		String message = response.getBody().jsonPath().getString("message");
-		
-		if(code.equals("400")) {
-			Assert.assertTrue(
-					message.equals("not enough balance") || 
-					message.equals("unknown method") || 
-					message.equals("unknown voucher")
-					);
-		} else if(code.equals("404")) {
-			Assert.assertTrue(
-					message.equals("selected catalog is not available for this phone’s provider") || 
-					message.equals("you don’t have any vouchers recommendation")
-					);
-		} else if (code.equals("202")) {
-			Assert.assertEquals(message, "success");
+		if (statusCode == 400) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "400");
+			Assert.assertTrue(response.getBody().jsonPath().getString("message").equals("not enough balance")
+					|| response.getBody().jsonPath().getString("message").equals("your voucher not found")
+					|| response.getBody().jsonPath().getString("message").equals("your voucher is not applicable with your number")
+					|| response.getBody().jsonPath().getString("message").equals("your voucher is not applicable with payment method")
+					|| response.getBody().jsonPath().getString("message").equals("insufficient purchase amount to use this voucher"));
+		} else if (statusCode == 401) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "401");
+			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "Unauthorized");
+		} else if (statusCode == 404) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "404");
+			Assert.assertTrue(response.getBody().jsonPath().getString("message").equals("unknown transaction")
+					|| response.getBody().jsonPath().getString("message").equals("unknown method"));
+		} else if (statusCode == 201) {
+			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "200");
+			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "success");
 		}
 	}
 	
 	@Test(dependsOnMethods = {"testPayOrder"})
-	public void checkData() {
-		String code = response.getBody().jsonPath().getString("code");
+	public void checkData() throws ParseException {
+		int statusCode = response.getStatusCode();
 		
-		if (code.equals("200")) {
-			try {
-				Connection conn = getConnectionOrder();
-				String query = "SELECT A.userId, A.phoneNumber, a.voucherId, A.createdAt, A.updatedAt, "
-						+ "B.id [catalogId], B.value, B.price, "
-						+ "C.id [providerId], C.name [providerName], C.image "
-						+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
-						+ "LEFT JOIN provider C on B.providerId = C.id "
-						+ "WHERE A.id = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(query);
-				ps.setLong(1, transaction.getId());
-				
-				ResultSet rs = ps.executeQuery();
-				while(rs.next()) {
-					transaction.setUserId(rs.getLong("userId"));
-					transaction.setPhoneNumber(rs.getString("phoneNumber"));
-					catalog.setId(rs.getLong("catalogId"));
-					provider.setId(rs.getLong("providerId"));
-					provider.setName(rs.getString("providerName"));
-					provider.setImage(rs.getString("image"));
-					catalog.setValue(rs.getLong("value"));
-					catalog.setPrice(rs.getLong("price"));
-					voucher.setId(rs.getLong("voucherId"));
-					transaction.setStatus("WAITING");
-					transaction.setCreatedAt(rs.getDate("createdAt"));
-					transaction.setUpdatedAt(rs.getDate("updatedAt"));
-				}
-				
-				conn.close();
-			} catch (SQLException e) {
-				
-			}
+		if (statusCode == 201) {
+//			Assert.assertEquals(response.getBody().jsonPath().getLong("balance"), user.getBalance());
 			
-			try {
-				Connection conn = getConnectionPromotion();
-				PreparedStatement ps = conn.prepareStatement("SELECT * FROM voucher WHERE A.id = ?");
-				ps.setLong(1, transaction.getVoucherId());
-				
-				ResultSet rs = ps.executeQuery();
-				while(rs.next()) {
-					voucher.setName(rs.getString("name"));
-					voucher.setDiscount(rs.getLong("discount"));
-					voucher.setMaxDeduction(rs.getLong("maxDeduction"));
-				}
-				
-				conn.close();
-			} catch (SQLException e) {
-				
-			}
-						
-			Map<String, String> data = response.getBody().jsonPath().getMap("data");
-			
-			Assert.assertEquals(data.get("id"), transaction.getId());
-			Assert.assertEquals(data.get("phone"), transaction.getPhoneNumber());
-			Assert.assertEquals(data.get("catalog.id"), catalog.getId());
-			Assert.assertEquals(data.get("catalog.provider.id"), provider.getId());
-			Assert.assertEquals(data.get("catalog.provider.name"), provider.getName());
-			Assert.assertEquals(data.get("catalog.provider.image"), provider.getImage());
-			Assert.assertEquals(data.get("catalog.value"), catalog.getValue());
-			Assert.assertEquals(data.get("catalog.price"), catalog.getPrice());
-			Assert.assertEquals(data.get("voucher.id"), voucher.getId());
-			Assert.assertEquals(data.get("voucher.name"), voucher.getName());
-			Assert.assertEquals(data.get("voucher.discount"), voucher.getDiscount());
-			Assert.assertEquals(data.get("voucher.maxDeduction"), voucher.getMaxDeduction());
-			Assert.assertEquals(data.get("method"), "E-Wallet");
-			Assert.assertEquals(data.get("status"), transaction.getStatus());
-			Assert.assertEquals(data.get("createdAt"), transaction.getCreatedAt());
-			Assert.assertEquals(data.get("updatedAt"), transaction.getUpdatedAt());
+			Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.id"), transaction.getId());
+			Assert.assertEquals(response.getBody().jsonPath().get("data.transaction.method"), transaction.getPaymentMethodName());
+			Assert.assertEquals(response.getBody().jsonPath().get("data.transaction.phoneNumber"), transaction.getPhoneNumber());
+			Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.catalog.id"), transaction.getCatalogId());
+			Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.catalog.provider.id"), provider.getId());
+			Assert.assertEquals(response.getBody().jsonPath().get("data.transaction.catalog.provider.name"), provider.getName());
+			Assert.assertEquals(response.getBody().jsonPath().get("data.transaction.catalog.provider.image"), provider.getImage());
+			Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.catalog.value"), catalog.getValue());
+			Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.catalog.price"), catalog.getPrice());
+			Assert.assertEquals(response.getBody().jsonPath().get("data.transaction.status"), "COMPLETED");
+			Assert.assertNotNull(response.getBody().jsonPath().get("data.transaction.createdAt"));
+			Assert.assertNotNull(response.getBody().jsonPath().get("data.transaction.updatedAt"));
 		}
 	}
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		try {
-			Connection conn = getConnectionOrder();
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM transaction WHERE id = ?");
-			ps.setLong(1, transaction.getId());
-			
-			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
-				Assert.assertEquals(rs.getString("userId"), user.getId());
-				Assert.assertEquals(rs.getString("phoneNumber"), transaction.getPhoneNumber());
-				Assert.assertEquals(rs.getString("catalogId"), transaction.getCatalogId());
-			}
-			
-			conn.close();
-		} catch (SQLException e) {
-			
-		}
-	}
-
-	@AfterMethod
-	public void afterMethod() {
+		int statusCode = response.getStatusCode();
 		
+		if (statusCode == 400) {
+			if (response.getBody().asString().contains("not enough balance")) {
+				
+			} else if (response.getBody().asString().contains("your voucher not found")) {
+				try {
+					Connection conn = getConnectionPromotion();
+					String queryString = "SELECT * FROM user_voucher A "
+							+ "LEFT JOIN voucher B ON A.voucherId = B.id "
+							+ "WHERE A.id = ? AND A.voucherId = ? AND A.voucherStatusId != 1 AND B.isActive = 1";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setLong(1, user.getId());
+					ps.setLong(2, Long.parseLong(voucherId));
+					
+					ResultSet rs = ps.executeQuery();
+					Assert.assertTrue(!rs.next());
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			} else if (response.getBody().asString().contains("your voucher is not applicable with your number")) {
+				try {
+					Connection conn = getConnectionPromotion();
+					String queryString = "SELECT * FROM voucher A "
+							+ "LEFT JOIN voucher_provider B on A.id = B.voucherId "
+							+ "WHERE A.id = ? AND B.providerId = ?";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setLong(1, Long.parseLong(voucherId));
+					ps.setLong(2, provider.getId());
+					
+					ResultSet rs = ps.executeQuery();
+					Assert.assertTrue(!rs.next());
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			} else if (response.getBody().asString().contains("your voucher is not applicable with payment method")) {
+				try {
+					Connection conn = getConnectionPromotion();
+					String queryString = "SELECT * FROM voucher_payment_method WHERE paymentMethodId = ?";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setLong(1, Long.parseLong(paymentMethodId));
+					
+					ResultSet rs = ps.executeQuery();
+					Assert.assertTrue(!rs.next());
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}	
+			} else if (response.getBody().asString().contains("insufficient purchase amount to use this voucher")) {
+				try {	
+					Connection conn = getConnectionPromotion();
+					String queryString = "SELECT * FROM voucher WHERE id = ?";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setLong(1, Long.parseLong(voucherId));
+					
+					ResultSet rs = ps.executeQuery();
+					
+					if (!rs.next()) {
+						Assert.assertTrue(false, "no transaction found in database");
+					}
+					do {
+						Assert.assertTrue(catalog.getPrice() < rs.getLong("minPurchase"));
+					} while (rs.next());
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		} else if (statusCode == 404) {
+			if (response.getBody().asString().contains("unknown transaction")) {
+				try {
+					Connection conn = getConnectionOrder();
+					String queryString = "SELECT * FROM transaction WHERE id = ? AND userId = ?";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setLong(1, Long.parseLong(transactionId));
+					ps.setLong(2, user.getId());
+					
+					ResultSet rs = ps.executeQuery();
+					Assert.assertTrue(!rs.next());
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}				
+			} else if (response.getBody().asString().contains("unknown method")) {
+				try {
+					Connection conn = getConnectionPromotion();
+					String queryString = "SELECT * FROM payment_method WHERE id = ?";
+					
+					PreparedStatement ps = conn.prepareStatement(queryString);
+					ps.setLong(1, Long.parseLong(paymentMethodId));
+					
+					ResultSet rs = ps.executeQuery();
+					Assert.assertTrue(!rs.next());
+					
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}				
+			}
+		} else if (statusCode == 200) {
+			try {
+				Connection conn = getConnectionOrder();
+				String queryString = "SELECT "
+						+ "A.*, "
+						+ "B.value, "
+						+ "B.price, "
+						+ "C.id AS providerId, "
+						+ "C.name AS providerName, "
+						+ "C.image AS providerImage, "
+						+ "D.name AS transactionStatus, "
+						+ "E.name AS paymentMethodName "
+						+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
+						+ "LEFT JOIN provider C on B.providerId = C.id "
+						+ "LEFT JOIN transaction_status D on A.statusId = D.id "
+						+ "LEFT JOIN payment_method E on A.methodId = E.id "
+						+ "WHERE A.id = ? AND A.userId = ?";
+				
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setLong(1, Long.parseLong(transactionId));
+				ps.setLong(2, user.getId());
+				
+				ResultSet rs = ps.executeQuery();
+				
+				if (!rs.next()) {
+					Assert.assertTrue(false, "no transaction found in database");
+				}
+				do {
+					Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.id"), rs.getLong("id"));
+					Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.method"), rs.getString("paymentMethodName"));
+					Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.phoneNumber"), rs.getString("phoneNumber"));
+					Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.catalog.provider.id"), rs.getLong("providerId"));
+					Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.catalog.provider.name"), rs.getString("providerName"));
+					Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.catalog.provider.image"), rs.getString("providerImage"));
+					Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.catalog.value"), rs.getLong("value"));
+					Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.catalog.price"), rs.getLong("price"));
+					Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.status"), rs.getString("transactionStatus"));
+//					Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.createdAt"), rs.getString("createdAt"));
+//					Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.updatedAt"), rs.getString("updatedAt"));
+				} while(rs.next());
+				
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	@AfterClass
 	public void afterClass() {
+		// delete user
+		if (isCreateUser == true) {
+			deleteUserVoucherByUserId(user.getId());
+			deleteTransactionByUserId(user.getId());
+			deleteBalanceByUserId(user.getId());
+			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
+		}
+		
+		// delete another user
+		if (testCase.equals("Another user's transaction")) {
+			deleteTransactionByUserId(anotherUser.getId());
+			deleteBalanceByUserId(anotherUser.getId());
+			deleteUserByEmailAndUsername(anotherUser.getEmail(), anotherUser.getUsername());			
+		}
+
+		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());				
 	}
 }

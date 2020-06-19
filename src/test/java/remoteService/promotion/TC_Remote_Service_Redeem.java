@@ -93,10 +93,11 @@ public class TC_Remote_Service_Redeem extends TestBase {
 			createBalance(user.getId(), 10000000);
 			
 			// insert voucher into database
-			createUserVoucher(user.getId(), 1, 2);
-			createUserVoucher(user.getId(), 7, 2);
-			createUserVoucher(user.getId(), 3, 1);
-			createUserVoucher(user.getId(), 4, 1);
+			createUserVoucher(user.getId(), 1, 2); // cashback not used
+			createUserVoucher(user.getId(), 7, 2); // discount not used
+			createUserVoucher(user.getId(), 3, 1); // used
+			createUserVoucher(user.getId(), 4, 1); // used
+			createUserVoucher(user.getId(), 16, 2); // discount minpurchase 500K
 		}
 	}
 	
@@ -119,6 +120,8 @@ public class TC_Remote_Service_Redeem extends TestBase {
 				&& !responseBody.equals("user not found")
 				&& !responseBody.equals("unknown payment method")
 				&& !responseBody.equals("your voucher not found")
+				&& !responseBody.equals("unknown provider")
+				&& !responseBody.equals("insufficient purchase amount to use this voucher")
 				&& !responseBody.equals("your voucher is not applicable with your number")
 				&& !responseBody.equals("your voucher is not applicable with payment method")) {
 
@@ -173,6 +176,27 @@ public class TC_Remote_Service_Redeem extends TestBase {
 		} else if (responseBody.contains("invalid request format")) {
 			// do some code
 			
+		} else if (responseBody.equals("insufficient purchase amount to use this voucher")) {
+			try {	
+				Connection conn = getConnectionPromotion();
+				String queryString = "SELECT * FROM voucher WHERE id = ?";
+				
+				PreparedStatement ps = conn.prepareStatement(queryString);
+				ps.setLong(1, Long.parseLong(voucherId));
+				
+				ResultSet rs = ps.executeQuery();
+				
+				if (!rs.next()) {
+					Assert.assertTrue(false, "no transaction found in database");
+				}
+				do {
+					Assert.assertTrue(Long.parseLong(price) < rs.getLong("minPurchase"));
+				} while (rs.next());
+				
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}			
 		} else if (responseBody.contains("your voucher is not applicable with your number")) {
 			try {
 				Connection conn = getConnectionPromotion();
@@ -267,7 +291,7 @@ public class TC_Remote_Service_Redeem extends TestBase {
 					String queryString = "SELECT * FROM voucher WHERE id = ?";
 					
 					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1,Long.parseLong(voucherId));
+					ps.setLong(1, Long.parseLong(voucherId));
 					
 					ResultSet rs = ps.executeQuery();
 					

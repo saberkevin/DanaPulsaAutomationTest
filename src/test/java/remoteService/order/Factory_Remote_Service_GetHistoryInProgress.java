@@ -15,7 +15,6 @@ public class Factory_Remote_Service_GetHistoryInProgress extends TestBase {
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/remoteService/order/RemoteServiceOrderTestData.xlsx", "Get History in Progress"
-				+ "");
+		return getExcelData(ConfigRemoteServiceOrder.FILE_PATH, ConfigRemoteServiceOrder.SHEET_GET_HISTORY_IN_PROGRESS);
 	}
 }

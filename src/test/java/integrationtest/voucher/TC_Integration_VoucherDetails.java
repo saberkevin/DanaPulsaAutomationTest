@@ -143,6 +143,10 @@ public class TC_Integration_VoucherDetails extends TestBase {
 	
 	@AfterClass
 	public void afterClass() {
+		// logout
+		logout(user.getSessionId());
+		checkStatusCode("200");
+		
 		// delete user
 		deleteBalanceByUserId(user.getId());
 		deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());

@@ -16621,3 +16621,1643 @@
 2020-06-18 23:21:33 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
 2020-06-18 23:21:33 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
 2020-06-18 23:21:33 INFO  restAPI:71 - Case:Empty string user id
+2020-06-19 10:17:10 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:17:10 INFO  restAPI:77 - Case:Voucher already used
+2020-06-19 10:17:39 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:17:39 INFO  restAPI:77 - Case:Not enough balance
+2020-06-19 10:18:40 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:18:40 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:18:40 INFO  restAPI:55 - user id:1225
+2020-06-19 10:18:40 INFO  restAPI:56 - transaction id:719
+2020-06-19 10:18:40 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:18:40 INFO  restAPI:58 - voucher id:719
+2020-06-19 10:18:44 INFO  restAPI:71 - please use the valid 'method' 'message' format
+2020-06-19 10:19:04 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:19:04 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:19:04 INFO  restAPI:77 - Case:Transaction already completed
+2020-06-19 10:19:37 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:19:37 INFO  restAPI:77 - Case:Voucher already used
+2020-06-19 10:20:35 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:20:35 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:20:35 INFO  restAPI:55 - user id:1226
+2020-06-19 10:20:35 INFO  restAPI:56 - transaction id:720
+2020-06-19 10:20:35 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:20:35 INFO  restAPI:58 - voucher id:720
+2020-06-19 10:20:39 INFO  restAPI:71 - invalid request format
+2020-06-19 10:20:59 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:20:59 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:20:59 INFO  restAPI:77 - Case:Undefined user ID
+2020-06-19 10:21:53 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:21:53 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:21:53 INFO  restAPI:55 - user id:9999
+2020-06-19 10:21:53 INFO  restAPI:56 - transaction id:721
+2020-06-19 10:21:53 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:21:53 INFO  restAPI:58 - voucher id:721
+2020-06-19 10:21:55 INFO  restAPI:71 - invalid request format
+2020-06-19 10:22:12 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:22:12 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:22:12 INFO  restAPI:77 - Case:Empty String transaction ID
+2020-06-19 10:22:42 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:22:42 INFO  restAPI:77 - Case:Voucher already used
+2020-06-19 10:23:37 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:23:37 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:23:37 INFO  restAPI:55 - user id:1228
+2020-06-19 10:23:37 INFO  restAPI:56 - transaction id:722
+2020-06-19 10:23:37 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:23:37 INFO  restAPI:58 - voucher id:722
+2020-06-19 10:23:56 INFO  restAPI:71 - promotion service unreachable
+2020-06-19 10:24:16 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:24:16 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:24:16 INFO  restAPI:77 - Case:Undefined user ID
+2020-06-19 10:25:08 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:25:08 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:25:08 INFO  restAPI:55 - user id:9999
+2020-06-19 10:25:08 INFO  restAPI:56 - transaction id:723
+2020-06-19 10:25:08 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:25:08 INFO  restAPI:58 - voucher id:723
+2020-06-19 10:25:13 INFO  restAPI:71 - unknown user
+2020-06-19 10:25:37 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:25:37 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:25:37 INFO  restAPI:77 - Case:Empty String transaction ID
+2020-06-19 10:26:23 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:26:23 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:26:23 INFO  restAPI:55 - user id:1230
+2020-06-19 10:26:23 INFO  restAPI:56 - transaction id:
+2020-06-19 10:26:23 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:26:23 INFO  restAPI:58 - voucher id:
+2020-06-19 10:26:24 INFO  restAPI:71 - invalid request format
+2020-06-19 10:26:46 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:26:46 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:26:46 INFO  restAPI:77 - Case:Valid parameters cashback
+2020-06-19 10:27:37 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:27:37 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:27:37 INFO  restAPI:55 - user id:1231
+2020-06-19 10:27:37 INFO  restAPI:56 - transaction id:724
+2020-06-19 10:27:37 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:27:37 INFO  restAPI:58 - voucher id:724
+2020-06-19 10:27:51 INFO  restAPI:71 - member service unreachable
+2020-06-19 10:28:11 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:28:11 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:28:11 INFO  restAPI:77 - Case:Not enough balance
+2020-06-19 10:29:05 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:29:05 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:29:05 INFO  restAPI:55 - user id:1232
+2020-06-19 10:29:05 INFO  restAPI:56 - transaction id:725
+2020-06-19 10:29:05 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:29:05 INFO  restAPI:58 - voucher id:725
+2020-06-19 10:29:37 INFO  restAPI:71 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+2020-06-19 10:29:37 INFO  restAPI:196 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+2020-06-19 10:32:52 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:32:52 INFO  restAPI:77 - Case:Not enough balance
+2020-06-19 10:33:54 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:33:54 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:33:54 INFO  restAPI:55 - user id:1233
+2020-06-19 10:33:54 INFO  restAPI:56 - transaction id:726
+2020-06-19 10:33:54 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:33:54 INFO  restAPI:58 - voucher id:726
+2020-06-19 10:34:12 INFO  restAPI:71 - promotion service unreachable
+2020-06-19 10:34:33 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:34:33 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:34:33 INFO  restAPI:77 - Case:Transaction already completed
+2020-06-19 10:35:27 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:35:27 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:35:27 INFO  restAPI:55 - user id:1234
+2020-06-19 10:35:27 INFO  restAPI:56 - transaction id:727
+2020-06-19 10:35:27 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:35:27 INFO  restAPI:58 - voucher id:727
+2020-06-19 10:35:32 INFO  restAPI:71 - unknown transaction
+2020-06-19 10:35:57 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:35:57 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:35:57 INFO  restAPI:77 - Case:Undefined user ID
+2020-06-19 10:36:54 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:36:54 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:36:54 INFO  restAPI:55 - user id:9999
+2020-06-19 10:36:54 INFO  restAPI:56 - transaction id:728
+2020-06-19 10:36:54 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:36:54 INFO  restAPI:58 - voucher id:728
+2020-06-19 10:36:59 INFO  restAPI:71 - unknown user
+2020-06-19 10:37:26 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:37:26 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:37:26 INFO  restAPI:77 - Case:Empty String transaction ID
+2020-06-19 10:38:11 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:38:11 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:38:11 INFO  restAPI:55 - user id:1236
+2020-06-19 10:38:11 INFO  restAPI:56 - transaction id:
+2020-06-19 10:38:11 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:38:11 INFO  restAPI:58 - voucher id:
+2020-06-19 10:38:13 INFO  restAPI:71 - invalid request format
+2020-06-19 10:38:34 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:38:34 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:38:34 INFO  restAPI:77 - Case:Voucher expired
+2020-06-19 10:39:31 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:39:31 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:39:31 INFO  restAPI:55 - user id:1240
+2020-06-19 10:39:31 INFO  restAPI:56 - transaction id:729
+2020-06-19 10:39:31 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:39:31 INFO  restAPI:58 - voucher id:729
+2020-06-19 10:39:45 INFO  restAPI:71 - your voucher not found
+2020-06-19 10:40:10 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:40:10 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:40:10 INFO  restAPI:77 - Case:Undefined voucher id
+2020-06-19 10:41:05 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:41:05 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:41:05 INFO  restAPI:55 - user id:1242
+2020-06-19 10:41:05 INFO  restAPI:56 - transaction id:730
+2020-06-19 10:41:05 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:41:05 INFO  restAPI:58 - voucher id:730
+2020-06-19 10:41:13 INFO  restAPI:71 - your voucher not found
+2020-06-19 10:41:39 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:41:39 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:41:39 INFO  restAPI:77 - Case:Valid parameters discount
+2020-06-19 10:42:35 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:42:35 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:42:35 INFO  restAPI:55 - user id:1243
+2020-06-19 10:42:35 INFO  restAPI:56 - transaction id:731
+2020-06-19 10:42:35 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:42:35 INFO  restAPI:58 - voucher id:731
+2020-06-19 10:42:50 INFO  restAPI:71 - insufficient purchase amount to use this voucher
+2020-06-19 10:43:12 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:43:12 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:43:12 INFO  restAPI:77 - Case:Empty string payment method ID
+2020-06-19 10:44:09 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:44:09 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:44:09 INFO  restAPI:55 - user id:1244
+2020-06-19 10:44:09 INFO  restAPI:56 - transaction id:732
+2020-06-19 10:44:09 INFO  restAPI:57 - payment method id:
+2020-06-19 10:44:09 INFO  restAPI:58 - voucher id:732
+2020-06-19 10:44:11 INFO  restAPI:71 - invalid request format
+2020-06-19 10:44:31 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:44:31 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:44:31 INFO  restAPI:77 - Case:Undefined payment method ID
+2020-06-19 10:45:26 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:45:26 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:45:26 INFO  restAPI:55 - user id:1245
+2020-06-19 10:45:26 INFO  restAPI:56 - transaction id:733
+2020-06-19 10:45:26 INFO  restAPI:57 - payment method id:2
+2020-06-19 10:45:26 INFO  restAPI:58 - voucher id:733
+2020-06-19 10:45:32 INFO  restAPI:71 - unknown method
+2020-06-19 10:45:53 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:45:53 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:45:53 INFO  restAPI:77 - Case:Undefined transaction ID
+2020-06-19 10:46:39 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:46:39 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:46:39 INFO  restAPI:55 - user id:1246
+2020-06-19 10:46:39 INFO  restAPI:56 - transaction id:9999
+2020-06-19 10:46:39 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:46:39 INFO  restAPI:58 - voucher id:9999
+2020-06-19 10:46:44 INFO  restAPI:71 - unknown transaction
+2020-06-19 10:47:11 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:47:11 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:47:11 INFO  restAPI:77 - Case:Empty String user ID
+2020-06-19 10:48:07 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:48:07 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:48:07 INFO  restAPI:55 - user id:
+2020-06-19 10:48:07 INFO  restAPI:56 - transaction id:734
+2020-06-19 10:48:07 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:48:07 INFO  restAPI:58 - voucher id:734
+2020-06-19 10:48:09 INFO  restAPI:71 - invalid request format
+2020-06-19 10:48:30 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:48:30 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:48:30 INFO  restAPI:77 - Case:Valid parameters cashback
+2020-06-19 10:49:29 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:49:29 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:49:29 INFO  restAPI:55 - user id:1248
+2020-06-19 10:49:29 INFO  restAPI:56 - transaction id:735
+2020-06-19 10:49:29 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:49:29 INFO  restAPI:58 - voucher id:735
+2020-06-19 10:49:38 INFO  restAPI:71 - promotion service unreachable
+2020-06-19 10:49:58 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:49:58 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:49:58 INFO  restAPI:77 - Case:Empty string voucher id
+2020-06-19 10:50:53 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:50:53 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:50:53 INFO  restAPI:55 - user id:1249
+2020-06-19 10:50:53 INFO  restAPI:56 - transaction id:736
+2020-06-19 10:50:53 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:50:53 INFO  restAPI:58 - voucher id:736
+2020-06-19 10:50:55 INFO  restAPI:71 - invalid request format
+2020-06-19 10:51:16 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:51:16 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:51:16 INFO  restAPI:77 - Case:Voucher not available for the transaction
+2020-06-19 10:52:15 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:52:15 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:52:15 INFO  restAPI:55 - user id:1250
+2020-06-19 10:52:15 INFO  restAPI:56 - transaction id:737
+2020-06-19 10:52:15 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:52:15 INFO  restAPI:58 - voucher id:737
+2020-06-19 10:52:25 INFO  restAPI:71 - your voucher not found
+2020-06-19 10:52:49 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:52:50 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:52:50 INFO  restAPI:77 - Case:Transaction already expired
+2020-06-19 10:53:48 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:53:48 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:53:48 INFO  restAPI:55 - user id:1251
+2020-06-19 10:53:48 INFO  restAPI:56 - transaction id:738
+2020-06-19 10:53:48 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:53:48 INFO  restAPI:58 - voucher id:738
+2020-06-19 10:53:53 INFO  restAPI:71 - unknown transaction
+2020-06-19 10:54:19 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:54:19 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:54:19 INFO  restAPI:77 - Case:Voucher already used
+2020-06-19 10:55:17 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:55:17 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:55:17 INFO  restAPI:55 - user id:1252
+2020-06-19 10:55:17 INFO  restAPI:56 - transaction id:739
+2020-06-19 10:55:17 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:55:17 INFO  restAPI:58 - voucher id:739
+2020-06-19 10:55:34 INFO  restAPI:71 - promotion service unreachable
+2020-06-19 10:55:55 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:55:55 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:55:55 INFO  restAPI:77 - Case:Transaction already canceled
+2020-06-19 10:56:47 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:56:47 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:56:47 INFO  restAPI:55 - user id:1253
+2020-06-19 10:56:47 INFO  restAPI:56 - transaction id:740
+2020-06-19 10:56:47 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:56:47 INFO  restAPI:58 - voucher id:740
+2020-06-19 10:56:50 INFO  restAPI:71 - {"timestamp":"2020-06-19T03:56:50.537+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-19 10:56:50 INFO  restAPI:196 - {"timestamp":"2020-06-19T03:56:50.537+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-19 10:57:14 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 10:57:14 INFO  restAPI:76 - ***** Started TC_Remote_Service_Pay *****
+2020-06-19 10:57:14 INFO  restAPI:77 - Case:Another user's transaction
+2020-06-19 10:58:33 INFO  restAPI:53 - Call Payment API [Order Domain]
+2020-06-19 10:58:33 INFO  restAPI:54 - Test Data: 
+2020-06-19 10:58:33 INFO  restAPI:55 - user id:1254
+2020-06-19 10:58:33 INFO  restAPI:56 - transaction id:741
+2020-06-19 10:58:33 INFO  restAPI:57 - payment method id:1
+2020-06-19 10:58:33 INFO  restAPI:58 - voucher id:741
+2020-06-19 10:58:36 INFO  restAPI:71 - {"timestamp":"2020-06-19T03:58:36.513+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-19 10:58:36 INFO  restAPI:196 - {"timestamp":"2020-06-19T03:58:36.513+00:00","status":500,"error":"Internal Server Error","message":"","path":"/api/test/"}
+2020-06-19 10:59:08 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Pay *****
+2020-06-19 11:17:17 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:17:17 INFO  restAPI:72 - Case:Empty string price
+2020-06-19 11:18:07 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:18:07 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:18:07 INFO  restAPI:49 - user id:1261
+2020-06-19 11:18:07 INFO  restAPI:50 - voucherId:1
+2020-06-19 11:18:07 INFO  restAPI:51 - price:
+2020-06-19 11:18:07 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:18:07 INFO  restAPI:53 - providerId:2
+2020-06-19 11:18:13 INFO  restAPI:66 - invalid request format
+2020-06-19 11:18:29 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:18:29 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:18:29 INFO  restAPI:72 - Case:Undefined provider id
+2020-06-19 11:19:20 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:19:20 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:19:20 INFO  restAPI:49 - user id:1262
+2020-06-19 11:19:20 INFO  restAPI:50 - voucherId:1
+2020-06-19 11:19:20 INFO  restAPI:51 - price:100000
+2020-06-19 11:19:20 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:19:20 INFO  restAPI:53 - providerId:7
+2020-06-19 11:19:32 INFO  restAPI:66 - unknown provider
+2020-06-19 11:19:47 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:19:47 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:19:47 INFO  restAPI:72 - Case:Empty string voucher id
+2020-06-19 11:20:39 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:20:39 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:20:39 INFO  restAPI:49 - user id:1263
+2020-06-19 11:20:39 INFO  restAPI:50 - voucherId:
+2020-06-19 11:20:39 INFO  restAPI:51 - price:100000
+2020-06-19 11:20:39 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:20:39 INFO  restAPI:53 - providerId:2
+2020-06-19 11:20:43 INFO  restAPI:66 - invalid request format
+2020-06-19 11:20:59 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:20:59 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:20:59 INFO  restAPI:72 - Case:Voucher not available for the transaction
+2020-06-19 11:21:49 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:21:49 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:21:49 INFO  restAPI:49 - user id:1264
+2020-06-19 11:21:49 INFO  restAPI:50 - voucherId:2
+2020-06-19 11:21:49 INFO  restAPI:51 - price:100000
+2020-06-19 11:21:49 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:21:49 INFO  restAPI:53 - providerId:2
+2020-06-19 11:22:00 INFO  restAPI:66 - your voucher not found
+2020-06-19 11:22:21 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:22:21 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:22:21 INFO  restAPI:72 - Case:Undefined user id
+2020-06-19 11:22:21 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:22:21 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:22:21 INFO  restAPI:49 - user id:9999
+2020-06-19 11:22:21 INFO  restAPI:50 - voucherId:1
+2020-06-19 11:22:21 INFO  restAPI:51 - price:100000
+2020-06-19 11:22:21 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:22:21 INFO  restAPI:53 - providerId:2
+2020-06-19 11:22:27 INFO  restAPI:66 - user not found
+2020-06-19 11:22:27 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:22:27 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:22:27 INFO  restAPI:72 - Case:Voucher already used
+2020-06-19 11:23:21 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:23:21 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:23:21 INFO  restAPI:49 - user id:1265
+2020-06-19 11:23:21 INFO  restAPI:50 - voucherId:3
+2020-06-19 11:23:21 INFO  restAPI:51 - price:100000
+2020-06-19 11:23:21 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:23:21 INFO  restAPI:53 - providerId:2
+2020-06-19 11:23:34 INFO  restAPI:66 - {"timestamp":"2020-06-19T04:23:34.485+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 11:23:34 INFO  restAPI:109 - {"timestamp":"2020-06-19T04:23:34.485+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 11:23:51 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:23:51 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:23:51 INFO  restAPI:72 - Case:Empty string user id
+2020-06-19 11:23:51 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:23:51 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:23:51 INFO  restAPI:49 - user id:
+2020-06-19 11:23:51 INFO  restAPI:50 - voucherId:1
+2020-06-19 11:23:51 INFO  restAPI:51 - price:100000
+2020-06-19 11:23:51 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:23:51 INFO  restAPI:53 - providerId:2
+2020-06-19 11:23:56 INFO  restAPI:66 - invalid request format
+2020-06-19 11:23:56 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:23:56 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:23:56 INFO  restAPI:72 - Case:Undefined payment method id
+2020-06-19 11:24:48 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:24:48 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:24:48 INFO  restAPI:49 - user id:1266
+2020-06-19 11:24:48 INFO  restAPI:50 - voucherId:1
+2020-06-19 11:24:48 INFO  restAPI:51 - price:100000
+2020-06-19 11:24:48 INFO  restAPI:52 - paymentMethodId:2
+2020-06-19 11:24:48 INFO  restAPI:53 - providerId:2
+2020-06-19 11:24:56 INFO  restAPI:66 - unknown payment method
+2020-06-19 11:25:11 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:25:11 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:25:11 INFO  restAPI:72 - Case:Undefined voucher id
+2020-06-19 11:26:01 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:26:01 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:26:01 INFO  restAPI:49 - user id:1267
+2020-06-19 11:26:01 INFO  restAPI:50 - voucherId:9999
+2020-06-19 11:26:01 INFO  restAPI:51 - price:100000
+2020-06-19 11:26:01 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:26:01 INFO  restAPI:53 - providerId:2
+2020-06-19 11:26:05 INFO  restAPI:66 - your voucher not found
+2020-06-19 11:26:25 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:26:25 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:26:25 INFO  restAPI:72 - Case:Empty string payment method id
+2020-06-19 11:27:19 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:27:19 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:27:19 INFO  restAPI:49 - user id:1268
+2020-06-19 11:27:19 INFO  restAPI:50 - voucherId:1
+2020-06-19 11:27:19 INFO  restAPI:51 - price:100000
+2020-06-19 11:27:19 INFO  restAPI:52 - paymentMethodId:
+2020-06-19 11:27:19 INFO  restAPI:53 - providerId:2
+2020-06-19 11:27:23 INFO  restAPI:66 - invalid request format
+2020-06-19 11:27:38 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:27:38 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:27:38 INFO  restAPI:72 - Case:Empty string provider id
+2020-06-19 11:28:30 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:28:30 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:28:30 INFO  restAPI:49 - user id:1269
+2020-06-19 11:28:30 INFO  restAPI:50 - voucherId:1
+2020-06-19 11:28:30 INFO  restAPI:51 - price:100000
+2020-06-19 11:28:30 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:28:30 INFO  restAPI:53 - providerId:
+2020-06-19 11:28:34 INFO  restAPI:66 - invalid request format
+2020-06-19 11:28:50 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:28:50 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:28:50 INFO  restAPI:72 - Case:Valid parameters cashback
+2020-06-19 11:29:35 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:29:35 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:29:35 INFO  restAPI:49 - user id:1270
+2020-06-19 11:29:35 INFO  restAPI:50 - voucherId:1
+2020-06-19 11:29:35 INFO  restAPI:51 - price:100000
+2020-06-19 11:29:35 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:29:35 INFO  restAPI:53 - providerId:2
+2020-06-19 11:29:39 INFO  restAPI:66 - {"voucherTypeName":"cashback","finalPrice":100000,"value":1000}
+2020-06-19 11:29:55 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:29:55 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:29:55 INFO  restAPI:72 - Case:Voucher expired
+2020-06-19 11:30:44 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:30:44 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:30:44 INFO  restAPI:49 - user id:1271
+2020-06-19 11:30:44 INFO  restAPI:50 - voucherId:4
+2020-06-19 11:30:44 INFO  restAPI:51 - price:100000
+2020-06-19 11:30:44 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:30:44 INFO  restAPI:53 - providerId:2
+2020-06-19 11:30:57 INFO  restAPI:66 - your voucher not found
+2020-06-19 11:31:15 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:31:15 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:31:15 INFO  restAPI:72 - Case:Voucher doesn't meet minimum purchase
+2020-06-19 11:32:03 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:32:03 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:32:03 INFO  restAPI:49 - user id:1272
+2020-06-19 11:32:03 INFO  restAPI:50 - voucherId:16
+2020-06-19 11:32:03 INFO  restAPI:51 - price:100000
+2020-06-19 11:32:03 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:32:03 INFO  restAPI:53 - providerId:2
+2020-06-19 11:32:14 INFO  restAPI:66 - insufficient purchase amount to use this voucher
+2020-06-19 11:32:33 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:32:33 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:32:33 INFO  restAPI:72 - Case:Valid parameters discount
+2020-06-19 11:33:22 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:33:22 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:33:22 INFO  restAPI:49 - user id:1273
+2020-06-19 11:33:22 INFO  restAPI:50 - voucherId:7
+2020-06-19 11:33:22 INFO  restAPI:51 - price:100000
+2020-06-19 11:33:22 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:33:22 INFO  restAPI:53 - providerId:2
+2020-06-19 11:33:27 INFO  restAPI:66 - {"voucherTypeName":"discount","finalPrice":95000,"value":0}
+2020-06-19 11:33:47 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:35:51 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:35:51 INFO  restAPI:72 - Case:Empty string price
+2020-06-19 11:36:41 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:36:41 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:36:41 INFO  restAPI:49 - user id:1274
+2020-06-19 11:36:41 INFO  restAPI:50 - voucherId:1
+2020-06-19 11:36:41 INFO  restAPI:51 - price:
+2020-06-19 11:36:41 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:36:41 INFO  restAPI:53 - providerId:2
+2020-06-19 11:36:47 INFO  restAPI:66 - invalid request format
+2020-06-19 11:37:01 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:37:01 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:37:01 INFO  restAPI:72 - Case:Undefined provider id
+2020-06-19 11:37:52 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:37:52 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:37:52 INFO  restAPI:49 - user id:1275
+2020-06-19 11:37:52 INFO  restAPI:50 - voucherId:1
+2020-06-19 11:37:52 INFO  restAPI:51 - price:100000
+2020-06-19 11:37:52 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:37:52 INFO  restAPI:53 - providerId:7
+2020-06-19 11:38:03 INFO  restAPI:66 - unknown provider
+2020-06-19 11:38:24 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:38:24 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:38:24 INFO  restAPI:72 - Case:Empty string voucher id
+2020-06-19 11:39:13 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:39:13 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:39:13 INFO  restAPI:49 - user id:1276
+2020-06-19 11:39:13 INFO  restAPI:50 - voucherId:
+2020-06-19 11:39:13 INFO  restAPI:51 - price:100000
+2020-06-19 11:39:13 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:39:13 INFO  restAPI:53 - providerId:2
+2020-06-19 11:39:17 INFO  restAPI:66 - invalid request format
+2020-06-19 11:39:32 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:39:32 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:39:32 INFO  restAPI:72 - Case:Voucher not available for the transaction
+2020-06-19 11:40:20 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:40:20 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:40:20 INFO  restAPI:49 - user id:1277
+2020-06-19 11:40:20 INFO  restAPI:50 - voucherId:2
+2020-06-19 11:40:20 INFO  restAPI:51 - price:100000
+2020-06-19 11:40:20 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:40:20 INFO  restAPI:53 - providerId:2
+2020-06-19 11:40:30 INFO  restAPI:66 - your voucher not found
+2020-06-19 11:40:49 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:40:51 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:40:51 INFO  restAPI:72 - Case:Undefined user id
+2020-06-19 11:40:51 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:40:51 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:40:51 INFO  restAPI:49 - user id:9999
+2020-06-19 11:40:51 INFO  restAPI:50 - voucherId:1
+2020-06-19 11:40:51 INFO  restAPI:51 - price:100000
+2020-06-19 11:40:51 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:40:51 INFO  restAPI:53 - providerId:2
+2020-06-19 11:41:05 INFO  restAPI:66 - {"timestamp":"2020-06-19T04:41:04.493+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 11:41:05 INFO  restAPI:109 - {"timestamp":"2020-06-19T04:41:04.493+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 11:41:05 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:41:05 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:41:05 INFO  restAPI:72 - Case:Voucher already used
+2020-06-19 11:41:58 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:41:58 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:41:58 INFO  restAPI:49 - user id:1279
+2020-06-19 11:41:58 INFO  restAPI:50 - voucherId:3
+2020-06-19 11:41:58 INFO  restAPI:51 - price:100000
+2020-06-19 11:41:58 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:41:58 INFO  restAPI:53 - providerId:2
+2020-06-19 11:42:00 INFO  restAPI:66 - {"timestamp":"2020-06-19T04:42:00.268+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 11:42:00 INFO  restAPI:109 - {"timestamp":"2020-06-19T04:42:00.268+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 11:42:13 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:42:13 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:42:13 INFO  restAPI:72 - Case:Empty string user id
+2020-06-19 11:42:13 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 11:42:13 INFO  restAPI:48 - Test Data: 
+2020-06-19 11:42:13 INFO  restAPI:49 - user id:
+2020-06-19 11:42:13 INFO  restAPI:50 - voucherId:1
+2020-06-19 11:42:13 INFO  restAPI:51 - price:100000
+2020-06-19 11:42:13 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 11:42:13 INFO  restAPI:53 - providerId:2
+2020-06-19 11:42:16 INFO  restAPI:66 - {"timestamp":"2020-06-19T04:42:15.962+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 11:42:16 INFO  restAPI:109 - {"timestamp":"2020-06-19T04:42:15.962+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 11:42:16 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 11:42:16 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 11:42:16 INFO  restAPI:72 - Case:Undefined payment method id
+2020-06-19 14:12:45 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:12:45 INFO  restAPI:72 - Case:Empty string price
+2020-06-19 14:13:36 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:13:36 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:13:36 INFO  restAPI:49 - user id:1281
+2020-06-19 14:13:36 INFO  restAPI:50 - voucherId:1
+2020-06-19 14:13:36 INFO  restAPI:51 - price:
+2020-06-19 14:13:36 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:13:36 INFO  restAPI:53 - providerId:2
+2020-06-19 14:13:41 INFO  restAPI:66 - invalid request format
+2020-06-19 14:13:56 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:13:56 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:13:56 INFO  restAPI:72 - Case:Undefined provider id
+2020-06-19 14:14:44 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:14:44 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:14:44 INFO  restAPI:49 - user id:1282
+2020-06-19 14:14:44 INFO  restAPI:50 - voucherId:1
+2020-06-19 14:14:44 INFO  restAPI:51 - price:100000
+2020-06-19 14:14:44 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:14:44 INFO  restAPI:53 - providerId:7
+2020-06-19 14:14:55 INFO  restAPI:66 - unknown provider
+2020-06-19 14:15:16 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:15:16 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:15:16 INFO  restAPI:72 - Case:Empty string voucher id
+2020-06-19 14:16:05 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:16:05 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:16:05 INFO  restAPI:49 - user id:1283
+2020-06-19 14:16:05 INFO  restAPI:50 - voucherId:
+2020-06-19 14:16:05 INFO  restAPI:51 - price:100000
+2020-06-19 14:16:05 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:16:05 INFO  restAPI:53 - providerId:2
+2020-06-19 14:16:10 INFO  restAPI:66 - Unexpected character (',' (code 44)): expected a valid value (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: (String)"{"userId":1283,"voucherId":,"price":100000,"paymentMethodId":1,"providerId":2}"; line: 1, column: 29]
+2020-06-19 14:16:24 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:16:24 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:16:24 INFO  restAPI:72 - Case:Voucher not available for the transaction
+2020-06-19 14:17:13 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:17:13 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:17:13 INFO  restAPI:49 - user id:1284
+2020-06-19 14:17:13 INFO  restAPI:50 - voucherId:2
+2020-06-19 14:17:13 INFO  restAPI:51 - price:100000
+2020-06-19 14:17:13 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:17:13 INFO  restAPI:53 - providerId:2
+2020-06-19 14:17:27 INFO  restAPI:66 - {"timestamp":"2020-06-19T07:17:26.791+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:17:27 INFO  restAPI:109 - {"timestamp":"2020-06-19T07:17:26.791+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:17:40 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:17:40 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:17:40 INFO  restAPI:72 - Case:Undefined user id
+2020-06-19 14:17:40 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:17:40 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:17:40 INFO  restAPI:49 - user id:9999
+2020-06-19 14:17:40 INFO  restAPI:50 - voucherId:1
+2020-06-19 14:17:40 INFO  restAPI:51 - price:100000
+2020-06-19 14:17:40 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:17:40 INFO  restAPI:53 - providerId:2
+2020-06-19 14:17:47 INFO  restAPI:66 - user not found
+2020-06-19 14:17:53 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:17:53 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:17:53 INFO  restAPI:72 - Case:Voucher already used
+2020-06-19 14:18:42 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:18:42 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:18:42 INFO  restAPI:49 - user id:1285
+2020-06-19 14:18:42 INFO  restAPI:50 - voucherId:3
+2020-06-19 14:18:42 INFO  restAPI:51 - price:100000
+2020-06-19 14:18:42 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:18:42 INFO  restAPI:53 - providerId:2
+2020-06-19 14:18:56 INFO  restAPI:66 - {"timestamp":"2020-06-19T07:18:55.837+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:18:56 INFO  restAPI:109 - {"timestamp":"2020-06-19T07:18:55.837+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:19:11 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:19:11 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:19:11 INFO  restAPI:72 - Case:Empty string user id
+2020-06-19 14:19:11 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:19:11 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:19:11 INFO  restAPI:49 - user id:
+2020-06-19 14:19:11 INFO  restAPI:50 - voucherId:1
+2020-06-19 14:19:11 INFO  restAPI:51 - price:100000
+2020-06-19 14:19:11 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:19:11 INFO  restAPI:53 - providerId:2
+2020-06-19 14:19:14 INFO  restAPI:66 - invalid request format
+2020-06-19 14:19:14 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:19:14 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:19:14 INFO  restAPI:72 - Case:Undefined payment method id
+2020-06-19 14:20:04 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:20:04 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:20:04 INFO  restAPI:49 - user id:1286
+2020-06-19 14:20:04 INFO  restAPI:50 - voucherId:1
+2020-06-19 14:20:04 INFO  restAPI:51 - price:100000
+2020-06-19 14:20:04 INFO  restAPI:52 - paymentMethodId:2
+2020-06-19 14:20:04 INFO  restAPI:53 - providerId:2
+2020-06-19 14:20:12 INFO  restAPI:66 - unknown payment method
+2020-06-19 14:20:30 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:20:30 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:20:30 INFO  restAPI:72 - Case:Undefined voucher id
+2020-06-19 14:21:20 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:21:20 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:21:20 INFO  restAPI:49 - user id:1287
+2020-06-19 14:21:20 INFO  restAPI:50 - voucherId:9999
+2020-06-19 14:21:20 INFO  restAPI:51 - price:100000
+2020-06-19 14:21:20 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:21:20 INFO  restAPI:53 - providerId:2
+2020-06-19 14:21:24 INFO  restAPI:66 - your voucher not found
+2020-06-19 14:21:43 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:21:43 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:21:43 INFO  restAPI:72 - Case:Empty string payment method id
+2020-06-19 14:22:32 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:22:32 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:22:32 INFO  restAPI:49 - user id:1288
+2020-06-19 14:22:32 INFO  restAPI:50 - voucherId:1
+2020-06-19 14:22:32 INFO  restAPI:51 - price:100000
+2020-06-19 14:22:32 INFO  restAPI:52 - paymentMethodId:
+2020-06-19 14:22:32 INFO  restAPI:53 - providerId:2
+2020-06-19 14:22:36 INFO  restAPI:66 - invalid request format
+2020-06-19 14:22:51 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:22:51 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:22:51 INFO  restAPI:72 - Case:Empty string provider id
+2020-06-19 14:23:37 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:23:37 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:23:37 INFO  restAPI:49 - user id:1289
+2020-06-19 14:23:37 INFO  restAPI:50 - voucherId:1
+2020-06-19 14:23:37 INFO  restAPI:51 - price:100000
+2020-06-19 14:23:37 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:23:37 INFO  restAPI:53 - providerId:
+2020-06-19 14:23:41 INFO  restAPI:66 - invalid request format
+2020-06-19 14:23:57 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:23:57 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:23:57 INFO  restAPI:72 - Case:Valid parameters cashback
+2020-06-19 14:24:46 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:24:46 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:24:46 INFO  restAPI:49 - user id:1290
+2020-06-19 14:24:46 INFO  restAPI:50 - voucherId:1
+2020-06-19 14:24:46 INFO  restAPI:51 - price:100000
+2020-06-19 14:24:46 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:24:46 INFO  restAPI:53 - providerId:2
+2020-06-19 14:24:59 INFO  restAPI:66 - {"voucherTypeName":"cashback","finalPrice":100000,"value":1000}
+2020-06-19 14:25:20 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:25:20 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:25:20 INFO  restAPI:72 - Case:Voucher expired
+2020-06-19 14:26:11 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:26:11 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:26:11 INFO  restAPI:49 - user id:1291
+2020-06-19 14:26:11 INFO  restAPI:50 - voucherId:4
+2020-06-19 14:26:11 INFO  restAPI:51 - price:100000
+2020-06-19 14:26:11 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:26:11 INFO  restAPI:53 - providerId:2
+2020-06-19 14:26:24 INFO  restAPI:66 - your voucher not found
+2020-06-19 14:26:44 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:26:44 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:26:44 INFO  restAPI:72 - Case:Voucher doesn't meet minimum purchase
+2020-06-19 14:27:35 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:27:35 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:27:35 INFO  restAPI:49 - user id:1292
+2020-06-19 14:27:35 INFO  restAPI:50 - voucherId:16
+2020-06-19 14:27:35 INFO  restAPI:51 - price:100000
+2020-06-19 14:27:35 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:27:35 INFO  restAPI:53 - providerId:2
+2020-06-19 14:27:49 INFO  restAPI:66 - {"timestamp":"2020-06-19T07:27:48.982+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:27:49 INFO  restAPI:109 - {"timestamp":"2020-06-19T07:27:48.982+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:28:04 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:28:04 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:28:04 INFO  restAPI:72 - Case:Valid parameters discount
+2020-06-19 14:30:50 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:30:50 INFO  restAPI:72 - Case:Empty string price
+2020-06-19 14:31:46 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:31:46 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:31:46 INFO  restAPI:49 - user id:1294
+2020-06-19 14:31:46 INFO  restAPI:50 - voucherId:1
+2020-06-19 14:31:46 INFO  restAPI:51 - price:
+2020-06-19 14:31:46 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:31:46 INFO  restAPI:53 - providerId:2
+2020-06-19 14:31:52 INFO  restAPI:66 - invalid request format
+2020-06-19 14:32:08 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:32:08 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:32:08 INFO  restAPI:72 - Case:Undefined provider id
+2020-06-19 14:32:58 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:32:58 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:32:58 INFO  restAPI:49 - user id:1295
+2020-06-19 14:32:58 INFO  restAPI:50 - voucherId:1
+2020-06-19 14:32:58 INFO  restAPI:51 - price:100000
+2020-06-19 14:32:58 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:32:58 INFO  restAPI:53 - providerId:7
+2020-06-19 14:33:12 INFO  restAPI:66 - {"timestamp":"2020-06-19T07:33:12.229+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:33:12 INFO  restAPI:109 - {"timestamp":"2020-06-19T07:33:12.229+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:33:28 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:33:28 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:33:28 INFO  restAPI:72 - Case:Empty string voucher id
+2020-06-19 14:34:21 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:34:21 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:34:21 INFO  restAPI:49 - user id:1296
+2020-06-19 14:34:21 INFO  restAPI:50 - voucherId:
+2020-06-19 14:34:21 INFO  restAPI:51 - price:100000
+2020-06-19 14:34:21 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:34:21 INFO  restAPI:53 - providerId:2
+2020-06-19 14:34:25 INFO  restAPI:66 - invalid request format
+2020-06-19 14:34:39 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:34:39 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:34:39 INFO  restAPI:72 - Case:Voucher not available for the transaction
+2020-06-19 14:35:30 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:35:30 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:35:30 INFO  restAPI:49 - user id:1297
+2020-06-19 14:35:30 INFO  restAPI:50 - voucherId:2
+2020-06-19 14:35:30 INFO  restAPI:51 - price:100000
+2020-06-19 14:35:30 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:35:30 INFO  restAPI:53 - providerId:2
+2020-06-19 14:35:34 INFO  restAPI:66 - your voucher not found
+2020-06-19 14:35:55 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:35:55 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:35:55 INFO  restAPI:72 - Case:Undefined user id
+2020-06-19 14:35:55 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:35:55 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:35:55 INFO  restAPI:49 - user id:9999
+2020-06-19 14:35:55 INFO  restAPI:50 - voucherId:1
+2020-06-19 14:35:55 INFO  restAPI:51 - price:100000
+2020-06-19 14:35:55 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:35:55 INFO  restAPI:53 - providerId:2
+2020-06-19 14:36:01 INFO  restAPI:66 - user not found
+2020-06-19 14:36:06 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:36:06 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:36:06 INFO  restAPI:72 - Case:Voucher already used
+2020-06-19 14:36:57 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:36:57 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:36:57 INFO  restAPI:49 - user id:1298
+2020-06-19 14:36:57 INFO  restAPI:50 - voucherId:3
+2020-06-19 14:36:57 INFO  restAPI:51 - price:100000
+2020-06-19 14:36:57 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:36:57 INFO  restAPI:53 - providerId:2
+2020-06-19 14:37:09 INFO  restAPI:66 - your voucher not found
+2020-06-19 14:37:29 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:37:29 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:37:29 INFO  restAPI:72 - Case:Empty string user id
+2020-06-19 14:37:29 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:37:29 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:37:29 INFO  restAPI:49 - user id:
+2020-06-19 14:37:29 INFO  restAPI:50 - voucherId:1
+2020-06-19 14:37:29 INFO  restAPI:51 - price:100000
+2020-06-19 14:37:29 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:37:29 INFO  restAPI:53 - providerId:2
+2020-06-19 14:37:33 INFO  restAPI:66 - invalid request format
+2020-06-19 14:37:33 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:37:33 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:37:33 INFO  restAPI:72 - Case:Undefined payment method id
+2020-06-19 14:38:24 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:38:24 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:38:24 INFO  restAPI:49 - user id:1299
+2020-06-19 14:38:24 INFO  restAPI:50 - voucherId:1
+2020-06-19 14:38:24 INFO  restAPI:51 - price:100000
+2020-06-19 14:38:24 INFO  restAPI:52 - paymentMethodId:2
+2020-06-19 14:38:24 INFO  restAPI:53 - providerId:2
+2020-06-19 14:38:32 INFO  restAPI:66 - unknown payment method
+2020-06-19 14:38:52 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:38:52 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:38:52 INFO  restAPI:72 - Case:Undefined voucher id
+2020-06-19 14:39:40 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:39:40 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:39:40 INFO  restAPI:49 - user id:1300
+2020-06-19 14:39:40 INFO  restAPI:50 - voucherId:9999
+2020-06-19 14:39:40 INFO  restAPI:51 - price:100000
+2020-06-19 14:39:40 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:39:40 INFO  restAPI:53 - providerId:2
+2020-06-19 14:39:49 INFO  restAPI:66 - your voucher not found
+2020-06-19 14:40:09 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:40:09 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:40:09 INFO  restAPI:72 - Case:Empty string payment method id
+2020-06-19 14:41:00 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:41:00 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:41:00 INFO  restAPI:49 - user id:1301
+2020-06-19 14:41:00 INFO  restAPI:50 - voucherId:1
+2020-06-19 14:41:00 INFO  restAPI:51 - price:100000
+2020-06-19 14:41:00 INFO  restAPI:52 - paymentMethodId:
+2020-06-19 14:41:00 INFO  restAPI:53 - providerId:2
+2020-06-19 14:41:04 INFO  restAPI:66 - invalid request format
+2020-06-19 14:41:17 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:41:17 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:41:17 INFO  restAPI:72 - Case:Empty string provider id
+2020-06-19 14:42:08 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:42:08 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:42:08 INFO  restAPI:49 - user id:1302
+2020-06-19 14:42:08 INFO  restAPI:50 - voucherId:1
+2020-06-19 14:42:08 INFO  restAPI:51 - price:100000
+2020-06-19 14:42:08 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:42:08 INFO  restAPI:53 - providerId:
+2020-06-19 14:42:12 INFO  restAPI:66 - invalid request format
+2020-06-19 14:42:27 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:42:27 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:42:27 INFO  restAPI:72 - Case:Valid parameters cashback
+2020-06-19 14:43:21 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:43:21 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:43:21 INFO  restAPI:49 - user id:1303
+2020-06-19 14:43:21 INFO  restAPI:50 - voucherId:1
+2020-06-19 14:43:21 INFO  restAPI:51 - price:100000
+2020-06-19 14:43:21 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:43:21 INFO  restAPI:53 - providerId:2
+2020-06-19 14:43:23 INFO  restAPI:66 - {"timestamp":"2020-06-19T07:43:23.321+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:43:23 INFO  restAPI:109 - {"timestamp":"2020-06-19T07:43:23.321+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:43:38 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:43:38 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:43:38 INFO  restAPI:72 - Case:Voucher expired
+2020-06-19 14:44:25 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:44:25 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:44:25 INFO  restAPI:49 - user id:1304
+2020-06-19 14:44:25 INFO  restAPI:50 - voucherId:4
+2020-06-19 14:44:25 INFO  restAPI:51 - price:100000
+2020-06-19 14:44:25 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:44:25 INFO  restAPI:53 - providerId:2
+2020-06-19 14:44:26 INFO  restAPI:66 - {"timestamp":"2020-06-19T07:44:26.779+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:44:26 INFO  restAPI:109 - {"timestamp":"2020-06-19T07:44:26.779+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:44:42 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:44:42 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:44:42 INFO  restAPI:72 - Case:Voucher doesn't meet minimum purchase
+2020-06-19 14:45:28 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:45:28 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:45:28 INFO  restAPI:49 - user id:1305
+2020-06-19 14:45:28 INFO  restAPI:50 - voucherId:16
+2020-06-19 14:45:28 INFO  restAPI:51 - price:100000
+2020-06-19 14:45:28 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:45:28 INFO  restAPI:53 - providerId:2
+2020-06-19 14:45:30 INFO  restAPI:66 - {"timestamp":"2020-06-19T07:45:30.094+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:45:30 INFO  restAPI:109 - {"timestamp":"2020-06-19T07:45:30.094+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:45:43 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:45:43 INFO  restAPI:71 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-19 14:45:43 INFO  restAPI:72 - Case:Valid parameters discount
+2020-06-19 14:46:28 INFO  restAPI:47 - Call Redeem API [Promotion Domain]
+2020-06-19 14:46:28 INFO  restAPI:48 - Test Data: 
+2020-06-19 14:46:28 INFO  restAPI:49 - user id:1306
+2020-06-19 14:46:28 INFO  restAPI:50 - voucherId:7
+2020-06-19 14:46:28 INFO  restAPI:51 - price:100000
+2020-06-19 14:46:28 INFO  restAPI:52 - paymentMethodId:1
+2020-06-19 14:46:28 INFO  restAPI:53 - providerId:2
+2020-06-19 14:46:31 INFO  restAPI:66 - {"timestamp":"2020-06-19T07:46:30.888+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:46:31 INFO  restAPI:109 - {"timestamp":"2020-06-19T07:46:30.888+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:46:46 INFO  restAPI:176 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-19 14:53:23 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-19 14:53:23 INFO  restAPI:71 - Case:Valid user id (have no vouchers)
+2020-06-19 14:53:59 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-19 14:53:59 INFO  restAPI:51 - Test Data: 
+2020-06-19 14:53:59 INFO  restAPI:52 - user id:1307
+2020-06-19 14:53:59 INFO  restAPI:53 - transactionId:744
+2020-06-19 14:54:14 INFO  restAPI:65 - {"timestamp":"2020-06-19T07:54:13.733+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:54:14 INFO  restAPI:172 - {"timestamp":"2020-06-19T07:54:13.733+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:54:31 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-19 14:54:31 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-19 14:54:31 INFO  restAPI:71 - Case:Empty string user id
+2020-06-19 14:55:09 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-19 14:55:09 INFO  restAPI:51 - Test Data: 
+2020-06-19 14:55:09 INFO  restAPI:52 - user id:
+2020-06-19 14:55:09 INFO  restAPI:53 - transactionId:745
+2020-06-19 14:55:22 INFO  restAPI:65 - {"timestamp":"2020-06-19T07:55:22.206+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 14:55:22 INFO  restAPI:172 - {"timestamp":"2020-06-19T07:55:22.206+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 15:11:17 INFO  restAPI:36 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:11:17 INFO  restAPI:37 - Case:Telkomsel
+2020-06-19 15:11:34 INFO  restAPI:184 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:11:34 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:11:34 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:11:34 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:11:34 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:11:34 INFO  restAPI:189 - pin:123456
+2020-06-19 15:11:39 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1309,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:11:39 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:11:39 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:11:39 INFO  restAPI:209 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:11:39 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:11:39 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:11:41 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1309,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:11:41 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:11:41 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:11:42 INFO  restAPI:221 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:11:42 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:11:42 INFO  restAPI:223 - id:1309
+2020-06-19 15:11:42 INFO  restAPI:224 - pin:123456
+2020-06-19 15:11:44 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:11:44 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:11:44 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:11:44 INFO  restAPI:410 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:11:44 INFO  restAPI:411 - Test Data: 
+2020-06-19 15:11:44 INFO  restAPI:412 - session id:6E18091E2EC8786BDAE77A5482EAD5F4
+2020-06-19 15:11:44 INFO  restAPI:413 - phone number:08125
+2020-06-19 15:11:47 INFO  restAPI:420 - {"code":200,"message":"success","data":{"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}}
+2020-06-19 15:11:47 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:11:47 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:12:02 INFO  restAPI:176 - ***** Finished TC_Integration_GetAllCatalog *****
+2020-06-19 15:12:02 INFO  restAPI:36 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:12:02 INFO  restAPI:37 - Case:Axis
+2020-06-19 15:12:16 INFO  restAPI:184 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:12:16 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:12:16 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:12:16 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:12:16 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:12:16 INFO  restAPI:189 - pin:123456
+2020-06-19 15:12:19 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1310,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:12:19 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:12:19 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:12:19 INFO  restAPI:209 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:12:19 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:12:19 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:12:21 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1310,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:12:21 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:12:21 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:12:21 INFO  restAPI:221 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:12:21 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:12:21 INFO  restAPI:223 - id:1310
+2020-06-19 15:12:21 INFO  restAPI:224 - pin:123456
+2020-06-19 15:12:23 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:12:23 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:12:23 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:12:23 INFO  restAPI:410 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:12:23 INFO  restAPI:411 - Test Data: 
+2020-06-19 15:12:23 INFO  restAPI:412 - session id:4185FE43C4613076568610F5D5BFF596
+2020-06-19 15:12:23 INFO  restAPI:413 - phone number:08312
+2020-06-19 15:12:26 INFO  restAPI:420 - {"code":200,"message":"success","data":{"provider":{"id":6,"name":"Axis","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/Axis_logo_2015_fjybli_kgwzd1.png"},"catalog":[{"id":69,"value":5000,"price":6000},{"id":70,"value":10000,"price":11000},{"id":71,"value":25000,"price":24800},{"id":72,"value":50000,"price":49500},{"id":73,"value":100000,"price":98500},{"id":74,"value":200000,"price":197000},{"id":75,"value":300000,"price":295000},{"id":76,"value":500000,"price":495000},{"id":77,"value":1000000,"price":940000}]}}
+2020-06-19 15:12:26 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:12:26 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:12:42 INFO  restAPI:176 - ***** Finished TC_Integration_GetAllCatalog *****
+2020-06-19 15:12:42 INFO  restAPI:36 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:12:42 INFO  restAPI:37 - Case:Tri
+2020-06-19 15:12:56 INFO  restAPI:184 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:12:56 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:12:56 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:12:56 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:12:56 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:12:56 INFO  restAPI:189 - pin:123456
+2020-06-19 15:12:59 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1311,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:12:59 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:12:59 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:12:59 INFO  restAPI:209 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:12:59 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:12:59 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:13:01 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1311,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:13:01 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:13:01 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:13:01 INFO  restAPI:221 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:13:01 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:13:01 INFO  restAPI:223 - id:1311
+2020-06-19 15:13:01 INFO  restAPI:224 - pin:123456
+2020-06-19 15:13:03 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:13:03 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:13:03 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:13:03 INFO  restAPI:410 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:13:03 INFO  restAPI:411 - Test Data: 
+2020-06-19 15:13:03 INFO  restAPI:412 - session id:CACF8069928A158C45AA3593838E5CBB
+2020-06-19 15:13:03 INFO  restAPI:413 - phone number:08996
+2020-06-19 15:13:06 INFO  restAPI:420 - {"code":200,"message":"success","data":{"provider":{"id":3,"name":"Tri","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/3-brand_cawkwp_pbjnni.png"},"catalog":[{"id":26,"value":1000,"price":1200},{"id":27,"value":2000,"price":2200},{"id":28,"value":3000,"price":3500},{"id":29,"value":4000,"price":4500},{"id":30,"value":5000,"price":5400},{"id":31,"value":8000,"price":8400},{"id":32,"value":10000,"price":10400},{"id":33,"value":15000,"price":15000},{"id":34,"value":20000,"price":19800},{"id":35,"value":25000,"price":24750},{"id":36,"value":30000,"price":29500},{"id":37,"value":50000,"price":49250},{"id":38,"value":100000,"price":98500},{"id":39,"value":150000,"price":148000},{"id":40,"value":200000,"price":197000},{"id":41,"value":300000,"price":295000},{"id":42,"value":500000,"price":495000}]}}
+2020-06-19 15:13:06 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:13:06 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:13:21 INFO  restAPI:176 - ***** Finished TC_Integration_GetAllCatalog *****
+2020-06-19 15:13:21 INFO  restAPI:36 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:13:21 INFO  restAPI:37 - Case:Indosat
+2020-06-19 15:13:36 INFO  restAPI:184 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:13:36 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:13:36 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:13:36 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:13:36 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:13:36 INFO  restAPI:189 - pin:123456
+2020-06-19 15:13:39 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1312,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:13:39 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:13:39 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:13:39 INFO  restAPI:209 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:13:39 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:13:39 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:13:41 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1312,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:13:41 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:13:41 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:13:41 INFO  restAPI:221 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:13:41 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:13:41 INFO  restAPI:223 - id:1312
+2020-06-19 15:13:41 INFO  restAPI:224 - pin:123456
+2020-06-19 15:13:43 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:13:43 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:13:43 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:13:43 INFO  restAPI:410 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:13:43 INFO  restAPI:411 - Test Data: 
+2020-06-19 15:13:43 INFO  restAPI:412 - session id:FE0B6CCEF7FA37E0DA19A77D9CBA1C32
+2020-06-19 15:13:43 INFO  restAPI:413 - phone number:08565
+2020-06-19 15:13:46 INFO  restAPI:420 - {"code":200,"message":"success","data":{"provider":{"id":4,"name":"Indosat","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/Indosat_Ooredoo_logo_wcpr2o_nqcou3.png"},"catalog":[{"id":43,"value":5000,"price":6400},{"id":44,"value":10000,"price":11500},{"id":45,"value":12000,"price":12500},{"id":46,"value":20000,"price":20000},{"id":47,"value":25000,"price":24800},{"id":48,"value":30000,"price":28850},{"id":49,"value":50000,"price":49000},{"id":50,"value":60000,"price":59500},{"id":51,"value":80000,"price":78000},{"id":52,"value":100000,"price":98000},{"id":53,"value":150000,"price":144000},{"id":54,"value":200000,"price":190000},{"id":55,"value":250000,"price":235000},{"id":56,"value":500000,"price":470000},{"id":57,"value":1000000,"price":940000}]}}
+2020-06-19 15:13:46 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:13:46 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:14:00 INFO  restAPI:176 - ***** Finished TC_Integration_GetAllCatalog *****
+2020-06-19 15:14:00 INFO  restAPI:36 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:14:00 INFO  restAPI:37 - Case:XL
+2020-06-19 15:14:13 INFO  restAPI:184 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:14:13 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:14:13 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:14:13 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:14:13 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:14:13 INFO  restAPI:189 - pin:123456
+2020-06-19 15:14:16 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1313,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:14:16 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:14:16 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:14:16 INFO  restAPI:209 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:14:16 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:14:16 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:14:18 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1313,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:14:18 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:14:18 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:14:18 INFO  restAPI:221 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:14:18 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:14:18 INFO  restAPI:223 - id:1313
+2020-06-19 15:14:18 INFO  restAPI:224 - pin:123456
+2020-06-19 15:14:20 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:14:20 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:14:20 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:14:20 INFO  restAPI:410 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:14:20 INFO  restAPI:411 - Test Data: 
+2020-06-19 15:14:20 INFO  restAPI:412 - session id:EC314736A934DB634187400A92866C65
+2020-06-19 15:14:20 INFO  restAPI:413 - phone number:08773
+2020-06-19 15:14:23 INFO  restAPI:420 - {"code":200,"message":"success","data":{"provider":{"id":1,"name":"XL","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/20180111100558_21XL_logo_2016_kyu40w_vkqgnc.png"},"catalog":[{"id":1,"value":5000,"price":6000},{"id":2,"value":10000,"price":10700},{"id":3,"value":15000,"price":14900},{"id":4,"value":25000,"price":24750},{"id":5,"value":30000,"price":29850},{"id":6,"value":50000,"price":49500},{"id":7,"value":100000,"price":98500},{"id":8,"value":150000,"price":148000},{"id":9,"value":200000,"price":197750},{"id":10,"value":300000,"price":295000},{"id":11,"value":500000,"price":495000},{"id":12,"value":1000000,"price":990000}]}}
+2020-06-19 15:14:23 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:14:23 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:14:39 INFO  restAPI:176 - ***** Finished TC_Integration_GetAllCatalog *****
+2020-06-19 15:14:39 INFO  restAPI:36 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:14:39 INFO  restAPI:37 - Case:Smartfren
+2020-06-19 15:14:52 INFO  restAPI:184 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:14:52 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:14:52 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:14:52 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:14:52 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:14:52 INFO  restAPI:189 - pin:123456
+2020-06-19 15:14:56 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1314,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:14:56 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:14:56 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:14:56 INFO  restAPI:209 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:14:56 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:14:56 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:14:57 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1314,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:14:57 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:14:57 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:14:57 INFO  restAPI:221 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:14:57 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:14:57 INFO  restAPI:223 - id:1314
+2020-06-19 15:14:57 INFO  restAPI:224 - pin:123456
+2020-06-19 15:15:00 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:15:00 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:15:00 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:15:00 INFO  restAPI:410 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:15:00 INFO  restAPI:411 - Test Data: 
+2020-06-19 15:15:00 INFO  restAPI:412 - session id:93551C0BF7E420F8136E76EC347A523C
+2020-06-19 15:15:00 INFO  restAPI:413 - phone number:08810
+2020-06-19 15:15:02 INFO  restAPI:420 - {"code":200,"message":"success","data":{"provider":{"id":5,"name":"Smartfren","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Smartfren__282019_29_k5icie_grwdpg.png"},"catalog":[{"id":58,"value":5000,"price":5400},{"id":59,"value":10000,"price":10400},{"id":60,"value":20000,"price":19900},{"id":61,"value":50000,"price":49250},{"id":62,"value":60000,"price":59000},{"id":63,"value":100000,"price":99000},{"id":64,"value":150000,"price":148000},{"id":65,"value":200000,"price":197000},{"id":66,"value":250000,"price":250000},{"id":67,"value":300000,"price":295000},{"id":68,"value":500000,"price":495000}]}}
+2020-06-19 15:15:02 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:15:02 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:15:15 INFO  restAPI:176 - ***** Finished TC_Integration_GetAllCatalog *****
+2020-06-19 15:16:08 INFO  restAPI:36 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:16:08 INFO  restAPI:37 - Case:Valid session id and page
+2020-06-19 15:16:24 INFO  restAPI:184 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:16:24 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:16:24 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:16:24 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:16:24 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:16:24 INFO  restAPI:189 - pin:123456
+2020-06-19 15:16:28 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1315,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:16:28 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:16:28 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:16:28 INFO  restAPI:209 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:16:28 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:16:28 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:16:30 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1315,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:16:30 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:16:30 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:16:30 INFO  restAPI:221 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:16:30 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:16:30 INFO  restAPI:223 - id:1315
+2020-06-19 15:16:30 INFO  restAPI:224 - pin:123456
+2020-06-19 15:16:32 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:16:32 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:16:32 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:16:32 INFO  restAPI:495 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:16:32 INFO  restAPI:496 - Test Data: 
+2020-06-19 15:16:32 INFO  restAPI:497 - session id:B22BADAE4F99696173A454C4AC5703EA
+2020-06-19 15:16:32 INFO  restAPI:498 - page:1
+2020-06-19 15:16:39 INFO  restAPI:505 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]}
+2020-06-19 15:16:39 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:16:39 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:16:53 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherPromotion *****
+2020-06-19 15:16:53 INFO  restAPI:36 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:16:53 INFO  restAPI:37 - Case:Valid session id and page
+2020-06-19 15:17:09 INFO  restAPI:184 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:17:09 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:17:09 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:17:09 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:17:09 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:17:09 INFO  restAPI:189 - pin:123456
+2020-06-19 15:17:11 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1316,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:17:11 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:17:11 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:17:11 INFO  restAPI:209 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:17:11 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:17:11 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:17:13 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1316,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:17:13 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:17:13 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:17:13 INFO  restAPI:221 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:17:13 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:17:13 INFO  restAPI:223 - id:1316
+2020-06-19 15:17:13 INFO  restAPI:224 - pin:123456
+2020-06-19 15:17:15 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:17:15 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:17:15 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:17:15 INFO  restAPI:495 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:17:15 INFO  restAPI:496 - Test Data: 
+2020-06-19 15:17:15 INFO  restAPI:497 - session id:1B815FA58261FBD33D7F977DC29E4477
+2020-06-19 15:17:15 INFO  restAPI:498 - page:2
+2020-06-19 15:17:18 INFO  restAPI:505 - {"code":404,"message":"user not found"}
+2020-06-19 15:17:18 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:17:18 INFO  restAPI:94 - Status Code = 404
+2020-06-19 15:17:29 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherPromotion *****
+2020-06-19 15:20:23 INFO  restAPI:36 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:20:23 INFO  restAPI:37 - Case:Valid session id and page
+2020-06-19 15:20:38 INFO  restAPI:184 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:20:38 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:20:38 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:20:38 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:20:38 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:20:38 INFO  restAPI:189 - pin:123456
+2020-06-19 15:20:42 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1317,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:20:42 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:20:42 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:20:42 INFO  restAPI:209 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:20:42 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:20:42 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:20:44 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1317,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:20:44 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:20:44 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:20:44 INFO  restAPI:221 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:20:44 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:20:44 INFO  restAPI:223 - id:1317
+2020-06-19 15:20:44 INFO  restAPI:224 - pin:123456
+2020-06-19 15:20:47 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:20:47 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:20:47 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:20:47 INFO  restAPI:495 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:20:47 INFO  restAPI:496 - Test Data: 
+2020-06-19 15:20:47 INFO  restAPI:497 - session id:B0CA7AB280FF76FE9DEFDCC1F7771152
+2020-06-19 15:20:47 INFO  restAPI:498 - page:1
+2020-06-19 15:20:52 INFO  restAPI:505 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]}
+2020-06-19 15:20:52 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:20:52 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:20:57 INFO  restAPI:347 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:20:58 INFO  restAPI:354 - {"code":200,"message":"success"}
+
+2020-06-19 15:21:08 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherPromotion *****
+2020-06-19 15:21:08 INFO  restAPI:36 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:21:08 INFO  restAPI:37 - Case:Valid session id and page
+2020-06-19 15:21:24 INFO  restAPI:184 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:21:24 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:21:24 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:21:24 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:21:24 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:21:24 INFO  restAPI:189 - pin:123456
+2020-06-19 15:21:26 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1318,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:21:26 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:21:26 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:21:26 INFO  restAPI:209 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:21:26 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:21:26 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:21:28 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1318,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:21:28 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:21:28 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:21:28 INFO  restAPI:221 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:21:28 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:21:28 INFO  restAPI:223 - id:1318
+2020-06-19 15:21:28 INFO  restAPI:224 - pin:123456
+2020-06-19 15:21:30 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:21:30 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:21:30 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:21:30 INFO  restAPI:495 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:21:30 INFO  restAPI:496 - Test Data: 
+2020-06-19 15:21:30 INFO  restAPI:497 - session id:FFF2C026E79CF58215676908375B5EF3
+2020-06-19 15:21:30 INFO  restAPI:498 - page:2
+2020-06-19 15:21:33 INFO  restAPI:505 - {"code":404,"message":"user not found"}
+2020-06-19 15:21:33 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:21:33 INFO  restAPI:94 - Status Code = 404
+2020-06-19 15:21:33 INFO  restAPI:347 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:21:34 INFO  restAPI:354 - {"code":200,"message":"success"}
+
+2020-06-19 15:21:44 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherPromotion *****
+2020-06-19 15:27:53 INFO  restAPI:36 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:27:53 INFO  restAPI:37 - Case:Valid session id and page
+2020-06-19 15:28:09 INFO  restAPI:184 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:28:09 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:28:09 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:28:09 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:28:09 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:28:09 INFO  restAPI:189 - pin:123456
+2020-06-19 15:28:14 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1319,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:28:14 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:28:14 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:28:14 INFO  restAPI:209 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:28:14 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:28:14 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:28:15 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1319,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:28:15 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:28:15 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:28:16 INFO  restAPI:221 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:28:16 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:28:16 INFO  restAPI:223 - id:1319
+2020-06-19 15:28:16 INFO  restAPI:224 - pin:123456
+2020-06-19 15:28:18 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:28:18 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:28:18 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:28:18 INFO  restAPI:495 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:28:18 INFO  restAPI:496 - Test Data: 
+2020-06-19 15:28:18 INFO  restAPI:497 - session id:2D7EE5624D01D366E6B6A207AFE60902
+2020-06-19 15:28:18 INFO  restAPI:498 - page:1
+2020-06-19 15:28:24 INFO  restAPI:505 - {"code":200,"message":"success","data":[{"id":1,"name":"Cashback Rp 1.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1184889600000},{"id":2,"name":"Cashback Rp 1.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1216512000000},{"id":3,"name":"Cashback Rp 2.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1248048000000},{"id":4,"name":"Cashback Rp 2.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1279584000000},{"id":5,"name":"Cashback Rp 3.000 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1311120000000},{"id":6,"name":"Cashback Rp 3.500 buat beli pulsa","voucherTypeName":"cashback","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1342742400000},{"id":7,"name":"Diskon 5% (max Rp 5.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1374278400000},{"id":8,"name":"Diskon 10% (max Rp 10.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1405814400000},{"id":9,"name":"Diskon 15% (max Rp 15.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1437350400000},{"id":10,"name":"Diskon 20% (max Rp 20.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1468972800000}]}
+2020-06-19 15:28:24 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:28:24 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:28:29 INFO  restAPI:347 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:28:30 INFO  restAPI:354 - {"code":200,"message":"success"}
+
+2020-06-19 15:28:30 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:28:30 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:28:52 INFO  restAPI:36 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:28:52 INFO  restAPI:37 - Case:Valid session id and page
+2020-06-19 15:29:19 INFO  restAPI:36 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:29:19 INFO  restAPI:37 - Case:Valid session id and page
+2020-06-19 15:29:33 INFO  restAPI:184 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:29:33 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:29:33 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:29:33 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:29:33 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:29:33 INFO  restAPI:189 - pin:123456
+2020-06-19 15:29:37 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1320,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:29:37 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:29:37 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:29:37 INFO  restAPI:209 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:29:37 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:29:37 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:29:39 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1320,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:29:39 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:29:39 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:29:40 INFO  restAPI:221 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:29:40 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:29:40 INFO  restAPI:223 - id:1320
+2020-06-19 15:29:40 INFO  restAPI:224 - pin:123456
+2020-06-19 15:29:42 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:29:42 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:29:42 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:29:42 INFO  restAPI:495 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:29:42 INFO  restAPI:496 - Test Data: 
+2020-06-19 15:29:42 INFO  restAPI:497 - session id:1D355BE6A2B3F0A8863EC352D8DC8FA8
+2020-06-19 15:29:42 INFO  restAPI:498 - page:1
+2020-06-19 15:29:59 INFO  restAPI:505 - {"code":404,"message":"user not found"}
+2020-06-19 15:29:59 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:29:59 INFO  restAPI:94 - Status Code = 404
+2020-06-19 15:29:59 INFO  restAPI:347 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:30:00 INFO  restAPI:354 - {"code":200,"message":"success"}
+
+2020-06-19 15:30:00 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:30:00 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:30:13 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherPromotion *****
+2020-06-19 15:30:13 INFO  restAPI:36 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:30:13 INFO  restAPI:37 - Case:Valid session id and page
+2020-06-19 15:30:28 INFO  restAPI:184 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:30:28 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:30:28 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:30:28 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:30:28 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:30:28 INFO  restAPI:189 - pin:123456
+2020-06-19 15:30:31 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1321,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:30:31 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:30:31 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:30:31 INFO  restAPI:209 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:30:31 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:30:31 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:30:33 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1321,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:30:33 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:30:33 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:30:33 INFO  restAPI:221 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:30:33 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:30:33 INFO  restAPI:223 - id:1321
+2020-06-19 15:30:33 INFO  restAPI:224 - pin:123456
+2020-06-19 15:30:35 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:30:35 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:30:35 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:30:35 INFO  restAPI:495 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:30:35 INFO  restAPI:496 - Test Data: 
+2020-06-19 15:30:35 INFO  restAPI:497 - session id:A76E30B2AF6084C9108DD6D66C17991A
+2020-06-19 15:30:35 INFO  restAPI:498 - page:2
+2020-06-19 15:30:40 INFO  restAPI:505 - {"code":200,"message":"success","data":[{"id":11,"name":"Diskon 25% (max Rp 25.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1500508800000},{"id":12,"name":"Diskon 30% (max Rp 30.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1532044800000},{"id":13,"name":"Diskon 35% (max Rp 35.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1563580800000},{"id":14,"name":"Diskon 40% (max Rp 50.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1595203200000},{"id":15,"name":"Diskon 45% (max Rp 75.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1626739200000},{"id":16,"name":"Diskon 50% (max Rp 100.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1658275200000}]}
+2020-06-19 15:30:40 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:30:40 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:30:46 INFO  restAPI:347 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:30:46 INFO  restAPI:354 - {"code":200,"message":"success"}
+
+2020-06-19 15:30:46 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:30:46 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:30:57 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherPromotion *****
+2020-06-19 15:32:21 INFO  restAPI:36 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:32:21 INFO  restAPI:37 - Case:Valid session id and page
+2020-06-19 15:32:37 INFO  restAPI:184 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:32:37 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:32:37 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:32:37 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:32:37 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:32:37 INFO  restAPI:189 - pin:123456
+2020-06-19 15:32:42 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1322,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:32:42 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:32:42 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:32:42 INFO  restAPI:209 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:32:42 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:32:42 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:32:44 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1322,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:32:44 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:32:44 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:32:45 INFO  restAPI:221 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:32:45 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:32:45 INFO  restAPI:223 - id:1322
+2020-06-19 15:32:45 INFO  restAPI:224 - pin:123456
+2020-06-19 15:32:47 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:32:47 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:32:47 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:32:47 INFO  restAPI:495 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:32:47 INFO  restAPI:496 - Test Data: 
+2020-06-19 15:32:47 INFO  restAPI:497 - session id:63FFC3B353C68BA6F2F8E6BB970C050B
+2020-06-19 15:32:47 INFO  restAPI:498 - page:1
+2020-06-19 15:32:49 INFO  restAPI:505 - {"code":404,"message":"user not found"}
+2020-06-19 15:32:49 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:32:49 INFO  restAPI:94 - Status Code = 404
+2020-06-19 15:32:49 INFO  restAPI:347 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:32:50 INFO  restAPI:354 - {"code":200,"message":"success"}
+
+2020-06-19 15:32:50 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:32:50 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:33:00 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherPromotion *****
+2020-06-19 15:33:00 INFO  restAPI:36 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:33:00 INFO  restAPI:37 - Case:Valid session id and page
+2020-06-19 15:33:16 INFO  restAPI:184 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:33:16 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:33:16 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:33:16 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:33:16 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:33:16 INFO  restAPI:189 - pin:123456
+2020-06-19 15:33:19 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1323,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:33:19 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:33:19 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:33:19 INFO  restAPI:209 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:33:19 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:33:19 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:33:21 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1323,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:33:21 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:33:21 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:33:21 INFO  restAPI:221 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:33:21 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:33:21 INFO  restAPI:223 - id:1323
+2020-06-19 15:33:21 INFO  restAPI:224 - pin:123456
+2020-06-19 15:33:23 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:33:23 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:33:23 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:33:23 INFO  restAPI:495 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:33:23 INFO  restAPI:496 - Test Data: 
+2020-06-19 15:33:23 INFO  restAPI:497 - session id:C1AAE1A23362CD4F8E4DE85349C0EB93
+2020-06-19 15:33:23 INFO  restAPI:498 - page:2
+2020-06-19 15:33:28 INFO  restAPI:505 - {"code":200,"message":"success","data":[{"id":11,"name":"Diskon 25% (max Rp 25.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1500508800000},{"id":12,"name":"Diskon 30% (max Rp 30.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1532044800000},{"id":13,"name":"Diskon 35% (max Rp 35.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1563580800000},{"id":14,"name":"Diskon 40% (max Rp 50.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1595203200000},{"id":15,"name":"Diskon 45% (max Rp 75.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1626739200000},{"id":16,"name":"Diskon 50% (max Rp 100.000) buat beli pulsa","voucherTypeName":"discount","filePath":"https://res.cloudinary.com/darwmcfjo/image/upload/v1591548482/WhatsApp_Image_2020-05-30_at_7.27.48_PM_nessez.jpg","expiryDate":1658275200000}]}
+2020-06-19 15:33:28 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:33:28 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:33:33 INFO  restAPI:347 - ***** Started TC_Integration_VoucherPromotion *****
+2020-06-19 15:33:34 INFO  restAPI:354 - {"code":200,"message":"success"}
+
+2020-06-19 15:33:34 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:33:34 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:33:44 INFO  restAPI:176 - ***** Finished TC_Integration_VoucherPromotion *****
+2020-06-19 15:48:22 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-19 15:48:22 INFO  restAPI:71 - Case:Another user's transaction
+2020-06-19 15:49:26 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-19 15:49:26 INFO  restAPI:51 - Test Data: 
+2020-06-19 15:49:26 INFO  restAPI:52 - user id:1324
+2020-06-19 15:49:26 INFO  restAPI:53 - transactionId:746
+2020-06-19 15:49:39 INFO  restAPI:65 - invalid request format
+2020-06-19 15:50:15 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-19 15:50:15 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-19 15:50:15 INFO  restAPI:71 - Case:Valid user id (meets minimum purchase)
+2020-06-19 15:50:56 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-19 15:50:56 INFO  restAPI:51 - Test Data: 
+2020-06-19 15:50:56 INFO  restAPI:52 - user id:1326
+2020-06-19 15:50:56 INFO  restAPI:53 - transactionId:747
+2020-06-19 15:51:10 INFO  restAPI:65 - {"timestamp":"2020-06-19T08:51:10.513+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 15:51:10 INFO  restAPI:172 - {"timestamp":"2020-06-19T08:51:10.513+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-19 15:51:30 INFO  restAPI:176 - ***** Finished TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-19 15:51:30 INFO  restAPI:70 - ***** Started TC_Remote_Service_GetVoucherRecommendation *****
+2020-06-19 15:51:30 INFO  restAPI:71 - Case:Empty string user id
+2020-06-19 15:52:08 INFO  restAPI:50 - Call Get Voucher Recommendation API [Promotion Domain]
+2020-06-19 15:52:08 INFO  restAPI:51 - Test Data: 
+2020-06-19 15:52:08 INFO  restAPI:52 - user id:
+2020-06-19 15:52:08 INFO  restAPI:53 - transactionId:748
+2020-06-19 15:58:07 INFO  restAPI:36 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:58:07 INFO  restAPI:37 - Case:Telkomsel
+2020-06-19 15:58:23 INFO  restAPI:184 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:58:23 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:58:23 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:58:23 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:58:23 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:58:23 INFO  restAPI:189 - pin:123456
+2020-06-19 15:58:29 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1328,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:58:29 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:58:29 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:58:29 INFO  restAPI:209 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:58:29 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:58:29 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:58:31 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1328,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:58:31 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:58:31 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:58:31 INFO  restAPI:221 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:58:31 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:58:31 INFO  restAPI:223 - id:1328
+2020-06-19 15:58:31 INFO  restAPI:224 - pin:123456
+2020-06-19 15:58:33 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:58:33 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:58:33 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:58:33 INFO  restAPI:410 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:58:33 INFO  restAPI:411 - Test Data: 
+2020-06-19 15:58:33 INFO  restAPI:412 - session id:0E815CFB55D45D1E867EA9AE1A07DAD4
+2020-06-19 15:58:33 INFO  restAPI:413 - phone number:08125
+2020-06-19 15:58:36 INFO  restAPI:420 - {"code":200,"message":"success","data":{"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}}
+2020-06-19 15:58:36 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:58:36 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:58:51 INFO  restAPI:176 - ***** Finished TC_Integration_GetAllCatalog *****
+2020-06-19 15:58:51 INFO  restAPI:36 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:58:51 INFO  restAPI:37 - Case:Axis
+2020-06-19 15:59:06 INFO  restAPI:184 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:59:06 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:59:06 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:59:06 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:59:06 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:59:06 INFO  restAPI:189 - pin:123456
+2020-06-19 15:59:09 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1329,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:59:09 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:59:09 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:59:09 INFO  restAPI:209 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:59:09 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:59:09 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:59:11 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1329,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:59:11 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:59:11 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:59:11 INFO  restAPI:221 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:59:11 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:59:11 INFO  restAPI:223 - id:1329
+2020-06-19 15:59:11 INFO  restAPI:224 - pin:123456
+2020-06-19 15:59:13 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:59:13 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:59:13 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:59:13 INFO  restAPI:410 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:59:13 INFO  restAPI:411 - Test Data: 
+2020-06-19 15:59:13 INFO  restAPI:412 - session id:D5E22946E40FB365456D6A3B86A80684
+2020-06-19 15:59:13 INFO  restAPI:413 - phone number:08312
+2020-06-19 15:59:16 INFO  restAPI:420 - {"code":200,"message":"success","data":{"provider":{"id":6,"name":"Axis","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/Axis_logo_2015_fjybli_kgwzd1.png"},"catalog":[{"id":69,"value":5000,"price":6000},{"id":70,"value":10000,"price":11000},{"id":71,"value":25000,"price":24800},{"id":72,"value":50000,"price":49500},{"id":73,"value":100000,"price":98500},{"id":74,"value":200000,"price":197000},{"id":75,"value":300000,"price":295000},{"id":76,"value":500000,"price":495000},{"id":77,"value":1000000,"price":940000}]}}
+2020-06-19 15:59:16 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:59:16 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:59:31 INFO  restAPI:176 - ***** Finished TC_Integration_GetAllCatalog *****
+2020-06-19 15:59:31 INFO  restAPI:36 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:59:31 INFO  restAPI:37 - Case:Tri
+2020-06-19 15:59:46 INFO  restAPI:184 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:59:46 INFO  restAPI:185 - Test Data: 
+2020-06-19 15:59:46 INFO  restAPI:186 - name:Zanuar
+2020-06-19 15:59:46 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 15:59:46 INFO  restAPI:188 - phone:081252930398
+2020-06-19 15:59:46 INFO  restAPI:189 - pin:123456
+2020-06-19 15:59:49 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1330,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:59:49 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:59:49 INFO  restAPI:94 - Status Code = 201
+2020-06-19 15:59:49 INFO  restAPI:209 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:59:49 INFO  restAPI:210 - Test Data: 
+2020-06-19 15:59:49 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 15:59:51 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1330,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 15:59:51 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:59:51 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:59:51 INFO  restAPI:221 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:59:51 INFO  restAPI:222 - Test Data: 
+2020-06-19 15:59:51 INFO  restAPI:223 - id:1330
+2020-06-19 15:59:51 INFO  restAPI:224 - pin:123456
+2020-06-19 15:59:53 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 15:59:53 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:59:53 INFO  restAPI:94 - Status Code = 200
+2020-06-19 15:59:53 INFO  restAPI:410 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 15:59:53 INFO  restAPI:411 - Test Data: 
+2020-06-19 15:59:53 INFO  restAPI:412 - session id:0D393E8673418DEA102134B6D111D6D2
+2020-06-19 15:59:53 INFO  restAPI:413 - phone number:08996
+2020-06-19 15:59:56 INFO  restAPI:420 - {"code":200,"message":"success","data":{"provider":{"id":3,"name":"Tri","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/3-brand_cawkwp_pbjnni.png"},"catalog":[{"id":26,"value":1000,"price":1200},{"id":27,"value":2000,"price":2200},{"id":28,"value":3000,"price":3500},{"id":29,"value":4000,"price":4500},{"id":30,"value":5000,"price":5400},{"id":31,"value":8000,"price":8400},{"id":32,"value":10000,"price":10400},{"id":33,"value":15000,"price":15000},{"id":34,"value":20000,"price":19800},{"id":35,"value":25000,"price":24750},{"id":36,"value":30000,"price":29500},{"id":37,"value":50000,"price":49250},{"id":38,"value":100000,"price":98500},{"id":39,"value":150000,"price":148000},{"id":40,"value":200000,"price":197000},{"id":41,"value":300000,"price":295000},{"id":42,"value":500000,"price":495000}]}}
+2020-06-19 15:59:56 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 15:59:56 INFO  restAPI:94 - Status Code = 200
+2020-06-19 16:00:12 INFO  restAPI:176 - ***** Finished TC_Integration_GetAllCatalog *****
+2020-06-19 16:00:12 INFO  restAPI:36 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 16:00:12 INFO  restAPI:37 - Case:Indosat
+2020-06-19 16:00:28 INFO  restAPI:184 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 16:00:28 INFO  restAPI:185 - Test Data: 
+2020-06-19 16:00:28 INFO  restAPI:186 - name:Zanuar
+2020-06-19 16:00:28 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 16:00:28 INFO  restAPI:188 - phone:081252930398
+2020-06-19 16:00:28 INFO  restAPI:189 - pin:123456
+2020-06-19 16:00:31 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1331,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 16:00:31 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 16:00:31 INFO  restAPI:94 - Status Code = 201
+2020-06-19 16:00:31 INFO  restAPI:209 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 16:00:31 INFO  restAPI:210 - Test Data: 
+2020-06-19 16:00:31 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 16:00:32 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1331,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 16:00:32 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 16:00:32 INFO  restAPI:94 - Status Code = 200
+2020-06-19 16:00:32 INFO  restAPI:221 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 16:00:32 INFO  restAPI:222 - Test Data: 
+2020-06-19 16:00:32 INFO  restAPI:223 - id:1331
+2020-06-19 16:00:32 INFO  restAPI:224 - pin:123456
+2020-06-19 16:00:34 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 16:00:34 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 16:00:34 INFO  restAPI:94 - Status Code = 200
+2020-06-19 16:00:34 INFO  restAPI:410 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 16:00:34 INFO  restAPI:411 - Test Data: 
+2020-06-19 16:00:34 INFO  restAPI:412 - session id:A4632AD1CF68331AE21B500F6547E04A
+2020-06-19 16:00:34 INFO  restAPI:413 - phone number:08565
+2020-06-19 16:00:37 INFO  restAPI:420 - {"code":200,"message":"success","data":{"provider":{"id":4,"name":"Indosat","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/Indosat_Ooredoo_logo_wcpr2o_nqcou3.png"},"catalog":[{"id":43,"value":5000,"price":6400},{"id":44,"value":10000,"price":11500},{"id":45,"value":12000,"price":12500},{"id":46,"value":20000,"price":20000},{"id":47,"value":25000,"price":24800},{"id":48,"value":30000,"price":28850},{"id":49,"value":50000,"price":49000},{"id":50,"value":60000,"price":59500},{"id":51,"value":80000,"price":78000},{"id":52,"value":100000,"price":98000},{"id":53,"value":150000,"price":144000},{"id":54,"value":200000,"price":190000},{"id":55,"value":250000,"price":235000},{"id":56,"value":500000,"price":470000},{"id":57,"value":1000000,"price":940000}]}}
+2020-06-19 16:00:37 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 16:00:37 INFO  restAPI:94 - Status Code = 200
+2020-06-19 16:00:52 INFO  restAPI:176 - ***** Finished TC_Integration_GetAllCatalog *****
+2020-06-19 16:00:52 INFO  restAPI:36 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 16:00:52 INFO  restAPI:37 - Case:XL
+2020-06-19 16:01:08 INFO  restAPI:184 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 16:01:08 INFO  restAPI:185 - Test Data: 
+2020-06-19 16:01:08 INFO  restAPI:186 - name:Zanuar
+2020-06-19 16:01:08 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 16:01:08 INFO  restAPI:188 - phone:081252930398
+2020-06-19 16:01:08 INFO  restAPI:189 - pin:123456
+2020-06-19 16:01:11 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1332,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 16:01:11 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 16:01:11 INFO  restAPI:94 - Status Code = 201
+2020-06-19 16:01:11 INFO  restAPI:209 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 16:01:11 INFO  restAPI:210 - Test Data: 
+2020-06-19 16:01:11 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 16:01:13 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1332,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 16:01:13 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 16:01:13 INFO  restAPI:94 - Status Code = 200
+2020-06-19 16:01:13 INFO  restAPI:221 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 16:01:13 INFO  restAPI:222 - Test Data: 
+2020-06-19 16:01:13 INFO  restAPI:223 - id:1332
+2020-06-19 16:01:13 INFO  restAPI:224 - pin:123456
+2020-06-19 16:01:15 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 16:01:15 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 16:01:15 INFO  restAPI:94 - Status Code = 200
+2020-06-19 16:01:15 INFO  restAPI:410 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 16:01:15 INFO  restAPI:411 - Test Data: 
+2020-06-19 16:01:15 INFO  restAPI:412 - session id:A7FCF2D27045AEB08BF9628002EE1A55
+2020-06-19 16:01:15 INFO  restAPI:413 - phone number:08773
+2020-06-19 16:01:18 INFO  restAPI:420 - {"code":200,"message":"success","data":{"provider":{"id":1,"name":"XL","image":"https://res.cloudinary.com/alvark/image/upload/v1592209102/danapulsa/20180111100558_21XL_logo_2016_kyu40w_vkqgnc.png"},"catalog":[{"id":1,"value":5000,"price":6000},{"id":2,"value":10000,"price":10700},{"id":3,"value":15000,"price":14900},{"id":4,"value":25000,"price":24750},{"id":5,"value":30000,"price":29850},{"id":6,"value":50000,"price":49500},{"id":7,"value":100000,"price":98500},{"id":8,"value":150000,"price":148000},{"id":9,"value":200000,"price":197750},{"id":10,"value":300000,"price":295000},{"id":11,"value":500000,"price":495000},{"id":12,"value":1000000,"price":990000}]}}
+2020-06-19 16:01:18 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 16:01:18 INFO  restAPI:94 - Status Code = 200
+2020-06-19 16:01:33 INFO  restAPI:176 - ***** Finished TC_Integration_GetAllCatalog *****
+2020-06-19 16:01:33 INFO  restAPI:36 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 16:01:33 INFO  restAPI:37 - Case:Smartfren
+2020-06-19 16:01:49 INFO  restAPI:184 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 16:01:49 INFO  restAPI:185 - Test Data: 
+2020-06-19 16:01:49 INFO  restAPI:186 - name:Zanuar
+2020-06-19 16:01:49 INFO  restAPI:187 - email:triromadon@gmail.com
+2020-06-19 16:01:49 INFO  restAPI:188 - phone:081252930398
+2020-06-19 16:01:49 INFO  restAPI:189 - pin:123456
+2020-06-19 16:01:51 INFO  restAPI:205 - {"code":201,"message":"created","data":{"id":1333,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 16:01:51 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 16:01:51 INFO  restAPI:94 - Status Code = 201
+2020-06-19 16:01:51 INFO  restAPI:209 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 16:01:51 INFO  restAPI:210 - Test Data: 
+2020-06-19 16:01:51 INFO  restAPI:211 - phone:6281252930398
+2020-06-19 16:01:53 INFO  restAPI:217 - {"code":200,"message":"success","data":{"id":1333,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-19 16:01:53 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 16:01:53 INFO  restAPI:94 - Status Code = 200
+2020-06-19 16:01:53 INFO  restAPI:221 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 16:01:53 INFO  restAPI:222 - Test Data: 
+2020-06-19 16:01:53 INFO  restAPI:223 - id:1333
+2020-06-19 16:01:53 INFO  restAPI:224 - pin:123456
+2020-06-19 16:01:55 INFO  restAPI:238 - {"code":200,"message":"success"}
+2020-06-19 16:01:55 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 16:01:55 INFO  restAPI:94 - Status Code = 200
+2020-06-19 16:01:55 INFO  restAPI:410 - ***** Started TC_Integration_GetAllCatalog *****
+2020-06-19 16:01:55 INFO  restAPI:411 - Test Data: 
+2020-06-19 16:01:55 INFO  restAPI:412 - session id:38BD05D6A9D390BADFEF98D31596B224
+2020-06-19 16:01:55 INFO  restAPI:413 - phone number:08810
+2020-06-19 16:01:58 INFO  restAPI:420 - {"code":200,"message":"success","data":{"provider":{"id":5,"name":"Smartfren","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Smartfren__282019_29_k5icie_grwdpg.png"},"catalog":[{"id":58,"value":5000,"price":5400},{"id":59,"value":10000,"price":10400},{"id":60,"value":20000,"price":19900},{"id":61,"value":50000,"price":49250},{"id":62,"value":60000,"price":59000},{"id":63,"value":100000,"price":99000},{"id":64,"value":150000,"price":148000},{"id":65,"value":200000,"price":197000},{"id":66,"value":250000,"price":250000},{"id":67,"value":300000,"price":295000},{"id":68,"value":500000,"price":495000}]}}
+2020-06-19 16:01:58 INFO  restAPI:91 - ***** Check Status Code *****
+2020-06-19 16:01:58 INFO  restAPI:94 - Status Code = 200
+2020-06-19 16:02:14 INFO  restAPI:176 - ***** Finished TC_Integration_GetAllCatalog *****

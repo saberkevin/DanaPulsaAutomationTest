@@ -65,6 +65,7 @@ public class TC_Integration_VoucherPromotion extends TestBase {
 	public void testPromotionVouchers() {
 		getPromotionVoucher(user.getSessionId(), page);
 		checkStatusCode("200");
+		user.setSessionId(response.getCookie("JSESSIONID"));
 		
 		Assert.assertTrue(response.getBody().asString().contains(result));
 
@@ -159,6 +160,10 @@ public class TC_Integration_VoucherPromotion extends TestBase {
 	
 	@AfterClass
 	public void afterClass() {
+		// logout
+		logout(user.getSessionId());
+		checkStatusCode("200");
+		
 		// delete user
 		deleteBalanceByUserId(user.getId());
 		deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());

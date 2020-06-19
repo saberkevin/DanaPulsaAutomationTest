@@ -15,6 +15,6 @@ public class Factory_Remote_Service_GetPaymentMethodNameById extends TestBase {
 	
 	@DataProvider(name="dp")
 	public String[][] dataProvider() throws IOException {
-		return getExcelData("../DanaPulsaAutomationTest/src/test/java/remoteService/order/RemoteServiceOrderTestData.xlsx", "Get Payment Method Name By ID");
+		return getExcelData(ConfigRemoteServiceOrder.FILE_PATH, ConfigRemoteServiceOrder.SHEET_GET_PAYMENT_METHOD_NAME_BY_ID);
 	}
 }
