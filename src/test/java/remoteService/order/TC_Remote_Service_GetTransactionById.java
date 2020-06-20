@@ -30,10 +30,6 @@ public class TC_Remote_Service_GetTransactionById extends TestBase {
 	private String result;
 	private boolean isCreateUser;
 	
-	public TC_Remote_Service_GetTransactionById() {
-		
-	}
-	
 	public TC_Remote_Service_GetTransactionById(String testCase, String transactionId, String result) {
 		this.testCase = testCase;
 		this.transactionId = transactionId;
@@ -66,23 +62,17 @@ public class TC_Remote_Service_GetTransactionById extends TestBase {
 		logger.info("Case:" + testCase);
 		
 		if (transactionId.equals("true")) {
-			isCreateUser = true;
-			
 			// initialize user
-			user.setName("Zanuar");
-			user.setEmail("triromadon@gmail.com");
-			user.setUsername("081252930398");
-			user.setPin(123456);
-			
-			// delete if exist
-			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
-			deleteUserIfExist(user.getEmail(), user.getUsername());
+			user.setName(ConfigRemoteServiceOrder.USER_NAME);
+			user.setEmail(ConfigRemoteServiceOrder.USER_EMAIL);
+			user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
+			user.setPin(ConfigRemoteServiceOrder.USER_PIN);
 			
 			// insert user into database
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());			
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));
-
-			// insert balance into database
 			createBalance(user.getId(), 10000000);
 			
 			// initialize catalog - TELKOMSEL 15k
@@ -98,15 +88,15 @@ public class TC_Remote_Service_GetTransactionById extends TestBase {
 			
 			// insert transaction into database
 			createTransaction(user.getId(), user.getUsername(), catalog.getId());
-			
-			// initialize transaction
 			transaction.setId(getTransactionIdByUserId(user.getId()));
 			transaction.setPhoneNumber(user.getUsername());
 			transaction.setCatalogId(catalog.getId());
 			transaction.setMethodId(1);
-			transaction.setStatus("COMPLETED");
-			
+			transaction.setStatus("COMPLETED");			
 			transactionId = Long.toString(transaction.getId());
+			
+			// set flag
+			isCreateUser = true;
 		}
 	}
 	

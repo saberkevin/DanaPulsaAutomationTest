@@ -1,10 +1,10 @@
 package remoteService.order;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONObject;
 import org.testng.Assert;
@@ -33,10 +33,6 @@ public class TC_Remote_Service_Pay extends TestBase {
 	private String voucherId;
 	private String result;
 	private boolean isCreateUser;
-	
-	public TC_Remote_Service_Pay() {
-		
-	}
 	
 	public TC_Remote_Service_Pay(String testCase, String userId, String transactionId, String paymentMethodId, String voucherId, String result) {
 		this.testCase = testCase;
@@ -77,19 +73,15 @@ public class TC_Remote_Service_Pay extends TestBase {
 		logger.info("Case:" + testCase);
 		
 		if (userId.equals("true") || transactionId.equals("true")) {
-			isCreateUser = true;
-			
 			// initialize user
-			user.setName("Zanuar");
-			user.setEmail("triromadon@gmail.com");
-			user.setUsername("081252930398");
-			user.setPin(123456);
-			
-			// delete if exist
-			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
-			deleteUserIfExist(user.getEmail(), user.getUsername());
+			user.setName(ConfigRemoteServiceOrder.USER_NAME);
+			user.setEmail(ConfigRemoteServiceOrder.USER_EMAIL);
+			user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
+			user.setPin(ConfigRemoteServiceOrder.USER_PIN);
 			
 			// insert user into database
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());			
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));
 			
@@ -111,6 +103,9 @@ public class TC_Remote_Service_Pay extends TestBase {
 			createUserVoucher(user.getId(), 3, 1); // used
 			createUserVoucher(user.getId(), 4, 1); // used
 			createUserVoucher(user.getId(), 16, 2); // discount minpurchase 500K
+			
+			// set flag
+			isCreateUser = true;
 		}
 		
 		if (transactionId.equals("true")) {	
@@ -141,8 +136,7 @@ public class TC_Remote_Service_Pay extends TestBase {
 			transaction.setPhoneNumber(user.getUsername());
 			transaction.setCatalogId(catalog.getId());
 			transaction.setMethodId(1);
-			transaction.setPaymentMethodName("WALLET");
-			
+			transaction.setPaymentMethodName("WALLET");			
 			transactionId = Long.toString(transaction.getId());
 		}
 		
@@ -153,15 +147,11 @@ public class TC_Remote_Service_Pay extends TestBase {
 			anotherUser.setUsername("081252930397");
 			anotherUser.setPin(123456);
 			
-			// delete if exist
-			deleteBalanceByEmailByUsername(anotherUser.getEmail(), anotherUser.getUsername());
-			deleteUserIfExist(anotherUser.getEmail(), anotherUser.getUsername());
-			
 			// insert user into database
+			deleteBalanceByEmailByUsername(anotherUser.getEmail(), anotherUser.getUsername());
+			deleteUserIfExist(anotherUser.getEmail(), anotherUser.getUsername());			
 			createUser(anotherUser);
 			anotherUser.setId(getUserIdByUsername(anotherUser.getUsername()));
-			
-			// insert balance into database
 			createBalance(anotherUser.getId(), 10000000);
 			
 			// initialize catalog - TELKOMSEL 15k
@@ -177,14 +167,11 @@ public class TC_Remote_Service_Pay extends TestBase {
 
 			// insert transaction into database
 			createTransaction(anotherUser.getId(), anotherUser.getUsername(), catalog.getId(), 4);
-			
-			// initialize transaction
 			transaction.setId(getTransactionIdByUserId(anotherUser.getId()));
 			transaction.setPhoneNumber(anotherUser.getUsername());
 			transaction.setCatalogId(catalog.getId());
 			transaction.setMethodId(1);
-			transaction.setPaymentMethodName("WALLET");
-			
+			transaction.setPaymentMethodName("WALLET");			
 			transactionId = Long.toString(transaction.getId());
 		}
 	}
@@ -204,19 +191,39 @@ public class TC_Remote_Service_Pay extends TestBase {
 		String responseBody = response.getBody().asString();
 		Assert.assertTrue(responseBody.contains(result), responseBody);
 		
-		if (!responseBody.equals("unknown user")
-				&& !responseBody.equals("unknown transaction")
-				&& !responseBody.equals("not enough balance")
-				&& !responseBody.equals("user not found")
-				&& !responseBody.equals("unknown method")
-				&& !responseBody.equals("insufficient purchase amount to use this voucher")
-				&& !responseBody.equals("your voucher not found")
-				&& !responseBody.equals("your voucher is not applicable with your number")
-				&& !responseBody.equals("your voucher is not applicable with payment method")
-				&& !responseBody.equals("invalid request format")) {
-
-//			Assert.assertEquals(response.getBody().jsonPath().getLong("balance"), user.getBalance());
-			
+		final String errorMessage1 = "unknown user";
+		final String errorMessage2 = "unknown transaction";
+		final String errorMessage3 = "not enough balance";
+		final String errorMessage4 = "user not found";
+		final String errorMessage5 = "unknown method";
+		final String errorMessage6 = "insufficient purchase amount to use this voucher";
+		final String errorMessage7 = "your voucher not found";
+		final String errorMessage8 = "your voucher is not applicable with your number";
+		final String errorMessage9 = "your voucher is not applicable with payment method";
+		final String errorMessage10 = "invalid request format";
+		
+		if (responseBody.contains(errorMessage1)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage2)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage3)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage4)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage5)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage6)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage7)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage8)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage9)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage10)) {
+			// do some code
+		} else {
+//			Assert.assertEquals(response.getBody().jsonPath().getLong("balance"), user.getBalance());			
 			Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.id"), transaction.getId());
 			Assert.assertEquals(response.getBody().jsonPath().get("transaction.method"), transaction.getPaymentMethodName());
 			Assert.assertEquals(response.getBody().jsonPath().get("transaction.phoneNumber"), transaction.getPhoneNumber());
@@ -234,183 +241,117 @@ public class TC_Remote_Service_Pay extends TestBase {
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
+		
+		final String errorMessage1 = "unknown user";
+		final String errorMessage2 = "unknown transaction";
+		final String errorMessage3 = "not enough balance";
+		final String errorMessage4 = "user not found";
+		final String errorMessage5 = "unknown method";
+		final String errorMessage6 = "insufficient purchase amount to use this voucher";
+		final String errorMessage7 = "your voucher not found";
+		final String errorMessage8 = "your voucher is not applicable with your number";
+		final String errorMessage9 = "your voucher is not applicable with payment method";
+		final String errorMessage10 = "invalid request format";
+		
 		String responseBody = response.getBody().asString();
+		switch (responseBody) {
+		case errorMessage1:
+			query = "SELECT * FROM user WHERE id = ?";
+			param.put("1", Long.parseLong(userId));
+			data = sqlExec(query, param, "member");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage2:
+			// do some code
+			break;			
+		case errorMessage3:
+			query = "SELECT * FROM transaction WHERE id = ? AND userId = ? AND statusId IN (3, 4)";
+			param.put("1", Long.parseLong(transactionId));
+			param.put("1", Long.parseLong(userId));
+			data = sqlExec(query, param, "order");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage4:
+			query = "SELECT * FROM user WHERE id = ?";
+			param.put("1", Long.parseLong(userId));
+			data = sqlExec(query, param, "member");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage5:
+			query = "SELECT * FROM payment_method WHERE id = ?";
+			param.put("1", Long.parseLong(paymentMethodId));
+			data = sqlExec(query, param, "order");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage6:
+			query = "SELECT * FROM voucher WHERE id = ?";
+			param.put("1", Long.parseLong(voucherId));
+			data = sqlExec(query, param, "promotion");
 
-		if (responseBody.equals("unknown transaction")) {
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT * FROM transaction WHERE id = ? AND userId = ? AND statusId IN (3, 4)";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(transactionId));
-				ps.setLong(2, Long.parseLong(userId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.equals("unknown user") || responseBody.equals("user not found")) {
-			try {
-				Connection conn = getConnectionMember();
-				String queryString = "SELECT * FROM user WHERE id = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(userId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.equals("invalid request format")) {
+			if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");
+			for (Map<String, Object> map : data)
+				Assert.assertTrue(catalog.getPrice() < (int) map.get("minPurchase"));
+
+			break;
+		case errorMessage7:
+			query = "SELECT * FROM user_voucher A LEFT JOIN voucher B ON A.voucherId = B.id "
+					+ "WHERE A.id = ? AND A.voucherId = ? AND A.voucherStatusId != 1 AND B.isActive = 1";
+			param.put("1", Long.parseLong(userId));
+			param.put("2", Long.parseLong(voucherId));
+			data = sqlExec(query, param, "promotion");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage8:
+			query = "SELECT * FROM voucher A LEFT JOIN voucher_provider B on A.id = B.voucherId WHERE A.id = ? AND B.providerId = ?";
+			param.put("1", Long.parseLong(voucherId));
+			param.put("2", provider.getId());
+			data = sqlExec(query, param, "promotion");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage9:
+			query = "SELECT * FROM voucher_payment_method WHERE paymentMethodId = ?";
+			param.put("1", Long.parseLong(paymentMethodId));
+			data = sqlExec(query, param, "promotion");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage10:
 			// do some code
-			
-		} else if (responseBody.equals("not enough balance")) {
-			// do some code
-			
-		} else if (responseBody.equals("insufficient purchase amount to use this voucher")) {
-			try {	
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT * FROM voucher WHERE id = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(voucherId));
-				
-				ResultSet rs = ps.executeQuery();
-				
-				if (!rs.next()) {
-					Assert.assertTrue(false, "no transaction found in database");
-				}
-				do {
-					Assert.assertTrue(catalog.getPrice() < rs.getLong("minPurchase"));
-				} while (rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}			
-		} else if (responseBody.equals("your voucher not found")) {
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT * FROM user_voucher A "
-						+ "LEFT JOIN voucher B ON A.voucherId = B.id "
-						+ "WHERE A.id = ? AND A.voucherId = ? AND A.voucherStatusId != 1 AND B.isActive = 1";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(userId));
-				ps.setLong(2, Long.parseLong(voucherId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+			break;
+		default:
+			query = "SELECT A.*, B.value, B.price, C.id AS providerId, C.name AS providerName, C.image AS providerImage, "
+					+ "D.name AS transactionStatus, E.name AS paymentMethodName "
+					+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
+					+ "LEFT JOIN provider C on B.providerId = C.id "
+					+ "LEFT JOIN transaction_status D on A.statusId = D.id "
+					+ "LEFT JOIN payment_method E on A.methodId = E.id "
+					+ "WHERE A.id = ? AND A.userId = ?";
+			param.put("1", Long.parseLong(transactionId));
+			param.put("2", Long.parseLong(userId));
+			data = sqlExec(query, param, "order");
+
+			if (data.size() == 0) Assert.assertTrue(false, "no transaction found in database");
+			for (Map<String, Object> map : data) {
+				Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.id"), map.get("id"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("transaction.method"), map.get("paymentMethodName"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("transaction.phoneNumber"), map.get("phoneNumber"));
+				Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.catalog.provider.id"), map.get("providerId"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("transaction.catalog.provider.name"), map.get("providerName"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("transaction.catalog.provider.image"), map.get("providerImage"));
+				Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.catalog.value"), map.get("value"));
+				Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.catalog.price"), map.get("price"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("transaction.status"), map.get("transactionStatus"));
+//				Assert.assertEquals(response.getBody().jsonPath().getString("transaction.createdAt"), map.get("createdAt"));
+//				Assert.assertEquals(response.getBody().jsonPath().getString("transaction.updatedAt"), map.get("updatedAt"));
 			}
-		} else if (responseBody.contains("your voucher is not applicable with your number")) {
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT * FROM voucher A "
-						+ "LEFT JOIN voucher_provider B on A.id = B.voucherId "
-						+ "WHERE A.id = ? AND B.providerId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(voucherId));
-				ps.setLong(2, provider.getId());
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		} else if (responseBody.contains("unknown method")) {
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT * FROM payment_method WHERE id = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(paymentMethodId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}			
-		} else if (responseBody.contains("your voucher is not applicable with payment method")) {
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT * FROM voucher_payment_method WHERE paymentMethodId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(paymentMethodId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}			
-		} else {
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT "
-						+ "A.*, "
-						+ "B.value, "
-						+ "B.price, "
-						+ "C.id AS providerId, "
-						+ "C.name AS providerName, "
-						+ "C.image AS providerImage, "
-						+ "D.name AS transactionStatus, "
-						+ "E.name AS paymentMethodName "
-						+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
-						+ "LEFT JOIN provider C on B.providerId = C.id "
-						+ "LEFT JOIN transaction_status D on A.statusId = D.id "
-						+ "LEFT JOIN payment_method E on A.methodId = E.id "
-						+ "WHERE A.id = ? AND A.userId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(transactionId));
-				ps.setLong(2, Long.parseLong(userId));
-				
-				ResultSet rs = ps.executeQuery();
-				
-				if (!rs.next()) {
-					Assert.assertTrue(false, "no transaction found in database");
-				}
-				do {
-					Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.id"), rs.getLong("id"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("transaction.method"), rs.getString("paymentMethodName"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("transaction.phoneNumber"), rs.getString("phoneNumber"));
-					Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.catalog.provider.id"), rs.getLong("providerId"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("transaction.catalog.provider.name"), rs.getString("providerName"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("transaction.catalog.provider.image"), rs.getString("providerImage"));
-					Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.catalog.value"), rs.getLong("value"));
-					Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.catalog.price"), rs.getLong("price"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("transaction.status"), rs.getString("transactionStatus"));
-//					Assert.assertEquals(response.getBody().jsonPath().getString("transaction.createdAt"), rs.getString("createdAt"));
-//					Assert.assertEquals(response.getBody().jsonPath().getString("transaction.updatedAt"), rs.getString("updatedAt"));
-				} while(rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			break;
 		}
 	}
 	
 	@AfterClass
 	public void afterClass() {
-		// delete user
 		if (isCreateUser == true) {
 			deleteUserVoucherByUserId(user.getId());
 			deleteTransactionByUserId(user.getId());
@@ -418,14 +359,12 @@ public class TC_Remote_Service_Pay extends TestBase {
 			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
 		}
 		
-		// delete another user
 		if (testCase.equals("Another user's transaction")) {
 			deleteTransactionByUserId(anotherUser.getId());
 			deleteBalanceByUserId(anotherUser.getId());
 			deleteUserByEmailAndUsername(anotherUser.getEmail(), anotherUser.getUsername());			
 		}
 
-		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());
 	}
 }

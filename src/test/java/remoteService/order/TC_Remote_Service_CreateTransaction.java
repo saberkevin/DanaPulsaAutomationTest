@@ -1,9 +1,5 @@
 package remoteService.order;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -29,10 +25,6 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 	private String catalogId;
 	private String result;
 	private boolean isCreateUser;
-	
-	public TC_Remote_Service_CreateTransaction() {
-		
-	}
 	
 	public TC_Remote_Service_CreateTransaction(String testCase, String userId, String phoneNumber, String catalogId, String result) {
 		this.testCase = testCase;

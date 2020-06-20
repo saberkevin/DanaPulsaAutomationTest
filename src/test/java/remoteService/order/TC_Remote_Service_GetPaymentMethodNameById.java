@@ -21,10 +21,6 @@ public class TC_Remote_Service_GetPaymentMethodNameById extends TestBase {
 	private String methodId;
 	private String result;
 	
-	public TC_Remote_Service_GetPaymentMethodNameById() {
-		
-	}
-	
 	public TC_Remote_Service_GetPaymentMethodNameById(String testCase, String methodId, String result) {
 		this.testCase = testCase;
 		this.methodId = methodId;

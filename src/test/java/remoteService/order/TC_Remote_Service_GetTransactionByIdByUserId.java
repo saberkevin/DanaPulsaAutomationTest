@@ -31,11 +31,7 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 	private String transactionId;
 	private String result;
 	private boolean isCreateUser;
-	
-	public TC_Remote_Service_GetTransactionByIdByUserId() {
-		
-	}
-	
+
 	public TC_Remote_Service_GetTransactionByIdByUserId(String testCase, String userId, String transactionId, String result) {
 		this.testCase = testCase;
 		this.userId = userId;
@@ -70,28 +66,23 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 		logger.info("Case:" + testCase);
 		
 		if (userId.equals("true") || transactionId.equals("true")) {
-			isCreateUser = true;
-			
-			// initialize user
-			user.setName("Zanuar");
-			user.setEmail("triromadon@gmail.com");
-			user.setUsername("081252930398");
-			user.setPin(123456);
-			
-			// delete if exist
-			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
-			deleteUserIfExist(user.getEmail(), user.getUsername());
+			user.setName(ConfigRemoteServiceOrder.USER_NAME);
+			user.setEmail(ConfigRemoteServiceOrder.USER_EMAIL);
+			user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
+			user.setPin(ConfigRemoteServiceOrder.USER_PIN);
 			
 			// insert user into database
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());			
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));
-			
-			if (userId.equals("true")) {
-				userId = Long.toString(user.getId());				
-			}
-			
-			// insert balance into database
 			createBalance(user.getId(), 10000000);
+
+			if (userId.equals("true"))
+				userId = Long.toString(user.getId());
+			
+			// set flag
+			isCreateUser = true;
 		}
 		
 		if (transactionId.equals("true")) {	
@@ -108,15 +99,12 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 
 			// insert transaction into database
 			createTransaction(user.getId(), user.getUsername(), catalog.getId());
-			
-			// initialize transaction
 			transaction.setId(getTransactionIdByUserId(user.getId()));
 			transaction.setPhoneNumber(user.getUsername());
 			transaction.setCatalogId(catalog.getId());
 			transaction.setMethodId(1);
 			transaction.setStatus("COMPLETED");
-			transaction.setPaymentMethodName("WALLET");
-			
+			transaction.setPaymentMethodName("WALLET");			
 			transactionId = Long.toString(transaction.getId());
 		}
 		
@@ -127,15 +115,11 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 			anotherUser.setUsername("081252930397");
 			anotherUser.setPin(123456);
 			
-			// delete if exist
-			deleteBalanceByEmailByUsername(anotherUser.getEmail(), anotherUser.getUsername());
-			deleteUserIfExist(anotherUser.getEmail(), anotherUser.getUsername());
-			
 			// insert user into database
+			deleteBalanceByEmailByUsername(anotherUser.getEmail(), anotherUser.getUsername());
+			deleteUserIfExist(anotherUser.getEmail(), anotherUser.getUsername());			
 			createUser(anotherUser);
 			anotherUser.setId(getUserIdByUsername(anotherUser.getUsername()));
-			
-			// insert balance into database
 			createBalance(anotherUser.getId(), 10000000);
 			
 			// initialize catalog - TELKOMSEL 15k
@@ -151,15 +135,12 @@ public class TC_Remote_Service_GetTransactionByIdByUserId extends TestBase {
 
 			// insert transaction into database
 			createTransaction(anotherUser.getId(), anotherUser.getUsername(), catalog.getId());
-			
-			// initialize transaction
 			transaction.setId(getTransactionIdByUserId(anotherUser.getId()));
 			transaction.setPhoneNumber(anotherUser.getUsername());
 			transaction.setCatalogId(catalog.getId());
 			transaction.setMethodId(1);
 			transaction.setStatus("COMPLETED");
-			transaction.setPaymentMethodName("WALLET");
-			
+			transaction.setPaymentMethodName("WALLET");			
 			transactionId = Long.toString(transaction.getId());
 		}
 	}

@@ -20,10 +20,6 @@ public class TC_Remote_Service_GetProviderById extends TestBase {
 	private String testCase;
 	private String providerId;
 	private String result;
-	
-	public TC_Remote_Service_GetProviderById() {
-		
-	}
 
 	public TC_Remote_Service_GetProviderById(String testCase, String providerId, String result) {
 		this.testCase = testCase;

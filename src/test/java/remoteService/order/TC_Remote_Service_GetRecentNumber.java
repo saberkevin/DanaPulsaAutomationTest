@@ -28,11 +28,7 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 	private String userId;
 	private String result;
 	private boolean isCreateUser;
-	
-	public TC_Remote_Service_GetRecentNumber() {
-		
-	}
-	
+
 	public TC_Remote_Service_GetRecentNumber(String testCase, String userId, String result) {
 		this.testCase = testCase;
 		this.userId = userId;
@@ -64,26 +60,20 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Case:" + testCase);
 		
-		if (userId.equals("true")) {
-			isCreateUser = true;
-			
+		if (userId.equals("true")) {			
 			// initialize user
-			user.setName("Zanuar");
-			user.setEmail("triromadon@gmail.com");
-			user.setUsername("081252930398");
-			user.setPin(123456);
-			
-			// delete if exist
-			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
-			deleteUserIfExist(user.getEmail(), user.getUsername());
+			user.setName(ConfigRemoteServiceOrder.USER_NAME);
+			user.setEmail(ConfigRemoteServiceOrder.USER_EMAIL);
+			user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
+			user.setPin(ConfigRemoteServiceOrder.USER_PIN);
 			
 			// insert user into database
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());			
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));			
-			userId = Long.toString(user.getId());
-
-			// insert balance into database
 			createBalance(user.getId(), 10000000);
+			userId = Long.toString(user.getId());
 						
 			// initialize provider - TELKOMSEL
 			provider.setId(2);
@@ -94,14 +84,15 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 			if (testCase.equals("Valid ID (below 10 transaction history)")) {
 				createTransaction(user.getId(), user.getUsername(), 13);
 				phoneNumbers[0] = user.getUsername();
-				
 			} else if (testCase.equals("Valid ID (more than 10 transaction history)")) {
-
 				for (int i = 0; i < 11; i++) {
 					createTransaction(user.getId(), "08125216179" + Integer.toString(i), 13);
 					phoneNumbers[i] = "08125216179" + Integer.toString(i);
 				}
 			}
+			
+			// set flag
+			isCreateUser = true;
 		}
 	}
 	

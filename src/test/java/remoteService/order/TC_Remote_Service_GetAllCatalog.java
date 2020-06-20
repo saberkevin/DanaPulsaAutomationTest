@@ -21,10 +21,6 @@ public class TC_Remote_Service_GetAllCatalog extends TestBase {
 	private String phonePrefix;
 	private String result;
 	
-	public TC_Remote_Service_GetAllCatalog() {
-		
-	}
-	
 	public TC_Remote_Service_GetAllCatalog(String testCase, String phonePrefix, String result) {
 		this.testCase = testCase;
 		this.phonePrefix = phonePrefix;
@@ -116,7 +112,7 @@ public class TC_Remote_Service_GetAllCatalog extends TestBase {
 			break;
 		case errorMessage2:
 			// do some code
-				break;
+			break;
 		case errorMessage3:
 			// do some code
 			break;
