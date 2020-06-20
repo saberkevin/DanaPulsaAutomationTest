@@ -4,11 +4,14 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.json.simple.JSONObject;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import io.restassured.RestAssured;
+import io.restassured.http.Method;
 
 public class TC_Service_Increase_Balance extends TestBase{
 	
@@ -37,6 +40,7 @@ public class TC_Service_Increase_Balance extends TestBase{
 	    return true;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Test
 	void increaseBalanceUser()
 	{	
@@ -45,10 +49,23 @@ public class TC_Service_Increase_Balance extends TestBase{
 		{
 			balanceBefore = balanceBefore.substring(1, balanceBefore.length()-1);
 		}
-		String routingKey = "increaseBalance";
+		String queue = "increaseBalance";
 		String message = "{\"id\":\""+id+"\",\"value\":\""+value+"\"}";
-		System.out.println(message);
-		responseResult = callRP(memberAMQP, routingKey, message);
+		
+		RestAssured.baseURI = memberURI;
+		httpRequest = RestAssured.given();
+		
+		JSONObject requestParams = new JSONObject();
+		
+		requestParams.put("queue", queue);
+		requestParams.put("message", message);
+		
+		httpRequest.header("Content-Type", "application/json");
+		httpRequest.body(requestParams.toJSONString());
+		
+		response = httpRequest.request(Method.GET);
+		
+		responseResult = response.getBody().asString();
 		
 		logger.info("Test Data: ");
 		logger.info("id:" + id);
