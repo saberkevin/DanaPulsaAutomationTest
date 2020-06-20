@@ -78,7 +78,7 @@ public class TestBase {
 	public void setup()
 	{
 		logger = Logger.getLogger("restAPI");;
-		PropertyConfigurator.configure("../DanaPulsaAutomationTest/src/Log4j.properties");
+		PropertyConfigurator.configure("src/Log4j.properties");
 		logger.setLevel(Level.DEBUG);
 	}
 	
