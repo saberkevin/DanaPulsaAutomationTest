@@ -72,9 +72,9 @@ public class TC_History_In_Progress extends TestBase{
 					param.put("userId",Long.parseLong(userId));
 					param.put("id",Long.parseLong(String.valueOf(data.get(i).get("id"))));
 					param.put("page", Long.parseLong(page)*10-10);
-					List<Map<String, Object>> response = sqlExec(query, param, "ORDER");
+					List<Map<String, Object>> responseResult = sqlExec(query, param, "ORDER");
 					
-					for (Map<String, Object> result : response) 
+					for (Map<String, Object> result : responseResult) 
 					{
 						SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
 					    String resultDate= formatter.format(result.get("createdAt"));
@@ -88,8 +88,8 @@ public class TC_History_In_Progress extends TestBase{
 						
 						Map<String, Object> param2 = new LinkedHashMap<String, Object>();
 						param2.put("voucherId",Long.parseLong(result.get("voucherId").toString()));
-						List<Map<String, Object>> response2 = sqlExec(query2, param2, "PROMOTION");
-						for (Map<String, Object> result2 : response2) 
+						List<Map<String, Object>> responseResult2 = sqlExec(query2, param2, "PROMOTION");
+						for (Map<String, Object> result2 : responseResult2) 
 						{
 							Assert.assertEquals(result2.get("voucher"), data.get(i).get("voucher"));
 						}

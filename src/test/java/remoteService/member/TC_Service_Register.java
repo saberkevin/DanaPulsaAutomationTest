@@ -2,8 +2,10 @@ package remoteService.member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -84,79 +86,56 @@ public class TC_Service_Register extends TestBase{
 			
 			String query = "SELECT id, name, email, username, pin FROM user\n" + 
 					"WHERE id = ? AND name = ?  AND email = ? AND username = ?";
-			try {
-				Connection conUser = setConnection("MEMBER");
-				PreparedStatement psGetUser = conUser.prepareStatement(query);
-				psGetUser.setLong(1, Long.parseLong(jsonPath.get("id").toString()));
-				psGetUser.setString(2, jsonPath.get("name"));
-				psGetUser.setString(3, jsonPath.get("email"));
-				psGetUser.setString(4, jsonPath.get("username"));
-				
-				ResultSet result = psGetUser.executeQuery();
-				
-				while(result.next())
-				{
-					Assert.assertEquals(Long.parseLong(jsonPath.get("id").toString()), result.getLong("id"));
-					Assert.assertEquals(jsonPath.get("name"), result.getString("name"));
-					Assert.assertEquals(jsonPath.get("email"), result.getString("email"));
-					Assert.assertEquals(jsonPath.get("username"), result.getString("username"));
-					Assert.assertEquals(Long.parseLong(pin), result.getLong("pin"));
-				}
-				
-				conUser.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			Map<String, Object> param = new LinkedHashMap<String, Object>();
+			param.put("id", Long.parseLong(jsonPath.get("id").toString()));
+			param.put("name", jsonPath.get("name"));
+			param.put("email", jsonPath.get("email"));
+			param.put("username", jsonPath.get("username"));
+			
+			List<Map<String, Object>> responseResult = sqlExec(query, param, "MEMBER");
+			
+			for (Map<String, Object> result : responseResult) 
+			{
+				Assert.assertEquals(Long.parseLong(jsonPath.get("id").toString()), result.get("id"));
+				Assert.assertEquals(jsonPath.get("name"), result.get("name"));
+				Assert.assertEquals(jsonPath.get("email"), result.get("email"));
+				Assert.assertEquals(jsonPath.get("username"), result.get("username"));
+				Assert.assertEquals(pin, result.get("pin"));
 			}
 		}
 		else if(responseResult.startsWith("invalid") || responseResult.contains("should not be empty"))
 		{	
 			String query = "SELECT name, email, username, pin FROM user\n" + 
 					"WHERE name = ?  AND email = ? AND username = ? AND pin = ?";
-			try {
-				Connection conUser = setConnection("MEMBER");
-				PreparedStatement psGetUser = conUser.prepareStatement(query);
-				psGetUser.setString(1, name);
-				psGetUser.setString(2, email);
-				psGetUser.setString(3, replacePhoneForAssertion(phone));
-				psGetUser.setString(4, pin);
-				
-				ResultSet result = psGetUser.executeQuery();
-				
-				if(result.next())
-				{
-					Assert.assertTrue("should not exists in database", false);
-				}
-				
-				conUser.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			Map<String, Object> param = new LinkedHashMap<String, Object>();
+			param.put("name", name);
+			param.put("email", email);
+			param.put("username", replacePhoneForAssertion(phone));
+			param.put("pin", pin);
+			
+			List<Map<String, Object>> responseResult = sqlExec(query, param, "MEMBER");
+			
+			for (@SuppressWarnings("unused") Map<String, Object> result : responseResult) 
+			{
+				Assert.assertTrue("should not exists in database", false);
 			}
 		}
 		else if(responseResult.equals("user already exist"))
 		{	
 			String query = "SELECT COUNT(id) as count FROM user\n" + 
 					"WHERE name = ?  AND email = ? AND username = ? AND pin = ?";
-			try {
-				Connection conUser = setConnection("MEMBER");
-				PreparedStatement psGetUser = conUser.prepareStatement(query);
-				psGetUser.setString(1, name);
-				psGetUser.setString(2, email);
-				psGetUser.setString(3, replacePhoneForAssertion(phone));
-				psGetUser.setLong(4, Long.parseLong(pin));
-				
-				ResultSet result = psGetUser.executeQuery();
-				
-				while(result.next())
-				{
-					Assert.assertEquals(1, result.getInt("count"));
-				}
-				
-				conUser.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			Map<String, Object> param = new LinkedHashMap<String, Object>();
+			param.put("name", name);
+			param.put("email", email);
+			param.put("username", replacePhoneForAssertion(phone));
+			param.put("pin", Long.parseLong(pin));
+			
+			List<Map<String, Object>> responseResult = sqlExec(query, param, "MEMBER");
+			
+			
+			for (Map<String, Object> result : responseResult) 
+			{
+				Assert.assertEquals(1, result.get("count"));
 			}
 		}
 		else

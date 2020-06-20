@@ -43,9 +43,9 @@ public class TC_History_Details extends TestBase{
 		Map<String, Object> param = new LinkedHashMap<String, Object>();
 		param.put("userId",userId);
 		
-		List<Map<String, Object>> response = sqlExec(query, param, "ORDER");
+		List<Map<String, Object>> responseResult = sqlExec(query, param, "ORDER");
 		
-		for (Map<String, Object> result : response) 
+		for (Map<String, Object> result : responseResult) 
 		{
 			if(id.equals("valid")) id = String.valueOf(result.get("id"));
 			else if(id.equals("-")) id = "-"+String.valueOf(result.get("id"));
@@ -105,9 +105,9 @@ public class TC_History_Details extends TestBase{
 			param.put("userId",userId);
 			param.put("id", id);
 			
-			List<Map<String, Object>> response = sqlExec(query, param, "ORDER");
+			List<Map<String, Object>> responseResult = sqlExec(query, param, "ORDER");
 			
-			for (Map<String, Object> result : response) 
+			for (Map<String, Object> result : responseResult) 
 			{	    
 				Date dateResultCreatedAt = new Date(jsonPath.getLong("data.createdAt"));
 		        
@@ -145,9 +145,9 @@ public class TC_History_Details extends TestBase{
 					param2.put("userId",userId);
 					param2.put("id", id);
 					
-					List<Map<String, Object>> response2 = sqlExec(query2, param2, "PROMOTION");
+					List<Map<String, Object>> responseResult2 = sqlExec(query2, param2, "PROMOTION");
 					
-					for (Map<String, Object> result2 : response2) 
+					for (Map<String, Object> result2 : responseResult2) 
 					{
 						Assert.assertEquals(result2.get("voucher"), jsonPath.get("data.catalog.voucher.name"));
 						Assert.assertEquals(result2.get("deduction"), Long.parseLong(jsonPath.get("data.voucher.deduction").toString()));

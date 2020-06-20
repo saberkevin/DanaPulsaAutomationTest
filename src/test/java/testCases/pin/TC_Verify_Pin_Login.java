@@ -1,9 +1,8 @@
 package testCases.pin;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -40,24 +39,16 @@ public class TC_Verify_Pin_Login extends TestBase{
 		{	
 			String query = "SELECT id, pin FROM user\n" + 
 					"WHERE id = ? AND pin = ?";
-			try {
-				Connection conMember = setConnection("MEMBER");
-				PreparedStatement psGetUserPin = conMember.prepareStatement(query);
-				psGetUserPin.setLong(1, Long.parseLong(id));
-				psGetUserPin.setLong(2, Long.parseLong(pin));
-				
-				ResultSet result = psGetUserPin.executeQuery();
-				
-				while(result.next())
-				{
-					Assert.assertEquals(Long.parseLong(id), result.getLong("id"));
-					Assert.assertEquals(Long.parseLong(pin), result.getLong("pin"));
-				}
-				
-				conMember.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			
+			Map<String, Object> param = new LinkedHashMap<String, Object>();
+			param.put("id", Long.parseLong(id));
+			param.put("pin", Integer.parseInt(pin));
+			List<Map<String, Object>> responseResult = sqlExec(query, param, "MEMBER");
+			
+			for (Map<String, Object> result : responseResult) 
+			{
+				Assert.assertEquals(Long.parseLong(id), result.get("id"));
+				Assert.assertEquals(Integer.parseInt(pin), Integer.parseInt(result.get("pin").toString()));
 			}
 		}
 		else if(code == 400)

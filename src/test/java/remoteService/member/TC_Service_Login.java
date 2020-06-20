@@ -1,9 +1,8 @@
 package remoteService.member;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -51,30 +50,21 @@ public class TC_Service_Login extends TestBase{
 			
 			String query = "SELECT id, name, email, username FROM user\n" + 
 					"WHERE id = ? AND name = ?  AND email = ? AND username = ?";
-			try {
-				Connection conMember = setConnection("MEMBER");
-				PreparedStatement psGetUser = conMember.prepareStatement(query);
-				psGetUser.setLong(1, Long.parseLong(jsonPath.get("id").toString()));
-				psGetUser.setString(2, jsonPath.get("name"));
-				psGetUser.setString(3, jsonPath.get("email"));
-				psGetUser.setString(4, replacePhoneForAssertion(phone));
-				
-				ResultSet result = psGetUser.executeQuery();
-				
-				while(result.next())
-				{
-					Assert.assertEquals(Long.parseLong(jsonPath.get("id").toString()), result.getLong("id"));
-					Assert.assertEquals(jsonPath.get("name"), result.getString("name"));
-					Assert.assertEquals(jsonPath.get("email"), result.getString("email"));
-					Assert.assertEquals(jsonPath.get("username"), result.getString("username"));
-				}
-				
-				conMember.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			Map<String, Object> param = new LinkedHashMap<String, Object>();
+			param.put("id", Long.parseLong(jsonPath.get("id").toString()));
+			param.put("name", jsonPath.get("name"));
+			param.put("email", jsonPath.get("email"));
+			param.put("username", replacePhoneForAssertion(phone));
 			
+			List<Map<String, Object>> responseResult = sqlExec(query, param, "MEMBER");
+			
+			for (Map<String, Object> result : responseResult) 
+			{
+				Assert.assertEquals(Long.parseLong(jsonPath.get("id").toString()), result.get("id"));
+				Assert.assertEquals(jsonPath.get("name"), result.get("name"));
+				Assert.assertEquals(jsonPath.get("email"), result.get("email"));
+				Assert.assertEquals(jsonPath.get("username"), result.get("username"));
+			}
 		}
 		else if(responseResult.contains("should not be empty") || responseResult.startsWith("invalid") || responseResult.startsWith("incorrect"))
 		{
