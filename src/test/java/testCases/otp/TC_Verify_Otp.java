@@ -1,9 +1,8 @@
 package testCases.otp;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -65,23 +64,14 @@ public class TC_Verify_Otp extends TestBase{
 			
 			String query = "SELECT userId, code FROM otp\n" + 
 					"WHERE userId = ?";
-			try {
-				Connection conMember = setConnection("MEMBER");
-				PreparedStatement psGetOtp= conMember.prepareStatement(query);
-				psGetOtp.setLong(1, Long.parseLong(id));
-				
-				ResultSet result = psGetOtp.executeQuery();
-				
-				while(result.next())
-				{
-					Assert.assertEquals(Long.parseLong(id), result.getLong("userId"));
-					Assert.assertEquals(this.code, result.getString("code"));
-				}
-				
-				conMember.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			
+			Map<String, Object> param = new LinkedHashMap<String, Object>();
+			param.put("id", Long.parseLong(id));
+			List<Map<String, Object>> responseResult = sqlExec(query, param, "MEMBER");
+			for (Map<String, Object> result : responseResult) 
+			{
+				Assert.assertEquals(Long.parseLong(id), result.get("userId"));
+				Assert.assertEquals(this.code, result.get("code"));
 			}
 		}
 		else if(code == 400)
@@ -91,6 +81,10 @@ public class TC_Verify_Otp extends TestBase{
 		else if(code == 404)
 		{
 			Assert.assertEquals("incorrect OTP", message);
+		}
+		else if(code == 401)
+		{
+			Assert.assertEquals("OTP expired", message);
 		}
 		else
 		{
