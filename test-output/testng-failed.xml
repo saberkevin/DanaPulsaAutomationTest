@@ -1,80 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [DANA Pulsa Suite]">
-<<<<<<< HEAD
-  <test thread-count="5" name="DanaPulsaServiceTestPromotion(failed)">
+  <test thread-count="5" name="DANA Pulsa Remote Service Promotion - Unredeem(failed)">
     <classes>
-      <class name="remoteService.promotion.TC_Remote_Service_Redeem">
+      <class name="remoteService.promotion.TC_Remote_Service_Unredeem">
         <methods>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="testRedeem"/>
-          <include name="testRedeem"/>
-          <include name="testRedeem"/>
-          <include name="testRedeem"/>
-          <include name="testRedeem"/>
-          <include name="testRedeem"/>
-          <include name="testRedeem"/>
-          <include name="testRedeem"/>
-          <include name="testRedeem"/>
-          <include name="testRedeem"/>
-          <include name="testRedeem"/>
-          <include name="testRedeem"/>
-          <include name="testRedeem"/>
-          <include name="testRedeem"/>
-          <include name="beforeClass"/>
           <include name="afterClass"/>
+          <include name="checkData"/>
+          <include name="checkDB"/>
+          <include name="testUnredeem"/>
           <include name="setup"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
+          <include name="beforeClass"/>
         </methods>
-      </class> <!-- remoteService.promotion.TC_Remote_Service_Redeem -->
+      </class> <!-- remoteService.promotion.TC_Remote_Service_Unredeem -->
     </classes>
-  </test> <!-- DanaPulsaServiceTestPromotion(failed) -->
-=======
-  <parameter name="statusCodePost" value="201"/>
-  <parameter name="responseTime" value="10000"/>
-  <parameter name="statusCodeFail" value="404"/>
-  <parameter name="statusCodeForbidden" value="409"/>
-  <parameter name="statusCode" value="200"/>
-  <listeners>
-    <listener class-name="utilities.Listeners"/>
-  </listeners>
-  <test thread-count="5" name="DanaPulsaAPITestHistory(failed)">
-    <classes>
-      <class name="testCases.history.TC_History_Completed">
-        <methods>
-          <include name="checkResult"/>
-          <include name="setSession"/>
-          <include name="historyCompletedUser"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- testCases.history.TC_History_Completed -->
-    </classes>
-  </test> <!-- DanaPulsaAPITestHistory(failed) -->
->>>>>>> 8327f93adf9078c43b4a706d621c923a05a18d56
+  </test> <!-- DANA Pulsa Remote Service Promotion - Unredeem(failed) -->
 </suite> <!-- Failed suite [DANA Pulsa Suite] -->

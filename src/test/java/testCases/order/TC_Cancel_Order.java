@@ -176,7 +176,7 @@ public class TC_Cancel_Order extends TestBase {
 
 				if (data.size() == 0) Assert.assertTrue(false,  "no transaction found in database");			
 				for (Map<String, Object> map : data)
-					Assert.assertEquals(1, map.get("statusId"));	
+					Assert.assertEquals(1L, map.get("statusId"));	
 
 			}
 		} else if (statusCode == 404) {

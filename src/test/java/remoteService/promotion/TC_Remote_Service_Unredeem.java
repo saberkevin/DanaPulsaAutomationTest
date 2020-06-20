@@ -97,7 +97,7 @@ public class TC_Remote_Service_Unredeem extends TestBase {
 		Assert.assertTrue(responseBody.contains(result), responseBody);
 		
 		final String errorMessage1 = "user not found";
-		final String errorMessage2 = "unknown voucher";
+		final String errorMessage2 = "voucher not found";
 		final String errorMessage3 = "invalid request format";
 		
 		if (responseBody.contains(errorMessage1)) {
@@ -118,7 +118,7 @@ public class TC_Remote_Service_Unredeem extends TestBase {
 		String query = "";
 		
 		final String errorMessage1 = "user not found";
-		final String errorMessage2 = "unknown voucher";
+		final String errorMessage2 = "voucher not found";
 		final String errorMessage3 = "invalid request format";
 		
 		String responseBody = response.getBody().asString();
@@ -149,10 +149,7 @@ public class TC_Remote_Service_Unredeem extends TestBase {
 
 			if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");
 			for (Map<String, Object> map : data) {
-				if (testCase.equals("Valid parameters"))
-					Assert.assertEquals(map.get("voucherStatusId"), 2);
-				else
-					Assert.assertEquals(map.get("voucherStatusId"), 1);
+				Assert.assertEquals(map.get("voucherStatusId"), 2);
 			}
 			break;
 		}

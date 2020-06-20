@@ -54,7 +54,7 @@ public class TC_Remote_Service_Pay extends TestBase {
 		logger.info("voucher id:" + voucherId);
 		
 		JSONObject requestParams = new JSONObject();
-		requestParams.put("method", ConfigRemoteServiceOrder.QUEUE_GET_PAYMENT_METHOD_NAME_BY_ID);
+		requestParams.put("method", ConfigRemoteServiceOrder.QUEUE_PAY);
 		requestParams.put("message", "{\"userId\":" + userId + ",\"transactionId\":" + transactionId 
 				+ ",\"methodId\":" + paymentMethodId + ",\"voucherId\":" + voucherId + "}");
 		
@@ -199,7 +199,8 @@ public class TC_Remote_Service_Pay extends TestBase {
 		final String errorMessage7 = "your voucher not found";
 		final String errorMessage8 = "your voucher is not applicable with your number";
 		final String errorMessage9 = "your voucher is not applicable with payment method";
-		final String errorMessage10 = "invalid request format";
+		final String errorMessage10 = "voucher you want to redeem is either not found, has been used or already expired";
+		final String errorMessage11 = "invalid request format";
 		
 		if (responseBody.contains(errorMessage1)) {
 			// do some code
@@ -220,6 +221,8 @@ public class TC_Remote_Service_Pay extends TestBase {
 		} else if (responseBody.contains(errorMessage9)) {
 			// do some code
 		} else if (responseBody.contains(errorMessage10)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage11)) {
 			// do some code
 		} else {
 //			Assert.assertEquals(response.getBody().jsonPath().getLong("balance"), user.getBalance());			
@@ -253,7 +256,8 @@ public class TC_Remote_Service_Pay extends TestBase {
 		final String errorMessage7 = "your voucher not found";
 		final String errorMessage8 = "your voucher is not applicable with your number";
 		final String errorMessage9 = "your voucher is not applicable with payment method";
-		final String errorMessage10 = "invalid request format";
+		final String errorMessage10 = "voucher you want to redeem is either not found, has been used or already expired";
+		final String errorMessage11 = "invalid request format";
 		
 		String responseBody = response.getBody().asString();
 		switch (responseBody) {
@@ -266,7 +270,7 @@ public class TC_Remote_Service_Pay extends TestBase {
 		case errorMessage2:
 			query = "SELECT * FROM transaction WHERE id = ? AND userId = ? AND statusId IN (3, 4)";
 			param.put("1", Long.parseLong(transactionId));
-			param.put("1", Long.parseLong(userId));
+			param.put("2", Long.parseLong(userId));
 			data = sqlExec(query, param, "ORDER");
 			Assert.assertTrue(data.size() == 0);
 			break;			
@@ -317,6 +321,14 @@ public class TC_Remote_Service_Pay extends TestBase {
 			Assert.assertTrue(data.size() == 0);
 			break;
 		case errorMessage10:
+			query = "SELECT * FROM user_voucher A LEFT JOIN voucher B ON A.voucherId = B.id "
+					+ "WHERE A.userId = ? AND A.voucherId = ? AND A.voucherStatusId != 1 AND B.isActive = 1";
+			param.put("1", Long.parseLong(userId));
+			param.put("2", Long.parseLong(voucherId));
+			data = sqlExec(query, param, "PROMOTION");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage11:
 			// do some code
 			break;
 		default:

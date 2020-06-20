@@ -122,8 +122,8 @@ public class TC_Remote_Service_Cancel extends TestBase {
 			deleteBalanceByEmailByUsername(anotherUser.getEmail(), anotherUser.getUsername());
 			deleteUserIfExist(anotherUser.getEmail(), anotherUser.getUsername());			
 			createUser(anotherUser);
-			createBalance(anotherUser.getId(), 10000000);
 			anotherUser.setId(getUserIdByUsername(anotherUser.getUsername()));
+			createBalance(anotherUser.getId(), 10000000);
 
 			// insert transaction into database
 			createTransaction(anotherUser.getId(), anotherUser.getUsername(), catalog.getId(), 4);
@@ -210,7 +210,7 @@ public class TC_Remote_Service_Cancel extends TestBase {
 
 			if (data.size() == 0) Assert.assertTrue(false,  "no transaction found in database");			
 			for (Map<String, Object> map : data)
-				Assert.assertEquals(1, map.get("statusId"));	
+				Assert.assertEquals(1L, map.get("statusId"));	
 
 			break;
 		case errorMessage4:

@@ -219,12 +219,7 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 			data = sqlExec(query, param, "ORDER");
 			Assert.assertTrue(data.size() == 0);
 			break;
-		case errorMessage7:
-			query = "SELECT name FROM provider WHERE id IN (SELECT providerId FROM provider_prefix WHERE prefix = ?)";
-			param.put("1", phoneNumber.substring(1, 5));
-			data = sqlExec(query, param, "ORDER");
-			Assert.assertTrue(data.size() == 0);
-			
+		case errorMessage7:			
 			query = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
 			param.put("1", Long.parseLong(userId));
 			param.put("2", phoneNumber);

@@ -64,10 +64,10 @@ public class TC_Remote_Service_GetHistoryInProgress extends TestBase {
 		
 		if (userId.equals("true")) {
 			// initialize user
-			user.setName("Zanuar");
-			user.setEmail("triromadon@gmail.com");
-			user.setUsername("081252930398");
-			user.setPin(123456);
+			user.setName(ConfigRemoteServiceOrder.USER_NAME);
+			user.setEmail(ConfigRemoteServiceOrder.USER_EMAIL);
+			user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
+			user.setPin(ConfigRemoteServiceOrder.USER_PIN);
 			
 			// insert user into database
 			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
