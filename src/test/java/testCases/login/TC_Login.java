@@ -54,12 +54,12 @@ public class TC_Login extends TestBase{
 			List<Map<String, Object>> responseResult = sqlExec(query, param, "MEMBER");
 			
 			for (Map<String, Object> result : responseResult) 
-				{
-					Assert.assertEquals(Long.parseLong(jsonPath.get("data.id").toString()), result.get("id"));
-					Assert.assertEquals(jsonPath.get("data.name"), result.get("name"));
-					Assert.assertEquals(jsonPath.get("data.email"), result.get("email"));
-					Assert.assertEquals(jsonPath.get("data.username"), result.get("username"));
-				}
+			{
+				Assert.assertEquals(Long.parseLong(jsonPath.get("data.id").toString()), result.get("id"));
+				Assert.assertEquals(jsonPath.get("data.name"), result.get("name"));
+				Assert.assertEquals(jsonPath.get("data.email"), result.get("email"));
+				Assert.assertEquals(jsonPath.get("data.username"), result.get("username"));
+			}
 		}
 		else if(code == 400)
 		{

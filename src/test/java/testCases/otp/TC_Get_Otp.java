@@ -47,10 +47,10 @@ public class TC_Get_Otp extends TestBase{
 			param.put("id", Long.parseLong(id));
 			List<Map<String, Object>> responseResult = sqlExec(query, param, "MEMBER");
 			for (Map<String, Object> result : responseResult) 
-				{
-					Assert.assertEquals(Long.parseLong(id), result.get("userId"));
-					Assert.assertEquals(jsonPath.get("data.code"), result.get("code"));
-				}
+			{
+				Assert.assertEquals(Long.parseLong(id), result.get("userId"));
+				Assert.assertEquals(jsonPath.get("data.code"), result.get("code"));
+			}
 		}
 		else if(code == 404)
 		{

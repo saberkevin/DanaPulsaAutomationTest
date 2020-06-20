@@ -111,7 +111,6 @@ public class TC_Register extends TestBase{
 			
 			List<Map<String, Object>> responseResult = sqlExec(query, param, "MEMBER");
 			
-				
 			for (@SuppressWarnings("unused") Map<String, Object> result : responseResult) 
 			{
 				Assert.assertTrue("should not exists in database", false);
