@@ -1,58 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="2" failed="1" ignored="0" total="6" passed="3">
+<testng-results skipped="40" failed="1" ignored="0" total="45" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="DANA Pulsa Suite" duration-ms="139337" started-at="2020-06-20T07:53:28Z" finished-at="2020-06-20T07:55:47Z">
+  <suite name="DANA Pulsa Suite" duration-ms="143640" started-at="2020-06-20T10:32:32Z" finished-at="2020-06-20T10:34:55Z">
     <groups>
     </groups>
-    <test name="DanaPulsaTestIntegrationVoucher" duration-ms="139337" started-at="2020-06-20T07:53:28Z" finished-at="2020-06-20T07:55:47Z">
-      <class name="integrationtest.voucher.TC_Integration_VoucherRecommendation">
-        <test-method status="PASS" signature="setup()[pri:0, instance:integrationtest.voucher.TC_Integration_VoucherRecommendation@623a8092]" name="setup" is-config="true" duration-ms="30" started-at="2020-06-20T07:53:28Z" finished-at="2020-06-20T07:53:28Z">
+    <test name="DanaPulsaServiceTestPromotion" duration-ms="143640" started-at="2020-06-20T10:32:32Z" finished-at="2020-06-20T10:34:55Z">
+      <class name="remoteService.promotion.TC_Remote_Service_Redeem">
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="setup" is-config="true" duration-ms="78" started-at="2020-06-20T10:32:32Z" finished-at="2020-06-20T10:32:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:integrationtest.voucher.TC_Integration_VoucherRecommendation@623a8092]" name="beforeClass" is-config="true" duration-ms="37710" started-at="2020-06-20T07:53:28Z" finished-at="2020-06-20T07:54:05Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="beforeClass" is-config="true" duration-ms="55977" started-at="2020-06-20T10:32:32Z" finished-at="2020-06-20T10:33:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="testRecommendationVouchers()[pri:0, instance:integrationtest.voucher.TC_Integration_VoucherRecommendation@548e6d58]" name="testRecommendationVouchers" duration-ms="8934" started-at="2020-06-20T07:54:05Z" finished-at="2020-06-20T07:54:14Z">
+        <test-method status="PASS" signature="testRedeem()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="testRedeem" duration-ms="4548" started-at="2020-06-20T10:33:28Z" finished-at="2020-06-20T10:33:32Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testRecommendationVouchers -->
-        <test-method status="PASS" signature="checkData()[pri:0, instance:integrationtest.voucher.TC_Integration_VoucherRecommendation@548e6d58]" name="checkData" duration-ms="16" started-at="2020-06-20T07:54:14Z" depends-on-methods="integrationtest.voucher.TC_Integration_VoucherRecommendation.testRecommendationVouchers" finished-at="2020-06-20T07:54:14Z">
+        </test-method> <!-- testRedeem -->
+        <test-method status="PASS" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="checkData" duration-ms="3" started-at="2020-06-20T10:33:32Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.testRedeem" finished-at="2020-06-20T10:33:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="PASS" signature="checkDB()[pri:0, instance:integrationtest.voucher.TC_Integration_VoucherRecommendation@548e6d58]" name="checkDB" duration-ms="4556" started-at="2020-06-20T07:54:14Z" depends-on-methods="integrationtest.voucher.TC_Integration_VoucherRecommendation.checkData" finished-at="2020-06-20T07:54:19Z">
+        <test-method status="PASS" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="checkDB" duration-ms="2" started-at="2020-06-20T10:33:32Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.checkData" finished-at="2020-06-20T10:33:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:integrationtest.voucher.TC_Integration_VoucherRecommendation@623a8092]" name="afterClass" is-config="true" duration-ms="19965" started-at="2020-06-20T07:54:19Z" finished-at="2020-06-20T07:54:39Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="afterClass" is-config="true" duration-ms="16452" started-at="2020-06-20T10:33:32Z" finished-at="2020-06-20T10:33:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:integrationtest.voucher.TC_Integration_VoucherRecommendation@623a8092]" name="setup" is-config="true" duration-ms="1" started-at="2020-06-20T07:54:39Z" finished-at="2020-06-20T07:54:39Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="setup" is-config="true" duration-ms="3" started-at="2020-06-20T10:33:49Z" finished-at="2020-06-20T10:33:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:integrationtest.voucher.TC_Integration_VoucherRecommendation@623a8092]" name="beforeClass" is-config="true" duration-ms="29393" started-at="2020-06-20T07:54:39Z" finished-at="2020-06-20T07:55:08Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="beforeClass" is-config="true" duration-ms="50095" started-at="2020-06-20T10:33:49Z" finished-at="2020-06-20T10:34:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="FAIL" signature="testRecommendationVouchers()[pri:0, instance:integrationtest.voucher.TC_Integration_VoucherRecommendation@623a8092]" name="testRecommendationVouchers" duration-ms="15877" started-at="2020-06-20T07:55:08Z" finished-at="2020-06-20T07:55:24Z">
+        <test-method status="PASS" signature="testRedeem()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2bdd8394]" name="testRedeem" duration-ms="10207" started-at="2020-06-20T10:34:39Z" finished-at="2020-06-20T10:34:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRedeem -->
+        <test-method status="FAIL" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2bdd8394]" name="checkData" duration-ms="2" started-at="2020-06-20T10:34:49Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.testRedeem" finished-at="2020-06-20T10:34:49Z">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[expected:<500> but was:<200>]]>
+              <![CDATA[voucher you want to redeem is either not found, has been used or already expired expected [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected:<500> but was:<200>
-at org.junit.Assert.fail(Assert.java:88)
-at org.junit.Assert.failNotEquals(Assert.java:743)
-at org.junit.Assert.assertEquals(Assert.java:118)
-at org.junit.Assert.assertEquals(Assert.java:555)
-at org.junit.Assert.assertEquals(Assert.java:542)
-at base.TestBase.checkStatusCode(TestBase.java:165)
-at integrationtest.voucher.TC_Integration_VoucherRecommendation.testRecommendationVouchers(TC_Integration_VoucherRecommendation.java:84)
+              <![CDATA[java.lang.AssertionError: voucher you want to redeem is either not found, has been used or already expired expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertTrue(Assert.java:44)
+at remoteService.promotion.TC_Remote_Service_Redeem.checkData(TC_Remote_Service_Redeem.java:111)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -83,45 +84,14 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testRecommendationVouchers -->
-        <test-method status="SKIP" signature="checkData()[pri:0, instance:integrationtest.voucher.TC_Integration_VoucherRecommendation@623a8092]" name="checkData" duration-ms="0" started-at="2020-06-20T07:55:24Z" depends-on-methods="integrationtest.voucher.TC_Integration_VoucherRecommendation.testRecommendationVouchers" finished-at="2020-06-20T07:55:24Z">
-          <exception class="java.lang.Throwable">
-            <message>
-              <![CDATA[Method TC_Integration_VoucherRecommendation.checkData()[pri:0, instance:integrationtest.voucher.TC_Integration_VoucherRecommendation@623a8092] depends on not successfully finished methods]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method TC_Integration_VoucherRecommendation.checkData()[pri:0, instance:integrationtest.voucher.TC_Integration_VoucherRecommendation@623a8092] depends on not successfully finished methods
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Throwable -->
-          <reporter-output>
-          </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="SKIP" signature="checkDB()[pri:0, instance:integrationtest.voucher.TC_Integration_VoucherRecommendation@623a8092]" name="checkDB" duration-ms="0" started-at="2020-06-20T07:55:24Z" depends-on-methods="integrationtest.voucher.TC_Integration_VoucherRecommendation.checkData" finished-at="2020-06-20T07:55:24Z">
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2bdd8394]" name="checkDB" duration-ms="0" started-at="2020-06-20T10:34:49Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.checkData" finished-at="2020-06-20T10:34:49Z">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method TC_Integration_VoucherRecommendation.checkDB()[pri:0, instance:integrationtest.voucher.TC_Integration_VoucherRecommendation@623a8092] depends on not successfully finished methods]]>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2bdd8394] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method TC_Integration_VoucherRecommendation.checkDB()[pri:0, instance:integrationtest.voucher.TC_Integration_VoucherRecommendation@623a8092] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2bdd8394] depends on not successfully finished methods
 at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
@@ -146,11 +116,1501 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:integrationtest.voucher.TC_Integration_VoucherRecommendation@623a8092]" name="afterClass" is-config="true" duration-ms="22821" started-at="2020-06-20T07:55:24Z" finished-at="2020-06-20T07:55:47Z">
+        <test-method status="FAIL" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="afterClass" is-config="true" duration-ms="6088" started-at="2020-06-20T10:34:49Z" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at base.TestBase.deleteBalanceByUserId(TestBase.java:997)
+at remoteService.promotion.TC_Remote_Service_Redeem.afterClass(TC_Remote_Service_Redeem.java:264)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:214)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- integrationtest.voucher.TC_Integration_VoucherRecommendation -->
-    </test> <!-- DanaPulsaTestIntegrationVoucher -->
+        <test-method status="SKIP" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="setup" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="SKIP" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="SKIP" signature="testRedeem()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2eea88a1]" name="testRedeem" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at base.TestBase.deleteBalanceByUserId(TestBase.java:997)
+at remoteService.promotion.TC_Remote_Service_Redeem.afterClass(TC_Remote_Service_Redeem.java:264)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:214)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRedeem -->
+        <test-method status="SKIP" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2eea88a1]" name="checkData" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.testRedeem" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2eea88a1] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2eea88a1] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2eea88a1]" name="checkDB" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.checkData" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2eea88a1] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2eea88a1] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="SKIP" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="SKIP" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="setup" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="SKIP" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="SKIP" signature="testRedeem()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2f01783a]" name="testRedeem" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at base.TestBase.deleteBalanceByUserId(TestBase.java:997)
+at remoteService.promotion.TC_Remote_Service_Redeem.afterClass(TC_Remote_Service_Redeem.java:264)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:214)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRedeem -->
+        <test-method status="SKIP" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2f01783a]" name="checkData" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.testRedeem" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2f01783a] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2f01783a] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2f01783a]" name="checkDB" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.checkData" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2f01783a] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@2f01783a] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="SKIP" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="SKIP" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="setup" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="SKIP" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="SKIP" signature="testRedeem()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@383dc82c]" name="testRedeem" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at base.TestBase.deleteBalanceByUserId(TestBase.java:997)
+at remoteService.promotion.TC_Remote_Service_Redeem.afterClass(TC_Remote_Service_Redeem.java:264)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:214)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRedeem -->
+        <test-method status="SKIP" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@383dc82c]" name="checkData" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.testRedeem" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@383dc82c] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@383dc82c] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@383dc82c]" name="checkDB" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.checkData" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@383dc82c] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@383dc82c] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="SKIP" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="SKIP" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="setup" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="SKIP" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="SKIP" signature="testRedeem()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@41488b16]" name="testRedeem" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at base.TestBase.deleteBalanceByUserId(TestBase.java:997)
+at remoteService.promotion.TC_Remote_Service_Redeem.afterClass(TC_Remote_Service_Redeem.java:264)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:214)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRedeem -->
+        <test-method status="SKIP" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@41488b16]" name="checkData" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.testRedeem" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@41488b16] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@41488b16] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@41488b16]" name="checkDB" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.checkData" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@41488b16] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@41488b16] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="SKIP" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="SKIP" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="setup" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="SKIP" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="SKIP" signature="testRedeem()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@4a07d605]" name="testRedeem" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at base.TestBase.deleteBalanceByUserId(TestBase.java:997)
+at remoteService.promotion.TC_Remote_Service_Redeem.afterClass(TC_Remote_Service_Redeem.java:264)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:214)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRedeem -->
+        <test-method status="SKIP" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@4a07d605]" name="checkData" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.testRedeem" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@4a07d605] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@4a07d605] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@4a07d605]" name="checkDB" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.checkData" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@4a07d605] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@4a07d605] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="SKIP" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="SKIP" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="setup" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="SKIP" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="SKIP" signature="testRedeem()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@5f9edf14]" name="testRedeem" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at base.TestBase.deleteBalanceByUserId(TestBase.java:997)
+at remoteService.promotion.TC_Remote_Service_Redeem.afterClass(TC_Remote_Service_Redeem.java:264)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:214)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRedeem -->
+        <test-method status="SKIP" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@5f9edf14]" name="checkData" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.testRedeem" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@5f9edf14] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@5f9edf14] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@5f9edf14]" name="checkDB" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.checkData" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@5f9edf14] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@5f9edf14] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="SKIP" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="SKIP" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="setup" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="SKIP" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="SKIP" signature="testRedeem()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@68746f22]" name="testRedeem" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at base.TestBase.deleteBalanceByUserId(TestBase.java:997)
+at remoteService.promotion.TC_Remote_Service_Redeem.afterClass(TC_Remote_Service_Redeem.java:264)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:214)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRedeem -->
+        <test-method status="SKIP" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@68746f22]" name="checkData" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.testRedeem" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@68746f22] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@68746f22] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@68746f22]" name="checkDB" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.checkData" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@68746f22] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@68746f22] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="SKIP" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="SKIP" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="SKIP" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="setup" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="SKIP" signature="testRedeem()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@68878f6d]" name="testRedeem" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at base.TestBase.deleteBalanceByUserId(TestBase.java:997)
+at remoteService.promotion.TC_Remote_Service_Redeem.afterClass(TC_Remote_Service_Redeem.java:264)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:214)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRedeem -->
+        <test-method status="SKIP" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@68878f6d]" name="checkData" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.testRedeem" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@68878f6d] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@68878f6d] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@68878f6d]" name="checkDB" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.checkData" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@68878f6d] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@68878f6d] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="SKIP" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="SKIP" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="setup" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="SKIP" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="SKIP" signature="testRedeem()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@74287ea3]" name="testRedeem" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at base.TestBase.deleteBalanceByUserId(TestBase.java:997)
+at remoteService.promotion.TC_Remote_Service_Redeem.afterClass(TC_Remote_Service_Redeem.java:264)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:214)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRedeem -->
+        <test-method status="SKIP" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@74287ea3]" name="checkData" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.testRedeem" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@74287ea3] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@74287ea3] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@74287ea3]" name="checkDB" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.checkData" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@74287ea3] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@74287ea3] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="SKIP" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="SKIP" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="SKIP" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="setup" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="SKIP" signature="testRedeem()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7ac296f6]" name="testRedeem" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at base.TestBase.deleteBalanceByUserId(TestBase.java:997)
+at remoteService.promotion.TC_Remote_Service_Redeem.afterClass(TC_Remote_Service_Redeem.java:264)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:214)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRedeem -->
+        <test-method status="SKIP" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7ac296f6]" name="checkData" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.testRedeem" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7ac296f6] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7ac296f6] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7ac296f6]" name="checkDB" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.checkData" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7ac296f6] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7ac296f6] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="SKIP" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="SKIP" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="setup" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="SKIP" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="SKIP" signature="testRedeem()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7d7758be]" name="testRedeem" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at base.TestBase.deleteBalanceByUserId(TestBase.java:997)
+at remoteService.promotion.TC_Remote_Service_Redeem.afterClass(TC_Remote_Service_Redeem.java:264)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:214)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRedeem -->
+        <test-method status="SKIP" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7d7758be]" name="checkData" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.testRedeem" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7d7758be] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7d7758be] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7d7758be]" name="checkDB" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.checkData" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7d7758be] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7d7758be] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="SKIP" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="SKIP" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="setup" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="SKIP" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="SKIP" signature="testRedeem()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7fd7a283]" name="testRedeem" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at base.TestBase.deleteBalanceByUserId(TestBase.java:997)
+at remoteService.promotion.TC_Remote_Service_Redeem.afterClass(TC_Remote_Service_Redeem.java:264)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:214)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRedeem -->
+        <test-method status="SKIP" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7fd7a283]" name="checkData" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.testRedeem" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7fd7a283] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7fd7a283] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7fd7a283]" name="checkDB" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.checkData" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7fd7a283] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@7fd7a283] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+        <test-method status="SKIP" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="SKIP" signature="setup()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="setup" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="SKIP" signature="beforeClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="beforeClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="SKIP" signature="testRedeem()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@a8ef162]" name="testRedeem" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at base.TestBase.deleteBalanceByUserId(TestBase.java:997)
+at remoteService.promotion.TC_Remote_Service_Redeem.afterClass(TC_Remote_Service_Redeem.java:264)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:59)
+at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:458)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:222)
+at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:142)
+at org.testng.internal.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:214)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRedeem -->
+        <test-method status="SKIP" signature="checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@a8ef162]" name="checkData" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.testRedeem" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@a8ef162] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkData()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@a8ef162] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkData -->
+        <test-method status="SKIP" signature="afterClass()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@22f59fa]" name="afterClass" is-config="true" duration-ms="0" started-at="2020-06-20T10:34:55Z" finished-at="2020-06-20T10:34:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@a8ef162]" name="checkDB" duration-ms="0" started-at="2020-06-20T10:34:55Z" depends-on-methods="remoteService.promotion.TC_Remote_Service_Redeem.checkData" finished-at="2020-06-20T10:34:55Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@a8ef162] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Redeem.checkDB()[pri:0, instance:remoteService.promotion.TC_Remote_Service_Redeem@a8ef162] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDB -->
+      </class> <!-- remoteService.promotion.TC_Remote_Service_Redeem -->
+    </test> <!-- DanaPulsaServiceTestPromotion -->
   </suite> <!-- DANA Pulsa Suite -->
 </testng-results>

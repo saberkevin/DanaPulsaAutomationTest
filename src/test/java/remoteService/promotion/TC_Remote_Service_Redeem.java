@@ -15,6 +15,7 @@ import base.TestBase;
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import model.User;
+import remoteService.order.ConfigRemoteServiceOrder;
 
 public class TC_Remote_Service_Redeem extends TestBase {
 	private User user = new User();
@@ -26,10 +27,6 @@ public class TC_Remote_Service_Redeem extends TestBase {
 	private String providerId;
 	private String result;
 	private boolean isCreateUser;
-	
-	public TC_Remote_Service_Redeem() {
-		
-	}
 	
 	public TC_Remote_Service_Redeem(String testCase, String userId, String voucherId, String price, String paymentMethodId, String providerId, String result) {
 		this.testCase = testCase;
@@ -72,25 +69,19 @@ public class TC_Remote_Service_Redeem extends TestBase {
 		logger.info("Case:" + testCase);
 		
 		if (userId.equals("true")) {
-			isCreateUser = true;
-			
 			// initialize user
-			user.setName("Zanuar");
-			user.setEmail("triromadon@gmail.com");
-			user.setUsername("081252930398");
-			user.setPin(123456);
-			
-			// delete if exist
-			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
-			deleteUserIfExist(user.getEmail(), user.getUsername());
+			user.setName(ConfigRemoteServiceOrder.USER_NAME);
+			user.setEmail(ConfigRemoteServiceOrder.USER_EMAIL);
+			user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
+			user.setPin(ConfigRemoteServiceOrder.USER_PIN);
 			
 			// insert user into database
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());			
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));		
-			userId = Long.toString(user.getId());				
-			
-			// insert balance into database
 			createBalance(user.getId(), 10000000);
+			userId = Long.toString(user.getId());
 			
 			// insert voucher into database
 			createUserVoucher(user.getId(), 1, 2); // cashback not used
@@ -98,6 +89,9 @@ public class TC_Remote_Service_Redeem extends TestBase {
 			createUserVoucher(user.getId(), 3, 1); // used
 			createUserVoucher(user.getId(), 4, 1); // used
 			createUserVoucher(user.getId(), 16, 2); // discount minpurchase 500K
+			
+			// set flag
+			isCreateUser = true;			
 		}
 	}
 	
@@ -123,7 +117,8 @@ public class TC_Remote_Service_Redeem extends TestBase {
 		final String errorMessage5 = "unknown provider";
 		final String errorMessage6 = "unknown payment method";
 		final String errorMessage7 = "your voucher is not applicable with payment method";
-		final String errorMessage8 = "invalid request format";
+		final String errorMessage8 = "voucher you want to redeem is either not found, has been used or already expired";
+		final String errorMessage9 = "invalid request format";
 		
 		if (responseBody.contains(errorMessage1)) {
 			// do some code
@@ -140,6 +135,8 @@ public class TC_Remote_Service_Redeem extends TestBase {
 		} else if (responseBody.contains(errorMessage7)) {
 			// do some code
 		} else if (responseBody.contains(errorMessage8)) {
+			// do some code
+		} else if (responseBody.contains(errorMessage9)) {
 			// do some code
 		} else {
 			String voucherTypeName = response.getBody().jsonPath().getString("voucherTypeName");
@@ -165,7 +162,8 @@ public class TC_Remote_Service_Redeem extends TestBase {
 		final String errorMessage5 = "unknown provider";
 		final String errorMessage6 = "unknown payment method";
 		final String errorMessage7 = "your voucher is not applicable with payment method";
-		final String errorMessage8 = "invalid request format";
+		final String errorMessage8 = "voucher you want to redeem is either not found, has been used or already expired";
+		final String errorMessage9 = "invalid request format";
 
 		String responseBody = response.getBody().asString();
 		switch (responseBody) {
@@ -174,19 +172,19 @@ public class TC_Remote_Service_Redeem extends TestBase {
 					+ "WHERE A.userId = ? AND A.voucherId = ? AND A.voucherStatusId != 1 AND B.isActive = 1";
 			param.put("1", Long.parseLong(userId));
 			param.put("2", Long.parseLong(voucherId));
-			data = sqlExec(query, param, "promotion");
+			data = sqlExec(query, param, "PROMOTION");
 			Assert.assertTrue(data.size() == 0);
 			break;
 		case errorMessage2:
 			query = "SELECT * FROM user WHERE id = ?";
 			param.put("1", Long.parseLong(userId));
-			data = sqlExec(query, param, "member");			
+			data = sqlExec(query, param, "MEMBER");			
 			Assert.assertTrue(data.size() == 0);			
 			break;			
 		case errorMessage3:
 			query = "SELECT * FROM voucher WHERE id = ?";
 			param.put("1", Long.parseLong(voucherId));
-			data = sqlExec(query, param, "promotion");
+			data = sqlExec(query, param, "PROMOTION");
 			
 			if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");			
 			for (Map<String, Object> map : data)
@@ -197,29 +195,37 @@ public class TC_Remote_Service_Redeem extends TestBase {
 			query = "SELECT * FROM voucher A LEFT JOIN voucher_provider B on A.id = B.voucherId WHERE A.id = ? AND B.providerId = ?";
 			param.put("1", Long.parseLong(voucherId));
 			param.put("2", Long.parseLong(providerId));
-			data = sqlExec(query, param, "promotion");
+			data = sqlExec(query, param, "PROMOTION");
 			Assert.assertTrue(data.size() == 0);
 			break;			
 		case errorMessage5:
 			query = "SELECT * FROM provider id = ?";
 			param.put("1", Long.parseLong(providerId));
-			data = sqlExec(query, param, "order");
+			data = sqlExec(query, param, "ORDER");
 			Assert.assertTrue(data.size() == 0);
 			break;			
 		case errorMessage6:
 			query = "SELECT * FROM voucher_payment_method WHERE paymentMethodId = ?";
 			param.put("1", Long.parseLong(paymentMethodId));
-			data = sqlExec(query, param, "promotion");			
+			data = sqlExec(query, param, "PROMOTION");			
 			Assert.assertTrue(data.size() == 0);
 			break;		
 		case errorMessage7:
 			query = "SELECT * FROM voucher_payment_method WHERE paymentMethodId = ? AND voucherId = ?";	
 			param.put("1", Long.parseLong(paymentMethodId));
 			param.put("2", Long.parseLong(voucherId));
-			data = sqlExec(query, param, "promotion");	
+			data = sqlExec(query, param, "PROMOTION");	
 			Assert.assertTrue(data.size() == 0);
 			break;		
 		case errorMessage8:
+			query = "SELECT * FROM user_voucher A LEFT JOIN voucher B ON A.voucherId = B.id "
+					+ "WHERE A.userId = ? AND A.voucherId = ? AND A.voucherStatusId != 1 AND B.isActive = 1";
+			param.put("1", Long.parseLong(userId));
+			param.put("2", Long.parseLong(voucherId));
+			data = sqlExec(query, param, "PROMOTION");
+			Assert.assertTrue(data.size() == 0);
+			break;	
+		case errorMessage9:
 			// do some code
 			break;
 		default:
@@ -228,7 +234,7 @@ public class TC_Remote_Service_Redeem extends TestBase {
 			if (voucherTypeName.equals("cashback")) {
 				query = "SELECT * FROM voucher WHERE id = ?";
 				param.put("1", Long.parseLong(voucherId));
-				data = sqlExec(query, param, "promotion");
+				data = sqlExec(query, param, "PROMOTION");
 				
 				if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");				
 				for (Map<String, Object> map : data)
@@ -237,7 +243,7 @@ public class TC_Remote_Service_Redeem extends TestBase {
 			} else if (voucherTypeName.equals("discount")) {
 				query = "SELECT * FROM voucher WHERE id = ?";
 				param.put("1", Long.parseLong(voucherId));
-				data = sqlExec(query, param, "promotion");
+				data = sqlExec(query, param, "PROMOTION");
 				
 				if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");				
 				for (Map<String, Object> map : data) {

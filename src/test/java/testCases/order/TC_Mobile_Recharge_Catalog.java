@@ -1,9 +1,7 @@
 package testCases.order;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,10 +21,6 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	private String result;
 	private boolean isCreateUser;
 	
-	public TC_Mobile_Recharge_Catalog() {
-		
-	}
-	
 	public TC_Mobile_Recharge_Catalog(String testCase, String sessionId, String phonePrefix, String result) {
 		this.testCase = testCase;
 		this.sessionId = sessionId;
@@ -40,30 +34,28 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Case:" + testCase);
 		
-		if (sessionId.equals("true")) {
-			isCreateUser = true;
-			
+		if (sessionId.equals("true")) {			
 			// initialize user
-			user.setName("Zanuar");
-			user.setEmail("triromadon@gmail.com");
-			user.setUsername("081252930398");
-			user.setPin(123456);
-			
-			// delete if exist
-			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
-			deleteUserIfExist(user.getEmail(), user.getUsername());
+			user.setName(ConfigApiTestOrder.USER_NAME);
+			user.setEmail(ConfigApiTestOrder.USER_EMAIL);
+			user.setUsername(ConfigApiTestOrder.USER_USERNAME);
+			user.setPin(ConfigApiTestOrder.USER_PIN);
 			
 			// insert user into database
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());			
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));	
+			createBalance(user.getId(), 10000000);
 			
+			// verify pin login
 			verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
 			checkStatusCode("200");
 			user.setSessionId(response.getCookie("JSESSIONID"));
 			sessionId = user.getSessionId();
-
-			// insert balance into database
-			createBalance(user.getId(), 10000000);
+			
+			// set flag
+			isCreateUser = true;
 		}
 	}
 	
@@ -72,9 +64,9 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 		getCatalog(sessionId, phonePrefix);
 		
 		Assert.assertTrue(response.getBody().asString().contains(result));
+		user.setSessionId(response.getCookie("JSESSIONID"));
 
 		int statusCode = response.getStatusCode();
-		
 		if (statusCode == 400) {
 			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "400");
 			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "invalid phone number");
@@ -92,9 +84,7 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	
 	@Test(dependsOnMethods = {"testMobileRechargeCatalog"})
 	public void checkData() {
-		int statusCode = response.getStatusCode();
-		
-		if (statusCode == 200) {
+		if (response.getStatusCode() == 200) {
 			Map<String, String> provider = response.getBody().jsonPath().getMap("data.provider");
 					
 			Assert.assertNotNull(provider.get("id"));
@@ -113,75 +103,51 @@ public class TC_Mobile_Recharge_Catalog extends TestBase {
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		int statusCode = response.getStatusCode();
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
 		
+		int statusCode = response.getStatusCode();		
 		if (statusCode == 404) {
 			if (response.getBody().asString().contains("unknown phone number")) {
-				try {
-					Connection conn = getConnectionOrder();
-					String queryString = "SELECT * FROM provider_prefix WHERE prefix = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setString(1, phonePrefix);
-					
-					ResultSet rs = ps.executeQuery();
-					Assert.assertTrue(!rs.next());
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+				query = "SELECT * FROM provider_prefix WHERE prefix = ?";
+				param.put("1", phonePrefix);
+				data = sqlExec(query, param, "order");
+				Assert.assertTrue(data.size() == 0);
 			}
 		} else if (statusCode == 400) {
 			// do some code
 			
 		} else if (statusCode == 200) {
-			List<Map<String, String>> catalog = response.getBody().jsonPath().getList("data.catalog");
-
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT "
-						+ "A.*, "
-						+ "B.id AS providerId, "
-						+ "B.name AS providerName, "
-						+ "B.image AS providerImage "
-						+ "FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id "
-						+ "LEFT JOIN provider_prefix C on B.id = C.providerId "
-						+ "WHERE C.prefix = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setString(1, phonePrefix.substring(1));
-				
-				ResultSet rs = ps.executeQuery();
-				
-				if (!rs.next()) {
-					Assert.assertTrue(false, "no catalog found in database");
-				}
-				do {
-					Assert.assertEquals(response.getBody().jsonPath().getLong("data.provider.id"), rs.getLong("providerId"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("data.provider.name"), rs.getString("providerName"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("data.provider.image"), rs.getString("providerImage"));
-					Assert.assertEquals(String.valueOf(catalog.get(rs.getRow()-1).get("id")), rs.getString("id"));
-					Assert.assertEquals(String.valueOf(catalog.get(rs.getRow()-1).get("value")), rs.getString("value"));
-					Assert.assertEquals(String.valueOf(catalog.get(rs.getRow()-1).get("price")), rs.getString("price"));
-				} while(rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+			query = "SELECT A.*, B.id AS providerId, B.name AS providerName, B.image AS providerImage "
+					+ "FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id "
+					+ "LEFT JOIN provider_prefix C on B.id = C.providerId "
+					+ "WHERE C.prefix = ?";
+			param.put("1", phonePrefix.substring(1));
+			data = sqlExec(query, param, "order");
+			
+			List<Map<String, Object>> catalog = response.getBody().jsonPath().getList("data.catalog");
+			int index = 0;
+			
+			if (data.size() == 0) Assert.assertTrue(false, "no catalog found in database");
+			for (Map<String, Object> map : data) {
+				Assert.assertEquals(response.getBody().jsonPath().getLong("provider.id"), map.get("providerId"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("provider.name"), map.get("providerName"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("provider.image"), map.get("providerImage"));
+				Assert.assertEquals(Long.valueOf((Integer) catalog.get(index).get("id")), map.get("id"));
+				Assert.assertEquals(Long.valueOf((Integer) catalog.get(index).get("value")), map.get("value"));
+				Assert.assertEquals(Long.valueOf((Integer) catalog.get(index).get("price")), map.get("price"));
+				index++;
 			}
 		}
 	}
 	
 	@AfterClass
 	public void afterClass() {
-		// delete user
 		if (isCreateUser == true) {
 			deleteBalanceByUserId(user.getId());
 			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
 		}
-
-		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());		
 	}
 }

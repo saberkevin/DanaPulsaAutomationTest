@@ -142,7 +142,6 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 	@SuppressWarnings("unchecked")
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-
 		Map<String, Object> param = new LinkedHashMap<String, Object>();
 		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
 		String query = "";
@@ -188,9 +187,6 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 				Assert.assertEquals(Long.valueOf((Integer) provHashMap.get("id")), map.get("id"));
 				Assert.assertEquals(provHashMap.get("name"), map.get("name"));
 				Assert.assertEquals(provHashMap.get("image"), map.get("image"));
-
-//				SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-//				Assert.assertEquals(formatter.format(recentNumbers.get(index).get("date")), formatter.format(map.get("createdAt")));
 				index++;
 			}
 			break;

@@ -9,8 +9,8 @@ import base.TestBase;
 
 public class Factory_Remote_Service_Unredeem  extends TestBase {
 	@Factory(dataProvider="dp")
-	public Object[] createInstances(String description, String userId, String voucherId) {
-		return new Object[] {new TC_Remote_Service_Unredeem(description, userId, voucherId)};
+	public Object[] createInstances(String testCase, String userId, String voucherId, String result) {
+		return new Object[] {new TC_Remote_Service_Unredeem(testCase, userId, voucherId, result)};
 	}
 	
 	@DataProvider(name="dp")

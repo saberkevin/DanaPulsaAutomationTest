@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="DANA Pulsa Suite">
+	<test name="DANA Pulsa Remote Service Order - Get History Completed" group-by-instances="true">
+		<classes>
+			<class name = "remoteService.order.Factory_Remote_Service_GetHistoryCompleted"></class>
+		</classes>
+	</test>
+</suite>

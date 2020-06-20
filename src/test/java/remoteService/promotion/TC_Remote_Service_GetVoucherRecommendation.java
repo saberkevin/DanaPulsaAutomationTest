@@ -1,5 +1,6 @@
 package remoteService.promotion;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -18,6 +19,7 @@ import model.Catalog;
 import model.Provider;
 import model.Transaction;
 import model.User;
+import remoteService.order.ConfigRemoteServiceOrder;
 
 public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 	private User user = new User();
@@ -30,10 +32,6 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 	private String transactionId;
 	private String result;
 	private boolean isCreateUser;
-	
-	public TC_Remote_Service_GetVoucherRecommendation() {
-		
-	}
 	
 	public TC_Remote_Service_GetVoucherRecommendation(String testCase, String userId, String transactionId, String result) {
 		this.testCase = testCase;
@@ -70,10 +68,10 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 		
 		if (userId.equals("true") || transactionId.equals("true")) {
 			// initialize user
-			user.setName("Zanuar");
-			user.setEmail("triromadon@gmail.com");
-			user.setUsername("081252930398");
-			user.setPin(123456);
+			user.setName(ConfigRemoteServiceOrder.USER_NAME);
+			user.setEmail(ConfigRemoteServiceOrder.USER_EMAIL);
+			user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
+			user.setPin(ConfigRemoteServiceOrder.USER_PIN);
 			
 			// insert user into database
 			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
@@ -217,7 +215,7 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 			break;
 		case errorMessage2:
 			query = "SELECT A.id, A.name, D.name AS voucherTypeName, A.value, A.discount, A.maxDeduction, A.filePath, A.expiryDate "
-					+ "FROM voucher AS A OIN user_voucher AS B ON B.voucherId = A.id "
+					+ "FROM voucher AS A JOIN user_voucher AS B ON B.voucherId = A.id "
 					+ "JOIN user_voucher_status AS C ON B.voucherStatusId = C.id "
 					+ "JOIN voucher_type AS D ON D.id = A.typeId "
 					+ "JOIN voucher_provider AS E ON E.voucherId = A.id "
@@ -233,7 +231,7 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 			break;			
 		case errorMessage3:
 			query = "SELECT A.id, A.name, D.name AS voucherTypeName, A.value, A.discount, A.maxDeduction, A.filePath, A.expiryDate "
-					+ "FROM voucher AS A OIN user_voucher AS B ON B.voucherId = A.id "
+					+ "FROM voucher AS A JOIN user_voucher AS B ON B.voucherId = A.id "
 					+ "JOIN user_voucher_status AS C ON B.voucherStatusId = C.id "
 					+ "JOIN voucher_type AS D ON D.id = A.typeId "
 					+ "JOIN voucher_provider AS E ON E.voucherId = A.id "
@@ -265,19 +263,21 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 			param.put("3", catalog.getPrice());
 			data = sqlExec(query, param, "promotion");
 			
-			List<Map<String, String>> vouchers = response.jsonPath().get();
+			List<Map<String, Object>> vouchers = response.jsonPath().get();
 			int index = 0;
 
 			if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");
 			for (Map<String, Object> map : data) {
-				Assert.assertEquals(String.valueOf(vouchers.get(index).get("id")), (String) map.get("id"));
+				Assert.assertEquals(vouchers.get(index).get("id"), map.get("id"));
 				Assert.assertEquals(vouchers.get(index).get("name"), map.get("name"));
-				Assert.assertEquals(String.valueOf(vouchers.get(index).get("discount")),(String) map.get("discount"));
+				Assert.assertEquals((Integer) vouchers.get(index).get("discount"), (Integer) map.get("discount"));
 				Assert.assertEquals(vouchers.get(index).get("voucherTypeName"), map.get("voucherTypeName"));
-				Assert.assertEquals(String.valueOf(vouchers.get(index).get("maxDeduction")), (String) map.get("maxDeduction"));
-				Assert.assertEquals(String.valueOf(vouchers.get(index).get("value")), (String) map.get("value"));
+				Assert.assertEquals(Long.valueOf((Integer) vouchers.get(index).get("maxDeduction")), map.get("maxDeduction"));
+				Assert.assertEquals((Integer) vouchers.get(index).get("value"), (Integer) map.get("value"));
 				Assert.assertEquals(vouchers.get(index).get("filePath"), map.get("filePath"));
-//				Assert.assertEquals(vouchers.get(index).get("expiryDate"), map.get("expiryDate"));
+
+				SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+				Assert.assertEquals(formatter.format(vouchers.get(index).get("expiryDate")), formatter.format(map.get("expiryDate")));
 				index++;
 			}
 			break;

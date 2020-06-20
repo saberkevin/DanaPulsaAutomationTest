@@ -1,9 +1,9 @@
 package testCases.voucher;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.testng.Assert;
@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import model.User;
+import remoteService.order.ConfigRemoteServiceOrder;
 
 public class TC_Voucher_Details extends TestBase {
 	private User user = new User();
@@ -21,10 +22,6 @@ public class TC_Voucher_Details extends TestBase {
 	private String voucherId;
 	private String result;
 	private boolean isCreateUser;
-	
-	public TC_Voucher_Details() {
-		
-	}
 	
 	public TC_Voucher_Details(String testCase, String sessionId, String voucherId, String result) {
 		this.testCase = testCase;
@@ -40,40 +37,37 @@ public class TC_Voucher_Details extends TestBase {
 		logger.info("Case:" + testCase);
 		
 		if (sessionId.equals("true")) {
-			isCreateUser = true;
-			
 			// initialize user
-			user.setName("Zanuar");
-			user.setEmail("triromadon@gmail.com");
-			user.setUsername("081252930398");
-			user.setPin(123456);
-			
-			// delete if exist
-			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
-			deleteUserIfExist(user.getEmail(), user.getUsername());
+			user.setName(ConfigRemoteServiceOrder.USER_NAME);
+			user.setEmail(ConfigRemoteServiceOrder.USER_EMAIL);
+			user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
+			user.setPin(ConfigRemoteServiceOrder.USER_PIN);
 			
 			// insert user into database
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());			
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));	
+			createBalance(user.getId(), 10000000);
 			
 			verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
 			checkStatusCode("200");
 			user.setSessionId(response.getCookie("JSESSIONID"));
 			sessionId = user.getSessionId();
-
-			// insert balance into database
-			createBalance(user.getId(), 10000000);
+			
+			// set flag
+			isCreateUser = true;			
 		}
 	}
 	
 	@Test
 	public void testVoucherDetails() {		
 		getVoucherDetails(sessionId, voucherId);
-		
+		user.setSessionId(response.getCookie("JSESSIONID"));
+
 		Assert.assertTrue(response.getBody().asString().contains(result));
 
 		int statusCode = response.getStatusCode();
-		
 		if (statusCode == 401) {
 			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "401");
 			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "Unauthorized");
@@ -108,73 +102,49 @@ public class TC_Voucher_Details extends TestBase {
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		int statusCode = response.getStatusCode();
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
 		
+		int statusCode = response.getStatusCode();		
 		if (statusCode == 200) {
-			Map<String, String> data = response.getBody().jsonPath().get("data");
+			query = "SELECT A.*, B.name AS voucherTypeName FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id WHERE A.id = ?";
+			param.put("1", voucherId);
+			data = sqlExec(query, param, "PROMOTION");
 			
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT "
-						+ "A.*, "
-						+ "B.name AS voucherTypeName "
-						+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id "
-						+ "WHERE A.id = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(voucherId));
-				
-				ResultSet rs = ps.executeQuery();
-				
-				if (!rs.next()) {
-					Assert.assertTrue(false, "no voucher found in database");
-				}
-				do {
-					Assert.assertEquals(String.valueOf(data.get("id")), rs.getString("id"));
-					Assert.assertEquals(data.get("name"), rs.getString("name"));
-					Assert.assertEquals(String.valueOf(data.get("discount")), rs.getString("discount"));
-					Assert.assertEquals(data.get("voucherTypeName"), rs.getString("voucherTypeName"));
-					Assert.assertEquals(String.valueOf(data.get("minPurchase")), rs.getString("minPurchase"));
-					Assert.assertEquals(String.valueOf(data.get("maxDeduction")), rs.getString("maxDeduction"));
-					Assert.assertEquals(String.valueOf(data.get("value")), rs.getString("value"));
-					Assert.assertEquals(data.get("filePath"), rs.getString("filePath"));
-//					Assert.assertEquals(data.get("expiryDate"), rs.getString("expiryDate"));
-//					Assert.assertEquals(data.get("active"), rs.getString("active"));
-				} while (rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+			Map<String, Object> voucher = response.getBody().jsonPath().get("data");
+
+			if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");
+			for (Map<String, Object> map : data) {
+				Assert.assertEquals(voucher.get("id"), map.get("id"));
+				Assert.assertEquals(voucher.get("name"), map.get("name"));
+				Assert.assertEquals(voucher.get("discount"), map.get("discount"));
+				Assert.assertEquals(voucher.get("voucherTypeName"), map.get("voucherTypeName"));
+				Assert.assertEquals(Long.valueOf((Integer) voucher.get("minPurchase")), map.get("minPurchase"));
+				Assert.assertEquals(Long.valueOf((Integer) voucher.get("maxDeduction")), map.get("maxDeduction"));
+				Assert.assertEquals(voucher.get("value"), map.get("value"));
+				Assert.assertEquals(voucher.get("filePath"), map.get("filePath"));
+
+				SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+				Assert.assertEquals(formatter.format(voucher.get("expiryDate")), formatter.format(map.get("expiryDate")));
+				Assert.assertEquals(voucher.get("active"), map.get("isActive"));
 			}
 		} else if (statusCode == 404) {
 			if (response.getBody().asString().contains("voucher not found")) {
-				try {
-					Connection conn = getConnectionPromotion();
-					String queryString = "SELECT * FROM voucher WHERE id = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, Long.parseLong(voucherId));
-					
-					ResultSet rs = ps.executeQuery();
-					Assert.assertTrue(!rs.next());
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+				query = "SELECT * FROM voucher WHERE id = ?";
+				param.put("1", Long.parseLong(voucherId));
+				data = sqlExec(query, param, "PROMOTION");
+				Assert.assertTrue(data.size() == 0);
 			}
 		}
 	}
 	
 	@AfterClass
 	public void afterClass() {
-		// delete user
 		if (isCreateUser == true) {
 			deleteBalanceByUserId(user.getId());
 			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
 		}
-
-		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());		
 	}
 }

@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import model.User;
+import remoteService.order.ConfigRemoteServiceOrder;
 
 public class TC_Integration_VoucherDetails extends TestBase {
 	private User user = new User();
@@ -32,10 +33,10 @@ public class TC_Integration_VoucherDetails extends TestBase {
 		logger.info("Case:" + testCase);
 		
 		// initialize user
-		user.setName("Zanuar");
-		user.setEmail("triromadon@gmail.com");
-		user.setUsername("081252930398");
-		user.setPin(123456);
+		user.setName(ConfigRemoteServiceOrder.USER_NAME);
+		user.setEmail(ConfigRemoteServiceOrder.USER_EMAIL);
+		user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
+		user.setPin(ConfigRemoteServiceOrder.USER_PIN);
 		
 		// delete if exist
 		deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());

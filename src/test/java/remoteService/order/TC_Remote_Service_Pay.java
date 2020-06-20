@@ -74,10 +74,10 @@ public class TC_Remote_Service_Pay extends TestBase {
 		
 		if (userId.equals("true") || transactionId.equals("true")) {
 			// initialize user
-			user.setName("Zanuar");
-			user.setEmail("triromadon@gmail.com");
-			user.setUsername("081252930398");
-			user.setPin(123456);
+			user.setName(ConfigRemoteServiceOrder.USER_NAME);
+			user.setEmail(ConfigRemoteServiceOrder.USER_EMAIL);
+			user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
+			user.setPin(ConfigRemoteServiceOrder.USER_PIN);
 			
 			// insert user into database
 			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
@@ -85,9 +85,8 @@ public class TC_Remote_Service_Pay extends TestBase {
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));
 			
-			if (userId.equals("true")) {
+			if (userId.equals("true"))
 				userId = Long.toString(user.getId());				
-			}
 			
 			// insert balance into database
 			if (testCase.equals("Not enough balance")) {
@@ -261,35 +260,35 @@ public class TC_Remote_Service_Pay extends TestBase {
 		case errorMessage1:
 			query = "SELECT * FROM user WHERE id = ?";
 			param.put("1", Long.parseLong(userId));
-			data = sqlExec(query, param, "member");
+			data = sqlExec(query, param, "MEMBER");
 			Assert.assertTrue(data.size() == 0);
 			break;
 		case errorMessage2:
-			// do some code
-			break;			
-		case errorMessage3:
 			query = "SELECT * FROM transaction WHERE id = ? AND userId = ? AND statusId IN (3, 4)";
 			param.put("1", Long.parseLong(transactionId));
 			param.put("1", Long.parseLong(userId));
-			data = sqlExec(query, param, "order");
+			data = sqlExec(query, param, "ORDER");
 			Assert.assertTrue(data.size() == 0);
+			break;			
+		case errorMessage3:
+			// do some code
 			break;
 		case errorMessage4:
 			query = "SELECT * FROM user WHERE id = ?";
 			param.put("1", Long.parseLong(userId));
-			data = sqlExec(query, param, "member");
+			data = sqlExec(query, param, "MEMBER");
 			Assert.assertTrue(data.size() == 0);
 			break;
 		case errorMessage5:
 			query = "SELECT * FROM payment_method WHERE id = ?";
 			param.put("1", Long.parseLong(paymentMethodId));
-			data = sqlExec(query, param, "order");
+			data = sqlExec(query, param, "ORDER");
 			Assert.assertTrue(data.size() == 0);
 			break;
 		case errorMessage6:
 			query = "SELECT * FROM voucher WHERE id = ?";
 			param.put("1", Long.parseLong(voucherId));
-			data = sqlExec(query, param, "promotion");
+			data = sqlExec(query, param, "PROMOTION");
 
 			if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");
 			for (Map<String, Object> map : data)
@@ -301,20 +300,20 @@ public class TC_Remote_Service_Pay extends TestBase {
 					+ "WHERE A.id = ? AND A.voucherId = ? AND A.voucherStatusId != 1 AND B.isActive = 1";
 			param.put("1", Long.parseLong(userId));
 			param.put("2", Long.parseLong(voucherId));
-			data = sqlExec(query, param, "promotion");
+			data = sqlExec(query, param, "PROMOTION");
 			Assert.assertTrue(data.size() == 0);
 			break;
 		case errorMessage8:
 			query = "SELECT * FROM voucher A LEFT JOIN voucher_provider B on A.id = B.voucherId WHERE A.id = ? AND B.providerId = ?";
 			param.put("1", Long.parseLong(voucherId));
 			param.put("2", provider.getId());
-			data = sqlExec(query, param, "promotion");
+			data = sqlExec(query, param, "PROMOTION");
 			Assert.assertTrue(data.size() == 0);
 			break;
 		case errorMessage9:
 			query = "SELECT * FROM voucher_payment_method WHERE paymentMethodId = ?";
 			param.put("1", Long.parseLong(paymentMethodId));
-			data = sqlExec(query, param, "promotion");
+			data = sqlExec(query, param, "PROMOTION");
 			Assert.assertTrue(data.size() == 0);
 			break;
 		case errorMessage10:
@@ -330,7 +329,7 @@ public class TC_Remote_Service_Pay extends TestBase {
 					+ "WHERE A.id = ? AND A.userId = ?";
 			param.put("1", Long.parseLong(transactionId));
 			param.put("2", Long.parseLong(userId));
-			data = sqlExec(query, param, "order");
+			data = sqlExec(query, param, "ORDER");
 
 			if (data.size() == 0) Assert.assertTrue(false, "no transaction found in database");
 			for (Map<String, Object> map : data) {

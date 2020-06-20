@@ -16,6 +16,7 @@ import model.Catalog;
 import model.Provider;
 import model.Transaction;
 import model.User;
+import remoteService.order.ConfigRemoteServiceOrder;
 
 public class TC_Integration_VoucherRecommendation extends TestBase {
 	private User user = new User();
@@ -36,10 +37,10 @@ public class TC_Integration_VoucherRecommendation extends TestBase {
 		logger.info("Case:" + testCase);
 		
 		// initialize user
-		user.setName("Zanuar");
-		user.setEmail("triromadon@gmail.com");
-		user.setUsername("081252930398");
-		user.setPin(123456);
+		user.setName(ConfigRemoteServiceOrder.USER_NAME);
+		user.setEmail(ConfigRemoteServiceOrder.USER_EMAIL);
+		user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
+		user.setPin(ConfigRemoteServiceOrder.USER_PIN);
 		
 		// delete if exist
 		deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
@@ -150,7 +151,7 @@ public class TC_Integration_VoucherRecommendation extends TestBase {
 			}
 		} else {
 			query = "SELECT A.id, A.name, D.name AS voucherTypeName, A.value, A.discount, A.maxDeduction, A.filePath, A.expiryDate "
-					+ "FROM voucher AS A OIN user_voucher AS B ON B.voucherId = A.id "
+					+ "FROM voucher AS A JOIN user_voucher AS B ON B.voucherId = A.id "
 					+ "JOIN user_voucher_status AS C ON B.voucherStatusId = C.id "
 					+ "JOIN voucher_type AS D ON D.id = A.typeId "
 					+ "JOIN voucher_provider AS E ON E.voucherId = A.id "

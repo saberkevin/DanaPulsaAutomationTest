@@ -176,7 +176,7 @@ public class TC_Remote_Service_GetMyVoucher extends TestBase {
 
 			if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");
 			for (Map<String, Object> map : data) {
-				Assert.assertEquals(vouchers.get(index).get("id"), map.get("id"));
+				Assert.assertEquals(vouchers.get(index).get("id"), map.get("voucherId"));
 				Assert.assertEquals(vouchers.get(index).get("name"), map.get("voucherName"));					
 				Assert.assertEquals(vouchers.get(index).get("discount"), map.get("discount"));					
 				Assert.assertEquals(vouchers.get(index).get("voucherTypeName"), map.get("voucherTypeName"));						

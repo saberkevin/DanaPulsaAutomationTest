@@ -1,9 +1,9 @@
 package testCases.order;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -22,10 +22,6 @@ public class TC_Create_Order extends TestBase {
 	private String result;
 	private boolean isCreateUser;
 	
-	public TC_Create_Order() {
-		
-	}
-	
 	public TC_Create_Order(String testCase, String sessionId, String phoneNumber, String catalogId, String result) {
 		this.testCase = testCase;
 		this.sessionId = sessionId;
@@ -40,41 +36,39 @@ public class TC_Create_Order extends TestBase {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Case:" + testCase);
 		
-		if (sessionId.equals("true")) {
-			isCreateUser = true;
-			
+		if (sessionId.equals("true")) {			
 			// initialize user
-			user.setName("Zanuar");
-			user.setEmail("triromadon@gmail.com");
-			user.setUsername("081252930398");
-			user.setPin(123456);
-			
-			// delete if exist
-			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
-			deleteUserIfExist(user.getEmail(), user.getUsername());
+			user.setName(ConfigApiTestOrder.USER_NAME);
+			user.setEmail(ConfigApiTestOrder.USER_EMAIL);
+			user.setUsername(ConfigApiTestOrder.USER_USERNAME);
+			user.setPin(ConfigApiTestOrder.USER_PIN);
 			
 			// insert user into database
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());			
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));	
+			createBalance(user.getId(), 10000000);
 			
+			// verify pin login
 			verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
 			checkStatusCode("200");
 			user.setSessionId(response.getCookie("JSESSIONID"));
 			sessionId = user.getSessionId();
-
-			// insert balance into database
-			createBalance(user.getId(), 10000000);
+			
+			// set flag
+			isCreateUser = true;
 		}
 	}
 	
 	@Test
 	public void testCreateOrder() {	
 		createOrder(sessionId, phoneNumber, catalogId);
+		user.setSessionId(response.getCookie("JSESSIONID"));
 		
 		Assert.assertTrue(response.getBody().asString().contains(result));
 
 		int statusCode = response.getStatusCode();
-		
 		if (statusCode == 400) {
 			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "400");
 			Assert.assertTrue(response.getBody().jsonPath().getString("message").equals("invalid phone number")
@@ -100,9 +94,7 @@ public class TC_Create_Order extends TestBase {
 	
 	@Test(dependsOnMethods = {"testCreateOrder"})
 	public void checkData() {
-		int statusCode = response.getStatusCode();
-		
-		if (statusCode == 201) {
+		if (response.getStatusCode() == 201) {
 			Assert.assertNotNull(Integer.toString(response.getBody().jsonPath().get("data.id")));
 			Assert.assertEquals(response.getBody().jsonPath().get("data.phoneNumber"), phoneNumber);
 			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("data.catalog.id")), catalogId);
@@ -119,162 +111,86 @@ public class TC_Create_Order extends TestBase {
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		int statusCode = response.getStatusCode();
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
 		
+		int statusCode = response.getStatusCode();		
 		if (statusCode == 400) {
 			if (response.getBody().asString().contains("selected catalog is not available for this phone’s provider")) {
 				String providerName = "";
-				
-				try {
-					Connection conn = getConnectionOrder();
-					String queryString = "SELECT name FROM provider WHERE id IN (SELECT providerId FROM provider_prefix WHERE prefix = ?)";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setString(1, phoneNumber.substring(1,5));
-					
-					ResultSet rs = ps.executeQuery();
-					
-					if (!rs.next()) {
-						Assert.assertTrue(false, "no provider found in database");
-					}
-					providerName = rs.getString("name");
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				
-				try {
-					Connection conn = getConnectionOrder();
-					String queryString = "SELECT B.name "
-							+ "FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id "
-							+ "WHERE A.id = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, Long.parseLong(catalogId));
-					
-					ResultSet rs = ps.executeQuery();
-					if (!rs.next()) {
-						Assert.assertTrue(false, "no provider found in database");
-					}
-					Assert.assertNotEquals(rs.getString("name"), providerName);
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				
 
-				try {
-					Connection conn = getConnectionOrder();
-					String queryString = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, user.getId());
-					ps.setString(2, phoneNumber);
-					ps.setLong(3, Long.parseLong(catalogId));
-					
-					ResultSet rs = ps.executeQuery();
-					Assert.assertTrue(!rs.next());
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+				query = "SELECT name FROM provider WHERE id IN (SELECT providerId FROM provider_prefix WHERE prefix = ?)";
+				param.put("1", phoneNumber.substring(1, 5));
+				data = sqlExec(query, param, "ORDER");
+				
+				if (data.size() == 0) Assert.assertTrue(false,  "no provider found in database");			
+				for (Map<String, Object> map : data)
+					providerName = (String) map.get("name");
+				
+				query = "SELECT B.name FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id WHERE A.id = ?";
+				param.put("1", Long.parseLong(catalogId));
+				data = sqlExec(query, param, "ORDER");
+
+				if (data.size() == 0) Assert.assertTrue(false,  "no provider found in database");			
+				for (Map<String, Object> map : data)
+					Assert.assertNotEquals(map.get("name"), providerName);
+
+				query = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
+				param.put("1", user.getId());
+				param.put("2", phoneNumber);
+				param.put("3", Long.parseLong(catalogId));
+				data = sqlExec(query, param, "ORDER");
+				Assert.assertTrue(data.size() == 0);
 			} else if (response.getBody().asString().contains("invalid phone number")) {
 				// do some code
 				
 			}			
 		} else if (statusCode == 404) {
 			if (response.getBody().asString().contains("catalog not found")) {
-				try {
-					Connection conn = getConnectionOrder();
-					String queryString = "SELECT * FROM pulsa_catalog WHERE id = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, Long.parseLong(catalogId));
-					
-					ResultSet rs = ps.executeQuery();
-					Assert.assertTrue(!rs.next());
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+				query = "SELECT * FROM pulsa_catalog WHERE id = ?";
+				param.put("1", Long.parseLong(catalogId));
+				data = sqlExec(query, param, "ORDER");
+				Assert.assertTrue(data.size() == 0);
+
+				query = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
+				param.put("1", user.getId());
+				param.put("2", phoneNumber);
+				param.put("3", Long.parseLong(catalogId));
+				data = sqlExec(query, param, "ORDER");
+				Assert.assertTrue(data.size() == 0);
 			} else if (response.getBody().asString().contains("unknown phone number")) {
-				try {
-					Connection conn = getConnectionOrder();
-					String queryString = "SELECT * FROM provider_prefix WHERE prefix = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setString(1, phoneNumber.substring(1,5));
-					
-					ResultSet rs = ps.executeQuery();
-					Assert.assertTrue(!rs.next());
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-			
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, user.getId());
-				ps.setString(2, phoneNumber);
-				ps.setLong(3, Long.parseLong(catalogId));
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+				query = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
+				param.put("1", user.getId());
+				param.put("2", phoneNumber);
+				param.put("3", Long.parseLong(catalogId));
+				data = sqlExec(query, param, "ORDER");
+				Assert.assertTrue(data.size() == 0);
 			}
 		} else if (statusCode == 409) {
 			// do some code
 			
 		} else if (statusCode == 201) {
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT COUNT(*) AS count FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, user.getId());
-				ps.setString(2, phoneNumber);
-				ps.setLong(3, Long.parseLong(catalogId));
-				
-				ResultSet rs = ps.executeQuery();
-				if (!rs.next()) {
-					Assert.assertTrue(false, "no transaction found in database");
-				}
-				do {
-					Assert.assertEquals(rs.getInt("count"), 1);
-				} while(rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			query = "SELECT COUNT(*) AS count FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
+			param.put("1", user.getId());
+			param.put("2", phoneNumber);
+			param.put("3", Long.parseLong(catalogId));
+			data = sqlExec(query, param, "ORDER");
+
+			if (data.size() == 0) Assert.assertTrue(false, "no transaction found in database");
+			for (Map<String, Object> map : data)
+				Assert.assertEquals(map.get("count"), 1L);
 		}
 	}
 	
 	@AfterClass
 	public void afterClass() {
-		// delete user
 		if (isCreateUser == true) {
 			deleteTransactionByUserId(user.getId());
 			deleteBalanceByUserId(user.getId());
 			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
 		}
-		
-		// delete transaction
 		deleteTransactionByPhoneNumber(phoneNumber);			
-		
-		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());		
 	}
 }

@@ -1,18 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [DANA Pulsa Suite]">
-  <test thread-count="5" name="DanaPulsaTestIntegrationVoucher(failed)">
+  <test thread-count="5" name="DanaPulsaServiceTestPromotion(failed)">
     <classes>
-      <class name="integrationtest.voucher.TC_Integration_VoucherRecommendation">
+      <class name="remoteService.promotion.TC_Remote_Service_Redeem">
         <methods>
-          <include name="beforeClass"/>
-          <include name="testRecommendationVouchers"/>
           <include name="checkData"/>
-          <include name="checkDB"/>
-          <include name="setup"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="testRedeem"/>
+          <include name="testRedeem"/>
+          <include name="testRedeem"/>
+          <include name="testRedeem"/>
+          <include name="testRedeem"/>
+          <include name="testRedeem"/>
+          <include name="testRedeem"/>
+          <include name="testRedeem"/>
+          <include name="testRedeem"/>
+          <include name="testRedeem"/>
+          <include name="testRedeem"/>
+          <include name="testRedeem"/>
+          <include name="testRedeem"/>
+          <include name="testRedeem"/>
+          <include name="beforeClass"/>
           <include name="afterClass"/>
+          <include name="setup"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
         </methods>
-      </class> <!-- integrationtest.voucher.TC_Integration_VoucherRecommendation -->
+      </class> <!-- remoteService.promotion.TC_Remote_Service_Redeem -->
     </classes>
-  </test> <!-- DanaPulsaTestIntegrationVoucher(failed) -->
+  </test> <!-- DanaPulsaServiceTestPromotion(failed) -->
 </suite> <!-- Failed suite [DANA Pulsa Suite] -->

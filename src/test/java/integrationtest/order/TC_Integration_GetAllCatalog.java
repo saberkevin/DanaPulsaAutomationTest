@@ -1,9 +1,7 @@
 package integrationtest.order;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,10 +19,6 @@ public class TC_Integration_GetAllCatalog extends TestBase {
 	private String phonePrefix;
 	private String result;
 	
-	public TC_Integration_GetAllCatalog() {
-		
-	}
-	
 	public TC_Integration_GetAllCatalog(String testCase, String phonePrefix, String result) {
 		this.testCase = testCase;
 		this.phonePrefix = phonePrefix;
@@ -37,10 +31,10 @@ public class TC_Integration_GetAllCatalog extends TestBase {
 		logger.info("Case:" + testCase);
 		
 		// initialize user
-		user.setName("Zanuar");
-		user.setEmail("triromadon@gmail.com");
-		user.setUsername("081252930398");
-		user.setPin(123456);
+		user.setName(ConfigIntegrationTestOrder.USER_NAME);
+		user.setEmail(ConfigIntegrationTestOrder.USER_EMAIL);
+		user.setUsername(ConfigIntegrationTestOrder.USER_USERNAME);
+		user.setPin(ConfigIntegrationTestOrder.USER_PIN);
 		
 		// delete if exist
 		deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
@@ -65,6 +59,7 @@ public class TC_Integration_GetAllCatalog extends TestBase {
 	public void testGetAllCatalog() {
 		getCatalog(user.getSessionId(), phonePrefix);
 		checkStatusCode("200");
+		user.setSessionId(response.getCookie("JSESSIONID"));
 
 		Assert.assertTrue(response.getBody().asString().contains(result));
 
@@ -91,49 +86,36 @@ public class TC_Integration_GetAllCatalog extends TestBase {
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		List<Map<String, String>> catalog = response.getBody().jsonPath().getList("data.catalog");
-
-		try {
-			Connection conn = getConnectionOrder();
-			String queryString = "SELECT "
-					+ "A.*, "
-					+ "B.id AS providerId, "
-					+ "B.name AS providerName, "
-					+ "B.image AS providerImage "
-					+ "FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id "
-					+ "LEFT JOIN provider_prefix C on B.id = C.providerId "
-					+ "WHERE C.prefix = ?";
-			
-			PreparedStatement ps = conn.prepareStatement(queryString);
-			ps.setString(1, phonePrefix.substring(1));
-			
-			ResultSet rs = ps.executeQuery();
-			
-			if (!rs.next()) {
-				Assert.assertTrue(false, "no catalog found in database");
-			}
-			do {
-				Assert.assertEquals(response.getBody().jsonPath().getLong("data.provider.id"), rs.getLong("providerId"));
-				Assert.assertEquals(response.getBody().jsonPath().getString("data.provider.name"), rs.getString("providerName"));
-				Assert.assertEquals(response.getBody().jsonPath().getString("data.provider.image"), rs.getString("providerImage"));
-				Assert.assertEquals(String.valueOf(catalog.get(rs.getRow()-1).get("id")), rs.getString("id"));
-				Assert.assertEquals(String.valueOf(catalog.get(rs.getRow()-1).get("value")), rs.getString("value"));
-				Assert.assertEquals(String.valueOf(catalog.get(rs.getRow()-1).get("price")), rs.getString("price"));
-			} while(rs.next());
-			
-			conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
+		
+		query = "SELECT A.*, B.id AS providerId, B.name AS providerName, B.image AS providerImage "
+				+ "FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id "
+				+ "LEFT JOIN provider_prefix C on B.id = C.providerId "
+				+ "WHERE C.prefix = ?";
+		param.put("1", phonePrefix.substring(1));
+		data = sqlExec(query, param, "order");
+		
+		List<Map<String, Object>> catalog = response.getBody().jsonPath().getList("data.catalog");
+		int index = 0;
+		
+		if (data.size() == 0) Assert.assertTrue(false, "no catalog found in database");
+		for (Map<String, Object> map : data) {
+			Assert.assertEquals(response.getBody().jsonPath().getLong("provider.id"), map.get("providerId"));
+			Assert.assertEquals(response.getBody().jsonPath().getString("provider.name"), map.get("providerName"));
+			Assert.assertEquals(response.getBody().jsonPath().getString("provider.image"), map.get("providerImage"));
+			Assert.assertEquals(Long.valueOf((Integer) catalog.get(index).get("id")), map.get("id"));
+			Assert.assertEquals(Long.valueOf((Integer) catalog.get(index).get("value")), map.get("value"));
+			Assert.assertEquals(Long.valueOf((Integer) catalog.get(index).get("price")), map.get("price"));
+			index++;
 		}
 	}
 	
 	@AfterClass
 	public void afterClass() {
-		// delete user
 		deleteBalanceByUserId(user.getId());
 		deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
-
-		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());		
 	}
 }

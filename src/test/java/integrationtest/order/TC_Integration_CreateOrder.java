@@ -1,9 +1,9 @@
 package integrationtest.order;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -20,10 +20,6 @@ public class TC_Integration_CreateOrder extends TestBase {
 	private String catalogId;
 	private String result;
 	
-	public TC_Integration_CreateOrder() {
-		
-	}
-	
 	public TC_Integration_CreateOrder(String testCase, String phoneNumber, String catalogId, String result) {
 		this.testCase = testCase;
 		this.phoneNumber = phoneNumber;
@@ -37,10 +33,10 @@ public class TC_Integration_CreateOrder extends TestBase {
 		logger.info("Case:" + testCase);
 		
 		// initialize user
-		user.setName("Zanuar");
-		user.setEmail("triromadon@gmail.com");
-		user.setUsername("081252930398");
-		user.setPin(123456);
+		user.setName(ConfigIntegrationTestOrder.USER_NAME);
+		user.setEmail(ConfigIntegrationTestOrder.USER_EMAIL);
+		user.setUsername(ConfigIntegrationTestOrder.USER_USERNAME);
+		user.setPin(ConfigIntegrationTestOrder.USER_PIN);
 		
 		// delete if exist
 		deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
@@ -91,57 +87,27 @@ public class TC_Integration_CreateOrder extends TestBase {
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		try {
-			Connection conn = getConnectionOrder();
-			String queryString = "SELECT "
-					+ "COUNT(*) AS count, "
-					+ "A.*, "
-					+ "B.value, "
-					+ "B.price, "
-					+ "C.id AS providerId, "
-					+ "C.name AS providerName, "
-					+ "C.image AS providerImage "
-					+ "FROM transaction A LEFT JOIN pulsa_catalog on A.catalogId = B.id "
-					+ "LEFT JOIN provider C on B.providerId = C.id "
-					+ "WHERE A.userId = ? AND A.phoneNumber = ? AND A.catalogId = ?";
-			
-			PreparedStatement ps = conn.prepareStatement(queryString);
-			ps.setLong(1, user.getId());
-			ps.setString(2, phoneNumber);
-			ps.setLong(3, Long.parseLong(catalogId));
-			
-			ResultSet rs = ps.executeQuery();
-			if (!rs.next()) {
-				Assert.assertTrue(false, "no transaction found in database");
-			}
-			do {
-				Assert.assertEquals(rs.getInt("count"), 1);
-				Assert.assertEquals(response.getBody().jsonPath().get("data.phoneNumber"), rs.getString("phoneNumber"));
-				Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("data.catalog.id")), rs.getString("catalogId"));
-				Assert.assertNotNull(Integer.toString(response.getBody().jsonPath().get("data.catalog.provider.id")), rs.getString("providerId"));
-				Assert.assertNotNull(response.getBody().jsonPath().get("data.catalog.provider.name"), rs.getString("providerName"));
-				Assert.assertNotNull(response.getBody().jsonPath().get("data.catalog.provider.image"), rs.getString("providerImage"));
-				Assert.assertNotNull(Integer.toString(response.getBody().jsonPath().get("data.catalog.value")), rs.getString("value"));
-				Assert.assertNotNull(Integer.toString(response.getBody().jsonPath().get("data.catalog.price")), rs.getString("price"));
-			} while(rs.next());
-			
-			conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
+		
+		query = "SELECT COUNT(*) AS count FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
+		param.put("1", user.getId());
+		param.put("2", phoneNumber);
+		param.put("3", Long.parseLong(catalogId));
+		data = sqlExec(query, param, "ORDER");
+
+		if (data.size() == 0) Assert.assertTrue(false, "no transaction found in database");
+		for (Map<String, Object> map : data)
+			Assert.assertEquals(map.get("count"), 1L);
 	}
 	
 	@AfterClass
 	public void afterClass() {
-		// delete user
 		deleteTransactionByUserId(user.getId());
 		deleteBalanceByUserId(user.getId());
 		deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
-
-		// delete transaction
 		deleteTransactionByPhoneNumber(phoneNumber);			
-		
-		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());		
 	}
 }

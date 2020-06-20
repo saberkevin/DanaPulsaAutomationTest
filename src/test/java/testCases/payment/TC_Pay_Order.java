@@ -1,10 +1,10 @@
 package testCases.payment;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -31,10 +31,6 @@ public class TC_Pay_Order extends TestBase {
 	private String result;
 	private boolean isCreateUser;
 	
-	public TC_Pay_Order() {
-		
-	}
-	
 	public TC_Pay_Order(String testCase, String sessionId, String transactionId, String paymentMethodId, String voucherId, String result) {
 		this.testCase = testCase;
 		this.sessionId = sessionId;
@@ -51,19 +47,15 @@ public class TC_Pay_Order extends TestBase {
 		logger.info("Case:" + testCase);
 		
 		if (sessionId.equals("true") || transactionId.equals("true")) {
-			isCreateUser = true;
-			
 			// initialize user
-			user.setName("Zanuar");
-			user.setEmail("triromadon@gmail.com");
-			user.setUsername("081252930398");
-			user.setPin(123456);
-			
-			// delete if exist
-			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
-			deleteUserIfExist(user.getEmail(), user.getUsername());
+			user.setName(ConfigApiTestPayment.USER_NAME);
+			user.setEmail(ConfigApiTestPayment.USER_EMAIL);
+			user.setUsername(ConfigApiTestPayment.USER_USERNAME);
+			user.setPin(ConfigApiTestPayment.USER_PIN);
 			
 			// insert user into database
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());			
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));
 			
@@ -88,14 +80,17 @@ public class TC_Pay_Order extends TestBase {
 			createUserVoucher(user.getId(), 3, 1); // used
 			createUserVoucher(user.getId(), 4, 1); // used
 			createUserVoucher(user.getId(), 16, 2); // discount minpurchase 500K
+			
+			// set flag
+			isCreateUser = true;
 		}
 		
-		if (transactionId.equals("true")) {	
-			// initialize catalog - TELKOMSEL 30k
-			catalog.setId(16);
+		if (transactionId.equals("true")) {
+			// initialize catalog - TELKOMSEL 75k
+			catalog.setId(19);
 			catalog.setProviderId(2);
-			catalog.setValue(30000);
-			catalog.setPrice(30000);
+			catalog.setValue(75000);
+			catalog.setPrice(75000);
 			
 			// initialize provider - TELKOMSEL
 			provider.setId(2);
@@ -118,8 +113,7 @@ public class TC_Pay_Order extends TestBase {
 			transaction.setPhoneNumber(user.getUsername());
 			transaction.setCatalogId(catalog.getId());
 			transaction.setMethodId(1);
-			transaction.setPaymentMethodName("WALLET");
-			
+			transaction.setPaymentMethodName("WALLET");			
 			transactionId = Long.toString(transaction.getId());
 		}
 		
@@ -130,15 +124,11 @@ public class TC_Pay_Order extends TestBase {
 			anotherUser.setUsername("081252930397");
 			anotherUser.setPin(123456);
 			
-			// delete if exist
-			deleteBalanceByEmailByUsername(anotherUser.getEmail(), anotherUser.getUsername());
-			deleteUserIfExist(anotherUser.getEmail(), anotherUser.getUsername());
-			
 			// insert user into database
+			deleteBalanceByEmailByUsername(anotherUser.getEmail(), anotherUser.getUsername());
+			deleteUserIfExist(anotherUser.getEmail(), anotherUser.getUsername());			
 			createUser(anotherUser);
 			anotherUser.setId(getUserIdByUsername(anotherUser.getUsername()));
-			
-			// insert balance into database
 			createBalance(anotherUser.getId(), 10000000);
 			
 			// initialize catalog - TELKOMSEL 15k
@@ -154,14 +144,11 @@ public class TC_Pay_Order extends TestBase {
 
 			// insert transaction into database
 			createTransaction(anotherUser.getId(), anotherUser.getUsername(), catalog.getId(), 4);
-			
-			// initialize transaction
 			transaction.setId(getTransactionIdByUserId(anotherUser.getId()));
 			transaction.setPhoneNumber(anotherUser.getUsername());
 			transaction.setCatalogId(catalog.getId());
 			transaction.setMethodId(1);
-			transaction.setPaymentMethodName("WALLET");
-			
+			transaction.setPaymentMethodName("WALLET");			
 			transactionId = Long.toString(transaction.getId());
 		}
 	}
@@ -169,11 +156,11 @@ public class TC_Pay_Order extends TestBase {
 	@Test
 	public void testPayOrder() {
 		payOrder(sessionId, transactionId, paymentMethodId, voucherId);
+		user.setSessionId(response.getCookie("JSESSIONID"));
 		
 		Assert.assertTrue(response.getBody().asString().contains(result));
 
 		int statusCode = response.getStatusCode();
-		
 		if (statusCode == 400) {
 			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "400");
 			Assert.assertTrue(response.getBody().jsonPath().getString("message").equals("not enough balance")
@@ -196,11 +183,8 @@ public class TC_Pay_Order extends TestBase {
 	
 	@Test(dependsOnMethods = {"testPayOrder"})
 	public void checkData() throws ParseException {
-		int statusCode = response.getStatusCode();
-		
-		if (statusCode == 201) {
-//			Assert.assertEquals(response.getBody().jsonPath().getLong("balance"), user.getBalance());
-			
+		if (response.getStatusCode() == 201) {
+//			Assert.assertEquals(response.getBody().jsonPath().getLong("data.balance"), user.getBalance());			
 			Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.id"), transaction.getId());
 			Assert.assertEquals(response.getBody().jsonPath().get("data.transaction.method"), transaction.getPaymentMethodName());
 			Assert.assertEquals(response.getBody().jsonPath().get("data.transaction.phoneNumber"), transaction.getPhoneNumber());
@@ -218,167 +202,85 @@ public class TC_Pay_Order extends TestBase {
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		int statusCode = response.getStatusCode();
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
 		
+		int statusCode = response.getStatusCode();
 		if (statusCode == 400) {
 			if (response.getBody().asString().contains("not enough balance")) {
 				
 			} else if (response.getBody().asString().contains("your voucher not found")) {
-				try {
-					Connection conn = getConnectionPromotion();
-					String queryString = "SELECT * FROM user_voucher A "
-							+ "LEFT JOIN voucher B ON A.voucherId = B.id "
-							+ "WHERE A.id = ? AND A.voucherId = ? AND A.voucherStatusId != 1 AND B.isActive = 1";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, user.getId());
-					ps.setLong(2, Long.parseLong(voucherId));
-					
-					ResultSet rs = ps.executeQuery();
-					Assert.assertTrue(!rs.next());
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+				query = "SELECT * FROM user_voucher A LEFT JOIN voucher B ON A.voucherId = B.id "
+						+ "WHERE A.id = ? AND A.voucherId = ? AND A.voucherStatusId != 1 AND B.isActive = 1";
+				param.put("1", user.getId());
+				param.put("2", Long.parseLong(voucherId));
+				data = sqlExec(query, param, "PROMOTION");
+				Assert.assertTrue(data.size() == 0);
 			} else if (response.getBody().asString().contains("your voucher is not applicable with your number")) {
-				try {
-					Connection conn = getConnectionPromotion();
-					String queryString = "SELECT * FROM voucher A "
-							+ "LEFT JOIN voucher_provider B on A.id = B.voucherId "
-							+ "WHERE A.id = ? AND B.providerId = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, Long.parseLong(voucherId));
-					ps.setLong(2, provider.getId());
-					
-					ResultSet rs = ps.executeQuery();
-					Assert.assertTrue(!rs.next());
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+				query = "SELECT * FROM voucher A LEFT JOIN voucher_provider B on A.id = B.voucherId WHERE A.id = ? AND B.providerId = ?";
+				param.put("1", Long.parseLong(voucherId));
+				param.put("2", provider.getId());
+				data = sqlExec(query, param, "PROMOTION");
+				Assert.assertTrue(data.size() == 0);
 			} else if (response.getBody().asString().contains("your voucher is not applicable with payment method")) {
-				try {
-					Connection conn = getConnectionPromotion();
-					String queryString = "SELECT * FROM voucher_payment_method WHERE paymentMethodId = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, Long.parseLong(paymentMethodId));
-					
-					ResultSet rs = ps.executeQuery();
-					Assert.assertTrue(!rs.next());
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}	
+				query = "SELECT * FROM voucher_payment_method WHERE paymentMethodId = ?";
+				param.put("1", Long.parseLong(paymentMethodId));
+				data = sqlExec(query, param, "PROMOTION");
+				Assert.assertTrue(data.size() == 0);
 			} else if (response.getBody().asString().contains("insufficient purchase amount to use this voucher")) {
-				try {	
-					Connection conn = getConnectionPromotion();
-					String queryString = "SELECT * FROM voucher WHERE id = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, Long.parseLong(voucherId));
-					
-					ResultSet rs = ps.executeQuery();
-					
-					if (!rs.next()) {
-						Assert.assertTrue(false, "no transaction found in database");
-					}
-					do {
-						Assert.assertTrue(catalog.getPrice() < rs.getLong("minPurchase"));
-					} while (rs.next());
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
+				query = "SELECT * FROM voucher WHERE id = ?";
+				param.put("1", Long.parseLong(voucherId));
+				data = sqlExec(query, param, "PROMOTION");
+
+				if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");
+				for (Map<String, Object> map : data)
+					Assert.assertTrue(catalog.getPrice() < (int) map.get("minPurchase"));
 			}
 		} else if (statusCode == 404) {
 			if (response.getBody().asString().contains("unknown transaction")) {
-				try {
-					Connection conn = getConnectionOrder();
-					String queryString = "SELECT * FROM transaction WHERE id = ? AND userId = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, Long.parseLong(transactionId));
-					ps.setLong(2, user.getId());
-					
-					ResultSet rs = ps.executeQuery();
-					Assert.assertTrue(!rs.next());
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}				
+				query = "SELECT * FROM transaction WHERE id = ? AND userId = ? AND statusId IN (3, 4)";
+				param.put("1", Long.parseLong(transactionId));
+				param.put("1", user.getId());
+				data = sqlExec(query, param, "ORDER");
+				Assert.assertTrue(data.size() == 0);
 			} else if (response.getBody().asString().contains("unknown method")) {
-				try {
-					Connection conn = getConnectionPromotion();
-					String queryString = "SELECT * FROM payment_method WHERE id = ?";
-					
-					PreparedStatement ps = conn.prepareStatement(queryString);
-					ps.setLong(1, Long.parseLong(paymentMethodId));
-					
-					ResultSet rs = ps.executeQuery();
-					Assert.assertTrue(!rs.next());
-					
-					conn.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}				
+				query = "SELECT * FROM payment_method WHERE id = ?";
+				param.put("1", Long.parseLong(paymentMethodId));
+				data = sqlExec(query, param, "ORDER");
+				Assert.assertTrue(data.size() == 0);			
 			}
 		} else if (statusCode == 200) {
-			try {
-				Connection conn = getConnectionOrder();
-				String queryString = "SELECT "
-						+ "A.*, "
-						+ "B.value, "
-						+ "B.price, "
-						+ "C.id AS providerId, "
-						+ "C.name AS providerName, "
-						+ "C.image AS providerImage, "
-						+ "D.name AS transactionStatus, "
-						+ "E.name AS paymentMethodName "
-						+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
-						+ "LEFT JOIN provider C on B.providerId = C.id "
-						+ "LEFT JOIN transaction_status D on A.statusId = D.id "
-						+ "LEFT JOIN payment_method E on A.methodId = E.id "
-						+ "WHERE A.id = ? AND A.userId = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(transactionId));
-				ps.setLong(2, user.getId());
-				
-				ResultSet rs = ps.executeQuery();
-				
-				if (!rs.next()) {
-					Assert.assertTrue(false, "no transaction found in database");
-				}
-				do {
-					Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.id"), rs.getLong("id"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.method"), rs.getString("paymentMethodName"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.phoneNumber"), rs.getString("phoneNumber"));
-					Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.catalog.provider.id"), rs.getLong("providerId"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.catalog.provider.name"), rs.getString("providerName"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.catalog.provider.image"), rs.getString("providerImage"));
-					Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.catalog.value"), rs.getLong("value"));
-					Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.catalog.price"), rs.getLong("price"));
-					Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.status"), rs.getString("transactionStatus"));
-//					Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.createdAt"), rs.getString("createdAt"));
-//					Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.updatedAt"), rs.getString("updatedAt"));
-				} while(rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
+			query = "SELECT A.*, B.value, B.price, C.id AS providerId, C.name AS providerName, C.image AS providerImage, "
+					+ "D.name AS transactionStatus, E.name AS paymentMethodName "
+					+ "FROM transaction A LEFT JOIN pulsa_catalog B on A.catalogId = B.id "
+					+ "LEFT JOIN provider C on B.providerId = C.id "
+					+ "LEFT JOIN transaction_status D on A.statusId = D.id "
+					+ "LEFT JOIN payment_method E on A.methodId = E.id "
+					+ "WHERE A.id = ? AND A.userId = ?";
+			param.put("1", Long.parseLong(transactionId));
+			param.put("2", user.getId());
+			data = sqlExec(query, param, "ORDER");
+
+			if (data.size() == 0) Assert.assertTrue(false, "no transaction found in database");
+			for (Map<String, Object> map : data) {
+				Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.id"), map.get("id"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.method"), map.get("paymentMethodName"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.phoneNumber"), map.get("phoneNumber"));
+				Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.catalog.provider.id"), map.get("providerId"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.catalog.provider.name"), map.get("providerName"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.catalog.provider.image"), map.get("providerImage"));
+				Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.catalog.value"), map.get("value"));
+				Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.catalog.price"), map.get("price"));
+				Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.status"), map.get("transactionStatus"));
+//				Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.createdAt"), map.get("createdAt"));
+//				Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.updatedAt"), map.get("updatedAt"));
 			}
 		}
 	}
 	
 	@AfterClass
 	public void afterClass() {
-		// delete user
 		if (isCreateUser == true) {
 			deleteUserVoucherByUserId(user.getId());
 			deleteTransactionByUserId(user.getId());
@@ -386,14 +288,12 @@ public class TC_Pay_Order extends TestBase {
 			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
 		}
 		
-		// delete another user
 		if (testCase.equals("Another user's transaction")) {
 			deleteTransactionByUserId(anotherUser.getId());
 			deleteBalanceByUserId(anotherUser.getId());
 			deleteUserByEmailAndUsername(anotherUser.getEmail(), anotherUser.getUsername());			
 		}
 
-		// tear down test case
 		tearDown("Finished " + this.getClass().getSimpleName());				
 	}
 }
