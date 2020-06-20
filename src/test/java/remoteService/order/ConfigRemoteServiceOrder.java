@@ -1,7 +1,7 @@
 package remoteService.order;
 
 public class ConfigRemoteServiceOrder {
-	public static final String FILE_PATH = "../DanaPulsaAutomationTest/src/test/java/remoteService/order/RemoteServiceOrderTestData.xlsx";
+	public static final String FILE_PATH = "src/test/java/remoteService/order/RemoteServiceOrderTestData.xlsx";
 	public static final String SHEET_CANCEL = "Cancel";
 	public static final String SHEET_CREATE_TRANSACTION = "Create Transaction";
 	public static final String SHEET_GET_ALL_CATALOG = "Get All Catalog";
