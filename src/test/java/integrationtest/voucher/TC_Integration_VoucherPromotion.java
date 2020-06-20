@@ -1,9 +1,8 @@
 package integrationtest.voucher;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,16 +13,13 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import model.User;
+import remoteService.order.ConfigRemoteServiceOrder;
 
 public class TC_Integration_VoucherPromotion extends TestBase {
 	private User user = new User();
 	private String testCase;
 	private String page;
 	private String result;
-	
-	public TC_Integration_VoucherPromotion() {
-		
-	}
 	
 	public TC_Integration_VoucherPromotion(String testCase, String page, String result) {
 		this.testCase = testCase;
@@ -37,10 +33,10 @@ public class TC_Integration_VoucherPromotion extends TestBase {
 		logger.info("Case:" + testCase);
 		
 		// initialize user
-		user.setName("Zanuar");
-		user.setEmail("triromadon@gmail.com");
-		user.setUsername("081252930398");
-		user.setPin(123456);
+		user.setName(ConfigRemoteServiceOrder.USER_NAME);
+		user.setEmail(ConfigRemoteServiceOrder.USER_EMAIL);
+		user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
+		user.setPin(ConfigRemoteServiceOrder.USER_PIN);
 		
 		// delete if exist
 		deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
@@ -92,68 +88,42 @@ public class TC_Integration_VoucherPromotion extends TestBase {
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		String dataString = response.getBody().jsonPath().getString("data");
-			
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
+		
+		String dataString = response.getBody().jsonPath().getString("data");			
 		if (dataString.equals("[]")) {
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT "
-						+ "A.id, "
-						+ "A.name AS voucherName, "
-						+ "B.name AS voucherTypeName, "
-						+ "A.filePath, "
-						+ "A.expiryDate "
-						+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id "
-						+ "WHERE A.isActive = 1 AND A.id NOT IN (SELECT voucherId FROM user_voucher where userId = ? AND voucherStatusId = 2) "
-						+ "ORDER BY A.id ASC LIMIT ?, 10";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, user.getId());
-				ps.setInt(2, (Integer.parseInt(page)-1) * 10);
-				
-				ResultSet rs = ps.executeQuery();
-				Assert.assertTrue(!rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				
-			}				
-		} else {
-			List<Map<String, String>> vouchers = response.getBody().jsonPath().getList("data");
+			query = "SELECT A.id, A.name AS voucherName, B.name AS voucherTypeName, A.filePath, A.expiryDate "
+					+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id "
+					+ "WHERE A.isActive = 1 AND A.id NOT IN (SELECT voucherId FROM user_voucher where userId = ? AND voucherStatusId = 2) "
+					+ "LIMIT ?, 10";
+			param.put("1", user.getId());
+			param.put("2", (Integer.parseInt(page)-1) * 10);
+			data = sqlExec(query, param, "PROMOTION");
+			Assert.assertTrue(data.size() == 0);			
+		} else {			
+			query = "SELECT A.id, A.name AS voucherName, B.name AS voucherTypeName, A.filePath, A.expiryDate "
+					+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id "
+					+ "WHERE A.isActive = 1 AND A.id NOT IN (SELECT voucherId FROM user_voucher where userId = ? AND voucherStatusId = 2) "
+					+ "ORDER BY A.id ASC LIMIT ?, 10";
+			param.put("1", user.getId());
+			param.put("2", (Integer.parseInt(page)-1) * 10);
+			data = sqlExec(query, param, "PROMOTION");
 			
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT "
-						+ "A.id, "
-						+ "A.name AS voucherName, "
-						+ "B.name AS voucherTypeName, "
-						+ "A.filePath, "
-						+ "A.expiryDate "
-						+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id "
-						+ "WHERE A.isActive = 1 AND A.id NOT IN (SELECT voucherId FROM user_voucher where userId = ? AND voucherStatusId = 2) "
-						+ "ORDER BY A.id ASC LIMIT ?, 10";
+			List<Map<String, String>> vouchers = response.getBody().jsonPath().getList("data");
+			int index = 0;
+
+			if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");
+			for (Map<String, Object> map : data) {
+				Assert.assertEquals(vouchers.get(index).get("id"), map.get("id"));
+				Assert.assertEquals(vouchers.get(index).get("name"), map.get("voucherName"));						
+				Assert.assertEquals(vouchers.get(index).get("voucherTypeName"), map.get("voucherTypeName"));						
+				Assert.assertEquals(vouchers.get(index).get("filePath"), map.get("filePath"));	
 				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, user.getId());
-				ps.setInt(2, (Integer.parseInt(page)-1) * 10);
-				
-				ResultSet rs = ps.executeQuery();
-				
-				if (!rs.next()) {
-					Assert.assertTrue(false, "no vouchers found in database");
-				}
-				do {
-					int index = rs.getRow() - 1;
-					Assert.assertEquals(String.valueOf(vouchers.get(index).get("id")), rs.getString("id"));
-					Assert.assertEquals(vouchers.get(index).get("name"), rs.getString("voucherName"));						
-					Assert.assertEquals(vouchers.get(index).get("voucherTypeName"), rs.getString("voucherTypeName"));						
-					Assert.assertEquals(vouchers.get(index).get("filePath"), rs.getString("filePath"));						
-//						Assert.assertEquals(vouchers.get(index).get("expiryDate"), rs.getLong("expiryDate"));
-				} while(rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				
+				SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+				Assert.assertEquals(formatter.format(vouchers.get(index).get("expiryDate")), formatter.format(map.get("expiryDate")));
+				index++;
 			}
 		}
 	}

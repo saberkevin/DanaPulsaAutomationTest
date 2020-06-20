@@ -7,7 +7,7 @@ import org.testng.annotations.Factory;
 
 import base.TestBase;
 
-public class Factory_Integration_VoucherPromotion  extends TestBase {
+public class Factory_Integration_VoucherPromotion extends TestBase {
 	@Factory(dataProvider="dp")
 	public Object[] createInstances(String testCase, String page, String result) {
 		return new Object[] {new TC_Integration_VoucherPromotion(testCase, page, result)};

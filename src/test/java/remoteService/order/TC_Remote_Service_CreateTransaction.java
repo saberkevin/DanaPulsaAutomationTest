@@ -102,7 +102,8 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 		final String errorMessage3 = "catalog not found";
 		final String errorMessage4 = "selected catalog is not available for this phone’s provider";
 		final String errorMessage5 = "invalid phone number";
-		final String errorMessage6 = "invalid request format";
+		final String errorMessage6 = "unknown phone number";
+		final String errorMessage7 = "invalid request format";
 		
 		if (responseBody.contains(errorMessage1)) {
 			// do some code
@@ -116,16 +117,17 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 			// do some code
 		} else if (responseBody.contains(errorMessage6)) {
 			// do some code
+		} else if (responseBody.contains(errorMessage7)) {
+			// do some code
 		} else {
 			Assert.assertNotNull(Integer.toString(response.getBody().jsonPath().get("id")));
 			Assert.assertEquals(response.getBody().jsonPath().get("phoneNumber"), phoneNumber);
 			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("catalog.id")), catalogId);
-			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("catalog.provider.id")), "2");
-			Assert.assertEquals(response.getBody().jsonPath().get("catalog.provider.name"), "Telkomsel");
-			Assert.assertEquals(response.getBody().jsonPath().get("catalog.provider.image"), 
-					"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png");
-			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("catalog.value")), "15000");
-			Assert.assertEquals(Integer.toString(response.getBody().jsonPath().get("catalog.price")), "15000");
+			Assert.assertNotNull(Integer.toString(response.getBody().jsonPath().get("catalog.provider.id")));
+			Assert.assertNotNull(response.getBody().jsonPath().get("catalog.provider.name"));
+			Assert.assertNotNull(response.getBody().jsonPath().get("catalog.provider.image"));
+			Assert.assertNotNull(Integer.toString(response.getBody().jsonPath().get("catalog.value")));
+			Assert.assertNotNull(Integer.toString(response.getBody().jsonPath().get("catalog.price")));
 		}
 	}
 	
@@ -141,21 +143,22 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 		final String errorMessage3 = "catalog not found";
 		final String errorMessage4 = "selected catalog is not available for this phone’s provider";
 		final String errorMessage5 = "invalid phone number";
-		final String errorMessage6 = "invalid request format";
+		final String errorMessage6 = "unknown phone number";
+		final String errorMessage7 = "invalid request format";
 		
 		String responseBody = response.getBody().asString();
 		switch (responseBody) {
 		case errorMessage1:
 			query = "SELECT * FROM user WHERE id = ?";
 			param.put("1", Long.parseLong(userId));
-			data = sqlExec(query, param, "member");
+			data = sqlExec(query, param, "MEMBER");
 			Assert.assertTrue(data.size() == 0);
 
 			query = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
 			param.put("1", Long.parseLong(userId));
 			param.put("2", phoneNumber);
 			param.put("3", Long.parseLong(catalogId));
-			data = sqlExec(query, param, "order");
+			data = sqlExec(query, param, "ORDER");
 			Assert.assertTrue(data.size() == 0);
 			break;
 		case errorMessage2:
@@ -164,14 +167,14 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 		case errorMessage3:
 			query = "SELECT * FROM pulsa_catalog WHERE id = ?";
 			param.put("1", Long.parseLong(catalogId));
-			data = sqlExec(query, param, "order");
+			data = sqlExec(query, param, "ORDER");
 			Assert.assertTrue(data.size() == 0);
 
 			query = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
 			param.put("1", Long.parseLong(userId));
 			param.put("2", phoneNumber);
 			param.put("3", Long.parseLong(catalogId));
-			data = sqlExec(query, param, "order");
+			data = sqlExec(query, param, "ORDER");
 			Assert.assertTrue(data.size() == 0);
 			break;
 		case errorMessage4:
@@ -179,12 +182,15 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 
 			query = "SELECT name FROM provider WHERE id IN (SELECT providerId FROM provider_prefix WHERE prefix = ?)";
 			param.put("1", phoneNumber.substring(1, 5));
-			data = sqlExec(query, param, "order");
-			Assert.assertTrue(data.size() == 0);
+			data = sqlExec(query, param, "ORDER");
+			
+			if (data.size() == 0) Assert.assertTrue(false,  "no provider found in database");			
+			for (Map<String, Object> map : data)
+				providerName = (String) map.get("name");
 			
 			query = "SELECT B.name FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id WHERE A.id = ?";
 			param.put("1", Long.parseLong(catalogId));
-			data = sqlExec(query, param, "order");
+			data = sqlExec(query, param, "ORDER");
 
 			if (data.size() == 0) Assert.assertTrue(false,  "no provider found in database");			
 			for (Map<String, Object> map : data)
@@ -194,7 +200,7 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 			param.put("1", Long.parseLong(userId));
 			param.put("2", phoneNumber);
 			param.put("3", Long.parseLong(catalogId));
-			data = sqlExec(query, param, "order");
+			data = sqlExec(query, param, "ORDER");
 			Assert.assertTrue(data.size() == 0);
 			break;
 		case errorMessage5:
@@ -202,7 +208,7 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 			param.put("1", Long.parseLong(userId));
 			param.put("2", phoneNumber);
 			param.put("3", Long.parseLong(catalogId));
-			data = sqlExec(query, param, "order");
+			data = sqlExec(query, param, "ORDER");
 			Assert.assertTrue(data.size() == 0);
 			break;
 		case errorMessage6:
@@ -210,7 +216,20 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 			param.put("1", Long.parseLong(userId));
 			param.put("2", phoneNumber);
 			param.put("3", Long.parseLong(catalogId));
-			data = sqlExec(query, param, "order");
+			data = sqlExec(query, param, "ORDER");
+			Assert.assertTrue(data.size() == 0);
+			break;
+		case errorMessage7:
+			query = "SELECT name FROM provider WHERE id IN (SELECT providerId FROM provider_prefix WHERE prefix = ?)";
+			param.put("1", phoneNumber.substring(1, 5));
+			data = sqlExec(query, param, "ORDER");
+			Assert.assertTrue(data.size() == 0);
+			
+			query = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
+			param.put("1", Long.parseLong(userId));
+			param.put("2", phoneNumber);
+			param.put("3", Long.parseLong(catalogId));
+			data = sqlExec(query, param, "ORDER");
 			Assert.assertTrue(data.size() == 0);
 			break;
 		default:
@@ -218,11 +237,11 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 			param.put("1", Long.parseLong(userId));
 			param.put("2", phoneNumber);
 			param.put("3", Long.parseLong(catalogId));
-			data = sqlExec(query, param, "order");
+			data = sqlExec(query, param, "ORDER");
 
 			if (data.size() == 0) Assert.assertTrue(false, "no transaction found in database");
 			for (Map<String, Object> map : data)
-				Assert.assertEquals(map.get("count"), 1);
+				Assert.assertEquals(map.get("count"), 1L);
 			break;
 		}
 	}

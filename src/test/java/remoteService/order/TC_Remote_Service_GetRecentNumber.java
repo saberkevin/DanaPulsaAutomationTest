@@ -1,7 +1,6 @@
 package remoteService.order;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -60,7 +59,7 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Case:" + testCase);
 		
-		if (userId.equals("true")) {			
+		if (userId.equals("true")) {
 			// initialize user
 			user.setName(ConfigRemoteServiceOrder.USER_NAME);
 			user.setEmail(ConfigRemoteServiceOrder.USER_EMAIL);
@@ -86,8 +85,8 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 				phoneNumbers[0] = user.getUsername();
 			} else if (testCase.equals("Valid ID (more than 10 transaction history)")) {
 				for (int i = 0; i < 11; i++) {
-					createTransaction(user.getId(), "08125216179" + Integer.toString(i), 13);
 					phoneNumbers[i] = "08125216179" + Integer.toString(i);
+					createTransaction(user.getId(), phoneNumbers[i], 13);
 				}
 			}
 			
@@ -157,7 +156,7 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 		case errorMessage1:
 			query = "SELECT * FROM user WHERE id = ?";
 			param.put("1", Long.parseLong(userId));
-			data = sqlExec(query, param, "member");
+			data = sqlExec(query, param, "MEMBER");
 			Assert.assertTrue(data.size() == 0);
 			break;
 		case errorMessage2:
@@ -176,10 +175,9 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 					+ "WHERE A.userId = ? "
 					+ "ORDER BY A.createdAt DESC LIMIT 10";
 			param.put("1", Long.parseLong(userId));
-			data = sqlExec(query, param, "order");
+			data = sqlExec(query, param, "ORDER");
 
 			List<HashMap<Object, Object>> recentNumbers = response.jsonPath().get();
-			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 			int index = 0;
 
 			if (data.size() == 0) Assert.assertTrue(false, "no transaction found in database");
@@ -191,7 +189,8 @@ public class TC_Remote_Service_GetRecentNumber extends TestBase {
 				Assert.assertEquals(provHashMap.get("name"), map.get("name"));
 				Assert.assertEquals(provHashMap.get("image"), map.get("image"));
 
-				Assert.assertEquals(formatter.format(recentNumbers.get(index).get("date")), formatter.format(map.get("createdAt")));
+//				SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+//				Assert.assertEquals(formatter.format(recentNumbers.get(index).get("date")), formatter.format(map.get("createdAt")));
 				index++;
 			}
 			break;

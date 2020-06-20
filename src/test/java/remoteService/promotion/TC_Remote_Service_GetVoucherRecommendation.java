@@ -70,10 +70,10 @@ public class TC_Remote_Service_GetVoucherRecommendation extends TestBase {
 		
 		if (userId.equals("true") || transactionId.equals("true")) {
 			// initialize user
-			user.setName(ConfigRemoteServicePromotion.USER_NAME);
-			user.setEmail(ConfigRemoteServicePromotion.USER_EMAIL);
-			user.setUsername(ConfigRemoteServicePromotion.USER_USERNAME);
-			user.setPin(ConfigRemoteServicePromotion.USER_PIN);
+			user.setName("Zanuar");
+			user.setEmail("triromadon@gmail.com");
+			user.setUsername("081252930398");
+			user.setPin(123456);
 			
 			// insert user into database
 			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());

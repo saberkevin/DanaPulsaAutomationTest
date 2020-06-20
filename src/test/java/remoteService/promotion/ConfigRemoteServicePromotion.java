@@ -21,9 +21,9 @@ public class ConfigRemoteServicePromotion {
 	public static final String QUEUE_UNREDEEM  = "unredeem";
 	public static final String QUEUE_ISSUE_VOUCHER = "getProviderById";
 	public static final String QUEUE_ELIGIBLE_TO_GET_VOUCHER= "getRecentNumber";
-	
+
 	public static final String USER_NAME = "Zanuar";
 	public static final String USER_EMAIL = "triromadon@gmail.com";
-	public static final String USER_USERNAME = "6281252930398";
+	public static final String USER_USERNAME = "081252930398";
 	public static final int USER_PIN = 123456;
 }

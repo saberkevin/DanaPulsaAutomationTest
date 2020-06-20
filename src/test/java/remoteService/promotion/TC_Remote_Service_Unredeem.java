@@ -59,10 +59,10 @@ public class TC_Remote_Service_Unredeem extends TestBase {
 		logger.info("Case:" + description);
 
 		// initialize user
-		user.setName(ConfigRemoteServicePromotion.USER_NAME);
-		user.setEmail(ConfigRemoteServicePromotion.USER_EMAIL);
-		user.setUsername(ConfigRemoteServicePromotion.USER_USERNAME);
-		user.setPin(ConfigRemoteServicePromotion.USER_PIN);
+		user.setName("Zanuar");
+		user.setEmail("triromadon@gmail.com");
+		user.setUsername("081252930398");
+		user.setPin(123456);
 		
 		// insert user into database and get user id from it
 		deleteUserIfExist(user.getEmail(), user.getUsername());

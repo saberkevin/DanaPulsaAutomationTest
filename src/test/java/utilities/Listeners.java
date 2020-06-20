@@ -16,6 +16,7 @@ public class Listeners extends TestListenerAdapter
 	public ExtentReports report;
 	public ExtentTest test;
 	
+	@Override
 	public void onStart(ITestContext testContext)
 	{
 		htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/Report.html");
@@ -31,12 +32,14 @@ public class Listeners extends TestListenerAdapter
 		report.setSystemInfo("user", "Kevin Winarko/Zanuar Tri Romadon");
 	}
 	
+	@Override
 	public void onTestSuccess(ITestResult result)
 	{
 		test = report.createTest(result.getName());
 		test.log(Status.PASS, "Test Case PASSED is " + result.getName());
 	}
 	
+	@Override
 	public void onTestFailure(ITestResult result)
 	{
 		test = report.createTest(result.getName());
@@ -44,6 +47,7 @@ public class Listeners extends TestListenerAdapter
 		test.log(Status.PASS, "Test Case FAILED Throw is " + result.getThrowable());
 	}
 	
+	@Override
 	public void onFinish(ITestContext testContext)
 	{
 		report.flush();

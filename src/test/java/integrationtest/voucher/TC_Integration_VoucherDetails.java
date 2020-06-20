@@ -1,9 +1,8 @@
 package integrationtest.voucher;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,10 +19,6 @@ public class TC_Integration_VoucherDetails extends TestBase {
 	private String testCase;
 	private String voucherId;
 	private String result;
-	
-	public TC_Integration_VoucherDetails() {
-		
-	}
 	
 	public TC_Integration_VoucherDetails(String testCase, String voucherId, String result) {
 		this.testCase = testCase;
@@ -55,6 +50,7 @@ public class TC_Integration_VoucherDetails extends TestBase {
 		checkStatusCode("200");
 		user.setId(response.getBody().jsonPath().getLong("data.id"));
 		
+		// verify pin login
 		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
 		checkStatusCode("200");
 		user.setSessionId(response.getCookie("JSESSIONID"));
@@ -71,6 +67,7 @@ public class TC_Integration_VoucherDetails extends TestBase {
 	public void testVoucherDetails() {		
 		getVoucherDetails(user.getSessionId(), voucherId);
 		checkStatusCode("200");
+		user.setSessionId(response.getCookie("JSESSIONID"));
 		
 		Assert.assertTrue(response.getBody().asString().contains(result));
 
@@ -100,43 +97,32 @@ public class TC_Integration_VoucherDetails extends TestBase {
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		int statusCode = response.getStatusCode();
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
 		
-		if (statusCode == 200) {
-			Map<String, String> data = response.getBody().jsonPath().get("data");
+		int statusCode = response.getStatusCode();		
+		if (statusCode == 200) {			
+			query = "SELECT A.*, B.name AS voucherTypeName FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id WHERE A.id = ?";
+			param.put("1", voucherId);
+			data = sqlExec(query, param, "PROMOTION");
 			
-			try {
-				Connection conn = getConnectionPromotion();
-				String queryString = "SELECT "
-						+ "A.*, "
-						+ "B.name AS voucherTypeName "
-						+ "FROM voucher A LEFT JOIN voucher_type B on A.typeId = B.id "
-						+ "WHERE A.id = ?";
-				
-				PreparedStatement ps = conn.prepareStatement(queryString);
-				ps.setLong(1, Long.parseLong(voucherId));
-				
-				ResultSet rs = ps.executeQuery();
-				
-				if (!rs.next()) {
-					Assert.assertTrue(false, "no voucher found in database");
-				}
-				do {
-					Assert.assertEquals(String.valueOf(data.get("id")), rs.getString("id"));
-					Assert.assertEquals(data.get("name"), rs.getString("name"));
-					Assert.assertEquals(String.valueOf(data.get("discount")), rs.getString("discount"));
-					Assert.assertEquals(data.get("voucherTypeName"), rs.getString("voucherTypeName"));
-					Assert.assertEquals(String.valueOf(data.get("minPurchase")), rs.getString("minPurchase"));
-					Assert.assertEquals(String.valueOf(data.get("maxDeduction")), rs.getString("maxDeduction"));
-					Assert.assertEquals(String.valueOf(data.get("value")), rs.getString("value"));
-					Assert.assertEquals(data.get("filePath"), rs.getString("filePath"));
-//					Assert.assertEquals(data.get("expiryDate"), rs.getString("expiryDate"));
-//					Assert.assertEquals(data.get("active"), rs.getString("active"));
-				} while (rs.next());
-				
-				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+			Map<String, Object> voucher = response.getBody().jsonPath().get("data");
+
+			if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");
+			for (Map<String, Object> map : data) {
+				Assert.assertEquals(voucher.get("id"), map.get("id"));
+				Assert.assertEquals(voucher.get("name"), map.get("name"));
+				Assert.assertEquals(voucher.get("discount"), map.get("discount"));
+				Assert.assertEquals(voucher.get("voucherTypeName"), map.get("voucherTypeName"));
+				Assert.assertEquals(Long.valueOf((Integer) voucher.get("minPurchase")), map.get("minPurchase"));
+				Assert.assertEquals(Long.valueOf((Integer) voucher.get("maxDeduction")), map.get("maxDeduction"));
+				Assert.assertEquals(voucher.get("value"), map.get("value"));
+				Assert.assertEquals(voucher.get("filePath"), map.get("filePath"));
+
+				SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+				Assert.assertEquals(formatter.format(voucher.get("expiryDate")), formatter.format(map.get("expiryDate")));
+				Assert.assertEquals(voucher.get("active"), map.get("isActive"));
 			}
 		}
 	}

@@ -27,9 +27,9 @@ public class ConfigRemoteServiceOrder {
 	public static final String QUEUE_TRANSACTION_BY_ID = "getTransactionById";
 	public static final String QUEUE_TRANSACTION_BY_ID_BY_USER_ID = "getTransactionByIdByUserId";
 	public static final String QUEUE_PAY = "pay";
-	
+
 	public static final String USER_NAME = "Zanuar";
 	public static final String USER_EMAIL = "triromadon@gmail.com";
-	public static final String USER_USERNAME = "6281252930398";
+	public static final String USER_USERNAME = "081252930398";
 	public static final int USER_PIN = 123456;
 }

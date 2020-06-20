@@ -679,8 +679,9 @@ public class TestBase {
 	//============ Some Command to DB ==============================//
 	
 	public void createUser(User user) {
+		Connection conn = null;
 		try {
-			Connection conn = setConnection("MEMBER");
+			conn = setConnection("MEMBER");
 			String query = "INSERT INTO user(name, email, username, pin) VALUES(?, ?, ?, ?)";
 
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -693,12 +694,20 @@ public class TestBase {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}	
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
 	}
 	
 	public void deleteUserById(long id) {
+		Connection conn = null;
 		try {
-			Connection conn = setConnection("MEMBER");
+			conn = setConnection("MEMBER");
 			String query = "DELETE FROM user WHERE id = ?";
 
 			PreparedStatement ps = conn.prepareStatement(query);			
@@ -708,14 +717,22 @@ public class TestBase {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
 		}
 	}
 	
 	public void deleteUserIfExist(String email, String username) {
 		boolean userExist = false;
+		Connection conn = null;
 		
 		try {
-			Connection conn = setConnection("MEMBER");
+			conn = setConnection("MEMBER");
 			String query = "SELECT * FROM user WHERE email = ? OR username = ?";
 
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -729,11 +746,18 @@ public class TestBase {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
 		}
 		
 		if (userExist) {
 			try {
-				Connection conn = setConnection("MEMBER");
+				conn = setConnection("MEMBER");
 				String query = "DELETE FROM user WHERE email = ? OR username = ?";
 
 				PreparedStatement ps = conn.prepareStatement(query);
@@ -744,13 +768,21 @@ public class TestBase {
 				conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+			} finally {
+				try {
+			        if (conn != null)
+			            conn.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
 			}
 		}
 	}
 	
 	public void deleteUserByEmailAndUsername(String email, String username) {
+		Connection conn = null;
 		try {
-			Connection conn = getConnectionMember();
+			conn = setConnection("MEMBER");
 			String queryString = "DELETE FROM user WHERE email = ? AND username = ?";
 
 			PreparedStatement ps = conn.prepareStatement(queryString);
@@ -761,14 +793,22 @@ public class TestBase {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
 		}
 	}
 	
 	public long getUserIdByUsername(String username) {
 		long id = 0;
+		Connection conn = null;
 		
 		try {
-			Connection conn = setConnection("MEMBER");
+			conn = setConnection("MEMBER");
 			String query = "SELECT id FROM user WHERE username = ?";
 
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -782,14 +822,22 @@ public class TestBase {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
 		}
 		
 		return id;
 	}
 	
 	public void createTransaction(long userId, String phoneNumber, long catalogId) {
+		Connection conn = null;
 		try {
-			Connection conn = getConnectionOrder();
+			conn = setConnection("ORDER");
 			String queryString = "INSERT INTO transaction(userId, methodId, phoneNumber, catalogId, statusId) VALUES (?, ?, ?, ?, ?)";
 
 			PreparedStatement ps = conn.prepareStatement(queryString);
@@ -803,12 +851,20 @@ public class TestBase {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}	
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
 	}
 	
 	public void createTransaction(long userId, String phoneNumber, long catalogId, long statusId) {
+		Connection conn = null;
 		try {
-			Connection conn = getConnectionOrder();
+			conn = setConnection("ORDER");
 			String queryString = "INSERT INTO transaction(userId, methodId, phoneNumber, catalogId, statusId) VALUES (?, ?, ?, ?, ?)";
 
 			PreparedStatement ps = conn.prepareStatement(queryString);
@@ -822,12 +878,20 @@ public class TestBase {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}	
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
 	}
 	
 	public void deleteTransactionByPhoneNumber(String phoneNumber) {
+		Connection conn = null;
 		try {
-			Connection conn = getConnectionOrder();
+			conn = setConnection("ORDER");
 			String queryString = "DELETE FROM transaction WHERE phoneNumber = ?";
 
 			PreparedStatement ps = conn.prepareStatement(queryString);			
@@ -837,12 +901,20 @@ public class TestBase {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
 		}
 	}
 	
 	public void deleteTransactionByUserId(long userId) {
+		Connection conn = null;
 		try {
-			Connection conn = getConnectionOrder();
+			conn = setConnection("ORDER");
 			String queryString = "DELETE FROM transaction WHERE userId = ?";
 
 			PreparedStatement ps = conn.prepareStatement(queryString);
@@ -852,14 +924,21 @@ public class TestBase {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
 		}
 	}
 	
 	public long getTransactionIdByUserId(long userId) {
 		long id = 0;
-		
+		Connection conn = null;
 		try {
-			Connection conn = getConnectionOrder();
+			conn = setConnection("ORDER");
 			String queryString = "SELECT id FROM transaction WHERE userId = ?";
 
 			PreparedStatement ps = conn.prepareStatement(queryString);
@@ -873,14 +952,22 @@ public class TestBase {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
 		}
 		
 		return id;
 	}
 	
 	public void createBalance(long userId, long balance) {
+		Connection conn = null;
 		try {
-			Connection conn = getConnectionMember();
+			conn = setConnection("MEMBER");
 			String queryString = "INSERT INTO balance(userId, balance) VALUES(?, ?)";
 
 			PreparedStatement ps = conn.prepareStatement(queryString);
@@ -891,12 +978,20 @@ public class TestBase {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}	
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
 	}
 	
 	public void deleteBalanceByUserId(long userId) {
+		Connection conn = null;
 		try {
-			Connection conn = getConnectionMember();
+			conn = setConnection("MEMBER");
 			String queryString = "DELETE FROM balance WHERE userId = ?";
 
 			PreparedStatement ps = conn.prepareStatement(queryString);
@@ -906,12 +1001,20 @@ public class TestBase {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
 		}	
 	}
 	
 	public void deleteBalanceByEmailByUsername(String email, String username) {
+		Connection conn = null;
 		try {
-			Connection conn = getConnectionMember();
+			conn = setConnection("MEMBER");
 			String queryString = "DELETE FROM balance WHERE userId in (select id from user where email = ? or username = ?)";
 
 			PreparedStatement ps = conn.prepareStatement(queryString);
@@ -922,13 +1025,21 @@ public class TestBase {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}	
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
 	}
 	
 	public void createUserVoucher(long userId, long voucherId, long voucherStatusId) {
+		Connection conn = null;
 		Date date = new Date();
 		try {
-			Connection conn = setConnection("PROMOTION");
+			conn = setConnection("PROMOTION");
 			String query = "INSERT INTO user_voucher(userId, voucherId, voucherStatusId, createdAt) VALUES(?, ?, ?, ?)";
 
 			PreparedStatement ps = conn.prepareStatement(query);
@@ -941,12 +1052,20 @@ public class TestBase {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}	
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
 	}
 	
 	public void deleteUserVoucherByUserId(long userId) {
+		Connection conn = null;
 		try {
-			Connection conn = getConnectionPromotion();
+			conn = setConnection("PROMOTION");
 			String queryString = "DELETE FROM user_voucher WHERE userId = ?";
 
 			PreparedStatement ps = conn.prepareStatement(queryString);
@@ -956,14 +1075,22 @@ public class TestBase {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
 		}	
 	}
 	
 	public List<Map<String, Object>> sqlExec(String query, Map<String, Object> param, String domain) {
 		List<Map<String, Object>> result = new ArrayList<Map<String,Object>>();
-		
+		Connection conn = null;
+				
 		try {
-			Connection conn = setConnection(domain);
+			conn = setConnection(domain);
 			PreparedStatement ps = conn.prepareStatement(query);
 			
 			int index = 0;
@@ -990,7 +1117,14 @@ public class TestBase {
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}	
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
 		
 		return result;
 	}

@@ -74,10 +74,10 @@ public class TC_Remote_Service_Pay extends TestBase {
 		
 		if (userId.equals("true") || transactionId.equals("true")) {
 			// initialize user
-			user.setName(ConfigRemoteServiceOrder.USER_NAME);
-			user.setEmail(ConfigRemoteServiceOrder.USER_EMAIL);
-			user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
-			user.setPin(ConfigRemoteServiceOrder.USER_PIN);
+			user.setName("Zanuar");
+			user.setEmail("triromadon@gmail.com");
+			user.setUsername("081252930398");
+			user.setPin(123456);
 			
 			// insert user into database
 			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());

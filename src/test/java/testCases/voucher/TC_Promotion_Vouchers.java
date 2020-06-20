@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 
 import base.TestBase;
 import model.User;
+import remoteService.order.ConfigRemoteServiceOrder;
 
 public class TC_Promotion_Vouchers extends TestBase {
 	private User user = new User();
@@ -22,10 +23,6 @@ public class TC_Promotion_Vouchers extends TestBase {
 	private String page;
 	private String result;
 	private boolean isCreateUser;
-	
-	public TC_Promotion_Vouchers() {
-		
-	}
 	
 	public TC_Promotion_Vouchers(String testCase, String sessionId, String page, String result) {
 		this.testCase = testCase;
@@ -40,37 +37,34 @@ public class TC_Promotion_Vouchers extends TestBase {
 		logger.info("***** Started " + this.getClass().getSimpleName() + " *****");
 		logger.info("Case:" + testCase);
 		
-		if (sessionId.equals("true")) {
-			isCreateUser = true;
-			
+		if (sessionId.equals("true")) {			
 			// initialize user
-			user.setName("Zanuar");
-			user.setEmail("triromadon@gmail.com");
-			user.setUsername("081252930398");
-			user.setPin(123456);
-			
-			// delete if exist
-			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
-			deleteUserIfExist(user.getEmail(), user.getUsername());
+			user.setName(ConfigRemoteServiceOrder.USER_NAME);
+			user.setEmail(ConfigRemoteServiceOrder.USER_EMAIL);
+			user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
+			user.setPin(ConfigRemoteServiceOrder.USER_PIN);
 			
 			// insert user into database
+			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
+			deleteUserIfExist(user.getEmail(), user.getUsername());
 			createUser(user);
 			user.setId(getUserIdByUsername(user.getUsername()));	
 			
+			// verify pin login
 			verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
 			checkStatusCode("200");
 			user.setSessionId(response.getCookie("JSESSIONID"));
-			sessionId = user.getSessionId();
-
-			// insert balance into database
 			createBalance(user.getId(), 10000000);
+			sessionId = user.getSessionId();
+			
+			// set flag
+			isCreateUser = true;
 		}
 	}
 	
 	@Test
 	public void testPromotionVouchers() {
-		getPromotionVoucher(sessionId, page);
-		
+		getPromotionVoucher(sessionId, page);		
 		Assert.assertTrue(response.getBody().asString().contains(result));
 
 		int statusCode = response.getStatusCode();
