@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="DANA Pulsa Suite">
+	<test name="DANA Pulsa Integration Test Payment - Payment" group-by-instances="true">
+		<classes>
+			<class name = "integrationtest.payment.Factory_Integration_Payment"></class>
+		</classes>
+	</test>
+</suite>

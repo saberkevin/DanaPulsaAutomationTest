@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="DANA Pulsa Suite">
+	<test name="DANA Pulsa API Test Order - Recent Phone Number" group-by-instances="true">
+		<classes>
+			<class name = "testCases.order.Factory_Recent_Phone_Number"></class>
+		</classes>
+	</test>
+</suite>

@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="DANA Pulsa Suite">
+	<test name="DANA Pulsa Integration Test Voucher - Voucher Recommendation" group-by-instances="true">
+		<classes>
+			<class name = "integrationtest.voucher.Factory_VoucherRecommendation"></class>
+		</classes>
+	</test>
+</suite>

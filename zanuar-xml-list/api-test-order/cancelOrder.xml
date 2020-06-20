@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="DANA Pulsa Suite">
+	<test name="DANA Pulsa API Test Order - Cancel Order" group-by-instances="true">
+		<classes>
+			<class name = "testCases.order.Factory_Cancel_Order"></class>
+		</classes>
+	</test>
+</suite>

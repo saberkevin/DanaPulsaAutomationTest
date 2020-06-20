@@ -1,7 +1,7 @@
 package remoteService.promotion;
 
 public class ConfigRemoteServicePromotion {
-	public static final String FILE_PATH = "../DanaPulsaAutomationTest/src/test/java/remoteService/promotion/RemoteServicePromotionTestData.xlsx";
+	public static final String FILE_PATH = "src/test/java/remoteService/promotion/RemoteServicePromotionTestData.xlsx";
 	public static final String SHEET_GET_MY_VOUCHER = "Get My Vouchers";
 	public static final String SHEET_GET_VOUCHER_PROMOTION = "Get Promotion Vouchers";
 	public static final String SHEET_GET_VOUCHER_RECOMMENDATION = "Get Voucher Recommendation";
