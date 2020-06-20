@@ -59,7 +59,7 @@ public class TC_Service_Decrease_Balance extends TestBase{
 	@Test(dependsOnMethods = {"decreaseBalanceUser"})
 	void checkResult()
 	{		
-		if(responseResult.equals("success"))
+		if(responseResult.equals("\"success\""))
 		{	
 			String query = "SELECT userId, balance FROM balance\n" + 
 					"WHERE userId = ?";
