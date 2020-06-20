@@ -105,6 +105,7 @@
 			<configuration>
 				<suiteXmlFiles>
 					<suiteXmlFile>testNG.xml</suiteXmlFile>
+					<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
 				</suiteXmlFiles>
 			</configuration>
 		</plugin>
