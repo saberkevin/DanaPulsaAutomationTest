@@ -66,6 +66,9 @@ public class TestBase {
 	public Response response;
 
 	public String URI = "http://debrief.herokuapp.com";
+	public String URIOrder = "https://debrief2-pulsa-order.herokuapp.com";
+	public String URIOrderBackup = "https://debrief2-pulsa-order-backup.herokuapp.com";
+	public String URIPromotion = "https://pulsa-voucher.herokuapp.com";
 	public String memberURI = "https://member-domain.herokuapp.com/member";
 	public String memberAMQP = "amqp://ynjauqav:K83KvUARdw7DyYLJF2_gt2RVzO-NS2YM@lively-peacock.rmq.cloudamqp.com/ynjauqav";
 	public String excelPrefix = "../DanaPulsaAutomationTest/src/test/java/";
