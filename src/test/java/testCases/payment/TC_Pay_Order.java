@@ -77,7 +77,7 @@ public class TC_Pay_Order extends TestBase {
 			// insert voucher into database			
 			if (voucherId.equals("1") || voucherId.equals("7") ||voucherId.equals("16")) {
 				createUserVoucher(user.getId(), Long.parseLong(voucherId), 2);
-			} else if (voucherId.equals("2") || voucherId.equals("4")) {
+			} else if (voucherId.equals("3") || voucherId.equals("4")) {
 				createUserVoucher(user.getId(), Long.parseLong(voucherId), 1);
 			}
 			
@@ -175,7 +175,7 @@ public class TC_Pay_Order extends TestBase {
 			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "404");
 			Assert.assertTrue(response.getBody().jsonPath().getString("message").equals("unknown transaction")
 					|| response.getBody().jsonPath().getString("message").equals("unknown method"));
-		} else if (statusCode == 201) {
+		} else if (statusCode == 200) {
 			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "200");
 			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "success");
 		}
@@ -183,8 +183,8 @@ public class TC_Pay_Order extends TestBase {
 	
 	@Test(dependsOnMethods = {"testPayOrder"})
 	public void checkData() throws ParseException {
-		if (response.getStatusCode() == 201) {
-//			Assert.assertEquals(response.getBody().jsonPath().getLong("data.balance"), user.getBalance());			
+		if (response.getStatusCode() == 200) {
+			Assert.assertNotNull(response.getBody().jsonPath().getLong("data.balance"));			
 			Assert.assertEquals(response.getBody().jsonPath().getLong("data.transaction.id"), transaction.getId());
 			Assert.assertEquals(response.getBody().jsonPath().get("data.transaction.method"), transaction.getPaymentMethodName());
 			Assert.assertEquals(response.getBody().jsonPath().get("data.transaction.phoneNumber"), transaction.getPhoneNumber());
@@ -209,6 +209,24 @@ public class TC_Pay_Order extends TestBase {
 		int statusCode = response.getStatusCode();
 		if (statusCode == 400) {
 			if (response.getBody().asString().contains("not enough balance")) {
+				int discount = 0;
+				int maxDeduction = 0;
+				
+				if (!voucherId.equals("0")) {
+					query = "SELECT * FROM voucher WHERE id = ?";
+					param.put("1", Long.parseLong(voucherId));
+					data = sqlExec(query, param, "PROMOTION");
+					
+					if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");
+					for (Map<String, Object> map : data) {
+						discount = (int) map.get("discount");
+						maxDeduction = (int) map.get("maxDeduction");
+						
+						if (discount * catalog.getPrice() > maxDeduction) discount = maxDeduction;
+					}
+				}
+				
+				Assert.assertTrue((int) user.getBalance() < (catalog.getPrice() - discount));
 				
 			} else if (response.getBody().asString().contains("your voucher not found")) {
 				query = "SELECT * FROM user_voucher A LEFT JOIN voucher B ON A.voucherId = B.id "
@@ -277,14 +295,34 @@ public class TC_Pay_Order extends TestBase {
 //				Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.updatedAt"), map.get("updatedAt"));
 			}
 			
+			int discount = 0;
+			int value = 0;
+			int maxDeduction = 0;
+			
+			if (!voucherId.equals("0")) {
+				param = new LinkedHashMap<String, Object>();
+				query = "SELECT * FROM voucher WHERE id = ?";
+				param.put("1", Long.parseLong(voucherId));
+				data = sqlExec(query, param, "PROMOTION");
+				
+				if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");
+				for (Map<String, Object> map : data) {
+					discount = (int) map.get("discount");
+					value = (int) map.get("value");
+					maxDeduction = (int) map.get("maxDeduction");
+					
+					if (discount * catalog.getPrice() > maxDeduction) discount = maxDeduction;
+				}
+			}
+			
 			param = new LinkedHashMap<String, Object>();
 			query = "SELECT * FROM balance WHERE userId = ?";
 			param.put("1", user.getId());
 			data = sqlExec(query, param, "MEMBER");
 			
-			if (data.size() == 0) Assert.assertTrue(false, "no transaction found in database");
+			if (data.size() == 0) Assert.assertTrue(false, "no balance found in database");
 			for (Map<String, Object> map : data) {
-//				Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.id"), map.get("balance"));
+				Assert.assertEquals((int) (user.getBalance() - (catalog.getPrice() - discount + value)), (int) map.get("balance"));
 			}
 		}
 	}

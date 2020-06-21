@@ -157,7 +157,7 @@ public class TC_Remote_Service_GetMyVoucher extends TestBase {
 				Assert.assertEquals(vouchers.get(index).get("name"), map.get("voucherName"));					
 				Assert.assertEquals(vouchers.get(index).get("discount"), map.get("discount"));					
 				Assert.assertEquals(vouchers.get(index).get("voucherTypeName"), map.get("voucherTypeName"));						
-				Assert.assertEquals(vouchers.get(index).get("maxDeduction"), map.get("maxDeduction"));					
+				Assert.assertEquals(Long.valueOf((Integer) vouchers.get(index).get("maxDeduction")), map.get("maxDeduction"));					
 				Assert.assertEquals(vouchers.get(index).get("filePath"), map.get("filePath"));	
 				
 				SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");

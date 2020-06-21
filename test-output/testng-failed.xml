@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [DANA Pulsa Suite]">
-  <test thread-count="5" name="DANA Pulsa Remote Service Promotion - Get Voucher Promotion(failed)">
+  <test thread-count="5" name="DANA Pulsa Remote Service Order - Pay(failed)">
     <classes>
-      <class name="remoteService.promotion.TC_Remote_Service_GetVoucherPromotion">
+      <class name="remoteService.order.TC_Remote_Service_Pay">
         <methods>
+          <include name="testPayment"/>
+          <include name="afterClass"/>
+          <include name="setup"/>
           <include name="checkData"/>
           <include name="checkDB"/>
           <include name="beforeClass"/>
-          <include name="setup"/>
-          <include name="afterClass"/>
-          <include name="testPromotionVouchers"/>
         </methods>
-      </class> <!-- remoteService.promotion.TC_Remote_Service_GetVoucherPromotion -->
+      </class> <!-- remoteService.order.TC_Remote_Service_Pay -->
     </classes>
-  </test> <!-- DANA Pulsa Remote Service Promotion - Get Voucher Promotion(failed) -->
+  </test> <!-- DANA Pulsa Remote Service Order - Pay(failed) -->
 </suite> <!-- Failed suite [DANA Pulsa Suite] -->

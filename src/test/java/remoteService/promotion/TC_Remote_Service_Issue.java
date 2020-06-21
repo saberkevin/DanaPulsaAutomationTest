@@ -5,12 +5,15 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
+import io.restassured.RestAssured;
+import io.restassured.http.Method;
 import model.User;
 import remoteService.order.ConfigRemoteServiceOrder;
 
@@ -22,6 +25,7 @@ public class TC_Remote_Service_Issue extends TestBase {
 	private String providerId;
 	private String voucherId;
 	private String paymentMethodId;
+	private String result;
 	private boolean isCreateUser;
 
 	public TC_Remote_Service_Issue(String testCase, String userId, String price, String providerId, String voucherId, String paymentMethodId, String result) {
@@ -31,7 +35,35 @@ public class TC_Remote_Service_Issue extends TestBase {
 		this.providerId = providerId;
 		this.voucherId = voucherId;
 		this.paymentMethodId = paymentMethodId;
+		this.result = result;
 		isCreateUser = false;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public void issueRemoteService(String userId, String price, String voucherId, String providerId, String paymentMethodId) {
+		logger.info("Call Payment API [Order Domain]");
+		logger.info("Test Data: ");
+		logger.info("user id:" + userId);
+		logger.info("price:" + price);
+		logger.info("provider id:" + providerId);
+		logger.info("payment method id:" + paymentMethodId);
+		logger.info("voucher id:" + voucherId);
+		
+		JSONObject requestParams = new JSONObject();
+		requestParams.put("method", ConfigRemoteServicePromotion.QUEUE_ISSUE_VOUCHER);
+		requestParams.put("message", "{\"userId\":" + userId 
+				+ ",\"voucherId\":" + voucherId 
+				+ ",\"price\":" + price 
+				+ ",\"providerId\":" + providerId 
+				+ ",\"paymentMethodId\":" + paymentMethodId + "}");
+		
+		RestAssured.baseURI = ConfigRemoteServicePromotion.BASE_URI;
+		httpRequest = RestAssured.given();
+		httpRequest.header("Content-Type", "application/json");
+		httpRequest.body(requestParams.toJSONString());
+				
+		response = httpRequest.request(Method.GET, ConfigRemoteServicePromotion.ENDPOINT_PATH);
+		logger.info(response.getBody().asString());
 	}
 	
 	@BeforeClass
@@ -61,37 +93,33 @@ public class TC_Remote_Service_Issue extends TestBase {
 	
 	@Test
 	public void testIssue() {
-		String message =  "{\"userId\":" + userId 
-				+ ",\"price\":" + price 
-				+ ",\"providerId\":" + providerId 
-				+ ",\"voucherId\":" + voucherId 
-				+ ",\"paymentMethodId\":" + paymentMethodId + "}";
+		issueRemoteService(userId, price, voucherId, providerId, paymentMethodId);
 		
-		persistentCall(promotionAMQP, ConfigRemoteServicePromotion.QUEUE_ISSUE_VOUCHER, message);
+		if (response.getStatusCode() != 200) {
+			logger.info(response.getBody().asString());
+			Assert.assertTrue(false, "cannot hit API");
+		}
 	}
 	
 	@Test(dependsOnMethods = {"testIssue"})
 	public void checkData() {
-		logger.info("checking data");
-		// do some code
+		String responseBody = response.getBody().asString();
+		Assert.assertTrue(responseBody.contains(result), responseBody);		
 	}
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		logger.info("checking database");
-		
 		Map<String, Object> param = new LinkedHashMap<String, Object>();
 		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
 		String query = "";
 
-		query = "SELECT * FROM user_voucher WHERE userId = ? AND voucherId = ?";
+		query = "SELECT * FROM user_voucher WHERE userId = ?";
 		param.put("1", Long.parseLong(userId));
-		param.put("2", Long.parseLong(voucherId));
 		data = sqlExec(query, param, "PROMOTION");
 
 		if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");
 		for (Map<String, Object> map : data) {
-			Assert.assertEquals(map.get("voucherId"), voucherId);
+			Assert.assertNotNull(map.get("voucherId"));
 		}
 	}
 	
