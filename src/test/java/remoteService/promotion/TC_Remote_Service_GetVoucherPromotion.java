@@ -7,15 +7,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import io.restassured.RestAssured;
-import io.restassured.http.Method;
+import io.restassured.path.json.JsonPath;
 import model.User;
 import remoteService.order.ConfigRemoteServiceOrder;
 
@@ -26,6 +24,8 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 	private String page;
 	private String result;
 	private boolean isCreateUser;
+	private String dataAMQP;
+	private JsonPath responseData;
 	
 	public TC_Remote_Service_GetVoucherPromotion(String testCase, String userId, String page, String result) {
 		this.testCase = testCase;
@@ -33,26 +33,6 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 		this.page = page;
 		this.result = result;
 		isCreateUser = false;
-	}
-
-	@SuppressWarnings("unchecked")
-	public void getPromotionVoucherRemoteService(String userId, String page) {
-		logger.info("Call Get Promotion Voucher API [Promotion Domain]");
-		logger.info("Test Data: ");
-		logger.info("user id:" + userId);
-		logger.info("page:" + page);
-		
-		JSONObject requestParams = new JSONObject();
-		requestParams.put("queue", ConfigRemoteServicePromotion.QUEUE_GET_VOUCHER_PROMOTION);
-		requestParams.put("request", "{\"userId\":" + userId + ",\"page\":" + page + "}");
-		
-		RestAssured.baseURI = ConfigRemoteServicePromotion.BASE_URI;
-		httpRequest = RestAssured.given();
-		httpRequest.header("Content-Type", "application/json");
-		httpRequest.body(requestParams.toJSONString());
-		
-		response = httpRequest.request(Method.GET, ConfigRemoteServicePromotion.ENDPOINT_PATH);
-		logger.info(response.getBody().asString());
 	}
 	
 	@BeforeClass
@@ -82,31 +62,29 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 	
 	@Test
 	public void testPromotionVouchers() {
-		getPromotionVoucherRemoteService(userId, page);
-
-		if (response.getStatusCode() != 200) {
-			logger.info(response.getBody().asString());
-			Assert.assertTrue(false, "cannot hit API");
-		}
+		String message = "{\"userId\":" + userId + ",\"page\":" + page + "}";
+		dataAMQP = callRP(promotionAMQP, ConfigRemoteServicePromotion.QUEUE_GET_VOUCHER_PROMOTION, message);
+		responseData = new JsonPath(dataAMQP);
+		logger.info("message = " + message);
+		logger.info(dataAMQP);
 	}
 	
 	@Test(dependsOnMethods = {"testPromotionVouchers"})
 	public void checkData() throws ParseException {
-		String responseBody = response.getBody().asString();
-		Assert.assertTrue(responseBody.contains(result), responseBody);
+		Assert.assertTrue(dataAMQP.contains(result), dataAMQP);
 		
 		final String errorMessage1 = "user not found";
 		final String errorMessage2 = "[]";
 		final String errorMessage3 = "invalid request format";
 		
-		if (responseBody.contains(errorMessage1)) {
+		if (dataAMQP.contains(errorMessage1)) {
 			// do some code
-		} else if (responseBody.contains(errorMessage2)) {
+		} else if (dataAMQP.contains(errorMessage2)) {
 			// do some code
-		} else if (responseBody.contains(errorMessage3)) {
+		} else if (dataAMQP.contains(errorMessage3)) {
 			// do some code
 		} else {
-			List<Map<String, String>> vouchers = response.jsonPath().get();
+			List<Map<String, String>> vouchers = responseData.get();
 			Assert.assertTrue(vouchers.size() <= 10, "maximum vouchers per page is 10");
 			
 			for (int i = 0; i < vouchers.size(); i++) {
@@ -129,8 +107,7 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 		final String errorMessage2 = "[]";
 		final String errorMessage3 = "invalid request format";
 		
-		String responseBody = response.getBody().asString();
-		switch (responseBody) {
+		switch (dataAMQP) {
 		case errorMessage1:
 			query = "SELECT * FROM user WHERE id = ?";
 			param.put("1", Long.parseLong(userId));
@@ -159,7 +136,7 @@ public class TC_Remote_Service_GetVoucherPromotion extends TestBase {
 			param.put("2", (Integer.parseInt(page)-1) * 10);
 			data = sqlExec(query, param, "PROMOTION");
 			
-			List<Map<String, Object>> vouchers = response.jsonPath().get();
+			List<Map<String, Object>> vouchers = responseData.get();
 			int index = 0;
 
 			if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");

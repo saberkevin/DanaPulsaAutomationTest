@@ -6,15 +6,13 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import io.restassured.RestAssured;
-import io.restassured.http.Method;
+import io.restassured.path.json.JsonPath;
 import model.Catalog;
 import model.Provider;
 import model.Transaction;
@@ -33,6 +31,8 @@ public class TC_Remote_Service_Pay extends TestBase {
 	private String voucherId;
 	private String result;
 	private boolean isCreateUser;
+	private String dataAMQP;
+	private JsonPath responseData;
 	
 	public TC_Remote_Service_Pay(String testCase, String userId, String transactionId, String paymentMethodId, String voucherId, String result) {
 		this.testCase = testCase;
@@ -42,29 +42,6 @@ public class TC_Remote_Service_Pay extends TestBase {
 		this.voucherId = voucherId;
 		this.result = result;
 		isCreateUser = false;
-	}
-	
-	@SuppressWarnings("unchecked")
-	public void paymentRemoteService(String userId, String transactionId, String paymentMethodId, String voucherId) {
-		logger.info("Call Payment API [Order Domain]");
-		logger.info("Test Data: ");
-		logger.info("user id:" + userId);
-		logger.info("transaction id:" + transactionId);
-		logger.info("payment method id:" + paymentMethodId);
-		logger.info("voucher id:" + voucherId);
-		
-		JSONObject requestParams = new JSONObject();
-		requestParams.put("method", ConfigRemoteServiceOrder.QUEUE_PAY);
-		requestParams.put("message", "{\"userId\":" + userId + ",\"transactionId\":" + transactionId 
-				+ ",\"methodId\":" + paymentMethodId + ",\"voucherId\":" + voucherId + "}");
-		
-		RestAssured.baseURI = ConfigRemoteServiceOrder.BASE_URI;
-		httpRequest = RestAssured.given();
-		httpRequest.header("Content-Type", "application/json");
-		httpRequest.body(requestParams.toJSONString());
-				
-		response = httpRequest.request(Method.POST, ConfigRemoteServiceOrder.ENDPOINT_PATH);
-		logger.info(response.getBody().asString());
 	}
 	
 	@BeforeClass
@@ -83,10 +60,8 @@ public class TC_Remote_Service_Pay extends TestBase {
 			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
 			deleteUserIfExist(user.getEmail(), user.getUsername());			
 			createUser(user);
-			user.setId(getUserIdByUsername(user.getUsername()));
-			
-			if (userId.equals("true"))
-				userId = Long.toString(user.getId());				
+			user.setId(getUserIdByUsername(user.getUsername()));			
+			if (userId.equals("true")) userId = Long.toString(user.getId());				
 			
 			// insert balance into database
 			if (testCase.equals("Not enough balance")) {
@@ -176,19 +151,21 @@ public class TC_Remote_Service_Pay extends TestBase {
 	}
 	
 	@Test
-	public void testPayment() {
-		paymentRemoteService(userId, transactionId, paymentMethodId, voucherId);
-		
-		if (response.getStatusCode() != 200) {
-			logger.info(response.getBody().asString());
-			Assert.assertTrue(false, "cannot hit API");
-		}
+	public void testPayment() {		
+		String message = "{\"userId\":" + userId 
+				+ ",\"transactionId\":" + transactionId 
+				+ ",\"methodId\":" + paymentMethodId 
+				+ ",\"voucherId\":" + voucherId + "}";
+
+		dataAMQP = callRP(orderAMQP, ConfigRemoteServiceOrder.QUEUE_PAY, message);
+		responseData = new JsonPath(dataAMQP);
+		logger.info("message = " + message);
+		logger.info(dataAMQP);
 	}
 	
 	@Test(dependsOnMethods = {"testPayment"})
 	public void checkData() throws ParseException {
-		String responseBody = response.getBody().asString();
-		Assert.assertTrue(responseBody.contains(result), responseBody);
+		Assert.assertTrue(dataAMQP.contains(result), dataAMQP);
 		
 		final String errorMessage1 = "unknown user";
 		final String errorMessage2 = "unknown transaction";
@@ -202,42 +179,42 @@ public class TC_Remote_Service_Pay extends TestBase {
 		final String errorMessage10 = "voucher you want to redeem is either not found, has been used or already expired";
 		final String errorMessage11 = "invalid request format";
 		
-		if (responseBody.contains(errorMessage1)) {
+		if (dataAMQP.contains(errorMessage1)) {
 			// do some code
-		} else if (responseBody.contains(errorMessage2)) {
+		} else if (dataAMQP.contains(errorMessage2)) {
 			// do some code
-		} else if (responseBody.contains(errorMessage3)) {
+		} else if (dataAMQP.contains(errorMessage3)) {
 			// do some code
-		} else if (responseBody.contains(errorMessage4)) {
+		} else if (dataAMQP.contains(errorMessage4)) {
 			// do some code
-		} else if (responseBody.contains(errorMessage5)) {
+		} else if (dataAMQP.contains(errorMessage5)) {
 			// do some code
-		} else if (responseBody.contains(errorMessage6)) {
+		} else if (dataAMQP.contains(errorMessage6)) {
 			// do some code
-		} else if (responseBody.contains(errorMessage7)) {
+		} else if (dataAMQP.contains(errorMessage7)) {
 			// do some code
-		} else if (responseBody.contains(errorMessage8)) {
+		} else if (dataAMQP.contains(errorMessage8)) {
 			// do some code
-		} else if (responseBody.contains(errorMessage9)) {
+		} else if (dataAMQP.contains(errorMessage9)) {
 			// do some code
-		} else if (responseBody.contains(errorMessage10)) {
+		} else if (dataAMQP.contains(errorMessage10)) {
 			// do some code
-		} else if (responseBody.contains(errorMessage11)) {
+		} else if (dataAMQP.contains(errorMessage11)) {
 			// do some code
 		} else {
-			Assert.assertNotNull(response.getBody().jsonPath().getLong("balance"));			
-			Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.id"), transaction.getId());
-			Assert.assertEquals(response.getBody().jsonPath().get("transaction.method"), transaction.getPaymentMethodName());
-			Assert.assertEquals(response.getBody().jsonPath().get("transaction.phoneNumber"), transaction.getPhoneNumber());
-			Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.catalog.id"), transaction.getCatalogId());
-			Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.catalog.provider.id"), provider.getId());
-			Assert.assertEquals(response.getBody().jsonPath().get("transaction.catalog.provider.name"), provider.getName());
-			Assert.assertEquals(response.getBody().jsonPath().get("transaction.catalog.provider.image"), provider.getImage());
-			Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.catalog.value"), catalog.getValue());
-			Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.catalog.price"), catalog.getPrice());
-			Assert.assertEquals(response.getBody().jsonPath().get("transaction.status"), "COMPLETED");
-			Assert.assertNotNull(response.getBody().jsonPath().get("transaction.createdAt"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("transaction.updatedAt"));
+			Assert.assertNotNull(responseData.getLong("balance"));			
+			Assert.assertEquals(responseData.getLong("transaction.id"), transaction.getId());
+			Assert.assertEquals(responseData.get("transaction.method"), transaction.getPaymentMethodName());
+			Assert.assertEquals(responseData.get("transaction.phoneNumber"), transaction.getPhoneNumber());
+			Assert.assertEquals(responseData.getLong("transaction.catalog.id"), transaction.getCatalogId());
+			Assert.assertEquals(responseData.getLong("transaction.catalog.provider.id"), provider.getId());
+			Assert.assertEquals(responseData.get("transaction.catalog.provider.name"), provider.getName());
+			Assert.assertEquals(responseData.get("transaction.catalog.provider.image"), provider.getImage());
+			Assert.assertEquals(responseData.getLong("transaction.catalog.value"), catalog.getValue());
+			Assert.assertEquals(responseData.getLong("transaction.catalog.price"), catalog.getPrice());
+			Assert.assertEquals(responseData.get("transaction.status"), "COMPLETED");
+			Assert.assertNotNull(responseData.get("transaction.createdAt"));
+			Assert.assertNotNull(responseData.get("transaction.updatedAt"));
 		}
 	}
 	
@@ -259,8 +236,7 @@ public class TC_Remote_Service_Pay extends TestBase {
 		final String errorMessage10 = "voucher you want to redeem is either not found, has been used or already expired";
 		final String errorMessage11 = "invalid request format";
 		
-		String responseBody = response.getBody().asString();
-		switch (responseBody) {
+		switch (dataAMQP) {
 		case errorMessage1:
 			query = "SELECT * FROM user WHERE id = ?";
 			param.put("1", Long.parseLong(userId));
@@ -345,17 +321,17 @@ public class TC_Remote_Service_Pay extends TestBase {
 
 			if (data.size() == 0) Assert.assertTrue(false, "no transaction found in database");
 			for (Map<String, Object> map : data) {
-				Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.id"), map.get("id"));
-				Assert.assertEquals(response.getBody().jsonPath().getString("transaction.method"), map.get("paymentMethodName"));
-				Assert.assertEquals(response.getBody().jsonPath().getString("transaction.phoneNumber"), map.get("phoneNumber"));
-				Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.catalog.provider.id"), map.get("providerId"));
-				Assert.assertEquals(response.getBody().jsonPath().getString("transaction.catalog.provider.name"), map.get("providerName"));
-				Assert.assertEquals(response.getBody().jsonPath().getString("transaction.catalog.provider.image"), map.get("providerImage"));
-				Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.catalog.value"), map.get("value"));
-				Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.catalog.price"), map.get("price"));
-				Assert.assertEquals(response.getBody().jsonPath().getString("transaction.status"), map.get("transactionStatus"));
-//				Assert.assertEquals(response.getBody().jsonPath().getString("transaction.createdAt"), map.get("createdAt"));
-//				Assert.assertEquals(response.getBody().jsonPath().getString("transaction.updatedAt"), map.get("updatedAt"));
+				Assert.assertEquals(responseData.getLong("transaction.id"), map.get("id"));
+				Assert.assertEquals(responseData.getString("transaction.method"), map.get("paymentMethodName"));
+				Assert.assertEquals(responseData.getString("transaction.phoneNumber"), map.get("phoneNumber"));
+				Assert.assertEquals(responseData.getLong("transaction.catalog.provider.id"), map.get("providerId"));
+				Assert.assertEquals(responseData.getString("transaction.catalog.provider.name"), map.get("providerName"));
+				Assert.assertEquals(responseData.getString("transaction.catalog.provider.image"), map.get("providerImage"));
+				Assert.assertEquals(responseData.getLong("transaction.catalog.value"), map.get("value"));
+				Assert.assertEquals(responseData.getLong("transaction.catalog.price"), map.get("price"));
+				Assert.assertEquals(responseData.getString("transaction.status"), map.get("transactionStatus"));
+//				Assert.assertEquals(responseData.getString("transaction.createdAt"), map.get("createdAt"));
+//				Assert.assertEquals(responseData.getString("transaction.updatedAt"), map.get("updatedAt"));
 			}
 			
 			param = new LinkedHashMap<String, Object>();
@@ -365,7 +341,7 @@ public class TC_Remote_Service_Pay extends TestBase {
 			
 			if (data.size() == 0) Assert.assertTrue(false, "no transaction found in database");
 			for (Map<String, Object> map : data) {
-//				Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.id"), map.get("balance"));
+//				Assert.assertEquals(responseData.getLong("transaction.id"), map.get("balance"));
 			}
 			break;
 		}

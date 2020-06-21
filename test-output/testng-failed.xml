@@ -1,33 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [DANA Pulsa Suite]">
-  <test thread-count="5" name="DANA Pulsa Remote Service Order - Get Provider By ID(failed)">
+  <test thread-count="5" name="DANA Pulsa Remote Service Promotion - Get Voucher Promotion(failed)">
     <classes>
-      <class name="remoteService.order.TC_Remote_Service_GetProviderById">
+      <class name="remoteService.promotion.TC_Remote_Service_GetVoucherPromotion">
         <methods>
           <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="checkData"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
-          <include name="testGetProviderById"/>
-          <include name="setup"/>
+          <include name="checkDB"/>
           <include name="beforeClass"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
-          <include name="checkDB"/>
+          <include name="setup"/>
           <include name="afterClass"/>
+          <include name="testPromotionVouchers"/>
         </methods>
-      </class> <!-- remoteService.order.TC_Remote_Service_GetProviderById -->
+      </class> <!-- remoteService.promotion.TC_Remote_Service_GetVoucherPromotion -->
     </classes>
-  </test> <!-- DANA Pulsa Remote Service Order - Get Provider By ID(failed) -->
+  </test> <!-- DANA Pulsa Remote Service Promotion - Get Voucher Promotion(failed) -->
 </suite> <!-- Failed suite [DANA Pulsa Suite] -->

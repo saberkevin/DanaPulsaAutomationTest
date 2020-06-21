@@ -121,7 +121,7 @@ public class TestBase {
 		    params.channel(connection.createChannel());
 		    params.exchange("");
 		    params.routingKey(routingKey);
-		    params.timeout(10000);
+		    params.timeout(20000);
 		    return new RpcClient(params).stringCall(message);
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
@@ -642,9 +642,9 @@ public class TestBase {
 	
 	public Connection getConnectionPromotion() {
 		Connection conn = null;
-		String dbUrl = "jdbc:mysql://remotemysql.com:3306/2XXZFHdio8";					
-		String username = "2XXZFHdio8";	
-		String password = "CiJU7VdZB5";
+		String dbUrl = "jdbc:mysql://remotemysql.com:3306/orGoW5vfGH";					
+		String username = "orGoW5vfGH";	
+		String password = "hesicA9XSO";
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
