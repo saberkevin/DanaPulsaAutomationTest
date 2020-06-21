@@ -17,6 +17,8 @@ import model.User;
 
 public class TC_Integration_GetRecentNumbers extends TestBase {
 	private User user = new User();
+	private long catalogId;
+	private String[] phoneNumbers = new String[11];
 	private String testCase;
 	private String result;
 	
@@ -53,6 +55,23 @@ public class TC_Integration_GetRecentNumbers extends TestBase {
 		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
 		checkStatusCode("200");
 		user.setSessionId(response.getCookie("JSESSIONID"));
+		
+		// get catalog TELKOMSEL 30K
+		getCatalog(user.getSessionId(), user.getUsername().substring(0,5));
+		checkStatusCode("200");
+		user.setSessionId(response.getCookie("JSESSIONID"));
+		List<Map<String, Object>> vouchers = response.getBody().jsonPath().getList("data.catalog");
+		catalogId = Long.valueOf((Integer) vouchers.get(1).get("id"));
+		
+		// create transaction
+		if (testCase.equals("Valid ID (below 10 transaction history)")) {
+			createOrder(user.getSessionId(), user.getUsername(), Long.toString(catalogId));
+		} else if (testCase.equals("Valid ID (more than 10 transaction history)")) {
+			for (int i = 0; i < 11; i++) {
+				phoneNumbers[i] = "08125216179" + Integer.toString(i);
+				createOrder(user.getSessionId(), phoneNumbers[i], Long.toString(catalogId));
+			}
+		}
 	}
 	
 	@Test
@@ -74,8 +93,10 @@ public class TC_Integration_GetRecentNumbers extends TestBase {
 			List<HashMap<Object, Object>> recentNumbers = response.jsonPath().getList("data");				
 			Assert.assertTrue(recentNumbers.size() <= 10, "maximum recent number is only 10");
 			
-			for (int i = 0; i < recentNumbers.size(); i++) {
-				Assert.assertEquals(recentNumbers.get(i).get("number"), user.getUsername());						
+			for (int i = 0; i < recentNumbers.size(); i++) {if (recentNumbers.size() > 1)
+				Assert.assertEquals(recentNumbers.get(i).get("number"), phoneNumbers[recentNumbers.size() - i]);
+			else
+				Assert.assertEquals(recentNumbers.get(i).get("number"), user.getUsername());					
 
 				HashMap<String, String> provHashMap = (HashMap<String, String>) recentNumbers.get(i).get("provider");
 				Assert.assertNotNull(String.valueOf(provHashMap.get("id")));
@@ -87,6 +108,7 @@ public class TC_Integration_GetRecentNumbers extends TestBase {
 		}
 	}
 	
+	@Test(dependsOnMethods = {"checkData"})
 	@SuppressWarnings("unchecked")
 	public void checkDB() {
 		Map<String, Object> param = new LinkedHashMap<String, Object>();
@@ -96,7 +118,7 @@ public class TC_Integration_GetRecentNumbers extends TestBase {
 		if (response.getBody().jsonPath().getString("data").equals("[]")) {
 			query = "SELECT * FROM transaction WHERE userId = ?";
 			param.put("1", user.getId());
-			data = sqlExec(query, param, "order");
+			data = sqlExec(query, param, "ORDER");
 			Assert.assertTrue(data.size() == 0);
 		} else {				
 			query =  "SELECT A.phoneNumber, A.createdAt, C.* "

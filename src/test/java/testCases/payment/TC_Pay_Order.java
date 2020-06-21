@@ -74,12 +74,12 @@ public class TC_Pay_Order extends TestBase {
 				user.setBalance(10000000);
 			}
 			
-			// insert voucher into database
-			createUserVoucher(user.getId(), 1, 2); // cashback not used
-			createUserVoucher(user.getId(), 7, 2); // discount not used
-			createUserVoucher(user.getId(), 3, 1); // used
-			createUserVoucher(user.getId(), 4, 1); // used
-			createUserVoucher(user.getId(), 16, 2); // discount minpurchase 500K
+			// insert voucher into database			
+			if (voucherId.equals("1") || voucherId.equals("7") ||voucherId.equals("16")) {
+				createUserVoucher(user.getId(), Long.parseLong(voucherId), 2);
+			} else if (voucherId.equals("2") || voucherId.equals("4")) {
+				createUserVoucher(user.getId(), Long.parseLong(voucherId), 1);
+			}
 			
 			// set flag
 			isCreateUser = true;
@@ -275,6 +275,16 @@ public class TC_Pay_Order extends TestBase {
 				Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.status"), map.get("transactionStatus"));
 //				Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.createdAt"), map.get("createdAt"));
 //				Assert.assertEquals(response.getBody().jsonPath().getString("data.transaction.updatedAt"), map.get("updatedAt"));
+			}
+			
+			param = new LinkedHashMap<String, Object>();
+			query = "SELECT * FROM balance WHERE userId = ?";
+			param.put("1", user.getId());
+			data = sqlExec(query, param, "MEMBER");
+			
+			if (data.size() == 0) Assert.assertTrue(false, "no transaction found in database");
+			for (Map<String, Object> map : data) {
+//				Assert.assertEquals(response.getBody().jsonPath().getLong("transaction.id"), map.get("balance"));
 			}
 		}
 	}

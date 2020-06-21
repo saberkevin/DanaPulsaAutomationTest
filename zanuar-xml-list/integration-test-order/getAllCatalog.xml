@@ -2,7 +2,7 @@
 <suite name="DANA Pulsa Suite">
 	<test name="DANA Pulsa Integration Test Order - Get All Catalog" group-by-instances="true">
 		<classes>
-			<class name = "integrationtest.order.Factory_GetAllCatalog"></class>
+			<class name = "integrationtest.order.Factory_Integration_GetAllCatalog"></class>
 		</classes>
 	</test>
 </suite>

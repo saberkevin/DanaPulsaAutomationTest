@@ -8,8 +8,8 @@ public class ConfigRemoteServicePromotion {
 	public static final String SHEET_GET_VOUCHER_DETAILS = "Get Voucher Details";
 	public static final String SHEET_REDEEM = "Redeem";
 	public static final String SHEET_UNREDEEM = "Unredeem";
-	public static final String SHEET_ISSUE_VOUCHER = "Voucher Details";
-	public static final String SHEET_ELIGIBLE_TO_GET_VOUCHER = "Voucher Details";
+	public static final String SHEET_ISSUE_VOUCHER = "Issue";
+	public static final String SHEET_ELIGIBLE_TO_GET_VOUCHER = "Eligible to Get Voucher";
 	
 	public static final String BASE_URI = "https://pulsa-voucher.herokuapp.com";
 	public static final String ENDPOINT_PATH = "/test";
@@ -19,8 +19,8 @@ public class ConfigRemoteServicePromotion {
 	public static final String QUEUE_GET_VOUCHER_DETAILS = "getVoucherDetail";
 	public static final String QUEUE_REDEEM = "redeem";
 	public static final String QUEUE_UNREDEEM  = "unredeem";
-	public static final String QUEUE_ISSUE_VOUCHER = "getProviderById";
-	public static final String QUEUE_ELIGIBLE_TO_GET_VOUCHER= "getRecentNumber";
+	public static final String QUEUE_ISSUE_VOUCHER = "issue";
+	public static final String QUEUE_ELIGIBLE_TO_GET_VOUCHER= "eligibleToGetVoucher";
 
 	public static final String USER_NAME = "Zanuar";
 	public static final String USER_EMAIL = "triromadon@gmail.com";

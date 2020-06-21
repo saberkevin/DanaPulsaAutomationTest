@@ -6,44 +6,25 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import io.restassured.RestAssured;
-import io.restassured.http.Method;
+import io.restassured.path.json.JsonPath;
 
 public class TC_Remote_Service_GetAllCatalog extends TestBase {
 	private String testCase;
 	private String phonePrefix;
 	private String result;
+	private String dataAMQP;
+	private JsonPath responseData;
 	
 	public TC_Remote_Service_GetAllCatalog(String testCase, String phonePrefix, String result) {
 		this.testCase = testCase;
 		this.phonePrefix = phonePrefix;
 		this.result = result;
-	}
-
-	@SuppressWarnings("unchecked")
-	public void getAllCatalogRemoteService(String phonePrefix) {
-		logger.info("Call Get All Catalog API [Order Domain]");
-		logger.info("Test Data: ");
-		logger.info("phone prefix:" + phonePrefix);
-		
-		JSONObject requestParams = new JSONObject();
-		requestParams.put("method", ConfigRemoteServiceOrder.QUEUE_GET_ALL_CATALOG);
-		requestParams.put("message", phonePrefix);
-		
-		RestAssured.baseURI = ConfigRemoteServiceOrder.BASE_URI;
-		httpRequest = RestAssured.given();
-		httpRequest.header("Content-Type", "application/json");
-		httpRequest.body(requestParams.toJSONString());
-				
-		response = httpRequest.request(Method.POST, ConfigRemoteServiceOrder.ENDPOINT_PATH);
-		logger.info(response.getBody().asString());
 	}
 	
 	@BeforeClass
@@ -54,35 +35,32 @@ public class TC_Remote_Service_GetAllCatalog extends TestBase {
 	
 	@Test
 	public void testGetAllCatalog() {
-		getAllCatalogRemoteService(phonePrefix);
-		
-		if (response.getStatusCode() != 200) {
-			logger.info(response.getBody().asString());
-			Assert.assertTrue(false, "cannot hit API");
-		}
+		dataAMQP = callRP(orderAMQP, ConfigRemoteServiceOrder.QUEUE_GET_ALL_CATALOG, phonePrefix);
+		responseData = new JsonPath(dataAMQP);
+		logger.info("message = " + phonePrefix);
+		logger.info(dataAMQP);
 	}
 	
 	@Test(dependsOnMethods = {"testGetAllCatalog"})
 	public void checkData() throws ParseException {
-		String responseBody = response.getBody().asString();		
-		Assert.assertTrue(responseBody.contains(result), responseBody);
+		Assert.assertTrue(dataAMQP.contains(result), dataAMQP);
 
 		final String errorMessage1 = "unknown phone number";
 		final String errorMessage2 = "invalid phone number";
 		final String errorMessage3 = "invalid request format";
 		
-		if (responseBody.contains(errorMessage1)) {
+		if (dataAMQP.contains(errorMessage1)) {
 			// do some code
-		} else if (responseBody.contains(errorMessage2)) {
+		} else if (dataAMQP.contains(errorMessage2)) {
 			// do some code
-		} else if (responseBody.contains(errorMessage3)) {
+		} else if (dataAMQP.contains(errorMessage3)) {
 			// do some code
 		} else {
-			Assert.assertNotNull(response.getBody().jsonPath().get("provider.id"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("provider.name"));
-			Assert.assertNotNull(response.getBody().jsonPath().get("provider.image"));
+			Assert.assertNotNull(responseData.get("provider.id"));
+			Assert.assertNotNull(responseData.get("provider.name"));
+			Assert.assertNotNull(responseData.get("provider.image"));
 			
-			List<Map<String, String>> catalog = response.getBody().jsonPath().getList("catalog");
+			List<Map<String, String>> catalog = responseData.getList("catalog");
 			
 			for (int i = 0; i < catalog.size(); i++) {
 				Assert.assertNotNull(catalog.get(i).get("id"));
@@ -102,11 +80,10 @@ public class TC_Remote_Service_GetAllCatalog extends TestBase {
 		final String errorMessage2 = "invalid phone number";
 		final String errorMessage3 = "invalid request format";
 		
-		String responseBody = response.getBody().asString();
-		switch (responseBody) {
+		switch (dataAMQP) {
 		case errorMessage1:
 			query = "SELECT * FROM provider_prefix WHERE prefix = ?";
-			param.put("1", phonePrefix);
+			param.put("1", phonePrefix.substring(1));
 			data = sqlExec(query, param, "order");
 			Assert.assertTrue(data.size() == 0);
 			break;
@@ -124,14 +101,14 @@ public class TC_Remote_Service_GetAllCatalog extends TestBase {
 			param.put("1", phonePrefix.substring(1));
 			data = sqlExec(query, param, "order");
 			
-			List<Map<String, Object>> catalog = response.getBody().jsonPath().getList("catalog");
+			List<Map<String, Object>> catalog = responseData.getList("catalog");
 			int index = 0;
 			
 			if (data.size() == 0) Assert.assertTrue(false, "no catalog found in database");
 			for (Map<String, Object> map : data) {
-				Assert.assertEquals(response.getBody().jsonPath().getLong("provider.id"), map.get("providerId"));
-				Assert.assertEquals(response.getBody().jsonPath().getString("provider.name"), map.get("providerName"));
-				Assert.assertEquals(response.getBody().jsonPath().getString("provider.image"), map.get("providerImage"));
+				Assert.assertEquals(responseData.getLong("provider.id"), map.get("providerId"));
+				Assert.assertEquals(responseData.getString("provider.name"), map.get("providerName"));
+				Assert.assertEquals(responseData.getString("provider.image"), map.get("providerImage"));
 				Assert.assertEquals(Long.valueOf((Integer) catalog.get(index).get("id")), map.get("id"));
 				Assert.assertEquals(Long.valueOf((Integer) catalog.get(index).get("value")), map.get("value"));
 				Assert.assertEquals(Long.valueOf((Integer) catalog.get(index).get("price")), map.get("price"));

@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [DANA Pulsa Suite]">
-  <test thread-count="5" name="DANA Pulsa Remote Service Promotion - Unredeem(failed)">
+  <test thread-count="5" name="DANA Pulsa Remote Service Order - Get Provider By ID(failed)">
     <classes>
-      <class name="remoteService.promotion.TC_Remote_Service_Unredeem">
+      <class name="remoteService.order.TC_Remote_Service_GetProviderById">
         <methods>
-          <include name="afterClass"/>
           <include name="checkData"/>
-          <include name="checkDB"/>
-          <include name="testUnredeem"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="checkData"/>
+          <include name="testGetProviderById"/>
+          <include name="testGetProviderById"/>
+          <include name="testGetProviderById"/>
+          <include name="testGetProviderById"/>
+          <include name="testGetProviderById"/>
+          <include name="testGetProviderById"/>
           <include name="setup"/>
           <include name="beforeClass"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="checkDB"/>
+          <include name="afterClass"/>
         </methods>
-      </class> <!-- remoteService.promotion.TC_Remote_Service_Unredeem -->
+      </class> <!-- remoteService.order.TC_Remote_Service_GetProviderById -->
     </classes>
-  </test> <!-- DANA Pulsa Remote Service Promotion - Unredeem(failed) -->
+  </test> <!-- DANA Pulsa Remote Service Order - Get Provider By ID(failed) -->
 </suite> <!-- Failed suite [DANA Pulsa Suite] -->

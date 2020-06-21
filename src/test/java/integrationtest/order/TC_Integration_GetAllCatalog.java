@@ -102,9 +102,9 @@ public class TC_Integration_GetAllCatalog extends TestBase {
 		
 		if (data.size() == 0) Assert.assertTrue(false, "no catalog found in database");
 		for (Map<String, Object> map : data) {
-			Assert.assertEquals(response.getBody().jsonPath().getLong("provider.id"), map.get("providerId"));
-			Assert.assertEquals(response.getBody().jsonPath().getString("provider.name"), map.get("providerName"));
-			Assert.assertEquals(response.getBody().jsonPath().getString("provider.image"), map.get("providerImage"));
+			Assert.assertEquals(response.getBody().jsonPath().getLong("data.provider.id"), map.get("providerId"));
+			Assert.assertEquals(response.getBody().jsonPath().getString("data.provider.name"), map.get("providerName"));
+			Assert.assertEquals(response.getBody().jsonPath().getString("data.provider.image"), map.get("providerImage"));
 			Assert.assertEquals(Long.valueOf((Integer) catalog.get(index).get("id")), map.get("id"));
 			Assert.assertEquals(Long.valueOf((Integer) catalog.get(index).get("value")), map.get("value"));
 			Assert.assertEquals(Long.valueOf((Integer) catalog.get(index).get("price")), map.get("price"));

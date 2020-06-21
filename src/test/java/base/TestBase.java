@@ -3,6 +3,7 @@ package base;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -27,6 +28,7 @@ import org.junit.Assert;
 import org.testng.annotations.BeforeClass;
 
 import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.MessageProperties;
 import com.rabbitmq.client.RpcClient;
 import com.rabbitmq.client.RpcClientParams;
 
@@ -72,6 +74,8 @@ public class TestBase {
 	public String URIPromotion = "https://pulsa-voucher.herokuapp.com";
 	public String memberURI = "https://member-domain.herokuapp.com/member";
 	public String memberAMQP = "amqp://ynjauqav:K83KvUARdw7DyYLJF2_gt2RVzO-NS2YM@lively-peacock.rmq.cloudamqp.com/ynjauqav";
+	public String orderAMQP = "amqp://ynjauqav:K83KvUARdw7DyYLJF2_gt2RVzO-NS2YM@lively-peacock.rmq.cloudamqp.com/ynjauqav";
+	public String promotionAMQP = "amqp://ynjauqav:K83KvUARdw7DyYLJF2_gt2RVzO-NS2YM@lively-peacock.rmq.cloudamqp.com/ynjauqav";
 	public String excelPrefix = "../DanaPulsaAutomationTest/src/test/java/";
 	public Logger logger;
 	
@@ -131,6 +135,25 @@ public class TestBase {
 		}
 	    return "Error in try catch!";
 	  }
+	
+	public void persistentCall(String url, String routingKey, String message) {
+		try {
+		  final URI rabbitMqUrl = new URI(url);
+		  ConnectionFactory factory = new ConnectionFactory();
+		  factory.setUsername(rabbitMqUrl.getUserInfo().split(":")[0]);
+		  factory.setPassword(rabbitMqUrl.getUserInfo().split(":")[1]);
+		  factory.setHost(rabbitMqUrl.getHost());
+		  factory.setPort(rabbitMqUrl.getPort());
+		  factory.setVirtualHost(rabbitMqUrl.getPath().substring(1));
+		  com.rabbitmq.client.Connection connection = factory.newConnection();
+		  com.rabbitmq.client.Channel channel = connection.createChannel();
+		  channel.queueDeclare(routingKey, true, false, false, null);
+		  channel.basicPublish("", routingKey,MessageProperties.PERSISTENT_TEXT_PLAIN,message.getBytes(StandardCharsets.UTF_8));
+		  logger.info(message+" sent to "+routingKey);
+		} catch (URISyntaxException | IOException | TimeoutException e) {
+			e.printStackTrace();
+	    }
+	}
 	
 	public String[][] getExcelData(String filePath, String sheetName) throws IOException
 	{

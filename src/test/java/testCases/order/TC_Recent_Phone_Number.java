@@ -134,7 +134,7 @@ public class TC_Recent_Phone_Number extends TestBase {
 			if (response.getBody().jsonPath().getString("data").equals("[]")) {
 				query = "SELECT * FROM transaction WHERE userId = ?";
 				param.put("1", user.getId());
-				data = sqlExec(query, param, "order");
+				data = sqlExec(query, param, "ORDER");
 				Assert.assertTrue(data.size() == 0);
 			} else {				
 				query =  "SELECT A.phoneNumber, A.createdAt, C.* "

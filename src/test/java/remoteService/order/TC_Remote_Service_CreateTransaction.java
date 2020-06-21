@@ -154,6 +154,7 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 			data = sqlExec(query, param, "MEMBER");
 			Assert.assertTrue(data.size() == 0);
 
+			param = new LinkedHashMap<String, Object>();
 			query = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
 			param.put("1", Long.parseLong(userId));
 			param.put("2", phoneNumber);
@@ -170,6 +171,7 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 			data = sqlExec(query, param, "ORDER");
 			Assert.assertTrue(data.size() == 0);
 
+			param = new LinkedHashMap<String, Object>();
 			query = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
 			param.put("1", Long.parseLong(userId));
 			param.put("2", phoneNumber);
@@ -188,6 +190,7 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 			for (Map<String, Object> map : data)
 				providerName = (String) map.get("name");
 			
+			param = new LinkedHashMap<String, Object>();
 			query = "SELECT B.name FROM pulsa_catalog A LEFT JOIN provider B on A.providerId = B.id WHERE A.id = ?";
 			param.put("1", Long.parseLong(catalogId));
 			data = sqlExec(query, param, "ORDER");
@@ -196,6 +199,7 @@ public class TC_Remote_Service_CreateTransaction extends TestBase {
 			for (Map<String, Object> map : data)
 				Assert.assertNotEquals(map.get("name"), providerName);
 
+			param = new LinkedHashMap<String, Object>();
 			query = "SELECT * FROM transaction WHERE userId = ? AND phoneNumber = ? AND catalogId = ?";
 			param.put("1", Long.parseLong(userId));
 			param.put("2", phoneNumber);

@@ -6,44 +6,23 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.json.simple.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import io.restassured.RestAssured;
-import io.restassured.http.Method;
 
 public class TC_Remote_Service_GetPaymentMethodNameById extends TestBase {
 	private String testCase;
 	private String methodId;
 	private String result;
+	private String dataAMQP;
 	
 	public TC_Remote_Service_GetPaymentMethodNameById(String testCase, String methodId, String result) {
 		this.testCase = testCase;
 		this.methodId = methodId;
 		this.result = result;
-	}
-
-	@SuppressWarnings("unchecked")
-	public void getPaymentMethodNameByIdRemoteService(String methodId) {
-		logger.info("Call Get Payment Method Name By Id API [Order Domain]");
-		logger.info("Test Data: ");
-		logger.info("methodId id:" + methodId);
-		
-		JSONObject requestParams = new JSONObject();
-		requestParams.put("method", ConfigRemoteServiceOrder.QUEUE_GET_PAYMENT_METHOD_NAME_BY_ID);
-		requestParams.put("message", methodId);
-		
-		RestAssured.baseURI = ConfigRemoteServiceOrder.BASE_URI;
-		httpRequest = RestAssured.given();
-		httpRequest.header("Content-Type", "application/json");
-		httpRequest.body(requestParams.toJSONString());
-				
-		response = httpRequest.request(Method.POST, ConfigRemoteServiceOrder.ENDPOINT_PATH);
-		logger.info(response.getBody().asString());
 	}
 	
 	@BeforeClass
@@ -54,28 +33,24 @@ public class TC_Remote_Service_GetPaymentMethodNameById extends TestBase {
 	
 	@Test
 	public void testGetPaymentMethodNameById() {
-		getPaymentMethodNameByIdRemoteService(methodId);
-		
-		if (response.getStatusCode() != 200) {
-			logger.info(response.getBody().asString());
-			Assert.assertTrue(false, "cannot hit API");
-		}
+		dataAMQP = callRP(orderAMQP, ConfigRemoteServiceOrder.QUEUE_GET_PAYMENT_METHOD_NAME_BY_ID, methodId);
+		logger.info("message = " + methodId);
+		logger.info(dataAMQP);
 	}
 	
 	@Test(dependsOnMethods = {"testGetPaymentMethodNameById"})
 	public void checkData() throws ParseException {
-		String responseBody = response.getBody().asString();
-		Assert.assertTrue(responseBody.contains(result));
+		Assert.assertTrue(dataAMQP.contains(result));
 		
 		final String errorMessage1 = "unknown method";
 		final String errorMessage2 = "invalid request format";
 		
-		if (responseBody.contains(errorMessage1)) {
+		if (dataAMQP.contains(errorMessage1)) {
 			// do some code
-		} else if (responseBody.contains(errorMessage2)) {
+		} else if (dataAMQP.contains(errorMessage2)) {
 			// do some code
 		} else {
-			Assert.assertEquals(response.getBody().asString(), "\"WALLET\"");		
+			Assert.assertEquals(dataAMQP, "\"WALLET\"");		
 		}
 	}
 	
@@ -88,8 +63,7 @@ public class TC_Remote_Service_GetPaymentMethodNameById extends TestBase {
 		final String errorMessage1 = "unknown method";
 		final String errorMessage2 = "invalid request format";
 		
-		String responseBody = response.getBody().asString();
-		switch (responseBody) {
+		switch (dataAMQP) {
 		case errorMessage1:
 			query = "SELECT * FROM payment_method WHERE id = ?";
 			param.put("1", Long.parseLong(methodId));
@@ -106,7 +80,7 @@ public class TC_Remote_Service_GetPaymentMethodNameById extends TestBase {
 			
 			if (data.size() == 0) Assert.assertTrue(false, "no payment method found in database");
 			for (Map<String, Object> map : data) {
-				Assert.assertEquals(response.getBody().asString().substring(1,7), map.get("name"));
+				Assert.assertEquals(dataAMQP.substring(1,7), map.get("name"));
 			}
 			break;
 		}

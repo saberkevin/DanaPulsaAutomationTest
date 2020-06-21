@@ -57,7 +57,7 @@ public class TC_Integration_CancelOrder extends TestBase {
 		user.setSessionId(response.getCookie("JSESSIONID"));
 		
 		// get catalog TELKOMSEL 30K
-		getCatalog(user.getSessionId(), user.getUsername().substring(0,6));
+		getCatalog(user.getSessionId(), user.getUsername().substring(0,5));
 		checkStatusCode("200");
 		user.setSessionId(response.getCookie("JSESSIONID"));
 		List<Map<String, Object>> vouchers = response.getBody().jsonPath().getList("data.catalog");
