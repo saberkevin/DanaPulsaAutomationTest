@@ -62,7 +62,7 @@ public class TC_Remote_Service_Issue extends TestBase {
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 				
-		response = httpRequest.request(Method.GET, ConfigRemoteServicePromotion.ENDPOINT_PATH);
+		response = httpRequest.request(Method.POST, ConfigRemoteServicePromotion.ENDPOINT_PATH);
 		logger.info(response.getBody().asString());
 	}
 	

@@ -79,26 +79,29 @@ public class TC_Remote_Service_Pay extends TestBase {
 			user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
 			user.setPin(ConfigRemoteServiceOrder.USER_PIN);
 			
-			// insert user into database
+			// delete if exist
 			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
-			deleteUserIfExist(user.getEmail(), user.getUsername());			
-			createUser(user);
-			user.setId(getUserIdByUsername(user.getUsername()));
+			deleteUserIfExist(user.getEmail(), user.getUsername());
+			
+			// register new user
+			register(user.getName(), user.getEmail(), user.getUsername(), Integer.toString(user.getPin()));
+			checkStatusCode("201");
+			user.setId(response.getBody().jsonPath().getLong("data.id"));
+			user.setBalance(15000000);
 			
 			if (userId.equals("true"))
-				userId = Long.toString(user.getId());				
+				userId = Long.toString(user.getId());
 			
-			// insert balance into database
+			// update balance in database
 			if (testCase.equals("Not enough balance")) {
-				createBalance(user.getId(), 1000);
-			} else {
-				createBalance(user.getId(), 10000000);
-				user.setBalance(10000000);
+				updateBalance(user.getId(), 1000);
+				user.setBalance(1000);
 			}
 			
 			// insert voucher into database			
-			if (voucherId.equals("1") || voucherId.equals("7") ||voucherId.equals("16")) {
+			if (voucherId.equals("1") || voucherId.equals("7") || voucherId.equals("16")) {				
 				createUserVoucher(user.getId(), Long.parseLong(voucherId), 2);
+				logger.info("create voucher id " + voucherId);
 			} else if (voucherId.equals("3") || voucherId.equals("4")) {
 				createUserVoucher(user.getId(), Long.parseLong(voucherId), 1);
 			}
@@ -146,12 +149,14 @@ public class TC_Remote_Service_Pay extends TestBase {
 			anotherUser.setUsername("081252930397");
 			anotherUser.setPin(123456);
 			
-			// insert user into database
+			// delete if exist
 			deleteBalanceByEmailByUsername(anotherUser.getEmail(), anotherUser.getUsername());
-			deleteUserIfExist(anotherUser.getEmail(), anotherUser.getUsername());			
-			createUser(anotherUser);
-			anotherUser.setId(getUserIdByUsername(anotherUser.getUsername()));
-			createBalance(anotherUser.getId(), 10000000);
+			deleteUserIfExist(anotherUser.getEmail(), anotherUser.getUsername());
+			
+			// register new user
+			register(anotherUser.getName(), anotherUser.getEmail(), anotherUser.getUsername(), Integer.toString(anotherUser.getPin()));
+			checkStatusCode("201");
+			anotherUser.setId(response.getBody().jsonPath().getLong("data.id"));
 			
 			// initialize catalog - TELKOMSEL 15k
 			catalog.setId(13);
@@ -399,7 +404,7 @@ public class TC_Remote_Service_Pay extends TestBase {
 			
 			if (data.size() == 0) Assert.assertTrue(false, "no balance found in database");
 			for (Map<String, Object> map : data) {
-				Assert.assertEquals((int) (user.getBalance() - (catalog.getPrice() - discount + value)), (int) map.get("balance"));
+				Assert.assertEquals((user.getBalance() - (catalog.getPrice() - discount + value)), map.get("balance"));
 			}
 			break;
 		}

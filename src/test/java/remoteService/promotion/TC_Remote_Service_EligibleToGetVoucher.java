@@ -1,14 +1,16 @@
 package remoteService.promotion;
 
-import org.json.simple.JSONObject;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import io.restassured.RestAssured;
-import io.restassured.http.Method;
 import model.User;
 import remoteService.order.ConfigRemoteServiceOrder;
 
@@ -22,6 +24,7 @@ public class TC_Remote_Service_EligibleToGetVoucher extends TestBase {
 	private String paymentMethodId;
 	private String result;
 	private boolean isCreateUser;
+	private String dataAMQP;
 
 	public TC_Remote_Service_EligibleToGetVoucher(String testCase, String userId, String price, String providerId, String voucherId, String paymentMethodId, String result) {
 		this.testCase = testCase;
@@ -32,33 +35,6 @@ public class TC_Remote_Service_EligibleToGetVoucher extends TestBase {
 		this.paymentMethodId = paymentMethodId;
 		this.result = result;
 		isCreateUser = false;
-	}
-	
-	@SuppressWarnings("unchecked")
-	public void eligibleToGetVoucherRemoteService(String userId, String price, String voucherId, String providerId, String paymentMethodId) {
-		logger.info("Call Payment API [Order Domain]");
-		logger.info("Test Data: ");
-		logger.info("user id:" + userId);
-		logger.info("price:" + price);
-		logger.info("provider id:" + providerId);
-		logger.info("payment method id:" + paymentMethodId);
-		logger.info("voucher id:" + voucherId);
-		
-		JSONObject requestParams = new JSONObject();
-		requestParams.put("method", ConfigRemoteServicePromotion.QUEUE_ELIGIBLE_TO_GET_VOUCHER);
-		requestParams.put("message", "{\"userId\":" + userId 
-				+ ",\"voucherId\":" + voucherId 
-				+ ",\"price\":" + price 
-				+ ",\"providerId\":" + providerId 
-				+ ",\"paymentMethodId\":" + paymentMethodId + "}");
-		
-		RestAssured.baseURI = ConfigRemoteServicePromotion.BASE_URI;
-		httpRequest = RestAssured.given();
-		httpRequest.header("Content-Type", "application/json");
-		httpRequest.body(requestParams.toJSONString());
-				
-		response = httpRequest.request(Method.GET, ConfigRemoteServicePromotion.ENDPOINT_PATH);
-		logger.info(response.getBody().asString());
 	}
 	
 	@BeforeClass
@@ -88,29 +64,64 @@ public class TC_Remote_Service_EligibleToGetVoucher extends TestBase {
 	
 	@Test
 	public void testIssue() {
-		eligibleToGetVoucherRemoteService(userId, price, voucherId, providerId, paymentMethodId);
+		String message = "{\"userId\":" + userId 
+				+ ",\"voucherId\":" + voucherId 
+				+ ",\"price\":" + price 
+				+ ",\"providerId\":" + providerId 
+				+ ",\"paymentMethodId\":" + paymentMethodId + "}";
 		
-		if (response.getStatusCode() != 200) {
-			logger.info(response.getBody().asString());
-			Assert.assertTrue(false, "cannot hit API");
-		}
+		dataAMQP = callRP(promotionAMQP, ConfigRemoteServicePromotion.QUEUE_ELIGIBLE_TO_GET_VOUCHER, message);
+		logger.info("message = " + message);
+		logger.info(dataAMQP);
 	}
 	
 	@Test(dependsOnMethods = {"testIssue"})
 	public void checkData() {
-		String responseBody = response.getBody().asString();
-		Assert.assertTrue(responseBody.contains(result), responseBody);		
+		Assert.assertTrue(dataAMQP.contains(result), dataAMQP);
 	}
 	
 	@Test(dependsOnMethods = {"checkData"})
 	public void checkDB() {
-		// do some code
+		Map<String, Object> param = new LinkedHashMap<String, Object>();
+		List<Map<String, Object>> data = new ArrayList<Map<String,Object>>();
+		String query = "";
+		
+		final String errorMessage1 = "user not found";
+		final String errorMessage2 = "unknown payment method";
+		final String errorMessage3 = "unknown provider id";
+		final String errorMessage4 = "invalid request format";
+		
+		switch (dataAMQP) {
+		case errorMessage1:
+			query = "SELECT * FROM user WHERE id = ?";
+			param.put("1", Long.parseLong(userId));
+			data = sqlExec(query, param, "MEMBER");			
+			Assert.assertTrue(data.size() == 0);	
+			break;
+		case errorMessage2:
+			query = "SELECT * FROM payment_method WHERE id = ?";
+			param.put("1", Long.parseLong(paymentMethodId));
+			data = sqlExec(query, param, "ORDER");
+			Assert.assertTrue(data.size() == 0);			
+			break;			
+		case errorMessage3:
+			query = "SELECT * FROM provider WHERE id = ?";
+			param.put("1", Long.parseLong(providerId));
+			data = sqlExec(query, param, "ORDER");			
+			Assert.assertTrue(data.size() == 0);	
+			break;		
+		case errorMessage4:
+			// do some code
+			break;
+		default:
+			// do some code
+			break;
+		}
 	}
 	
 	@AfterClass
 	public void afterClass() {
 		if (isCreateUser == true) {
-			deleteUserVoucherByUserId(user.getId());
 			deleteBalanceByUserId(user.getId());
 			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
 		}

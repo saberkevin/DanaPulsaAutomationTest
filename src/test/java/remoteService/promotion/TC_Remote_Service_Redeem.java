@@ -59,7 +59,7 @@ public class TC_Remote_Service_Redeem extends TestBase {
 		httpRequest.header("Content-Type", "application/json");
 		httpRequest.body(requestParams.toJSONString());
 		
-		response = httpRequest.request(Method.GET, ConfigRemoteServicePromotion.ENDPOINT_PATH);
+		response = httpRequest.request(Method.POST, ConfigRemoteServicePromotion.ENDPOINT_PATH);
 		logger.info(response.getBody().asString());
 	}
 	
@@ -75,20 +75,24 @@ public class TC_Remote_Service_Redeem extends TestBase {
 			user.setUsername(ConfigRemoteServiceOrder.USER_USERNAME);
 			user.setPin(ConfigRemoteServiceOrder.USER_PIN);
 			
-			// insert user into database
+			// delete if exist
 			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
-			deleteUserIfExist(user.getEmail(), user.getUsername());			
-			createUser(user);
-			user.setId(getUserIdByUsername(user.getUsername()));		
-			createBalance(user.getId(), 10000000);
+			deleteUserIfExist(user.getEmail(), user.getUsername());
+			
+			// register new user
+			register(user.getName(), user.getEmail(), user.getUsername(), Integer.toString(user.getPin()));
+			checkStatusCode("201");
+			user.setId(response.getBody().jsonPath().getLong("data.id"));
+			user.setBalance(15000000);
 			userId = Long.toString(user.getId());
 			
-			// insert voucher into database
-			createUserVoucher(user.getId(), 1, 2); // cashback not used
-			createUserVoucher(user.getId(), 7, 2); // discount not used
-			createUserVoucher(user.getId(), 3, 1); // used
-			createUserVoucher(user.getId(), 4, 1); // used
-			createUserVoucher(user.getId(), 16, 2); // discount minpurchase 500K
+			// insert voucher into database	
+			if (voucherId.equals("1") || voucherId.equals("7") || voucherId.equals("16")) {				
+				createUserVoucher(user.getId(), Long.parseLong(voucherId), 2);
+				logger.info("create voucher id " + voucherId);
+			} else if (voucherId.equals("3") || voucherId.equals("4")) {
+				createUserVoucher(user.getId(), Long.parseLong(voucherId), 1);
+			}
 			
 			// set flag
 			isCreateUser = true;			
@@ -199,7 +203,7 @@ public class TC_Remote_Service_Redeem extends TestBase {
 			Assert.assertTrue(data.size() == 0);
 			break;			
 		case errorMessage5:
-			query = "SELECT * FROM provider id = ?";
+			query = "SELECT * FROM provider WHERE id = ?";
 			param.put("1", Long.parseLong(providerId));
 			data = sqlExec(query, param, "ORDER");
 			Assert.assertTrue(data.size() == 0);
@@ -238,7 +242,7 @@ public class TC_Remote_Service_Redeem extends TestBase {
 				
 				if (data.size() == 0) Assert.assertTrue(false, "no voucher found in database");				
 				for (Map<String, Object> map : data)
-					Assert.assertEquals(response.getBody().jsonPath().getString("value"), (String) map.get("value"));
+					Assert.assertEquals(response.getBody().jsonPath().getInt("value"), map.get("value"));
 				
 			} else if (voucherTypeName.equals("discount")) {
 				query = "SELECT * FROM voucher WHERE id = ?";

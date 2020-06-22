@@ -53,25 +53,27 @@ public class TC_Pay_Order extends TestBase {
 			user.setUsername(ConfigApiTestPayment.USER_USERNAME);
 			user.setPin(ConfigApiTestPayment.USER_PIN);
 			
-			// insert user into database
+			// delete if exist
 			deleteBalanceByEmailByUsername(user.getEmail(), user.getUsername());
-			deleteUserIfExist(user.getEmail(), user.getUsername());			
-			createUser(user);
-			user.setId(getUserIdByUsername(user.getUsername()));
+			deleteUserIfExist(user.getEmail(), user.getUsername());
+			
+			// register new user
+			register(user.getName(), user.getEmail(), user.getUsername(), Integer.toString(user.getPin()));
+			checkStatusCode("201");
+			user.setId(response.getBody().jsonPath().getLong("data.id"));
+			user.setBalance(15000000);
 			
 			if (sessionId.equals("true")) {				
 				verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
 				checkStatusCode("200");
 				user.setSessionId(response.getCookie("JSESSIONID"));
-				sessionId = user.getSessionId();			
+				sessionId = user.getSessionId();
 			}
 			
-			// insert balance into database
+			// update balance in database
 			if (testCase.equals("Not enough balance")) {
-				createBalance(user.getId(), 1000);
-			} else {
-				createBalance(user.getId(), 10000000);
-				user.setBalance(10000000);
+				updateBalance(user.getId(), 1000);
+				user.setBalance(1000);
 			}
 			
 			// insert voucher into database			
@@ -322,7 +324,7 @@ public class TC_Pay_Order extends TestBase {
 			
 			if (data.size() == 0) Assert.assertTrue(false, "no balance found in database");
 			for (Map<String, Object> map : data) {
-				Assert.assertEquals((int) (user.getBalance() - (catalog.getPrice() - discount + value)), (int) map.get("balance"));
+				Assert.assertEquals((user.getBalance() - (catalog.getPrice() - discount + value)), map.get("balance"));
 			}
 		}
 	}

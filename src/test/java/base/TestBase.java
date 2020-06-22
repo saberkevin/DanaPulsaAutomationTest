@@ -1006,6 +1006,30 @@ public class TestBase {
 		}
 	}
 	
+	public void updateBalance(long userId, long balance) {
+		Connection conn = null;
+		try {
+			conn = setConnection("MEMBER");
+			String queryString = "UPDATE balance SET balance = ? WHERE userId = ?";
+
+			PreparedStatement ps = conn.prepareStatement(queryString);
+			ps.setLong(1, balance);
+			ps.setLong(2, userId);
+			ps.executeUpdate();
+
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+		        if (conn != null)
+		            conn.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
+		}
+	}
+	
 	public void deleteBalanceByUserId(long userId) {
 		Connection conn = null;
 		try {

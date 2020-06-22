@@ -56,6 +56,7 @@ public class TC_Integration_Payment extends TestBase {
 		login("62" + user.getUsername().substring(1));
 		checkStatusCode("200");
 		user.setId(response.getBody().jsonPath().getLong("data.id"));
+		user.setBalance(15000000);
 		
 		// verify pin login
 		verifyPinLogin(Long.toString(user.getId()), Integer.toString(user.getPin()));
@@ -169,13 +170,13 @@ public class TC_Integration_Payment extends TestBase {
 		
 		if (data.size() == 0) Assert.assertTrue(false, "no balance found in database");
 		for (Map<String, Object> map : data) {
-			Assert.assertEquals((int) (user.getBalance() - (catalog.getPrice() - discount + value)), (int) map.get("balance"));
+			Assert.assertEquals((user.getBalance() - (catalog.getPrice() - discount + value)), map.get("balance"));
 		}
 	}
 	
 	@AfterClass
 	public void afterClass() {
-		deleteUserVoucherByUserId(user.getId());
+//		deleteUserVoucherByUserId(user.getId());
 		deleteTransactionByUserId(user.getId());
 		deleteBalanceByUserId(user.getId());
 		deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());

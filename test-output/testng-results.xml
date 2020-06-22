@@ -2,30 +2,31 @@
 <testng-results skipped="2" failed="1" ignored="0" total="3" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="DANA Pulsa Suite" duration-ms="74829" started-at="2020-06-21T16:40:34Z" finished-at="2020-06-21T16:41:49Z">
+  <suite name="DANA Pulsa Suite" duration-ms="54025" started-at="2020-06-22T12:08:22Z" finished-at="2020-06-22T12:09:16Z">
     <groups>
     </groups>
-    <test name="DANA Pulsa Remote Service Order - Pay" duration-ms="74829" started-at="2020-06-21T16:40:34Z" finished-at="2020-06-21T16:41:49Z">
-      <class name="remoteService.order.TC_Remote_Service_Pay">
-        <test-method status="PASS" signature="setup()[pri:0, instance:remoteService.order.TC_Remote_Service_Pay@609db43b]" name="setup" is-config="true" duration-ms="84" started-at="2020-06-21T16:40:34Z" finished-at="2020-06-21T16:40:34Z">
+    <test name="DANA Pulsa API Test Payment - Pay Order" duration-ms="54025" started-at="2020-06-22T12:08:22Z" finished-at="2020-06-22T12:09:16Z">
+      <class name="testCases.payment.TC_Pay_Order">
+        <test-method status="PASS" signature="setup()[pri:0, instance:testCases.payment.TC_Pay_Order@1ebd319f]" name="setup" is-config="true" duration-ms="52" started-at="2020-06-22T12:08:22Z" finished-at="2020-06-22T12:08:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:remoteService.order.TC_Remote_Service_Pay@609db43b]" name="beforeClass" is-config="true" duration-ms="49695" started-at="2020-06-21T16:40:34Z" finished-at="2020-06-21T16:41:23Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:testCases.payment.TC_Pay_Order@1ebd319f]" name="beforeClass" is-config="true" duration-ms="32326" started-at="2020-06-22T12:08:22Z" finished-at="2020-06-22T12:08:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="FAIL" signature="testPayment()[pri:0, instance:remoteService.order.TC_Remote_Service_Pay@609db43b]" name="testPayment" duration-ms="3322" started-at="2020-06-21T16:41:23Z" finished-at="2020-06-21T16:41:27Z">
+        <test-method status="FAIL" signature="testPayOrder()[pri:0, instance:testCases.payment.TC_Pay_Order@1ebd319f]" name="testPayOrder" duration-ms="1996" started-at="2020-06-22T12:08:54Z" finished-at="2020-06-22T12:08:56Z">
           <exception class="java.lang.AssertionError">
             <message>
-              <![CDATA[cannot hit API expected [true] but found [false]]]>
+              <![CDATA[expected [true] but found [false]]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: cannot hit API expected [true] but found [false]
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
 at org.testng.Assert.fail(Assert.java:96)
 at org.testng.Assert.failNotEquals(Assert.java:776)
 at org.testng.Assert.assertTrue(Assert.java:44)
-at remoteService.order.TC_Remote_Service_Pay.testPayment(TC_Remote_Service_Pay.java:184)
+at org.testng.Assert.assertTrue(Assert.java:54)
+at testCases.payment.TC_Pay_Order.testPayOrder(TC_Pay_Order.java:168)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -56,14 +57,14 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testPayment -->
-        <test-method status="SKIP" signature="checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_Pay@609db43b]" name="checkData" duration-ms="0" started-at="2020-06-21T16:41:27Z" depends-on-methods="remoteService.order.TC_Remote_Service_Pay.testPayment" finished-at="2020-06-21T16:41:27Z">
+        </test-method> <!-- testPayOrder -->
+        <test-method status="SKIP" signature="checkData()[pri:0, instance:testCases.payment.TC_Pay_Order@1ebd319f]" name="checkData" duration-ms="0" started-at="2020-06-22T12:08:56Z" depends-on-methods="testCases.payment.TC_Pay_Order.testPayOrder" finished-at="2020-06-22T12:08:56Z">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method TC_Remote_Service_Pay.checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_Pay@609db43b] depends on not successfully finished methods]]>
+              <![CDATA[Method TC_Pay_Order.checkData()[pri:0, instance:testCases.payment.TC_Pay_Order@1ebd319f] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Pay.checkData()[pri:0, instance:remoteService.order.TC_Remote_Service_Pay@609db43b] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method TC_Pay_Order.checkData()[pri:0, instance:testCases.payment.TC_Pay_Order@1ebd319f] depends on not successfully finished methods
 at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
@@ -88,13 +89,13 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkData -->
-        <test-method status="SKIP" signature="checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_Pay@609db43b]" name="checkDB" duration-ms="0" started-at="2020-06-21T16:41:27Z" depends-on-methods="remoteService.order.TC_Remote_Service_Pay.checkData" finished-at="2020-06-21T16:41:27Z">
+        <test-method status="SKIP" signature="checkDB()[pri:0, instance:testCases.payment.TC_Pay_Order@1ebd319f]" name="checkDB" duration-ms="0" started-at="2020-06-22T12:08:56Z" depends-on-methods="testCases.payment.TC_Pay_Order.checkData" finished-at="2020-06-22T12:08:56Z">
           <exception class="java.lang.Throwable">
             <message>
-              <![CDATA[Method TC_Remote_Service_Pay.checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_Pay@609db43b] depends on not successfully finished methods]]>
+              <![CDATA[Method TC_Pay_Order.checkDB()[pri:0, instance:testCases.payment.TC_Pay_Order@1ebd319f] depends on not successfully finished methods]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.Throwable: Method TC_Remote_Service_Pay.checkDB()[pri:0, instance:remoteService.order.TC_Remote_Service_Pay@609db43b] depends on not successfully finished methods
+              <![CDATA[java.lang.Throwable: Method TC_Pay_Order.checkDB()[pri:0, instance:testCases.payment.TC_Pay_Order@1ebd319f] depends on not successfully finished methods
 at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
 at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
 at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
@@ -119,11 +120,11 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkDB -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:remoteService.order.TC_Remote_Service_Pay@609db43b]" name="afterClass" is-config="true" duration-ms="21699" started-at="2020-06-21T16:41:27Z" finished-at="2020-06-21T16:41:49Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:testCases.payment.TC_Pay_Order@1ebd319f]" name="afterClass" is-config="true" duration-ms="19616" started-at="2020-06-22T12:08:56Z" finished-at="2020-06-22T12:09:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- remoteService.order.TC_Remote_Service_Pay -->
-    </test> <!-- DANA Pulsa Remote Service Order - Pay -->
+      </class> <!-- testCases.payment.TC_Pay_Order -->
+    </test> <!-- DANA Pulsa API Test Payment - Pay Order -->
   </suite> <!-- DANA Pulsa Suite -->
 </testng-results>
