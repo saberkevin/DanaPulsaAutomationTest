@@ -68,7 +68,8 @@ public class TC_Integration_Payment extends TestBase {
 		checkStatusCode("200");
 		user.setSessionId(response.getCookie("JSESSIONID"));
 		List<Map<String, Object>> vouchers = response.getBody().jsonPath().getList("data.catalog");
-		catalog.setId(Long.valueOf((Integer) vouchers.get(24).get("id")));
+		catalog.setId(Long.valueOf((Integer) vouchers.get(12).get("id")));
+		catalog.setPrice(Long.valueOf((Integer) vouchers.get(12).get("price")));
 		
 		// create order
 		createOrder(user.getSessionId(), user.getUsername(), Long.toString(catalog.getId()));
@@ -176,7 +177,7 @@ public class TC_Integration_Payment extends TestBase {
 	
 	@AfterClass
 	public void afterClass() {
-//		deleteUserVoucherByUserId(user.getId());
+		deleteUserVoucherByUserId(user.getId());
 		deleteTransactionByUserId(user.getId());
 		deleteBalanceByUserId(user.getId());
 		deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());

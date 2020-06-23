@@ -560,6 +560,7 @@ public class TestBase {
 		httpRequest = RestAssured.given();
 		httpRequest.header("Cookie", "JSESSIONID=" + sessionId);
 		httpRequest.header("Content-Type", "application/json");
+		httpRequest.body(requestParams.toJSONString());
 		
 		response = httpRequest.request(Method.POST, PAYMENT_PATH);
 		logger.info(response.getBody().asString());

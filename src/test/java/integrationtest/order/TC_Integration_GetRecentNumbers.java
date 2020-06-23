@@ -93,11 +93,12 @@ public class TC_Integration_GetRecentNumbers extends TestBase {
 			List<HashMap<Object, Object>> recentNumbers = response.jsonPath().getList("data");				
 			Assert.assertTrue(recentNumbers.size() <= 10, "maximum recent number is only 10");
 			
-			for (int i = 0; i < recentNumbers.size(); i++) {if (recentNumbers.size() > 1)
-				Assert.assertEquals(recentNumbers.get(i).get("number"), phoneNumbers[recentNumbers.size() - i]);
-			else
-				Assert.assertEquals(recentNumbers.get(i).get("number"), user.getUsername());					
-
+			for (int i = 0; i < recentNumbers.size(); i++) {
+				if (recentNumbers.size() > 1)
+					Assert.assertEquals(recentNumbers.get(i).get("number"), phoneNumbers[recentNumbers.size() - i]);
+				else
+					Assert.assertEquals(recentNumbers.get(i).get("number"), user.getUsername());					
+	
 				HashMap<String, String> provHashMap = (HashMap<String, String>) recentNumbers.get(i).get("provider");
 				Assert.assertNotNull(String.valueOf(provHashMap.get("id")));
 				Assert.assertNotNull(provHashMap.get("name"));

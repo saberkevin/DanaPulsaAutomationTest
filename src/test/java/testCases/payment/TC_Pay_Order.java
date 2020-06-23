@@ -169,7 +169,9 @@ public class TC_Pay_Order extends TestBase {
 					|| response.getBody().jsonPath().getString("message").equals("your voucher not found")
 					|| response.getBody().jsonPath().getString("message").equals("your voucher is not applicable with your number")
 					|| response.getBody().jsonPath().getString("message").equals("your voucher is not applicable with payment method")
-					|| response.getBody().jsonPath().getString("message").equals("insufficient purchase amount to use this voucher"));
+					|| response.getBody().jsonPath().getString("message").equals("insufficient purchase amount to use this voucher")
+					|| response.getBody().jsonPath().getString("message").equals("transaction ID must not be null")
+					|| response.getBody().jsonPath().getString("message").equals("method ID must not be null"));
 		} else if (statusCode == 401) {
 			Assert.assertEquals(response.getBody().jsonPath().getString("code"), "401");
 			Assert.assertEquals(response.getBody().jsonPath().getString("message"), "Unauthorized");
@@ -261,7 +263,7 @@ public class TC_Pay_Order extends TestBase {
 			if (response.getBody().asString().contains("unknown transaction")) {
 				query = "SELECT * FROM transaction WHERE id = ? AND userId = ? AND statusId IN (3, 4)";
 				param.put("1", Long.parseLong(transactionId));
-				param.put("1", user.getId());
+				param.put("2", user.getId());
 				data = sqlExec(query, param, "ORDER");
 				Assert.assertTrue(data.size() == 0);
 			} else if (response.getBody().asString().contains("unknown method")) {

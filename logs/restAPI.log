@@ -2618,3 +2618,1225 @@
 2020-06-22 19:08:54 INFO  restAPI:552 - voucher id:0
 2020-06-22 19:08:56 INFO  restAPI:565 - {"code":400,"message":"invalid request format"}
 2020-06-22 19:09:16 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 19:16:54 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 19:16:54 INFO  restAPI:47 - Case:Valid parameters
+2020-06-22 19:17:10 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 19:17:10 INFO  restAPI:273 - Test Data: 
+2020-06-22 19:17:10 INFO  restAPI:274 - name:Zanuar
+2020-06-22 19:17:10 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 19:17:10 INFO  restAPI:276 - phone:081252930398
+2020-06-22 19:17:10 INFO  restAPI:277 - pin:123456
+2020-06-22 19:17:31 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":1984,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 19:17:31 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 19:17:31 INFO  restAPI:182 - Status Code = 201
+2020-06-22 19:17:31 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 19:17:31 INFO  restAPI:310 - Test Data: 
+2020-06-22 19:17:31 INFO  restAPI:311 - id:1984
+2020-06-22 19:17:31 INFO  restAPI:312 - pin:123456
+2020-06-22 19:17:50 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 19:17:50 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 19:17:50 INFO  restAPI:182 - Status Code = 200
+2020-06-22 19:18:00 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 19:18:00 INFO  restAPI:548 - Test Data: 
+2020-06-22 19:18:00 INFO  restAPI:549 - session id:A2C731336D32EDFD5C454C58CD94A71F
+2020-06-22 19:18:00 INFO  restAPI:550 - transaction id:1098
+2020-06-22 19:18:00 INFO  restAPI:551 - payment method id:1
+2020-06-22 19:18:00 INFO  restAPI:552 - voucher id:0
+2020-06-22 19:18:34 INFO  restAPI:565 - {"code":400,"message":"invalid request format"}
+2020-06-22 19:18:54 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 19:20:20 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 19:20:20 INFO  restAPI:47 - Case:Valid parameters
+2020-06-22 19:20:36 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 19:20:36 INFO  restAPI:273 - Test Data: 
+2020-06-22 19:20:36 INFO  restAPI:274 - name:Zanuar
+2020-06-22 19:20:36 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 19:20:36 INFO  restAPI:276 - phone:081252930398
+2020-06-22 19:20:36 INFO  restAPI:277 - pin:123456
+2020-06-22 19:20:40 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":1985,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 19:20:40 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 19:20:40 INFO  restAPI:182 - Status Code = 201
+2020-06-22 19:20:40 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 19:20:40 INFO  restAPI:310 - Test Data: 
+2020-06-22 19:20:40 INFO  restAPI:311 - id:1985
+2020-06-22 19:20:40 INFO  restAPI:312 - pin:123456
+2020-06-22 19:20:42 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 19:20:42 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 19:20:42 INFO  restAPI:182 - Status Code = 200
+2020-06-22 19:20:52 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 19:20:52 INFO  restAPI:548 - Test Data: 
+2020-06-22 19:20:52 INFO  restAPI:549 - session id:1BD39A920E5F41A9A970A588737E52C3
+2020-06-22 19:20:52 INFO  restAPI:550 - transaction id:1099
+2020-06-22 19:20:52 INFO  restAPI:551 - payment method id:1
+2020-06-22 19:20:52 INFO  restAPI:552 - voucher id:0
+2020-06-22 19:20:54 INFO  restAPI:565 - {"code":400,"message":"invalid request format"}
+2020-06-22 19:21:15 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 19:36:00 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 19:36:00 INFO  restAPI:47 - Case:Valid parameters
+2020-06-22 19:36:14 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 19:36:14 INFO  restAPI:273 - Test Data: 
+2020-06-22 19:36:14 INFO  restAPI:274 - name:Zanuar
+2020-06-22 19:36:14 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 19:36:14 INFO  restAPI:276 - phone:081252930398
+2020-06-22 19:36:14 INFO  restAPI:277 - pin:123456
+2020-06-22 19:36:19 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":1986,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 19:36:19 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 19:36:19 INFO  restAPI:182 - Status Code = 201
+2020-06-22 19:36:19 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 19:36:19 INFO  restAPI:310 - Test Data: 
+2020-06-22 19:36:19 INFO  restAPI:311 - id:1986
+2020-06-22 19:36:19 INFO  restAPI:312 - pin:123456
+2020-06-22 19:36:21 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 19:36:21 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 19:36:21 INFO  restAPI:182 - Status Code = 200
+2020-06-22 19:36:31 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 19:36:31 INFO  restAPI:548 - Test Data: 
+2020-06-22 19:36:31 INFO  restAPI:549 - session id:D10CBB1F3AD0DDBB61E61BE9775544C0
+2020-06-22 19:36:31 INFO  restAPI:550 - transaction id:1102
+2020-06-22 19:36:31 INFO  restAPI:551 - payment method id:1
+2020-06-22 19:36:31 INFO  restAPI:552 - voucher id:0
+2020-06-22 19:37:02 INFO  restAPI:566 - <!DOCTYPE html>
+	<html>
+	  <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>Application Error</title>
+		<style media="screen">
+		  html,body,iframe {
+			margin: 0;
+			padding: 0;
+		  }
+		  html,body {
+			height: 100%;
+			overflow: hidden;
+		  }
+		  iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		  }
+		</style>
+	  </head>
+	  <body>
+		<iframe src="//www.herokucdn.com/error-pages/application-error.html"></iframe>
+	  </body>
+	</html>
+2020-06-22 19:37:20 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 19:37:28 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 19:37:28 INFO  restAPI:47 - Case:Valid parameters
+2020-06-22 19:37:43 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 19:37:43 INFO  restAPI:273 - Test Data: 
+2020-06-22 19:37:43 INFO  restAPI:274 - name:Zanuar
+2020-06-22 19:37:43 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 19:37:43 INFO  restAPI:276 - phone:081252930398
+2020-06-22 19:37:43 INFO  restAPI:277 - pin:123456
+2020-06-22 19:37:47 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":1987,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 19:37:47 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 19:37:47 INFO  restAPI:182 - Status Code = 201
+2020-06-22 19:37:47 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 19:37:47 INFO  restAPI:310 - Test Data: 
+2020-06-22 19:37:47 INFO  restAPI:311 - id:1987
+2020-06-22 19:37:47 INFO  restAPI:312 - pin:123456
+2020-06-22 19:37:49 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 19:37:49 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 19:37:49 INFO  restAPI:182 - Status Code = 200
+2020-06-22 19:37:59 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 19:37:59 INFO  restAPI:548 - Test Data: 
+2020-06-22 19:37:59 INFO  restAPI:549 - session id:3D0315D95BBF2177AA7A64B8B502E632
+2020-06-22 19:37:59 INFO  restAPI:550 - transaction id:1103
+2020-06-22 19:37:59 INFO  restAPI:551 - payment method id:1
+2020-06-22 19:37:59 INFO  restAPI:552 - voucher id:0
+2020-06-22 19:38:29 INFO  restAPI:566 - {"code":200,"message":"success","data":{"balance":14925000,"rewardVoucher":false,"transaction":{"id":1103,"method":"WALLET","phoneNumber":"081252930398","catalog":{"id":19,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":75000,"price":75000},"voucher":null,"status":"COMPLETED","createdAt":1592829473000,"updatedAt":1592829506000}}}
+2020-06-22 19:38:59 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 19:56:13 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 19:56:13 INFO  restAPI:47 - Case:Transaction already canceled
+2020-06-22 19:56:30 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 19:56:30 INFO  restAPI:273 - Test Data: 
+2020-06-22 19:56:30 INFO  restAPI:274 - name:Zanuar
+2020-06-22 19:56:30 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 19:56:30 INFO  restAPI:276 - phone:081252930398
+2020-06-22 19:56:30 INFO  restAPI:277 - pin:123456
+2020-06-22 19:56:51 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":1988,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 19:56:51 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 19:56:51 INFO  restAPI:182 - Status Code = 201
+2020-06-22 19:56:52 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 19:56:52 INFO  restAPI:310 - Test Data: 
+2020-06-22 19:56:52 INFO  restAPI:311 - id:1988
+2020-06-22 19:56:52 INFO  restAPI:312 - pin:123456
+2020-06-22 19:57:43 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 19:57:43 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 19:57:43 INFO  restAPI:182 - Status Code = 200
+2020-06-22 19:57:58 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 19:57:58 INFO  restAPI:548 - Test Data: 
+2020-06-22 19:57:58 INFO  restAPI:549 - session id:0793A49744884662349EFACF8D691318
+2020-06-22 19:57:58 INFO  restAPI:550 - transaction id:1105
+2020-06-22 19:57:58 INFO  restAPI:551 - payment method id:1
+2020-06-22 19:57:58 INFO  restAPI:552 - voucher id:1
+2020-06-22 19:58:20 INFO  restAPI:566 - {"code":404,"message":"unknown transaction"}
+2020-06-22 19:58:44 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 19:58:44 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 19:58:44 INFO  restAPI:47 - Case:Another user's transaction
+2020-06-22 19:58:58 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 19:58:58 INFO  restAPI:273 - Test Data: 
+2020-06-22 19:58:58 INFO  restAPI:274 - name:Zanuar
+2020-06-22 19:58:58 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 19:58:58 INFO  restAPI:276 - phone:081252930398
+2020-06-22 19:58:58 INFO  restAPI:277 - pin:123456
+2020-06-22 19:59:01 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":1989,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 19:59:01 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 19:59:01 INFO  restAPI:182 - Status Code = 201
+2020-06-22 19:59:01 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 19:59:01 INFO  restAPI:310 - Test Data: 
+2020-06-22 19:59:01 INFO  restAPI:311 - id:1989
+2020-06-22 19:59:01 INFO  restAPI:312 - pin:123456
+2020-06-22 19:59:03 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 19:59:03 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 19:59:03 INFO  restAPI:182 - Status Code = 200
+2020-06-22 19:59:45 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 19:59:45 INFO  restAPI:548 - Test Data: 
+2020-06-22 19:59:45 INFO  restAPI:549 - session id:8E44ECC14215103E5784B319482D1E37
+2020-06-22 19:59:45 INFO  restAPI:550 - transaction id:1106
+2020-06-22 19:59:45 INFO  restAPI:551 - payment method id:1
+2020-06-22 19:59:45 INFO  restAPI:552 - voucher id:1
+2020-06-22 19:59:53 INFO  restAPI:566 - {"code":404,"message":"unknown transaction"}
+2020-06-22 20:00:30 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:00:30 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:00:30 INFO  restAPI:47 - Case:Undefined session ID
+2020-06-22 20:00:45 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:00:45 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:00:45 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:00:45 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:00:45 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:00:45 INFO  restAPI:277 - pin:123456
+2020-06-22 20:00:48 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":1991,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:00:48 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:00:48 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:01:02 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:01:02 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:01:02 INFO  restAPI:549 - session id:9999
+2020-06-22 20:01:02 INFO  restAPI:550 - transaction id:1107
+2020-06-22 20:01:02 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:01:02 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:01:03 INFO  restAPI:566 - {"code":401,"message":"Unauthorized"}
+
+2020-06-22 20:01:23 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:01:23 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:01:23 INFO  restAPI:47 - Case:Empty String transaction ID
+2020-06-22 20:01:37 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:01:37 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:01:37 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:01:37 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:01:37 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:01:37 INFO  restAPI:277 - pin:123456
+2020-06-22 20:01:56 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":1992,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:01:56 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:01:56 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:01:56 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 20:01:56 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:01:56 INFO  restAPI:311 - id:1992
+2020-06-22 20:01:56 INFO  restAPI:312 - pin:123456
+2020-06-22 20:02:15 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:02:15 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:02:15 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:02:19 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:02:19 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:02:19 INFO  restAPI:549 - session id:32698FA7E4F8877F74CA12574EF57F6B
+2020-06-22 20:02:19 INFO  restAPI:550 - transaction id:
+2020-06-22 20:02:19 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:02:19 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:02:21 INFO  restAPI:566 - {"code":400,"message":"transaction ID must not be null"}
+2020-06-22 20:02:38 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:02:38 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:02:38 INFO  restAPI:47 - Case:Transaction already expired
+2020-06-22 20:02:53 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:02:53 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:02:53 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:02:53 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:02:53 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:02:53 INFO  restAPI:277 - pin:123456
+2020-06-22 20:02:56 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":1993,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:02:56 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:02:56 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:02:56 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 20:02:56 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:02:56 INFO  restAPI:311 - id:1993
+2020-06-22 20:02:56 INFO  restAPI:312 - pin:123456
+2020-06-22 20:02:58 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:02:58 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:02:58 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:03:12 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:03:12 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:03:12 INFO  restAPI:549 - session id:C072CA18096CC28FF3AFB9C0D0FD8E27
+2020-06-22 20:03:12 INFO  restAPI:550 - transaction id:1108
+2020-06-22 20:03:12 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:03:12 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:03:18 INFO  restAPI:566 - {"code":404,"message":"unknown transaction"}
+2020-06-22 20:03:40 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:03:40 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:03:40 INFO  restAPI:47 - Case:Empty String session ID
+2020-06-22 20:03:56 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:03:56 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:03:56 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:03:56 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:03:56 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:03:56 INFO  restAPI:277 - pin:123456
+2020-06-22 20:03:59 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":1994,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:03:59 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:03:59 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:04:13 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:04:13 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:04:13 INFO  restAPI:549 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-22 20:04:13 INFO  restAPI:550 - transaction id:1109
+2020-06-22 20:04:13 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:04:13 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:04:14 INFO  restAPI:566 - {"code":401,"message":"Unauthorized"}
+
+2020-06-22 20:04:34 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:04:34 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:04:34 INFO  restAPI:47 - Case:Transaction already completed
+2020-06-22 20:04:48 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:04:48 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:04:48 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:04:48 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:04:48 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:04:48 INFO  restAPI:277 - pin:123456
+2020-06-22 20:04:51 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":1995,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:04:51 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:04:51 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:04:51 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 20:04:51 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:04:51 INFO  restAPI:311 - id:1995
+2020-06-22 20:04:51 INFO  restAPI:312 - pin:123456
+2020-06-22 20:04:53 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:04:53 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:04:53 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:05:07 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:05:07 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:05:07 INFO  restAPI:549 - session id:0B8B5C0F9A221967FD62DF1C1E60541E
+2020-06-22 20:05:07 INFO  restAPI:550 - transaction id:1110
+2020-06-22 20:05:07 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:05:07 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:05:14 INFO  restAPI:566 - {"code":404,"message":"unknown transaction"}
+2020-06-22 20:05:36 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:05:36 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:05:36 INFO  restAPI:47 - Case:Undefined transaction ID
+2020-06-22 20:05:48 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:05:48 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:05:48 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:05:48 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:05:48 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:05:48 INFO  restAPI:277 - pin:123456
+2020-06-22 20:05:51 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":1996,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:05:51 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:05:51 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:05:51 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 20:05:51 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:05:51 INFO  restAPI:311 - id:1996
+2020-06-22 20:05:51 INFO  restAPI:312 - pin:123456
+2020-06-22 20:05:53 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:05:53 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:05:53 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:05:58 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:05:58 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:05:58 INFO  restAPI:549 - session id:3F7B8BACC8AD0364C01FF17BFDE7FCAA
+2020-06-22 20:05:58 INFO  restAPI:550 - transaction id:9999
+2020-06-22 20:05:58 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:05:58 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:06:04 INFO  restAPI:566 - {"code":404,"message":"unknown transaction"}
+2020-06-22 20:06:28 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:06:28 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:06:28 INFO  restAPI:47 - Case:Valid parameters
+2020-06-22 20:06:41 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:06:41 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:06:41 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:06:41 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:06:41 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:06:41 INFO  restAPI:277 - pin:123456
+2020-06-22 20:06:44 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":1997,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:06:44 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:06:44 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:06:44 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 20:06:44 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:06:44 INFO  restAPI:311 - id:1997
+2020-06-22 20:06:44 INFO  restAPI:312 - pin:123456
+2020-06-22 20:06:46 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:06:46 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:06:46 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:06:55 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:06:55 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:06:55 INFO  restAPI:549 - session id:CF7A62915411A3F7664D3A291BB6A534
+2020-06-22 20:06:55 INFO  restAPI:550 - transaction id:1111
+2020-06-22 20:06:55 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:06:55 INFO  restAPI:552 - voucher id:0
+2020-06-22 20:07:17 INFO  restAPI:566 - {"code":200,"message":"success","data":{"balance":14925000,"rewardVoucher":true,"transaction":{"id":1111,"method":"WALLET","phoneNumber":"081252930398","catalog":{"id":19,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":75000,"price":75000},"voucher":null,"status":"COMPLETED","createdAt":1592831211000,"updatedAt":1592831233000}}}
+2020-06-22 20:14:42 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:14:42 INFO  restAPI:47 - Case:Another user's transaction
+2020-06-22 20:14:57 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:14:57 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:14:57 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:14:57 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:14:57 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:14:57 INFO  restAPI:277 - pin:123456
+2020-06-22 20:15:02 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":1998,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:15:02 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:15:02 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:15:03 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 20:15:03 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:15:03 INFO  restAPI:311 - id:1998
+2020-06-22 20:15:03 INFO  restAPI:312 - pin:123456
+2020-06-22 20:15:05 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:15:05 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:15:05 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:15:43 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:15:43 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:15:43 INFO  restAPI:549 - session id:4EF0315BF1C4E7F6D410B69F6072C470
+2020-06-22 20:15:43 INFO  restAPI:550 - transaction id:1112
+2020-06-22 20:15:43 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:15:43 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:16:05 INFO  restAPI:566 - {"code":404,"message":"unknown transaction"}
+2020-06-22 20:16:44 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:16:44 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:16:44 INFO  restAPI:47 - Case:Undefined transaction ID
+2020-06-22 20:16:58 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:16:58 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:16:58 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:16:58 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:16:58 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:16:58 INFO  restAPI:277 - pin:123456
+2020-06-22 20:17:00 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2000,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:17:00 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:17:00 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:17:00 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 20:17:00 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:17:00 INFO  restAPI:311 - id:2000
+2020-06-22 20:17:00 INFO  restAPI:312 - pin:123456
+2020-06-22 20:17:03 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:17:03 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:17:03 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:17:08 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:17:08 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:17:08 INFO  restAPI:549 - session id:7B9F70F57C01D1FECB246F5F89F80B32
+2020-06-22 20:17:08 INFO  restAPI:550 - transaction id:9999
+2020-06-22 20:17:08 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:17:08 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:17:14 INFO  restAPI:566 - {"code":404,"message":"unknown transaction"}
+2020-06-22 20:17:37 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:17:37 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:17:37 INFO  restAPI:47 - Case:Not enough balance
+2020-06-22 20:17:51 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:17:51 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:17:51 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:17:51 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:17:51 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:17:51 INFO  restAPI:277 - pin:123456
+2020-06-22 20:17:54 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2001,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:17:54 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:17:54 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:17:54 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 20:17:54 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:17:54 INFO  restAPI:311 - id:2001
+2020-06-22 20:17:54 INFO  restAPI:312 - pin:123456
+2020-06-22 20:17:56 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:17:56 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:17:56 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:18:12 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:18:12 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:18:12 INFO  restAPI:549 - session id:8FA7347C5C4B185A93CC78650FAF40B2
+2020-06-22 20:18:12 INFO  restAPI:550 - transaction id:1113
+2020-06-22 20:18:12 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:18:12 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:18:29 INFO  restAPI:566 - {"code":500,"message":"promotion service unreachable"}
+2020-06-22 20:18:45 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:18:45 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:18:45 INFO  restAPI:47 - Case:Transaction already completed
+2020-06-22 20:18:57 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:18:57 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:18:57 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:18:57 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:18:57 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:18:57 INFO  restAPI:277 - pin:123456
+2020-06-22 20:19:16 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2002,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:19:16 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:19:16 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:19:16 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 20:19:16 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:19:16 INFO  restAPI:311 - id:2002
+2020-06-22 20:19:16 INFO  restAPI:312 - pin:123456
+2020-06-22 20:19:18 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:19:18 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:19:18 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:19:32 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:19:32 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:19:32 INFO  restAPI:549 - session id:CFBE8D25B22FA95DE5A20DB3BDB08AAF
+2020-06-22 20:19:32 INFO  restAPI:550 - transaction id:1114
+2020-06-22 20:19:32 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:19:32 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:19:40 INFO  restAPI:566 - {"code":404,"message":"unknown transaction"}
+2020-06-22 20:20:04 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:20:04 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:20:04 INFO  restAPI:47 - Case:Valid parameters
+2020-06-22 20:20:18 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:20:18 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:20:18 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:20:18 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:20:18 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:20:18 INFO  restAPI:277 - pin:123456
+2020-06-22 20:20:24 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2003,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:20:24 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:20:24 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:20:24 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 20:20:24 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:20:24 INFO  restAPI:311 - id:2003
+2020-06-22 20:20:24 INFO  restAPI:312 - pin:123456
+2020-06-22 20:20:26 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:20:26 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:20:26 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:20:36 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:20:36 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:20:36 INFO  restAPI:549 - session id:02B42C0E7974B3ADC9EE837C60D6E58E
+2020-06-22 20:20:36 INFO  restAPI:550 - transaction id:1115
+2020-06-22 20:20:36 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:20:36 INFO  restAPI:552 - voucher id:0
+2020-06-22 20:21:10 INFO  restAPI:566 - {"code":200,"message":"success","data":{"balance":14925000,"rewardVoucher":false,"transaction":{"id":1115,"method":"WALLET","phoneNumber":"081252930398","catalog":{"id":19,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":75000,"price":75000},"voucher":null,"status":"COMPLETED","createdAt":1592832030000,"updatedAt":1592832066000}}}
+2020-06-22 20:21:37 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:21:37 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:21:37 INFO  restAPI:47 - Case:Empty String transaction ID
+2020-06-22 20:21:51 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:21:51 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:21:51 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:21:51 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:21:51 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:21:51 INFO  restAPI:277 - pin:123456
+2020-06-22 20:21:55 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2004,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:21:55 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:21:55 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:21:55 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 20:21:55 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:21:55 INFO  restAPI:311 - id:2004
+2020-06-22 20:21:55 INFO  restAPI:312 - pin:123456
+2020-06-22 20:21:57 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:21:57 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:21:57 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:22:01 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:22:01 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:22:01 INFO  restAPI:549 - session id:E3321CAACBD647CFD663D502CF0086E3
+2020-06-22 20:22:01 INFO  restAPI:550 - transaction id:
+2020-06-22 20:22:01 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:22:01 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:22:03 INFO  restAPI:566 - {"code":400,"message":"transaction ID must not be null"}
+2020-06-22 20:22:23 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:22:23 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:22:23 INFO  restAPI:47 - Case:Empty String session ID
+2020-06-22 20:22:37 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:22:37 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:22:37 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:22:37 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:22:37 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:22:37 INFO  restAPI:277 - pin:123456
+2020-06-22 20:22:40 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2005,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:22:40 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:22:40 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:22:54 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:22:54 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:22:54 INFO  restAPI:549 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-22 20:22:54 INFO  restAPI:550 - transaction id:1116
+2020-06-22 20:22:54 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:22:54 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:22:55 INFO  restAPI:566 - {"code":401,"message":"Unauthorized"}
+
+2020-06-22 20:23:15 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:23:15 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:23:15 INFO  restAPI:47 - Case:Undefined payment method ID
+2020-06-22 20:23:30 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:23:30 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:23:30 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:23:30 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:23:30 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:23:30 INFO  restAPI:277 - pin:123456
+2020-06-22 20:23:33 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2006,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:23:33 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:23:33 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:23:33 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 20:23:33 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:23:33 INFO  restAPI:311 - id:2006
+2020-06-22 20:23:33 INFO  restAPI:312 - pin:123456
+2020-06-22 20:23:35 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:23:35 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:23:35 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:23:50 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:23:50 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:23:50 INFO  restAPI:549 - session id:89D9940F9D99DD63215C2DA4B3D6BE9C
+2020-06-22 20:23:50 INFO  restAPI:550 - transaction id:1117
+2020-06-22 20:23:50 INFO  restAPI:551 - payment method id:2
+2020-06-22 20:23:50 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:23:56 INFO  restAPI:566 - {"code":404,"message":"unknown method"}
+2020-06-22 20:24:20 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:24:20 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:24:20 INFO  restAPI:47 - Case:Transaction already expired
+2020-06-22 20:24:35 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:24:35 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:24:35 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:24:35 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:24:35 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:24:35 INFO  restAPI:277 - pin:123456
+2020-06-22 20:24:38 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2007,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:24:38 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:24:38 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:24:38 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 20:24:38 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:24:38 INFO  restAPI:311 - id:2007
+2020-06-22 20:24:38 INFO  restAPI:312 - pin:123456
+2020-06-22 20:24:41 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:24:41 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:24:41 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:24:57 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:24:57 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:24:57 INFO  restAPI:549 - session id:142328425106393E257F873B188E574A
+2020-06-22 20:24:57 INFO  restAPI:550 - transaction id:1118
+2020-06-22 20:24:57 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:24:57 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:25:10 INFO  restAPI:566 - {"code":404,"message":"unknown transaction"}
+2020-06-22 20:25:34 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:25:34 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:25:34 INFO  restAPI:47 - Case:Transaction already canceled
+2020-06-22 20:25:50 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:25:50 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:25:50 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:25:50 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:25:50 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:25:50 INFO  restAPI:277 - pin:123456
+2020-06-22 20:25:53 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2008,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:25:53 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:25:53 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:25:53 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 20:25:53 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:25:53 INFO  restAPI:311 - id:2008
+2020-06-22 20:25:53 INFO  restAPI:312 - pin:123456
+2020-06-22 20:25:55 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:25:55 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:25:55 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:26:11 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:26:11 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:26:11 INFO  restAPI:549 - session id:100C43B1530BEA743DEB2EFBC0484F60
+2020-06-22 20:26:11 INFO  restAPI:550 - transaction id:1119
+2020-06-22 20:26:11 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:26:11 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:26:33 INFO  restAPI:566 - {"code":404,"message":"unknown transaction"}
+2020-06-22 20:26:59 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:26:59 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:26:59 INFO  restAPI:47 - Case:Empty string payment method ID
+2020-06-22 20:27:12 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:27:12 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:27:12 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:27:12 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:27:12 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:27:12 INFO  restAPI:277 - pin:123456
+2020-06-22 20:27:31 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2009,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:27:31 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:27:31 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:27:31 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 20:27:31 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:27:31 INFO  restAPI:311 - id:2009
+2020-06-22 20:27:31 INFO  restAPI:312 - pin:123456
+2020-06-22 20:27:50 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:27:50 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:27:50 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:28:04 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:28:04 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:28:04 INFO  restAPI:549 - session id:48C554296839C3DE9D10AA21F0B91109
+2020-06-22 20:28:04 INFO  restAPI:550 - transaction id:1120
+2020-06-22 20:28:04 INFO  restAPI:551 - payment method id:
+2020-06-22 20:28:04 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:28:39 INFO  restAPI:566 - {"code":400,"message":"method ID must not be null"}
+2020-06-22 20:29:00 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:29:00 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 20:29:00 INFO  restAPI:47 - Case:Undefined session ID
+2020-06-22 20:29:15 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 20:29:15 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:29:15 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:29:15 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:29:15 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:29:15 INFO  restAPI:277 - pin:123456
+2020-06-22 20:29:18 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2010,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:29:18 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:29:18 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:29:31 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 20:29:31 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:29:31 INFO  restAPI:549 - session id:9999
+2020-06-22 20:29:31 INFO  restAPI:550 - transaction id:1121
+2020-06-22 20:29:31 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:29:31 INFO  restAPI:552 - voucher id:1
+2020-06-22 20:29:32 INFO  restAPI:566 - {"code":401,"message":"Unauthorized"}
+
+2020-06-22 20:29:51 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 20:38:03 INFO  restAPI:38 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:38:03 INFO  restAPI:39 - Case:No claim voucher
+2020-06-22 20:38:17 INFO  restAPI:272 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:38:17 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:38:17 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:38:17 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:38:17 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:38:17 INFO  restAPI:277 - pin:123456
+2020-06-22 20:38:22 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2011,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:38:22 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:38:22 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:38:22 INFO  restAPI:297 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:38:22 INFO  restAPI:298 - Test Data: 
+2020-06-22 20:38:22 INFO  restAPI:299 - phone:6281252930398
+2020-06-22 20:38:23 INFO  restAPI:305 - {"code":200,"message":"success","data":{"id":2011,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:38:23 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:38:23 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:38:24 INFO  restAPI:309 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:38:24 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:38:24 INFO  restAPI:311 - id:2011
+2020-06-22 20:38:24 INFO  restAPI:312 - pin:123456
+2020-06-22 20:38:26 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:38:26 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:38:26 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:38:26 INFO  restAPI:498 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:38:26 INFO  restAPI:499 - Test Data: 
+2020-06-22 20:38:26 INFO  restAPI:500 - session id:51E503D3F94E8C364DFD8A4228D240B6
+2020-06-22 20:38:26 INFO  restAPI:501 - phone number:08125
+2020-06-22 20:38:29 INFO  restAPI:508 - {"code":200,"message":"success","data":{"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}}
+2020-06-22 20:38:29 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:38:29 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:40:40 INFO  restAPI:38 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:40:40 INFO  restAPI:39 - Case:No claim voucher
+2020-06-22 20:40:52 INFO  restAPI:272 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:40:52 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:40:52 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:40:52 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:40:52 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:40:52 INFO  restAPI:277 - pin:123456
+2020-06-22 20:40:57 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2012,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:40:57 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:40:57 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:40:57 INFO  restAPI:297 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:40:57 INFO  restAPI:298 - Test Data: 
+2020-06-22 20:40:57 INFO  restAPI:299 - phone:6281252930398
+2020-06-22 20:40:59 INFO  restAPI:305 - {"code":200,"message":"success","data":{"id":2012,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:40:59 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:40:59 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:40:59 INFO  restAPI:309 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:40:59 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:40:59 INFO  restAPI:311 - id:2012
+2020-06-22 20:40:59 INFO  restAPI:312 - pin:123456
+2020-06-22 20:41:01 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:41:01 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:41:01 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:41:01 INFO  restAPI:498 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:41:01 INFO  restAPI:499 - Test Data: 
+2020-06-22 20:41:01 INFO  restAPI:500 - session id:39200F6F4DCFD3B1A3CDEA7F12032244
+2020-06-22 20:41:01 INFO  restAPI:501 - phone number:08125
+2020-06-22 20:41:06 INFO  restAPI:508 - {"code":200,"message":"success","data":{"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}}
+2020-06-22 20:41:06 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:41:06 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:46:30 INFO  restAPI:38 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:46:30 INFO  restAPI:39 - Case:No claim voucher
+2020-06-22 20:46:45 INFO  restAPI:272 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:46:45 INFO  restAPI:273 - Test Data: 
+2020-06-22 20:46:45 INFO  restAPI:274 - name:Zanuar
+2020-06-22 20:46:45 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 20:46:45 INFO  restAPI:276 - phone:081252930398
+2020-06-22 20:46:45 INFO  restAPI:277 - pin:123456
+2020-06-22 20:46:49 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2016,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:46:49 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:46:49 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:46:49 INFO  restAPI:297 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:46:49 INFO  restAPI:298 - Test Data: 
+2020-06-22 20:46:49 INFO  restAPI:299 - phone:6281252930398
+2020-06-22 20:46:51 INFO  restAPI:305 - {"code":200,"message":"success","data":{"id":2016,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 20:46:51 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:46:51 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:46:51 INFO  restAPI:309 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:46:51 INFO  restAPI:310 - Test Data: 
+2020-06-22 20:46:51 INFO  restAPI:311 - id:2016
+2020-06-22 20:46:51 INFO  restAPI:312 - pin:123456
+2020-06-22 20:46:53 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 20:46:53 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:46:53 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:46:53 INFO  restAPI:498 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:46:53 INFO  restAPI:499 - Test Data: 
+2020-06-22 20:46:53 INFO  restAPI:500 - session id:F047479D15C39C648A482462EE744107
+2020-06-22 20:46:53 INFO  restAPI:501 - phone number:08125
+2020-06-22 20:46:56 INFO  restAPI:508 - {"code":200,"message":"success","data":{"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}}
+2020-06-22 20:46:56 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:46:56 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:46:56 INFO  restAPI:512 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:46:56 INFO  restAPI:513 - Test Data: 
+2020-06-22 20:46:56 INFO  restAPI:514 - session id:33AF784BD4ED739FEFB6756B5251FCF5
+2020-06-22 20:46:56 INFO  restAPI:515 - phone number:081252930398
+2020-06-22 20:46:56 INFO  restAPI:516 - catalog id:25
+2020-06-22 20:47:01 INFO  restAPI:529 - {"code":201,"message":"created","data":{"id":1122,"phoneNumber":"081252930398","catalog":{"id":25,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":1000000,"price":1000000}}}
+2020-06-22 20:47:01 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:47:01 INFO  restAPI:182 - Status Code = 201
+2020-06-22 20:47:01 INFO  restAPI:547 - ***** Started TC_Integration_Payment *****
+2020-06-22 20:47:01 INFO  restAPI:548 - Test Data: 
+2020-06-22 20:47:01 INFO  restAPI:549 - session id:33AF784BD4ED739FEFB6756B5251FCF5
+2020-06-22 20:47:01 INFO  restAPI:550 - transaction id:1122
+2020-06-22 20:47:01 INFO  restAPI:551 - payment method id:1
+2020-06-22 20:47:01 INFO  restAPI:552 - voucher id:0
+2020-06-22 20:47:32 INFO  restAPI:566 - {"code":200,"message":"success","data":{"balance":14000000,"rewardVoucher":false,"transaction":{"id":1122,"method":"WALLET","phoneNumber":"081252930398","catalog":{"id":25,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":1000000,"price":1000000},"voucher":null,"status":"COMPLETED","createdAt":1592833620000,"updatedAt":1592833648000}}}
+2020-06-22 20:47:32 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 20:47:32 INFO  restAPI:182 - Status Code = 200
+2020-06-22 20:48:00 INFO  restAPI:264 - ***** Finished TC_Integration_Payment *****
+2020-06-22 21:09:48 INFO  restAPI:38 - ***** Started TC_Integration_Payment *****
+2020-06-22 21:09:48 INFO  restAPI:39 - Case:No claim voucher
+2020-06-22 21:10:04 INFO  restAPI:272 - ***** Started TC_Integration_Payment *****
+2020-06-22 21:10:04 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:10:04 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:10:04 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:10:04 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:10:04 INFO  restAPI:277 - pin:123456
+2020-06-22 21:10:09 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2017,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:10:09 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:10:09 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:10:09 INFO  restAPI:297 - ***** Started TC_Integration_Payment *****
+2020-06-22 21:10:09 INFO  restAPI:298 - Test Data: 
+2020-06-22 21:10:09 INFO  restAPI:299 - phone:6281252930398
+2020-06-22 21:10:11 INFO  restAPI:305 - {"code":200,"message":"success","data":{"id":2017,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:10:11 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:10:11 INFO  restAPI:182 - Status Code = 200
+2020-06-22 21:10:12 INFO  restAPI:309 - ***** Started TC_Integration_Payment *****
+2020-06-22 21:10:12 INFO  restAPI:310 - Test Data: 
+2020-06-22 21:10:12 INFO  restAPI:311 - id:2017
+2020-06-22 21:10:12 INFO  restAPI:312 - pin:123456
+2020-06-22 21:10:14 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 21:10:14 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:10:14 INFO  restAPI:182 - Status Code = 200
+2020-06-22 21:10:14 INFO  restAPI:498 - ***** Started TC_Integration_Payment *****
+2020-06-22 21:10:14 INFO  restAPI:499 - Test Data: 
+2020-06-22 21:10:14 INFO  restAPI:500 - session id:1DE0E740EB2A0212A6ACBEDBD7A20411
+2020-06-22 21:10:14 INFO  restAPI:501 - phone number:08125
+2020-06-22 21:10:17 INFO  restAPI:508 - {"code":200,"message":"success","data":{"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"catalog":[{"id":13,"value":15000,"price":15000},{"id":14,"value":20000,"price":20000},{"id":15,"value":25000,"price":25000},{"id":16,"value":30000,"price":30000},{"id":17,"value":40000,"price":40000},{"id":18,"value":50000,"price":50000},{"id":19,"value":75000,"price":75000},{"id":20,"value":100000,"price":100000},{"id":21,"value":150000,"price":150000},{"id":22,"value":200000,"price":200000},{"id":23,"value":300000,"price":300000},{"id":24,"value":500000,"price":500000},{"id":25,"value":1000000,"price":1000000}]}}
+2020-06-22 21:10:17 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:10:17 INFO  restAPI:182 - Status Code = 200
+2020-06-22 21:10:17 INFO  restAPI:512 - ***** Started TC_Integration_Payment *****
+2020-06-22 21:10:17 INFO  restAPI:513 - Test Data: 
+2020-06-22 21:10:17 INFO  restAPI:514 - session id:222DBCDB86806FD9CD4B69B09A282DB5
+2020-06-22 21:10:17 INFO  restAPI:515 - phone number:081252930398
+2020-06-22 21:10:17 INFO  restAPI:516 - catalog id:25
+2020-06-22 21:10:22 INFO  restAPI:529 - {"code":201,"message":"created","data":{"id":1123,"phoneNumber":"081252930398","catalog":{"id":25,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":1000000,"price":1000000}}}
+2020-06-22 21:10:22 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:10:22 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:10:22 INFO  restAPI:547 - ***** Started TC_Integration_Payment *****
+2020-06-22 21:10:22 INFO  restAPI:548 - Test Data: 
+2020-06-22 21:10:22 INFO  restAPI:549 - session id:222DBCDB86806FD9CD4B69B09A282DB5
+2020-06-22 21:10:22 INFO  restAPI:550 - transaction id:1123
+2020-06-22 21:10:22 INFO  restAPI:551 - payment method id:1
+2020-06-22 21:10:22 INFO  restAPI:552 - voucher id:0
+2020-06-22 21:10:43 INFO  restAPI:566 - {"code":200,"message":"success","data":{"balance":14000000,"rewardVoucher":true,"transaction":{"id":1123,"method":"WALLET","phoneNumber":"081252930398","catalog":{"id":25,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":1000000,"price":1000000},"voucher":null,"status":"COMPLETED","createdAt":1592835021000,"updatedAt":1592835040000}}}
+2020-06-22 21:10:43 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:10:43 INFO  restAPI:182 - Status Code = 200
+2020-06-22 21:11:13 INFO  restAPI:264 - ***** Finished TC_Integration_Payment *****
+2020-06-22 21:17:48 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 21:17:48 INFO  restAPI:47 - Case:Another user's transaction
+2020-06-22 21:18:04 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 21:18:04 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:18:04 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:18:04 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:18:04 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:18:04 INFO  restAPI:277 - pin:123456
+2020-06-22 21:18:09 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2018,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:18:09 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:18:09 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:18:09 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 21:18:09 INFO  restAPI:310 - Test Data: 
+2020-06-22 21:18:09 INFO  restAPI:311 - id:2018
+2020-06-22 21:18:09 INFO  restAPI:312 - pin:123456
+2020-06-22 21:18:27 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 21:18:27 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:18:27 INFO  restAPI:182 - Status Code = 200
+2020-06-22 21:19:06 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 21:19:06 INFO  restAPI:548 - Test Data: 
+2020-06-22 21:19:06 INFO  restAPI:549 - session id:9EAC8E15B27F7403F1913BFF30A1CAB9
+2020-06-22 21:19:06 INFO  restAPI:550 - transaction id:1124
+2020-06-22 21:19:06 INFO  restAPI:551 - payment method id:1
+2020-06-22 21:19:06 INFO  restAPI:552 - voucher id:1
+2020-06-22 21:19:12 INFO  restAPI:566 - {"code":404,"message":"unknown transaction"}
+2020-06-22 21:19:53 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 21:19:53 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 21:19:53 INFO  restAPI:47 - Case:Undefined transaction ID
+2020-06-22 21:20:08 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 21:20:08 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:20:08 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:20:08 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:20:08 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:20:08 INFO  restAPI:277 - pin:123456
+2020-06-22 21:20:11 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2020,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:20:11 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:20:11 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:20:11 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 21:20:11 INFO  restAPI:310 - Test Data: 
+2020-06-22 21:20:11 INFO  restAPI:311 - id:2020
+2020-06-22 21:20:11 INFO  restAPI:312 - pin:123456
+2020-06-22 21:20:13 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 21:20:13 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:20:13 INFO  restAPI:182 - Status Code = 200
+2020-06-22 21:20:18 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 21:20:18 INFO  restAPI:548 - Test Data: 
+2020-06-22 21:20:18 INFO  restAPI:549 - session id:17ED66E14F4931B3FAF68DE01DF1FA5D
+2020-06-22 21:20:18 INFO  restAPI:550 - transaction id:9999
+2020-06-22 21:20:18 INFO  restAPI:551 - payment method id:1
+2020-06-22 21:20:18 INFO  restAPI:552 - voucher id:1
+2020-06-22 21:20:24 INFO  restAPI:566 - {"code":404,"message":"unknown transaction"}
+2020-06-22 21:20:48 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 21:20:48 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 21:20:48 INFO  restAPI:47 - Case:Not enough balance
+2020-06-22 21:21:01 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 21:21:01 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:21:01 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:21:01 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:21:01 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:21:01 INFO  restAPI:277 - pin:123456
+2020-06-22 21:21:04 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2021,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:21:04 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:21:04 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:21:04 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 21:21:04 INFO  restAPI:310 - Test Data: 
+2020-06-22 21:21:04 INFO  restAPI:311 - id:2021
+2020-06-22 21:21:04 INFO  restAPI:312 - pin:123456
+2020-06-22 21:21:06 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 21:21:06 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:21:06 INFO  restAPI:182 - Status Code = 200
+2020-06-22 21:21:26 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 21:21:26 INFO  restAPI:548 - Test Data: 
+2020-06-22 21:21:26 INFO  restAPI:549 - session id:5CFF163433BF5F3E748B7636A95134BB
+2020-06-22 21:21:26 INFO  restAPI:550 - transaction id:1126
+2020-06-22 21:21:26 INFO  restAPI:551 - payment method id:1
+2020-06-22 21:21:26 INFO  restAPI:552 - voucher id:1
+2020-06-22 21:21:49 INFO  restAPI:566 - {"code":500,"message":"your voucher not found"}
+2020-06-22 21:22:09 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 21:22:09 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 21:22:09 INFO  restAPI:47 - Case:Transaction already completed
+2020-06-22 21:22:24 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 21:22:24 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:22:24 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:22:24 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:22:24 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:22:24 INFO  restAPI:277 - pin:123456
+2020-06-22 21:22:28 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2022,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:22:28 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:22:28 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:22:28 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 21:22:28 INFO  restAPI:310 - Test Data: 
+2020-06-22 21:22:28 INFO  restAPI:311 - id:2022
+2020-06-22 21:22:28 INFO  restAPI:312 - pin:123456
+2020-06-22 21:22:30 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 21:22:30 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:22:30 INFO  restAPI:182 - Status Code = 200
+2020-06-22 21:22:45 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 21:22:45 INFO  restAPI:548 - Test Data: 
+2020-06-22 21:22:45 INFO  restAPI:549 - session id:ACE261D1F7F7028129017EB218BB5D2C
+2020-06-22 21:22:45 INFO  restAPI:550 - transaction id:1127
+2020-06-22 21:22:45 INFO  restAPI:551 - payment method id:1
+2020-06-22 21:22:45 INFO  restAPI:552 - voucher id:1
+2020-06-22 21:22:51 INFO  restAPI:566 - {"code":404,"message":"unknown transaction"}
+2020-06-22 21:23:18 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 21:23:18 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 21:23:18 INFO  restAPI:47 - Case:Valid parameters
+2020-06-22 21:23:32 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 21:23:32 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:23:32 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:23:32 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:23:32 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:23:32 INFO  restAPI:277 - pin:123456
+2020-06-22 21:24:10 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2023,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:24:10 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:24:10 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:24:10 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 21:24:10 INFO  restAPI:310 - Test Data: 
+2020-06-22 21:24:10 INFO  restAPI:311 - id:2023
+2020-06-22 21:24:10 INFO  restAPI:312 - pin:123456
+2020-06-22 21:24:12 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 21:24:12 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:24:12 INFO  restAPI:182 - Status Code = 200
+2020-06-22 21:24:22 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 21:24:22 INFO  restAPI:548 - Test Data: 
+2020-06-22 21:24:22 INFO  restAPI:549 - session id:5F48178EA8E7230C8946520314D234E2
+2020-06-22 21:24:22 INFO  restAPI:550 - transaction id:1128
+2020-06-22 21:24:22 INFO  restAPI:551 - payment method id:1
+2020-06-22 21:24:22 INFO  restAPI:552 - voucher id:0
+2020-06-22 21:24:37 INFO  restAPI:566 - {"code":200,"message":"success","data":{"balance":14925000,"rewardVoucher":false,"transaction":{"id":1128,"method":"WALLET","phoneNumber":"081252930398","catalog":{"id":19,"provider":{"id":2,"name":"Telkomsel","image":"https://res.cloudinary.com/alvark/image/upload/v1592209103/danapulsa/Telkomsel_Logo_eviigt_nbbrjv.png"},"value":75000,"price":75000},"voucher":null,"status":"COMPLETED","createdAt":1592835857000,"updatedAt":1592835874000}}}
+2020-06-22 21:25:09 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 21:25:09 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 21:25:09 INFO  restAPI:47 - Case:Empty String transaction ID
+2020-06-22 21:25:24 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 21:25:24 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:25:24 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:25:24 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:25:24 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:25:24 INFO  restAPI:277 - pin:123456
+2020-06-22 21:25:27 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2024,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:25:27 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:25:27 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:25:27 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 21:25:27 INFO  restAPI:310 - Test Data: 
+2020-06-22 21:25:27 INFO  restAPI:311 - id:2024
+2020-06-22 21:25:27 INFO  restAPI:312 - pin:123456
+2020-06-22 21:25:29 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 21:25:29 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:25:29 INFO  restAPI:182 - Status Code = 200
+2020-06-22 21:25:33 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 21:25:33 INFO  restAPI:548 - Test Data: 
+2020-06-22 21:25:33 INFO  restAPI:549 - session id:BBD5C3C6C409AC58DB539B9F074E25E2
+2020-06-22 21:25:33 INFO  restAPI:550 - transaction id:
+2020-06-22 21:25:33 INFO  restAPI:551 - payment method id:1
+2020-06-22 21:25:33 INFO  restAPI:552 - voucher id:1
+2020-06-22 21:25:34 INFO  restAPI:566 - {"code":400,"message":"transaction ID must not be null"}
+2020-06-22 21:26:03 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 21:26:03 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 21:26:03 INFO  restAPI:47 - Case:Empty String session ID
+2020-06-22 21:26:18 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 21:26:18 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:26:18 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:26:18 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:26:18 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:26:18 INFO  restAPI:277 - pin:123456
+2020-06-22 21:26:21 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2025,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:26:21 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:26:21 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:26:37 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 21:26:37 INFO  restAPI:548 - Test Data: 
+2020-06-22 21:26:37 INFO  restAPI:549 - session id:16E8134F893B0407FF9DBA58CB8EC832
+2020-06-22 21:26:37 INFO  restAPI:550 - transaction id:1130
+2020-06-22 21:26:37 INFO  restAPI:551 - payment method id:1
+2020-06-22 21:26:37 INFO  restAPI:552 - voucher id:1
+2020-06-22 21:26:38 INFO  restAPI:566 - {"code":401,"message":"Unauthorized"}
+
+2020-06-22 21:26:57 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 21:26:57 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 21:26:57 INFO  restAPI:47 - Case:Undefined payment method ID
+2020-06-22 21:27:12 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 21:27:12 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:27:12 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:27:12 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:27:12 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:27:12 INFO  restAPI:277 - pin:123456
+2020-06-22 21:27:15 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2026,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:27:15 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:27:15 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:27:15 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 21:27:15 INFO  restAPI:310 - Test Data: 
+2020-06-22 21:27:15 INFO  restAPI:311 - id:2026
+2020-06-22 21:27:15 INFO  restAPI:312 - pin:123456
+2020-06-22 21:27:17 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 21:27:17 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:27:17 INFO  restAPI:182 - Status Code = 200
+2020-06-22 21:27:32 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 21:27:32 INFO  restAPI:548 - Test Data: 
+2020-06-22 21:27:32 INFO  restAPI:549 - session id:4C7DD93D33432F11069C15ACE931856A
+2020-06-22 21:27:32 INFO  restAPI:550 - transaction id:1131
+2020-06-22 21:27:32 INFO  restAPI:551 - payment method id:2
+2020-06-22 21:27:32 INFO  restAPI:552 - voucher id:1
+2020-06-22 21:27:38 INFO  restAPI:566 - {"code":404,"message":"unknown method"}
+2020-06-22 21:28:05 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 21:28:05 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 21:28:05 INFO  restAPI:47 - Case:Transaction already expired
+2020-06-22 21:28:20 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 21:28:20 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:28:20 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:28:20 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:28:20 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:28:20 INFO  restAPI:277 - pin:123456
+2020-06-22 21:28:23 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2027,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:28:23 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:28:23 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:28:23 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 21:28:23 INFO  restAPI:310 - Test Data: 
+2020-06-22 21:28:23 INFO  restAPI:311 - id:2027
+2020-06-22 21:28:23 INFO  restAPI:312 - pin:123456
+2020-06-22 21:28:25 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 21:28:25 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:28:25 INFO  restAPI:182 - Status Code = 200
+2020-06-22 21:28:40 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 21:28:40 INFO  restAPI:548 - Test Data: 
+2020-06-22 21:28:40 INFO  restAPI:549 - session id:33621EFCE81AEA7496A29E951D7651D9
+2020-06-22 21:28:40 INFO  restAPI:550 - transaction id:1132
+2020-06-22 21:28:40 INFO  restAPI:551 - payment method id:1
+2020-06-22 21:28:40 INFO  restAPI:552 - voucher id:1
+2020-06-22 21:28:46 INFO  restAPI:566 - {"code":404,"message":"unknown transaction"}
+2020-06-22 21:29:11 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 21:29:11 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 21:29:11 INFO  restAPI:47 - Case:Transaction already canceled
+2020-06-22 21:29:26 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 21:29:26 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:29:26 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:29:26 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:29:26 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:29:26 INFO  restAPI:277 - pin:123456
+2020-06-22 21:29:30 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2028,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:29:30 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:29:30 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:29:30 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 21:29:30 INFO  restAPI:310 - Test Data: 
+2020-06-22 21:29:30 INFO  restAPI:311 - id:2028
+2020-06-22 21:29:30 INFO  restAPI:312 - pin:123456
+2020-06-22 21:29:32 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 21:29:32 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:29:32 INFO  restAPI:182 - Status Code = 200
+2020-06-22 21:29:46 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 21:29:46 INFO  restAPI:548 - Test Data: 
+2020-06-22 21:29:46 INFO  restAPI:549 - session id:0536DCAC8A53FEFDFB8CCB6BD93D1F01
+2020-06-22 21:29:46 INFO  restAPI:550 - transaction id:1133
+2020-06-22 21:29:46 INFO  restAPI:551 - payment method id:1
+2020-06-22 21:29:46 INFO  restAPI:552 - voucher id:1
+2020-06-22 21:29:52 INFO  restAPI:566 - {"code":404,"message":"unknown transaction"}
+2020-06-22 21:30:18 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 21:30:18 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 21:30:18 INFO  restAPI:47 - Case:Empty string payment method ID
+2020-06-22 21:30:33 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 21:30:33 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:30:33 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:30:33 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:30:33 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:30:33 INFO  restAPI:277 - pin:123456
+2020-06-22 21:30:36 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2029,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:30:36 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:30:36 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:30:36 INFO  restAPI:309 - ***** Started TC_Pay_Order *****
+2020-06-22 21:30:36 INFO  restAPI:310 - Test Data: 
+2020-06-22 21:30:36 INFO  restAPI:311 - id:2029
+2020-06-22 21:30:36 INFO  restAPI:312 - pin:123456
+2020-06-22 21:30:38 INFO  restAPI:326 - {"code":200,"message":"success"}
+2020-06-22 21:30:38 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:30:38 INFO  restAPI:182 - Status Code = 200
+2020-06-22 21:30:53 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 21:30:53 INFO  restAPI:548 - Test Data: 
+2020-06-22 21:30:53 INFO  restAPI:549 - session id:1C75171AF8426E5AC640C236820C9E8D
+2020-06-22 21:30:53 INFO  restAPI:550 - transaction id:1134
+2020-06-22 21:30:53 INFO  restAPI:551 - payment method id:
+2020-06-22 21:30:53 INFO  restAPI:552 - voucher id:1
+2020-06-22 21:30:55 INFO  restAPI:566 - {"code":400,"message":"method ID must not be null"}
+2020-06-22 21:31:15 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 21:31:15 INFO  restAPI:46 - ***** Started TC_Pay_Order *****
+2020-06-22 21:31:15 INFO  restAPI:47 - Case:Undefined session ID
+2020-06-22 21:31:29 INFO  restAPI:272 - ***** Started TC_Pay_Order *****
+2020-06-22 21:31:29 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:31:29 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:31:29 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:31:29 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:31:29 INFO  restAPI:277 - pin:123456
+2020-06-22 21:31:32 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2030,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:31:32 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:31:32 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:31:48 INFO  restAPI:547 - ***** Started TC_Pay_Order *****
+2020-06-22 21:31:48 INFO  restAPI:548 - Test Data: 
+2020-06-22 21:31:48 INFO  restAPI:549 - session id:9999
+2020-06-22 21:31:48 INFO  restAPI:550 - transaction id:1135
+2020-06-22 21:31:48 INFO  restAPI:551 - payment method id:1
+2020-06-22 21:31:48 INFO  restAPI:552 - voucher id:1
+2020-06-22 21:31:49 INFO  restAPI:566 - {"code":401,"message":"Unauthorized"}
+
+2020-06-22 21:32:08 INFO  restAPI:264 - ***** Finished TC_Pay_Order *****
+2020-06-22 21:46:54 INFO  restAPI:68 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-22 21:46:54 INFO  restAPI:69 - Case:Valid parameters cashback
+2020-06-22 21:47:12 INFO  restAPI:272 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-22 21:47:12 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:47:12 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:47:12 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:47:12 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:47:12 INFO  restAPI:277 - pin:123456
+2020-06-22 21:47:17 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2031,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:47:17 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:47:17 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:47:17 INFO  restAPI:44 - Call Redeem API [Promotion Domain]
+2020-06-22 21:47:17 INFO  restAPI:45 - Test Data: 
+2020-06-22 21:47:17 INFO  restAPI:46 - user id:2031
+2020-06-22 21:47:17 INFO  restAPI:47 - voucherId:1
+2020-06-22 21:47:17 INFO  restAPI:48 - price:100000
+2020-06-22 21:47:17 INFO  restAPI:49 - paymentMethodId:1
+2020-06-22 21:47:17 INFO  restAPI:50 - providerId:2
+2020-06-22 21:47:20 INFO  restAPI:63 - {"timestamp":"2020-06-22T14:47:20.581+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-22 21:47:20 INFO  restAPI:107 - {"timestamp":"2020-06-22T14:47:20.581+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-22 21:47:30 INFO  restAPI:264 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-22 21:47:30 INFO  restAPI:68 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-22 21:47:30 INFO  restAPI:69 - Case:Empty string price
+2020-06-22 21:47:44 INFO  restAPI:272 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-22 21:47:44 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:47:44 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:47:44 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:47:44 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:47:44 INFO  restAPI:277 - pin:123456
+2020-06-22 21:47:46 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2032,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:47:46 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:47:46 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:47:47 INFO  restAPI:44 - Call Redeem API [Promotion Domain]
+2020-06-22 21:47:47 INFO  restAPI:45 - Test Data: 
+2020-06-22 21:47:47 INFO  restAPI:46 - user id:2032
+2020-06-22 21:47:47 INFO  restAPI:47 - voucherId:1
+2020-06-22 21:47:47 INFO  restAPI:48 - price:
+2020-06-22 21:47:47 INFO  restAPI:49 - paymentMethodId:1
+2020-06-22 21:47:47 INFO  restAPI:50 - providerId:2
+2020-06-22 21:47:48 INFO  restAPI:63 - invalid request format
+2020-06-22 21:47:59 INFO  restAPI:264 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-22 21:47:59 INFO  restAPI:68 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-22 21:47:59 INFO  restAPI:69 - Case:Empty string voucher id
+2020-06-22 21:48:14 INFO  restAPI:272 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-22 21:48:14 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:48:14 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:48:14 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:48:14 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:48:14 INFO  restAPI:277 - pin:123456
+2020-06-22 21:48:17 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2033,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:48:17 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:48:17 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:48:17 INFO  restAPI:44 - Call Redeem API [Promotion Domain]
+2020-06-22 21:48:17 INFO  restAPI:45 - Test Data: 
+2020-06-22 21:48:17 INFO  restAPI:46 - user id:2033
+2020-06-22 21:48:17 INFO  restAPI:47 - voucherId:
+2020-06-22 21:48:17 INFO  restAPI:48 - price:100000
+2020-06-22 21:48:17 INFO  restAPI:49 - paymentMethodId:1
+2020-06-22 21:48:17 INFO  restAPI:50 - providerId:2
+2020-06-22 21:48:18 INFO  restAPI:63 - invalid request format
+2020-06-22 21:48:28 INFO  restAPI:264 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-22 21:48:28 INFO  restAPI:68 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-22 21:48:28 INFO  restAPI:69 - Case:Empty string user id
+2020-06-22 21:48:28 INFO  restAPI:44 - Call Redeem API [Promotion Domain]
+2020-06-22 21:48:28 INFO  restAPI:45 - Test Data: 
+2020-06-22 21:48:28 INFO  restAPI:46 - user id:
+2020-06-22 21:48:28 INFO  restAPI:47 - voucherId:1
+2020-06-22 21:48:28 INFO  restAPI:48 - price:100000
+2020-06-22 21:48:28 INFO  restAPI:49 - paymentMethodId:1
+2020-06-22 21:48:28 INFO  restAPI:50 - providerId:2
+2020-06-22 21:48:30 INFO  restAPI:63 - invalid request format
+2020-06-22 21:48:30 INFO  restAPI:264 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-22 21:48:30 INFO  restAPI:68 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-22 21:48:30 INFO  restAPI:69 - Case:Empty string payment method id
+2020-06-22 21:48:49 INFO  restAPI:272 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-22 21:48:49 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:48:49 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:48:49 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:48:49 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:48:49 INFO  restAPI:277 - pin:123456
+2020-06-22 21:48:52 INFO  restAPI:293 - {"code":201,"message":"created","data":{"id":2034,"name":"Zanuar","email":"triromadon@gmail.com","username":"6281252930398"}}
+2020-06-22 21:48:52 INFO  restAPI:179 - ***** Check Status Code *****
+2020-06-22 21:48:52 INFO  restAPI:182 - Status Code = 201
+2020-06-22 21:48:52 INFO  restAPI:44 - Call Redeem API [Promotion Domain]
+2020-06-22 21:48:52 INFO  restAPI:45 - Test Data: 
+2020-06-22 21:48:52 INFO  restAPI:46 - user id:2034
+2020-06-22 21:48:52 INFO  restAPI:47 - voucherId:1
+2020-06-22 21:48:52 INFO  restAPI:48 - price:100000
+2020-06-22 21:48:52 INFO  restAPI:49 - paymentMethodId:
+2020-06-22 21:48:52 INFO  restAPI:50 - providerId:2
+2020-06-22 21:48:55 INFO  restAPI:63 - invalid request format
+2020-06-22 21:49:05 INFO  restAPI:264 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-22 21:49:05 INFO  restAPI:68 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-22 21:49:05 INFO  restAPI:69 - Case:Undefined user id
+2020-06-22 21:49:05 INFO  restAPI:44 - Call Redeem API [Promotion Domain]
+2020-06-22 21:49:05 INFO  restAPI:45 - Test Data: 
+2020-06-22 21:49:05 INFO  restAPI:46 - user id:9999
+2020-06-22 21:49:05 INFO  restAPI:47 - voucherId:1
+2020-06-22 21:49:05 INFO  restAPI:48 - price:100000
+2020-06-22 21:49:05 INFO  restAPI:49 - paymentMethodId:1
+2020-06-22 21:49:05 INFO  restAPI:50 - providerId:2
+2020-06-22 21:49:07 INFO  restAPI:63 - {"timestamp":"2020-06-22T14:49:07.717+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-22 21:49:07 INFO  restAPI:107 - {"timestamp":"2020-06-22T14:49:07.717+00:00","status":500,"error":"Internal Server Error","message":"","path":"/test"}
+2020-06-22 21:49:07 INFO  restAPI:264 - ***** Finished TC_Remote_Service_Redeem *****
+2020-06-22 21:49:07 INFO  restAPI:68 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-22 21:49:07 INFO  restAPI:69 - Case:Voucher already used
+2020-06-22 21:49:24 INFO  restAPI:272 - ***** Started TC_Remote_Service_Redeem *****
+2020-06-22 21:49:24 INFO  restAPI:273 - Test Data: 
+2020-06-22 21:49:24 INFO  restAPI:274 - name:Zanuar
+2020-06-22 21:49:24 INFO  restAPI:275 - email:triromadon@gmail.com
+2020-06-22 21:49:24 INFO  restAPI:276 - phone:081252930398
+2020-06-22 21:49:24 INFO  restAPI:277 - pin:123456

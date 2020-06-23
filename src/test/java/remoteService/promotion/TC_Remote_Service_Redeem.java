@@ -87,12 +87,12 @@ public class TC_Remote_Service_Redeem extends TestBase {
 			userId = Long.toString(user.getId());
 			
 			// insert voucher into database	
-			if (voucherId.equals("1") || voucherId.equals("7") || voucherId.equals("16")) {				
-				createUserVoucher(user.getId(), Long.parseLong(voucherId), 2);
-				logger.info("create voucher id " + voucherId);
-			} else if (voucherId.equals("3") || voucherId.equals("4")) {
-				createUserVoucher(user.getId(), Long.parseLong(voucherId), 1);
-			}
+//			if (voucherId.equals("1") || voucherId.equals("7") || voucherId.equals("16")) {				
+//				createUserVoucher(user.getId(), Long.parseLong(voucherId), 2);
+//				logger.info("create voucher id " + voucherId);
+//			} else if (voucherId.equals("3") || voucherId.equals("4")) {
+//				createUserVoucher(user.getId(), Long.parseLong(voucherId), 1);
+//			}
 			
 			// set flag
 			isCreateUser = true;			
@@ -264,7 +264,7 @@ public class TC_Remote_Service_Redeem extends TestBase {
 	@AfterClass
 	public void afterClass() {
 		if (isCreateUser == true) {
-			deleteUserVoucherByUserId(user.getId());
+//			deleteUserVoucherByUserId(user.getId());
 			deleteBalanceByUserId(user.getId());
 			deleteUserByEmailAndUsername(user.getEmail(), user.getUsername());
 		}
